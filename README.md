@@ -6,6 +6,7 @@ This project contains:
 
 ## Modules
  
+2. Variables. Data types. Math operators
 3. Conditional constructions
  
 ## Code of Conduct
