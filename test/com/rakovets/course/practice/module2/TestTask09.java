@@ -20,19 +20,19 @@ class TestTask09 {
 
 	@Test
 	void test1() {
-		Task09.main(new String[]{"8"});
-		assertEquals("13.581221810508403", ConsoleReader.getConsoleContent());
+		Task09.main(new String[]{"2"});
+		assertEquals("680.58", ConsoleReader.getConsoleContent());
 	}
 
 	@Test
 	void test2() {
 		Task09.main(new String[]{"0.1"});
-		assertEquals("0.477464829275686", ConsoleReader.getConsoleContent());
+		assertEquals("34.029003", ConsoleReader.getConsoleContent());
 	}
 
 	@Test
 	void test3() {
 		Task09.main(new String[]{"0"});
-		assertEquals("-3.183098861837907", ConsoleReader.getConsoleContent());
+		assertEquals("0.0", ConsoleReader.getConsoleContent());
 	}
 }
