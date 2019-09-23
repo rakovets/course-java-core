@@ -14,13 +14,17 @@ public class Task11 {
 	public static void main(String[] args) {
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		double temperatureInCelsius = 0;
+		double temperatureInCelsius = -17.78;
 
 		// Код необходимый для тестирования, не изменять
-		temperatureInCelsius = (args.length == 1) ? Double.parseDouble(args[0]) : temperatureInCelsius;
+		temperatureInCelsius = (args.length == 1) ? Double.valueOf(args[0]) : temperatureInCelsius;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double tempF = temperatureInCelsius * 1.8 + 32;
+		double tempK = temperatureInCelsius + 273.15;
+		System.out.println(tempF);
+		System.out.println(tempK);
 	}
 }

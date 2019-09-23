@@ -12,13 +12,20 @@ public class Task12 {
 	public static void main(String[] args) {
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		int playingTimeInSeconds = 156;
+		int playingTimeInSeconds = 1;
 
 		// Код необходимый для тестирования, не изменять
-		playingTimeInSeconds = (args.length == 1) ? Integer.parseInt(args[0]) : playingTimeInSeconds;
+		playingTimeInSeconds = (args.length == 1) ? Integer.valueOf(args[0]) : playingTimeInSeconds;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int m = playingTimeInSeconds / 60;
+		System.out.println(playingTimeInSeconds - m);
+		int H = m / 60;
+		System.out.println(m - H);
+		int D = H / 24;
+		System.out.println(H - D);
+
 	}
 }
