@@ -4,8 +4,8 @@ package com.rakovets.course.practice.module2;
  * Разработать программу для NASA:
  * который определит растояние которое проехал робот. Показания энкодера сбрасываются в начале поездки. Известно:
  *
- * @param encoderDegrees - показания энкодера после поездки
- * @param tireRadius     - радиус колеса
+ * encoderDegrees - показания энкодера после поездки
+ * tireRadius     - радиус колеса
  */
 public class Task08 {
 	public static void main(String[] args) {
@@ -21,5 +21,6 @@ public class Task08 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(encoderDegrees / (2 * Math.PI * tireRadius));
 	}
 }

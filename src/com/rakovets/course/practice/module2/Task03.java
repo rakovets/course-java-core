@@ -4,8 +4,8 @@ package com.rakovets.course.practice.module2;
  * Разработать программу для игрового движка:
  * которая выводит штрафные очки игрока, который набрал меньше штрафных очков, если известно:
  *
- * @param penaltyPointFirstPlayer  - штрафные очки первого игрока
- * @param penaltyPointSecondPlayer - штрафные очки второго игрока
+ * penaltyPointFirstPlayer  - штрафные очки первого игрока
+ * penaltyPointSecondPlayer - штрафные очки второго игрока
  */
 public class Task03 {
 	public static void main(String[] args) {
@@ -21,5 +21,6 @@ public class Task03 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(penaltyPointFirstPlayer > penaltyPointSecondPlayer ? penaltyPointSecondPlayer : penaltyPointFirstPlayer);
 	}
 }

@@ -5,8 +5,8 @@ package com.rakovets.course.practice.module2;
  * которая расчитывает избыточность веса пользователя от стандартного веса для его роста (стандартного вес = рост - 110).
  * Если известно:
  *
- * @param height - рост
- * @param weight - вес
+ *  height - рост
+ *  weight - вес
  */
 public class Task10 {
 	public static void main(String[] args) {
@@ -22,5 +22,7 @@ public class Task10 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int standartWeigth = height - 110;
+		System.out.println(weight - standartWeigth);
 	}
 }

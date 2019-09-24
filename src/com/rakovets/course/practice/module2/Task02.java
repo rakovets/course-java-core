@@ -5,8 +5,6 @@ package com.rakovets.course.practice.module2;
  * которая будет разчитывать количество некоторого груза, который останется на складе, так как грузовики
  * отправляются только загруженными, если известно:
  *
- * @param cargo            - вес всего груза
- * @param carryingCapacity - грузоподъемность грузовиков
  */
 public class Task02 {
 	public static void main(String[] args) {
@@ -22,5 +20,7 @@ public class Task02 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		System.out.println(cargo % carryingCapacity);
 	}
 }

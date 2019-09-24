@@ -7,7 +7,7 @@ package com.rakovets.course.practice.module2;
  * <p>
  * - что на 1 кв.единицу площади необходимо 1 единица веса *
  *
- * @param weight - вес плитки
+ * weight - вес плитки
  */
 public class Task04 {
 	public static void main(String[] args) {
@@ -21,5 +21,7 @@ public class Task04 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		System.out.println(Math.sqrt(weight));
 	}
 }

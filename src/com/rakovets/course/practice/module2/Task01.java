@@ -4,9 +4,6 @@ package com.rakovets.course.practice.module2;
  * Разработать программу для логистического центра:
  * которая будет разчитывать количество полностью загруженны грузовиков, необходимых
  * для перевозки некоторого груза, если известно:
- *
- * @param cargo            - вес всего груза
- * @param carryingCapacity - грузоподъемность грузовиков
  */
 public class Task01 {
 	public static void main(String[] args) {
@@ -22,5 +19,6 @@ public class Task01 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(cargo / carryingCapacity);
 	}
 }
