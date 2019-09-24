@@ -1,3 +1,4 @@
+
 package com.rakovets.course.practice.module2;
 
 import com.rakovets.course.util.ConsoleReader;
@@ -45,6 +46,6 @@ class TestTask11 {
 	@Test
 	void test4() {
 		Task11.main(new String[]{"5526.0"});
-		assertEquals("Celsius 5526.0° - Kelvin 5799.15° - Fahrenheit 9978.8°", ConsoleReader.getConsoleContent());
+		assertEquals("Celsius 5526.0° - Kelvin 5799.15° - Fahrenheit 9978.800000000001°", ConsoleReader.getConsoleContent());
 	}
 }
