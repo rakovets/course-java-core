@@ -29,5 +29,18 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        int firstPlayerPoints = tanksKilledFirstPlayer * 100;
+        int secondPlayerPoints = tanksKilledSecondPlayer * 100;
+
+        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+            firstPlayerPoints += 500;
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer){
+            secondPlayerPoints += 500;
+        }
+
+        System.out.println("Player 1: " + firstPlayerPoints + ". Player 2: " + secondPlayerPoints);
+
+
     }
 }
