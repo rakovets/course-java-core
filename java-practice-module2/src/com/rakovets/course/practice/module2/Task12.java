@@ -31,5 +31,6 @@ public class Task12 {
 
 		System.out.println(days + " " + hours + ":" + minutes + ":" + seconds);
 
+//		Check GIT
 	}
 }
