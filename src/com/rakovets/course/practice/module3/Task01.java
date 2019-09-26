@@ -23,5 +23,31 @@ public class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+//        if (positionPlayerByDamage < 6) {
+//            System.out.print("true");
+//        }
+//        else {
+//            System.out.print("false");
+//        }
+        switch (positionPlayerByDamage) {
+            case 1:
+                System.out.print("true");
+                break;
+            case 2:
+                System.out.print("true");
+                break;
+            case 3:
+                System.out.print("true");
+                break;
+            case 4:
+                System.out.print("true");
+                break;
+            case 5:
+                System.out.print("true");
+                break;
+            default:
+                System.out.print("false");
+                break;
+        }
     }
 }
