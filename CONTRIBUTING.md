@@ -2,8 +2,8 @@
 Please follow these steps to have your contribution considered by the maintainers:
 - Pull actual branch where need to do changes
 - Follow the [styleguides](#styleguides) when making changes
-- Create PR
-- Add a comment to the PR with a detailed description of the changes made
+- Create PR with [template](PULL_REQUEST_TEMPLATE.md)
+
 
 ## Styleguides
 ### Git Commit Messages
@@ -19,5 +19,6 @@ Please follow these steps to have your contribution considered by the maintainer
     - `doc`: when adding/updating/fixing documentation
     - `git`: when to merge or to do another operation with git
     
+
 ### Java Code Style
 All Java code must adhere to [Java Style Code](https://github.com/rakovets/java-practice/wiki/java-code-style)
