@@ -1,6 +1,1 @@
-# java-practice
-
-This project contains:
- - tasks
- - tests for tasks
- 
+# Example for Code review
