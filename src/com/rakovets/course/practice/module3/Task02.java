@@ -28,13 +28,13 @@ public class Task02 {
         if (hour >= 0  && hour < 6) {
             System.out.println("Good night");
             }
-        else if (hour >= 6  && hour < 12) {
+        else if (hour < 12) {
                 System.out.println("Good morning");
                 }
-            else if (hour >= 12  && hour < 18) {
+            else if (hour < 18) {
                     System.out.println("Good day");
                     }
-                else if (hour >= 18  && hour < 24) {
+                else if (hour < 24) {
                         System.out.println("Good evening");
                         }
                     else {
