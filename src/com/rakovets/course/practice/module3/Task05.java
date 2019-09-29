@@ -63,6 +63,7 @@ public class Task05 {
                 break;
             default:
                 System.out.println("число не равнно порядковому номеру месяца");
+
         }
     }
 }
