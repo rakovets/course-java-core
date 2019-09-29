@@ -28,5 +28,32 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int minimumFuel;
+        String result = "";
+
+        if (firstFuelReserves < secondFuelReserves) {
+            if (firstFuelReserves < thirdFuelReserves) {
+                minimumFuel = firstFuelReserves;
+            }
+            else {
+                minimumFuel = thirdFuelReserves;
+            }
+        }
+        else {
+            if (secondFuelReserves < thirdFuelReserves) {
+                minimumFuel = secondFuelReserves;
+            }
+            else {
+                minimumFuel = thirdFuelReserves;
+            }
+        }
+        if (minimumFuel == firstFuelReserves){
+            result += "1 ";}
+        if (minimumFuel == secondFuelReserves){
+            result += "2 ";}
+        if (minimumFuel == thirdFuelReserves){
+            result += "3";}
+
+        System.out.println(result);
     }
 }

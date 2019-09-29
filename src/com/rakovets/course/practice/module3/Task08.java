@@ -8,7 +8,7 @@ import java.util.Scanner;
  * урона по “UNDEAD” и “ZOMBIE”, но наносит в 2 раза меньше урона по “SAINT”. По “ANIMAL”, “HUMANOID”, “PLANT”,
  * “GHOST” без изменений. Определить сколько урона нанесет оружие по данному типу моба.
  *
- * @param damage  - количество танков, убитых первым игроком
+ * @param damage  - количество урона без атрибута святости
  * @param typeMob - тип моба
  * @return урон по данному типу моба
  */
@@ -25,5 +25,16 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        switch (typeMob){
+            case "UNDEAD": case "ZOMBIE" :
+                System.out.println(damage * 3 / 2);
+                break;
+            case "SAINT" :
+                System.out.println(damage / 2);
+                break;
+            case "ANIMAL" : case "HUMANOID" : case "PLANT" : case "GHOST" :
+                System.out.println(damage);
+                break;
+        }
     }
 }
