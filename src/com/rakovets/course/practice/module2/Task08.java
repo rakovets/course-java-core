@@ -15,11 +15,14 @@ public class Task08 {
 		int tireRadius = 3;
 
 		// Код необходимый для тестирования, не изменять
-		encoderDegrees = (args.length == 2) ? Integer.parseInt(args[0]) : encoderDegrees;
-		tireRadius = (args.length == 2) ? Integer.parseInt(args[1]) : tireRadius;
+		encoderDegrees = (args.length == 2) ? Integer.valueOf(args[0]) : encoderDegrees;
+		tireRadius = (args.length == 2) ? Integer.valueOf(args[1]) : tireRadius;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double perimetr = 2 * Math.PI * tireRadius;
+		System.out.println(encoderDegrees / perimetr);
+
 	}
 }
