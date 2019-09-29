@@ -14,7 +14,7 @@ class Task04Test extends ConsoleTest {
     static Stream<Arguments> provideWeekdays() {
         return Stream.of(
                 Arguments.of("1", "monday"),
-                Arguments.of("2", "tuesday"),
+                Arguments.of("2", "thuesday"),
                 Arguments.of("3", "wednesday"),
                 Arguments.of("4", "thursday"),
                 Arguments.of("5", "friday"),
