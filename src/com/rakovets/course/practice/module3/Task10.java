@@ -28,5 +28,31 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        int a = firstFuelReserves;
+        int b = secondFuelReserves;
+        int c = thirdFuelReserves;
+
+         if ((a < b) && (a < c)) {
+            System.out.println("1");
+         }
+         else if ((a == b) && (a < c)) {
+             System.out.println("1 2");
+            }
+             else if ((a == b) && (a == c)) {
+                 System.out.println("1 2 3");
+            }
+                else if ((c < a) && (c < b)) {
+                    System.out.println("3");
+                }
+                    else if ((b < a) && (b < c)) {
+                        System.out.println("2");
+                    }
+                        else if ((a < b) && (a == c)) {
+                             System.out.println("1 3");
+                         }
+                            else {
+                                System.out.println("2 3");
+                        }
     }
 }
