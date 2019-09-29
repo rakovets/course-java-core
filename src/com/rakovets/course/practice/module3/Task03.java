@@ -35,6 +35,5 @@ public class Task03 {
                     else {
                         System.out.println("GREEN");
                         }
-
     }
 }
