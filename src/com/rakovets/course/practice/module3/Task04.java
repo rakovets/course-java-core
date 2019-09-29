@@ -45,6 +45,9 @@ public class Task04 {
                 break;
             default:
                 System.out.println("число не равнно порядковому дню недели");
+
+
+
         }
     }
 }
