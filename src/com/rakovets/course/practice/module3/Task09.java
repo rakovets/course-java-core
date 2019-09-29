@@ -25,5 +25,14 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int porch;   // кол-во квартир в подъезде
+        porch = numberApartmentsPerFloor * numberFloors;
+        int numberPorch;    // номер подъезда;
+        numberPorch = (apartmentNumber - 1) / porch + 1;
+        int numberApartmentsPorch;     // поядковый номер квартиры в конкретном подъезде
+        numberApartmentsPorch = apartmentNumber - (numberPorch - 1) * porch;
+        int floor;     // номер этажа;
+        floor = (numberApartmentsPorch - 1) / numberApartmentsPerFloor + 1;
+        System.out.println("Porch: " + numberPorch + ". Floor: " + floor);
     }
 }
