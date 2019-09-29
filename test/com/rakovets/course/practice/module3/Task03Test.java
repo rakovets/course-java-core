@@ -30,6 +30,7 @@ class Task03Test extends ConsoleTest {
     @DisplayName("Color HP")
     void test(String position, String expected) {
         Task03.main(new String[]{position});
+        String iudd =getConsoleContent();
         assertEquals(getConsoleContent(), expected);
     }
 }

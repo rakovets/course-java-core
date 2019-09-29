@@ -25,5 +25,24 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        int apartmentsPerPorch = numberApartmentsPerFloor * numberFloors;
+        int apartmentPorch = 0;
+        int porchIterator = 1;
+
+        while (porchIterator <= apartmentNumber) {
+            porchIterator = porchIterator + apartmentsPerPorch;
+            apartmentPorch++;
+        }
+        int firsApartamt = porchIterator - apartmentsPerPorch;
+        int firstFlaatAtThisPorch = firsApartamt - 1;
+        int Floor = 0;
+
+        while (firstFlaatAtThisPorch < apartmentNumber) {
+            firstFlaatAtThisPorch = firstFlaatAtThisPorch + numberApartmentsPerFloor;
+            Floor = Floor + 1;
+        }
+        System.out.println("Porch: " + apartmentPorch + ". " + "Floor: " + Floor);
     }
+
 }
