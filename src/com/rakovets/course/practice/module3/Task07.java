@@ -25,5 +25,15 @@ public class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int result;
+        int result400;
+        result = year % 4;
+        result400 = year % 400;
+        if ((result != 0) || (result400 == 0)) {
+            System.out.println("not a leap year");
+        }
+        else {
+            System.out.println("leap year");
+        }
     }
 }
