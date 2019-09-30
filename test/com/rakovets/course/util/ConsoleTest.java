@@ -20,7 +20,11 @@ public class ConsoleTest {
         System.setOut(null);
     }
 
-    public static String getConsoleContent() {
+    protected static String getConsoleContentWithTrim() {
         return outContent.toString().trim();
+    }
+
+    protected static String getConsoleContentTrim() {
+        return outContent.toString();
     }
 }
