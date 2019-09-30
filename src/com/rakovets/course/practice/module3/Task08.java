@@ -25,5 +25,35 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int result;
+        switch (typeMob) {
+            case "UNDEAD":
+                result = damage * 150 / 100;
+                System.out.println(result);
+                break;
+            case "ZOMBIE":
+                result = damage * 150 / 100;
+                System.out.println(result);
+                break;
+            case "SAINT":
+                result = damage / 2;
+                System.out.println(result);
+                break;
+            case "ANIMAL":
+                System.out.println(damage);
+                break;
+            case "HUMANOID":
+                System.out.println(damage);
+                break;
+            case "PLANT":
+                System.out.println(damage);
+                break;
+            case "GHOST":
+                System.out.println(damage);
+                break;
+            default:
+                System.out.println("incorrect MOB's definition. Try again");
+                break;
+        }
     }
 }
