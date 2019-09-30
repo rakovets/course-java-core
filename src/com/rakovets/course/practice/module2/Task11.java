@@ -27,6 +27,5 @@ public class Task11 {
 		double temperatureInFahrenheit;
 		temperatureInFahrenheit = (temperatureInCelsius * 9 / 5) + 32;
 		System.out.println("Celsius " + temperatureInCelsius + "° - Kelvin " + temperatureInKelvin + "° - Fahrenheit " + temperatureInFahrenheit + "°");
-
 	}
 }
