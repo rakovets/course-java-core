@@ -22,5 +22,11 @@ public class Task11 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double temperatureInKelvin;
+		temperatureInKelvin = 273.15 + temperatureInCelsius;
+		double temperatureInFahrenheit;
+		temperatureInFahrenheit = (temperatureInCelsius * 9 / 5) + 32;
+		System.out.println("Celsius " + temperatureInCelsius + "° - Kelvin " + temperatureInKelvin + "° - Fahrenheit " + temperatureInFahrenheit + "°");
+
 	}
 }
