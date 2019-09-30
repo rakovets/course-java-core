@@ -30,5 +30,17 @@ public class Task11 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int number = (int) letter;
+        if ((number > 64) &&  (number < 91)) {
+            System.out.println("latin");
+        } else if ((number > 96) &&  (number < 123)) {
+            System.out.println("latin");
+        } else if ((number > 191) &&  (number < 256)) {
+            System.out.println("cyrillic");
+        } else if ((number > 47) &&  (number < 58)) {
+            System.out.println("digit");
+        } else {
+            System.out.println("undefined");
+        }
     }
 }
