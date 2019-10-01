@@ -1,5 +1,6 @@
 package com.rakovets.course.practice.module3;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -28,5 +29,24 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int min;
+        StringBuilder minFuelReserves = new StringBuilder();
+        StringBuffer answer = new StringBuffer();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(firstFuelReserves);
+        list.add(secondFuelReserves);
+        list.add(thirdFuelReserves);
+
+        min = Math.min(firstFuelReserves, Math.min(secondFuelReserves, thirdFuelReserves));
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == min)
+                minFuelReserves.append(i + 1);
+        }
+        answer.append(minFuelReserves);
+        for (int i = 1; i < answer.length() + 1; i += 2) {
+            answer.insert(i, " ");
+        }
+
+        System.out.println(answer);
     }
 }
