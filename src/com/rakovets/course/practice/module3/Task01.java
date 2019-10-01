@@ -20,8 +20,22 @@ public class Task01 {
         Scanner scanner = new Scanner(System.in);
         int positionPlayerByDamage = (args.length != 1) ? scanner.nextInt() : Integer.parseInt(args[0]);
 
+
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        boolean placement;
+        if (positionPlayerByDamage > 0) {
+            if (positionPlayerByDamage <= 5) {
+                placement = true;
+                System.out.println(placement);
+            } else {
+                placement = false;
+                System.out.println(placement);
+            }
+        } else{
+            placement = false;
+            System.out.println(placement);
+        }
     }
 }
