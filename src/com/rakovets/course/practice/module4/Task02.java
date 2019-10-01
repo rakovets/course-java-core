@@ -25,5 +25,15 @@ public class Task02 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		if (headerRowEnable == true){
+			rows--;
+			System.out.print("\n");
+		}
+		for (int i = 1; i <= rows; i++){
+			System.out.print(i);
+			if (i < rows){
+				System.out.print("\n");
+			}
+		}
 	}
 }

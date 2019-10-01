@@ -1,5 +1,6 @@
 package com.rakovets.course.practice.module4;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -26,5 +27,29 @@ public class Task05 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		/*double result = healthPoints;
+		while (hoursAfterRespawn > 0){
+			result += result * regenerationPercentFromCurrentHealth / 100.0;
+			hoursAfterRespawn--;
+		}
+		System.out.println((int) Math.floor(result));
+*/
+		for (int i = 0; ; i++){
+			if (i > 24){
+				System.out.println("-1");
+				break;
+			}
+			if (healthPoints <= 0){
+				System.out.println(i);
+				break;
+			}
+			healthPoints += healthPoints * regenerationPercentFromCurrentHealth / 100;
+			healthPoints -= averageDamagePerHour;
+		}
+
+
+
+
+
 	}
 }
