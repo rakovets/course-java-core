@@ -9,13 +9,11 @@ import java.util.Scanner;
  * - кирилица
  * - цифра
  * - спец. символ
- * Так же программа не должна зависеть от регистра.
- * Известно:
- *
+ * Так же программа не должна зависеть от регистра. Известно:
  * @param letter - символ введенный пользователем
  * @return 'latin'/'cyrillic'/'digit'/'undefined'
- * <p>
- * Help: American standard code for information interchange
+ *
+ * Help: Unicode (decimal)
  */
 
 public class Task11 {
