@@ -30,9 +30,17 @@ public class Task11 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        String Letter = Character.toString(letter);
-        System.out.println(Letter);
-        //if (Letter == "А")
-        //System.out.println("cyrillic");
+       // String Letter = Character.toString(letter);
+        if (letter >= 'А' && letter <= 'я')
+        System.out.println("cyrillic");
+        else{ if ((letter >= 'A' && letter <= 'Z' ) ||(letter >= 'a' && letter <= 'z' ))
+            System.out.println("latin");
+            else{ if (letter >= '0' && letter <= '9')
+            System.out.println("digit");
+            else{
+            System.out.println("undefined");
+        }
+            }
+        }
     }
 }
