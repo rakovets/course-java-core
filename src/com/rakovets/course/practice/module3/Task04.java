@@ -21,5 +21,21 @@ public class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        if (weekdayNumber == 1){
+            System.out.println("monday");
+        } else if (weekdayNumber == 2){
+            System.out.println("tuesday");
+        } else if (weekdayNumber == 3){
+            System.out.println("wednesday");
+        } else if (weekdayNumber == 4){
+            System.out.println("thursday");
+        } else if (weekdayNumber == 5){
+            System.out.println("friday");
+        } else if (weekdayNumber == 6){
+            System.out.println("saturday");
+        } else if (weekdayNumber == 7){
+            System.out.println("sunday");
+        } else
+        System.out.println("В недел СЕМЬ дней");
     }
 }
