@@ -14,11 +14,11 @@ class Task09Test extends ConsoleTest {
     static Stream<Arguments> provideApartments() {
         return Stream.of(
                 Arguments.of(new String[]{"2", "10", "45"}, "Porch: 3. Floor: 1"),
-                Arguments.of(new String[]{"9", "4", "169"}, "Porch: 4. Floor: 7"),
+                Arguments.of(new String[]{"9", "4", "169"}, "Porch: 5. Floor: 7"),
                 Arguments.of(new String[]{"18", "10", "180"}, "Porch: 1. Floor: 18"),
                 Arguments.of(new String[]{"1", "1", "1"}, "Porch: 1. Floor: 1"),
-                Arguments.of(new String[]{"10", "5", "11"}, "Porch: 1. Floor: 2"),
-                Arguments.of(new String[]{"10", "4", "10"}, "Porch: 1. Floor: 1")
+                Arguments.of(new String[]{"10", "5", "11"}, "Porch: 1. Floor: 3"),
+                Arguments.of(new String[]{"10", "4", "10"}, "Porch: 1. Floor: 3")
         );
     }
 
