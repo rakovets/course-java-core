@@ -28,5 +28,18 @@ public class Task11 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        String type = "";
+        String letterString = String.valueOf(letter);
+
+        if (letterString.matches("[0-9]"))
+            type = "digit";
+        else if (letterString.matches("\\w"))
+            type = "latin";
+        else if (letterString.matches("[а-яА-Я]"))
+            type = "cyrillic";
+        else
+            type = "undefined";
+
+        System.out.println(type);
     }
 }
