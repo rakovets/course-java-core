@@ -29,5 +29,15 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int a = tanksKilledFirstPlayer*100+500;
+        int b = tanksKilledSecondPlayer*100+500;
+        int c = tanksKilledFirstPlayer*100;
+        int d = tanksKilledSecondPlayer*100;
+        if(tanksKilledFirstPlayer>tanksKilledSecondPlayer){
+            System.out.println(a+" "+d);
+        }
+        if(tanksKilledSecondPlayer>tanksKilledFirstPlayer){
+            System.out.println(c+" "+b);
+        }
     }
 }
