@@ -21,5 +21,29 @@ public class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        switch (weekdayNumber) {
+            case (1):
+                System.out.println("Monday");
+                break;
+            case (2):
+                System.out.println("Thuesday");
+                break;
+            case (3):
+                System.out.println("Wednsday");
+                break;
+            case (4):
+                System.out.println("Thursday");
+                break;
+            case (5):
+                System.out.println("Friday");
+                break;
+            case (6):
+                System.out.println("Saturday");
+                break;
+            case (7):
+                System.out.println("Sunday");
+                break;
+
+        }
     }
 }

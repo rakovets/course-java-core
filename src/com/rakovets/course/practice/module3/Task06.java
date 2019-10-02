@@ -24,10 +24,20 @@ public class Task06 {
         // Код необходимый для тестирования, не изменять
         Scanner scanner = new Scanner(System.in);
         int tanksKilledFirstPlayer = (args.length != 2) ? scanner.nextInt() : Integer.parseInt(args[0]);
-        int tanksKilledSecondPlayer = (args.length != 2) ? scanner.nextInt() : Integer.parseInt(args[1]);
+        int tanksKilledSecondPlayer = (args.length == 2) ? Integer.parseInt(args[1]) : scanner.nextInt();
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int firstPlayerPoint = tanksKilledFirstPlayer * KILL_POINT;
+        int secondPlayerPoint = tanksKilledSecondPlayer * KILL_POINT;
+
+        if (firstPlayerPoint > secondPlayerPoint) {
+            firstPlayerPoint = firstPlayerPoint + BONUS_POINT;
+        }else if (secondPlayerPoint > firstPlayerPoint) {
+            secondPlayerPoint = secondPlayerPoint + BONUS_POINT;
+        }
+        System.out.println("Player 1: " + firstPlayerPoint + ". "+"Player 2: " + secondPlayerPoint);
+
+        }
     }
-}
