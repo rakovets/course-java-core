@@ -11,13 +11,14 @@ public class Task07 {
 	public static void main(String[] args) {
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		int diameter = 10;
+		int diameter = 20;
 
 		// Код необходимый для тестирования, не изменять
-		diameter = (args.length == 1) ? Integer.parseInt(args[0]) : diameter;
+		diameter = (args.length == 1) ? Integer.valueOf(args[0]) : diameter;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(3.14 * diameter * diameter / 4);
 	}
 }

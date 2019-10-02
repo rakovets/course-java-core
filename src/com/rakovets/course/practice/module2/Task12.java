@@ -12,13 +12,22 @@ public class Task12 {
 	public static void main(String[] args) {
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		int playingTimeInSeconds = 156;
+		int playingTimeInSeconds = 1000;
 
 		// Код необходимый для тестирования, не изменять
-		playingTimeInSeconds = (args.length == 1) ? Integer.parseInt(args[0]) : playingTimeInSeconds;
+		playingTimeInSeconds = (args.length == 1) ? Integer.valueOf(args[0]) : playingTimeInSeconds;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int day = playingTimeInSeconds/86400;
+		int ostday = playingTimeInSeconds%86400;
+		int hour = playingTimeInSeconds/3600;
+		int osthour = playingTimeInSeconds%3600;
+		int min = playingTimeInSeconds/60;
+		int ostmin = playingTimeInSeconds%60;
+		int sec = playingTimeInSeconds/1;
+		int ostsec = playingTimeInSeconds%1;
+		System.out.println(day+" "+hour+":"+min+":"+ostmin);
 	}
 }
