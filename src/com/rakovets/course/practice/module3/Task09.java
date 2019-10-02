@@ -25,5 +25,8 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int porch, floor;
+        numberApartmentsPerFloor = numberFloors * apartmentNumber;
+
     }
 }
