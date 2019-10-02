@@ -24,5 +24,7 @@ class Task01Test {
     @DisplayName("Position player")
     void test(int sizeTeam, int sizeTop, int positionPlayerByDamage, boolean expected) {
         assertEquals(Task01.isTopPlayer(sizeTeam, sizeTop, positionPlayerByDamage), expected);
+        int i=5;
+        System.out.println(i);
     }
 }
