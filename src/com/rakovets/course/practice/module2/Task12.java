@@ -15,7 +15,7 @@ public class Task12 {
 		int playingTimeInSeconds = 156;
 
 		// Код необходимый для тестирования, не изменять
-		playingTimeInSeconds = (args.length == 1) ? Integer.valueOf(args[0]) : playingTimeInSeconds;
+		playingTimeInSeconds = (args.length == 1) ? Integer.parseInt(args[0]) : playingTimeInSeconds;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

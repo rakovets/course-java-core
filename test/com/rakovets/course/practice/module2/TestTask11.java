@@ -20,14 +20,14 @@ class TestTask11 {
 
 	@Test
 	void test0() {
-		Task11.main(new String[]{"−273.15"});
-		assertEquals("Celsius −273.15° - Kelvin 0.0° - Fahrenheit −459.67°", ConsoleReader.getConsoleContent());
+		Task11.main(new String[]{"-273.15"});
+		assertEquals("Celsius -273.15° - Kelvin 0.0° - Fahrenheit -459.66999999999996°", ConsoleReader.getConsoleContent());
 	}
 
 	@Test
 	void test1() {
-		Task11.main(new String[]{"−17.78"});
-		assertEquals("Celsius −17.78° - Kelvin 255.37° - Fahrenheit 0.0°", ConsoleReader.getConsoleContent());
+		Task11.main(new String[]{"-17.78"});
+		assertEquals("Celsius -17.78° - Kelvin 255.36999999999998° - Fahrenheit -0.0040000000000048885°", ConsoleReader.getConsoleContent());
 	}
 
 	@Test
@@ -39,12 +39,12 @@ class TestTask11 {
 	@Test
 	void test3() {
 		Task11.main(new String[]{"36.8"});
-		assertEquals("Celsius 36.8° - Kelvin 310.0° - Fahrenheit 98.2°", ConsoleReader.getConsoleContent());
+		assertEquals("Celsius 36.8° - Kelvin 309.95° - Fahrenheit 98.24°", ConsoleReader.getConsoleContent());
 	}
 
 	@Test
 	void test4() {
 		Task11.main(new String[]{"5526.0"});
-		assertEquals("Celsius 5526.0° - Kelvin 5800.0° - Fahrenheit 9980.0°", ConsoleReader.getConsoleContent());
+		assertEquals("Celsius 5526.0° - Kelvin 5799.15° - Fahrenheit 9978.8°", ConsoleReader.getConsoleContent());
 	}
 }

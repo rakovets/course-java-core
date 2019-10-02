@@ -14,10 +14,11 @@ public class Task05 {
 		float value = 3.2f;
 
 		// Код необходимый для тестирования, не изменять
-		value = (args.length == 1) ? Float.valueOf(args[0]) : value;
+		value = (args.length == 1) ? Float.parseFloat(args[0]) : value;
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.print(Math.round(value));
 	}
 }
