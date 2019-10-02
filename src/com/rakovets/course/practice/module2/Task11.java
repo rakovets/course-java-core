@@ -7,8 +7,8 @@ package com.rakovets.course.practice.module2;
  *
  * @param temperatureInCelsius - температура в Цельсиях
  *
- * @return формат вывода: Celsius ${c}° - Kelvin ${k}° - Fahrenheit ${f}°
- * где ${c} - температура в Цельсиях и т.д.
+ * @return формат вывода: 'Celsius {c}° - Kelvin {k}° - Fahrenheit {f}°'
+ * где {c} - температура в Цельсиях и т.д.
  */
 public class Task11 {
 	public static void main(String[] args) {
@@ -22,5 +22,6 @@ public class Task11 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
 	}
 }

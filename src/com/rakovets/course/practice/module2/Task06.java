@@ -22,5 +22,10 @@ public class Task06 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int annualPercentege1;
+		annualPercentege1 = (annualPercentage * 5 + 100);
+		int result;
+		result = (deposit * annualPercentage) / 100;
+		System.out.print(Math.round(result * 100.0) / 100.0);
 	}
 }

@@ -21,5 +21,10 @@ public class Task08 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double distance;
+		double circumference;
+		circumference = Math.PI * tireRadius * 2;
+		distance = (circumference * encoderDegrees / 360);
+		System.out.println(distance);
 	}
 }
