@@ -30,16 +30,17 @@ public class Task03 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         String result;
-        if (currentHealthPoint >= 0 & currentHealthPoint <= 24) {
+        double percentageRatio = currentHealthPoint * 100.0 / maxHealthPoint;
+        if (percentageRatio > 0 && percentageRatio < 25) {
             result = "RED";
-        } else if (currentHealthPoint >= 25 & currentHealthPoint <= 49) {
+        } else if (percentageRatio >= 25 && percentageRatio < 50) {
             result = "ORANGE";
-        } else if (currentHealthPoint >= 50 & currentHealthPoint <= 74) {
+        } else if (percentageRatio >= 50 && percentageRatio < 75) {
             result = "YELLOW";
-        } else if (currentHealthPoint >= 75) {
+        } else if (percentageRatio >= 75 && percentageRatio <= 100) {
             result = "GREEN";
         } else {
-            result = "null";
+            result = null;
         }
         return result;
     }

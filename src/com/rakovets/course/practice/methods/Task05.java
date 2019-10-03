@@ -20,11 +20,53 @@ public class Task05 extends StandardInputTask {
     }
 
     /**
-	 * Возвращает название месяца, в зависимости от его порядкового номера
+     * Возвращает название месяца, в зависимости от его порядкового номера
+     *
      * @param monthNumber - номер месяца
      * @return месяц на английском языке (UPPER CASE)
      */
     static String getNameMonth(byte monthNumber) {
-        return null;
+        String result;
+        switch (monthNumber) {
+            case 1:
+                result = "JANUARY";
+                break;
+            case 2:
+                result = "FEBRUARY";
+                break;
+            case 3:
+                result = "MARCH";
+                break;
+            case 4:
+                result = "APRIL";
+                break;
+            case 5:
+                result = "MAY";
+                break;
+            case 6:
+                result = "JUNE";
+                break;
+            case 7:
+                result = "JULY";
+                break;
+            case 8:
+                result = "AUGUST";
+                break;
+            case 9:
+                result = "SEPTEMBER";
+                break;
+            case 10:
+                result = "OCTOBER";
+                break;
+            case 11:
+                result = "NOVEMBER";
+                break;
+            case 12:
+                result = "DECEMBER";
+                break;
+            default:
+                result = null;
+        }
+        return result;
     }
 }
