@@ -23,14 +23,26 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-       /* int lengthValue = (int) Math.ceil(Math.log10(Math.abs(amount) + 0.5));
-        int everyThreePosition = lengthValue / 3;
-        while (everyThreePosition >= 1) {
-            System.out.print(Math.round(amount / Math.pow(1000, everyThreePosition)) + " ");
-            amount = amount % (long) Math.pow(1000, everyThreePosition);
-            everyThreePosition--;
+        long lengthValue = (long) Math.ceil(Math.log10(Math.abs(amount) + 0.5));
+        long numberThreePosition = (long) Math.ceil(lengthValue / 3.0);
+        if (numberThreePosition > 1) {
+            numberThreePosition--;
+            System.out.print(amount / (long) Math.pow(1000, numberThreePosition) + " ");
+            amount = Math.abs(amount % (long) Math.pow(1000, numberThreePosition));
+            numberThreePosition--;
+            while (numberThreePosition >= 1) {
+                System.out.print(amount / (long) Math.pow(1000, numberThreePosition));
+                if (numberThreePosition == 1) {
+                    System.out.print(" ");
+                    System.out.print(amount % (long) Math.pow(1000, numberThreePosition));
+                    break;
+                }
+                amount = amount % (long) Math.pow(1000, numberThreePosition);
+                System.out.print(" ");
+                numberThreePosition--;
+            }
+        } else {
+            System.out.print(amount);
         }
-        System.out.print(amount);*/
-        System.out.printf("%,d", amount);
     }
 }

@@ -1,6 +1,5 @@
 package com.rakovets.course.practice.module4;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -30,14 +29,14 @@ public class Task08 {
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         double priceOneItem = startPriceAllItems / startNumberItems;
-        int finishNumberItems = sizeTotalPrice * differentialNumberItems;
+        int finishNumberItems = sizeTotalPrice * differentialNumberItems + startNumberItems - differentialNumberItems;
         while (startNumberItems <= finishNumberItems) {
-            double price = startNumberItems * priceOneItem;
-            System.out.printf(Locale.ENGLISH, "%d - %.1f", startNumberItems, price);
+            System.out.print(startNumberItems + " - " + startPriceAllItems);
             if (startNumberItems < finishNumberItems) {
                 System.out.print("\n");
             }
             startNumberItems += differentialNumberItems;
+            startPriceAllItems += priceOneItem * differentialNumberItems;
         }
     }
 }
