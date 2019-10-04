@@ -25,5 +25,37 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        int numberOfApartmentsInEntrance;
+        int entrance;
+        int multiplier = 1;
+        int multiplier1 = 1;
+        int multiplier2 = 1;
+        int floor;
+        int entranceWithThisApartment;
+
+        numberOfApartmentsInEntrance = numberFloors * numberApartmentsPerFloor;
+        if (numberOfApartmentsInEntrance > apartmentNumber) {
+            entrance = 1;
+            while (numberApartmentsPerFloor < apartmentNumber) {
+                multiplier1++;
+                numberApartmentsPerFloor *= multiplier1;
+            }
+            floor = multiplier1;
+        } else {
+            while (numberOfApartmentsInEntrance < apartmentNumber) {
+                multiplier++;
+                numberOfApartmentsInEntrance *= multiplier;
+                }
+            entrance = multiplier;
+            entranceWithThisApartment =apartmentNumber - ((entrance - 1) * numberOfApartmentsInEntrance);
+            while (numberApartmentsPerFloor < entranceWithThisApartment) {
+                multiplier2++;
+                numberApartmentsPerFloor *= multiplier2;
+            }
+            floor = multiplier2;
+            }
+        System.out.println("Porch: " + entrance + ". " + "Floor: " + floor);
+        }
+
     }
-}
