@@ -24,7 +24,7 @@ public class Task08 {
 		double circumference;
 		double distance;
 		circumference = Math.PI * tireRadius * 2;
-		distance = (circumference * encoderDegrees / 360);
-		System.out.print(distance);
+		distance = encoderDegrees / 360.0 * circumference;
+		System.out.println(distance);
 	}
 }
