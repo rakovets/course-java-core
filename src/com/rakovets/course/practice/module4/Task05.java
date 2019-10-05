@@ -26,5 +26,21 @@ public class Task05 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		double riseHP;
+		int timeForMurder =1;
+
+
+		do {
+			riseHP = healthPoints * regenerationPercentFromCurrentHealth / 100;
+			healthPoints += riseHP;
+			healthPoints -= averageDamagePerHour;
+			timeForMurder++;
+		} while (healthPoints >= averageDamagePerHour && timeForMurder < 30);
+		if ( timeForMurder <= 24 ) {
+			System.out.println(timeForMurder);
+		} else {
+			System.out.println("-1");
+		}
 	}
 }
