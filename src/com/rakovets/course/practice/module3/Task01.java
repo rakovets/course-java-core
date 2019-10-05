@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Task01 {
     public static void main(String[] args) {
-        //FIXME
+        //FIXME5
         // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
 
         // Код необходимый для тестирования, не изменять
@@ -23,5 +23,12 @@ public class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        if (positionPlayerByDamage < 6)
+        {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+
     }
 }

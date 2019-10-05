@@ -25,7 +25,7 @@ class Task12Test extends ConsoleTest {
                 Arguments.of(new String[]{"23", "10", "2010"}, "Zodiac Sign: Scales. Chinese Zodiac: Tiger"),
                 Arguments.of(new String[]{"22", "11", "2011"}, "Zodiac Sign: Scorpion. Chinese Zodiac: Rabbit"),
                 Arguments.of(new String[]{"21", "12", "2012"}, "Zodiac Sign: Archer. Chinese Zodiac: Dragon"),
-                Arguments.of(new String[]{"21", "1", "2013"}, "Zodiac Sign:  Water-Bearer. Chinese Zodiac: Snake"),
+                Arguments.of(new String[]{"21", "1", "2013"}, "Zodiac Sign: Water-Bearer. Chinese Zodiac: Snake"),
                 Arguments.of(new String[]{"21", "2", "2014"}, "Zodiac Sign: Fishes. Chinese Zodiac: Horse"),
                 Arguments.of(new String[]{"21", "3", "2015"}, "Zodiac Sign: Ram. Chinese Zodiac: Ram"),
                 Arguments.of(new String[]{"21", "4", "2016"}, "Zodiac Sign: Bull. Chinese Zodiac: Monkey"),

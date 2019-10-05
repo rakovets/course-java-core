@@ -1,5 +1,6 @@
 package com.rakovets.course.practice.module3;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -25,5 +26,18 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        String undead = "UNDEAD";
+        String zombie = "ZOMBIE";
+        String saint = "SAINT";
+        if (typeMob == undead ) {
+            System.out.println(damage * 15 / 10);
+        } else if (typeMob == zombie ) {
+            System.out.println(damage * 15 /10);
+        } else if (typeMob == saint) {
+            System.out.println(damage / 2);
+        } else {
+            System.out.println(damage);
+        }
+
     }
 }
