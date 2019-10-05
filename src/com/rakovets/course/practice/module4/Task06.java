@@ -27,7 +27,7 @@ public class Task06 {
 		long amount2;
 
 		if (amount >= 0) {
-			for (int i = 1; amount >= 1000 && i < 5; i++) {
+			for (int i = 1; amount >= 1000; i++) {
 				amount2 = amount % 1000;
 				amount = (amount - amount2) / 1000;
 				answer = (" " + amount2 + answer);
@@ -36,7 +36,7 @@ public class Task06 {
 		}
 		else {
 			amount = 0 - amount;
-			for (int i = 1; amount >= 1000 && i < 5; i++) {
+			for (int i = 1; amount >= 1000; i++) {
 				amount2 = amount % 1000;
 				amount = (amount - amount2) / 1000;
 				answer = (" " + amount2 + answer);
