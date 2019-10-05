@@ -31,10 +31,10 @@ public class Task09 {
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         double priceOneItem = startPriceAllItems / startNumberItems;
-        int finishNumberItems = sizeTotalPrice * differentialNumberItems + startNumberItems - differentialNumberItems;
         double sell = 0.0;
+        int finishNumberItems = sizeTotalPrice * differentialNumberItems + startNumberItems - differentialNumberItems;
         while (startNumberItems <= finishNumberItems) {
-            System.out.print(startNumberItems + " - " + startPriceAllItems + " with sell " + sell + "%");
+            System.out.print(startNumberItems + " - " + (startPriceAllItems - startPriceAllItems * sell / 100.0) + " with sell " + sell + "%");
             if (startNumberItems < finishNumberItems) {
                 System.out.print("\n");
             }
