@@ -26,5 +26,17 @@ public class Task05 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		for (int i = 1; i <= 25; i++) {
+			healthPoints =  (int) ((healthPoints* (100 + regenerationPercentFromCurrentHealth) / 100) - averageDamagePerHour);
+//			System.out.println(healthPoints);
+			if ((healthPoints <= 0) && (i <= 24)) {
+				System.out.println(i);
+				break;
+			}
+			else if (i > 24) {
+				System.out.println(-1);
+				break;
+			}
+		}
 	}
 }
