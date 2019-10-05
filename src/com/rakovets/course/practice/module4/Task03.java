@@ -26,5 +26,13 @@ public class Task03 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		double benefit;
+		for ( int i = 1; i <= depositTerm; i++ ) {
+			benefit = depositAmount * annualDepositPercent / 100;
+			depositAmount = depositAmount + benefit;
+		}
+		System.out.printf("%.2f", depositAmount);
+
 	}
 }

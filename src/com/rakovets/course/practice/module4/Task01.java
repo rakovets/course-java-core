@@ -12,15 +12,23 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Task01 {
-	public static void main(String[] args) {
-		// Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-		Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
+        Scanner scanner = new Scanner(System.in);
 
-		// Код необходимый для тестирования, не изменять
-		int rows = (args.length!=1) ? scanner.nextInt():Integer.parseInt(args[0]);
+        // Код необходимый для тестирования, не изменять
+        int rows = (args.length != 1) ? scanner.nextInt() : Integer.parseInt(args[0]);
 
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-	}
+        //TODO
+        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
+        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        for (int i = 1; i <= rows; i++) {
+            if (i < rows) {
+                System.out.print(i + "\n");
+            } else {
+                System.out.print(i);
+            }
+        }
+    }
 }
