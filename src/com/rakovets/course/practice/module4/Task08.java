@@ -20,13 +20,14 @@ public class Task08 {
 		Scanner scanner = new Scanner(System.in);
 
 		// Код необходимый для тестирования, не изменять
-		double startPriceAllItems = (args.length!=4 ? scanner.nextDouble():Double.parseDouble(args[0]));
-		int startNumberItems = (args.length!=4 ? scanner.nextInt():Integer.parseInt(args[1]));
-		int differentialNumberItems = (args.length!=4 ? scanner.nextInt():Integer.parseInt(args[2]));
-		int sizeTotalPrice = (args.length!=4 ? scanner.nextInt():Integer.parseInt(args[3]));
+		double startPriceAllItems = (args.length != 4 ? scanner.nextDouble() : Double.parseDouble(args[0]));
+		int startNumberItems = (args.length != 4 ? scanner.nextInt() : Integer.parseInt(args[1]));
+		int differentialNumberItems = (args.length != 4 ? scanner.nextInt() : Integer.parseInt(args[2]));
+		int sizeTotalPrice = (args.length != 4 ? scanner.nextInt() : Integer.parseInt(args[3]));
 
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+//		I don't understand condition'
 	}
 }
