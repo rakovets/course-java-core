@@ -18,8 +18,8 @@ public class Task08 {
 		encoderDegrees = (args.length == 2) ? Integer.parseInt(args[0]) : encoderDegrees;
 		tireRadius = (args.length == 2) ? Integer.parseInt(args[1]) : tireRadius;
 
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(encoderDegrees / (tireRadius * 2  * Math.PI));
+
+
 	}
 }

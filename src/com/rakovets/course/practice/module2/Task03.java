@@ -18,8 +18,7 @@ public class Task03 {
 		penaltyPointFirstPlayer = (args.length == 0) ? penaltyPointFirstPlayer : Integer.parseInt(args[0]);
 		penaltyPointSecondPlayer = (args.length == 0) ? penaltyPointSecondPlayer : Integer.parseInt(args[1]);
 
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(Math.min(penaltyPointFirstPlayer, penaltyPointSecondPlayer)) ;
+
 	}
 }

@@ -17,8 +17,8 @@ public class Task12 {
 		// Код необходимый для тестирования, не изменять
 		playingTimeInSeconds = (args.length == 1) ? Integer.parseInt(args[0]) : playingTimeInSeconds;
 
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println(playingTimeInSeconds / 86400 + " " + playingTimeInSeconds / 3600 % 24 + ":" + playingTimeInSeconds / 60 % 60 + ":" + playingTimeInSeconds % 60 );
+
+
 	}
 }

@@ -19,8 +19,7 @@ public class Task11 {
 		// Код необходимый для тестирования, не изменять
 		temperatureInCelsius = (args.length == 1) ? Double.parseDouble(args[0]) : temperatureInCelsius;
 
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.println("Celsius " + temperatureInCelsius + "° - Kelvin " + (temperatureInCelsius + 273.15) + "° - Fahrenheit " + (temperatureInCelsius * 1.8 + 32) + "°");
 	}
+
 }
