@@ -26,5 +26,19 @@ public class Task07 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		double riseOfDistance;
+		double newdistansce = startDistance;
+		double counterOfDistance = 0;
+
+		while (newdistansce < finishDistance ) {
+			riseOfDistance = newdistansce * dailyProgress / 100;
+			newdistansce += riseOfDistance;
+			counterOfDistance += newdistansce;
+			if (riseOfDistance == 0){
+				System.out.println("0.00");
+			}
+		}
+		System.out.printf("%.2f", counterOfDistance);
 	}
 }

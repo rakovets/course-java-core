@@ -28,5 +28,22 @@ public class Task08 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		int counter = 0;
+		double costOfItems;
+
+		costOfItems = startPriceAllItems / (startNumberItems / differentialNumberItems);
+		do {
+			if ( counter > 0 && counter < sizeTotalPrice) {
+				System.out.print("\n");
+			}
+			System.out.print(startNumberItems + " - " + startPriceAllItems);
+
+			startNumberItems += differentialNumberItems;
+			startPriceAllItems += costOfItems;
+
+			counter++;
+
+		} while(counter < sizeTotalPrice);
 	}
 }

@@ -30,5 +30,28 @@ public class Task09 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		int counter = 0;
+		double costOfItems;
+		double sizeOfSell = 0;
+		double reductionOfPrice;
+
+		costOfItems = startPriceAllItems / (startNumberItems / differentialNumberItems);
+		do {
+			if ( counter > 0 && counter < sizeTotalPrice) {
+				System.out.print("\n");
+			}
+			System.out.print(startNumberItems + " - " + startPriceAllItems + " with sell " + sizeOfSell + "%");
+
+			reductionOfPrice = startPriceAllItems * sizeOfSell / 100;
+			sizeOfSell++;
+
+			startNumberItems += differentialNumberItems;
+			startPriceAllItems += costOfItems - reductionOfPrice;
+
+			counter++;
+
+		} while(counter < sizeTotalPrice);
 	}
+
 }
