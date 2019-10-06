@@ -29,8 +29,8 @@ public class Task06 {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 3; i < s.length(); i += 3) {
             if (s.length() - i >= i / 3) {
-                String before = s.substring(0, i + (i / 3 - 1));
                 String after = s.substring(i + (i / 3 - 1), s.length());
+                String before = s.substring(0, i + (i / 3 - 1));
                 s = before + " " + after;
             }
         }
