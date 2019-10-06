@@ -44,7 +44,7 @@ public class Task10 {
             System.out.println("2 3");
         } else if (thirdFuelReserves == firstFuelReserves && thirdFuelReserves == secondFuelReserves) {
             System.out.println("1 2 3");
-
         }
+
     }
 }
