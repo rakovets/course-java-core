@@ -22,5 +22,14 @@ public class Task06 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+
+		double benefit;
+		double finishDeposit;
+
+		benefit = deposit * annualPercentage / 100;
+		benefit *= 5;
+		finishDeposit =deposit + benefit;
+		System.out.println(finishDeposit);
 	}
 }

@@ -22,5 +22,10 @@ public class Task10 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+
+		int normal = height - 110;
+		int excess = weight - normal;
+		System.out.println(excess);
 	}
 }

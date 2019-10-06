@@ -19,5 +19,9 @@ public class Task07 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+		int radius = diameter / 2;
+		double space =  Math.PI * radius * radius;
+		System.out.println(space);
 	}
 }

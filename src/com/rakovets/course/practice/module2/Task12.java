@@ -20,5 +20,14 @@ public class Task12 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+
+		int minuts = playingTimeInSeconds / 60;
+		playingTimeInSeconds = playingTimeInSeconds - (minuts * 60);
+		int hours = minuts / 60;
+		minuts = minuts - (hours * 60);
+		int days = hours / 24;
+		hours = hours - (days * 24);
+		System.out.println(days + " " + hours + ":" + minuts + ":" + playingTimeInSeconds);
 	}
 }
