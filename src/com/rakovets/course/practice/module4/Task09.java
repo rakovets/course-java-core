@@ -39,7 +39,7 @@ public class Task09 {
                 System.out.print("\n");
             }
             startNumberItems += differentialNumberItems;
-            sell += differentialSell ;
+            sell += differentialSell;
             startPriceAllItems += priceOneItem * differentialNumberItems;
         }
     }
