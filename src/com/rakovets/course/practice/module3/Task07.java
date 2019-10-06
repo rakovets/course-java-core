@@ -25,5 +25,13 @@ public class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        boolean leapyear1 = ((year % 4 == 0) && (year % 100 != 0));
+        boolean leapyear2 = ((year % 100 != 0) && (year % 400 == 0));
+
+        if (leapyear1 || leapyear2)
+        {
+            System.out.println(" leap year");
+        } else
+            System.out.println(" not a leap year");
     }
 }

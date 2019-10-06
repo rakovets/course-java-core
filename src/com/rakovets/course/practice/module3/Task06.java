@@ -34,10 +34,13 @@ public class Task06 {
         int c = tanksKilledFirstPlayer*100;
         int d = tanksKilledSecondPlayer*100;
         if(tanksKilledFirstPlayer>tanksKilledSecondPlayer){
-            System.out.println(a+" "+d);
+            System.out.println("Player 1: "+a+"."+" Player 2: "+d);
         }
-        if(tanksKilledSecondPlayer>tanksKilledFirstPlayer){
-            System.out.println(c+" "+b);
+        else if(tanksKilledSecondPlayer>tanksKilledFirstPlayer){
+            System.out.println("Player 1: "+c+"."+" Player 2: "+b);
+        }
+        else if(tanksKilledFirstPlayer==tanksKilledSecondPlayer){
+            System.out.println("Player 1: "+c+"."+" Player 2: "+d);
         }
     }
 }

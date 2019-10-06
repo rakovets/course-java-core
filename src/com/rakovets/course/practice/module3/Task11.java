@@ -30,5 +30,19 @@ public class Task11 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        char ch = (char) letter;
+
+        if (Character.isDigit(ch)) {
+            System.out.println("digit");
+        } else if (Character.isLetter(ch)) {
+            System.out.println("cyrillic");
+        } else if ("+-*/{}[],.:!\"'".indexOf(ch) > -1) {
+            System.out.println("undefined");
+        } else {
+            System.out.println("latin");
+        }
+
+
+
     }
 }

@@ -25,5 +25,40 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int apartments = numberFloors*numberApartmentsPerFloor;
+        int numberporch = apartmentNumber/apartments;
+        int ost = apartmentNumber%apartments;
+        boolean a = (apartmentNumber%apartments == 0);
+        boolean b = (apartmentNumber%apartments != 0);
+
+        if(a){
+            int c = numberporch;
+            if(ost<numberApartmentsPerFloor){
+                System.out.println("Porch: "+c+"."+" Floor: "+1);
+            }else if(ost<numberApartmentsPerFloor+numberApartmentsPerFloor){
+                System.out.println("Porch: "+c+"."+" Floor: "+2);
+            }else if(ost<numberApartmentsPerFloor+numberApartmentsPerFloor+numberApartmentsPerFloor){
+                System.out.println("Porch: "+c+"."+" Floor: "+3);
+            }else if(ost<numberApartmentsPerFloor+numberApartmentsPerFloor+numberApartmentsPerFloor+numberApartmentsPerFloor){
+                System.out.println("Porch: "+c+"."+" Floor: "+4);
+            }else if(ost<numberApartmentsPerFloor+numberApartmentsPerFloor+numberApartmentsPerFloor+numberApartmentsPerFloor+numberApartmentsPerFloor){
+                System.out.println("Porch: "+c+"."+" Floor: "+5);
+            }
+        } else if(b) {
+            int d = numberporch + 1;
+            if (ost < numberApartmentsPerFloor) {
+                System.out.println("Porch: " + d + "." + " Floor: " + 1);
+            } else if (ost < numberApartmentsPerFloor + numberApartmentsPerFloor) {
+                System.out.println("Porch: " + d + "." + " Floor: " + 2);
+            } else if (ost < numberApartmentsPerFloor + numberApartmentsPerFloor + numberApartmentsPerFloor) {
+                System.out.println("Porch: " + d + "." + " Floor: " + 3);
+            } else if (ost < numberApartmentsPerFloor + numberApartmentsPerFloor + numberApartmentsPerFloor + numberApartmentsPerFloor) {
+                System.out.println("Porch: " + d + "." + " Floor: " + 4);
+            } else if (ost < numberApartmentsPerFloor + numberApartmentsPerFloor + numberApartmentsPerFloor + numberApartmentsPerFloor + numberApartmentsPerFloor) {
+                System.out.println("Porch: " + d + "." + " Floor: " + 5);
+            }
+
+        }
+
     }
 }

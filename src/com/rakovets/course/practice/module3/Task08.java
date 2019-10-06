@@ -25,5 +25,17 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int a = (int) (damage*1.5);
+
+
+        if(typeMob == "UNDEAD" || typeMob == "ZOMBIE"){
+            System.out.println(a);
+        }  else if(typeMob == "SAINT"){
+            System.out.println(damage/2);
+        } else if(typeMob == "ANIMAL" || typeMob == "HUMANOID" || typeMob == "PLANT" || typeMob == "GHOST"){
+            System.out.println(damage);
+        }
+
+
     }
 }
