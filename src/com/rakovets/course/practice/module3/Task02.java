@@ -22,5 +22,17 @@ public class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        if(hour<4){
+            System.out.println("Good night");
+        }
+        if(hour<12 && hour>=4){
+            System.out.println("Good morning");
+        }
+        if(hour<18 && hour>=12){
+            System.out.println("Good day");
+        }
+        if(hour<=23 && hour>=18){
+            System.out.println("Good evening");
+        }
     }
 }
