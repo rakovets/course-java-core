@@ -1,5 +1,6 @@
 package com.rakovets.course.practice.module3;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -25,6 +26,25 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        switch(typeMob) {
+            case "ZOMBIE":
+            case "UNDEAD":
+                damage *= 1.5;
+            break;
+            case "SAINT":
+                damage /=2;
+            break;
+            case "ANIMAL":
+            case "HUMANOID":
+            case "PLANT":
+            case "GHOST":
+                damage *= 1;
+            break;
+            default:
+                System.out.println("Irregular type of mob");
+        }
+        System.out.println(damage);
 
        }
 

@@ -25,5 +25,27 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int porch = (apartmentNumber / (numberApartmentsPerFloor * numberFloors)) + 1;//подъезд
+        int apartmentInPorch = apartmentNumber -( numberFloors * numberApartmentsPerFloor * ( porch - 1) );//количество
+        // этажей в подъезде, где находится квартира(нужна для вычисления этажа)
+        int floor;
+            floor = numberFloors ; //При других вариантах кода, выводилась ошибка, мол, переменная floor не инициализировалась.
+            if (apartmentInPorch % numberApartmentsPerFloor == 0) {
+                floor = apartmentInPorch / numberApartmentsPerFloor ;//если искомая квартира последняя на этаже
+            } else if (apartmentInPorch % numberApartmentsPerFloor != 0) {
+                floor = ( apartmentInPorch / numberApartmentsPerFloor ) + 1  ;//любые другие случаи
+            } else {
+                System.out.println("Error");// на случай, если я ошибся, пусть будет
+            }
+            if (apartmentNumber == numberApartmentsPerFloor * numberFloors){
+                floor = numberFloors ;
+                porch = 1;
+            } //суть кода в том, что если numberApartmentsPerFloor * numberFloors = apartmentNumber, то этаж равен
+        /*
+         количеству этажей, то есть numberFloors. В таком случае квартира является последней в подъезде, а именно в первом
+         Согласен, решение не универсальное, но пока других решений я не нашел, есть над чем работать
+        */
+        System.out.println("Porch: " + porch + ". Floor: " + floor);
+
     }
 }
