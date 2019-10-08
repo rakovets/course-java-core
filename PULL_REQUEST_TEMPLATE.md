@@ -1,6 +1,6 @@
 <!-- Please use templates for title:
- for code review: ${organization} / ${group} / ${deadline} / ${your title}
-    Example: it-rakovets.by / j19 / 19.03.2019 / Done tasks 1-5, 7, 9-10
+ for code review: ${organization} / ${group} / ${theme} / ${deadline} / ${your title}
+    Example: it-rakovets.by / j19 / methods / 19.03.2019 / Done tasks 1-5, 7, 9-10
  for other PR: ${fix/add} ${your title} -->
  
 ## Pull request type
@@ -16,9 +16,6 @@ Please check the type of change your PR introduces:
 <!-- Please write all fields for PR -->
 
 Please write all fields:
-- Organisation: 
-- Group: 
-- Module: 
 - Full name: 
 
 ## Other information
