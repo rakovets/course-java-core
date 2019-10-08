@@ -14,17 +14,34 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Task05 {
-	public static void main(String[] args) {
-		// Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-		Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
+        Scanner scanner = new Scanner(System.in);
 
-		// Код необходимый для тестирования, не изменять
-		int healthPoints = (args.length!=3 ? scanner.nextInt():Integer.parseInt(args[0]));
-		double regenerationPercentFromCurrentHealth = (args.length!=3 ? scanner.nextDouble():Double.parseDouble(args[1]));
-		int averageDamagePerHour = (args.length!=3 ? scanner.nextInt():Integer.parseInt(args[2]));
+        // Код необходимый для тестирования, не изменять
+        int healthPoints = (args.length != 3 ? scanner.nextInt() : Integer.parseInt(args[0]));
+        double regenerationPercentFromCurrentHealth = (args.length != 3 ? scanner.nextDouble() : Double.parseDouble(args[1]));
+        int averageDamagePerHour = (args.length != 3 ? scanner.nextInt() : Integer.parseInt(args[2]));
 
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-	}
+        //TODO
+        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
+        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int battleHours = 0;
+        double bossProcessingHealthPoints = healthPoints;
+        double hoursRegeneratedHealthPoints;
+
+        while (bossProcessingHealthPoints > 0) {
+            if (battleHours > 24) {
+                System.out.println(-1);
+                break;
+            }
+            hoursRegeneratedHealthPoints = (bossProcessingHealthPoints * regenerationPercentFromCurrentHealth) / 100;
+            bossProcessingHealthPoints -= averageDamagePerHour - hoursRegeneratedHealthPoints;
+            battleHours++;
+        }
+
+        if (battleHours <= 24) {
+            System.out.println(battleHours);
+        }
+    }
 }
