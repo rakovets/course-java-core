@@ -2,6 +2,7 @@ package com.rakovets.course.practice.array;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 
 /**
@@ -32,7 +33,15 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		double srArefm = 0.0;
+		int summa = 0;
+		for (int i = 0;i<marks.length;i++){
+			summa =summa + marks[i];
+		}
+
+		srArefm =Math.round((summa/marks.length)*100.0)/100.0;
+
+		return srArefm;
 	}
 
 	/**
@@ -44,7 +53,17 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int minimum = marks[0];
+		for (int i = 0;i<marks.length;i++){
+			if (minimum>marks[i]){
+				minimum = marks[i];
+			}
+		}
+
+		return minimum;
+
+
+
 	}
 
 	/**
@@ -56,7 +75,15 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int maximum = marks[0];
+		for (int i = 0;i<marks.length;i++){
+			if (maximum<marks[i]){
+				maximum = marks[i];
+			}
+		}
+
+		return maximum;
+
 	}
 
 	private static int[] nextArray(int countMarks) {
