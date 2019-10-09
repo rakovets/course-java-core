@@ -92,6 +92,7 @@ public class Task02 extends StandardInputTask {
 					maximum = marks[i][b];
 				}
 			}
+
 		}
 
 		return maximum;
