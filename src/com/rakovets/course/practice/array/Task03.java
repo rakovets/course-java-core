@@ -33,7 +33,30 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		double srArefm = 0.0;
+		double summa = 0;
+		int colvo = 0;
+		double [] sector = new double[marks.length];
+
+
+		for (int i = 0;i<marks.length;i++){
+			summa=0;
+			colvo = 0;
+			for (int b =0;b<marks[i].length;b++){
+				summa+=marks[i][b];
+				colvo++;
+
+
+			}
+			srArefm = Math.round((summa/colvo)*100)/100.0;
+			sector[i]=srArefm;
+		}
+
+
+
+
+
+		return sector;
 	}
 
 	/**
@@ -45,7 +68,21 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int [] array = new int[marks.length];
+		int minimum = marks[0][0];
+		for (int i = 0;i<marks.length;i++){
+			for (int b =0;b<marks[i].length;b++){
+				if (minimum > marks[i][b]) {
+					minimum = marks[i][b];
+				}
+
+
+
+			}
+			array[i] = minimum;
+
+		}
+		return array;
 	}
 
 	/**
