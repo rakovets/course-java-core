@@ -28,6 +28,16 @@ public class Task08 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-//		I don't understand condition'
+		double coast;
+		double coastAll;
+		int numberItems;
+		coast = startPriceAllItems / startNumberItems; // Цена за 1 штуку
+		for(int i = 0; i < (sizeTotalPrice - 1); i++){
+			numberItems = startNumberItems + differentialNumberItems * i;
+			coastAll = numberItems * coast;
+//			System.out.printf("%d - %.#f\n", numberItems, coastAll);
+			System.out.print(numberItems + " - " + coastAll + "\n");
+		}
+			System.out.print((startNumberItems + differentialNumberItems * (sizeTotalPrice - 1)) + " - " + (startNumberItems + differentialNumberItems * (sizeTotalPrice - 1)) * coast);
 	}
 }
