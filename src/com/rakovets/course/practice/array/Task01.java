@@ -34,12 +34,12 @@ public class Task01 extends StandardInputTask {
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 		double srArefm = 0.0;
-		int summa = 0;
+		double summa = 0;
 		for (int i = 0;i<marks.length;i++){
 			summa =summa + marks[i];
 		}
 
-		srArefm =Math.round((summa/marks.length)*100.0)/100.0;
+		srArefm = Math.round((summa/marks.length)*100)/100.0;
 
 		return srArefm;
 	}
