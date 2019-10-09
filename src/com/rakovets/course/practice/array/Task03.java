@@ -33,7 +33,25 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+
+		int counter;
+		double average;
+		double[] mount;
+		mount = new double[marks.length];
+
+
+		for (int i = 0; i < marks.length; i++) {
+			average = 0;
+			counter = 0;
+			for (int j = 0; j < marks[i].length; j++) {
+				average += marks[i][j];
+				counter++;
+
+			}
+			average = Math.round((average / counter) * 100) / 100.0;
+			mount[i] = average;
+		}
+		return mount;
 	}
 
 	/**
@@ -45,7 +63,26 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+
+
+		int[] mount;
+		mount = new int[marks.length];
+		int minimum = 0;
+
+		for (int i = 0; i < marks.length; i++) {
+
+			for (int j = 0; j < marks[i].length; j++) {
+				minimum = marks[i][0];
+				if (minimum > marks[i][j]) {
+					minimum = marks[i][j];
+				}
+
+			}
+			mount[i] = minimum;
+		}
+		return mount;
+
+
 	}
 
 	/**
