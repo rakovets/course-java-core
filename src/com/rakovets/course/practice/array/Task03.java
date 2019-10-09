@@ -41,8 +41,8 @@ public class Task03 extends StandardInputTask {
 			}
             averageMark /= marks.length;
 			averageMark = Math.round(averageMark * 100) / 100.0;
-			return averageMark;
 		}
+		return null;
 	}
 
 	/**
@@ -62,8 +62,8 @@ public class Task03 extends StandardInputTask {
 					minMark = marks[i][j];
 				}
 			}
-			return minMark;
 		}
+		return null;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class Task03 extends StandardInputTask {
 					maxMark = marks[i][j];
 				}
 			}
-			return maxMark;
 		}
+		return null;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
