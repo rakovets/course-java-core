@@ -33,7 +33,25 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		double srArefm = 0.0;
+		double summa = 0;
+		int colvo = 0;
+
+
+		for (int i = 0;i<marks.length;i++){
+			for (int b =0;b<marks[i].length;b++){
+				summa+=marks[i][b];
+				colvo++;
+
+			}
+
+		}
+
+
+		srArefm = Math.round((summa/colvo)*100)/100.0;
+
+		return srArefm;
+
 	}
 
 	/**
@@ -45,7 +63,17 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+
+		int minimum = marks[0][0];
+		for (int i = 0;i<marks.length;i++){
+			for (int b =0;b<marks[i].length;b++) {
+				if (minimum > marks[i][b]) {
+					minimum = marks[i][b];
+				}
+			}
+		}
+
+		return minimum;
 	}
 
 	/**
@@ -57,7 +85,16 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int maximum = marks[0][0];
+		for (int i = 0;i < marks.length;i++){
+			for (int b = 0;b < marks[i].length;b++) {
+				if (maximum < marks[i][b]) {
+					maximum = marks[i][b];
+				}
+			}
+		}
+
+		return maximum;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
