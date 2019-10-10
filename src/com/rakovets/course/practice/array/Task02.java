@@ -35,13 +35,14 @@ public class Task02 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         double averageMark = 0;
+        int counterValue = 0;
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
                 averageMark += marks[i][j];
+                counterValue++;
             }
         }
-        averageMark /= marks.length * 3;
-        averageMark = Math.round(averageMark * 100) / 100.0;
+        averageMark = Math.round(averageMark / counterValue * 100) / 100.0;
         return averageMark;
     }
 
@@ -77,22 +78,14 @@ public class Task02 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         int maxMark = marks[0][0];
-        int[] num = new int[marks.length];
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
                 if (marks[i][j] > maxMark) {
                     maxMark = marks[i][j];
                 }
             }
-            num[i] = maxMark;
         }
-        int max = num[0];
-        for(int mark : num){
-            if(mark > max){
-                max = mark;
-            }
-        }
-        return max;
+        return maxMark;
     }
 
     private static int[][] nextArray(int countDisciplines, int countSemesters) {
