@@ -67,12 +67,12 @@ public class Task03 extends StandardInputTask {
 
 		int[] mount;
 		mount = new int[marks.length];
-		int minimum = 0;
+		int minimum = marks[0][0];
 
 		for (int i = 0; i < marks.length; i++) {
-
+			minimum = 100000;
 			for (int j = 0; j < marks[i].length; j++) {
-				minimum = marks[i][0];
+//				minimum = marks[i][0];
 				if (minimum > marks[i][j]) {
 					minimum = marks[i][j];
 				}
@@ -94,7 +94,25 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+
+
+		int[] mount;
+		mount = new int[marks.length];
+		int maximum;
+
+		for (int i = 0; i < marks.length; i++) {
+		maximum = 0;
+			for (int j = 0; j < marks[i].length; j++) {
+//				minimum = marks[i][0];
+				if (maximum < marks[i][j]) {
+					maximum = marks[i][j];
+				}
+
+			}
+			mount[i] = maximum;
+		}
+		return mount;
+
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
