@@ -26,5 +26,14 @@ public class Task03 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double result = depositAmount;
+		while(depositTerm > 0){
+			result = result + result * annualDepositPercent / 100;
+			depositTerm--;
+		}
+		result = result * 100;
+		result = (int)result;
+		result = (double) result / 100;
+		System.out.println(result);
 	}
 }
