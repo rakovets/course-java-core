@@ -68,10 +68,11 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		int [] array = new int[marks.length];
+		int[] minmark = new int[marks.length];
 		int minimum = marks[0][0];
 		for (int i = 0;i<marks.length;i++){
-			for (int b =0;b<marks[i].length;b++){
+			minimum = marks[i][0];
+			for (int b = 0;b < marks[i].length;b++){
 				if (minimum > marks[i][b]) {
 					minimum = marks[i][b];
 				}
@@ -79,10 +80,10 @@ public class Task03 extends StandardInputTask {
 
 
 			}
-			array[i] = minimum;
+			minmark[i] = minimum;
 
 		}
-		return array;
+		return minmark;
 	}
 
 	/**
@@ -94,7 +95,23 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+
+		int [] maxmark = new int[marks.length];
+		int maximum = marks[0][0];
+		for (int i = 0;i<marks.length;i++){
+			maximum = marks[i][0];
+			for (int b = 0;b < marks[i].length;b++){
+				if (maximum < marks[i][b]) {
+					maximum = marks[i][b];
+				}
+
+
+
+			}
+			maxmark[i] = maximum;
+
+		}
+		return maxmark;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
