@@ -46,3 +46,4 @@ class Task02Tests {
 		assertEquals(Task02.getMaxMark(marks), actual.get("max"));
 	}
 }
+//

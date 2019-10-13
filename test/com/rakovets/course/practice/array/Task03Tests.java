@@ -46,3 +46,4 @@ class Task03Tests {
 		assertArrayEquals(Task03.getMaxMark(marks), (int[]) actual.get("max"));
 	}
 }
+//
