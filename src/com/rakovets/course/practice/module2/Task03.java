@@ -21,5 +21,7 @@ public class Task03 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int result = Math.min(penaltyPointFirstPlayer, penaltyPointSecondPlayer);
+		System.out.println(result);
 	}
 }
