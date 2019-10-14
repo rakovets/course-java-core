@@ -12,7 +12,7 @@ public class Task12 {
 	public static void main(String[] args) {
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		int playingTimeInSeconds = 156;
+		int playingTimeInSeconds = 1;
 
 		// Код необходимый для тестирования, не изменять
 		playingTimeInSeconds = (args.length == 1) ? Integer.parseInt(args[0]) : playingTimeInSeconds;
@@ -20,5 +20,11 @@ public class Task12 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int days = playingTimeInSeconds / (24 * 60 * 60);
+		int hours = (playingTimeInSeconds - days * 60 * 60 * 24) / (60 * 60);
+		int minutes = (playingTimeInSeconds - days * 60 * 60 * 24 - hours * 60 * 60) / 60;
+		int seconds = playingTimeInSeconds - (playingTimeInSeconds - (playingTimeInSeconds - days * 60 * 60 * 24 - hours * 60 * 60 - minutes * 60));
+		System.out.println(days + " " + hours + ":" + minutes + ":" + seconds);
+
 	}
 }

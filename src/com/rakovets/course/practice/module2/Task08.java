@@ -11,8 +11,8 @@ public class Task08 {
 	public static void main(String[] args) {
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		int encoderDegrees = 258;
-		int tireRadius = 3;
+		int encoderDegrees = 100;
+		int tireRadius = 5;
 
 		// Код необходимый для тестирования, не изменять
 		encoderDegrees = (args.length == 2) ? Integer.parseInt(args[0]) : encoderDegrees;
@@ -21,5 +21,8 @@ public class Task08 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double way = ((double)encoderDegrees/360) * (Math.PI * tireRadius * 2);//по сути, код должен работать, однако
+		//в тестах результат то оооочень близок, то вообще различается
+		System.out.println(way);
 	}
 }

@@ -21,5 +21,12 @@ public class Task03 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		if (penaltyPointFirstPlayer > penaltyPointSecondPlayer) {
+			System.out.println(penaltyPointSecondPlayer);
+		} else if (penaltyPointSecondPlayer > penaltyPointFirstPlayer) {
+			System.out.println(penaltyPointFirstPlayer);
+		} else {
+			System.out.println(" first equals second");
+		}
 	}
 }

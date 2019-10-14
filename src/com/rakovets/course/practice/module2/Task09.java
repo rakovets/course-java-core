@@ -13,7 +13,7 @@ public class Task09 {
 
 		//FIXME
 		// Переменные, которые можно изменять для проверки различных вариантов входных параметров
-		float time = 2f;
+		float time = 0.1f;
 
 		// Код необходимый для тестирования, не изменять
 		time = (args.length == 1) ? Float.parseFloat(args[0]) : time;
@@ -21,5 +21,7 @@ public class Task09 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+	float length = (SOUND_SPEED * time);
+		System.out.println(length);
 	}
 }

@@ -22,5 +22,7 @@ public class Task06 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+	double money = ((((((double)annualPercentage)/100)) * deposit) * 5) + deposit;
+		System.out.println((double)Math.round(money));
 	}
 }
