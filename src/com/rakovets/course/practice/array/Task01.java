@@ -32,7 +32,15 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		double sum = 0;
+		for (int i=0; i < marks.length; i++) {
+			sum = sum + marks[i];
+
+		}
+		double s = sum/marks.length;
+		System.out.println("среднее арифметическое: "+ Math.round(s*100.00)/100.00);
+
+		return s;
 	}
 
 	/**
@@ -44,7 +52,13 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int min = Integer.MAX_VALUE;
+		for (int i = 0; i < marks.length; i++)
+		{
+			min = Math.min(min, marks[i]);
+		}
+		System.out.println(min);
+		return min;
 	}
 
 	/**
@@ -56,7 +70,13 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int max = Integer.MIN_VALUE;
+		for (int i = 0; i < marks.length; i++)
+		{
+			max = Math.max(max, marks[i]);
+		}
+		System.out.println(max);
+		return max;
 	}
 
 	private static int[] nextArray(int countMarks) {

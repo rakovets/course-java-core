@@ -2,6 +2,7 @@ package com.rakovets.course.practice.array;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 /**
@@ -33,7 +34,19 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		double sum = 0;
+		DecimalFormat df = new DecimalFormat("#.00");
+		for (int i=0;  i < marks.length;  i++) {
+			for (int j=0; j < marks.length; j++) {
+				sum = sum + marks[i][j];
+			}
+		}
+		double sum0 = (sum)/(marks.length * marks[0].length);
+
+
+		System.out.println(df.format(sum0));
+
+		return sum0;
 	}
 
 	/**
@@ -45,7 +58,19 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int min = Integer.MAX_VALUE;
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks.length; j++) {
+				{
+					if(min==0){System.out.println(min);
+					} else {
+						min = Math.min(min, marks[i][j]);
+					}
+				}
+			}
+		}
+		System.out.println(min);
+		return min;
 	}
 
 	/**
@@ -57,7 +82,16 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int max = Integer.MIN_VALUE;
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks.length; j++) {
+				{
+					max = Math.max(max, marks[i][j]);
+				}
+			}
+		}
+		System.out.println(max);
+		return max;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
