@@ -22,5 +22,8 @@ public class Task01 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		cargo = cargo / carryingCapacity;
+		Math.floor(cargo);
+		System.out.println(cargo);
 	}
 }

@@ -20,5 +20,12 @@ public class Task12 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		int day = (int) Math.floor(playingTimeInSeconds / 86400);
+		playingTimeInSeconds = playingTimeInSeconds - day * 86400;
+		int hour = (int) Math.floor(playingTimeInSeconds / 3600);
+		playingTimeInSeconds = playingTimeInSeconds - hour * 3600;
+		int minute = (int) Math.floor(playingTimeInSeconds / 60);
+		playingTimeInSeconds = playingTimeInSeconds - minute * 60;
+		System.out.println(day + " " + hour + ":" + minute + ":" + playingTimeInSeconds);
 	}
 }

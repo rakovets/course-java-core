@@ -22,5 +22,7 @@ public class Task06 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		double procent = 5 * (double) deposit / 100 * annualPercentage + deposit;
+		System.out.println(Math.floor(procent));
 	}
 }
