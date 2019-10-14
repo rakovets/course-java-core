@@ -28,6 +28,21 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		double traker = currentHealthPoint;
+		double result = traker / maxHealthPoint * 100;
+
+		String color;
+		if (result > 0 && result < 25) {
+			color = "RED";
+		} else if (result >= 25 && result < 50) {
+			color = "ORANGE";
+		} else if (result >= 50 && result < 75) {
+			color = "YELLOW";
+		} else if (result >= 75 && result <= 100) {
+			color = "GREEN";
+		} else {
+			color = null;
+		}
+		return color;
 	}
 }
