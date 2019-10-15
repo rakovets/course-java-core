@@ -31,6 +31,15 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		double procentHP = currentHealthPoint / maxHealthPoint * 100;
+		if (procentHP >= 0 && procentHP < 25)
+			return "RED";
+		else if (procentHP >= 25 && procentHP < 50)
+			return "ORANGE";
+		else if (procentHP >= 50 && procentHP < 75)
+			return "YELLOW";
+		else if (procentHP >= 75 && procentHP <= 100)
+			return "GREEN";
+		else  return null;
 	}
 }
