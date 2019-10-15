@@ -33,7 +33,12 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		double[] averageMarks = new double[marks.length];
+		for (int i = 0; averageMarks.length > i; i++){
+			averageMarks[i] = Arrays.stream(marks[i]).average().getAsDouble();
+			averageMarks[i] = Math.round(averageMarks[i] * 100.0) / 100.0;
+		}
+		return averageMarks;
 	}
 
 	/**
@@ -45,7 +50,11 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int[] minMarks = new int[marks.length];
+		for (int i = 0; minMarks.length > i; i++){
+			minMarks[i] = Arrays.stream(marks[i]).min().getAsInt();
+		}
+		return minMarks;
 	}
 
 	/**
@@ -57,7 +66,11 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int[] maxMarks = new int[marks.length];
+		for (int i = 0; maxMarks.length > i; i++){
+			maxMarks[i] = Arrays.stream(marks[i]).max().getAsInt();
+		}
+		return maxMarks;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
