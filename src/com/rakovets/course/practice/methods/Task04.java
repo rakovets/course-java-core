@@ -10,19 +10,45 @@ import com.rakovets.course.util.StandardInputTask;
  * @version 1.0
  */
 public class Task04 extends StandardInputTask {
-	public static void main(String[] args) {
-		// Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-		byte weekdayNumber = INPUT_SCANNER.nextByte();
+    public static void main(String[] args) {
+        // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
+        byte weekdayNumber = INPUT_SCANNER.nextByte();
 
-		getNameWeekday(weekdayNumber);
-	}
+        getNameWeekday(weekdayNumber);
+    }
 
-	/**
-	 * Возвращает название дня недели, в зависимости от его порядкового номера.
-	 * @param weekdayNumber - номер дня недели
-	 * @return день недели на английском языке (UPPER CASE)
-	 */
-	static String getNameWeekday(byte weekdayNumber) {
-		return null;
-	}
+    /**
+     * Возвращает название дня недели, в зависимости от его порядкового номера.
+     *
+     * @param weekdayNumber - номер дня недели
+     * @return день недели на английском языке (UPPER CASE)
+     */
+    static String getNameWeekday(byte weekdayNumber) {
+        String dayOfTheWeek = null;
+        switch (weekdayNumber) {
+            case 1:
+                dayOfTheWeek = "MONDAY";
+                break;
+            case 2:
+                dayOfTheWeek = "TUESDAY";
+                break;
+            case 3:
+                dayOfTheWeek = "WEDNESDAY";
+                break;
+            case 4:
+                dayOfTheWeek = "THURSDAY";
+                break;
+            case 5:
+                dayOfTheWeek = "FRIDAY";
+                break;
+            case 6:
+                dayOfTheWeek = "SATURDAY";
+                break;
+            case 7:
+                dayOfTheWeek = "SUNDAY";
+                break;
+        }
+
+        return dayOfTheWeek;
+    }
 }
