@@ -32,7 +32,14 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		double averageMark = 0;
+		int markSum = 0;
+		for (int n : marks) {
+			markSum += n;
+		}
+		averageMark = (double) markSum / marks.length;
+		averageMark = Math.round(averageMark * 100.0) / 100.0;
+		return averageMark;
 	}
 
 	/**
@@ -44,7 +51,8 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		Arrays.sort(marks);
+		return marks[0];
 	}
 
 	/**
@@ -56,7 +64,8 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		Arrays.sort(marks);
+		return marks[marks.length - 1];
 	}
 
 	private static int[] nextArray(int countMarks) {
