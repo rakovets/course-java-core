@@ -33,7 +33,16 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		int marksAmount = 0;
+		for (int[] n : marks) {
+				marksAmount+= n.length;
+		}
+		int marksSum = Arrays.stream(marks)
+				.flatMapToInt(x ->  Arrays.stream(x)).sum();
+
+		double averageMark =  (double) marksSum / marksAmount;
+		averageMark = Math.round(averageMark * 100.0) / 100.0;
+		return averageMark;
 	}
 
 	/**
@@ -45,7 +54,10 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		return Arrays.stream(marks)
+				.flatMapToInt(x ->  Arrays.stream(x))
+				.min()
+				.getAsInt();
 	}
 
 	/**
@@ -57,7 +69,10 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		return Arrays.stream(marks)
+				.flatMapToInt(x -> (Arrays.stream(x)))
+				.max()
+				.getAsInt();
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
