@@ -7,15 +7,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 /**
- * Abstract Class for tests that reading Standard Output {@link System}
- *
+ * Abstract Class for tests that reading Standard Output {@link System}.
  * @author Dmitry Rakovets
+ * @version 1.0
  */
 public abstract class StandardOutputTest {
 	private static final ByteArrayOutputStream OUTPUT_STREAM = new ByteArrayOutputStream();
 
 	/**
-	 * Clear output stream and connect it to Standard Output
+	 * Clear output stream and connect it to Standard Output.
 	 */
 	@BeforeEach
 	void setUpStreams() {
@@ -24,7 +24,7 @@ public abstract class StandardOutputTest {
 	}
 
 	/**
-	 * Disconnect output stream from Standard Output
+	 * Disconnect output stream from Standard Output.
 	 */
 	@AfterEach
 	void cleanUpStreams() {
@@ -32,6 +32,7 @@ public abstract class StandardOutputTest {
 	}
 
 	/**
+	 * Return content from Standard Output.
 	 * @return content for Standard Output
 	 */
 	protected static String getStandardOutputContent() {
@@ -39,6 +40,7 @@ public abstract class StandardOutputTest {
 	}
 
 	/**
+	 * Return content from Standard Output and trim it.
 	 * @return content for Standard Output and trim result
 	 */
 	protected static String getStandardOutputContentWithTrim() {
