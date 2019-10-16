@@ -6,9 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * Tests for Task03.
  * @author Dmitry Rakovets
  * @version 1.0
  */
@@ -33,6 +33,7 @@ class Task03Tests {
 	@CsvFileSource(resources = "/string/task03-tests.csv", numLinesToSkip = 1)
 	@DisplayName("Stuff: salaries")
 	void parseToArraySalaryTest(String information, String names, String surnames, String salaries) {
-		assertArrayEquals(Task03.parseToArraySalary(information), ArrayUtil.parseToInt(salaries, CSV_FIELD_SPLITERATOR));
+		assertArrayEquals(Task03.parseToArraySalary(information),
+				ArrayUtil.parseToInt(salaries, CSV_FIELD_SPLITERATOR));
 	}
 }
