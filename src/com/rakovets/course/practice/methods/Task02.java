@@ -30,18 +30,18 @@ public class Task02 extends StandardInputTask {
 		if (hour >= 0 && hour < 6) {
 			result = "Good night";
 		}
-		else if (hour >= 6 && hour < 12) {
-			result = "Good morning";
-		}
-		else if (hour >= 12 && hour < 18) {
-			result = "Good day";
-		}
-		else if (hour >= 18 && hour < 24) {
-			result = "Good evening";
-		}
-		else {
-			result = null;
-		}
+			else if (hour >= 6 && hour < 12) {
+				result = "Good morning";
+			}
+				else if (hour >= 12 && hour < 18) {
+					result = "Good day";
+				}
+					else if (hour >= 18 && hour < 24) {
+						result = "Good evening";
+					}
+						else {
+							result = null;
+						}
 		return result;
 	}
 }
