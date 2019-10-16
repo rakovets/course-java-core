@@ -3,6 +3,7 @@ package com.rakovets.course.practice.string;
 import com.rakovets.course.util.StandardInputTask;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,7 +23,7 @@ public class Task02 extends StandardInputTask {
 		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		System.out.println(getArrayMoneyFromReport(text));
+		Arrays.stream(getArrayMoneyFromReport(text)).forEach(System.out::println);
 		System.out.println(getSumMoneyFromReport(text));
 	}
 
@@ -35,7 +36,7 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		Pattern p = Pattern.compile("\\d+?\\u0024");
+		Pattern p = Pattern.compile("\\u002D?\\d+?\\u0024");
 		Matcher m = p.matcher(report);
 		ArrayList<Double> list = new ArrayList<Double>();
 		String stringAnswer = null;
@@ -59,7 +60,7 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		Pattern p = Pattern.compile("\\d+?\\u0024");
+		Pattern p = Pattern.compile("\\u002D?\\d+?\\u0024");
 		Matcher m = p.matcher(report);
 		double answer = 0;
 		String number = null;
