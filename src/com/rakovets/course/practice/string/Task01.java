@@ -9,18 +9,22 @@ import com.rakovets.course.util.StandardInputTask;
  * @version 1.0
  */
 public class Task01 extends StandardInputTask {
+	/**
+	 * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
+	 */
 	public static void main(String[] args) {
 		// Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-		String text = INPUT_SCANNER.next();
+		System.out.println("Enter full name with format: 'Name Surname'");
+		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		getName(text);
-		getSurname(text);
-		reverseFullName(text);
+		System.out.println(getName(text));
+		System.out.println(getSurname(text));
+		System.out.println(reverseFullName(text));
 	}
 
 	/**
-	 * Возвращает имя сотрудника
+	 * Возвращает имя сотрудника.
 	 * @param fullName полное имя сотрудника в формате '${name} ${surname}'
 	 * @return имя сотрудника
 	 */
@@ -32,7 +36,7 @@ public class Task01 extends StandardInputTask {
 	}
 
 	/**
-	 * Возвращает фамилию сотрудника
+	 * Возвращает фамилию сотрудника.
 	 * @param fullName полное имя сотрудника в формате '${name} ${surname}'
 	 * @return фамилия сотрудника
 	 */
@@ -44,7 +48,7 @@ public class Task01 extends StandardInputTask {
 	}
 
 	/**
-	 * Возвращает полное имя сотрудника в обратном формате
+	 * Возвращает полное имя сотрудника в обратном формате.
 	 * @param fullName полное имя сотрудника в формате '${name} ${surname}'
 	 * @return полное имя сотрудника в обратном формате
 	 */

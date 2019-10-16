@@ -9,18 +9,22 @@ import com.rakovets.course.util.StandardInputTask;
  * @version 1.0
  */
 public class Task02 extends StandardInputTask {
+	/**
+	 * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
+	 */
 	public static void main(String[] args) {
 		// Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-		String text = INPUT_SCANNER.next();
+		System.out.println("Enter report with money format: ' count$ '");
+		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		getArrayMoneyFromReport(text);
-		getSumMoneyFromReport(text);
+		System.out.println(getArrayMoneyFromReport(text));
+		System.out.println(getSumMoneyFromReport(text));
 	}
 
 	/**
-	 * Возвращает список сумм, которые встречаются в отчете
-	 * @param report, в котором содержатся суммы в виде ' ${money}$ ', где ${money} - это сумма
+	 * Возвращает список сумм, которые встречаются в отчете.
+	 * @param report в котором содержатся суммы в виде ' ${money}$ ', где ${money} - это сумма
 	 * @return список сумм
 	 */
 	static double[] getArrayMoneyFromReport(String report) {
@@ -31,8 +35,8 @@ public class Task02 extends StandardInputTask {
 	}
 
 	/**
-	 * Возвращает общую сумму всех денег, которые встречаются в отчете
-	 * @param report, в котором содержатся суммы в виде ' ${money}$ ', где ${money} - это сумма
+	 * Возвращает общую сумму всех денег, которые встречаются в отчете.
+	 * @param report в котором содержатся суммы в виде ' ${money}$ ', где ${money} - это сумма
 	 * @return общую сумму всех денег
 	 */
 	static double getSumMoneyFromReport(String report) {
