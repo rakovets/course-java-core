@@ -2,6 +2,10 @@ package com.rakovets.course.practice.string;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Разработать программу для анализа банковских отчетов.
  *
@@ -31,7 +35,19 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		Pattern p = Pattern.compile("\\d+?\\u0024");
+		Matcher m = p.matcher(report);
+		ArrayList<Double> list = new ArrayList<Double>();
+		String stringAnswer = null;
+		while (m.find()){
+			stringAnswer = report.substring(m.start(), m.end() - 1);
+			list.add(Double.parseDouble(stringAnswer));
+		}
+		double[] answer = new double[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			answer[i] = list.get(i);
+		}
+		return answer;
 	}
 
 	/**
@@ -43,6 +59,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		Pattern p = Pattern.compile("\\d+?\\u0024");
+		Matcher m = p.matcher(report);
+		double answer = 0;
+		String number = null;
+		while (m.find()){
+			number = report.substring(m.start(), m.end() - 1);
+			answer += Double.parseDouble(number);
+		}
+
+		return answer;
 	}
 }
