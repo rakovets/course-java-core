@@ -17,3 +17,4 @@ static String getPersonInitials(String firstName, String lastName, String middle
 
 Challenges:
 - [String](string.md)
+- [OOP (classes and objects)](oop-classes-and-object.md)
