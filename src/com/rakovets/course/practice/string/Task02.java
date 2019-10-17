@@ -23,7 +23,7 @@ public class Task02 extends StandardInputTask {
 		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		Arrays.stream(getArrayMoneyFromReport(text)).forEach(System.out::println);
+		System.out.println(Arrays.toString(getArrayMoneyFromReport(text)));
 		System.out.println(getSumMoneyFromReport(text));
 	}
 
@@ -36,12 +36,12 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		Pattern p = Pattern.compile("\\u002D?\\d+?\\u0024");
+		Pattern p = Pattern.compile("\\s\\u002D?\\d+?\\u002E?\\d*?\\u0024\\s+?");
 		Matcher m = p.matcher(report);
 		ArrayList<Double> list = new ArrayList<Double>();
 		String stringAnswer = null;
 		while (m.find()){
-			stringAnswer = report.substring(m.start(), m.end() - 1);
+			stringAnswer = report.substring(m.start(), m.end() - 2);
 			list.add(Double.parseDouble(stringAnswer));
 		}
 		double[] answer = new double[list.size()];
@@ -60,15 +60,14 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		Pattern p = Pattern.compile("\\u002D?\\d+?\\u0024");
+		Pattern p = Pattern.compile("\\s\\u002D?\\d+?\\u002E?\\d*?\\u0024\\s+?");
 		Matcher m = p.matcher(report);
 		double answer = 0;
 		String number = null;
 		while (m.find()){
-			number = report.substring(m.start(), m.end() - 1);
+			number = report.substring(m.start(), m.end() - 2);
 			answer += Double.parseDouble(number);
 		}
-
 		return answer;
 	}
 }

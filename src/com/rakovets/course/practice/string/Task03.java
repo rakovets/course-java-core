@@ -19,13 +19,13 @@ public class Task03 extends StandardInputTask {
 	 */
 	public static void main(String[] args) {
 		// Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-		System.out.println("Enter information with format: 'Name Surname Salary'");
+		System.out.println("Enter information with format: 'Name Surname Salary; ...;'");
 		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		Arrays.stream(parseToArrayName(text)).forEach(System.out::println);
-		Arrays.stream(parseToArraySurname(text)).forEach(System.out::println);
-		Arrays.stream(parseToArraySalary(text)).forEach(System.out::println);
+		System.out.println(Arrays.toString(parseToArrayName(text)));
+		System.out.println(Arrays.toString(parseToArraySurname(text)));
+		System.out.println(Arrays.toString(parseToArraySalary(text)));
 	}
 
 	/**
