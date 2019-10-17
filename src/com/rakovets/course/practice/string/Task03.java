@@ -2,6 +2,8 @@ package com.rakovets.course.practice.string;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.util.Arrays;
+
 /**
  * Разработать программу для парсера информации о персонале компании.
  *
@@ -14,13 +16,13 @@ public class Task03 extends StandardInputTask {
 	 */
 	public static void main(String[] args) {
 		// Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-		System.out.println("Enter information with format: 'Name Surname Salary'");
+		System.out.println("Enter information with format: 'Name Surname Salary; ...;'");
 		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		System.out.println(parseToArrayName(text));
-		System.out.println(parseToArraySurname(text));
-		System.out.println(parseToArraySalary(text));
+		System.out.println(Arrays.toString(parseToArrayName(text)));
+		System.out.println(Arrays.toString(parseToArraySurname(text)));
+		System.out.println(Arrays.toString(parseToArraySalary(text)));
 	}
 
 	/**

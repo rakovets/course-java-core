@@ -2,6 +2,8 @@ package com.rakovets.course.practice.string;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.util.Arrays;
+
 /**
  * Разработать программу для анализа банковских отчетов.
  *
@@ -18,7 +20,7 @@ public class Task02 extends StandardInputTask {
 		String text = INPUT_SCANNER.nextLine();
 
 		// Вызов методов
-		System.out.println(getArrayMoneyFromReport(text));
+		System.out.println(Arrays.toString(getArrayMoneyFromReport(text)));
 		System.out.println(getSumMoneyFromReport(text));
 	}
 
