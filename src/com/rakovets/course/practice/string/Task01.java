@@ -32,7 +32,9 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String[] arrayOfWords = fullName.split(" ");
+		String name = arrayOfWords[0];
+		return name;
 	}
 
 	/**
@@ -44,7 +46,9 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String[] arrayOfWords = fullName.split(" ");
+		String surName = arrayOfWords[1];
+		return surName;
 	}
 
 	/**
@@ -56,6 +60,7 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String str1 = getSurname(fullName) + " " + getName(fullName);
+		return str1;
 	}
 }
