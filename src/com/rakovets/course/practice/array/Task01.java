@@ -18,9 +18,9 @@ public class Task01 extends StandardInputTask {
 		int[] marks = nextArray(countMarks);
 
 		// Вызов методов
-		getAverageMark(marks);
+//		getAverageMark(marks);
 		getMinMark(marks);
-		getMaxMark(marks);
+//		getMaxMark(marks);
 	}
 
 	/**
@@ -32,7 +32,15 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		int sumAllMarks = 0;
+		double result = 0.0;
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			sumAllMarks = sumAllMarks + marks[i];
+			result = (double) ((sumAllMarks * 100) / marks.length) / 100.0;
+		}
+//		System.out.println(sumAllMarks);
+//		System.out.print(result);
+			return result;
 
 	}
 
@@ -45,7 +53,19 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int minimum = marks[0];
+		for (int i = 0; i <= marks.length; i++) {
+			if (minimum <= marks[i]) {
+				minimum = marks[i];
+//				System.out.println(minimum);
+			}
+					else {
+						minimum = minimum;
+			}
+		}
+
+				return minimum;
+				System.out.println(minimum);
 	}
 
 	/**
@@ -66,5 +86,8 @@ public class Task01 extends StandardInputTask {
 			marks[i] = INPUT_SCANNER.nextInt();
 		}
 		return marks;
+
+
+
 	}
 }
