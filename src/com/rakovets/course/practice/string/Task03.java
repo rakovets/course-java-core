@@ -18,7 +18,6 @@ public class Task03 extends StandardInputTask {
 		String text = INPUT_SCANNER.next();
 
 		// Вызов методов
-		text ="Nappie Lopez-gomez 5000;Crawford   Kelsey 2000;Gregor   Samenfeld 4000;Bendick  Berti 3500;Westleigh Aghayan   6899;Maurits   Loreti 1200;Thorvald Masson 2500;Elijah   Simo 3450;Shaun Nadal-ginard 1234;Malvin Cambern 7654;Northrup Berti 2345;Laurence Aghayan 4632";
 		parseToArrayName(text);
 		parseToArraySurname(text);
 		parseToArraySalary(text);
@@ -79,7 +78,7 @@ public class Task03 extends StandardInputTask {
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 		while (text.contains("  ")) {
-			text.replace("  ", " ");
+			text = text.replace("  ", " ");
 		}
 		String[] employees = text.split(";");
 		String[] salarys = new String[employees.length];
@@ -89,6 +88,6 @@ public class Task03 extends StandardInputTask {
 			String salary = employ3.substring(positionspace + 1);
 			salarys[i] = salary;
 		}
-		return null ;
+		return null;
 	}
 }
