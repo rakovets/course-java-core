@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * Tests for Task01.
+ *
  * @author Dmitry Rakovets
  * @version 1.0
  */
