@@ -3,6 +3,8 @@ package com.rakovets.course.practice.string;
 import com.rakovets.course.util.StandardInputTask;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Разработать программу для анализа банковских отчетов.
@@ -33,8 +35,22 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
-	}
+        Pattern pattern = Pattern.compile("\\s[^a-zA-Z|,|\\s]+\\$\\s");
+        Matcher matcher = pattern.matcher(report);
+        String patternString = "";
+        while (matcher.find()) {
+            patternString += matcher.group();
+        }
+        patternString = patternString.replace(" ", "");
+        String[] arrayMoneyString = patternString.split("[$]");
+        double[] arrayMoneyDouble = (patternString == "") ? new double[0] : new double[arrayMoneyString.length];
+        if (patternString != "") {
+            for (int i = 0; i < arrayMoneyString.length; i++) {
+                arrayMoneyDouble[i] = Double.parseDouble(arrayMoneyString[i]);
+            }
+        }
+        return arrayMoneyDouble;
+    }
 
 	/**
 	 * Возвращает общую сумму всех денег, которые встречаются в отчете.
@@ -45,6 +61,22 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
-	}
+        Pattern pattern = Pattern.compile("\\s[^a-zA-Z|,|\\s]+\\$\\s");
+        Matcher matcher = pattern.matcher(report);
+        String patternString = "";
+        while (matcher.find()) {
+            patternString += matcher.group();
+        }
+        patternString = patternString.replace(" ", "");
+        String[] arrayMoneyString = patternString.split("[$]");
+        double[] arrayMoneyDouble = new double[arrayMoneyString.length];
+        double amountMoney = 0;
+        if (patternString != "") {
+            for (int i = 0; i < arrayMoneyString.length; i++) {
+                arrayMoneyDouble[i] = Double.parseDouble(arrayMoneyString[i]);
+                amountMoney += arrayMoneyDouble[i];
+            }
+        }
+        return amountMoney;
+    }
 }
