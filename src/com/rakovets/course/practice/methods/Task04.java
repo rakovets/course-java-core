@@ -2,6 +2,8 @@ package com.rakovets.course.practice.methods;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.time.MonthDay;
+
 /**
  * Разработать программу для desktop приложения:
  * которая преобразует номер дня недели в его словесный аналог.
@@ -23,6 +25,24 @@ public class Task04 extends StandardInputTask {
 	 * @return день недели на английском языке (UPPER CASE)
 	 */
 	static String getNameWeekday(byte weekdayNumber) {
-		return null;
+		switch (weekdayNumber){
+			case 1:
+				return "MONDAY";
+			case 2:
+				return "TUESDAY";
+			case 3:
+				return "WEDNESDAY";
+			case 4:
+				return "THURSDAY";
+			case 5:
+				return "FRIDAY";
+			case 6:
+				return "SATURDAY";
+			case 7:
+				return "SUNDAY";
+			default:
+				return null;
+		}
+		//return null;
 	}
 }
