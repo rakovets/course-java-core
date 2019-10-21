@@ -20,8 +20,8 @@ public class Task02 extends StandardInputTask {
 
 		// Вызов методов
 		getAverageMark(marks);
-		getMinMark(marks);
-		getMaxMark(marks);
+//		getMinMark(marks);
+//		getMaxMark(marks);
 	}
 
 	/**
@@ -33,7 +33,24 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		int sumAllMarks = 0;
+		int sumAllMarks1 = 0;
+		int sumAllMarks2 = 0;
+		double result = 0.0;
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
+				sumAllMarks += marks[i][j];
+			}
+//				result = (double) Math.round(((sumAllMarks * 100.0) / marks.length)) / 100.0;
+//				System.out.println(sumAllMarks);
+//			result = (double) Math.round(((sumAllMarks * 100.0) / (marks.length * marks[i].length)) / 100.0);
+			result = marks.length * marks[i].length;
+			System.out.println(result);
+		}
+
+
+		return result;
+
 	}
 
 	/**
