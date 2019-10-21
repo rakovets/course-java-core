@@ -36,7 +36,7 @@ public class Task01 extends StandardInputTask {
 		double result = 0.0;
 		for (int i = 0; (i <= (marks.length - 1)); i++) {
 			sumAllMarks = sumAllMarks + marks[i];
-			result = (double) ((sumAllMarks * 100) / marks.length) / 100.0;
+			result = (double) Math.round(((sumAllMarks * 100.0) / marks.length)) / 100.0;
 		}
 		return result;
 	}
