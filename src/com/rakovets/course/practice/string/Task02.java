@@ -2,7 +2,12 @@ package com.rakovets.course.practice.string;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Разработать программу для анализа банковских отчетов.
@@ -33,7 +38,21 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		Pattern pattern = Pattern.compile("\\s[^a-zA-Z|,|\\s]+\\$\\s");
+		Matcher matcher = pattern.matcher(report);
+		String strOfSumm = "";
+		while (matcher.find()) {
+			strOfSumm += matcher.group();
+		}
+		strOfSumm = strOfSumm.replace(" ", "");
+		String[] arrayOfMoney = strOfSumm.split("[$]");
+		double[] arrayofmoneyindouble = (strOfSumm == "") ? new double[0] : new double[arrayOfMoney.length];
+		if (!strOfSumm.equals("")) {
+            for (int i = 0; i < arrayOfMoney.length; i++) {
+                arrayofmoneyindouble[i] = Double.parseDouble(arrayOfMoney[i]);
+            }
+        }
+		return arrayofmoneyindouble;
 	}
 
 	/**
@@ -45,6 +64,20 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+        Pattern pattern = Pattern.compile("\\s[^a-zA-Z|,|\\s]+\\$\\s");
+        Matcher matcher = pattern.matcher(report);
+        String strOfSumm = "";
+        while (matcher.find()) {
+            strOfSumm += matcher.group();
+        }
+        strOfSumm = strOfSumm.replace(" ", "");
+        String[] arrayOfMoney = strOfSumm.split("[$]");
+        double summOfMoney = 0;
+        if (!strOfSumm.equals("")) {
+            for (int i = 0; i < arrayOfMoney.length; i++) {
+                summOfMoney += Double.parseDouble(arrayOfMoney[i]);
+            }
+        }
+		return summOfMoney;
 	}
 }

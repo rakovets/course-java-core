@@ -34,7 +34,13 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String strwithspaces = text.replace(";", " ");
+		String[] arrayOfInformation = strwithspaces.split("[\\s]+\\s*");
+		String[] arrayOfName = new String[arrayOfInformation.length / 3];
+		for (int i = 0, b =0; i < arrayOfName.length; i++, b += 3) {
+			arrayOfName[i] = arrayOfInformation[b];
+		}
+		return arrayOfName;
 	}
 
 	/**
@@ -46,7 +52,13 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String strwithspaces = text.replace(";", " ");
+		String[] arrayOfInformation = strwithspaces.split("[\\s]+\\s*");
+		String[] arrayOfSurname = new String[arrayOfInformation.length / 3];
+		for (int i = 0, b =1; i < arrayOfSurname.length; i++, b += 3) {
+			arrayOfSurname[i] = arrayOfInformation[b];
+		}
+		return arrayOfSurname;
 	}
 
 	/**
@@ -58,6 +70,12 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String strwithspaces = text.replace(";", " ");
+		String[] arrayOfInformation = strwithspaces.split("[\\s]+\\s*");
+		int[] arrayOfSalary = new int[arrayOfInformation.length / 3];
+		for (int i = 0, b =2; i < arrayOfSalary.length; i++, b += 3) {
+			arrayOfSalary[i] = Integer.parseInt(arrayOfInformation[b]);
+		}
+		return arrayOfSalary;
 	}
 }
