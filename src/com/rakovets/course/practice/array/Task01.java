@@ -38,10 +38,7 @@ public class Task01 extends StandardInputTask {
 			sumAllMarks = sumAllMarks + marks[i];
 			result = (double) ((sumAllMarks * 100) / marks.length) / 100.0;
 		}
-//		System.out.println(sumAllMarks);
-//		System.out.print(result);
-			return result;
-
+		return result;
 	}
 
 	/**
@@ -50,23 +47,17 @@ public class Task01 extends StandardInputTask {
 	 * @return минимальная отметка
 	 */
 	static int getMinMark(int[] marks) {
-		//TODO
-		// Код, решающий задачу пишем ниже, при этом используя параметры метода
-		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		int minimum = marks[0];
-		for (int i = 0; i <= marks.length; i++) {
-			if (minimum <= marks[i]) {
-				minimum = marks[i];
-//				System.out.println(minimum);
-			}
-					else {
-						minimum = minimum;
-			}
-		}
-
-				return minimum;
-				System.out.println(minimum);
-	}
+        //TODO
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int minimum = marks[0];
+        for (int i = 0; i < marks.length; i++) {
+            if (minimum > marks[i]) {
+                minimum = marks[i];
+            }
+        }
+        return minimum;
+    }
 
 	/**
 	 * Возвращает максимальну отметку.
@@ -77,17 +68,20 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+        int maximum = marks[0];
+        for (int i = 0; i < marks.length; i++) {
+            if (maximum < marks[i]) {
+                maximum = marks[i];
+                System.out.println(maximum);
+            }
+        }
+        return maximum;
 	}
-
-	private static int[] nextArray(int countMarks) {
-		int[] marks = new int[countMarks];
-		for (int i = 0; i < countMarks; i++) {
-			marks[i] = INPUT_SCANNER.nextInt();
-		}
-		return marks;
-
-
-
-	}
+    private static int[] nextArray(int countMarks) {
+        int[] marks = new int[countMarks];
+        for (int i = 0; i < countMarks; i++) {
+            marks[i] = INPUT_SCANNER.nextInt();
+        }
+        return marks;
+    }
 }
