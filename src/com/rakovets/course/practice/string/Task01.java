@@ -32,7 +32,9 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int positionSpace = fullName.indexOf(" ");
+		String name = fullName.substring(0, positionSpace);
+		return name;
 	}
 
 	/**
@@ -44,7 +46,9 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int positionSpace = fullName.indexOf(" ");
+		String surname = fullName.substring(positionSpace+1);
+		return surname;
 	}
 
 	/**
@@ -56,6 +60,10 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int positionSpace = fullName.indexOf(" ");
+		String surname = fullName.substring(positionSpace + 1);
+		String name = fullName.substring(0, positionSpace);
+		String reverseFullName = surname + " " + name;
+		return reverseFullName;
 	}
 }
