@@ -77,6 +77,7 @@ public class Task01 extends StandardInputTask {
         }
         return maximum;
 	}
+
     private static int[] nextArray(int countMarks) {
         int[] marks = new int[countMarks];
         for (int i = 0; i < countMarks; i++) {
