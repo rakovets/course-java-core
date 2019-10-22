@@ -18,9 +18,9 @@ public class Task01 extends StandardInputTask {
 		int[] marks = nextArray(countMarks);
 
 		// Вызов методов
-//		getAverageMark(marks);
+		getAverageMark(marks);
 		getMinMark(marks);
-//		getMaxMark(marks);
+		getMaxMark(marks);
 	}
 
 	/**
