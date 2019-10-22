@@ -34,23 +34,14 @@ public class Task02 extends StandardInputTask {
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 		int sumAllMarks = 0;
-		int sumAllMarks1 = 0;
-		int sumAllMarks2 = 0;
 		double result = 0.0;
 		for (int i = 0; (i <= (marks.length - 1)); i++) {
 			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
 				sumAllMarks += marks[i][j];
 			}
-//				result = (double) Math.round(((sumAllMarks * 100.0) / marks.length)) / 100.0;
-//				System.out.println(sumAllMarks);
-//			result = (double) Math.round(((sumAllMarks * 100.0) / (marks.length * marks[i].length)) / 100.0);
-			result = marks.length * marks[i].length;
-			System.out.println(result);
+			result = (double) Math.round((sumAllMarks * 100.0) / (marks.length * marks[i].length)) / 100.0;
 		}
-
-
 		return result;
-
 	}
 
 	/**
@@ -62,7 +53,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int minimum = marks[0][0];
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
+				if (minimum > marks[i][j]) {
+					minimum = marks[i][j];
+				}
+			}
+		}
+		return minimum;
 	}
 
 	/**
@@ -74,7 +73,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int maximum = marks[0][0];
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
+				if (maximum < marks[i][j]) {
+					maximum = marks[i][j];
+				}
+			}
+		}
+		return maximum;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
