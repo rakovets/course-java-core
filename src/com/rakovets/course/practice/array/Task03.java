@@ -33,7 +33,17 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+//		int sumAllMarks = 0;
+		double[] averageMark = new double[marks.length];
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			int sumAllMarks = 0;
+			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
+				sumAllMarks += marks[i][j];
+			}
+			averageMark[i] = (double) Math.round((sumAllMarks * 100.0) / marks[i].length) / 100.0;
+			System.out.println(averageMark[i]);
+		}
+		return averageMark;
 	}
 
 	/**
@@ -45,7 +55,17 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int[] minimumMark = new int[marks.length];
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			int minimum = marks[i][0];
+			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
+				if (minimum > marks[i][j]) {
+					minimum = marks[i][j];
+				}
+				minimumMark[i] = minimum;
+			}
+		}
+		return minimumMark;
 	}
 
 	/**
@@ -57,7 +77,17 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int[] maximumMark = new int[marks.length];
+		for (int i = 0; (i <= (marks.length - 1)); i++) {
+			int maximum = marks[i][0];
+			for (int j = 0; (j <= (marks[i].length - 1)); j++) {
+				if (maximum < marks[i][j]) {
+					maximum = marks[i][j];
+				}
+				maximumMark[i] = maximum;
+			}
+		}
+		return maximumMark;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
