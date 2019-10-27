@@ -1,6 +1,8 @@
 package com.rakovets.course.challenge;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringChallengeSolutions {
     public static void main(String[] args) {
@@ -12,7 +14,96 @@ public class StringChallengeSolutions {
 //        extractTextFromTill();
 //        replaceSmiles();
 //        startAnnFinishTheSameWord();
-        vowelsQuantity();
+//        vowelsQuantity();
+//        typeAllNumerals();
+//        quantityOfAllPointsCommasExclamation();
+//        unicLetters();
+        palindrome();
+    }
+
+
+    /* Проверить, является ли введённая строка палиндромом, т.е. читается одинаково в обоих направлениях
+     */
+    static void palindrome() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter Your String: ");
+        String str = reader.nextLine();
+        String str1 = str.replace(" ", "");
+        StringBuffer reverseStr = new StringBuffer(str1);
+        reverseStr.reverse();
+        String reverseStr2 = reverseStr.toString();
+        boolean result = reverseStr2.equalsIgnoreCase(str1);
+            if (result) {
+                System.out.println("Вы можете прочитать фразу задом наперёд!!! )))");
+            } else {
+                System.out.println("Вашу фразу нельзя прочитать задом наперёд!!! (((");
+            }
+    }
+
+    /**Даны два слова. Напечатать только те буквы слов, которые есть только в одном из них (в том числе повторяющиеся).
+     * Например, если заданные слова `процессор` и `информация`, то ответом должно быть: `п е с с и Н ф м а И я`.
+     */
+    static void unicLetters() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter Your first word: ");
+        String firstWord = reader.nextLine();
+        System.out.println("Enter Your second word: ");
+        String secondWord = reader.nextLine();
+        char[] first = firstWord.toCharArray();
+        char[] second = secondWord.toCharArray();
+        for (int f = 0; f < first.length; f++) {
+            int result = 0;
+            for (int s = 0; s < second.length; s++) {
+                if (first[f] == second[s]) {
+                    result += 1;
+                }
+            }
+            if (result == 0) {
+//                System.out.println(first[f]);
+                System.out.print(first[f] + " ");
+            }
+        }
+        for (int s = 0; s < second.length; s++) {
+            int result = 0;
+            for (int f = 0; f < first.length; f++) {
+                if (second[s] == first[f]) {
+                    result += 1;
+                }
+            }
+            if (result == 0) {
+//                System.out.println(second[s]);
+                System.out.print(second[s] + " ");
+            }
+        }
+    }
+
+    /*Подсчитать количество всех точек, запятых и восклицательных знаков в строке.
+     */
+    static void quantityOfAllPointsCommasExclamation() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter Your String: ");
+        String str = reader.nextLine();
+        Pattern p = Pattern.compile("\\.|,|!");
+        Matcher m = p.matcher(str);
+        int quantityOfAllSplits = 0;
+        while (m.find()) {
+//            System.out.println(m.group());
+            quantityOfAllSplits += 1;
+        }
+        System.out.println(quantityOfAllSplits);
+    }
+
+    /* Дан текст. Напечатать все имеющиеся в нем цифры.
+     */
+    static void typeAllNumerals() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter Your String: ");
+        String str = reader.nextLine();
+        Pattern numerals = Pattern.compile("\\d");
+        Matcher numeral1 = numerals.matcher(str);
+            while (numeral1.find()) {
+            System.out.println(numeral1.group());
+            }
     }
 
     /*Дано предложение. Определить, сколько в нем гласных букв.
