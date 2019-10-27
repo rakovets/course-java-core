@@ -2,7 +2,13 @@ package com.rakovets.course.practice.string;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.util.Scanner;
+import java.util.regex.Pattern;
+import  java.util.regex.Matcher;
+
 import java.util.Arrays;
+import java.util.regex.Pattern;
+import  java.util.regex.Matcher;
 
 /**
  * Разработать программу для анализа банковских отчетов.
@@ -21,7 +27,7 @@ public class Task02 extends StandardInputTask {
 
 		// Вызов методов
 		System.out.println(Arrays.toString(getArrayMoneyFromReport(text)));
-		System.out.println(getSumMoneyFromReport(text));
+//		System.out.println(getSumMoneyFromReport(text));
 	}
 
 	/**
@@ -34,17 +40,21 @@ public class Task02 extends StandardInputTask {
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 
-				String input = "Hello Java! Hello JavaScript! JavaSE.";
-				Pattern pattern = Pattern.compile("$(\\d*)");
-				Matcher matcher = pattern.matcher(input);
-				while (matcher.find()) {
+//			Scanner reader = new Scanner(System.in);
+//			System.out.println("Enter Your String: ");
+//			String str = reader.nextLine();
+				Pattern pattern = Pattern.compile("(\\d*)$");
+				Matcher matcher = pattern.matcher(text);
+				double sumAll = 0.0;
+				while(matcher.find()) {
 					System.out.println(matcher.group());
-				}
-			}
-		}
 
+			}
 
 		return null;
+
+
+//		return null;
 	}
 
 	/**
