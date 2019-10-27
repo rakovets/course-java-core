@@ -11,9 +11,19 @@ public class StringChallengeSolutions {
 //        deleteSpaces();
 //        extractTextFromTill();
 //        replaceSmiles();
-        startAnnFinishTheSameWord();
-
+//        startAnnFinishTheSameWord();
+        vowelsQuantity();
     }
+
+    /*Дано предложение. Определить, сколько в нем гласных букв.
+    */
+    static void vowelsQuantity() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter Your String: ");
+        String str = reader.nextLine();
+        char[] vowels = str.toCharArray();
+        char[] vowelsAll = new char[] {'a', 'e', 'i', 'o', 'u', 'y', 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'};
+        for (int i = 0, int j = 0; (vowels[i] == vowelsAll[j]); j++);
 
     /**Написать функцию, принимающую 2 параметра: string и word - и возвращающую true,
      * если строка начинается и заканчивается этим словом.
