@@ -33,6 +33,17 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+				String input = "Hello Java! Hello JavaScript! JavaSE.";
+				Pattern pattern = Pattern.compile("$(\\d*)");
+				Matcher matcher = pattern.matcher(input);
+				while (matcher.find()) {
+					System.out.println(matcher.group());
+				}
+			}
+		}
+
+
 		return null;
 	}
 
