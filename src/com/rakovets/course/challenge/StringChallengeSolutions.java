@@ -21,9 +21,20 @@ public class StringChallengeSolutions {
         Scanner reader = new Scanner(System.in);
         System.out.println("Enter Your String: ");
         String str = reader.nextLine();
+        str = str.toLowerCase();
+        int sumAllVowels = 0;
         char[] vowels = str.toCharArray();
         char[] vowelsAll = new char[] {'a', 'e', 'i', 'o', 'u', 'y', 'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'};
-        for (int i = 0, int j = 0; (vowels[i] == vowelsAll[j]); j++);
+        for (int i = 0; i <= (vowels.length - 1); i++) {
+            for(int j = 0; j <= (vowelsAll.length - 1); j++) {
+                if (vowels[i] == vowelsAll[j]) {
+                    sumAllVowels += 1;
+                    break;
+                }
+            }
+        }
+        System.out.println(sumAllVowels);
+    }
 
     /**Написать функцию, принимающую 2 параметра: string и word - и возвращающую true,
      * если строка начинается и заканчивается этим словом.
