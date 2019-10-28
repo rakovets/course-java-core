@@ -1,6 +1,7 @@
 package com.rakovets.course.challenge;
 
 import java.util.Scanner;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,9 +19,111 @@ public class StringChallengeSolutions {
 //        typeAllNumerals();
 //        quantityOfAllPointsCommasExclamation();
 //        unicLetters();
-        palindrome();
+//        palindrome();
+//        nameSurnameMiddlenameIntoSNM();
+//        equalsMassives();
+//        deleteStringOn2();
+//        getQuantityWords();
+        compareSpeedLoops();
     }
 
+    /*Написать два цикла, выполняющих многократное сложение строк, один с помощью оператора сложения и String,
+    второй с помощью StringBuilder и метода append. Сравнить скорость их выполнения.
+     */
+        static void compareSpeedLoops() {
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Enter Your text: ");
+            String str = reader.nextLine();
+            str = str.trim();
+
+        }
+    /*Подсчитать количество слов в тексте. Учесть, что слова могут разделяться несколькими пробелами.
+     */
+        static void getQuantityWords() {
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Enter Your text: ");
+            String str = reader.nextLine();
+            str = str.trim();
+
+            Pattern p = Pattern.compile("\\s+");
+            Matcher m = p.matcher(str);
+            int quantityOfAllSpaces = 0;
+            while (m.find()) {
+                quantityOfAllSpaces += 1;
+            }
+            System.out.println("Quantity of words in Your text: " + (quantityOfAllSpaces + 1));
+        }
+
+    /*Написать функцию, разбивающую строку на равные части по 'n' символов и сохраняющую отдельные части в массив.
+    Вывести этот массив.
+     */
+        static void deleteStringOn2() {
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Enter Your String: ");
+            String str = reader.nextLine();
+            int length1 = (str.length() / 2);
+
+            char[] dst = new char[length1];
+            str.getChars(0, length1, dst, 0);
+            System.out.println(dst);
+
+            char[] dst1 = new char[str.length() - length1];
+            str.getChars(length1, str.length(), dst1, 0);
+            System.out.println(dst1);
+
+//            char[] newDst = new char[] {dst, dst1};
+        }
+
+     /*Заданы два массива строк. Написать функцию, определяющую, является ли содержимое этих массивов идентичным.
+    Порядок расположения элементов значения не имеет.
+     */
+        static void equalsMassives() {
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Enter Your first String: ");
+            String str1 = reader.nextLine();
+            System.out.println("Enter Your second String: ");
+            String str2 = reader.nextLine();
+
+            char[] str1Array = str1.toCharArray();
+            char[] str2Array = str2.toCharArray();
+
+            Arrays.sort(str1Array);
+            Arrays.sort(str2Array);
+
+            boolean result = Arrays.equals(str1Array, str2Array);
+            if (result) {
+                System.out.println("Your strings are EQUIVALENT as arrays");
+            } else {
+                System.out.println("Your strings are NOT equivalent as arrays");
+            }
+        }
+
+    /*Написать функцию, принимающую в качестве параметров имя, фамилию и отчество и возвращающую инициалы в формате Ф.И.О.
+    Учесть, что входные параметры могут быть в любом регистре, а результирующая строка должна быть в верхнем.
+     */
+        static void nameSurnameMiddlenameIntoSNM() {
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Enter Your Surname: ");
+            String surname = reader.nextLine();
+            System.out.println("Enter Your Name: ");
+            String name = reader.nextLine();
+            System.out.println("Enter Your Middlename: ");
+            String middlename = reader.nextLine();
+
+            char n = name.charAt(0);
+            char s = surname.charAt(0);
+            char m = middlename.charAt(0);
+
+            String n1 = String.valueOf(n);
+            String s1 = String.valueOf(s);
+            String m1 = String.valueOf(m);
+
+            String n2 = String.join(".", s1, n1, m1);
+//            String n3 = s + "." + n + "." + m + ".";
+            System.out.println(n2.toUpperCase());
+//            System.out.println(n3.toUpperCase());
+
+        }
 
     /* Проверить, является ли введённая строка палиндромом, т.е. читается одинаково в обоих направлениях
      */
