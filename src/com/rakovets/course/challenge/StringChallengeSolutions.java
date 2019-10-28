@@ -31,10 +31,71 @@ public class StringChallengeSolutions {
     второй с помощью StringBuilder и метода append. Сравнить скорость их выполнения.
      */
         static void compareSpeedLoops() {
-            Scanner reader = new Scanner(System.in);
-            System.out.println("Enter Your text: ");
-            String str = reader.nextLine();
-            str = str.trim();
+
+            String str = "Новая строка ! ";
+            String str1 = "Новая строка 1! ";
+            String str2 = "Новая строка 2! ";
+            String str3 = "Новая строка 3! ";
+            String str4 = "Новая строка 4! ";
+            String str5 = "Новая строка 5!";
+            System.out.println("Объединяем строки методом сложения (concat) String:");
+            System.out.print("Start: ");
+            long millis = System.currentTimeMillis() % 1000;
+            System.out.println(millis);
+            str = str.concat(str1);
+            str = str.concat(str2);
+            str = str.concat(str3);
+            str = str.concat(str4);
+            str = str.concat(str5);
+            System.out.println("Результат объединения строк методом сложения (concat) String: \n" + str);
+            long millis1 = System.currentTimeMillis() % 1000;
+            System.out.println("Finish: " + millis1);
+            System.out.println("Итого затрачено времени: " + (millis1 - millis));
+            long millis11 = (millis1 - millis);
+
+
+            System.out.println("Объединяем строки с помощью StringBuilder и метода append:");
+            System.out.print("Start: ");
+            long millis3 = System.currentTimeMillis() % 1000;
+            System.out.println(millis3);
+            StringBuffer strBuffer = new StringBuffer(str);
+            strBuffer.append(str1);
+            strBuffer.append(str2);
+            strBuffer.append(str3);
+            strBuffer.append(str4);
+            strBuffer.append(str5);
+            System.out.println("Результат объединения строк с помощью StringBuilder и метода append: \n" + strBuffer.toString());
+            long millis4 = System.currentTimeMillis() % 1000;
+            System.out.println("Finish: " + millis4);
+            System.out.println("Итого затрачено времени: " + (millis4 - millis3));
+
+
+
+//            Scanner reader = new Scanner(System.in);
+//            System.out.println("Enter quantity strings: ");
+//            int strQuantity = reader.nextInt();
+//            System.out.println("Enter quantity of symbols in string: ");
+//            int symbolQuantity = reader.nextInt();
+//            char[][] newArray = new char[strQuantity][symbolQuantity];
+//            for (int i = 0; i < strQuantity; i++) {
+//                System.out.print("\n{");
+//                for (int j = 0; j < (symbolQuantity - 1); j++) {
+//                    int x = (int) (Math.random() * 256);
+//                    newArray[i][j] = (char) (x / 1) ;
+//                    System.out.print(newArray[i][j] + ",");
+//                }
+//                    int x = (int) (Math.random() * 256);
+//                    newArray[i][symbolQuantity - 1] = (char) (x / 1) ;
+//                    System.out.print(newArray[i][symbolQuantity - 1]);
+//                    System.out.print("}");
+//            }
+//            String newString = null;
+//            for (int i = 0; i < strQuantity; i++) {
+//                String newString = newString.concat(newArray[i]);
+//
+//            }
+
+
 
         }
     /*Подсчитать количество слов в тексте. Учесть, что слова могут разделяться несколькими пробелами.
