@@ -33,13 +33,13 @@ public class Task03 extends StandardInputTask {
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 		String color = null;
 		if (currentHealthPoint != 0) {
-			if ((currentHealthPoint / maxHealthPoint) >= 0 && (currentHealthPoint / maxHealthPoint) < 0.25) {
+			if ((double)currentHealthPoint / maxHealthPoint < 0.25) {
 				color = "RED";
-			} else if ((currentHealthPoint / maxHealthPoint) >= 0.25 && (currentHealthPoint / maxHealthPoint) < 0.50) {
+			} else if ((double)currentHealthPoint / maxHealthPoint >= 0.25 && (double)currentHealthPoint / maxHealthPoint < 0.50) {
 				color = "ORANGE";
-			} else if ((currentHealthPoint / maxHealthPoint) >= 0.50 && (currentHealthPoint / maxHealthPoint) < 0.75) {
+			} else if ((double)currentHealthPoint / maxHealthPoint >= 0.50 && (double)currentHealthPoint / maxHealthPoint < 0.75) {
 				color = "YELLOW";
-			} else if ((currentHealthPoint / maxHealthPoint) >= 0.75 && (currentHealthPoint / maxHealthPoint) <= 1) {
+			} else if ((double)currentHealthPoint / maxHealthPoint >= 0.75 && (double)currentHealthPoint / maxHealthPoint <= 1) {
 				color = "GREEN";
 			}
 		}
