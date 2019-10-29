@@ -2,6 +2,9 @@ package com.rakovets.course.practice.string;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import javax.naming.Name;
+import java.sql.SQLOutput;
+
 /**
  * Разработать программу для парсера полного имени сотрудника компании.
  *
@@ -32,8 +35,8 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-             "gdsgs";
-		return null;
+		String Name = fullName.substring(0, fullName.lastIndexOf(' '));
+		return Name;
 
 	}
 
@@ -46,8 +49,10 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-
-		return null;
+        int index1 = fullName.lastIndexOf(' ');
+        String Surname = fullName.substring(index1);
+        String SUrname = Surname.trim();
+		return SUrname;
 	}
 
 	/**
@@ -59,7 +64,11 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String Name = fullName.substring(0, fullName.lastIndexOf(' '));
+		int index1 = fullName.lastIndexOf(' ');
+		String Surname = fullName.substring(index1);
+		String SUrname = Surname.trim();
+		return SUrname + " " + Name;
 
 	}
 }
