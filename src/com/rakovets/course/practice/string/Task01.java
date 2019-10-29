@@ -32,7 +32,9 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return "";
+             "gdsgs";
+		return null;
+
 	}
 
 	/**
@@ -44,6 +46,7 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
 		return null;
 	}
 
@@ -57,5 +60,6 @@ public class Task01 extends StandardInputTask {
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 		return null;
+
 	}
 }
