@@ -24,6 +24,45 @@ public class Task05 extends StandardInputTask {
 	 * @return месяц на английском языке (UPPER CASE)
 	 */
 	static String getNameMonth(byte monthNumber) {
-		return null;
+		String answer = null;
+		switch(monthNumber){
+			case 1:
+				answer = "JANUARY";
+				break;
+			case 2:
+				answer = "FEBRUARY";
+				break;
+			case 3:
+				answer = "MARCH";
+				break;
+			case 4:
+				answer = "APRIL";
+				break;
+			case 5:
+				answer = "MAY";
+				break;
+			case 6:
+				answer = "JUNE";
+				break;
+			case 7:
+				answer = "JULY";
+				break;
+			case 8:
+				answer = "AUGUST";
+				break;
+			case 9:
+				answer = "SEPTEMBER";
+				break;
+			case 10:
+				answer = "OCTOBER";
+				break;
+			case 11:
+				answer = "NOVEMBER";
+				break;
+			case 12:
+				answer = "DECEMBER";
+				break;
+		}
+		return answer;
 	}
 }

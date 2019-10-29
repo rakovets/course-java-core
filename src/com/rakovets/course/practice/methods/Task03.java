@@ -31,6 +31,18 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		String answer = null;
+		if (currentHealthPoint > maxHealthPoint || currentHealthPoint == 0){
+			answer = null;
+		} else  if (currentHealthPoint < maxHealthPoint*0.25){
+			answer = "RED";
+		}else if (currentHealthPoint < maxHealthPoint*0.5){
+			answer = "ORANGE";
+		}else if (currentHealthPoint < maxHealthPoint*0.75){
+			answer = "YELLOW";
+		}else {
+			answer = "GREEN";
+		}
+		return answer;
 	}
 }
