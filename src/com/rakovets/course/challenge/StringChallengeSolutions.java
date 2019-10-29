@@ -24,8 +24,36 @@ public class StringChallengeSolutions {
 //        equalsMassives();
 //        deleteStringOn2();
 //        getQuantityWords();
-        compareSpeedLoops();
+//        compareSpeedLoops();
+        deleteIdenticalCharacters();
     }
+/*Oleg is nnnooowww good programmerrrr
+
+    /*Написать функцию, заменяющую несколько последовательных одинаковых символов в строке одним.
+    Например: aaabbcdeef -> abcdef
+     */
+        static void deleteIdenticalCharacters() {
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Enter Your text: ");
+            String str = reader.nextLine();
+////            str = str.trim();
+//            char[] str1 = str.toCharArray();
+//            char a = 0;
+//            char b = 0;
+            String strResult = "";
+
+            StringBuffer strResult1 = new StringBuffer(strResult);
+            for (int i = 0; i < (str.length() - 1); i++) {
+                char a = str.charAt(i);
+                char b = str.charAt(i + 1);
+                if (a != b) {
+                strResult1 = strResult1.append(a);
+                }
+            }
+            int last = (str.length() - 1);
+            strResult1 = strResult1.append(str.charAt(last));
+            System.out.print(strResult1);
+        }
 
     /*Написать два цикла, выполняющих многократное сложение строк, один с помощью оператора сложения и String,
     второй с помощью StringBuilder и метода append. Сравнить скорость их выполнения.
