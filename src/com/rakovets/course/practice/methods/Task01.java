@@ -29,6 +29,10 @@ public class Task01 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return false;
+		if (positionPlayerByDamage <= sizeTop) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
