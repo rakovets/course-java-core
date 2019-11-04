@@ -1,4 +1,4 @@
-package com.rakovets.course.challenge.oop;
+package com.rakovets.course.challenge.objects;
 
 /**## Specification of task 1
  Создать класс, описывающий промежуток времени. Сам промежуток времени должен задаваться тремя свойствами:

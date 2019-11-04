@@ -1,4 +1,4 @@
-package com.rakovets.course.challenge.oop;
+package com.rakovets.course.challenge.objects;
 
 
 /*## Specification of task 3
