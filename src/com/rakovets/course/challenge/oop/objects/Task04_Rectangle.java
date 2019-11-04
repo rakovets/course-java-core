@@ -1,4 +1,4 @@
-package com.rakovets.course.challenge.objects;
+package com.rakovets.course.challenge.oop.objects;
 
 /*## Specification of task 4
 Создать класс `Rectangle`.
