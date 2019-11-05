@@ -2,6 +2,7 @@ package com.rakovets.course.practice.array;
 
 import com.rakovets.course.util.StandardInputTask;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 /**
@@ -33,7 +34,16 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		double sum = 0;
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks[0].length; j++) {
+				sum += marks[i][j];
+			}
+		}
+		double average = sum / (marks.length * marks[0].length);
+		average = Math.round(average * 100);
+		average /= 100;
+		return average;
 	}
 
 	/**
@@ -45,7 +55,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int min = marks[0][0];
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks[0].length; j++) {
+				if (marks[i][j] < min) {
+					min = marks[i][j];
+				}
+			}
+		}
+		return min;
 	}
 
 	/**
@@ -57,7 +75,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int max = marks[0][0];
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks[0].length; j++) {
+				if (marks[i][j] > max) {
+					max = marks[i][j];
+				}
+			}
+		}
+		return max;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {

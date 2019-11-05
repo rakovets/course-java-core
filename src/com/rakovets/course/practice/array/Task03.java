@@ -33,7 +33,19 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		double[] sum = new double[marks.length];
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks[0].length; j++) {
+				sum[i] += marks[i][j];
+			}
+		}
+		double[] average = new double[sum.length];
+		for (int k = 0; k < sum.length; k++) {
+			average[k] = sum[k] / marks[0].length;
+			average[k] = Math.round(average[k] * 100);
+			average[k] /= 100;
+		}
+		return average;
 	}
 
 	/**
@@ -45,8 +57,21 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
-	}
+		// int[] min = new int[marks.length];
+		int[] min = new int[marks.length];
+		for (int i = 0; i < marks.length; i++) {
+			min[i] = marks[i][0];
+		}
+			for (int i = 0; i < marks.length; i++) {
+				for (int j = 0; j < marks[0].length; j++) {
+					if (min[i] > marks[i][j]) {
+						min[i] = marks[i][j];
+					}
+				}
+			}
+			return  min;
+		}
+
 
 	/**
 	 * Возвращает максимальну отметку по предметам за весь период обучения.
@@ -57,7 +82,18 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		int[] max = new int[marks.length];
+		for (int i = 0; i < marks.length; i++) {
+			max[i] = marks[i][0];
+		}
+		for (int i = 0; i < marks.length; i++) {
+			for (int j = 0; j < marks[0].length; j++) {
+				if (max[i] < marks[i][j]) {
+					max[i] = marks[i][j];
+				}
+			}
+		}
+		return  max;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {
