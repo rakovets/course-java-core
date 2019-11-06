@@ -15,8 +15,8 @@ package com.rakovets.course.challenge.oop.objects;
 
 public class Task01_timeInterval {
     public static void main(String[] args) {
-        Interval timeInterval = new Interval(); // создание объекта
-        timeInterval.displayInfo();
+//        Interval timeInterval = new Interval(); // создание объекта
+//        timeInterval.displayInfo();
 
     }
 }

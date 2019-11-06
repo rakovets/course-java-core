@@ -15,30 +15,30 @@ package com.rakovets.course.challenge.oop.inheritance;
 - `purr()` – кот мурлычет
 - `getName()` – получить кличку кота
 - `setName(name)` – задать кличку кота
-
 */
-
-public class Cat {
+class Cat {
     private String name;
 
     Cat(String name) {
         this.name = name;
     }
 
-   public String mew() {
-       return ("Mew-mew");
-   }
+    public void mew() {
+        System.out.println("Mew-mew");
+    }
 
-    public String purr() {
-        return ("Purr-purr");
+    public void purr() {
+        System.out.println("Purr-purr");
     }
 
     public String getName() {
         return this.name;
     }
-
     public void setName(String name) {
         this.name = name;
+    }
+    void displayInfo() {
+        System.out.println("Cat name: " + name);
     }
 
 }

@@ -23,7 +23,7 @@ package com.rakovets.course.challenge.oop.objects;
 
 public class Task03_point {
     public static void main(String[] args) {
-        Point point = new Point(1, 2); // создание объекта
+//        Point point = new Point(1, 2); // создание объекта
 //        point.displayInfo();
     }
 }
@@ -40,12 +40,12 @@ class Point {
             this.name = name;
         }
 
-        public void setX(double x) {
-            this.x = x;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
+//        public void setX(double x) {
+//            this.x = x;
+//        }
+//
+//        public String getName() {
+//            return this.name;
+//        }
+    }
 }
