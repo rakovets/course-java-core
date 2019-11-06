@@ -1,13 +1,5 @@
 package com.rakovets.course.challenge.oop.inheritance;
 
-/*### Specification of task 2
-Создать классы `Siamese`, `Persian`, `Sphynx`.
-
-Переопределить в них метод:
-- `purr()` – кот мурлычет (каждый по разному)
-- `mew()` – кот мяукает (каждый по разному)
-*/
-
  class Siamese extends Cat {
      private String catBreed;
 

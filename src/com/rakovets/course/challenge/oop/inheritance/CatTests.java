@@ -1,6 +1,6 @@
 package com.rakovets.course.challenge.oop.inheritance;
 
-public class Cat_Test {
+public class CatTests {
     public static void main(String[] args) {
         Cat barsic = new Cat("Barsic");
         barsic.displayInfo();
@@ -9,7 +9,6 @@ public class Cat_Test {
         barsic.getName();
         barsic.displayInfo();
         barsic.purr();
-
 
         Siamese siamese = new Siamese("Simka", "Siamese");
         siamese.displayInfo();
