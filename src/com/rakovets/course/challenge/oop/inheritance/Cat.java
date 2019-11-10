@@ -1,9 +1,9 @@
-package com.rakovets.course.util;
+package com.rakovets.course.challenge.oop.inheritance;
 
 public class Cat {
     String name;
 
-    Cat(String name) {
+    public Cat(String name) {
         this.name = name;
     }
 

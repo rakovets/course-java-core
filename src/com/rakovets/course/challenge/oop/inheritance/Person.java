@@ -1,4 +1,4 @@
-package com.rakovets.course.util;
+package com.rakovets.course.challenge.oop.inheritance;
 
 public class Person {
     int hapinness;
@@ -7,7 +7,7 @@ public class Person {
         this.hapinness = hapinness;
     }
 
-    void takeHapinness(int hapinness) {
+    public void takeHapinness(int hapinness) {
         this.hapinness += hapinness;
         System.out.printf("Pleasure that person get %d and final hapinness is %d\n", hapinness, this.hapinness);
         if (this.hapinness < 0) {

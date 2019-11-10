@@ -1,4 +1,4 @@
-package com.rakovets.course.util;
+package com.rakovets.course.challenge.oop.inheritance;
 
 public class Sphynx extends Cat {
 
