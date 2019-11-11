@@ -2,6 +2,8 @@ package com.rakovets.course.challenge.oop.inheritance;
 
 public class CatTests {
     public static void main(String[] args) {
+        Person olegBel = new Person(50);
+
         Cat barsic = new Cat("Barsic");
         barsic.displayInfo();
         barsic.mew();
@@ -24,6 +26,13 @@ public class CatTests {
         sphynx.displayInfo();
         sphynx.purr();
         sphynx.mew();
+
+
+        public void mew(Person person) {
+            person.getHappiness()
+        }
+
+
     }
 }
 

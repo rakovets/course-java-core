@@ -13,6 +13,8 @@ public class PersonTests {
         System.out.println("Устанавливаем новый уровень СУПЕР счастья в 1000 пунктов");
         person.setHappiness(1000);
         person.displayInfo();
+//        System.out.println("\nПроверка мурлыкает или мяучит");
+//        person.Cat.mew();
     }
 
 }

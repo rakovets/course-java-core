@@ -16,15 +16,15 @@ package com.rakovets.course.challenge.oop.inheritance;
  */
 
 public class Person {
+    private String name;
     private double happiness;
 
     Person(double happiness) {
         this.happiness = happiness;
     }
 
-    public double takeHappiness(double happiness) {
+    public void takeHappiness(double happiness) {
         this.happiness += happiness;
-        return this.happiness;
     }
 
     public double getHappiness() {
@@ -38,5 +38,6 @@ public class Person {
     void displayInfo() {
         System.out.printf("Level of Happines now is %f points now\n", happiness);
     }
+
 
 }
