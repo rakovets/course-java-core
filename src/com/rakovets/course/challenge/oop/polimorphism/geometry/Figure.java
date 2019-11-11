@@ -1,29 +1,32 @@
 package com.rakovets.course.challenge.oop.polimorphism.geometry;
 
-public class Figure implements EqualFigures, ShapeUtils {
-    double x;
-    double y;
-    double z;
-    double m;
+public abstract class Figure implements EqualFigures, ShapeUtils {
+    double firstSide;
+    double secondSide;
+    double thirdSide;
+    double furthSide;
     double area;
+    double radius;
 
-    public Figure(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    public Figure(double radius) {
+        this.radius = radius;
+    }
+
+    public Figure(double firstSide, double secondSide, double thirdSide) {
+        this.firstSide = firstSide;
+        this.secondSide = secondSide;
+        this.thirdSide = thirdSide;
     }
 
 
-    public Figure(double x, double y, double z, double m) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.m = m;
+    public Figure(double firstSide, double secondSide, double thirdSide, double furthSide) {
+        this.firstSide = firstSide;
+        this.secondSide = secondSide;
+        this.thirdSide = thirdSide;
+        this.furthSide = furthSide;
     }
 
-   public double ariaOfFigure(Figure f) {
-        return area;
-   }
+   public abstract double ariaOfFigure(Figure f);
 
     @Override
     public void equalFigures(Figure a, Figure b) {
@@ -33,4 +36,6 @@ public class Figure implements EqualFigures, ShapeUtils {
             System.out.println("\nFigures are not similar.");
         }
     }
+
+    public abstract String toString();
 }

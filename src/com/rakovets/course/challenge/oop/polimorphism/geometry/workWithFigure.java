@@ -11,5 +11,15 @@ public class workWithFigure {
         rectangle.checkOnShape(rectangle);
         triangle.heightOfTriangle(triangle);
         rectangle.diagonalOfRectangle(rectangle);
+        triangle.toString();
+        triangle.printInformationAboutFigure();
+        rectangle.toString();
+        rectangle.printInformationAboutFigure();
+        Circle circle = new Circle(2);
+        circle.ariaOfFigure(circle);
+        circle.perimeterOfCircle(circle);
+        circle.toString();
+        circle.printInformationAboutFigure();
+        circle.equalFigures(circle , triangle);
     }
 }
