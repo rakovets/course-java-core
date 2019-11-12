@@ -28,9 +28,9 @@ public class CatTests {
         sphynx.mew();
 
 
-        public void mew(Person person) {
-            person.getHappiness()
-        }
+//        public void mew(Person person) {
+//            person.getHappiness()
+//        }
 
 
     }
