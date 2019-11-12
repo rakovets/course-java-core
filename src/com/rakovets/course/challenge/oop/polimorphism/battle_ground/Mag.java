@@ -9,7 +9,11 @@ public class Mag extends Hero {
     @Override
     public void takeDamage(int damageFromEnemy) {
         this.health -= damageFromEnemy;
-        System.out.printf("\nCurrent HP of hero: %d\n", this.health);
+        if (isAlive()) {
+            System.out.printf("\nCurrent HP of hero: %d\n", this.health);
+        } else {
+            System.out.println("\nMag is dead :(");
+        }
     }
 
     @Override
