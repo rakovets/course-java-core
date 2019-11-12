@@ -13,19 +13,17 @@ public class Time {
 	}
 
 	public Time(int hours, int minutes, int seconds) {
-		this.hour = hours;
-		this.minute = minutes;
-		this.second = seconds;
+		this(convertToSeconds(hours, minutes, seconds));
 	}
 
-	public long getSeconds() {
+	public long getTotalSeconds() {
 		long seconds;
 		seconds = convertToSeconds(this.hour, this.minute, this.second);
 		return seconds;
 	}
 
 	public void writeTime() {
-		System.out.printf("%s:%s:%s", hour, minute, second);
+		System.out.printf("%s:%s:%s\n", hour, minute, second);
 	}
 
 	private static int[] convertToSeparateValues(long seconds) {
