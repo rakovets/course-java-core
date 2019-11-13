@@ -13,25 +13,49 @@ package com.rakovets.course.challenge.oop.objects;
  */
 
 
-public class Task01_timeInterval {
-    public static void main(String[] args) {
-//        Interval timeInterval = new Interval(); // создание объекта
-//        timeInterval.displayInfo();
 
-    }
-}
 
 class Interval {
-    int hours;
-    int minutes;
-    int seconds;
+   private int hours;
+   private int minutes;
+   private int seconds;
 
-    Interval (int hours, int minutes, int seconds) {
+//    public int getSeconds(int hours, int minutes, int seconds) {
+//
+//    }
+
+    Interval(int AllSeconds) {
+        this.hours = AllSeconds / 3600;
+        this.minutes = (AllSeconds - (this.hours * 3600)) / 60;
+        this.seconds = AllSeconds - (this.hours * 3600 + this.minutes * 60);
+    }
+
+    Interval(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
     }
+
+    public int getHours() {
+        return this.hours;
+    }
+
+    public int getMinutes() {
+        return this.minutes;
+    }
+
+    public int getSeconds() {
+        return this.seconds;
+    }
+
+    Видео на 18-й минуте!!!
+
+    void display() {
+        System.out.printf("H: %d, M: %d, S: %d\n", this.hours, this.minutes, this.seconds);
+//        System.out.printf("Point Y is %f\n", getY());
+    }
 }
+
 
 
 
