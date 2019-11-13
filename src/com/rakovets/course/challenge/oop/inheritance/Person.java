@@ -1,4 +1,4 @@
-package oop.inheritance;
+package com.rakovets.course.challenge.oop.inheritance;
 
 public class Person {
     private int happiness;
