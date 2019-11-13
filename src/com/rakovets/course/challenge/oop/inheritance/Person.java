@@ -36,8 +36,7 @@ public class Person {
     }
 
     void displayInfo() {
-        System.out.printf("Level of Happines now is %f points now\n", happiness);
+        System.out.printf("Level of Happines is %f points now.\n", happiness);
     }
-
 
 }
