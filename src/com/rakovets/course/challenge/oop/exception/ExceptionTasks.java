@@ -5,6 +5,6 @@ class ExceptionTasks {
     String firstTaskString = null;
 
 static getQuantityIndex (String name){
-
+//
     }
 }
