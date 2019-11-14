@@ -29,38 +29,29 @@ class Point {
        this.y = y;
     }
 
-    public double getX() {
+    double getX()
+    {
         return this.x;
     }
 
-    public void setX(double x) {
+    void setX(double x) {
         this.x = x;
     }
 
-    public double getY() {
+    double getY() {
         return this.y;
     }
 
-    public void setY(double y) {
+    void setY(double y) {
         this.y = y;
     }
 
     void display() {
-        System.out.printf("Point X is %f\n", getX());
-        System.out.printf("Point Y is %f\n", getY());
+        System.out.printf("Point X is %.2f, Point Y is %.2f\n", getX(), getY());
     }
 
-//    public double distance(double a, double b) {
-//        double z = Math.sqrt((Math.pow((a - getX()), 2) + Math.pow((b - getY()), 2)));
-//        return z;
-//    }
+    double distance(Point point) {
+        return Math.sqrt((Math.pow((point.x - this.x), 2) + Math.pow((point.y - this.y), 2)));
 
-    void distance(double a, double b) {
-//        double z = Math.sqrt((Math.pow((a - getX()), 2) + Math.pow((b - getY()), 2)));
-//        double z = Math.sqrt((Math.pow((x - this.x), 2) + Math.pow((y - this.y), 2)));
-        double z = Math.sqrt((Math.pow((a - this.x), 2) + Math.pow((b - this.y), 2)));
-
-        System.out.println(z);
-        System.out.printf("a = %f, this.x = %f, b = %f, this.y = %f\n", a, this.x, b, this.y);
     }
 }
