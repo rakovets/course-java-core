@@ -12,17 +12,10 @@ package com.rakovets.course.challenge.oop.objects;
  Написать тесты для класса.
  */
 
-
-
-
 class Interval {
    private int hours;
    private int minutes;
    private int seconds;
-
-//    public int getSeconds(int hours, int minutes, int seconds) {
-//
-//    }
 
     Interval(int AllSeconds) {
         this.hours = AllSeconds / 3600;
@@ -36,23 +29,24 @@ class Interval {
         this.seconds = seconds;
     }
 
-    public int getHours() {
+    int getHours() {
         return this.hours;
     }
 
-    public int getMinutes() {
+    int getMinutes() {
         return this.minutes;
     }
 
-    public int getSeconds() {
+    int getSeconds() {
         return this.seconds;
     }
 
-    Видео на 18-й минуте!!!
+    int getAllSeconds () {
+        return this.hours * 3600 + this.minutes * 60 + this.seconds;
+    }
 
     void display() {
         System.out.printf("H: %d, M: %d, S: %d\n", this.hours, this.minutes, this.seconds);
-//        System.out.printf("Point Y is %f\n", getY());
     }
 }
 
