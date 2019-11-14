@@ -8,6 +8,10 @@ public class TestsTask01020304{
        Interval timeUsual = new Interval(21, 58,49);
        timeUsual.display();
 
+       System.out.printf("H: %d, M: %d, S: %d", timeSeconds.getHours(), timeSeconds.getMinutes(), timeSeconds.getSeconds());
+
+       System.out.printf("S: %d", timeUsual.getAllSeconds());
+
 //        Point point = new Point(45.5, 32.25);
 //        System.out.println("Координаты нашей точки:");
 //        point.display();
