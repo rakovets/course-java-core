@@ -20,35 +20,18 @@ package com.rakovets.course.challenge.oop.objects;
 
 Написать тесты для класса.
 */
-public class Task04_Rectangle {
+public class TestRectangle {
     public static void main(String[] args) {
+//        Test for constructor
         Rectangle rectangle = new Rectangle(25, 26);
-
+        rectangle.display();
+//        Test for getters & setters
+        rectangle.setPointLT(10.00);
+        rectangle.setPointRU(15.50);
+        System.out.printf("PointLT = %.2f, PointRU = %.2f\n", rectangle.getPointLT(), rectangle.getPointRU());
+//        Test for methods
+        System.out.printf("Area = %.2f, perimetr = %.2f\n", rectangle.area(rectangle), rectangle.perimeter(rectangle));
     }
 }
 
-class Rectangle {
-    double pointLT;
-    double pointRU;
-
-    Rectangle(double point1, double point2) {
-        pointLT = point1;
-        pointRU = point2;
-        System.out.printf("PointLT = %d, PoitRU = %d", pointLT, pointRU);
-    }
-
-    public double getPointLT() {
-        return this.pointLT;
-    }
-    public void setPointLT(double pointLT) {
-        this.pointLT = pointLT;
-    }
-    public double getPointRU() {
-        return this.pointRU;
-    }
-    public void setPointRU(double pointRU) {
-        this.pointRU = pointRU;
-    }
-
-}
 
