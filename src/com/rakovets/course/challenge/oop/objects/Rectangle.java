@@ -1,40 +1,44 @@
 package com.rakovets.course.challenge.oop.objects;
 
 class Rectangle {
-    private double pointLT;
-    private double pointRU;
+    private Point pointLT;
+    private Point pointRU;
 
-    Rectangle(double pointLT, double pointRU) {
+    Rectangle(Point pointLT, Point pointRU) {
         this.pointLT = pointLT;
         this.pointRU = pointRU;
     }
 
     void display() {
-        System.out.printf("PointLT = %.2f, PointRU = %.2f\n", this.pointLT, this.pointRU);
+        System.out.printf("Rectangle = \nPointLT: ");
+        this.pointLT.display();
+        System.out.printf("PointRU: ");
+        this.pointRU.display();
     }
 
-    public double getPointLT() {
+    Point getPointLT() {
         return this.pointLT;
     }
 
-    void setPointLT(double pointLT) {
+    void setPointLT(Point pointLT) {
         this.pointLT = pointLT;
     }
 
-    public double getPointRU() {
+    Point getPointRU() {
         return this.pointRU;
     }
 
-    void setPointRU(double pointRU) {
+    void setPointRU(Point pointRU) {
         this.pointRU = pointRU;
     }
 
-    public double area(Rectangle rectangle) {
-        return this.pointLT * this.pointRU;
+    double area() {
+        return Math.abs((this.pointRU.getX() - this.pointLT.getX()) *
+                (this.pointRU.getY() - this.pointLT.getY()));
     }
 
-    public double perimeter(Rectangle rectangle) {
-        return (this.pointLT + this.pointRU) * 2;
+    double perimeter() {
+        return (Math.abs(this.pointRU.getX() - this.pointLT.getX()) +
+                Math.abs(this.pointRU.getY() - this.pointLT.getY())) * 2;
     }
 }
-

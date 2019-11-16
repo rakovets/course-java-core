@@ -23,15 +23,20 @@ package com.rakovets.course.challenge.oop.objects;
 public class TestRectangle {
     public static void main(String[] args) {
 //        Test for constructor
-        Rectangle rectangle = new Rectangle(25, 26);
+        Point pointLT = new Point(-4, 23);
+        Point pointRU = new Point(10, -15);
+        Rectangle rectangle = new Rectangle(pointLT, pointRU);
         rectangle.display();
 //        Test for getters & setters
-        rectangle.setPointLT(10.00);
-        rectangle.setPointRU(15.50);
-        System.out.printf("PointLT = %.2f, PointRU = %.2f\n", rectangle.getPointLT(), rectangle.getPointRU());
+        rectangle.getPointLT().display();
+        rectangle.getPointRU().display();
+        Point i = new Point(-1.0, 1);
+        rectangle.setPointLT(i);
+        Point j = new Point(5, -5);
+        rectangle.setPointRU(j);
+        rectangle.display();
 //        Test for methods
-        System.out.printf("Area = %.2f, perimetr = %.2f\n", rectangle.area(rectangle), rectangle.perimeter(rectangle));
+        System.out.printf("Area = %.2f, perimetr = %.2f\n", rectangle.area(), rectangle.perimeter());
     }
 }
-
 
