@@ -33,7 +33,17 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0.0;
+		int arraySum = 0;
+		int dlinaAllMarks = 0;
+		for(int i = 0; i < marks.length; i++){
+			for (int j = 0; j < marks[i].length; j++){
+				arraySum += marks[i][j];
+				dlinaAllMarks++;
+			}
+		}
+		double averageMark1 = (double) arraySum / dlinaAllMarks;
+		averageMark1 = (double) Math.round(averageMark1 * 100) / 100;
+		return averageMark1;
 	}
 
 	/**
@@ -45,7 +55,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int minMark1 = marks [0][0];
+		for(int i = 0; i < marks.length; i++){
+			for (int j = 0; j < marks[i].length; j++) {
+				if (minMark1 > marks[i][j]) {
+					minMark1 = marks[i][j];
+				}
+			}
+		}
+		return minMark1;
 	}
 
 	/**
@@ -57,7 +75,15 @@ public class Task02 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return 0;
+		int maxMark1 = marks [0][0];
+		for(int i = 0; i < marks.length; i++){
+			for(int j = 0; j < marks[i].length; j++){
+				if (maxMark1 < marks[i][j]){
+					maxMark1 = marks[i][j];
+				}
+			}
+		}
+		return maxMark1;
 	}
 
 	private static int[][] nextArray(int countDisciplines, int countSemesters) {

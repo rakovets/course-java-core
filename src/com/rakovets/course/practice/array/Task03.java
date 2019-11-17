@@ -33,7 +33,16 @@ public class Task03 extends StandardInputTask {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используя параметры метода
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		return null;
+		double[] averageMarkAll = new double[marks.length];
+		for(int i = 0; i < marks.length; i++){
+			double averageMarkSum = 0;
+			for(int j = 0; j < marks[i].length; j++){
+				averageMarkSum += marks[i][j];
+			}
+			averageMarkSum = Math.round(averageMarkSum / marks[i].length * 100) / 100;
+			averageMarkAll[i] = averageMarkSum;
+		}
+		return averageMarkAll;
 	}
 
 	/**
