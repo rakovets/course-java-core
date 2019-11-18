@@ -23,13 +23,25 @@ class Cat {
         this.name = name;
     }
 
+
     public void mew() {
         System.out.println("Mew-mew");
+    }
+
+    public void mew(Person person) {
+        mew();
+        person.takeHappiness(-5);
     }
 
     public void purr() {
         System.out.println("Purr-purr");
     }
+
+    public void purr(Person person) {
+        purr();
+        person.takeHappiness(5.0);
+    }
+
 
     public String getName() {
         return this.name;

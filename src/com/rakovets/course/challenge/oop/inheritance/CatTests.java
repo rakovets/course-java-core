@@ -27,10 +27,38 @@ public class CatTests {
         sphynx.purr();
         sphynx.mew();
 
+        barsic.mew(olegBel);
+        olegBel.displayInfo();
+        barsic.purr(olegBel);
+        barsic.purr(olegBel);
+        olegBel.displayInfo();
 
-//        public void mew(Person person) {
-//            person.getHappiness()
-//        }
+        siamese.mew(olegBel);
+        olegBel.displayInfo();
+        siamese.purr(olegBel);
+        olegBel.displayInfo();
+        siamese.purr();
+        olegBel.displayInfo();
+
+
+        olegBel.displayInfo();
+        persian.mew(olegBel);
+        olegBel.displayInfo();
+        persian.purr();
+        olegBel.displayInfo();
+        persian.purr(olegBel);
+        olegBel.displayInfo();
+
+
+        for (int i = 0; i < 5; i++) {
+            sphynx.mew(olegBel);
+        }
+        olegBel.displayInfo();
+
+        for (int i = 0; i < 10; i++) {
+            sphynx.purr(olegBel);
+        }
+        olegBel.displayInfo();
 
 
     }

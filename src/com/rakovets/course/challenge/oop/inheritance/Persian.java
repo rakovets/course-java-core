@@ -9,6 +9,19 @@ class Persian extends Cat {
     }
 
     @Override
+    public void mew() {
+        System.out.print("Persian: ");
+        super.mew();
+    }
+
+    @Override
+    public void mew(Person person) {
+        System.out.print("Persian: ");
+        super.mew();
+        person.takeHappiness(-7);
+    }
+
+    @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.printf("%s's breed is Persian \n", getName());
@@ -21,8 +34,10 @@ class Persian extends Cat {
     }
 
     @Override
-    public void mew() {
+    public void purr(Person person) {
         System.out.print("Persian: ");
-        super.mew();
+        super.purr();
+        person.takeHappiness(7);
     }
+
 }

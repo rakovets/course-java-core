@@ -17,6 +17,7 @@ package com.rakovets.course.challenge.oop.inheritance;
 
 public class Person {
     private String name;
+
     private double happiness;
 
     Person(double happiness) {
@@ -25,14 +26,26 @@ public class Person {
 
     public void takeHappiness(double happiness) {
         this.happiness += happiness;
+        minMaxLevelHappiness();
+    }
+
+    public double minMaxLevelHappiness() {
+        if (this.happiness > 100) {
+            this.happiness = 100;
+        } else if (this.happiness < 0) {
+            this.happiness = 0;
+        }
+        return this.happiness;
     }
 
     public double getHappiness() {
+        minMaxLevelHappiness();
         return this.happiness;
     }
 
     public void setHappiness(double happiness) {
         this.happiness = happiness;
+        minMaxLevelHappiness();
     }
 
     void displayInfo() {
