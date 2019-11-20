@@ -14,7 +14,8 @@ public class Mag extends Hero implements Mortal{
     }
 
     public void heal(Hero hero){
-        System.out.printf("%s is emergency %s, %s health is: " + hero.getHealth() + EMERGENCY_HEALTH + "\n", getName(), hero.getName(), hero.getName());
+        System.out.printf("%s is emergency %s\n", getName(), hero.getName());
         hero.setHealth(hero.getHealth() + EMERGENCY_HEALTH);
+        System.out.printf("%s health is: " + hero.getHealth() + "\n", hero.getName());
     }
 }
