@@ -6,6 +6,11 @@ public class Time {
     private int seconds;
     private int totalTime;
 
+    Time(int totalSeconds){
+        this.hours = totalSeconds / 3600;
+        this.minutes = (totalSeconds % (60 * 60)) / 60;
+        this.seconds = (totalSeconds % 60) % 60;
+    }
 
     Time(int hours, int minutes, int seconds){
         this.hours = hours;

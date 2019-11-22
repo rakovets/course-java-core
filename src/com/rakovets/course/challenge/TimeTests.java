@@ -2,7 +2,8 @@ package com.rakovets.course.challenge;
 
 public class TimeTests {
     public static void main(String[] args) {
-        Time Time = new Time(876, 6576, 76);
+        Time Time = new Time(876, 45, 44);
+
         Time.getHours();
         Time.getMinutes();
         Time.getSeconds();
@@ -15,6 +16,19 @@ public class TimeTests {
         Time.getSeconds();
         Time.setSeconds(34);
         Time.getSeconds();
+        Time TotalSecondsTime = new Time(3156344);
+        TotalSecondsTime.getHours();
+        TotalSecondsTime.getMinutes();
+        TotalSecondsTime.getSeconds();
+        TotalSecondsTime.getTotalSeconds();
+        TotalSecondsTime.setMinutes(564);
+        TotalSecondsTime.setHours(43);
+        TotalSecondsTime.getHours();
+        TotalSecondsTime.getMinutes();
+        TotalSecondsTime.getTotalSeconds();
+        TotalSecondsTime.getSeconds();
+        TotalSecondsTime.setSeconds(34);
+        TotalSecondsTime.getSeconds();
 
 
     }
