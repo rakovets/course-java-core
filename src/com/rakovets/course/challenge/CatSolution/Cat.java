@@ -7,19 +7,25 @@ public class Cat {
         this.name = name;
     }
     // методы туть
-    void mew() {
-        System.out.println("Cat ==> 'MEW' ");
+    void mew() { System.out.println("mew-mew-mew"); }
+
+    void mew(Person james) {
+        System.out.println("mew-mew-mew");
+        james.takeHappiness(-8);
     }
 
-    void purr(){
-        System.out.println("Cat ==> 'PURR'");
+    void purr(){ System.out.println("purr-purr-purr"); }
+
+    void purr(Person james){
+        System.out.println("purr-purr-purr");
+        james.takeHappiness(+8);
     }
 
     String getName() {
         return ("Cat's name is " + name);
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 }
