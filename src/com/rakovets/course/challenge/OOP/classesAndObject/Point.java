@@ -35,9 +35,9 @@ public class Point {
         y = 0;
     }
 
-    public int distance(Point point)
+    public double distance(Point point)
     {
-     int distance = (point.x - x) + (point.y - y);
+     double distance =  Math.sqrt(Math.pow(point.x - x, 2) + Math.pow(point.y - y, 2));
      return distance;
     }
 }

@@ -23,7 +23,7 @@ public class Rectangle {
 
     public void setFirstPoint()
     {
-        firstPoint = new Point(5, 6);
+        firstPoint = new Point(0, 0);
     }
 
     public Point getSecondPoint()
@@ -33,7 +33,7 @@ public class Rectangle {
 
     public void setSecondPoint()
     {
-        secondPoint = new Point(14, 12);
+        secondPoint = new Point(10, 10);
     }
 
     public int getPerimeter()
