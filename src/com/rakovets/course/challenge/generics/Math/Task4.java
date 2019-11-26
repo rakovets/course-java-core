@@ -1,4 +1,4 @@
-package com.rakovets.course.challenge.generics;
+package com.rakovets.course.challenge.generics.Math;
 
 public class Task4 {
     public static <T extends Comparable<T>> void lessValueInArray(T[] array) {
@@ -9,6 +9,5 @@ public class Task4 {
             }
         }
         System.out.println("less value in array is " + res);
-
     }
 }

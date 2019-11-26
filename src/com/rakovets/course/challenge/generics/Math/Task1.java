@@ -1,4 +1,4 @@
-package com.rakovets.course.challenge.generics;
+package com.rakovets.course.challenge.generics.Math;
 
 public class Task1 {
 
