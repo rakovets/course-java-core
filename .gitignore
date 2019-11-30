@@ -1,11 +1,18 @@
 # Log file
 *.log
 
+# Gradle
+.gradle/
+build/
+
 # IntelliJ
 out/
 .idea/
 target/
 *.iml
+
+# Visual Studio Code
+.vscode/
 
 # Compiled class file
 *.class
