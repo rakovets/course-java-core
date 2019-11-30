@@ -7,6 +7,9 @@ out/
 target/
 *.iml
 
+# Visual Studio Code
+.vscode/
+
 # Compiled class file
 *.class
 
