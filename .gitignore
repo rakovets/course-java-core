@@ -1,6 +1,10 @@
 # Log file
 *.log
 
+# Gradle
+.gradle/
+build/
+
 # IntelliJ
 out/
 .idea/
