@@ -4,6 +4,8 @@
 # Gradle
 .gradle/
 build/
+gradle/
+gradlew*
 
 # IntelliJ
 out/
