@@ -22,7 +22,10 @@ public class Task02 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		System.out.println(carryingCapacity - cargo);
+		int ehat = cargo / carryingCapacity;
+		int cargoo = cargo - ehat * carryingCapacity;
+		System.out.println(cargoo);
+
 
 
 
