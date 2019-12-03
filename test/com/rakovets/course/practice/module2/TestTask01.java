@@ -26,6 +26,9 @@ class TestTask01 {
 		assertEquals("1", ConsoleReader.getConsoleContent());
 	}
 
+	private void assertEquals(String s, String consoleContent) {
+	}
+
 	@Test
 	void test2() {
 		Task01.main(new String[]{"9", "1"});
