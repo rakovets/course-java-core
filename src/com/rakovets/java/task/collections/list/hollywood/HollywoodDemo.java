@@ -11,7 +11,7 @@ public class HollywoodDemo {
         ArrayList<Actor> arrayList = new ArrayList<>();
         arrayList.add(new Actor("Nikita", "KOchetkov", 2000, 39));
         arrayList.add(new Actor("Kitai", "Oloid", 4000, 28));
-        arrayList.add(new Actor("Luba", "Ivanov", 7000, 34));
+        arrayList.add(new Actor("Luba", "Ivanova", 7000, 34));
         arrayList.add(new Actor("Selvester", "Stalone", 2340, 20));
         arrayList.add(new Actor("Angelina", "Golly", 350, 25));
         HollywoodUtil hollywoodUtil = new HollywoodUtil();
@@ -53,7 +53,6 @@ public class HollywoodDemo {
             System.out.println(a2.getLastName());
 
         }
-
     }
 
     public static void getFee(ArrayList<Actor> arrayList) {
@@ -78,7 +77,6 @@ public class HollywoodDemo {
             System.out.println(a5);
 
         }
-
     }
 }
 
