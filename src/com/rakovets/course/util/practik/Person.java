@@ -1,4 +1,4 @@
-package com.rakovets.course.util.stringlist.practik;
+package com.rakovets.course.util.practik;
 
 public class Person {
     int phoneNumber;
