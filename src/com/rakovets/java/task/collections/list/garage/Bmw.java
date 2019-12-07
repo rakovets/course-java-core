@@ -1,4 +1,4 @@
-package com.rakovets.java.task.collections.list;
+package com.rakovets.java.task.collections.list.garage;
 
 import java.util.Objects;
 
