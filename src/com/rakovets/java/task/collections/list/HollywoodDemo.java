@@ -1,3 +1,5 @@
+package com.rakovets.java.task.collections.list;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ListIterator;

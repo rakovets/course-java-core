@@ -1,3 +1,5 @@
+package com.rakovets.java.task.collections.list;
+
 public class Actor {
 	private String firstName;
 	private String lastName;

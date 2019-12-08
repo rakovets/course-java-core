@@ -1,3 +1,5 @@
+package com.rakovets.java.task.collections.list;
+
 import java.util.Comparator;
 
 public class ActorNameComparator implements Comparator<Actor> {

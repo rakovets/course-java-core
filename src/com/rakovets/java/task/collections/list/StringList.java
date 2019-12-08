@@ -1,3 +1,5 @@
+package com.rakovets.java.task.collections.list;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.ListIterator;

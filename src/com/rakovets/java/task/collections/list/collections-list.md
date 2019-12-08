@@ -1,15 +1,15 @@
 # Collections. List.
 
 
-## Project `StringList`
+## Project `com.rakovets.java.task.collections.list.StringList`
 ### Specification of task 1
 Создать класс:
-- `StringList`
-- `StringListDemo` демонстрация работы класса `StringList` 
+- `com.rakovets.java.task.collections.list.StringList`
+- `com.rakovets.java.task.collections.list.StringListDemo` демонстрация работы класса `com.rakovets.java.task.collections.list.StringList` 
 
 
 ### Specification of task 2
-В `StringList` добавить метод `markWordsWithLength()`, принимающий в качестве параметра `List` типа `String` и размер слова.
+В `com.rakovets.java.task.collections.list.StringList` добавить метод `markWordsWithLength()`, принимающий в качестве параметра `List` типа `String` и размер слова.
 Метод размещающает строку "*" перед каждым элементом длина которого равна размеру слова. Оригинальные элементы должны остаться на месте.
 
 Например:
@@ -26,13 +26,13 @@
 
 
 ### Specification of task 3
-В `StringList` добавить метод  `removeWordsWithLength()`, который прынимает `Collection` типа `String` и размер слова.
+В `com.rakovets.java.task.collections.list.StringList` добавить метод  `removeWordsWithLength()`, который прынимает `Collection` типа `String` и размер слова.
 Метод удаляет из списка строк все строки длиной равной размерности слова.
 
 
 ## Project `Hollywood`
 ### Specification of task 1
-Создать класс `Actor`.
+Создать класс `com.rakovets.java.task.collections.list.Actor`.
 
 Поля:
 - `firstName`
@@ -41,8 +41,8 @@
 
 
 ### Specification of task 2
-Создать класс `HollywoodDemo`:
-- создать `ArrayList<Actor>`
+Создать класс `com.rakovets.java.task.collections.list.HollywoodDemo`:
+- создать `ArrayList<com.rakovets.java.task.collections.list.Actor>`
 - добавить в него несколько актёров с данными
 
 
@@ -55,7 +55,7 @@
 
 
 ### Specification of task 5
-Добавить в класс `Actor` возраст актёра `age`.
+Добавить в класс `com.rakovets.java.task.collections.list.Actor` возраст актёра `age`.
 
 
 ### Specification of task 6
@@ -69,7 +69,7 @@
 
 ## Project `School`
 ### Specification of task 1
-Создать класс `Student`, представляющий собой ученика.
+Создать класс `com.rakovets.java.task.collections.list.Student`, представляющий собой ученика.
 Поля:
 - `name`
 - `surname`
@@ -78,12 +78,12 @@
 
 
 ### Specification of task 2
-Создать класс `SchoolDemo`, где создать `List` учеников.
+Создать класс `com.rakovets.java.task.collections.list.SchoolDemo`, где создать `List` учеников.
 В дальнейшем использовать как класс для демонстрации корректной работы других классов. 
 
 
 ### Specification of task 3
-Создать класс `SchoolUtil`.
+Создать класс `com.rakovets.java.task.collections.list.SchoolUtil`.
 Создать в нем метод `getBestStudent()` принимающий `List` учеников и возвращающий ученика с самым высоким средним баллом.
 
 
