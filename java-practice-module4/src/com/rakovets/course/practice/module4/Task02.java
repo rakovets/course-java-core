@@ -27,17 +27,19 @@ public class Task02 {
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
 		int i = 1;
-		if (headerRowEnable == true) {
-			for (i = 1; i < rows; i++) {
-				System.out.println(i++);
-
-
+		if (headerRowEnable == true) { //Если заголовок имеется
+			System.out.println();
+			for ( ; i < rows; i++) {
+				System.out.println(i);
 			}
-		} else if (headerRowEnable == false) {
-			for (i = 1; i < rows; i++) {
-				System.out.println(i++);
+			System.out.print(i);
+		} else if (headerRowEnable == false) { //Если заголовок отсутствует
+			for ( ; i < rows; i++) {
+				System.out.println(i);
 			}
+
 		}
+
 
 
 
