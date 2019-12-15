@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Diary {
+public class ListWithMenu {
     public static void main(String[] args) {
         System.out.println("Enter 5 numbers of elements");
         List<Integer> listWithValues = new ArrayList<>();
