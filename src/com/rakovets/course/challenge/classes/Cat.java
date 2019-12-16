@@ -3,7 +3,8 @@ package com.rakovets.course.challenge.classes;
 public class Cat {
     String name;
     final double DEFAULT_HAPPINESS_FOR_CAT = 15;
-    Cat(String name){
+
+    Cat(String name) {
         this.name = name;
     }
 
@@ -17,10 +18,11 @@ public class Cat {
         men.takeHappiness(DEFAULT_HAPPINESS_FOR_CAT);
     }
 
-    void getName(){
+    void getName() {
         System.out.println("name: " + name);
     }
-    void setName(String name){
+
+    void setName(String name) {
         this.name = name;
     }
 
