@@ -4,12 +4,19 @@
 # Gradle
 .gradle/
 build/
+gradle/
+gradlew*
 
 # IntelliJ
 out/
 .idea/
 target/
 *.iml
+
+# Eclipse
+.settings/
+.classpath
+.project
 
 # Visual Studio Code
 .vscode/
