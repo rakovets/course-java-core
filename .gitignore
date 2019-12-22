@@ -20,6 +20,7 @@ target/
 
 # Visual Studio Code
 .vscode/
+bin/
 
 # Compiled class file
 *.class
