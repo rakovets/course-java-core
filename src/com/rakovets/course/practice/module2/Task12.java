@@ -20,7 +20,10 @@ public class Task12 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
-		System.out.println(playingTimeInSeconds / 60);
-
+		int day = playingTimeInSeconds / (24 * 60 * 60);
+		int hours = (playingTimeInSeconds - day * 60 * 60 * 24) / (60 * 60);
+		int minutes = (playingTimeInSeconds - day * 60 * 60 * 24 - hours * 60 * 60) / 60;
+		int seconds = playingTimeInSeconds - (playingTimeInSeconds - (playingTimeInSeconds - day * 60 * 60 * 24 - hours * 60 * 60 - minutes * 60));
+		System.out.println(day + " " + hours + ":" + minutes + ":" + seconds);
 	}
 }
