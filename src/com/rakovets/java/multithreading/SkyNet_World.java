@@ -2,7 +2,6 @@ package com.rakovets.java.multithreading;
 
 public class SkyNet_World implements Runnable {
 	SkyNet_Factory factory;
-	SkyNet_Count countWorld = new SkyNet_Count();
 
 	public SkyNet_World(SkyNet_Factory factory) {
 		this.factory = factory;
@@ -10,8 +9,11 @@ public class SkyNet_World implements Runnable {
 
 	@Override
 	public void run() {
-		for (int i = 0; i < 5; i++) {
-			countWorld.countWorld(factory.consumer());
-		}
+		factory.getDetailsWorld();
+		System.out.printf("%-20s раздобыла %d деталей: Head - %d, Torso - %d, Hands - %d, Feet - %d\n",
+				Thread.currentThread().getName(), factory.counterDays * 5, factory.headCounterWorld, factory.torsoCounterWorld,
+				factory.handsCounterWorld, factory.feetCounterWorld);
+		System.out.printf("%-20s собрала %d роботов.\n", Thread.currentThread().getName(), factory.counterRobots(
+				factory.headCounterWorld, factory.torsoCounterWorld, factory.handsCounterWorld, factory.feetCounterWorld));
 	}
 }
