@@ -1,5 +1,6 @@
 package com.rakovets.course.practice.module4;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -23,5 +24,6 @@ public class Task06 {
 		//TODO
 		// Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
 		// Для проверки решения необходимо запустить @Test для данного class (в директории test)
+		System.out.print(String.format(Locale.CANADA_FRENCH, "%,d", amount));
 	}
 }
