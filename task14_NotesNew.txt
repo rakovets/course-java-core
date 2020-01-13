@@ -1,0 +1,6 @@
+Message Inheritance Diagram 123 Class.
+Subclasses Direct.
+Superinterfaces Known All.
+Subclasses Known Implementing Classes 1234567 All.
+Declaration or Interface Class.
+567 or read Interface Description Class.

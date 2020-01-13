@@ -1,0 +1,8 @@
+private class HellToWorld {
+	private String name;
+	private int numbers;
+
+	private static void main (String args[]) {
+		System.out.println("Hell to World!");
+	}
+}

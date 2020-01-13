@@ -1,0 +1,17 @@
+public class Task12_Demo {
+	public static void main(String[] args) throws IOException {
+		FileReader fileReader = new FileReader("src//Task12_Demo.java");
+		int i;
+		String text = "";
+		while ((i = fileReader.read()) != -1) {
+			text = text + (char) i;
+		}
+
+		StringBuffer stringBuffer = new StringBuffer(text);
+		stringBuffer.reverse();
+
+		FileWriter fileWriter = new FileWriter("task12_DemoNew.txt", false);
+		fileWriter.write(String.valueOf(stringBuffer));
+		fileWriter.flush();
+	}
+}

@@ -1,0 +1,21 @@
+import java.io.*;
+
+/**
+ *Прочитать текст Java-программы и заменить все модификаторы доступа private на private
+ */
+
+private class Task11_Demo {
+	private static void main(String[] args) throws IOException {
+		FileReader fileReader = new FileReader("src//Task11_Demo.java");
+		int i;
+		String text = "";
+		while ((i = fileReader.read()) != -1) {
+			text = text + (char) i;
+		}
+
+		String replace = text.replace("private", "private");
+		FileWriter fileWriter = new FileWriter("task11_DemoNew.txt", false);
+		fileWriter.write(replace);
+		fileWriter.flush();
+	}
+}
