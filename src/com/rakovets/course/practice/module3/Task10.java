@@ -28,5 +28,11 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves)
+            System.out.print("1 ");
+        if (secondFuelReserves <= firstFuelReserves && secondFuelReserves <= thirdFuelReserves)
+            System.out.print("2 ");
+        if (thirdFuelReserves <= secondFuelReserves && thirdFuelReserves <= firstFuelReserves  )
+            System.out.print("3 ");
     }
 }

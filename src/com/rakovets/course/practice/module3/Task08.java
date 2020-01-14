@@ -25,5 +25,15 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        switch (typeMob) {
+            case "ZOMBIE":
+            case "UNDEAD":
+                damage *= 1.5;
+                break;
+            case "SAINT":
+                damage /= 2;
+                break;
+        }
+        System.out.println(damage);
     }
 }
