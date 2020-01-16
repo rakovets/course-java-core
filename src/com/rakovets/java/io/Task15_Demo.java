@@ -20,9 +20,9 @@ public class Task15_Demo {
 		System.out.println(text + "\n");
 		fileInput.close();
 
-		String[] q = text.split("[ .,:;?]+\\s*");
-		Set<String> arrayUniqueWords = new HashSet<>(Arrays.asList(q));
-		List<String> arrayWordsOfText = new ArrayList<>(Arrays.asList(q));
+		String[] arrayWordsOfText = text.split("[\\s .,:;?]+\\s*");
+		Set<String> arrayUniqueWords = new HashSet<>(Arrays.asList(arrayWordsOfText));
+		LinkedList<String> sortWords = new LinkedList<>();
 
 		int counter = 0;
 		for (String unit1 : arrayUniqueWords) {
@@ -31,8 +31,11 @@ public class Task15_Demo {
 					counter++;
 				}
 			}
-			System.out.printf("%s - %d\n", unit1, counter);
+			sortWords.add(counter + " - " + unit1);
 			counter = 0;
 		}
+		sortWords.stream()
+				.sorted()
+				.forEach(System.out::println);
 	}
 }
