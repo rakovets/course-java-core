@@ -1,0 +1,30 @@
+}
+}    
+;'}'                
++ ''\' + )(ledoMteg + "'=ledom ,"                
++ )(tsoCteg + "=tsoc ,"                
++ yticapaCyrettab + "=yticapaCyrettab ,"                
++ daphcuot + "=daphcuot"                
++ "{koobetoN" nruter        
+{ )(gnirtSot gnirtS cilbup    
+edirrevO@    
+
+}    
+;yticapaCyrettab nruter        
+{ )(yticapaCyrettaBteg tni cilbup    
+
+}    
+;daphcuot nruter        
+{ )(daphcuoTteg daphcuoT cilbup    
+
+}    
+;yticapaCyrettab = yticapaCyrettab.siht        
+;daphcuot = daphcuot.siht        
+;)ledom ,tsoc(repus        
+{ )yticapaCyrettab tni ,daphcuot daphcuoT ,ledom gnirtS ,tsoc tni(koobetoN cilbup    
+
+;yticapaCyrettab tni etavirp    
+;daphcuot daphcuoT etavirp    
+{ retupmoC sdnetxe koobetoN ssalc cilbup
+
+;oi.avaj.stevokar.moc egakcap

@@ -1,0 +1,30 @@
+package com.rakovets.java.io;
+
+private class Notebook extends Computer {
+    private Touchpad touchpad;
+    private int batteryCapacity;
+
+    private Notebook(int cost, String model, Touchpad touchpad, int batteryCapacity) {
+        super(cost, model);
+        this.touchpad = touchpad;
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    private Touchpad getTouchpad() {
+        return touchpad;
+    }
+
+    private int getBatteryCapacity() {
+        return batteryCapacity;
+    }
+
+    @Override
+    private String toString() {
+        return "Notebook{" +
+                "touchpad=" + touchpad +
+                ", batteryCapacity=" + batteryCapacity +
+                ", cost=" + getCost() +
+                ", model='" + getModel() + '\'' +
+                '}';
+    }
+}
