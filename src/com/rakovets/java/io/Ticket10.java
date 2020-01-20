@@ -10,7 +10,9 @@ public class Ticket10 {
             objectOutputStream.writeObject(computer1);
             try {
                 Notebook computerFromFile = (Notebook) objectInputStream.readObject();
-                System.out.println(computerFromFile.toString());
+                System.out.printf("Computer: cost - %d, model - %s, touchpad - %b, battery capacity - %d.",
+                        computerFromFile.getCost(), computerFromFile.getModel(), computerFromFile.getTouchpad().getActive(),
+                        computerFromFile.getBatteryCapacity());
             } catch (ClassNotFoundException ex) {
                 System.out.println(ex.getMessage());
             }

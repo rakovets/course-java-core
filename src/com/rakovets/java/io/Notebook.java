@@ -21,7 +21,7 @@ public class Notebook extends Computer {
     @Override
     public String toString() {
         return "Notebook{" +
-                "touchpad=" + touchpad +
+                "touchpad=" + touchpad.getActive() +
                 ", batteryCapacity=" + batteryCapacity +
                 ", cost=" + getCost() +
                 ", model='" + getModel() + '\'' +

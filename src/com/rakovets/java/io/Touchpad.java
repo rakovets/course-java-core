@@ -6,4 +6,10 @@ public class Touchpad {
     public Touchpad(Boolean isActive) {
         this.isActive = isActive;
     }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+
 }
