@@ -2,12 +2,15 @@ package com.rakovets.java.solid.my;
 
 import com.rakovets.java.solid.my.userHelper.PrintConsistOfPizza;
 import com.rakovets.java.solid.my.ingridients.*;
+import com.rakovets.java.solid.my.userHelper.SaveToFile;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-public class StandartPizza implements PrintConsistOfPizza {
+public class Pizza implements PrintConsistOfPizza {
+    private BigDecimal price = new BigDecimal("15.00");
 
-    public StandartPizza() {
+    public Pizza() {
     }
 
     private List<Meat> meats;
@@ -17,7 +20,7 @@ public class StandartPizza implements PrintConsistOfPizza {
     private List<BoardType> boardTypes;
     private List<OtherIngridients> otherIngridients;
 
-    public StandartPizza(List<Meat> meats
+    public Pizza(List<Meat> meats
             , List<Chess> chess
             , List<Vegetables> vegetables
             , List<TypeOfTest> typeOfTests
@@ -45,19 +48,29 @@ public class StandartPizza implements PrintConsistOfPizza {
 
     @Override
     public String getPrettyPrint() {
-        return String.format("You pizza Have Meats - %S ," +
+        String string = String.format("You pizza Have Meats - %S ," +
                         "\nchease - %s ," +
                         "\nVegetables - %s ," +
                         "\nTypeOfTest - %s ," +
                         "\nBoardType - %s ," +
-                        "\nOtherIngridients",
+                        "\nOtherIngridients - %s .",
                 meats, chess, vegetables, typeOfTests, boardTypes, otherIngridients);
+        new SaveToFile().saveFilePizza(string, numberPizza, price, cost, discount);
+        return string;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public static class Builder {
-        private StandartPizza newPizza = new StandartPizza();
+        private Pizza newPizza = new Pizza();
 
-        public StandartPizza build() {
+        public Pizza build() {
             return newPizza;
         }
 

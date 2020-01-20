@@ -1,8 +1,13 @@
 package com.rakovets.java.solid.my.userHelper;
 
-import com.rakovets.java.solid.my.StandartPizza;
+import com.rakovets.java.solid.my.Pizza;
 import com.rakovets.java.solid.my.standarts.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -15,21 +20,24 @@ public class MainMenu {
     }
 
     public void mainMenu() {
+        System.out.println("Pizzeria");
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH : mm :ss");
+        System.out.println(dateTime.format(formatter));
+        System.out.println("(Discount 10 % in work days of oder 3 or more pizza)");
         boolean operation = true;
         while (operation) {
-            System.out.println("\n what you want to do : " +
-                    "\n1 - choose pizza from the menu, " +
-                    "\n2 - prepare pizza according to your ingredients, " +
-                    "\n3 - exit");
+            System.out.println("\nWhat you want to do : " +
+                    "\n1 - Select pizza from menu" +
+                    "\n2 - Prepare pizza according to your ingredients" +
+                    "\n3 - Exit");
             int operation2 = scanner.nextInt();
             switch (operation2) {
                 case 1:
-                    StandartPizza pizza = createStandartPizza();
-                    //todo pizza must be returned to "main logic class"
-                    // create Pizza(--opetation--)
+                    Pizza pizza = createStandartPizza();
                     break;
                 case 2:
-                    //todo rename testCope -> createCustomPizza
+                    System.out.println("Create your pizzaa!!");
                     new PizzaCreater().createCustomPizza();
                     break;
                 case 3:
@@ -38,16 +46,16 @@ public class MainMenu {
         }
     }
 
-    private StandartPizza createStandartPizza() {
-        System.out.println("\n Chosee your favorit pizza or make or do it yourself :" +
-                "\n1 Margaritta:" +
-                "\n2 Peperonni:" +
-                "\n3 Gawaiskaa:" +
-                "\n4 Barbecu:" +
-                "\n5 Four sesons:" +
-                "\n6 Chili:" +
-                "\n7 CountrySide:" +
-                "\n0 Exit !!"
+    private Pizza createStandartPizza() {
+        System.out.println("\nChosee your favorit pizza:" +
+                "\n1 Margaritta" +
+                "\n2 Peperonni" +
+                "\n3 Gawaiskaa" +
+                "\n4 Barbecu" +
+                "\n5 Four sesons" +
+                "\n6 Chili" +
+                "\n7 CountrySide" +
+                "\n0 Cancaled oder!!"
         );
         int opetation = scanner.nextInt();
         switch (opetation) {
@@ -68,5 +76,4 @@ public class MainMenu {
         }
         return null;
     }
-
 }

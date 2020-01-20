@@ -1,6 +1,6 @@
 package com.rakovets.java.solid.my.userHelper;
 
-import com.rakovets.java.solid.my.StandartPizza;
+import com.rakovets.java.solid.my.Pizza;
 import com.rakovets.java.solid.my.ingridients.*;
 
 import java.util.HashMap;
@@ -125,7 +125,7 @@ public class PizzaCreater {
             OtherIngridients otherIngridients = otherIngridientsMap.get(choose6);
             System.out.println("You choos is : " + otherIngridientsMap.get(choose6));
 
-            StandartPizza pizza = new StandartPizza.Builder()
+            Pizza pizza = new Pizza.Builder()
                     .meats(List.of(meat))
                     .vegetables(List.of(vegetables))
                     .chess(List.of(chess))
@@ -134,6 +134,7 @@ public class PizzaCreater {
                     .otherIngridients(List.of(otherIngridients))
                     .build();
             pizza.toString();
+            System.out.println(" ");
             System.out.println(pizza.getPrettyPrint());
             operation = false;
         }
