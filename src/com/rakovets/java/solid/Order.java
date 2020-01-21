@@ -6,7 +6,7 @@ public class Order {
 	boolean run = true;
 	double discount;
 
-	void orderPizza(String pizza, int numberPizza, double price) {
+	void orderPizza(String pizza, int numberPizza, double price, Profit profit, NumberPizzasSold numberPizzasSold) {
 		discount = new Discount().discountNumberPizza(numberPizza, price);
 		cost = numberPizza * price - discount;
 		new PrintInfoPizza().printInfoStandardPizza(pizza, numberPizza, price, cost, discount);
@@ -15,7 +15,9 @@ public class Order {
 			System.out.println("\n1.Оплатить \t 2. Отмена заказа");
 			int scan = scanner.nextInt();
 			if (scan == 1) {
-				new PaymentMethod().selectionMethodPayment(cost);
+				numberPizzasSold.setNumberPizzasSold(numberPizza);
+				profit.setProfit(cost);
+				new PaymentMethod().selectionMethodPayment(cost, numberPizza);
 				run = false;
 			} else if (scan == 2) {
 				System.out.println("Заказ отменен!!!");

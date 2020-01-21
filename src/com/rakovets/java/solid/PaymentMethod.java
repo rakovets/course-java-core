@@ -4,7 +4,7 @@ public class PaymentMethod {
 	Scanner scanner = new Scanner(System.in);
 	boolean run = true;
 
-	void selectionMethodPayment(double cost) {
+	void selectionMethodPayment(double cost, int numberPizzas) {
 		while (run) {
 			System.out.println("Выбор способа оплаты: ");
 			System.out.println("1.Наличными \t2.Банковской картой \t3.На сайте");

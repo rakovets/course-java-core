@@ -1,38 +1,32 @@
-public class PizzaOwn {
+public class PizzaOwn implements IndigentsName{
 	private String name = "'Свой рецепт'";
 	private double price = 15.9;
-	private String chickenFillet = "'Куриное филе'";
-	private String bacon = "'Бекон'";
-	private String mozzarella = "'Моцарелла'";
-	private String cheddar = "'Чеддер'";
-	private String tomatoes = "'Помидоры'";
-	private String pepper = "'Перец'";
 	private String thin = "Тонкое тесто";
 	private String thick = "Толстое тесто";
 	private String withSide = "С бортом";
 	private String noSide = "Без борта";
 
 	public String getChickenFillet() {
-		return chickenFillet;
+		return chickenFilletName;
 	}
 
 	public String getBacon() {
-		return bacon;
+		return baconName;
 	}
 	public String getMozzarella() {
-		return mozzarella;
+		return mozzarellaName;
 	}
 
 	public String getCheddar() {
-		return cheddar;
+		return cheddarName;
 	}
 
 	public String getTomatoes() {
-		return tomatoes;
+		return tomatoesName;
 	}
 
 	public String getPepper() {
-		return pepper;
+		return pepperName;
 	}
 
 	public String getThin() {

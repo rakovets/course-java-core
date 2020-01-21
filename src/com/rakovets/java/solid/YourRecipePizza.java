@@ -7,7 +7,7 @@ public class YourRecipePizza {
 	LinkedList<String> indigentsYourRecipePizza = new LinkedList<>();
 	String name;
 
-	public void selection() {
+	public void selection(Profit profit, NumberPizzasSold numberPizzasSold) {
 		System.out.println("\nВыбор ингридиентов собственной пиццы.");
 		System.out.println("Мясные ингридиенты: ");
 		indigentsPizza(1);
@@ -23,7 +23,8 @@ public class YourRecipePizza {
 		new PrintInfoPizza().printInfoYourRecipePizza(name, indigentsYourRecipePizza);
 		System.out.printf("\nУкажите количество пицц: ");
 		int scanNumberYourRecipePizza = scanner.nextInt();
-		order.orderPizza(new PizzaOwn().getName(), scanNumberYourRecipePizza, new PizzaOwn().getPrice());
+		order.orderPizza(new PizzaOwn().getName(), scanNumberYourRecipePizza, new PizzaOwn().getPrice(), profit,
+				numberPizzasSold);
 	}
 
 	void indigentsPizza(int indigent) {

@@ -1,14 +1,9 @@
 import java.util.List;
 
-public class PizzaDerevenskaya {
+public class PizzaDerevenskaya implements IndigentsName{
 	private String name = "'Деревенская'";
 	private double price = 5.5;
-	private String dough = "'Тесто'";
-	private String bacon = "'Бекон'";
-	private String mozzarella = "'Моцарелла'";
-	private String egg = "'Яйцо'";
-	private String cucumber = "'Огурцы марнованые'";
-	List<String> indigentsPizzaDerevenskaya = List.of(mozzarella, egg, bacon, cucumber, dough);
+	List<String> indigentsPizzaDerevenskaya = List.of(mozzarellaName, eggName, baconName, cucumberName, doughName);
 
 	public String getName() {
 		return name;
