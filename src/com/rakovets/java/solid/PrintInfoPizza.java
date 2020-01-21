@@ -1,7 +1,9 @@
 import java.util.LinkedList;
+import java.util.Map;
 
-public class PrintInfoPizza {
+public class PrintInfoPizza implements IngredientsName {
 	String textInfoPizza;
+	Map <String, Integer> mapNumberIngredients;
 
 	void printInfoStandardPizza(String pizza, int number, double price, double cost, double discountNumberPizza) {
 		textInfoPizza = String.format("\nВаш заказ: Пицца %s, количество %d шт., стоимость %d * %.1f - скидка %.1f = %.1f руб.",
@@ -37,5 +39,18 @@ public class PrintInfoPizza {
 
 	void printInfoYourRecipePizza(String name, LinkedList<String> linkedListIndigents) {
 		System.out.printf("Пицца %s: %s \n", name, linkedListIndigents);
+	}
+
+	void printInfoNumberPizzasSold(NumberPizzasSold numberPizzasSold) {
+		System.out.printf("Количество проданных пицц = %d шт.\n", numberPizzasSold.getNumberPizzasSold());
+	}
+
+	void printInfoProfit(Profit profit) {
+		System.out.printf("Прибыль = %.1f руб.\n", profit.getProfit());
+	}
+
+	void printInfoNumberIngredients(NumberIngredients numberIngredients) {
+		System.out.println("Количество ингредиентов: ");
+		numberIngredients.mapNumberIngredients().entrySet().forEach(System.out::println);
 	}
 }

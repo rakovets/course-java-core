@@ -1,4 +1,4 @@
-public class PizzaOwn implements IndigentsName{
+public class PizzaOwn implements IngredientsName {
 	private String name = "'Свой рецепт'";
 	private double price = 15.9;
 	private String thin = "Тонкое тесто";

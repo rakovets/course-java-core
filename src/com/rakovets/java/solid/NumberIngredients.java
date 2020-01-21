@@ -1,4 +1,7 @@
-public class IndigentsNumber {
+import java.util.HashMap;
+import java.util.Map;
+
+public class NumberIngredients implements IngredientsName {
 	private int tomatoes;
 	private int dough;
 	private int chickenFillet;
@@ -14,10 +17,11 @@ public class IndigentsNumber {
 	private int pepper;
 	private int pepperoni;
 	private int ham;
+	Map<String, Integer> mapNumberIngredients = new HashMap<>();
 
-	public IndigentsNumber(int tomatoes, int dough, int chickenFillet, int bacon, int mozzarella, int beef, int egg,
-	                       int cucumber, int cheddar, int parmesan, int jugas, int champignon, int pepper, int pepperoni,
-	                       int ham) {
+	public NumberIngredients(int tomatoes, int dough, int chickenFillet, int bacon, int mozzarella, int beef, int egg,
+	                         int cucumber, int cheddar, int parmesan, int jugas, int champignon, int pepper, int pepperoni,
+	                         int ham) {
 		this.tomatoes = tomatoes;
 		this.dough = dough;
 		this.chickenFillet = chickenFillet;
@@ -33,6 +37,25 @@ public class IndigentsNumber {
 		this.pepper = pepper;
 		this.pepperoni = pepperoni;
 		this.ham = ham;
+	}
+
+	Map<String, Integer> mapNumberIngredients() {
+		mapNumberIngredients.put(tomatoesName, getTomatoes());
+		mapNumberIngredients.put(doughName, getDough());
+		mapNumberIngredients.put(chickenFilletName, getChickenFillet());
+		mapNumberIngredients.put(baconName, getBacon());
+		mapNumberIngredients.put(mozzarellaName, getMozzarella());
+		mapNumberIngredients.put(beefName, getBeef());
+		mapNumberIngredients.put(eggName, getEgg());
+		mapNumberIngredients.put(cucumberName, getCucumber());
+		mapNumberIngredients.put(cheddarName, getCheddar());
+		mapNumberIngredients.put(parmesanName, getParmesan());
+		mapNumberIngredients.put(jugasName, getJugas());
+		mapNumberIngredients.put(champignonName, getChampignon());
+		mapNumberIngredients.put(pepperName, getPepper());
+		mapNumberIngredients.put(pepperoniName, getPepperoni());
+		mapNumberIngredients.put(hamName, getHam());
+		return mapNumberIngredients;
 	}
 
 	public int getTomatoes() {
@@ -40,7 +63,7 @@ public class IndigentsNumber {
 	}
 
 	public void setTomatoes(int tomatoes) {
-		this.tomatoes = tomatoes;
+		this.tomatoes = this.tomatoes - tomatoes;
 	}
 
 	public int getDough() {
@@ -48,7 +71,7 @@ public class IndigentsNumber {
 	}
 
 	public void setDough(int dough) {
-		this.dough = dough;
+		this.dough = this.dough - dough;
 	}
 
 	public int getChickenFillet() {
@@ -56,7 +79,7 @@ public class IndigentsNumber {
 	}
 
 	public void setChickenFillet(int chickenFillet) {
-		this.chickenFillet = chickenFillet;
+		this.chickenFillet = this.chickenFillet - chickenFillet;
 	}
 
 	public int getBacon() {
@@ -64,7 +87,7 @@ public class IndigentsNumber {
 	}
 
 	public void setBacon(int bacon) {
-		this.bacon = bacon;
+		this.bacon = this.bacon - bacon;
 	}
 
 	public int getMozzarella() {
@@ -72,7 +95,7 @@ public class IndigentsNumber {
 	}
 
 	public void setMozzarella(int mozzarella) {
-		this.mozzarella = mozzarella;
+		this.mozzarella = this.mozzarella - mozzarella;
 	}
 
 	public int getBeef() {
@@ -80,7 +103,7 @@ public class IndigentsNumber {
 	}
 
 	public void setBeef(int beef) {
-		this.beef = beef;
+		this.beef = this.beef - beef;
 	}
 
 	public int getEgg() {
@@ -88,7 +111,7 @@ public class IndigentsNumber {
 	}
 
 	public void setEgg(int egg) {
-		this.egg = egg;
+		this.egg = this.egg - egg;
 	}
 
 	public int getCucumber() {
@@ -96,7 +119,7 @@ public class IndigentsNumber {
 	}
 
 	public void setCucumber(int cucumber) {
-		this.cucumber = cucumber;
+		this.cucumber = this.cucumber - cucumber;
 	}
 
 	public int getCheddar() {
@@ -104,7 +127,7 @@ public class IndigentsNumber {
 	}
 
 	public void setCheddar(int cheddar) {
-		this.cheddar = cheddar;
+		this.cheddar = this.cheddar - cheddar;
 	}
 
 	public int getParmesan() {
@@ -112,7 +135,7 @@ public class IndigentsNumber {
 	}
 
 	public void setParmesan(int parmesan) {
-		this.parmesan = parmesan;
+		this.parmesan = this.parmesan - parmesan;
 	}
 
 	public int getJugas() {
@@ -120,7 +143,7 @@ public class IndigentsNumber {
 	}
 
 	public void setJugas(int jugas) {
-		this.jugas = jugas;
+		this.jugas = this.jugas - jugas;
 	}
 
 	public int getChampignon() {
@@ -128,7 +151,7 @@ public class IndigentsNumber {
 	}
 
 	public void setChampignon(int champignon) {
-		this.champignon = champignon;
+		this.champignon = this.champignon - champignon;
 	}
 
 	public int getPepper() {
@@ -136,7 +159,7 @@ public class IndigentsNumber {
 	}
 
 	public void setPepper(int pepper) {
-		this.pepper = pepper;
+		this.pepper = this.pepper - pepper;
 	}
 
 	public int getPepperoni() {
@@ -144,7 +167,7 @@ public class IndigentsNumber {
 	}
 
 	public void setPepperoni(int pepperoni) {
-		this.pepperoni = pepperoni;
+		this.pepperoni = this.pepperoni - pepperoni;
 	}
 
 	public int getHam() {
@@ -152,6 +175,6 @@ public class IndigentsNumber {
 	}
 
 	public void setHam(int ham) {
-		this.ham = ham;
+		this.ham = this.ham - ham;
 	}
 }

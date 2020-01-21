@@ -7,40 +7,42 @@ public class YourRecipePizza {
 	LinkedList<String> indigentsYourRecipePizza = new LinkedList<>();
 	String name;
 
-	public void selection(Profit profit, NumberPizzasSold numberPizzasSold) {
+	public void selection(Profit profit, NumberPizzasSold numberPizzasSold, NumberIngredients numberIngredients) {
+		System.out.printf("\nУкажите количество пицц со своим рецептом: ");
+		int scanNumberYourRecipePizza = scanner.nextInt();
 		System.out.println("\nВыбор ингридиентов собственной пиццы.");
 		System.out.println("Мясные ингридиенты: ");
-		indigentsPizza(1);
+		indigentsPizza(1, numberIngredients, scanNumberYourRecipePizza);
 		System.out.println("Сыр: ");
-		indigentsPizza(2);
+		indigentsPizza(2, numberIngredients, scanNumberYourRecipePizza);
 		System.out.println("Овощи: ");
-		indigentsPizza(3);
+		indigentsPizza(3, numberIngredients, scanNumberYourRecipePizza);
 		System.out.println("Тип теста: ");
-		indigentsPizza(4);
+		indigentsPizza(4, numberIngredients, scanNumberYourRecipePizza);
 		System.out.println("Тип борта: ");
-		indigentsPizza(5);
-		name =  new PizzaOwn().getName();
+		indigentsPizza(5, numberIngredients, scanNumberYourRecipePizza);
+		name = new PizzaOwn().getName();
 		new PrintInfoPizza().printInfoYourRecipePizza(name, indigentsYourRecipePizza);
-		System.out.printf("\nУкажите количество пицц: ");
-		int scanNumberYourRecipePizza = scanner.nextInt();
 		order.orderPizza(new PizzaOwn().getName(), scanNumberYourRecipePizza, new PizzaOwn().getPrice(), profit,
 				numberPizzasSold);
 	}
 
-	void indigentsPizza(int indigent) {
+	void indigentsPizza(int indigent, NumberIngredients numberIngredients, int numberPizzas) {
 		switch (indigent) {
 			case 1:
 				System.out.println("1.'Куриное филе' \t2.'Бекон' \t3.Без мяса");
 				int scanIndigentMeat = scanner.nextInt();
 				if (scanIndigentMeat == 1) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getChickenFillet());
+					numberIngredients.setChickenFillet(numberPizzas);
 				} else if (scanIndigentMeat == 2) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getBacon());
+					numberIngredients.setBacon(numberPizzas);
 				} else if (scanIndigentMeat == 3) {
 					break;
 				} else {
 					System.out.println("Не сложно выбрать - 1, 2 или 3. Попытайся ещё!!!");
-					indigentsPizza(1);
+					indigentsPizza(1, numberIngredients, numberPizzas);
 				}
 				break;
 			case 2:
@@ -48,14 +50,18 @@ public class YourRecipePizza {
 				int scanIndigentCheese = scanner.nextInt();
 				if (scanIndigentCheese == 1) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getMozzarella());
+					numberIngredients.setMozzarella(numberPizzas);
 				} else if (scanIndigentCheese == 2) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getCheddar());
+					numberIngredients.setCheddar(numberPizzas);
 				} else if (scanIndigentCheese == 3) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getMozzarella());
+					numberIngredients.setMozzarella(numberPizzas);
 					indigentsYourRecipePizza.add(new PizzaOwn().getCheddar());
+					numberIngredients.setCheddar(numberPizzas);
 				} else {
 					System.out.println("Не сложно выбрать - 1, 2 или 3. Попытайся ещё!!!");
-					indigentsPizza(2);
+					indigentsPizza(2, numberIngredients, numberPizzas);
 				}
 				break;
 			case 3:
@@ -63,14 +69,18 @@ public class YourRecipePizza {
 				int scanIndigentVegetables = scanner.nextInt();
 				if (scanIndigentVegetables == 1) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getTomatoes());
+					numberIngredients.setTomatoes(numberPizzas);
 				} else if (scanIndigentVegetables == 2) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getPepper());
+					numberIngredients.setPepper(numberPizzas);
 				} else if (scanIndigentVegetables == 3) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getTomatoes());
+					numberIngredients.setTomatoes(numberPizzas);
 					indigentsYourRecipePizza.add(new PizzaOwn().getPepper());
+					numberIngredients.setPepper(numberPizzas);
 				} else {
 					System.out.println("Не сложно выбрать - 1, 2 или 3. Попытайся ещё!!!");
-					indigentsPizza(3);
+					indigentsPizza(3, numberIngredients, numberPizzas);
 				}
 				break;
 			case 4:
@@ -78,11 +88,13 @@ public class YourRecipePizza {
 				int scanIndigentDough = scanner.nextInt();
 				if (scanIndigentDough == 1) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getThin());
+					numberIngredients.setDough(numberPizzas);
 				} else if (scanIndigentDough == 2) {
 					indigentsYourRecipePizza.add(new PizzaOwn().getThick());
+					numberIngredients.setDough(numberPizzas);
 				} else {
 					System.out.println("Не сложно выбрать - 1 или 2. Попытайся ещё!!!");
-					indigentsPizza(4);
+					indigentsPizza(4, numberIngredients, numberPizzas);
 				}
 				break;
 			case 5:
@@ -94,7 +106,7 @@ public class YourRecipePizza {
 					indigentsYourRecipePizza.add(new PizzaOwn().getNoSide());
 				} else {
 					System.out.println("Не сложно выбрать - 1 или 2. Попытайся ещё!!!");
-					indigentsPizza(5);
+					indigentsPizza(5, numberIngredients, numberPizzas);
 				}
 				break;
 			default:

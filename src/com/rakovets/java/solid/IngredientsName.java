@@ -1,4 +1,4 @@
-public interface IndigentsName {
+public interface IngredientsName {
 	String tomatoesName = "'Помидоры'";
 	String doughName = "'Тесто'";
 	String chickenFilletName = "'Куриное филе'";
@@ -14,4 +14,7 @@ public interface IndigentsName {
 	String pepperName = "'Перец'";
 	String pepperoniName = "'Колбаса пепперони'";
 	String hamName = "'Ветчина'";
+	String[] arrayIngredientsName = new String[] {tomatoesName, doughName, chickenFilletName, baconName, mozzarellaName,
+			beefName, eggName, cucumberName, cheddarName, parmesanName, jugasName, champignonName, pepperName,
+			pepperoniName, hamName};
 }

@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class PizzaBarbecue implements IndigentsName{
+public class PizzaBarbecue implements IngredientsName {
 	private String name = "'Барбекю'";
 	private double price = 11.9;
 	List<String> indigentsPizzaBarbecue = List.of(mozzarellaName, chickenFilletName, baconName, tomatoesName, doughName);
@@ -11,5 +11,13 @@ public class PizzaBarbecue implements IndigentsName{
 
 	public double getPrice() {
 		return price;
+	}
+
+	void setNumberIngredients(NumberIngredients numberIngredients, int numberPizza) {
+		numberIngredients.setMozzarella(numberPizza);
+		numberIngredients.setChickenFillet(numberPizza);
+		numberIngredients.setBacon(numberPizza);
+		numberIngredients.setTomatoes(numberPizza);
+		numberIngredients.setDough(numberPizza);
 	}
 }

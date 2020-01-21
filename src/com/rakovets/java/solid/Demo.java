@@ -14,22 +14,25 @@ public class Demo {
 		boolean run = true;
 		Profit profit = new Profit(0.0);
 		NumberPizzasSold numberPizzasSold = new NumberPizzasSold(0);
-		IndigentsNumber indigentsNumber = new IndigentsNumber(10, 10, 10, 10,
+		NumberIngredients numberIngredients = new NumberIngredients(10, 10, 10, 10,
 				10, 10, 10, 10, 10, 10, 10, 10,
 				10, 10, 10);
 		while (run) {
 			System.out.println("\n1.Стандартные семь рецептов пиццы \t 2.Свой рецепт пиццы \t " +
-					"3.Просмотреть количество проданных пицц \t 4.Просмотреть прибыль \t 5.Выйти");
+					"3.Просмотреть количество проданных пицц \n4.Просмотреть прибыль \t 5.Информацию о наличии ингредиентов " +
+					"\t 6.Выйти");
 			int scan = scanner.nextInt();
 			if (scan == 1) {
-				new StandardRecipesPizza().selection(profit, numberPizzasSold);
+				new StandardRecipesPizza().selection(profit, numberPizzasSold, numberIngredients);
 			} else if (scan == 2) {
-				new YourRecipePizza().selection(profit, numberPizzasSold);
+				new YourRecipePizza().selection(profit, numberPizzasSold, numberIngredients);
 			} else if (scan == 3) {
-				System.out.printf("Количество проданных пицц = %d шт.\n", numberPizzasSold.getNumberPizzasSold());
+				new PrintInfoPizza().printInfoNumberPizzasSold(numberPizzasSold);
 			} else if (scan == 4) {
-				System.out.printf("Прибыль = %.1f руб.\n", profit.getProfit());
+				new PrintInfoPizza().printInfoProfit(profit);
 			} else if (scan == 5) {
+				new PrintInfoPizza().printInfoNumberIngredients(numberIngredients);
+			} else if (scan == 6) {
 				run = false;
 				System.out.println("Go away, THE END!!!");
 			} else {
