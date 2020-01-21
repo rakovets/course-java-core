@@ -13,7 +13,7 @@ public class Demo {
 		Scanner scanner = new Scanner(System.in);
 		boolean run = true;
 		while (run) {
-			System.out.println("1.Стандартные семь рецептов пиццы \t 2.Свой рецепт пиццы \t 3.Выйти");
+			System.out.println("\n1.Стандартные семь рецептов пиццы \t 2.Свой рецепт пиццы \t 3.Выйти");
 			int scan = scanner.nextInt();
 			if (scan == 1) {
 				new StandardRecipesPizza().selection();

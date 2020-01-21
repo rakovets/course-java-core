@@ -15,7 +15,7 @@ public class Order {
 			System.out.println("\n1.Оплатить \t 2. Отмена заказа");
 			int scan = scanner.nextInt();
 			if (scan == 1) {
-				System.out.println("Оплачено!\n");
+				new PaymentMethod().selectionMethodPayment(cost);
 				run = false;
 			} else if (scan == 2) {
 				System.out.println("Заказ отменен!!!");
