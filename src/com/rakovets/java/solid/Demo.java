@@ -1,9 +1,15 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Demo {
 
 	public static void main(String[] args) {
 		System.out.println("\nPIZZERIA");
+		LocalDateTime dateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE HH:mm:ss");
+		System.out.println(dateTime.format(formatter));
+		System.out.println("(Скидка 10% в будние дни и при заказе от 3 и более пицц)");
 		Scanner scanner = new Scanner(System.in);
 		boolean run = true;
 		while (run) {

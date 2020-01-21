@@ -4,11 +4,13 @@ public class Order {
 	Scanner scanner = new Scanner(System.in);
 	double cost = 0;
 	boolean run = true;
+	double discount;
 
-	void orderPizza(String pizza, int number, double price) {
-		cost = number * price;
-		new PrintInfoPizza().printInfoStandardPizza(pizza, number, price, cost);
-		new SaveToFile().saveFilePizza(pizza, number, price, cost);
+	void orderPizza(String pizza, int numberPizza, double price) {
+		discount = new Discount().discountNumberPizza(numberPizza, price);
+		cost = numberPizza * price - discount;
+		new PrintInfoPizza().printInfoStandardPizza(pizza, numberPizza, price, cost, discount);
+		new SaveToFile().saveFilePizza(pizza, numberPizza, price, cost, discount);
 		while (run) {
 			System.out.println("\n1.Оплатить \t 2. Отмена заказа");
 			int scan = scanner.nextInt();

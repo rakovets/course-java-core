@@ -3,9 +3,9 @@ import java.util.LinkedList;
 public class PrintInfoPizza {
 	String textInfoPizza;
 
-	void printInfoStandardPizza(String pizza, int number, double price, double cost) {
-		textInfoPizza = String.format("\nВаш заказ: Пицца %s, количество %d шт., стоимость %d * %.1f = %.1f руб.",
-				pizza, number, number, price, cost);
+	void printInfoStandardPizza(String pizza, int number, double price, double cost, double discountNumberPizza) {
+		textInfoPizza = String.format("\nВаш заказ: Пицца %s, количество %d шт., стоимость %d * %.1f - скидка %.1f = %.1f руб.",
+				pizza, number, number, price, discountNumberPizza, cost);
 		System.out.println(textInfoPizza);
 	}
 
