@@ -38,6 +38,7 @@ public class Demo {
 			} else {
 				System.out.println("Не сложно выбрать - от 1 до 5. Попытайся ещё!!!");
 			}
+			numberIngredients.needIngredients();
 		}
 	}
 }

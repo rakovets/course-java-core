@@ -13,6 +13,7 @@ public class PizzaOwn implements IngredientsName {
 	public String getBacon() {
 		return baconName;
 	}
+
 	public String getMozzarella() {
 		return mozzarellaName;
 	}

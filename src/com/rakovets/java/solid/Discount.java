@@ -16,7 +16,7 @@ public class Discount {
 		LocalDateTime dateTime = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE");
 		day = dateTime.format(formatter);
-		if (day.equals("суббота")||day.equals("воскресенье")) {
+		if (day.equals("суббота") || day.equals("воскресенье")) {
 			discount = 0;
 		} else {
 			discount = numberPizza * price * 0.1;

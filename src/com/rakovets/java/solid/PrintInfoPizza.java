@@ -3,7 +3,6 @@ import java.util.Map;
 
 public class PrintInfoPizza implements IngredientsName {
 	String textInfoPizza;
-	Map <String, Integer> mapNumberIngredients;
 
 	void printInfoStandardPizza(String pizza, int number, double price, double cost, double discountNumberPizza) {
 		textInfoPizza = String.format("\nВаш заказ: Пицца %s, количество %d шт., стоимость %d * %.1f - скидка %.1f = %.1f руб.",

@@ -58,6 +58,14 @@ public class NumberIngredients implements IngredientsName {
 		return mapNumberIngredients;
 	}
 
+	void needIngredients() {
+		for (Map.Entry<String, Integer> entry : mapNumberIngredients().entrySet()) {
+			if (entry.getValue() <= 3) {
+				System.out.printf("\nНеобходимо приобрести %s, остаток %d шт.", entry.getKey(), entry.getValue());
+			}
+		}
+	}
+
 	public int getTomatoes() {
 		return tomatoes;
 	}

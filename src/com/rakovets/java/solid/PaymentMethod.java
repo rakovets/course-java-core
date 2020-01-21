@@ -26,16 +26,13 @@ public class PaymentMethod {
 
 	void cash(double cost) {
 		System.out.printf("\nОплата наличными проведена успешно!\nЧек на сумму: %.1f руб.\n", cost);
-		//TODO
 	}
 
 	void creditCard(double cost) {
 		System.out.printf("\nОплата кредитной картой проведена успешно!\nЧек на сумму: %.1f руб.\n", cost);
-		//TODO
 	}
 
 	void online(double cost) {
 		System.out.printf("\nОплата на сайте проведена успешно!\nЧек на сумму: %.1f руб.\n", cost);
-		//TODO
 	}
 }
