@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Demo {
+
 	public static void main(String[] args) {
 		System.out.println("\nPIZZERIA");
 		Scanner scanner = new Scanner(System.in);

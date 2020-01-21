@@ -7,8 +7,8 @@ public class Order {
 
 	void orderPizza(String pizza, int number, double price) {
 		cost = number * price;
-		System.out.printf("\nВаш заказ: Пицца %s, количество %d шт., стоимость %d * %.1f = %.1f руб.\n",
-				pizza, number, number, price, cost);
+		new PrintInfoPizza().printInfoStandardPizza(pizza, number, price, cost);
+		new SaveToFile().saveFilePizza(pizza, number, price, cost);
 		while (run) {
 			System.out.println("\n1.Оплатить \t 2. Отмена заказа");
 			int scan = scanner.nextInt();
