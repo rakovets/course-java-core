@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
-public class SelectionPizza {
+public class StandardRecipesPizza {
 	Scanner scanner = new Scanner(System.in);
 	Order order = new Order();
 
 	public void selection() {
-		System.out.println("Выбор пиццы:");
-		System.out.println("1.'Четыре сыра' - 9.9 руб. \n2.'Пепперони'   - 10.9 руб. \n3.'Барбекю'     - 11.9 руб. \n" +
-				"4.'Деревенская' - 5.5 руб. \n5.'Болоньезе'   - 11.9 руб. \n6.'Грибная'     - 5.6 руб. \n" +
-				"7.'Везувий'     - 6.3 руб. \n8.Отмена заказа");
-		int scanPizza = scanner.nextInt();
-		if (scanPizza != 8) {
-			numberPizza(scanPizza);
-		} else {
-			System.out.println("Заказ отменен!!!");
+			System.out.println("Выбор пиццы:");
+			System.out.println("1.'Четыре сыра' - 9.9 руб. \n2.'Пепперони'   - 10.9 руб. \n3.'Барбекю'     - 11.9 руб. \n" +
+					"4.'Деревенская' - 5.5 руб. \n5.'Болоньезе'   - 11.9 руб. \n6.'Грибная'     - 5.6 руб. \n" +
+					"7.'Везувий'     - 6.3 руб. \n8.Отмена заказа");
+			int scanPizza = scanner.nextInt();
+			if (scanPizza != 8) {
+				numberPizza(scanPizza);
+			} else {
+				System.out.println("Заказ отменен!!!");
 		}
 	}
 
