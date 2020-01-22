@@ -48,14 +48,18 @@ public class Pizza implements PrintConsistOfPizza {
 
     @Override
     public String getPrettyPrint() {
-        String string = String.format("You pizza Have Meats - %S ," +
+        String name = this.getClass().getSimpleName();
+        if (!"Pizza".equals(name)) {
+            System.out.print("You choose is : " + this.getClass().getSimpleName());
+        }
+        String string = String.format("\nYou pizza Have Meats - %S ," +
                         "\nchease - %s ," +
                         "\nVegetables - %s ," +
                         "\nTypeOfTest - %s ," +
                         "\nBoardType - %s ," +
                         "\nOtherIngridients - %s .",
                 meats, chess, vegetables, typeOfTests, boardTypes, otherIngridients);
-        new SaveToFile().saveFilePizza(string, numberPizza, price, cost, discount);
+        new SaveToFile().saveFilePizza(string);
         return string;
     }
 

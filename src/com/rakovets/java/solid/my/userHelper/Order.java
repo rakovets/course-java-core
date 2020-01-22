@@ -17,7 +17,7 @@ public class Order {
     void oderPizza(String pizza, int numberPizza, double price, ProfitResours profitResours) {
         discount = new DiscountCanculator().calculate(numberPizza, price);
         new PrintInfoPizza().printInfoStandartPizza(pizza, numberPizza, price, cost, discount);
-        new SaveToFile().saveFilePizza(pizza, numberPizza, price, cost, discount);
+        new SaveToFile().saveFilePizza(pizza);
         while (run) {
             System.out.println("\n1.Pay oder \t.2 Cancaled oder");
             int scan = scanner.nextInt();

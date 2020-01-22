@@ -11,3 +11,52 @@ Vegetables - [ONION] ,
 TypeOfTest - [STANDART] ,
 BoardType - [WithSausageSide] ,
 OtherIngridients - [SOUSCREAM] .
+16:47:52You pizza Have Meats - [PORK] ,
+chease - [RADONAR] ,
+Vegetables - [CABBAGE] ,
+TypeOfTest - [THICK] ,
+BoardType - [WithSausageSide] ,
+OtherIngridients - [AUBERGINE] .
+16:51:22You pizza Have Meats - [LAMB] ,
+chease - [FILADELFIA] ,
+Vegetables - [BAZILICK] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithCheeseBoard] ,
+OtherIngridients - [AUBERGINE] .
+16:51:27You pizza Have Meats - [LAMB] ,
+chease - [SILUGUNI] ,
+Vegetables - [ONION] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithSausageSide] ,
+OtherIngridients - [SOUSCREAM] .
+16:53:14You pizza Have Meats - [LAMB] ,
+chease - [SILUGUNI] ,
+Vegetables - [ONION] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithSausageSide] ,
+OtherIngridients - [SOUSCREAM] .
+16:53:38You pizza Have Meats - [LAMB] ,
+chease - [CHEDAR] ,
+Vegetables - [BAZILICK] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithCheeseBoard] ,
+OtherIngridients - [SOUSCREAM] .
+16:54:17 You pizza Have Meats - [LAMB] ,
+chease - [CHEDAR] ,
+Vegetables - [BAZILICK] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithCheeseBoard] ,
+OtherIngridients - [SOUSCREAM] .
+16:56:55 You pizza Have Meats - [LAMB] ,
+chease - [CHEDAR] ,
+Vegetables - [BAZILICK] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithCheeseBoard] ,
+OtherIngridients - [SOUSCREAM] .
+16:57:16
+You pizza Have Meats - [LAMB] ,
+chease - [SILUGUNI] ,
+Vegetables - [ONION] ,
+TypeOfTest - [STANDART] ,
+BoardType - [WithSausageSide] ,
+OtherIngridients - [SOUSCREAM] .

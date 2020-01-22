@@ -35,6 +35,9 @@ public class MainMenu {
             switch (operation2) {
                 case 1:
                     Pizza pizza = createStandartPizza();
+                    System.out.println(" ");
+                    System.out.println(pizza.getPrettyPrint());
+                    System.out.println("");
                     break;
                 case 2:
                     System.out.println("Create your pizzaa!!");
