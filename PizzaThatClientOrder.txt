@@ -1,0 +1,8 @@
+Ingredients in pizza:
+Cucumbers
+With_meat
+Thick
+Sausage
+Gorgonzola
+Pizza cost: 0.0
+Pizza size: 25.0
