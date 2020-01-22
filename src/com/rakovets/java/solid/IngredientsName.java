@@ -1,3 +1,5 @@
+package com.rakovets.java.solid;
+
 public interface IngredientsName {
 	String tomatoesName = "'Помидоры'";
 	String doughName = "'Тесто'";

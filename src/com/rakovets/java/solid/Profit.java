@@ -1,3 +1,5 @@
+package com.rakovets.java.solid;
+
 public class Profit {
 	private double profit;
 

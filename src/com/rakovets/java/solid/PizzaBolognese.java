@@ -1,3 +1,5 @@
+package com.rakovets.java.solid;
+
 import java.util.List;
 
 public class PizzaBolognese implements IngredientsName {

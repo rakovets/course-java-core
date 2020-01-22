@@ -1,3 +1,5 @@
+package com.rakovets.java.solid;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;

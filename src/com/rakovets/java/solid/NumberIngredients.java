@@ -1,3 +1,5 @@
+package com.rakovets.java.solid;
+
 import java.util.HashMap;
 import java.util.Map;
 

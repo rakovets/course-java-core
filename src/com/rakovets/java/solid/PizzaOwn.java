@@ -1,3 +1,5 @@
+package com.rakovets.java.solid;
+
 public class PizzaOwn implements IngredientsName {
 	private String name = "'Свой рецепт'";
 	private double price = 15.9;
