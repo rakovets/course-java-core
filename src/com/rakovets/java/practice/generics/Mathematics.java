@@ -7,7 +7,6 @@ public class Mathematics {
                 return type1;
             }
         }
-        //TODO
         return null;
     }
 }
