@@ -1,8 +1,8 @@
 Ingredients in pizza:
-Cucumbers
-With_meat
-Thick
+Tomatoes
 Sausage
-Gorgonzola
-Pizza cost: 0.0
-Pizza size: 25.0
+Chicken
+Mozzarella
+Pizza name: Your Pizza
+Pizza cost: 5.85
+Count of pizza: 1
