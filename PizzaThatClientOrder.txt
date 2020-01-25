@@ -1,8 +1,9 @@
 Ingredients in pizza:
-Tomatoes
-Sausage
 Chicken
+Thick
+With_cheese
+Cucumbers
 Mozzarella
-Pizza name: Your Pizza
-Pizza cost: 5.85
-Count of pizza: 1
+Pizza name: Four Season
+Pizza cost: 51.029999999999994
+Count of pizza: 3

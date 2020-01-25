@@ -15,6 +15,8 @@ public class PizzaTime {
 
     private static InterfacePuttingInformationInFile putToFile = new PuttingInformationInFile();
 
+    private static InterfaceServiceInformation information = new ServiceInformationAboutPizzaForManager();
+
     public static void main(String[] args) {
 
         getMainMenu();
@@ -40,6 +42,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaFourSeason.getCost());
                 putToFile.putOrderInFile(pizzaFourSeason.getName(), pizzaFourSeason.getSetWithIngredientsInPizza(),
                         pizzaFourSeason.getCost(), countOfPizza);
                 getMainMenu();
@@ -55,6 +59,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaPepperoni.getCost());
                 putToFile.putOrderInFile(pizzaPepperoni.getName(), pizzaPepperoni.getSetWithIngredientsInPizza(),
                         pizzaPepperoni.getCost(), countOfPizza);
                 getMainMenu();
@@ -70,6 +76,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaFourCheese.getCost());
                 putToFile.putOrderInFile(pizzaFourCheese.getName(), pizzaFourCheese.getSetWithIngredientsInPizza(),
                         pizzaFourCheese.getCost(), countOfPizza);
                 getMainMenu();
@@ -85,6 +93,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaSweetChicken.getCost());
                 putToFile.putOrderInFile(pizzaSweetChicken.getName(), pizzaSweetChicken.getSetWithIngredientsInPizza(),
                         pizzaSweetChicken.getCost(), countOfPizza);
                 getMainMenu();
@@ -100,6 +110,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaDoDo.getCost());
                 putToFile.putOrderInFile(pizzaDoDo.getName(), pizzaDoDo.getSetWithIngredientsInPizza(),
                         pizzaDoDo.getCost(), countOfPizza);
                 getMainMenu();
@@ -115,6 +127,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaItalian.getCost());
                 putToFile.putOrderInFile(pizzaItalian.getName(), pizzaItalian.getSetWithIngredientsInPizza(),
                         pizzaItalian.getCost(), countOfPizza);
                 getMainMenu();
@@ -130,6 +144,8 @@ public class PizzaTime {
                     System.out.println(ingredient);
                 }
                 variantToPay();
+                information.addCountOfOrderingPizza(countOfPizza);
+                information.addCountOfMoney(pizzaIrish.getCost());
                 putToFile.putOrderInFile(pizzaIrish.getName(), pizzaIrish.getSetWithIngredientsInPizza(),
                         pizzaIrish.getCost(), countOfPizza);
                 getMainMenu();
@@ -167,16 +183,23 @@ public class PizzaTime {
             Pizza pizza = servicePizza.createPizzaByIngredients("Your Pizza", ingredientsToOrder, countOfPizza);
             System.out.println("You bye pizza: " + pizza);
             variantToPay();
+            information.addCountOfOrderingPizza(countOfPizza);
+            information.addCountOfMoney(pizza.getCost());
             putToFile.putOrderInFile(pizza.getName(), pizza.getSetWithIngredientsInPizza(),
                     pizza.getCost(), countOfPizza);
             getMainMenu();
         } else if (chooseActionInMenu == 3) {
             System.out.println("Good bye)");
+        } else if (chooseActionInMenu == 4) {
+            System.out.println("Count of pizza that buy: " + information.getCountOfPizza() + ".\n" +
+                    "Count of money: " + information.getCountOfMoney());
+            getMainMenu();
         }
     }
 
     public static void menu() {
-        System.out.printf("1. Choose pizza for yourself.\n2. Choose ingredients for pizza.\n3. Exit from menu.\n");
+        System.out.printf("1. Choose pizza for yourself.\n2. Choose ingredients for pizza.\n3. Exit from menu.\n" +
+                "4. View information for manager.\n");
     }
 
     public static void menuWithPizza() {
