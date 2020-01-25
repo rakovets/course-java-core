@@ -39,8 +39,10 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaFourSeason.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaFourSeason.getName(), pizzaFourSeason.getSetWithIngredientsInPizza(),
                         pizzaFourSeason.getCost(), countOfPizza);
+                getMainMenu();
             } else if (choosePizza == 2) {
                 Pizza pizzaPepperoni = servicePizza.getPizzaByName("Pepperoni");
                 System.out.println("Choose how much pizza do you want:");
@@ -52,8 +54,10 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaPepperoni.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaPepperoni.getName(), pizzaPepperoni.getSetWithIngredientsInPizza(),
                         pizzaPepperoni.getCost(), countOfPizza);
+                getMainMenu();
             } else if (choosePizza == 3) {
                 Pizza pizzaFourCheese = servicePizza.getPizzaByName("Four Cheese");
                 System.out.println("Choose how much pizza do you want:");
@@ -65,8 +69,10 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaFourCheese.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaFourCheese.getName(), pizzaFourCheese.getSetWithIngredientsInPizza(),
                         pizzaFourCheese.getCost(), countOfPizza);
+                getMainMenu();
             } else if (choosePizza == 4) {
                 Pizza pizzaSweetChicken = servicePizza.getPizzaByName("Sweet Chicken");
                 System.out.println("Choose how much pizza do you want:");
@@ -78,8 +84,10 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaSweetChicken.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaSweetChicken.getName(), pizzaSweetChicken.getSetWithIngredientsInPizza(),
                         pizzaSweetChicken.getCost(), countOfPizza);
+                getMainMenu();
             } else if (choosePizza == 5) {
                 Pizza pizzaDoDo = servicePizza.getPizzaByName("DoDo");
                 System.out.println("Choose how much pizza do you want:");
@@ -91,8 +99,10 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaDoDo.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaDoDo.getName(), pizzaDoDo.getSetWithIngredientsInPizza(),
                         pizzaDoDo.getCost(), countOfPizza);
+                getMainMenu();
             } else if (choosePizza == 6) {
                 Pizza pizzaItalian = servicePizza.getPizzaByName("Italian");
                 System.out.println("Choose how much pizza do you want:");
@@ -104,8 +114,10 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaItalian.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaItalian.getName(), pizzaItalian.getSetWithIngredientsInPizza(),
                         pizzaItalian.getCost(), countOfPizza);
+                getMainMenu();
             } else if (choosePizza == 7) {
                 Pizza pizzaIrish = servicePizza.getPizzaByName("Irish");
                 System.out.println("Choose how much pizza do you want:");
@@ -117,10 +129,12 @@ public class PizzaTime {
                 for (Ingredients ingredient: pizzaIrish.getSetWithIngredientsInPizza()) {
                     System.out.println(ingredient);
                 }
+                variantToPay();
                 putToFile.putOrderInFile(pizzaIrish.getName(), pizzaIrish.getSetWithIngredientsInPizza(),
                         pizzaIrish.getCost(), countOfPizza);
+                getMainMenu();
             }else if (choosePizza == 8) {
-                menu();
+                getMainMenu();
             } else {
                 System.out.println("Choose variant that exist.");
             }
@@ -152,8 +166,10 @@ public class PizzaTime {
             int countOfPizza = scanner.nextInt();
             Pizza pizza = servicePizza.createPizzaByIngredients("Your Pizza", ingredientsToOrder, countOfPizza);
             System.out.println("You bye pizza: " + pizza);
+            variantToPay();
             putToFile.putOrderInFile(pizza.getName(), pizza.getSetWithIngredientsInPizza(),
                     pizza.getCost(), countOfPizza);
+            getMainMenu();
         } else if (chooseActionInMenu == 3) {
             System.out.println("Good bye)");
         }
@@ -166,5 +182,23 @@ public class PizzaTime {
     public static void menuWithPizza() {
         System.out.printf("1. Four Season.\n2. Pepperoni.\n3. Four Cheese.\n4. Sweet Chicken.\n5. DoDo.\n6. Italian.\n" +
                 "7. Irish.\n8. Exit to main menu.\n");
+    }
+
+    public static void variantToPay() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose how do you want to pay: \n" +
+                "1 - cash;\n" +
+                "2 - bank card;\n" +
+                "3 - through the site.");
+        int choice = scanner.nextInt();
+        if (choice == 1) {
+            System.out.println("You choose cash.");
+        } else if (choice == 2) {
+            System.out.println("You choose bank card.");
+        } else if (choice == 3) {
+            System.out.println("You choose to pay through the site.");
+        } else {
+            variantToPay();
+        }
     }
 }
