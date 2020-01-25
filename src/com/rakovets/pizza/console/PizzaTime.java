@@ -39,6 +39,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaFourSeason.getCost(), pizzaFourSeason.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaFourSeason.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -56,6 +57,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaPepperoni.getCost(), pizzaPepperoni.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaPepperoni.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -73,6 +75,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaFourCheese.getCost(), pizzaFourCheese.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaFourCheese.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -90,6 +93,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaSweetChicken.getCost(), pizzaSweetChicken.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaSweetChicken.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -107,6 +111,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaDoDo.getCost(), pizzaDoDo.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaDoDo.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -124,6 +129,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaItalian.getCost(), pizzaItalian.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaItalian.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -141,6 +147,7 @@ public class PizzaTime {
                 System.out.printf("Pizza cost = %.2f, name = %s\n", pizzaIrish.getCost(), pizzaIrish.getName());
                 System.out.println("With ingredients:");
                 for (Ingredients ingredient: pizzaIrish.getSetWithIngredientsInPizza()) {
+                    information.reduceCountOfIngredient(ingredient);
                     System.out.println(ingredient);
                 }
                 variantToPay();
@@ -194,12 +201,15 @@ public class PizzaTime {
             System.out.println("Count of pizza that buy: " + information.getCountOfPizza() + ".\n" +
                     "Count of money: " + information.getCountOfMoney());
             getMainMenu();
+        } else if (chooseActionInMenu == 5) {
+            information.showIngredientsWithCount(information.getMapWithIngredientsAndCount());
+            getMainMenu();
         }
     }
 
     public static void menu() {
         System.out.printf("1. Choose pizza for yourself.\n2. Choose ingredients for pizza.\n3. Exit from menu.\n" +
-                "4. View information for manager.\n");
+                "4. View information for manager.\n5. View how much ingredients we have.\n");
     }
 
     public static void menuWithPizza() {
