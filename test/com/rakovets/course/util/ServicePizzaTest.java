@@ -6,6 +6,7 @@ import com.rakovets.pizza.entity.Ingredients;
 import com.rakovets.pizza.entity.Pizza;
 import com.rakovets.pizza.services.InterfaceServicePizza;
 import com.rakovets.pizza.services.ServicePizzaImpl;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ public class ServicePizzaTest {
     private InterfaceDaoPizza interfaceDaoPizza = new DaoPizzaImpl();
 
     @BeforeEach
-    public void beforeTest() {
+    void beforeTest() {
         Set<Ingredients> ingredients = new HashSet<>();
         ingredients.add(Ingredients.Chicken);
         ingredients.add(Ingredients.Mozzarella);
@@ -28,8 +29,24 @@ public class ServicePizzaTest {
     }
 
     @Test
-    public void testPizza() {
+    void testCreatePizzaByIngredients() {
+        Set<Ingredients> ingredients = new HashSet<>();
+        ingredients.add(Ingredients.Chicken);
+        ingredients.add(Ingredients.Mozzarella);
+        Pizza pizzaTest = interfaceServicePizza.createPizzaByIngredients("testPizza", ingredients, 1);
+        Assertions.assertEquals(pizzaTest.getName(), "testPizza");
+        Assertions.assertEquals(pizzaTest.getSetWithIngredientsInPizza(), ingredients);
+    }
+
+    @Test
+    void testGetPizzaByName() {
         Pizza pizza = interfaceServicePizza.getPizzaByName("Four Season");
         assert pizza != null;
+    }
+
+    @Test
+    void testFindCostByIngredient() {
+        double valueThatReturn = interfaceServicePizza.findCostByIngredient(Ingredients.With_cheese);
+        assert valueThatReturn == 4.0;
     }
 }

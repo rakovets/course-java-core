@@ -1,9 +1,7 @@
 Ingredients in pizza:
-Sausage
-Thick
-With_cheese
+Gorgonzola
+With_meat
 Cucumbers
-Mozzarella
-Pizza name: Four Cheese
-Pizza cost: 20.5
-Count of pizza: 1
+Pizza name: testPizza
+Pizza cost: 14.9
+Count of pizza: 2

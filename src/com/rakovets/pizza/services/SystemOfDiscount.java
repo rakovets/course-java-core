@@ -22,8 +22,8 @@ public class SystemOfDiscount implements InterfaceDiscount {
         Date currentDate = new Date();
         SimpleDateFormat formatDate = new SimpleDateFormat("EEEE");
         String weekday = formatDate.format(currentDate);
-        System.out.println(weekday);
-        if (weekday.equals("пятница")) {
+        System.out.println("Today is " + weekday);
+        if (weekday.equals("вторник")) {
             discount = countOfPizza * cost * 0.1;
         } else {
             discount = 0;
@@ -44,8 +44,8 @@ public class SystemOfDiscount implements InterfaceDiscount {
         Date currentDate = new Date();
         SimpleDateFormat formatDate = new SimpleDateFormat("EEEE");
         String weekday = formatDate.format(currentDate);
-        System.out.println(weekday);
-        if (weekday.equals("пятница")) {
+        System.out.println("Today is " + weekday);
+        if (weekday.equals("вторник")) {
             discountByWeekday = countOfPizza * currentPizza.getCost() * 0.1;
         } else {
             discountByWeekday = 0;
