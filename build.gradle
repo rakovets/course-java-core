@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'idea'
+    id 'checkstyle'
 }
 
 repositories {
@@ -15,18 +16,5 @@ test {
     useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
-    }
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src']
-        }
-    }
-    test {
-        java {
-            srcDirs = ['test']
-        }
     }
 }
