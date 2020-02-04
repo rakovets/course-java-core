@@ -8,8 +8,8 @@ import java.util.Scanner;
  * @version 1.0
  */
 public abstract class StandardInputTask {
-	/**
-	 * Scanner for Standard Input.
-	 */
-	protected static final Scanner INPUT_SCANNER = new Scanner(System.in);
+    /**
+     * Scanner for Standard Input.
+     */
+    protected static final Scanner INPUT_SCANNER = new Scanner(System.in);
 }
