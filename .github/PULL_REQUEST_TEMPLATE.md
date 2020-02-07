@@ -1,22 +1,16 @@
-<!-- Please use templates for title:
- for code review: ${organization} / ${group} / ${theme} / ${deadline} / ${your title}
-    Example: it-rakovets.by / j19 / methods / 19.03.2019 / Done tasks 1-5, 7, 9-10
- for other PR: ${fix/add} ${your title} -->
- 
-## Pull request type
-<!-- Please submit ONLY single type pull requests (use symbol 'x') --> 
+<!--
+Please use templates for title:
+${theme} / ${organization} / ${group} / ${your fullname} / ${your title}
 
-Please check the type of change your PR introduces:
-- [x] Code review
-- [ ] Fix
-- [ ] Add task + test
-- [ ] Other (please describe): 
+Example:
+methods / it-rakovets.by / j19 / Dmitry Rakovets / Done tasks 1-5, 7, 9-10
+-->
 
-## Pull request group
-<!-- Please write all fields for PR -->
+## Pull request state
 
-Please write all fields:
-- Full name: 
-
-## Other information
-<!-- Any other information that is important to this PR such -->
+Please indicate actual status for PR:
+- [x] on review
+- [ ] reviewed
+- [ ] fixed
+- [ ] on approve
+- [ ] approved
