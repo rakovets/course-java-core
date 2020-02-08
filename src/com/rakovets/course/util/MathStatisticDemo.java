@@ -7,5 +7,6 @@ public class MathStatisticDemo {
         System.out.println("NumberOfEvenValues:" + mathStatistic.NumberOfEvenValues());
         System.out.println("NumberOfUnevenValues:" + mathStatistic.NumberOfUnevenValues());
         System.out.println("NumberOfZeroValues:" + mathStatistic.NumberOfZeroValues());
+        System.out.println("NumberOfInputValues:" + mathStatistic.NumberOfInputValues());
     }
 }
