@@ -1,11 +1,9 @@
-package com.rakovets.java.junit.pizzeria.models;
-
-import com.rakovets.java.junit.pizzeria.demo.IngredientsNames;
+package com.rakovets.java.pattern_mvc.pizzeria.database;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class BaseIngredients {
+public class IngredientsBase {
 	public Map<String, Integer> getMapNumberIngredients() {
 		Map<String, Integer> mapNumberIngredients = new HashMap<>();
 		mapNumberIngredients.put(IngredientsNames.TOMATOES.getIngredient(), 50);

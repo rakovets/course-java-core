@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.rakovets.java.junit.pizzeria.models.Discount;
+import com.rakovets.java.pattern_mvc.pizzeria.models.Discount;
 
 public class DiscountTest {
 	@Test

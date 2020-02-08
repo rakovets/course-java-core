@@ -1,7 +1,4 @@
-package com.rakovets.java.junit.pizzeria.database;
-
-import com.rakovets.java.junit.pizzeria.demo.IngredientsNames;
-import com.rakovets.java.junit.pizzeria.demo.PizzaNames;
+package com.rakovets.java.pattern_mvc.pizzeria.database;
 
 import java.util.List;
 

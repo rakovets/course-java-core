@@ -1,4 +1,4 @@
-package com.rakovets.java.junit.pizzeria.demo;
+package com.rakovets.java.pattern_mvc.pizzeria.database;
 
 public enum IngredientsNames {
 	TOMATOES("Помидоры"),

@@ -1,4 +1,4 @@
-package com.rakovets.java.junit.pizzeria.models;
+package com.rakovets.java.pattern_mvc.pizzeria.models;
 
 public class Profit {
 	private double numberSalesProfit;
@@ -11,7 +11,7 @@ public class Profit {
 		this.numberSalesProfit = this.numberSalesProfit + cost;
 	}
 
-	public double getNumberSalesProfit() {
+	public double getNumberProfit() {
 		return numberSalesProfit;
 	}
 }

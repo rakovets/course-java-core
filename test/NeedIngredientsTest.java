@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.rakovets.java.junit.pizzeria.demo.IngredientsNames;
-import com.rakovets.java.junit.pizzeria.models.NeedIngredients;
+import com.rakovets.java.pattern_mvc.pizzeria.database.IngredientsNames;
+import com.rakovets.java.pattern_mvc.pizzeria.models.NeedIngredients;
 
 import java.util.HashMap;
 import java.util.Map;

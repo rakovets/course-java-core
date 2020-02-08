@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.rakovets.java.junit.pizzeria.database.PizzaBarbecue;
-import com.rakovets.java.junit.pizzeria.demo.IngredientsNames;
-import com.rakovets.java.junit.pizzeria.demo.PizzaNames;
+import com.rakovets.java.pattern_mvc.pizzeria.database.PizzaBarbecue;
+import com.rakovets.java.pattern_mvc.pizzeria.database.IngredientsNames;
+import com.rakovets.java.pattern_mvc.pizzeria.database.PizzaNames;
 
 import java.util.List;
 

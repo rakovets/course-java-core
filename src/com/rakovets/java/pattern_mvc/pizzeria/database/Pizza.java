@@ -1,4 +1,4 @@
-package com.rakovets.java.junit.pizzeria.database;
+package com.rakovets.java.pattern_mvc.pizzeria.database;
 
 import java.util.List;
 

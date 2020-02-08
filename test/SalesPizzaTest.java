@@ -1,9 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.rakovets.java.junit.pizzeria.database.PizzaBarbecue;
-import com.rakovets.java.junit.pizzeria.database.PizzaBolognese;
-import com.rakovets.java.junit.pizzeria.models.SetOrders;
-import com.rakovets.java.junit.pizzeria.models.SalesPizza;
+import com.rakovets.java.pattern_mvc.pizzeria.database.PizzaBarbecue;
+import com.rakovets.java.pattern_mvc.pizzeria.database.PizzaBolognese;
+import com.rakovets.java.pattern_mvc.pizzeria.models.SetOrders;
+import com.rakovets.java.pattern_mvc.pizzeria.models.SalesPizza;
 
 import java.util.HashMap;
 import java.util.Map;
