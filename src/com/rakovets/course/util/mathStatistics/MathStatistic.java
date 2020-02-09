@@ -1,4 +1,4 @@
-package com.rakovets.course.util;
+package com.rakovets.course.util.mathStatistics;
 
 
 import java.util.Arrays;
