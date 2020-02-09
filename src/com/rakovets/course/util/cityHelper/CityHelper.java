@@ -35,5 +35,14 @@ public class CityHelper {
                     }
                 });
     }
+
+    public long NumberOfRepetitionsOfCityNames() {
+        Scanner scanner = new Scanner(System.in);
+        String NameOfTheCity = scanner.next();
+        long countOfRepetitionsCityNames = sities.stream()
+                .filter(c -> NameOfTheCity.equals(c))
+                .count();
+        return countOfRepetitionsCityNames;
+    }
 }
 
