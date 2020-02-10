@@ -1,20 +1,18 @@
-# java-practice
+# course-java-basic
 
-This project contains:
- - tasks
- - tests for tasks
+This project is for the Java Basic course. It contains for each theme of this course:
+- examples
+- tasks
+- tests for these tasks
 
- 
 ## Code of Conduct
 
-This project is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
+This project is governed by the [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code of conduct.
-
 
 ## Contributing
 
-Follow [CONTRIBUTING.md](CONTRIBUTING.md).
-
+Follow [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
 ## License
 
