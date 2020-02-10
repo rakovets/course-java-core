@@ -47,16 +47,16 @@ public class CityHelperDemo {
         CityHelper cityHelper = new CityHelper(sities);
 
         System.out.println("All cities at list are:\n");
-        cityHelper.AllCities();
+        cityHelper.allCities();
 
         System.out.println("All cities at list with name longer than six characters are:\n");
-        cityHelper.AllCitiesWithNameLongerThanSixCharacters();
+        cityHelper.allCitiesWithNameLongerThanSixCharacters();
 
         System.out.println("Enter the letter");
-        cityHelper.AllCitiesWithNameStartingWithAGivenLetter();
+        cityHelper.allCitiesWithNameStartingWithAGivenLetter();
 
         System.out.println("Enter name of the city:");
-        System.out.println("Number of repetitions: " + cityHelper.NumberOfRepetitionsOfCityNames());
+        System.out.println("Number of repetitions: " + cityHelper.numberOfRepetitionsOfCityNames());
     }
 }
 

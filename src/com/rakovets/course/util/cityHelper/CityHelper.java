@@ -11,18 +11,18 @@ public class CityHelper {
         this.sities = sities;
     }
 
-    public void AllCities() {
+    public void allCities() {
         sities.stream()
                 .forEach(c -> System.out.println(c));
     }
 
-    public void AllCitiesWithNameLongerThanSixCharacters() {
+    public void allCitiesWithNameLongerThanSixCharacters() {
         sities.stream()
                 .filter(c -> c.length() > 6)
                 .forEach(c -> System.out.println(c));
     }
 
-    public void AllCitiesWithNameStartingWithAGivenLetter() {
+    public void allCitiesWithNameStartingWithAGivenLetter() {
         Scanner scanner = new Scanner(System.in);
         String letterFromUserInput = scanner.next();
         sities.stream()
@@ -36,7 +36,7 @@ public class CityHelper {
                 });
     }
 
-    public long NumberOfRepetitionsOfCityNames() {
+    public long numberOfRepetitionsOfCityNames() {
         Scanner scanner = new Scanner(System.in);
         String NameOfTheCity = scanner.next();
         long countOfRepetitionsCityNames = sities.stream()
