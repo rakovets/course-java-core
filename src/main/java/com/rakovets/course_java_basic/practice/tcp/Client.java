@@ -1,5 +1,7 @@
 package main.java.com.rakovets.course_java_basic.practice.tcp;
 
+import main.java.com.rakovets.course_java_basic.practice.tcp.client.FilesUtils;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -11,6 +13,10 @@ public class Client {
     public static final int SERVER_PORT = 8080;
 
     public static void main(String[] args) {
+
+        FilesUtils filesUtils = new FilesUtils();
+        filesUtils.showAllFilesPath();
+
         Scanner scanner = new Scanner(System.in);
 
         try {

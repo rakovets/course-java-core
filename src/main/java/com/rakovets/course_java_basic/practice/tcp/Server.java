@@ -1,7 +1,6 @@
 package main.java.com.rakovets.course_java_basic.practice.tcp;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -10,6 +9,7 @@ public class Server {
     public static final int SERVER_PORT = 8080;
 
     public static void main(String[] args) {
+
         try {
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
             System.out.println("Server address: " + serverSocket.getInetAddress().getHostAddress());
