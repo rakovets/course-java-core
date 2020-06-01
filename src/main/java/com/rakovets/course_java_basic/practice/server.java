@@ -8,7 +8,7 @@ import java.util.List;
 
 public class server {
 
-    public static final int PORT = 9090;
+    public static final int PORT = 1090;
 
     public static void main(String[] args) {
         String path = "C:\\Users\\user\\Desktop\\dev\\java-practice\\src\\main\\java\\com\\rakovets" +
@@ -18,28 +18,44 @@ public class server {
                 "\\course_java_basic\\practice\\files\\text.txt";
 
         File file = new File(path);
-        try {
-            ServerSocket serverSocket = new ServerSocket(PORT);
-            System.out.println("Server address:" + serverSocket.getInetAddress().getHostAddress());
-            System.out.println("Server port:" + serverSocket.getLocalPort());
-            System.out.println("SERVER START");
-            Socket clientSocket = serverSocket.accept();
-            Thread.sleep(100);
-            System.out.println("Client connected");
-            InputStream inputStream = clientSocket.getInputStream();
 
-            if (inputStream.available() > 0) {
-                byte[] data = new byte[inputStream.available()];
-                inputStream.read(data);
-                System.out.println("Message read");
-                String message = new String(data);
-                System.out.println("Message on server:" + message);
+        ServerSocket serverSocket = null;
+
+            try {
+                serverSocket = new ServerSocket(PORT);
+                System.out.println("Server address:" + serverSocket.getInetAddress().getHostAddress());
+                System.out.println("Server port:" + serverSocket.getLocalPort());
+                System.out.println("SERVER START");
+
+                while (true) {
+                    Socket clientSocket = serverSocket.accept();
+                    Thread.sleep(100);
+                    System.out.println("Client connected");
+                    InputStream inputStream = clientSocket.getInputStream();
+
+                    if (inputStream.available() > 0) {
+                        byte[] data = new byte[inputStream.available()];
+                        inputStream.read(data);
+                        System.out.println("Message read");
+                        String message = new String(data);
+                        System.out.println("Message on server:" + message);
+                    }
+                }
+
+            } catch (IOException e) {
+                System.out.println("Server exception:" + e);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (serverSocket != null) {
+                        serverSocket.close();
+                    }
+                } catch (IOException e) {
+                    System.out.println("Server finally IOException: " + e);
+                }
             }
 
-        } catch (IOException e) {
-            System.out.println("Server exception:" + e);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
 
 
@@ -48,7 +64,7 @@ public class server {
 //        createFileOnServer(path, "text2.txt");
 
 //        deleteFileOnServer(path, "text2.txt");
-    }
+
 
     public static List<String> getListOfFiles(File file) {
         List<String> listOfTitles = new ArrayList<>();
