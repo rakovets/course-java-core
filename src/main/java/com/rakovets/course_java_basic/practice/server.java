@@ -9,17 +9,19 @@ import java.util.List;
 public class server {
 
     public static final int PORT = 1090;
+    private static String path = "C:\\Users\\user\\Desktop\\dev\\java-practice\\src\\main\\java\\com\\rakovets" +
+            "\\course_java_basic\\practice\\files";
+
+    private static String pathToFile = "C:\\Users\\user\\Desktop\\dev\\java-practice\\src\\main\\java\\com\\rakovets" +
+            "\\course_java_basic\\practice\\files\\text.txt";
+
+    private static String titleOfNewFile = "test";
+
+    private static ServerSocket serverSocket;
+    private static BufferedReader in;
+    private static BufferedWriter out;
 
     public static void main(String[] args) {
-        String path = "C:\\Users\\user\\Desktop\\dev\\java-practice\\src\\main\\java\\com\\rakovets" +
-                "\\course_java_basic\\practice\\files";
-
-        String pathToFile = "C:\\Users\\user\\Desktop\\dev\\java-practice\\src\\main\\java\\com\\rakovets" +
-                "\\course_java_basic\\practice\\files\\text.txt";
-
-        File file = new File(path);
-
-        ServerSocket serverSocket = null;
 
             try {
                 serverSocket = new ServerSocket(PORT);
@@ -31,17 +33,30 @@ public class server {
                     Socket clientSocket = serverSocket.accept();
                     Thread.sleep(100);
                     System.out.println("Client connected");
-                    InputStream inputStream = clientSocket.getInputStream();
 
-                    if (inputStream.available() > 0) {
-                        byte[] data = new byte[inputStream.available()];
-                        inputStream.read(data);
-                        System.out.println("Message read");
-                        String message = new String(data);
-                        System.out.println("Message on server:" + message);
+                    in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+
+                    String word = in.readLine();
+                    System.out.println(word);
+
+                    if (word.equals("LIST")) {
+                        List<String> listOfFiles = getListOfFiles(new File(path));
+                        out.write(listOfFiles + "\n");
+                    } else if (word.equals("GET")) {
+                        String textFromFile = getFileByPath(pathToFile);
+                        out.write("Text in file: " + textFromFile + "\n");
+                    } else if (word.equals("SEND")) {
+                        createFileOnServer(path, titleOfNewFile);
+                        out.write("File created by path: " + path + "\n");
+                    } else if (word.equals("DELETE")) {
+                        deleteFileOnServer(path, titleOfNewFile);
+                        out.write("File deleted from server by path: " + path + "\n");
+                    } else {
+                        out.write("You enter: " + word + "\n");
                     }
+                    out.flush();
                 }
-
             } catch (IOException e) {
                 System.out.println("Server exception:" + e);
             } catch (InterruptedException e) {
@@ -57,14 +72,6 @@ public class server {
             }
 
         }
-
-
-//        System.out.println(getFileByPath(pathToFile));
-
-//        createFileOnServer(path, "text2.txt");
-
-//        deleteFileOnServer(path, "text2.txt");
-
 
     public static List<String> getListOfFiles(File file) {
         List<String> listOfTitles = new ArrayList<>();
