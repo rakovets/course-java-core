@@ -30,7 +30,7 @@ Please follow these steps to have your contribution considered by the maintainer
 The packages structure is as follows:
 
 ```out
-com.rakovets.course
+main.java.com.rakovets.rakovets.course
     |- util
     +- java.basic
         |- theme1
