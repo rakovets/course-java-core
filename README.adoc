@@ -1,0 +1,30 @@
+= course-java-basics
+
+This project is for the course "Java Basics". It contains for each theme of this course:
+
+- examples
+- tasks
+- tests for these tasks
+
+== Theme
+
+1. Intro to Java
+2. Variables. Data types. Operators
+3. Conditional constructions
+4. Methods
+5. Loop
+6. Arrays
+
+== Code of Conduct
+
+This project is governed by the link:.github/CODE_OF_CONDUCT.md[Code of Conduct].
+By participating, you are expected to uphold this code of conduct.
+
+== Contributing
+
+Follow link:.github/CONTRIBUTING.md[CONTRIBUTING.md].
+
+== License
+
+The project is released under version 2.0 of the
+link:https://www.gnu.org/licenses/old-licenses/gpl-2.0.html[GNU General Public License].
