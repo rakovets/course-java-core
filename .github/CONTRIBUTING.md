@@ -60,4 +60,4 @@ where:
 
 ### Java Code Style
 
-All Java code must adhere to [Java Style Code](https://github.com/rakovets/course-java-basic/wiki/java-code-style)
+All Java code must adhere to [Java Style Code](https://wiki-java-basic.dmitryrakovets.com/#/common/code-convention)
