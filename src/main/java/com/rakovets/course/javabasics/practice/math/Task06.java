@@ -1,23 +1,22 @@
-package com.rakovets.course.javabasics.practice.operators;
+package com.rakovets.course.javabasics.practice.math;
+
 
 /**
- * Разработать программу для фитнес приложения:
- * которая расчитывает избыточность веса пользователя от стандартного веса для его роста (стандартного вес = рост - 110).
- * Если известно:
+ * Разработать программу для метеологической станции:
+ * которая переводит значения температуры в градусах Цельсия в Кельвины и Фаренгейты.
  *
- * @param height - рост
- * @param weight - вес
+ * @param temperatureInCelsius - температура в Цельсиях
+ * @return формат вывода: 'Celsius {c}° - Kelvin {k}° - Fahrenheit {f}°'
+ * где {c} - температура в Цельсиях и т.д.
  */
-public class Task05 {
+public class Task06 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int height = 186;
-        int weight = 86;
+        double temperatureInCelsius = 0;
 
         // Код необходимый для тестирования, не изменять
-        height = (args.length == 2) ? Integer.parseInt(args[0]) : height;
-        weight = (args.length == 2) ? Integer.parseInt(args[1]) : weight;
+        temperatureInCelsius = (args.length == 1) ? Double.parseDouble(args[0]) : temperatureInCelsius;
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

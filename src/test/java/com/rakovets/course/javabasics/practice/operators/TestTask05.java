@@ -8,31 +8,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestTask05 extends StandardOutputTest {
     @Test
     void test1() {
-        Task05.main(new String[]{"0.1"});
-        assertEquals("0", getStandardOutputContent());
+        Task05.main(new String[]{"176", "90"});
+        assertEquals("24", getStandardOutputContent());
     }
 
     @Test
     void test2() {
-        Task05.main(new String[]{"0.5"});
-        assertEquals("1", getStandardOutputContent());
+        Task05.main(new String[]{"158", "34"});
+        assertEquals("-14", getStandardOutputContent());
     }
 
     @Test
     void test3() {
-        Task05.main(new String[]{"1.0"});
-        assertEquals("1", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task05.main(new String[]{"1.2"});
-        assertEquals("1", getStandardOutputContent());
-    }
-
-    @Test
-    void test5() {
-        Task05.main(new String[]{"1.9"});
-        assertEquals("2", getStandardOutputContent());
+        Task05.main(new String[]{"180", "70"});
+        assertEquals("0", getStandardOutputContent());
     }
 }

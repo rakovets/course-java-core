@@ -1,23 +1,20 @@
-package com.rakovets.course.javabasics.practice.operators;
+package com.rakovets.course.javabasics.practice.math;
 
 /**
- * Разработать программу для фитнес приложения:
- * которая расчитывает избыточность веса пользователя от стандартного веса для его роста (стандартного вес = рост - 110).
- * Если известно:
+ * Написать программу для фабрики по производству зонтов:
+ * которая расчитает площадь материала небходимого для изготовления одного зонта. Для изготовления
+ * зонта используется материал в форме круга. Известено:
  *
- * @param height - рост
- * @param weight - вес
+ * @param diameter - диаметр зонта, который необходимо изготовить
  */
-public class Task05 {
+public class Task04 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int height = 186;
-        int weight = 86;
+        int diameter = 10;
 
         // Код необходимый для тестирования, не изменять
-        height = (args.length == 2) ? Integer.parseInt(args[0]) : height;
-        weight = (args.length == 2) ? Integer.parseInt(args[1]) : weight;
+        diameter = (args.length == 1) ? Integer.parseInt(args[0]) : diameter;
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

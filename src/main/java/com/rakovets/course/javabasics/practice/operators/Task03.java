@@ -1,22 +1,23 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 /**
- * Разработать программу для игрового движка:
- * которая выводит штрафные очки игрока, который набрал меньше штрафных очков, если известно:
+ * Разработать программу для банка:
+ * которая будет высчитывать сумму на депозитном счете, для пятилетнего плана, без возможности снятия денег,
+ * если известно
  *
- * @param penaltyPointFirstPlayer  - штрафные очки первого игрока
- * @param penaltyPointSecondPlayer - штрафные очки второго игрока
+ * @param deposit          - первоначальная сумма на счете
+ * @param annualPercentage - ежегодный простой процент, т.е. ежегодный процент высчитывается от первоначальной суммы
  */
 public class Task03 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int penaltyPointFirstPlayer = 1;
-        int penaltyPointSecondPlayer = 2;
+        int deposit = 1500;
+        int annualPercentage = 3;
 
         // Код необходимый для тестирования, не изменять
-        penaltyPointFirstPlayer = (args.length == 0) ? penaltyPointFirstPlayer : Integer.parseInt(args[0]);
-        penaltyPointSecondPlayer = (args.length == 0) ? penaltyPointSecondPlayer : Integer.parseInt(args[1]);
+        deposit = (args.length == 0) ? deposit : Integer.parseInt(args[0]);
+        annualPercentage = (args.length == 0) ? annualPercentage : Integer.parseInt(args[1]);
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

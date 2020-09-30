@@ -1,23 +1,22 @@
-package com.rakovets.course.javabasics.practice.operators;
+package com.rakovets.course.javabasics.practice.math;
 
 /**
- * Разработать программу для фитнес приложения:
- * которая расчитывает избыточность веса пользователя от стандартного веса для его роста (стандартного вес = рост - 110).
- * Если известно:
+ * Разработать программу для NASA:
+ * который определит растояние которое проехал робот. Показания энкодера сбрасываются в начале поездки. Известно:
  *
- * @param height - рост
- * @param weight - вес
+ * @param encoderDegrees - показания энкодера после поездки
+ * @param tireRadius     - радиус колеса
  */
 public class Task05 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int height = 186;
-        int weight = 86;
+        int encoderDegrees = 258;
+        int tireRadius = 3;
 
         // Код необходимый для тестирования, не изменять
-        height = (args.length == 2) ? Integer.parseInt(args[0]) : height;
-        weight = (args.length == 2) ? Integer.parseInt(args[1]) : weight;
+        encoderDegrees = (args.length == 2) ? Integer.parseInt(args[0]) : encoderDegrees;
+        tireRadius = (args.length == 2) ? Integer.parseInt(args[1]) : tireRadius;
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

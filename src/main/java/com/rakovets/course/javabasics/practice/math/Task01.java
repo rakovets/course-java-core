@@ -1,20 +1,22 @@
-package com.rakovets.course.javabasics.practice.operators;
+package com.rakovets.course.javabasics.practice.math;
 
 /**
  * Разработать программу для игрового движка:
- * которая высчитывает сколько времени пользователь провел в игре, если известно
+ * которая выводит штрафные очки игрока, который набрал меньше штрафных очков, если известно:
  *
- * @param playingTimeInSeconds - количество секунд проведенных пользователем в игре
- * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
+ * @param penaltyPointFirstPlayer  - штрафные очки первого игрока
+ * @param penaltyPointSecondPlayer - штрафные очки второго игрока
  */
-public class Task06 {
+public class Task01 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int playingTimeInSeconds = 156;
+        int penaltyPointFirstPlayer = 1;
+        int penaltyPointSecondPlayer = 2;
 
         // Код необходимый для тестирования, не изменять
-        playingTimeInSeconds = (args.length == 1) ? Integer.parseInt(args[0]) : playingTimeInSeconds;
+        penaltyPointFirstPlayer = (args.length == 0) ? penaltyPointFirstPlayer : Integer.parseInt(args[0]);
+        penaltyPointSecondPlayer = (args.length == 0) ? penaltyPointSecondPlayer : Integer.parseInt(args[1]);
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

@@ -1,23 +1,20 @@
-package com.rakovets.course.javabasics.practice.operators;
+package com.rakovets.course.javabasics.practice.math;
 
 /**
- * Разработать программу для фитнес приложения:
- * которая расчитывает избыточность веса пользователя от стандартного веса для его роста (стандартного вес = рост - 110).
- * Если известно:
+ * Разработать программу для векторного графического редактора:
+ * которая будет округлять вещественное значение координаты точки до ближайшего
+ * целого значения координаты пикселя на мониторе, если известно:
  *
- * @param height - рост
- * @param weight - вес
+ * @param value - вещественное значение координаты точки
  */
-public class Task05 {
+public class Task03 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int height = 186;
-        int weight = 86;
+        float value = 3.2f;
 
         // Код необходимый для тестирования, не изменять
-        height = (args.length == 2) ? Integer.parseInt(args[0]) : height;
-        weight = (args.length == 2) ? Integer.parseInt(args[1]) : weight;
+        value = (args.length == 1) ? Float.parseFloat(args[0]) : value;
 
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)

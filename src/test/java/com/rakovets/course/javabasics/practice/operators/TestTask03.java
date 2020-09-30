@@ -10,37 +10,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestTask03 extends StandardOutputTest {
     @Test
     void test1() {
-        Task03.main(new String[]{"1", "2"});
-        assertEquals("1", getStandardOutputContent());
+        Task03.main(new String[]{"1501", "7"});
+        assertEquals("2026.0", getStandardOutputContent(), "quoter root 3");
     }
 
     @Test
     void test2() {
-        Task03.main(new String[]{"2", "1"});
-        assertEquals("1", getStandardOutputContent());
+        Task03.main(new String[]{"0", "100"});
+        assertEquals("0.0", getStandardOutputContent());
     }
 
     @Test
     void test3() {
-        Task03.main(new String[]{"3", "2"});
-        assertEquals("2", getStandardOutputContent());
+        Task03.main(new String[]{"10000", "0"});
+        assertEquals("10000.0", getStandardOutputContent());
     }
 
     @Test
     void test4() {
-        Task03.main(new String[]{"-3", "2"});
-        assertEquals("-3", getStandardOutputContent());
-    }
-
-    @Test
-    void test5() {
-        Task03.main(new String[]{"-3", "-2"});
-        assertEquals("-3", getStandardOutputContent());
-    }
-
-    @Test
-    void test6() {
-        Task03.main(new String[]{"3", "-2"});
-        assertEquals("-2", getStandardOutputContent());
+        Task03.main(new String[]{"100", "100"});
+        assertEquals("600.0", getStandardOutputContent());
     }
 }
