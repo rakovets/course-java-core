@@ -29,6 +29,6 @@ class Task11Test extends StandardOutputTest {
     @DisplayName("Symbol-switcher")
     void test(String input, String expected) {
         Task11.main(new String[]{input});
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

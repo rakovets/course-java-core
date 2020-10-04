@@ -34,6 +34,6 @@ class Task05Test extends StandardOutputTest {
     @DisplayName("Month converter")
     void test(String monthNumber, Month expected) {
         Task05.main(new String[]{monthNumber});
-        assertEquals(getStandardOutputContent(), expected.toString());
+        assertEquals(expected.toString(), getStandardOutputContentWithTrim());
     }
 }

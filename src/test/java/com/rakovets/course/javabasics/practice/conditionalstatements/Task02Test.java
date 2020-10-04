@@ -29,6 +29,6 @@ class Task02Test extends StandardOutputTest {
     @DisplayName("Greeting")
     void test(String input, String expected) {
         Task02.main(new String[]{input});
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

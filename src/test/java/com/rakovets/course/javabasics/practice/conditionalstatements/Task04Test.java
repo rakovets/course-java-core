@@ -28,6 +28,6 @@ class Task04Test extends StandardOutputTest {
     @DisplayName("Weekday converter")
     void test(String input, String expected) {
         Task04.main(new String[]{input});
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

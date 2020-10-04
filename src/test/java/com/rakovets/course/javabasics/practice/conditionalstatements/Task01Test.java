@@ -25,6 +25,6 @@ class Task01Test extends StandardOutputTest {
     @DisplayName("Position player")
     void test(String position, String expected) {
         Task01.main(new String[]{position});
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

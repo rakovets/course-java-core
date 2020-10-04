@@ -28,6 +28,6 @@ class Task10Test extends StandardOutputTest {
     @DisplayName("Fuel reserves")
     void test(String[] fuelReserves, String expected) {
         Task10.main(fuelReserves);
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

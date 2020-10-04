@@ -25,6 +25,6 @@ class Task06Test extends StandardOutputTest {
     @DisplayName("Battle City")
     void test(String[] killedTanks, String expected) {
         Task06.main(killedTanks);
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

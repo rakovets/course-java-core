@@ -27,6 +27,6 @@ class Task09Test extends StandardOutputTest {
     @DisplayName("Apartment house")
     void test(String[] killedTanks, String expected) {
         Task09.main(killedTanks);
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

@@ -28,6 +28,6 @@ class Task08Test extends StandardOutputTest {
     @DisplayName("Battle with mob")
     void test(String[] battleSetting, String expected) {
         Task08.main(battleSetting);
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

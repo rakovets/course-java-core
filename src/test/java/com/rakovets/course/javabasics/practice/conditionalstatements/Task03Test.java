@@ -30,6 +30,6 @@ class Task03Test extends StandardOutputTest {
     @DisplayName("Color HP")
     void test(String position, String expected) {
         Task03.main(new String[]{position});
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

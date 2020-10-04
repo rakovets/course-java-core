@@ -26,6 +26,6 @@ class Task07Test extends StandardOutputTest {
     @DisplayName("Leap-year")
     void test(String input, String expected) {
         Task07.main(new String[]{input});
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }
