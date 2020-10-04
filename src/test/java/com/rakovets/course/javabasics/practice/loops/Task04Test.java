@@ -31,6 +31,6 @@ class Task04Test extends StandardOutputTest {
     @DisplayName("Raid Boss Monitoring")
     void test(String[] position, String expected) {
         Task04.main(position);
-        assertEquals(getStandardOutputContentWithTrim(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

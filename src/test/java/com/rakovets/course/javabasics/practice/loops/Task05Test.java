@@ -31,6 +31,6 @@ class Task05Test extends StandardOutputTest {
     @DisplayName("Raid Boss campaign")
     void test(String[] position, String expected) {
         Task05.main(position);
-        assertEquals(getStandardOutputContentWithTrim(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

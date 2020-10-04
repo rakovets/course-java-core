@@ -31,6 +31,6 @@ class Task03Test extends StandardOutputTest {
     @DisplayName("Deposit")
     void test(String[] position, String expected) {
         Task03.main(position);
-        assertEquals(getStandardOutputContentWithTrim(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

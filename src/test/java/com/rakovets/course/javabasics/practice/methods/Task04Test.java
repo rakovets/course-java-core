@@ -32,6 +32,6 @@ class Task04Test {
     @MethodSource("testProvider")
     @DisplayName("Weekday converter")
     void test(int weekday, String expected) {
-        assertEquals(Task04.getNameWeekday((byte) weekday), expected);
+        assertEquals(expected, Task04.getNameWeekday((byte) weekday));
     }
 }

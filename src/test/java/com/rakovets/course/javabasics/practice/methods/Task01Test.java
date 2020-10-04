@@ -27,6 +27,6 @@ class Task01Test {
     @MethodSource("testProvider")
     @DisplayName("Position player")
     void test(int sizeTop, int positionPlayerByDamage, boolean expected) {
-        assertEquals(Task01.isTopPlayer(sizeTop, positionPlayerByDamage), expected);
+        assertEquals(expected, Task01.isTopPlayer(sizeTop, positionPlayerByDamage));
     }
 }

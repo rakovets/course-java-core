@@ -31,6 +31,6 @@ class Task09Test extends StandardOutputTest {
     @DisplayName("Hypermarket prices with sell")
     void test(String[] position, String expected) {
         Task09.main(position);
-        assertEquals(getStandardOutputContentWithTrim(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }

@@ -45,6 +45,6 @@ class Task12Test extends StandardOutputTest {
     @DisplayName("Zodiac")
     void test(String[] fuelReserves, String expected) {
         Task12.main(fuelReserves);
-        assertEquals(getStandardOutputContent(), expected);
+        assertEquals(expected, getStandardOutputContent());
     }
 }
