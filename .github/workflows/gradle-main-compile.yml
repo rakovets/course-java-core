@@ -1,7 +1,9 @@
 name: Build with Gradle
-
-on: [push]
-
+on:
+  push:
+    branches:
+      - master
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,5 +16,5 @@ jobs:
     - name: Build with Gradle
       uses: eskatos/gradle-command-action@v1
       with:
-        gradle-version: 6.0.1
-        arguments: build
+        gradle-version: 6.6.1
+        arguments: compileJava compileTestJava
