@@ -33,6 +33,6 @@ class Task03Test {
     @MethodSource("testProvider")
     @DisplayName("Color HP")
     void test(int currentHealthPoint, int maxHealthPoint, String expected) {
-        assertEquals(Task03.getColorHealthPoint(currentHealthPoint, maxHealthPoint), expected);
+        assertEquals(expected, Task03.getColorHealthPoint(currentHealthPoint, maxHealthPoint));
     }
 }

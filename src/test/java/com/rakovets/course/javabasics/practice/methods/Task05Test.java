@@ -37,6 +37,6 @@ class Task05Test {
     @MethodSource("testProvider")
     @DisplayName("Month converter")
     void test(int monthNumber, String expected) {
-        assertEquals(Task05.getNameMonth((byte) monthNumber), expected);
+        assertEquals(expected, Task05.getNameMonth((byte) monthNumber));
     }
 }

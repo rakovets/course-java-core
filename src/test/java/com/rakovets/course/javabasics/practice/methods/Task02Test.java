@@ -33,6 +33,6 @@ class Task02Test {
     @MethodSource("testProvider")
     @DisplayName("Greeting")
     void test(int hour, String expected) {
-        assertEquals(Task02.getGreetingByHour(hour), expected);
+        assertEquals(expected, Task02.getGreetingByHour(hour));
     }
 }
