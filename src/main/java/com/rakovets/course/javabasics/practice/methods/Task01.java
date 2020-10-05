@@ -22,7 +22,7 @@ public class Task01 extends StandardInputTask {
     /**
      * Определяет, вошел ли игрок в ТОП игроков своей команды.
      *
-     * @param sizeTop                позиция игрока по убыванию урона в своей команде
+     * @param sizeTop                размер квоты для ТОП игроков команды
      * @param positionPlayerByDamage позиция игрока по убыванию урона в своей команде
      * @return true когда вошел, false если не вошел
      */
