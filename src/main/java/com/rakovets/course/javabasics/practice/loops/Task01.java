@@ -10,6 +10,9 @@ import java.util.Scanner;
  * @author Dmitry Rakovets
  * @version 1.0
  * @return номера строк, где каждый номер на новой строке
+ *
+ *
+ *
  */
 public class Task01 {
     public static void main(String[] args) {
