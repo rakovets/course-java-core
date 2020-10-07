@@ -28,6 +28,6 @@ public class Task03 {
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         double profitPerYear = depositTerm * annualDepositPercent/100.0 + depositAmount;
         double profitTerm = profitPerYear * depositTerm;
-        System.out.println("In Year = " + profitPerYear + " \n" )
+        System.out.println("In Year = " + profitPerYear + " \n" + profitTerm );
     }
 }
