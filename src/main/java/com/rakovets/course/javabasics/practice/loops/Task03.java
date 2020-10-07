@@ -26,5 +26,8 @@ public class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        double profitPerYear = depositTerm * annualDepositPercent/100.0 + depositAmount;
+        double profitTerm = profitPerYear * depositTerm;
+        System.out.println("In Year = " + profitPerYear + " \n" )
     }
 }
