@@ -17,10 +17,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Task02Test extends StandardOutputTest {
     static Stream<Arguments> testArgumentsProvider() {
         return Stream.of(
-                Arguments.of(new String[]{"13", "false"}, "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"),
-                Arguments.of(new String[]{"9", "false"}, "1\n2\n3\n4\n5\n6\n7\n8\n9"),
-                Arguments.of(new String[]{"13", "true"}, "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"),
-                Arguments.of(new String[]{"9", "true"}, "\n1\n2\n3\n4\n5\n6\n7\n8")
+                Arguments.of(
+                        new String[]{"13", "false"},
+                        String.format("1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8%1$s9%1$s10%1$s11%1$s12%1$s13", System.lineSeparator())
+                ),
+                Arguments.of(
+                        new String[]{"9", "false"},
+                        String.format("1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8%1$s9", System.lineSeparator())
+                ),
+                Arguments.of(
+                        new String[]{"13", "true"},
+                        String.format("%1$s1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8%1$s9%1$s10%1$s11%1$s12", System.lineSeparator())
+                ),
+                Arguments.of(
+                        new String[]{"9", "true"},
+                        String.format("%1$s1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8", System.lineSeparator())
+                )
         );
     }
 
@@ -29,6 +41,6 @@ class Task02Test extends StandardOutputTest {
     @DisplayName("Generator rows of table (improve)")
     void test(String[] position, String expected) {
         Task02.main(position);
-        assertEquals(expected, getStandardOutputContentWithTrim());
+        assertEquals(expected.trim(), getStandardOutputContent());
     }
 }

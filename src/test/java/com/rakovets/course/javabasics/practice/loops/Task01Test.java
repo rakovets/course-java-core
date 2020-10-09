@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Task01Test extends StandardOutputTest {
     static Stream<Arguments> testArgumentsProvider() {
         return Stream.of(
-                Arguments.of("13", "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"),
-                Arguments.of("9", "1\n2\n3\n4\n5\n6\n7\n8\n9"),
-                Arguments.of("12", "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"),
-                Arguments.of("8", "1\n2\n3\n4\n5\n6\n7\n8")
+                Arguments.of("13", String.format("1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8%1$s9%1$s10%1$s11%1$s12%1$s13", System.lineSeparator())),
+                Arguments.of("9", String.format("1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8%1$s9", System.lineSeparator())),
+                Arguments.of("12", String.format("1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8%1$s9%1$s10%1$s11%1$s12", System.lineSeparator())),
+                Arguments.of("8", String.format("1%1$s2%1$s3%1$s4%1$s5%1$s6%1$s7%1$s8", System.lineSeparator()))
         );
     }
 
@@ -29,6 +29,6 @@ class Task01Test extends StandardOutputTest {
     @DisplayName("Generator rows of table")
     void test(String position, String expected) {
         Task01.main(new String[]{position});
-        assertEquals(expected, getStandardOutputContentWithTrim());
+        assertEquals(expected, getStandardOutputContent());
     }
 }
