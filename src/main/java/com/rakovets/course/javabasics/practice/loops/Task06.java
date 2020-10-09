@@ -23,16 +23,24 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test) 13524624562456
-
-      //   long delD = amount%10;
-        // long delInt = amount/10;
-         for (int i = 1; i<=3; i++){
-             long delD = amount%10;// находим цифру последнюю при первом прохождении
-             long delInt = amount/10; // выделяем целое число
-             amount = delInt;
-          //   System.out.print(delD+ "\n");
-            //  System.out.println("|"+ delD + "int = " + delInt);
-             System.out.print(delD);
-           }
+        boolean isNegative = amount < 0;
+        if (isNegative) {
+            amount *= -1;
+        }
+        String result = "";
+        int i = 1;
+        do {
+            long digit = amount % 10;
+            result = digit + result;
+            amount /= 10;
+            if (i % 3 == 0 && amount != 0) {
+                result = " " + result;
+            }
+            i++;
+        } while (amount > 0);
+        if (isNegative) {
+            result = "-" + result;
+        }
+        System.out.println(result);
     }
 }
