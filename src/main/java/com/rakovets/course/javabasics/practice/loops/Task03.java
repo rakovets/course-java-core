@@ -26,5 +26,11 @@ public class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        for (int i = 1; i <= depositTerm; i++) {
+            double profitPerYear = depositAmount * annualDepositPercent / 100.0;
+            depositAmount = depositAmount + profitPerYear;
+        }
+        String result = String.format("%.2f", depositAmount);
+        System.out.println(result);
     }
 }

@@ -10,6 +10,9 @@ import java.util.Scanner;
  * @author Dmitry Rakovets
  * @version 1.0
  * @return номера строк, где каждый номер на новой строке
+ *
+ *
+ *
  */
 public class Task01 {
     public static void main(String[] args) {
@@ -22,5 +25,8 @@ public class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        for (int i = 1; i <= rows; i++){
+            System.out.print(i + "\n");
+        }
     }
 }
