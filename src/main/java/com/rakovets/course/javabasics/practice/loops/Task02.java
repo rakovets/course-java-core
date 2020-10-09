@@ -35,7 +35,7 @@ public class Task02 {
                 if ( i >=rows){
                 System.out.print(i);
                 } else {
-                    System.out.print(i + "\n");
+                    System.out.println(i);// заменил на лн
                 }
             }
         }
