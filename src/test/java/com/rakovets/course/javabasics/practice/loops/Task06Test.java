@@ -29,6 +29,6 @@ class Task06Test extends StandardOutputTest {
     @DisplayName("Generator rows of table")
     void test(String position, String expected) {
         Task06.main(new String[]{position});
-        assertEquals(getStandardOutputContentWithTrim(), expected);
+        assertEquals(expected, getStandardOutputContentWithTrim());
     }
 }
