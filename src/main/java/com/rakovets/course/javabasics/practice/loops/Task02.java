@@ -32,7 +32,7 @@ public class Task02 {
             }
         } else {
             for (int i = 1; i <= rows; i++) {
-                if ( i == rows){
+                if ( i >=rows){
                 System.out.print(i);
                 } else {
                     System.out.print(i + "\n");
