@@ -36,7 +36,7 @@ public class Task07 {
                 double daylyProgressDistance = dailyProgress * startDistanceD / 100.0;
                 startDistanceD += daylyProgressDistance;
             }
-            String resultOO = String.format("%.2f", result);
-            System.out.print(resultOO);
+        String resultOO = String.format("%.2f", result);
+        System.out.print(resultOO);
     }
 }
