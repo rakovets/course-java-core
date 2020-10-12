@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.arrays;
 
 import com.rakovets.course.javabasics.util.StandardInputTask;
 
+import java.text.DecimalFormat;
+
 /**
  * Разработать программу для электронного дневника:
  * которая работает с отметками только по одному предмету
@@ -28,11 +30,18 @@ public class Task01 extends StandardInputTask {
      * @return средняя арифметическая отметка
      */
     static double getAverageMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        double averageMark = 0D;
+        double tmp = marks[0];
+        double summ = 0D;
+        for (int i = 0; i < marks.length - 1; i++) {
 
-        return 0.0;
+            summ = tmp + marks[i + 1];
+            tmp = summ;
+            averageMark = summ / marks.length;
+        }
+        DecimalFormat newFormat = new DecimalFormat("#.##");
+        double result =  Double.valueOf(newFormat.format(averageMark));
+        return result;
     }
 
     /**
