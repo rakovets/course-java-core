@@ -31,6 +31,7 @@ public class Task01 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
         return 0.0;
     }
 
@@ -41,10 +42,13 @@ public class Task01 extends StandardInputTask {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return 0;
+        int minMarks = marks[0];
+        for (int i = 0; i < marks.length; i++) {
+            if (minMarks > marks[i]) {
+                minMarks = marks[i];
+            }
+        }
+        return minMarks;
     }
 
     /**
@@ -54,10 +58,14 @@ public class Task01 extends StandardInputTask {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return 0;
+
+        int maxMarks = marks[0];
+        for (int i = 0; i < marks.length; i++) {
+            if (maxMarks < marks[i]) {
+                maxMarks = marks[i];
+            }
+        }
+        return maxMarks;
     }
 
     private static int[] nextArray(int countMarks) {
