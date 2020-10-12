@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.arrays;
 
 import com.rakovets.course.javabasics.util.StandardInputTask;
 
+import java.text.DecimalFormat;
+
 /**
  * Разработать программу для электронного дневника:
  * которая работает с отметками по каждому предмету.
@@ -29,9 +31,24 @@ public class Task03 extends StandardInputTask {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMark(int[][] marks) {
+        double tmp = 0D;
+        double summ;
+        double  averageMark = 0D;
+        double[] ResultArray = new double[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                summ = tmp + marks[i][j];
+                tmp = summ;
+                int decart = marks.length * marks[i].length;
+                averageMark = summ / decart;
+            }
+            ResultArray[i] = averageMark;
+        }
+        //DecimalFormat newFormat = new DecimalFormat("#.##");
+       // double result = Double.valueOf(newFormat.format(averageMark));
+        return ResultArray;
 
 
-        return null;
     }
 
     /**
@@ -62,10 +79,19 @@ public class Task03 extends StandardInputTask {
      * @return максимальная отметка
      */
     static int[] getMaxMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+
+        int[] ResultArray = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int  maxMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (maxMark < marks[i][j] ) {
+                    maxMark = marks[i][j];
+                }
+                ResultArray[i] = maxMark;
+            }
+        }
+        return ResultArray;
+
     }
 
     private static int[][] nextArray(int countDisciplines, int countSemesters) {
