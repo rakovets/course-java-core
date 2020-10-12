@@ -29,9 +29,8 @@ public class Task03 extends StandardInputTask {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+
         return null;
     }
 
@@ -42,10 +41,18 @@ public class Task03 extends StandardInputTask {
      * @return минимальная отметка
      */
     static int[] getMinMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+
+        int[] ResultArray = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+           int  minMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (minMark > marks[i][j] ) {
+                    minMark = marks[i][j];
+                }
+                ResultArray[i] = minMark;
+            }
+        }
+        return ResultArray;
     }
 
     /**
