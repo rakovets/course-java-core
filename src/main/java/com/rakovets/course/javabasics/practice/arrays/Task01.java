@@ -32,9 +32,8 @@ public class Task01 extends StandardInputTask {
     static double getAverageMark(int[] marks) {
         double averageMark = 0D;
         double tmp = marks[0];
-        double summ = 0D;
+        double summ;
         for (int i = 0; i < marks.length - 1; i++) {
-
             summ = tmp + marks[i + 1];
             tmp = summ;
             averageMark = summ / marks.length;
