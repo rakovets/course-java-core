@@ -8,6 +8,7 @@ public class TimeTest {
         final String ANSI_RED = "\u001B[31m";
         final String ANSI_GREEN = "\u001B[32m";
         final String ANSI_YELLOW = "\u001B[33m";
+
         Scanner scanner = new Scanner(System.in);
         System.out.print(ANSI_RED + "Input time intervals (HH:mm:ss) : " + ANSI_RESET);
         int inputHours = scanner.nextInt();
