@@ -1,8 +1,8 @@
 package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class Rectangle {
-     Point topLeftPoint;
-     Point bottomRightPoint;
+    private Point topLeftPoint;
+    private Point bottomRightPoint;
 
     Rectangle(Point first, Point second) {
         this.topLeftPoint = first;
