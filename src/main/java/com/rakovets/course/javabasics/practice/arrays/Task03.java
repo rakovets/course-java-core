@@ -31,24 +31,21 @@ public class Task03 extends StandardInputTask {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMark(int[][] marks) {
-        double tmp = 0D;
-        double summ;
-        double  averageMark = 0D;
+        double summ = 0;
+        double averageMark = 0D;
         double[] ResultArray = new double[marks.length];
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
-                summ = tmp + marks[i][j];
-                tmp = summ;
-                int decart = marks.length * marks[i].length;
-                averageMark = summ / decart;
+                summ += marks[i][j];
+                averageMark = summ / marks[i].length;
             }
             ResultArray[i] = averageMark;
+            DecimalFormat newFormat = new DecimalFormat("#.##");
+            double result = Double.valueOf(newFormat.format(averageMark));
+            ResultArray[i] = result;
+            summ = 0;
         }
-        //DecimalFormat newFormat = new DecimalFormat("#.##");
-       // double result = Double.valueOf(newFormat.format(averageMark));
         return ResultArray;
-
-
     }
 
     /**
@@ -61,9 +58,9 @@ public class Task03 extends StandardInputTask {
 
         int[] ResultArray = new int[marks.length];
         for (int i = 0; i < marks.length; i++) {
-           int  minMark = marks[i][0];
+            int minMark = marks[i][0];
             for (int j = 0; j < marks[i].length; j++) {
-                if (minMark > marks[i][j] ) {
+                if (minMark > marks[i][j]) {
                     minMark = marks[i][j];
                 }
                 ResultArray[i] = minMark;
@@ -82,9 +79,9 @@ public class Task03 extends StandardInputTask {
 
         int[] ResultArray = new int[marks.length];
         for (int i = 0; i < marks.length; i++) {
-            int  maxMark = marks[i][0];
+            int maxMark = marks[i][0];
             for (int j = 0; j < marks[i].length; j++) {
-                if (maxMark < marks[i][j] ) {
+                if (maxMark < marks[i][j]) {
                     maxMark = marks[i][j];
                 }
                 ResultArray[i] = maxMark;
