@@ -8,16 +8,20 @@ public class PointTest {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        System.out.println(ColorConsants.ANSI_RED + "Please inter X and Y:" + ColorConsants.ANSI_RESET);
-        int xIn = input.nextInt();
-        int yIn = input.nextInt();
-        Point pointsObject = new Point(xIn, yIn);
-        System.out.println(ColorConsants.ANSI_YELLOW + "Coordinates from Input: \n" + ColorConsants.ANSI_RESET + pointsObject.x + " :and: " + pointsObject.y);
-        pointsObject.setX(2);
-        pointsObject.setY(15);
-        System.out.println(ColorConsants.ANSI_GREEN + "Coordinates X and Y after setting: \n" + ColorConsants.ANSI_RESET + pointsObject.getX() + " :and: " + pointsObject.getY());
-        System.out.println(ColorConsants.ANSI_YELLOW + "Distance is: \n" + ColorConsants.ANSI_RESET + pointsObject.distance(pointsObject));
+       //  Scanner input = new Scanner(System.in);
+        System.out.println(ColorConsants.ANSI_RED + "Start program \n" + ColorConsants.ANSI_RESET);
+       //  int xIn = input.nextInt();
+       // int yIn = input.nextInt();
+        Point firstPoint = new Point(5, 6);
+        Point secondPoint = new Point(10, 7);
+
+
+        double distance = firstPoint.distance(secondPoint);
+
+
+        System.out.println(ColorConsants.ANSI_GREEN + "Coordinates X and Y for first point: \n" + ColorConsants.ANSI_RESET + firstPoint.getX() + " :and: " + firstPoint.getY());
+        System.out.println(ColorConsants.ANSI_YELLOW + "Coordinates X and Y for second point: \n" + ColorConsants.ANSI_RESET + secondPoint.getX() + " :and: " + secondPoint.getY());
+        System.out.println(ColorConsants.ANSI_GREEN + "Distance is: \n" + ColorConsants.ANSI_RESET + distance);
 
 
     }

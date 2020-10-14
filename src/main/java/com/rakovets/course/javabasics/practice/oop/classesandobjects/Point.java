@@ -25,16 +25,14 @@ public class Point {
         return y;
     }
 
-    public int distance(Point pointD) {
-        int xOld = pointD.x;
-        pointD.setX(10);
-        int xNew = pointD.getX();
-     int dist = xOld - xNew;
-        if (dist < 0){
-            dist *= -1;
-        } return dist;
+    public double distance(Point second) {
+        int a = second.x - this.x;
+        int b = second.y - this.y;
+        double dist = Math.sqrt(a*a + b*b);
+        return dist;
+        }
 
     }
 
 
-}
+
