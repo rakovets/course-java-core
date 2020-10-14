@@ -1,105 +1,134 @@
 = OOP (classes and objects)
 
-== Specification of task 1
+Specification of task 1
 
-Создать class `Time`.
+Создать class Time.
 
-*Fields*:
+Fields:
 
-- `hours`
-- `minutes`
-- `seconds`
+    hours
 
-*Constructors*:
+    minutes
 
-- `Time(totalSeconds)` - принимает общее время в секунда
-- `Time(hours, minutes, seconds)`
+    seconds
 
-*Methods*:
+Constructors:
 
-- `getHours()`
-- `setHours(hours)`
-- `getMinutes()`
-- `setMinutes(minutes)`
-- `getSeconds()`
-- `setSeconds()`
-- `getTotalSeconds()` - возвращает общее время в секундах
+    Time(totalSeconds) - принимает общее время в секунда
 
-WARNING: Протестировать работу конструкторов и методов в class `TimeTest`
+    Time(hours, minutes, seconds)
 
-== Specification of task 2
+Methods:
 
-Создать class `Point`, описывающей точку в декартовой системе координат.
+    getHours()
 
-*Fields*:
+    setHours(hours)
 
-- `x` - координата точки по оси Ox
-- `y` - координата точки по оси Oy
+    getMinutes()
 
-*Constructors*:
+    setMinutes(minutes)
 
-- `Point(x, y)` – принимает координаты `x` и `y`
+    getSeconds()
 
-*Methods*:
+    setSeconds()
 
-- `getX()`
-- `setX()`
-- `getY()`
-- `setY()`
-- `distance(point)` – принимает объект типа `Point`,
-возвращает расстояние от текущей точки (экземпляра, для которого был вызван),
- до принимаемой точки
+    getTotalSeconds() - возвращает общее время в секундах
 
-WARNING: Протестировать работу конструкторов и методов в class `PointTest`
+Warning
+	Протестировать работу конструкторов и методов в class TimeTest
+Specification of task 2
 
-== Specification of task 3
+Создать class Point, описывающей точку в декартовой системе координат.
 
-Создать class `Rectangle`.
+Fields:
 
-*Fields*:
+    x - координата точки по оси Ox
 
-- `firstPoint` - первая точка
-- `secondPoint` – вторая точка
+    y - координата точки по оси Oy
 
-*Constructors*:
+Constructors:
 
-- `Rectangle(firstPoint, secondPoint)` – принимает два объекта типа `Point`
+    Point(x, y) – принимает координаты x и y
 
-*Methods*:
+Methods:
 
-- `getFirstPoint()`
-- `setFirstPoint()`
-- `getSecondPoint()`
-- `setSecondPoint()`
-- `getPerimeter()` – возвращает периметр прямоугольника
-- `getArea()` – возвращает площадь прямоугольника
+    getX()
 
-WARNING: Протестировать работу конструкторов и методов в class `RectangleTest`
+    setX()
 
-== Specification of task 4
+    getY()
 
-Создать class `Atm` описывающий банкомат.
+    setY()
 
-*Fields*:
+    distance(point) – принимает объект типа Point, возвращает расстояние от текущей точки (экземпляра, для которого был вызван), до принимаемой точки
 
-- `numberBanknotes100`
-- `numberBanknotes50`
-- `numberBanknotes20`
+Warning
+	Протестировать работу конструкторов и методов в class PointTest
 
-*Constructors*:
 
-- `Atm(numberBanknotes100, numberBanknotes50, numberBanknotes20)`
 
-*Methods*:
+	----------------------------
+Specification of task 3
 
-- `addBanknotes100(number)`
-- `addBanknotes50(number)`
-- `addBanknotes20(number)`
+Создать class Rectangle.
 
-*Methods**:
+Fields:
 
-- `isPossibleIssue(amount)` - проверяет, возможно ли выдать сумму, которую запросил клиент
-- `getOptionsCombinationBanknotes(amount)` - возвращает все возможное варианты для выдачы суммы
-- `getCash(option)` - выдает деньги клиенту, для выбранного им варианта
+    topLeftPoint - левая верхняя точка
 
-WARNING: Протестировать работу конструкторов и методов class `AtmTest`
+    bottomRightPoint – правая нижняя точка
+
+Constructors:
+
+    Rectangle(topLeftPoint, bottomRightPoint) – принимает два объекта типа Point
+
+Methods:
+
+    getTopLeftPoint()
+
+    setTopLeftPoint()
+
+    getBottomRightPoint()
+
+    setBottomRightPoint()
+
+    getPerimeter() – возвращает периметр прямоугольника
+
+    getArea() – возвращает площадь прямоугольника
+
+Warning
+	Протестировать работу конструкторов и методов в class RectangleTest
+Specification of task 4
+
+Создать class Atm описывающий банкомат.
+
+Fields:
+
+    numberBanknotes100
+
+    numberBanknotes50
+
+    numberBanknotes20
+
+Constructors:
+
+    Atm(numberBanknotes100, numberBanknotes50, numberBanknotes20)
+
+Methods:
+
+    addBanknotes100(number)
+
+    addBanknotes50(number)
+
+    addBanknotes20(number)
+
+Methods*:
+
+    isPossibleIssue(amount) - проверяет, возможно ли выдать сумму, которую запросил клиент
+
+    getOptionsCombinationBanknotes(amount) - возвращает все возможное варианты для выдачы суммы
+
+    getCash(option) - выдает деньги клиенту, для выбранного им варианта
+
+Warning
+	Протестировать работу конструкторов и методов class AtmTest

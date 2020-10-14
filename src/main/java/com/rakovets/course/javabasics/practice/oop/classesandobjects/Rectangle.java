@@ -1,32 +1,43 @@
 package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class Rectangle {
-    public int firstPoint;
-    public int secondPoints;
+    public int topLeftPoint;
+    public int bottomRightPoint;
 
-    public Rectangle(Rectangle first, Rectangle second) {
+    Rectangle(int first, int second){
+        this.topLeftPoint = first;
+        this.bottomRightPoint = second;
+      }
+
+    Rectangle(Rectangle first, Rectangle second) {
+        topLeftPoint = first.getFirstPoint();
+        topLeftPoint = second.getFirstPoint();
+        bottomRightPoint = first.getSecondPoints();
+        bottomRightPoint = second.getSecondPoints();
+
 
     }
 
     public void setFirstPoint(int first) {
-        this.firstPoint = first;
+        this.topLeftPoint = first;
 
     }
 
     public void setSecondPoint(int second) {
-        this.secondPoints = second;
+        this.bottomRightPoint = second;
 
     }
 
     public int getFirstPoint() {
-        return this.firstPoint;
+        return this.topLeftPoint;
     }
 
-    public int getSecondPointsPoint() {
-        return this.secondPoints;
+    public int getSecondPoints() {
+        return this.bottomRightPoint;
     }
 
-    public int getPerimeter(int a, int a1, int b, int b1) {
+    public int getPerimeter(Rectangle first, Rectangle second) {
+
         int aA = (a - a1);
         int bB = (b - b1);
         int P;
