@@ -1,47 +1,43 @@
 package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class Rectangle {
-    private int topLeftPoint;
-    private int bottomRightPoint;
-
-    Rectangle(int first, int second){
-        this.topLeftPoint = first;
-        this.bottomRightPoint = second;
-      }
+     Point topLeftPoint;
+     Point bottomRightPoint;
 
     Rectangle(Point first, Point second) {
+        this.topLeftPoint = first;
+        this.bottomRightPoint = second;
             }
 
-    public void setFirstPoint(int first) {
+    public void setFirstPoint(Point first) {
         this.topLeftPoint = first;
 
     }
 
-    public void setSecondPoint(int second) {
+    public void setSecondPoint(Point second) {
         this.bottomRightPoint = second;
 
     }
 
-    public int getFirstPoint() {
+    public Point getFirstPoint() {
         return this.topLeftPoint;
     }
 
-    public int getSecondPoints() {
+    public Point getSecondPoints() {
         return this.bottomRightPoint;
     }
 
- //   public int getPerimeter(Rectangle first, Rectangle second) {
-   // }
+    public double getPerimeter() {
+        double aSide = Math.abs((topLeftPoint.getX() - bottomRightPoint.getX())*2 );
+        double bSide = Math.abs((topLeftPoint.getY() - bottomRightPoint.getY())*2 );
+        double P = aSide + bSide;
+        return P;
+    }
 
-
-
-
-    public int getArea(int a, int a1, int b, int b1) {
-        int aA = (a - a1);
-        int bB = (b - b1);
-        int S = aA * bB;
-        if (S < 0)
-            S *= -1;
+    public double getArea() {
+        double aSide = Math.abs((topLeftPoint.getX() - bottomRightPoint.getX())*2 );
+        double bSide = Math.abs((topLeftPoint.getY() - bottomRightPoint.getY())*2 );
+        double S = aSide * bSide;
         return S;
     }
 }
