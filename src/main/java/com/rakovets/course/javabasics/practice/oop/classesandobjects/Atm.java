@@ -30,44 +30,43 @@ public class Atm {
 
     public boolean isPossibleIssue(int amount) {
         int fullCount = (numberBanknotes100 * 100 + numberBanknotes50 * 50 + numberBanknotes20 * 20);
-        if ((amount <= fullCount) && (amount % 100 == 0 || amount % 50 == 0 || amount % 20 != 0)) {
+        if ((amount <= fullCount) && (amount % 100 == 0 || amount % 50 == 0 || amount/20 < 0)) {
             return true;
         } else
             return false;
     }
 
-    public int getOptionsCombinationBanknotes(int amount) {
-        int cash100 = amount / 100;
-        int cash50 = amount / 50;
-        int cash20 = amount / 20;
-        int options = 0;
+    public void getOptionsCombinationBanknotes(int amount) {
+
         int fullCount = (numberBanknotes100 * 100 + numberBanknotes50 * 50 + numberBanknotes20 * 20);
         if (amount % 100 == 0) {
-            options = 1;
+            System.out.println("Available option 1: 100 x " + amount / 100);
+
         } else if (amount % 50 == 0 && amount % 100 != 0) {
-            options = 2;
+            int hunder = amount % 100;
+            System.out.println("Available option 2: 100 x" + amount / 100 + " 50x" + hunder / 50);
+
         } else {
-            options = 3;
+            int hunder = amount % 100;
+            int fifth = amount % 50;
+            System.out.println("Available option 3: 100 x" + amount / 100 + " 50x" + hunder / 50 + " 20x" + fifth / 20);
         }
-        return options;
     }
 
 
     public void getCash(int option, int amount) {
         int cash100 = amount / 100;
-        int cash50 = amount / 50;
-        int cash20 = amount / 20;
         if (option == 1) {
             System.out.println("Take 100 x " + cash100);
         } else if (option == 2) {
             int hunder = amount % 100;
-            int fifth = 50 / hunder;
-            System.out.println("Take 100x" + amount/100 + " 50x" + fifth);
+
+            System.out.println("Take 100x" + amount / 100 + " 50x" + hunder / 50);
         }
         if (option == 3) {
             int hunder = amount % 100;
-            int fifth = amount%50;
-            System.out.println("Take 100 x " + amount/100 + " 50x" + hunder/50 + " 20x" + fifth/20);
+            int fifth = amount % 50;
+            System.out.println("Take 100 x " + amount / 100 + " 50x" + hunder / 50 + " 20x" + fifth / 20);
         }
 
 

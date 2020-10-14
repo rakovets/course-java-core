@@ -13,18 +13,13 @@ public class AtmTest {
         Scanner optIn = new Scanner(System.in);
 
         if (cash.isPossibleIssue(amountCash)) {
-            System.out.println(ColorConsants.ANSI_GREEN + "...Please choose options... \n" + ColorConsants.ANSI_RESET + cash.getOptionsCombinationBanknotes(amountCash));
             cash.getOptionsCombinationBanknotes(amountCash);
             int options = in.nextInt();
-            if(cash.getOptionsCombinationBanknotes(amountCash)!=0){
-                cash.getCash(options, amountCash);
-            }
-        } else
-            System.out.println(ColorConsants.ANSI_RED + "...Sorry, ATM hasn't this cash... \n" + ColorConsants.ANSI_RESET + cash.getOptionsCombinationBanknotes(amountCash));
+            cash.getCash(options, amountCash);
+              } else
+                System.out.println(ColorConsants.ANSI_RED + "...Sorry, ATM hasn't this cash... \n" + ColorConsants.ANSI_RESET );
 
 
-
-
-
+        }
     }
-}
+
