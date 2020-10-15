@@ -25,5 +25,16 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        if (!typeMob.equals("UNDEAD") && !typeMob.equals("ZOMBIE")) {
+            if (typeMob.equals("SAINT")) {
+                damage = (int)((double) damage * 0.50);
+                System.out.println(damage);
+            } else {
+                System.out.println(damage);
+            }
+        } else {
+            damage = (int)((double) damage * 1.50);
+            System.out.println((double) damage * 1.5);
+        }
     }
 }
