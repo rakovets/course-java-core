@@ -10,6 +10,11 @@ public class RectangleTest {
         Point firstPoint = new Point(5, 5);
         Point secondPoint = new Point(10, 1);
         Rectangle result = new Rectangle(firstPoint, secondPoint);
+        System.out.println(ColorConsants.ANSI_RED + "Coordinates :\n" + ColorConsants.ANSI_RESET
+                + " First Point X:" + result.getFirstPoint().getX()
+                + " First Point Y:" + result.getFirstPoint().getY()
+                + "\n Second Point X:" + result.getSecondPoints().getX()
+                + " Second Point Y:" + result.getSecondPoints().getY());
         System.out.println(ColorConsants.ANSI_RED + "Perimeter is :" + ColorConsants.ANSI_RESET + result.getPerimeter());
         System.out.println(ColorConsants.ANSI_GREEN + "Area is :" + ColorConsants.ANSI_RESET + result.getArea());
 
