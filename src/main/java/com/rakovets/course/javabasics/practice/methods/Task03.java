@@ -32,6 +32,20 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+        if (currentHealthPoint == 0) { //если хп равно 0, то сразу возвращаем 0
+            return null;
+        }
+        double ratio = ((double) currentHealthPoint / maxHealthPoint * 100); //создаем соотношение выбранное к максимальному и переводим в процент
+        String color = null;
+        if (ratio < 25) {
+            return "RED";
+        } else if (ratio < 50) {
+            return "ORANGE";
+        } else if (ratio < 75) {
+            return "YELLOW";
+        } else if (ratio <= 100) {
+            return "GREEN";
+        }
+        return color;
     }
 }
