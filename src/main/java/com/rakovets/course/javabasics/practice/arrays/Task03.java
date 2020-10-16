@@ -1,5 +1,6 @@
 package com.rakovets.course.javabasics.practice.arrays;
 
+import com.rakovets.course.javabasics.util.ArrayUtil;
 import com.rakovets.course.javabasics.util.StandardInputTask;
 
 /**
@@ -14,7 +15,7 @@ public class Task03 extends StandardInputTask {
         // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
         int countDisciplines = INPUT_SCANNER.nextInt();
         int countSemesters = INPUT_SCANNER.nextInt();
-        int[][] marks = nextArray(countDisciplines, countSemesters);
+        int[][] marks = ArrayUtil.fill2DArrayFromStandardInput(INPUT_SCANNER, countDisciplines, countSemesters);
 
         // Вызов методов
         getAverageMark(marks);
@@ -59,15 +60,5 @@ public class Task03 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
-    }
-
-    private static int[][] nextArray(int countDisciplines, int countSemesters) {
-        int[][] marks = new int[countDisciplines][countSemesters];
-        for (int i = 0; i < countDisciplines; i++) {
-            for (int j = 0; j < countSemesters; j++) {
-                marks[i][j] = INPUT_SCANNER.nextInt();
-            }
-        }
-        return marks;
     }
 }
