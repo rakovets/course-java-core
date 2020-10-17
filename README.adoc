@@ -8,12 +8,15 @@ This project is for the course "Java Basics". It contains for each theme of this
 
 == Theme
 
-1. Intro to Java
-2. Variables. Data types. Operators
-3. Conditional constructions
-4. Methods
-5. Loop
-6. Arrays
+1. Intro to Java.
+2. Variables. Data types. Operators.
+3. Conditional constructions.
+4. Methods.
+5. Loops.
+6. Arrays.
+7. OOP: Classes and Objects.
+8. Strings. Regular Expressions.
+9. OOP: Inheritance and Polymorphism.
 
 == Code of Conduct
 
