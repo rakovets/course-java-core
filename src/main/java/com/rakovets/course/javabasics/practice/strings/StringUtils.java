@@ -3,6 +3,8 @@ package com.rakovets.course.javabasics.practice.strings;
 
 import java.util.Locale;
 
+import static java.lang.System.out;
+
 public class StringUtils {
 
     String getConcatStrings(String str1, String str2) {
@@ -75,6 +77,21 @@ public class StringUtils {
 
     public String getStringRevers(String strB) {
         StringBuilder str = new StringBuilder(strB);
-       return str.reverse().toString();
+        return str.reverse().toString();
+    }
+
+    public String getStringArraysNumbers(String str, int n) {
+
+        int substr = str.length() / n;
+        if (str.length() % n != 0) {
+            substr++;
+        }
+        String[] strarray = new String[substr];
+        for (int i = 0; i < substr; i++) {
+            strarray[i] = str.substring(i * n, Math.min((i + 1) * n, str.length()));
+        }
+        String result = strarray.toString();
+        return result;
+
     }
 }

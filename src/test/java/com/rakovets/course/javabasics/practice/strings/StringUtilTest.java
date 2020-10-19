@@ -84,12 +84,22 @@ public class StringUtilTest {
         Assertions.assertEquals(3, stringUtTest.getStringNumbersOfSimbols("Belarus, Is Living.."));
         Assertions.assertEquals(5, stringUtTest.getStringNumbersOfSimbols("!!live, .. s live"));
 
-    }    @Test
+    }
+
+    @Test
     void getStringReversTest() {
         StringUtils stringUtTest = new StringUtils();
-        Assertions.assertEquals("ALLA", stringUtTest.getStringRevers("ALLA"));;
-        Assertions.assertEquals("level", stringUtTest.getStringRevers("level"));;
-        Assertions.assertEquals("sagas", stringUtTest.getStringRevers("sagas"));;
+        Assertions.assertEquals("ALLA", stringUtTest.getStringRevers("ALLA"));
+        Assertions.assertEquals("level", stringUtTest.getStringRevers("level"));
+        Assertions.assertEquals("sagas", stringUtTest.getStringRevers("sagas"));
+    }
+
+    @Test
+    void getStringArraysNumbersTest() {
+        StringUtils stringUtTest = new StringUtils();
+        Assertions.assertEquals(new String[]{"1234", "5678", "90"}, stringUtTest.getStringArraysNumbers("1234567890",
+                4));
+
 
     }
 }
