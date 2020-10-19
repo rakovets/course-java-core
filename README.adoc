@@ -1,0 +1,38 @@
+= course-java-basics
+
+This project is for the course "Java Basics". It contains for each theme of this course:
+
+- examples
+- tasks or set specifications of tasks
+- tests for these tasks
+- utils for tasks/tests
+
+== Theme
+
+|===
+|*Theme*|*Directory/package*
+|1. Intro to Java.|
+|2. Variables. Data types. Operators.|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
+|3. Conditional constructions.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
+|4. Methods.|link:src/main/java/com/rakovets/course/javabasics/practice/methods[package: methods]
+|5. Loops.|link:src/main/java/com/rakovets/course/javabasics/practice/loops[package: loops]
+|6. Arrays.|link:src/main/java/com/rakovets/course/javabasics/practice/arrays[package: arrays]
+|7. OOP: Classes and Objects.|link:src/main/resources/oop-classes-and-objects.adoc[oop-classes-and-objects.adoc]
+|8. Strings.|link:src/main/resources/strings.adoc[strings.adoc], link:src/main/java/com/rakovets/course/javabasics/practice/strings[package: strings]
+|9. OOP: Inheritance and Polymorphism.|link:src/main/resources/oop-inheritance-and-polymorphism.adoc[oop-inheritance-and-polymorphism.adoc]
+|10. Generics|link:src/main/resources/generics.adoc[generics.adoc]
+|===
+
+== Code of Conduct
+
+This project is governed by the link:.github/CODE_OF_CONDUCT.md[Code of Conduct].
+By participating, you are expected to uphold this code of conduct.
+
+== Contributing
+
+Follow link:.github/CONTRIBUTING.md[CONTRIBUTING.md].
+
+== License
+
+The project is released under version 2.0 of the
+link:https://www.gnu.org/licenses/old-licenses/gpl-2.0.html[GNU General Public License].
