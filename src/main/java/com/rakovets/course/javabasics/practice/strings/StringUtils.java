@@ -46,7 +46,7 @@ public class StringUtils {
     }
 
     public int getStringNumbersOfVowels(String str) {
-       int count = 0;
+        int count = 0;
         char[] array = new char[]{'e', 'y', 'u', 'i', 'o', 'a'};
         for (char simb : str.toLowerCase().toCharArray()) {
             for (char vowel : array) {
@@ -71,5 +71,10 @@ public class StringUtils {
             }
         }
         return count;
+    }
+
+    public String getStringRevers(String strB) {
+        StringBuilder str = new StringBuilder(strB);
+       return str.reverse().toString();
     }
 }
