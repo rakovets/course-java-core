@@ -98,7 +98,14 @@ public class StringUtilTest {
     @Test
     void getStringNubersWordsTest() {
         StringUtils stringUtTest = new StringUtils();
-        Assertions.assertEquals(6, stringUtTest.getStringNubersWords("We are waiting for the Changes!"));
-        Assertions.assertEquals(4, stringUtTest.getStringNubersWords(" Hello Hello   Hello  Hello "));
+        Assertions.assertEquals(6, stringUtTest.getStringNumbersOfWords("We are waiting for the Changes!"));
+        Assertions.assertEquals(4, stringUtTest.getStringNumbersOfWords(" Hello Hello   Hello  Hello "));
+    }
+
+    @Test
+    void getAbriviatureTest() {
+        StringUtils stringUtTest = new StringUtils();
+        Assertions.assertArrayEquals(new String[]{"Z.","D.","I"}, stringUtTest.getAbbreviation("Zmachinskiy dzmitry Ivanovich"));
+        Assertions.assertArrayEquals(new String[]{"I.","O.","B"}, stringUtTest.getAbbreviation("ivanov Oleg bedrosovich"));
     }
 }

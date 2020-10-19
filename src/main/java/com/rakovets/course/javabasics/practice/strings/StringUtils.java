@@ -94,7 +94,7 @@ public class StringUtils {
         return strarray;
     }
 
-    public int getStringNubersWords(String str ){
+    public int getStringNumbersOfWords(String str) {
         int count = 0;
         String[] words = str.trim().replaceAll(" +", " ").split(" +");
 
@@ -102,5 +102,16 @@ public class StringUtils {
             count++;
         }
         return count;
+    }
+
+    public String[] getAbbreviation(String str) {
+        String[] fio = str.toUpperCase().split(" ");
+        for (int i = 0; i < 3; i++) {
+            if (i != 2) {
+                fio[i] = fio[i].charAt(0) + ".";
+            } else fio[i] = String.valueOf(fio[i].charAt(0));
+        }
+        return fio;
+
     }
 }
