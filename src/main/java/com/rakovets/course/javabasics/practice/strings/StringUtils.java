@@ -106,8 +106,8 @@ public class StringUtils {
 
     public String[] getAbbreviation(String str) {
         String[] fio = str.toUpperCase().split(" ");
-        for (int i = 0; i < 3; i++) {
-            if (i != 2) {
+        for (int i = 0; i < fio.length; i++) {
+            if (i != fio.length - 1) {
                 fio[i] = fio[i].charAt(0) + ".";
             } else fio[i] = String.valueOf(fio[i].charAt(0));
         }
