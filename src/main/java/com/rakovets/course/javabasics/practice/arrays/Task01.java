@@ -38,7 +38,8 @@ public class Task01 extends StandardInputTask {
             num = i + 1;
         }
         double avg = sum / num;
-        return avg;
+        double roundOff = Math.round(avg * 100.0) / 100.0;
+        return roundOff;
     }
 
     /**
