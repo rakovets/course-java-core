@@ -98,7 +98,7 @@ public class StringUtilTest {
     @Test
     void getStringNubersWordsTest() {
         StringUtils stringUtTest = new StringUtils();
-        Assertions.assertEquals(5, stringUtTest.getStringNubersWords("We are waiting the Changes!"));
+        Assertions.assertEquals(6, stringUtTest.getStringNubersWords("We are waiting for the Changes!"));
         Assertions.assertEquals(4, stringUtTest.getStringNubersWords(" Hello Hello   Hello  Hello "));
     }
 }
