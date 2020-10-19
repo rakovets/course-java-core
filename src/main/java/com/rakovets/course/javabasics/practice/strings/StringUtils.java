@@ -59,4 +59,17 @@ public class StringUtils {
         return count;
     }
 
+    public int getStringNumbersOfSimbols(String str) {
+        int count = 0;
+        char[] array = new char[]{'.', ',', '!'};
+        for (char simb : str.toLowerCase().toCharArray()) {
+            for (char vowel : array) {
+                if (simb == vowel) {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
 }
