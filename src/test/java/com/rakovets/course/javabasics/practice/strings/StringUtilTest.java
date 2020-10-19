@@ -97,8 +97,8 @@ public class StringUtilTest {
     @Test
     void getStringArraysNumbersTest() {
         StringUtils stringUtTest = new StringUtils();
-        Assertions.assertEquals(new String[]{"1234", "5678", "90"}, stringUtTest.getStringArraysNumbers("1234567890",
-                4));
+        Assertions.assertArrayEquals(new String[]{"1234", "5678", "90"}, stringUtTest.getStringArraysNumbers("1234567890", 4));
+        Assertions.assertArrayEquals(new String[]{"00", "00", "00","00", "00", "00","00","00"}, stringUtTest.getStringArraysNumbers("0000000000000000",2));
 
 
     }
