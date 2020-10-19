@@ -108,4 +108,12 @@ public class StringUtilTest {
         Assertions.assertArrayEquals(new String[]{"Z.","D.","I"}, stringUtTest.getAbbreviation("Zmachinskiy dzmitry Ivanovich"));
         Assertions.assertArrayEquals(new String[]{"I.","O.","B"}, stringUtTest.getAbbreviation("ivanov Oleg bedrosovich"));
     }
+
+    @Test
+    void getStringNumbersTest() {
+        StringUtils stringUtTest = new StringUtils();
+        Assertions.assertEquals("235670", stringUtTest.getStringNumbers("dsfjslfj23lk5lk67llk0"));
+        Assertions.assertEquals("32083839", stringUtTest.getStringNumbers("32the United08 /3839 states"));
+
+    }
 }

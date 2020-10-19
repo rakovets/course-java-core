@@ -114,4 +114,13 @@ public class StringUtils {
         return fio;
 
     }
+
+    public String getStringNumbers(String str){
+        String[] numbers = str.split("\\D");
+        String result = "";
+        for (int i = 0; i<numbers.length; i++){
+            result = result + numbers[i];
+        }
+        return result;
+    }
 }
