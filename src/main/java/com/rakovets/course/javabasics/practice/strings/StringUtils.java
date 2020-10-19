@@ -39,17 +39,24 @@ public class StringUtils {
     }
 
     public boolean getStringCompare(String str, String word) {
-
         if (str.startsWith(word) && str.endsWith(word)) {
             return true;
         }
-
-        else {
-            return false;
-        }
-
-
+        return false;
     }
 
+    public int getStringNumbersOfVowels(String str) {
+       int count = 0;
+        char[] array = new char[]{'e', 'y', 'u', 'i', 'o', 'a'};
+        for (char simb : str.toLowerCase().toCharArray()) {
+            for (char vowel : array) {
+                if (simb == vowel) {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
 
 }

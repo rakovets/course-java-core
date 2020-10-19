@@ -68,4 +68,13 @@ public class StringUtilTest {
         Assertions.assertEquals(false, stringUtTest.getStringCompare(" Live is live ", "live"));
 
     }
+
+    @Test
+    void getStringNumbersOfVowelsTest() {
+        StringUtils stringUtTest = new StringUtils();
+        Assertions.assertEquals(5, stringUtTest.getStringNumbersOfVowels("live is live"));
+        Assertions.assertEquals(6, stringUtTest.getStringNumbersOfVowels("Belarus Is Living"));
+        Assertions.assertEquals(5, stringUtTest.getStringNumbersOfVowels("live is live"));
+        Assertions.assertEquals(5, stringUtTest.getStringNumbersOfVowels("live is live"));
+    }
 }
