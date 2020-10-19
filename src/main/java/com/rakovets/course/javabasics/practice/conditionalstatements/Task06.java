@@ -29,5 +29,16 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int player1points = tanksKilledFirstPlayer * KILL_POINT; //переменная показывает кол-во очков 1-го за бой
+        int player2points = tanksKilledSecondPlayer * KILL_POINT; //переменная для второго игрока за бой
+        if (player1points < player2points) {
+            player2points += 500;
+            System.out.println("Player 1: " + player1points + ". " + "Player 2: " + player2points);
+        } else if (player1points > player2points) {
+            player1points += 500;
+            System.out.println("Player 1: " + player1points + ". " + "Player 2: " + player2points);
+        } else {
+            System.out.println("Player 1: " + player1points + ". " + "Player 2: " + player2points);
+        }
     }
 }
