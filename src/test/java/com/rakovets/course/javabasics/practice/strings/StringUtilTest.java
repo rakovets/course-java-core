@@ -58,4 +58,14 @@ public class StringUtilTest {
         Assertions.assertEquals("Hello :)(", stringUtTest.getStringReplace("Hello :(("));
         Assertions.assertEquals(":): Hello :)", stringUtTest.getStringReplace(":(: Hello :("));
     }
+
+    @Test
+    void getStringCompareTest() {
+        StringUtils stringUtTest = new StringUtils();
+        Assertions.assertEquals(true, stringUtTest.getStringCompare("live is live", "live"));
+        Assertions.assertEquals(false, stringUtTest.getStringCompare("Live is good!", "Live"));
+        Assertions.assertEquals(false, stringUtTest.getStringCompare("The Best of The Best", "Best"));
+        Assertions.assertEquals(false, stringUtTest.getStringCompare(" Live is live ", "live"));
+
+    }
 }

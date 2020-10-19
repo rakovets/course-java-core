@@ -38,5 +38,18 @@ public class StringUtils {
         return str.replace(":(", ":)");
     }
 
+    public boolean getStringCompare(String str, String word) {
+
+        if (str.startsWith(word) && str.endsWith(word)) {
+            return true;
+        }
+
+        else {
+            return false;
+        }
+
+
+    }
+
 
 }
