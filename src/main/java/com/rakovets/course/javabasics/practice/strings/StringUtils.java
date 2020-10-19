@@ -92,6 +92,15 @@ public class StringUtils {
         }
 
         return strarray;
+    }
 
+    public int getStringNubersWords(String str ){
+        int count = 0;
+        String[] words = str.trim().replaceAll(" +", " ").split(" +");
+
+        for (String word : words) {
+            count++;
+        }
+        return count;
     }
 }

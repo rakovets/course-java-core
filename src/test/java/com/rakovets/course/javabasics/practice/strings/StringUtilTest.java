@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
 
-
     @Test
     void getConcatStringsTest() {
         StringUtils stringUtTest = new StringUtils();
@@ -21,7 +20,6 @@ public class StringUtilTest {
         Assertions.assertEquals(false, stringUtTest.getStringEqual("Hello ", "Hello"));
         Assertions.assertEquals(false, stringUtTest.getStringEqual("Hello", "hello"));
         Assertions.assertEquals(false, stringUtTest.getStringEqual("HELLO", "Hello"));
-
     }
 
     @Test
@@ -39,7 +37,6 @@ public class StringUtilTest {
         Assertions.assertEquals("BELARUS", stringUtTest.getStringUpperAndTrim("BelarUs     "));
         Assertions.assertEquals("ЦОЙ ЖИВ", stringUtTest.getStringUpperAndTrim("Цой жив "));
         Assertions.assertEquals("BRUTTO", stringUtTest.getStringUpperAndTrim("   brUtto  "));
-
     }
 
     @Test
@@ -66,7 +63,6 @@ public class StringUtilTest {
         Assertions.assertEquals(false, stringUtTest.getStringCompare("Live is good!", "Live"));
         Assertions.assertEquals(false, stringUtTest.getStringCompare("The Best of The Best", "Best"));
         Assertions.assertEquals(false, stringUtTest.getStringCompare(" Live is live ", "live"));
-
     }
 
     @Test
@@ -74,7 +70,6 @@ public class StringUtilTest {
         StringUtils stringUtTest = new StringUtils();
         Assertions.assertEquals(5, stringUtTest.getStringNumbersOfVowels("live is live"));
         Assertions.assertEquals(6, stringUtTest.getStringNumbersOfVowels("Belarus Is Living"));
-
     }
 
     @Test
@@ -83,7 +78,6 @@ public class StringUtilTest {
         Assertions.assertEquals(2, stringUtTest.getStringNumbersOfSimbols("live is live!!"));
         Assertions.assertEquals(3, stringUtTest.getStringNumbersOfSimbols("Belarus, Is Living.."));
         Assertions.assertEquals(5, stringUtTest.getStringNumbersOfSimbols("!!live, .. s live"));
-
     }
 
     @Test
@@ -98,8 +92,13 @@ public class StringUtilTest {
     void getStringArraysNumbersTest() {
         StringUtils stringUtTest = new StringUtils();
         Assertions.assertArrayEquals(new String[]{"1234", "5678", "90"}, stringUtTest.getStringArraysNumbers("1234567890", 4));
-        Assertions.assertArrayEquals(new String[]{"00", "00", "00","00", "00", "00","00","00"}, stringUtTest.getStringArraysNumbers("0000000000000000",2));
+        Assertions.assertArrayEquals(new String[]{"00", "00", "00", "00", "00", "00", "00", "00"}, stringUtTest.getStringArraysNumbers("0000000000000000", 2));
+    }
 
-
+    @Test
+    void getStringNubersWordsTest() {
+        StringUtils stringUtTest = new StringUtils();
+        Assertions.assertEquals(5, stringUtTest.getStringNubersWords("We are waiting the Changes!"));
+        Assertions.assertEquals(4, stringUtTest.getStringNubersWords(" Hello Hello   Hello  Hello "));
     }
 }
