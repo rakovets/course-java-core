@@ -1,7 +1,9 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 class Siamese extends Cat {
-    public Siamese(String name) {
+    private String color;
+
+    Siamese(String name) {
         super(name);
     }
 
@@ -13,5 +15,13 @@ class Siamese extends Cat {
     @Override
     public String purr() {
         return "Srrrr_Srrrr";
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
     }
 }
