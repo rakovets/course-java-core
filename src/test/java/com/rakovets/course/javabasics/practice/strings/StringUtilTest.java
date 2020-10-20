@@ -26,7 +26,7 @@ public class StringUtilTest {
     void StringEqualTest() {
         StringUtils stringUtTest = new StringUtils();
         Assertions.assertEquals(-1, stringUtTest.getStringIndex("Hello", "z"));
-        Assertions.assertEquals(7, stringUtTest.getStringIndex("Coffe is the best", "S"));
+        Assertions.assertEquals(7,  stringUtTest.getStringIndex("Coffe is the best", "S"));
         Assertions.assertEquals(-1, stringUtTest.getStringIndex("LIvE in BelArus is ...", "Z"));
     }
 

@@ -12,7 +12,8 @@ public class StringUtils {
     }
 
     public int getStringIndex(String input, String charToCheck) {
-        return input.indexOf(charToCheck.toUpperCase());
+
+        return input.toUpperCase().indexOf(charToCheck.toUpperCase());
 
     }
 
