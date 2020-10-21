@@ -4,7 +4,6 @@ public abstract class Hero {
 
     public String name;
     public int health;
-
     Hero(String newName) {
         name = newName;
     }
@@ -17,16 +16,18 @@ public abstract class Hero {
         return name;
     }
 
+    public void setHeath(int health) {
+        this.health = health;
+    }
+
     public int getHealth() {
         return health;
     }
-
 
     abstract void attackEnemy(Enemy unit);
 
     public boolean isAlive() {
         return health > 0;
     }
-
 
 }

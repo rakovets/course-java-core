@@ -15,7 +15,6 @@ public class Enemy implements Mortal {
         this.health = health;
     }
 
-
     public int getHealth(){
         return health;
     }
@@ -26,7 +25,5 @@ public class Enemy implements Mortal {
     @Override
     public boolean isAlive() {
        return health > 0;
-
     }
-
 }
