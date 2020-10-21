@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PersianTest {
-    Person human = new Person(70);
+    Person human = new Person(76);
     Persian persian = new Persian("Jafar");
 
 
@@ -15,11 +15,15 @@ public class PersianTest {
     }
 
     @Test
-    void SiameseTest(){
-
+    void SiameseMewTest(){
         persian.mew(human);
+        Assertions.assertEquals("16", human.getHappiness());
+    }
+
+    @Test
+    void SiamesePurrTest(){
         persian.purr(human);
-        Assertions.assertEquals("69", human.getHappiness());
+        Assertions.assertEquals("135", human.getHappiness());
     }
 }
 
