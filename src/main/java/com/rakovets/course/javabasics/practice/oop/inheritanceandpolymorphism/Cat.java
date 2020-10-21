@@ -16,7 +16,7 @@ public class Cat {
     }
 
     public void mew(Person person) {
-        person.changeHappiness(-10);
+        person.changeHappiness(-12);
     }
 
     public void purr(Person person) {
