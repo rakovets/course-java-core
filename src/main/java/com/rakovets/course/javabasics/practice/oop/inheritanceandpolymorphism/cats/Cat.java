@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
+package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats;
 
-public class Cat {
+ public class Cat {
     String name;
 
     public Cat(String name) {
@@ -11,7 +11,7 @@ public class Cat {
         return "Mau-Mau-Mau";
     }
 
-       public String purr() {
+    public String purr() {
         return "Trrrrrrr-Trrrrrrr";
     }
 

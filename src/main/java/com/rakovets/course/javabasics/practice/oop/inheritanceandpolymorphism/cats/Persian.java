@@ -1,8 +1,8 @@
-package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
+package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats;
 
- class Persian extends Cat{
+ public class Persian extends Cat{
 
-     Persian (String name){
+     public Persian (String name){
          super(name);
      }
 

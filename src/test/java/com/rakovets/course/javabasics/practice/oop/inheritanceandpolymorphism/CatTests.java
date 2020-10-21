@@ -1,5 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
+import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Cat;
+import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

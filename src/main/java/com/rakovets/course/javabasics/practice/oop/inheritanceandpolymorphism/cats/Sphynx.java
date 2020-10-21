@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
+package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats;
 
-class Sphynx extends Cat {
+public class Sphynx extends Cat {
 
     public Sphynx(String name) {
         super(name);

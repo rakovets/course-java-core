@@ -1,5 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
+import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Person;
+import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Siamese;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,23 +10,23 @@ public class SiameseTest {
     Siamese siamese = new Siamese("Po");
 
     @Test
-    void CatMewTest() {
+    void catMewTest() {
         Assertions.assertEquals("Miu-Miu_miu", siamese.mew());
     }
 
     @Test
-    void CatPurrTest() {
+    void catPurrTest() {
         Assertions.assertEquals("Srrrr_Srrrr", siamese.purr());
     }
 
     @Test
-    void SiameseMewTest() {
+    void siameseMewTest() {
         siamese.mew(human);
         Assertions.assertEquals(50, human.getHappiness());
     }
 
     @Test
-    void SiamesePurrTest() {
+    void siamesePurrTest() {
         siamese.purr(human);
         Assertions.assertEquals(115, human.getHappiness());
     }

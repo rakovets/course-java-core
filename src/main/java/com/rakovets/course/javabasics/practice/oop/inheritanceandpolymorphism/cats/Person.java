@@ -1,9 +1,9 @@
-package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
+package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats;
 
 public class Person {
     int happiness;
 
-    Person(int happinessOverall) {
+    public Person(int happinessOverall) {
         this.happiness = happinessOverall;
     }
 

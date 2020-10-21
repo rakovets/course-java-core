@@ -1,9 +1,9 @@
-package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
+package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats;
 
-class Siamese extends Cat {
+public class Siamese extends Cat {
     private String color;
 
-    Siamese(String name) {
+    public Siamese(String name) {
         super(name);
     }
 
