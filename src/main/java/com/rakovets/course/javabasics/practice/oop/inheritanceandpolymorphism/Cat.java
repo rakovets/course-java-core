@@ -9,12 +9,18 @@ public class Cat {
 
     public String mew() {
         return "Mau-Mau-MAu";
-
     }
 
-    public String purr() {
+       public String purr() {
         return "Trrrrrrr-Trrrrrrr";
+    }
 
+    public void mew(Person person) {
+        person.takeHappiness(-20);
+    }
+
+    public void purr(Person person) {
+        person.takeHappiness(+30);
     }
 
     public void setName(String newName) {
