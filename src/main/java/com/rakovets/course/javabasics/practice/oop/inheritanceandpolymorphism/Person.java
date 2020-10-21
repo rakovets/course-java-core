@@ -7,8 +7,8 @@ public class Person {
         this.happiness = happinessOverall;
     }
 
-    public int takeHappiness(int happiness) {
-       return this.happiness +(happiness);
+    public int changeHappiness(int happiness) {
+       return this.happiness = this.happiness +(happiness);
     }
 
     public void setHappiness(int happiness) {

@@ -24,4 +24,14 @@ class Siamese extends Cat {
     public String getColor() {
         return color;
     }
+
+    @Override
+    public void mew(Person person) {
+        person.changeHappiness(-20);
+    }
+
+    @Override
+    public void purr(Person person) {
+        person.changeHappiness(45);
+    }
 }
