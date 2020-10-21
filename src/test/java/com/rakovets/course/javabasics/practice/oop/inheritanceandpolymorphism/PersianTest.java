@@ -7,23 +7,26 @@ public class PersianTest {
     Person human = new Person(76);
     Persian persian = new Persian("Jafar");
 
+    @Test
+    void catMewTest() {
+        Assertions.assertEquals("Moa-Moa-Moa", persian.mew());
+    }
 
     @Test
-    void CatTest() {
-        Assertions.assertEquals("Moa-Moa-Moa", persian.mew());
+    void catPurrTest() {
         Assertions.assertEquals("Prrrr_Prrrr-Prrrsss", persian.purr());
     }
 
     @Test
-    void SiameseMewTest(){
+    void persianMewTest() {
         persian.mew(human);
-        Assertions.assertEquals("16", human.getHappiness());
+        Assertions.assertEquals(16, human.getHappiness());
     }
 
     @Test
-    void SiamesePurrTest(){
+    void persianPurrTest() {
         persian.purr(human);
-        Assertions.assertEquals("135", human.getHappiness());
+        Assertions.assertEquals(135, human.getHappiness());
     }
 }
 

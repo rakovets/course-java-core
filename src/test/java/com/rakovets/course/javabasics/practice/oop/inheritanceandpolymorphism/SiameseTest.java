@@ -8,15 +8,24 @@ public class SiameseTest {
     Siamese siamese = new Siamese("Po");
 
     @Test
-    void CatTest() {
+    void CatMewTest() {
         Assertions.assertEquals("Miu-Miu_miu", siamese.mew());
+    }
+
+    @Test
+    void CatPurrTest() {
         Assertions.assertEquals("Srrrr_Srrrr", siamese.purr());
     }
 
     @Test
-    void SiameseTest(){
+    void SiameseMewTest() {
         siamese.mew(human);
+        Assertions.assertEquals(50, human.getHappiness());
+    }
+
+    @Test
+    void SiamesePurrTest() {
         siamese.purr(human);
-        Assertions.assertEquals("70", human.getHappiness());
+        Assertions.assertEquals(115, human.getHappiness());
     }
 }
