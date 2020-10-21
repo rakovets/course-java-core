@@ -2,17 +2,20 @@ package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.b
 
 import java.util.Arrays;
 
- class Archer extends Hero {
-
+class Archer extends Hero {
     int damage = 38;
-    Archer(String name){
+    int health = 100;
+    Archer(String name) {
         super(name);
 
     }
 
-     @Override
-     public String attackEnemy(){
-         Enemy unit = new Enemy(100);
-         return "Mag is starting attack enemy units!!!\n Enemy got damages = " + unit.takeDamage(damage);
-     }
+
+
+    @Override
+    public void attackEnemy(Enemy unit) {
+        System.out.println(this.name + " has attacked enemy unit and takes " + damage + " of Health");
+        unit.takeDamage(damage);
+
+    }
 }

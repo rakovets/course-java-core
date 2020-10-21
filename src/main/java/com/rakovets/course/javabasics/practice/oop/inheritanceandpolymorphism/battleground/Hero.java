@@ -1,17 +1,32 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.battleground;
 
 abstract class Hero {
+
     public String name;
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_RED = "\u001B[31m";
+    public int health;
+
     Hero(String newName) {
         name = newName;
+    }
+
+    public int takeDamage(int damage) {
+        return health = health - damage;
     }
 
     public String getName() {
         return name;
     }
 
-    abstract String attackEnemy();
+    public int getHealth() {
+        return health;
+    }
+
+
+    abstract void attackEnemy(Enemy unit);
+
+    public boolean isAlive() {
+        return health > 0;
+    }
+
+
 }
