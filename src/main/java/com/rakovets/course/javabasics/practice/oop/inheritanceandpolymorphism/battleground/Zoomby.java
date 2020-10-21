@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.battleground;
 
 public class Zoomby extends Enemy{
-    Zoomby(int health) {
+    public Zoomby(int health) {
         super(health);
     }
     int damage = 30;

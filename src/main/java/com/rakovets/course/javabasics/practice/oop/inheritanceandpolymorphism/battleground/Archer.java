@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 class Archer extends Hero {
     int damage = 38;
-    int health = 100;
+
     Archer(String name) {
         super(name);
 

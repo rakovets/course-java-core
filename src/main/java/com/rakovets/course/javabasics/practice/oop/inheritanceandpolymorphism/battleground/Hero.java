@@ -1,6 +1,6 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.battleground;
 
-abstract class Hero {
+public abstract class Hero {
 
     public String name;
     public int health;
