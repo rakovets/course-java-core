@@ -5,7 +5,7 @@ public class Zoomby extends Enemy{
         super(health);
     }
     int damage = 30;
-    boolean immortal = true;
+    boolean revive = true;
 
     public void setDamage(int damage){
         this.damage = damage;

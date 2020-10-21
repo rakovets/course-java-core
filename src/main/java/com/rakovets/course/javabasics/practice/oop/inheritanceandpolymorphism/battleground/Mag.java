@@ -12,8 +12,5 @@ public class Mag extends Hero {
     public void attackEnemy(Enemy unit) {
         System.out.println("Magician" + name +  " has attacked enemy unit and takes " + damage + " of Health");
         unit.takeDamage(damage);
-
-
-
     }
 }
