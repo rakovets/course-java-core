@@ -15,12 +15,12 @@ public class Cat {
         return "Trrrrrrr-Trrrrrrr";
     }
 
-    public void mew(Person person) {
-        person.takeHappiness(-20);
+    public void mew(Person person, int happiness) {
+        person.takeHappiness(happiness);
     }
 
-    public void purr(Person person) {
-        person.takeHappiness(+30);
+    public void purr(Person person, int happiness) {
+        person.takeHappiness(happiness);
     }
 
     public void setName(String newName) {
