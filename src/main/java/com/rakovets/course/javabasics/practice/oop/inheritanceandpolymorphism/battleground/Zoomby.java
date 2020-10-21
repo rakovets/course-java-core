@@ -5,7 +5,7 @@ public class Zoomby extends Enemy{
         super(health);
     }
     int damage = 30;
-    boolean revive = true;
+    int revive = 1;
 
     public void setDamage(int damage){
         this.damage = damage;
@@ -16,5 +16,10 @@ public class Zoomby extends Enemy{
         System.out.println("Zoomby has attacked Hero and takes " + damage + " of Health" );
     }
 
-
+    public void superknowlidge() {
+        if (this.revive==1){
+            this.setHealth(100);
+            this.revive--;
+        }
+    }
 }

@@ -7,7 +7,7 @@ public class ProgramBattle {
 
     public static void main(String[] args) {
         Warrior ivan = new Warrior("Shrek");
-        ivan.setHeath(200);
+        ivan.setHeath(150);
         Zoomby zoomby = new Zoomby(150);
         System.out.println(ANSI_GREEN + "Zoombe has " + zoomby.getHealth() + ANSI_RESET + "-----" + ANSI_RED + "Hero has " + ivan.getHealth() + ANSI_RESET);
 
@@ -23,7 +23,10 @@ public class ProgramBattle {
                     System.out.println("----------------");
                     break;
                 }
-            } else {
+            } else if (zoomby.revive == 1){
+                zoomby.superknowlidge();
+                System.out.println(ANSI_RED + "Zoomby's health has been increased for " + zoomby.getHealth() + ANSI_RESET);
+            } else{
                 System.out.println(ANSI_RED + "Enemy is dead with " + zoomby.getHealth() + ANSI_RESET);
                 System.out.println("----------------");
             }
