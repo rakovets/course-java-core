@@ -30,6 +30,7 @@ public class ProgramBattle {
             } else{
                 System.out.println(ANSI_RED + "Enemy is dead with " + zoomby.getHealth() + ANSI_RESET);
                 System.out.println("----------------");
+
             }
         }
     }

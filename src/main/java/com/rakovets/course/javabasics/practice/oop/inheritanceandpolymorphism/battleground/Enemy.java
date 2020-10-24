@@ -19,6 +19,8 @@ public class Enemy implements Mortal {
         return health;
     }
 
+
+
     public void attackHero(Hero hero) {
     }
 
