@@ -1,10 +1,11 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.battleground;
 
-public abstract class Hero {
+public abstract class Hero implements Mortal {
 
-    public String name;
+    public final String name;
     public int health;
-    Hero(String newName) {
+
+    public Hero(String newName) {
         name = newName;
     }
 
@@ -16,7 +17,7 @@ public abstract class Hero {
         return name;
     }
 
-    public void setHeath(int health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
@@ -26,8 +27,5 @@ public abstract class Hero {
 
     abstract void attackEnemy(Enemy unit);
 
-    public boolean isAlive() {
-        return health > 0;
-    }
 
 }

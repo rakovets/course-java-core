@@ -13,6 +13,6 @@ public class ZoombyTest {
         Warrior hero = new Warrior("Vasya");
         Zoomby enemy = new Zoomby(50);
         hero.attackEnemy(enemy);
-        Assertions.assertFalse(enemy.isAlive());
+        Assertions.assertFalse(enemy.isAlive(enemy.getHealth()));
          }
 }

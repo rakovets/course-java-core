@@ -1,6 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Cat;
+import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Persian;
 import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,7 @@ public class CatTests {
     @Test
     void catMurkaMewTest() {
         murka.mew(human);
+
         Assertions.assertEquals(58, human.getHappiness());
 
     }

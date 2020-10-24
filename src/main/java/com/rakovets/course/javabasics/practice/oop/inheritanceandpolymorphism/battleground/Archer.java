@@ -3,9 +3,9 @@ package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.b
 import java.util.Arrays;
 
 class Archer extends Hero {
-    int damage = 38;
+    private int damage = 38;
 
-    Archer(String name) {
+    public Archer(String name) {
         super(name);
     }
 

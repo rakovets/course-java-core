@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.battleground;
 
 public class Warrior extends Hero {
-    int damage = 50;
+    private int damage = 50;
 
     public Warrior(String newName) {
         super(newName);

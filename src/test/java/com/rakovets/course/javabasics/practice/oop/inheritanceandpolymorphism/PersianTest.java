@@ -1,5 +1,6 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
+import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Cat;
 import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Persian;
 import com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.cats.Person;
 import org.junit.jupiter.api.Assertions;
@@ -7,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class PersianTest {
     Person human = new Person(76);
-    Persian persian = new Persian("Jafar");
+    Cat persian = new Persian("Jafar");
 
     @Test
     void catMewTest() {

@@ -7,18 +7,19 @@ public class ProgramBattle {
 
     public static void main(String[] args) {
         Warrior ivan = new Warrior("Shrek");
-        ivan.setHeath(150);
+        ivan.setHealth(150);
         Zoomby zoomby = new Zoomby(150);
-        System.out.println(ANSI_GREEN + "Zoombe has " + zoomby.getHealth() + ANSI_RESET + "-----" + ANSI_RED + "Hero has " + ivan.getHealth() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Zoombe has " + zoomby.getHealth() + ANSI_RESET +
+                "-----" + ANSI_RED + "Hero has " + ivan.getHealth() + ANSI_RESET);
 
-        for (int i = 0; zoomby.isAlive(); i++) {
+        for (int i = 0; zoomby.isAlive(zoomby.health); i++) {
             System.out.println("----------------");
             ivan.attackEnemy(zoomby);
             System.out.println(ANSI_GREEN + "Zoombe has " + zoomby.getHealth() + ANSI_RESET);
-            if (zoomby.isAlive()) {
+            if (zoomby.isAlive(zoomby.health)) {
                 zoomby.attackHero(ivan);
                 System.out.println(ANSI_RED + "Hero has " + ivan.getHealth() + ANSI_RESET);
-                if (!ivan.isAlive()) {
+                if (!ivan.isAlive(ivan.health)) {
                     System.out.println(ANSI_RED + "Hero is dead with " + ivan.getHealth() + ANSI_RESET);
                     System.out.println("----------------");
                     break;

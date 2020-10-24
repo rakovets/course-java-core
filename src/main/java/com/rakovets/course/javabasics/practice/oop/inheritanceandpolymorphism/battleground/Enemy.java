@@ -3,27 +3,24 @@ package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism.b
 public class Enemy implements Mortal {
     int health;
 
-    Enemy(int health){
+    Enemy(int health) {
         this.health = health;
     }
 
-    public int takeDamage(int damage){
-      return  health = health - damage;
+    public int takeDamage(int damage) {
+        return health = health - damage;
     }
 
-    public void setHealth(int health){
+    public void setHealth(int health) {
         this.health = health;
     }
 
-    public int getHealth(){
+    public int getHealth() {
         return health;
     }
 
-    public void attackHero(Hero hero){
-            }
-
-    @Override
-    public boolean isAlive() {
-       return health > 0;
+    public void attackHero(Hero hero) {
     }
+
+
 }
