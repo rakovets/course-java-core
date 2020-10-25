@@ -1,41 +1,41 @@
-package com.rakovets.course.javabasics.example.collections;
+package com.rakovets.course.javabasics.example.jcf.model;
 
 public class Student implements Comparable {
     private String name;
-    private double cash;
+    private double fee;
 
     public Student(String name) {
         this.name = name;
     }
 
-    public Student(String name, double cash) {
+    public Student(String name, double fee) {
         this.name = name;
-        this.cash = cash;
+        this.fee = fee;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getCash() {
-        return cash;
+    public double getFee() {
+        return fee;
     }
 
-    public void setCash(double cash) {
-        this.cash = cash;
+    public void setFee(double fee) {
+        this.fee = fee;
     }
 
     @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
-                ", cash=" + cash +
+                ", cash=" + fee +
                 '}';
     }
 
     @Override
     public int compareTo(Object o) {
         Student student = (Student) o;
-        return Double.compare(this.getCash(), student.getCash());
+        return Double.compare(this.getFee(), student.getFee());
     }
 }

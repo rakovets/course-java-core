@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.example.collections;
+package com.rakovets.course.javabasics.example.jcf;
+
+import com.rakovets.course.javabasics.example.jcf.model.Student;
 
 import java.util.Hashtable;
 import java.util.Stack;

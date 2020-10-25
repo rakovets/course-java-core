@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.collections;
+package com.rakovets.course.javabasics.example.jcf;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
