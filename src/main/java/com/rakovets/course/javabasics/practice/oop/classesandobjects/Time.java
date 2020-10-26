@@ -7,7 +7,9 @@ public class Time {
     private int totalSeconds;
 
     Time(int totalSeconds) {
-    this.totalSeconds = totalSeconds;
+        this.hours = totalSeconds / (60 * 60);
+        this.minutes = totalSeconds / 60 - (hours * 60);
+        this.seconds = totalSeconds - (hours * 60 * 60) - (minutes * 60);
     }
 
     Time(int hours, int minutes, int seconds) {
@@ -41,6 +43,7 @@ public class Time {
     }
 
     public int getTotalSeconds() {
+        int totalSeconds = hours * 60 * 60 + minutes * 60 + seconds;
         return totalSeconds;
     }
 }
