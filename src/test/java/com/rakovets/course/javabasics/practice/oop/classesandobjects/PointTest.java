@@ -2,6 +2,7 @@ package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class PointTest {
     public static void main(String[] args) {
+//       Point point = new Point();
        Point pointx = new Point(1);
        Point pointy = new Point(2);
         System.out.println("координата точки X:" + pointx.getX());
@@ -12,4 +13,6 @@ public class PointTest {
         System.out.println(pointx.getX());
         System.out.println(pointy.getY());
     }
+
+
 }
