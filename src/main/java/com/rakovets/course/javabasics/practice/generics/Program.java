@@ -18,7 +18,7 @@ public class Program {
         System.out.println(max);
 
         Math<Double> math1 = new Math();
-        double min = math1.getMinOf(1.5, 12.0, 22.0, 33.0, 14.0);
+        Double min = math1.getMinOf(1.5, 12.0, 22.0, 33.0, 14.0);
         System.out.println(min);
         Double[] array = {100.0, 135.0, 87.3, 13.0,133.0};
         System.out.println(math1.getAverageFromArray(array));
