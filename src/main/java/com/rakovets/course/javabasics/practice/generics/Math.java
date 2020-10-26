@@ -1,9 +1,12 @@
 package com.rakovets.course.javabasics.practice.generics;
 
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Math<T extends Number> {
+import static java.util.Arrays.sort;
+
+public class Math<T extends Number & Comparable> {
 
 
     public T getMaxOf(T a, T b, T c) {
@@ -25,6 +28,7 @@ public class Math<T extends Number> {
     }
 
     public T getMinOf(T a, T b, T c, T d, T e) {
+
         LinkedList<T> array = new LinkedList<T>();
         array.add(a);
         array.add(b);
@@ -41,14 +45,64 @@ public class Math<T extends Number> {
     }
 
     public double getAverageFromArray(T[] array) {
-       double avarage = 0D;
-        for (int i = 0; i<array.length; i++) {
-          avarage += array[i].doubleValue()/array.length;
 
+        double avarage = 0;
+        for (int i = 0; i < array.length; i++) {
+            avarage += array[i].doubleValue() / array.length;
         }
         return avarage;
     }
 
+    public T getMaximumFromArray(T[] array) {
+
+        T maximum = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (maximum.compareTo(array[i]) < 0) {
+                maximum = array[i];
+            }
+        }
+        return maximum;
+
+    }
+
+    public T getMinimumFromArray(T[] array) {
+
+        T minimum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (minimum.compareTo(array[i]) > 0) {
+                minimum = array[i];
+            }
+        }
+        return minimum;
+    }
+
+    public T[] getSortedArray(T[] array) {
+        Arrays.sort(array);
+        return array;
+    }
+
+    public T getBinarySearch(T[] array, T key) {
+        T[] sortedArray = getSortedArray(array);
+        int first = 0;
+        int last = array.length;
+        int median = (first + last) / 2;
+        T foundedValue = null;
+        do {
+            if (key.compareTo(sortedArray[median]) < 0) {
+                last = median;
+            } else {
+                first = median;
+            }
+            median = (first + last) / 2;
+
+            if (key.compareTo(sortedArray[median]) == 0) {
+                foundedValue = key ;
+            }
+        }
+        while (key.compareTo(sortedArray[median]) != 0 && first <= last);
+
+        return foundedValue;
+    }
 
 }
 

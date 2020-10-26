@@ -12,25 +12,25 @@
 
 Реализуйте шаблонный метод, который возвращает минимум из пяти переданных параметров.
 
-=== Specification of task 3
+// Specification of task 3
 
 Реализуйте шаблонный метод для поиска среднеарифметического значения в массиве.
 
-=== Specification of task 4
+//Specification of task 4
 
 Реализуйте шаблонный метод для поиска максимума в массиве.
 
-=== Specification of task 5
+// Specification of task 5
 
 Реализуйте шаблонный метод для поиска минимума в массиве.
 
-=== Specification of task 6
+// Specification of task 6
 
 Реализуйте шаблонный метод для сортировки массива.
 
-=== Specification of task 7
+// Specification of task 7
 
-Реализуйте шаблонный метод для двоичного поискав массиве.
+Реализуйте шаблонный метод для двоичного поиска в массиве.
 
 
 // Project: `Pair`
