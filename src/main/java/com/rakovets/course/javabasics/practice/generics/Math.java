@@ -3,6 +3,7 @@ package com.rakovets.course.javabasics.practice.generics;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
 
 public class Math<T extends Number> {
 
@@ -23,22 +24,22 @@ public class Math<T extends Number> {
             return c;
         }
         return null;
-
     }
 
-    public double getMinOf(T a, T b, T c, T d, T e) {
-        double[] array = new double[5];
-        array[0] = a.doubleValue();
-        array[1] = b.doubleValue();
-        array[2] = c.doubleValue();
-        array[3] = d.doubleValue();
-        array[4] = e.doubleValue();
-        double min = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (min > array[i]) {
-                min = array[i];
+    public T getMinOf(T a, T b, T c, T d, T e) {
+        LinkedList<T> array = new LinkedList<T>();
+        array.add(a);
+        array.add(b);
+        array.add(c);
+        array.add(d);
+        array.add(e);
+        T min = array.getFirst();
+        for (int i = 1; i < array.size(); i++) {
+            if (min.doubleValue() > array.get(i).doubleValue()) {
+                min = array.get(i);
             }
-        } return min;
+        }
+        return min;
     }
 
 
