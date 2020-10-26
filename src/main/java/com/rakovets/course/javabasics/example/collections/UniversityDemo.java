@@ -8,7 +8,9 @@ import java.util.Vector;
 
 public class UniversityDemo {
     public static void main(String[] args) {
+
         List<Student> group = new ArrayList<>();
+
         group.add(new Student("Tom", 1));
         group.add(new Student("Tom", 3));
         group.add(new Student("Tom", 2));
