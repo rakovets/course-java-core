@@ -2,20 +2,19 @@ package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class TimeTest {
     public static void main(String[] args) {
-        Time hours = new Time(1);
-        Time minutes = new Time(2);
-        Time seconds = new Time(3);
-        Time totalseconds = new Time (156);
-        System.out.println(hours.getHours());
-        System.out.println(minutes.getMinutes());
-        System.out.println(seconds.getSeconds());
-        System.out.println(totalseconds.getTotalSeconds());
+        Time time = new Time(1, 45, 33);
+        Time totalSeconds = new Time (651);
+        System.out.println(totalSeconds.getTotalSeconds());
+        System.out.println(time.getHours());
+        System.out.println(time.getMinutes());
+        System.out.println(time.getSeconds());
 
-        hours.setHours(666);
-        minutes.setMinutes(333);
-        seconds.setSeconds(222);
-        System.out.println(hours.getHours());
-        System.out.println(minutes.getMinutes());
-        System.out.println(seconds.getSeconds());
+
+        time.setHours(666);
+        time.setMinutes(333);
+        time.setSeconds(222);
+        System.out.println(time.getHours());
+        System.out.println(time.getMinutes());
+        System.out.println(time.getSeconds());
     }
 }
