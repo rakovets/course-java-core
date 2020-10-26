@@ -4,7 +4,6 @@ package com.rakovets.course.javabasics.practice.generics;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import static java.util.Arrays.sort;
 
 public class Math<T extends Number & Comparable> {
 

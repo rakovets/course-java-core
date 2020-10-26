@@ -28,6 +28,7 @@ public class Program {
         System.out.println("Array contain the key " + math1.getBinarySearch(array,13.0));
 
 
+
     }
 
 
