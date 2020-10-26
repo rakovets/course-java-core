@@ -3,6 +3,7 @@ package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 public class Point {
     private int x;
     private int y;
+    private int point;
 
     Point(int x, int y) {
      this.x = x;
@@ -28,4 +29,7 @@ public class Point {
     this.y = y;
     }
 
+//    public int distance() {
+//
+//    }
 }
