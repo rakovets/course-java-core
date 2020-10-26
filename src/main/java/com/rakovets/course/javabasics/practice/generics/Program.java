@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.generics;
 
 import org.junit.Test;
 
+import java.lang.reflect.Array;
+
 public class Program {
     public static void main(String[] args) {
         Pair<Integer, String> pair = new Pair<>(40, "value");
@@ -17,6 +19,10 @@ public class Program {
         Math<Double> math1  = new Math();
         double min = math1.getMinOf(1.5,12.0,22.0,33.0,14.0);
         System.out.println(min);
+        Math math2 = new Math();
+        Double[] averageArray = {10.0,15.0,10.0,10.0,10.0};
+        System.out.println(math2.getAverageFromArray(averageArray));
+
 
     }
 

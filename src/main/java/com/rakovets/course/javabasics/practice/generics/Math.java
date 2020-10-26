@@ -1,8 +1,6 @@
 package com.rakovets.course.javabasics.practice.generics;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Comparator;
+
 import java.util.LinkedList;
 
 public class Math<T extends Number> {
@@ -40,6 +38,15 @@ public class Math<T extends Number> {
             }
         }
         return min;
+    }
+
+    public double getAverageFromArray(T[] array) {
+       double avarage = 0D;
+        for (int i = 0; i<array.length; i++) {
+          avarage += array[i].doubleValue()/array.length;
+
+        }
+        return avarage;
     }
 
 
