@@ -26,9 +26,11 @@ public class Rectangle {
         this.secondPoint = secondPoint;
     }
 
-//    public int getPerimeter() { // два метода
-//      return ...;
-//    }
+////    public int getPerimeter() { // два метода
+//        Point firstpoint = new Point(firstPoint.getX(), secondPoint.getY());
+//        double length = Math.sqrt
+////      return ...;
+////    }
 //
 //    public int getArea() {
 //
