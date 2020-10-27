@@ -26,7 +26,9 @@ public class Point {
     this.y = y;
     }
 
-//    public int distance() {
-//
-//    }
+    public int distance(Point point) {
+    double distance = Math.sqrt((x - point.getX() * (x - point.getX()) + (y - point.getY()  * (y - point.getY()))));
+    return (int) distance;
+    }
+
 }
