@@ -28,6 +28,6 @@ public class Pair<K, V> {
     @Override
     public String toString() {
         return "key=" + this.key +
-                "\tvalue=" + this.value + "\n";
+                "\tvalue=" + this.value;
     }
 }
