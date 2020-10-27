@@ -76,11 +76,13 @@ public class Math<T extends Number & Comparable> {
     }
 
     public T[] getSortedArray(T[] array) {
+
         Arrays.sort(array);
         return array;
     }
 
     public T getBinarySearch(T[] array, T key) {
+
         T[] sortedArray = getSortedArray(array);
         int first = 0;
         int last = array.length;
