@@ -4,9 +4,15 @@ public class Pair<K, V> {
     private K key;
     private V value;
 
-    Pair(K key, V vey) {
+    public Pair(K key, V value) {
         this.key = key;
-        this.value = vey;
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "key=" + this.key +
+                "\tvalue=" + this.value;
     }
 
     public K getK() {
@@ -17,17 +23,13 @@ public class Pair<K, V> {
         return value;
     }
 
-    public void  setK(K newK) {
+    public void setK(K newK) {
         key = newK;
     }
 
-    public void  setV(V newV) {
+    public void setV(V newV) {
         value = newV;
     }
 
-    @Override
-    public String toString() {
-        return "key=" + this.key +
-                "\tvalue=" + this.value;
-    }
+
 }
