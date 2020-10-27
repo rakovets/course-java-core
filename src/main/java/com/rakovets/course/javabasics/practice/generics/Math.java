@@ -45,7 +45,7 @@ public class Math<T extends Number & Comparable> {
 
     public double getAverageFromArray(T[] array) {
 
-        double avarage = 0;
+        double avarage = 0.0;
         for (int i = 0; i < array.length; i++) {
             avarage += array[i].doubleValue() / array.length;
         }
@@ -99,7 +99,6 @@ public class Math<T extends Number & Comparable> {
             }
         }
         while (key.compareTo(sortedArray[median]) != 0 && first <= last);
-
         return foundedValue;
     }
 
