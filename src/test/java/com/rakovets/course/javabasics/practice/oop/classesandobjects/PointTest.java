@@ -2,8 +2,9 @@ package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class PointTest {
     public static void main(String[] args) {
-//       Point point = new Point();
+       Point point1 = new Point(2, 6);
        Point point = new Point(1, 3);
+        System.out.println(point.distance(new Point(30,40)));
         System.out.println("координата точки X:" + point.getX());
         System.out.println("координата точки Y:" + point.getY());
 
