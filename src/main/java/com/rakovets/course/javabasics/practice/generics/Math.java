@@ -95,7 +95,7 @@ public class Math<T extends Number & Comparable> {
             median = (first + last) / 2;
 
             if (key.compareTo(sortedArray[median]) == 0) {
-                foundedValue = key ;
+                foundedValue = key;
             }
         }
         while (key.compareTo(sortedArray[median]) != 0 && first <= last);

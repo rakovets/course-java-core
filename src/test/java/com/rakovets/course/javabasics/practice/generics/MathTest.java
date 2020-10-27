@@ -87,19 +87,19 @@ public class MathTest {
         Math<Double> test = new Math();
         Math<Integer> testI = new Math();
 
-        Assertions.assertArrayEquals( new Double[]{15.0, 18.0, 19.0, 133.0, 176.0}, test.getSortedArray(array));
-        Assertions.assertArrayEquals( new Integer[]{3, 4, 7, 7, 16, 23, 32, 34, 37, 56}, testI.getSortedArray(arrayI));
+        Assertions.assertArrayEquals(new Double[]{15.0, 18.0, 19.0, 133.0, 176.0}, test.getSortedArray(array));
+        Assertions.assertArrayEquals(new Integer[]{3, 4, 7, 7, 16, 23, 32, 34, 37, 56}, testI.getSortedArray(arrayI));
     }
 
     @Test
-    void getBinarySearchTest(){
+    void getBinarySearchTest() {
 
         Integer[] array = {4, 23, 7, 37, 3, 34, 56, 32, 7, 16};
         Math<Integer> test = new Math();
-        Assertions.assertEquals(16, test.getBinarySearch(array,16));
-        Assertions.assertEquals(4, test.getBinarySearch(array,4));
-        Assertions.assertEquals(3, test.getBinarySearch(array,3));
-        Assertions.assertEquals(32, test.getBinarySearch(array,32));
-        Assertions.assertEquals(7, test.getBinarySearch(array,7));
+        Assertions.assertEquals(16, test.getBinarySearch(array, 16));
+        Assertions.assertEquals(4, test.getBinarySearch(array, 4));
+        Assertions.assertEquals(3, test.getBinarySearch(array, 3));
+        Assertions.assertEquals(32, test.getBinarySearch(array, 32));
+        Assertions.assertEquals(7, test.getBinarySearch(array, 7));
     }
 }
