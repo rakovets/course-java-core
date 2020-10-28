@@ -3,7 +3,7 @@ package com.rakovets.course.javabasics.example.generics.model;
 import java.util.ArrayList;
 
 public class StringCollectionUtil {
-    public ArrayList<String> resetWordsByLength(ArrayList<String> list, int length) {
+    public static ArrayList<String> resetWordsByLength(ArrayList<String> list, int length) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).length() == length) {
                 list.set(i, "*");
@@ -12,7 +12,7 @@ public class StringCollectionUtil {
         return list;
     }
 
-    public ArrayList<String> removeWordsByLength(ArrayList<String> list, int length) {
+    public static ArrayList<String> removeWordsByLength(ArrayList<String> list, int length) {
         for(int i = 0; i< list.size(); i++) {
             if (list.get(i).length() == length) {
                 list.remove(i);
