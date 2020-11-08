@@ -6,7 +6,7 @@ public class CapacityCheck {
     public static String addFuelToTank(int addLiters) throws TankCapacityExeption {
         int capacity = 68;
         if (addLiters > capacity) {
-            throw new TankCapacityExeption("Capacity of Tank less than you are trying to add", addLiters);
+            throw new TankCapacityExeption("Capacity of Tank less than capacity", addLiters);
         }
         return "Thanks for using our service";
     }
