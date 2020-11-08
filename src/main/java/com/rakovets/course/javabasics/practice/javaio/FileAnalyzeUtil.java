@@ -71,9 +71,11 @@ public class FileAnalyzeUtil {
                 }
                 return file;
             } catch (IOException e) {
+                System.out.println(e.getMessage());
                 return null;
             }
         } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
