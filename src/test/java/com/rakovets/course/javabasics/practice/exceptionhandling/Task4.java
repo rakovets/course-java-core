@@ -1,4 +1,7 @@
-package com.rakovets.course.javabasics.practice.exceptionhandling.task04;
+package com.rakovets.course.javabasics.practice.exceptionhandling;
+
+import com.rakovets.course.javabasics.practice.exceptionhandling.task04.DevisionException;
+import com.rakovets.course.javabasics.practice.exceptionhandling.task04.MyRuntime;
 
 import java.util.Scanner;
 

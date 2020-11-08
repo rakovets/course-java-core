@@ -1,6 +1,7 @@
-package com.rakovets.course.javabasics.practice.exceptionhandling.task03;
+package com.rakovets.course.javabasics.practice.exceptionhandling;
 
-import java.util.Arrays;
+import com.rakovets.course.javabasics.practice.exceptionhandling.task03.CapacityCheck;
+import com.rakovets.course.javabasics.practice.exceptionhandling.task03.TankCapacityExeption;
 import java.util.Scanner;
 
 public class Task3 {

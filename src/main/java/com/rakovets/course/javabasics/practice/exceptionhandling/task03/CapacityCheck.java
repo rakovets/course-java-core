@@ -1,6 +1,6 @@
 package com.rakovets.course.javabasics.practice.exceptionhandling.task03;
 
-import org.junit.jupiter.api.Test;
+
 
 public class CapacityCheck {
 
