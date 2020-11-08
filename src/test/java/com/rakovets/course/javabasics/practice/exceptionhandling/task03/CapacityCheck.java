@@ -3,6 +3,7 @@ package com.rakovets.course.javabasics.practice.exceptionhandling.task03;
 import org.junit.jupiter.api.Test;
 
 public class CapacityCheck {
+
     public static String addFuelToTank(int addLiters) throws TankCapacityExeption {
         int capacity = 68;
         if (addLiters > capacity) {
