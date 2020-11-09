@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.exceptionhandling;
+package com.rakovets.course.javabasics.practice.exceptionhandling.task05;
 
 public class Task5GenExeption extends Exception{
 
