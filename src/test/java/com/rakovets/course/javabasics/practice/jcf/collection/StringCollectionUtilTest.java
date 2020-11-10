@@ -2,6 +2,7 @@ package com.rakovets.course.javabasics.practice.jcf.collection;
 
 import com.rakovets.course.javabasics.StringCollectionUtil.StringCollectionUtil;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class StringCollectionUtilTest {
     @Test
     void markWordsWithLengthTest() {
 
-        LinkedList<String> testCollection = new LinkedList<String>();
+        LinkedList<String> testCollection = new LinkedList<>();
         testCollection.add("this");
         testCollection.add("is");
         testCollection.add("lots");
@@ -27,14 +28,12 @@ public class StringCollectionUtilTest {
         Assertions.assertIterableEquals(Arrays.asList("*", "is", "*", "of", "fun", "for", "*", "programmer"), StringCollectionUtil.markWordsWithLength(testCollection, 4));
         Assertions.assertIterableEquals(Arrays.asList("this", "*", "lots", "*", "fun", "for", "Java", "programmer"), StringCollectionUtil.markWordsWithLength(testCollection, 2));
         Assertions.assertIterableEquals(Arrays.asList("this", "is", "lots", "of", "*", "*", "Java", "programmer"), StringCollectionUtil.markWordsWithLength(testCollection, 3));
-
-
     }
 
     @Test
     void removeWordsByLengthTest() {
 
-        LinkedList<String> testCollection = new LinkedList<String>();
+        LinkedList<String> testCollection = new LinkedList<>();
         testCollection.add("this");
         testCollection.add("is");
         testCollection.add("lots");
