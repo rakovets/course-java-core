@@ -38,7 +38,4 @@ public class Studio {
         return actors;
     }
 
-    public LinkedList<Actor> getActors() {
-        return actors;
-    }
 }

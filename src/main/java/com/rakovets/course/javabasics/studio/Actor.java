@@ -15,11 +15,10 @@ public class Actor {
 
     @Override
     public String toString() {
-        return "Actor{" + "FirstName=" + firstName +
-                ",  LastName=" + lastname +
-                ",  Cash=" + fee +
-                ",  Age=" + age +
-                "} \n";
+        return "Actor " + "FirstName " + firstName +
+                ", LastName " + lastname +
+                ", Cash=" + fee +
+                ", Age=" + age + "\n";
     }
 
     public String getLastname() {

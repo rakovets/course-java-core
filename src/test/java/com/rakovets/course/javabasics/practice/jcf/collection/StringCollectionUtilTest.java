@@ -2,13 +2,9 @@ package com.rakovets.course.javabasics.practice.jcf.collection;
 
 import com.rakovets.course.javabasics.StringCollectionUtil.StringCollectionUtil;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 
 public class StringCollectionUtilTest {
 
