@@ -1,6 +1,6 @@
 package com.rakovets.course.javabasics.practice.jcf.collection;
 
-import com.rakovets.course.javabasics.StringCollectionUtil.StringCollectionUtil;
+import com.rakovets.course.javabasics.stringcollectionutil.StringCollectionUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;

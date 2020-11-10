@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.studio;
+package com.rakovets.course.javabasics.example.collections.list;
 
 public class Actor {
     private String firstName;

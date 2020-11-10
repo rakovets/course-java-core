@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.studio.comparators;
+package com.rakovets.course.javabasics.example.collections.list.comparators;
 
-import com.rakovets.course.javabasics.studio.Actor;
+import com.rakovets.course.javabasics.example.collections.list.Actor;
 import java.util.Comparator;
 
 public class ActorsFeeLastNameComparator implements Comparator <Actor> {

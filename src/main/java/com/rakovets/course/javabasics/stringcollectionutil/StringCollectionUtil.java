@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.StringCollectionUtil;
+package com.rakovets.course.javabasics.stringcollectionutil;
 
 import java.util.Iterator;
 import java.util.LinkedList;

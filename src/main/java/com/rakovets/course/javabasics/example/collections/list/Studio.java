@@ -1,12 +1,13 @@
-package com.rakovets.course.javabasics.studio;
+package com.rakovets.course.javabasics.example.collections.list;
 
-import com.rakovets.course.javabasics.studio.comparators.*;
+import com.rakovets.course.javabasics.example.collections.list.comparators.*;
+import com.rakovets.course.javabasics.example.collections.list.comparators.*;
 import java.util.LinkedList;
 
 
 public class Studio {
 
-    private LinkedList<Actor> actors;
+    private final LinkedList<Actor> actors;
 
     public Studio(LinkedList<Actor> actors) {
         this.actors = actors;
