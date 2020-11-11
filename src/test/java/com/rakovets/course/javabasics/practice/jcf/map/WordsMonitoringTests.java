@@ -4,8 +4,6 @@ import com.rakovets.course.javabasics.example.collections.map.TextMonitoring;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-//            System.out.println("Word \n " + TextMonitoring.getWork(text, "roooby"));
 public class WordsMonitoringTests {
 
     @Test
