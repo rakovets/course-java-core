@@ -18,7 +18,7 @@ public class Student {
 
     public String toString() {
         return "Student Name is " + name
-                + ", Surname" + surname
+                + ", Surname " + surname
                 + ", Aaverage mark " + averageAnnualMark
                 + ", Age " + age + "\n";
     }
