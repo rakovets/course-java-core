@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class Garage {
 
-    Collection<Car> cars;
-    HashMap<String, Collection<Car>> carsMap = new HashMap<String, Collection<Car>>();
+    private Collection<Car> cars;
+    private HashMap<String, Collection<Car>> carsMap = new HashMap<String, Collection<Car>>();
 
     public Garage(Collection<Car> cars) {
         this.cars = cars;
@@ -36,6 +36,36 @@ public class Garage {
         }
         return result;
     }
+
+    public boolean isExist(int regNumber) {
+
+        for (Car item : cars) {
+            if (item.getRegistrationNumber() == regNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isExist(String brand, String model, int registrationNumber) {
+
+        for (Car item : cars) {
+            if (item.getRegistrationNumber() == registrationNumber && item.getBrand() == brand && item.getModel() == model) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Car getByRegistrationNumber(int registrationNumber) {
+        for (Car item : cars) {
+            if (item.getRegistrationNumber() == registrationNumber) {
+                return item;
+            }
+        }
+        return null;
+    }
+
 
     private void addCarToMap(Car car) {
 
@@ -66,7 +96,4 @@ public class Garage {
         }
     }
 
-    public HashMap<String, Collection<Car>> getCarsMap() {
-        return carsMap;
-    }
 }

@@ -18,7 +18,7 @@ public abstract class Car {
     @Override
 
     public String toString() {
-        return  brand
+        return "Name " + brand
                 + ", Model " + model
                 + ", Color " + color
                 + ", Manufacture Date " + yearManufacture
@@ -58,14 +58,6 @@ public abstract class Car {
 
     public String getModel() {
         return model;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getYearManufacture() {
-        return yearManufacture;
     }
 
     public int getRegistrationNumber() {
