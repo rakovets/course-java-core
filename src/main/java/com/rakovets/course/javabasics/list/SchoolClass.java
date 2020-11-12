@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.example.collections.list;
+package com.rakovets.course.javabasics.list;
 
-import com.rakovets.course.javabasics.example.collections.list.comparators.StudentAverageMarksComparator;
+import com.rakovets.course.javabasics.list.comparators.StudentAverageMarksComparator;
 
 import java.util.LinkedList;
 

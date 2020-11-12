@@ -1,8 +1,8 @@
-package com.rakovets.course.javabasics.example.collections.list;
+package com.rakovets.course.javabasics.list;
 
-import com.rakovets.course.javabasics.example.collections.list.comparators.StudentAgeComparator;
-import com.rakovets.course.javabasics.example.collections.list.comparators.StudentAverageMarksComparator;
-import com.rakovets.course.javabasics.example.collections.list.comparators.StudentFullNameComparator;
+import com.rakovets.course.javabasics.list.comparators.StudentAgeComparator;
+import com.rakovets.course.javabasics.list.comparators.StudentAverageMarksComparator;
+import com.rakovets.course.javabasics.list.comparators.StudentFullNameComparator;
 
 import java.util.LinkedList;
 

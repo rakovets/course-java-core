@@ -1,7 +1,7 @@
-package com.rakovets.course.javabasics.example.collections.list;
+package com.rakovets.course.javabasics.list;
 
-import com.rakovets.course.javabasics.example.collections.list.comparators.*;
-import com.rakovets.course.javabasics.example.collections.list.comparators.*;
+import com.rakovets.course.javabasics.list.comparators.*;
+
 import java.util.LinkedList;
 
 

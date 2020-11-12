@@ -1,6 +1,6 @@
 package com.rakovets.course.javabasics.practice.jcf.map;
 
-import com.rakovets.course.javabasics.example.collections.map.TextMonitoring;
+import com.rakovets.course.javabasics.map.TextMonitoring;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

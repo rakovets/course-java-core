@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.example.collections.list.comparators;
+package com.rakovets.course.javabasics.list.comparators;
 
-import com.rakovets.course.javabasics.example.collections.list.Student;
+import com.rakovets.course.javabasics.list.Student;
 
 import java.util.Comparator;
 

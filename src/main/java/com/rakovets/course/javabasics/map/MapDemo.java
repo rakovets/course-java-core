@@ -1,7 +1,4 @@
-package com.rakovets.course.javabasics.example.collections.map;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.rakovets.course.javabasics.map;
 
 public class MapDemo {
 

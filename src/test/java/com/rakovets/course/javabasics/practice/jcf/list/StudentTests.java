@@ -1,10 +1,9 @@
 package com.rakovets.course.javabasics.practice.jcf.list;
 
-import com.rakovets.course.javabasics.example.collections.list.SchoolClass;
-import com.rakovets.course.javabasics.example.collections.list.Student;
-import com.rakovets.course.javabasics.example.collections.list.Studio;
-import com.rakovets.course.javabasics.example.collections.list.comparators.StudentAgeComparator;
-import com.rakovets.course.javabasics.example.collections.list.comparators.StudentFullNameComparator;
+import com.rakovets.course.javabasics.list.SchoolClass;
+import com.rakovets.course.javabasics.list.Student;
+import com.rakovets.course.javabasics.list.comparators.StudentAgeComparator;
+import com.rakovets.course.javabasics.list.comparators.StudentFullNameComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

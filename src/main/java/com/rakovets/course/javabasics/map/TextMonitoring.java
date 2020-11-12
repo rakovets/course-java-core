@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.collections.map;
+package com.rakovets.course.javabasics.map;
 
 import java.util.HashMap;
 import java.util.LinkedList;
