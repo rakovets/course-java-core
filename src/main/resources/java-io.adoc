@@ -6,7 +6,7 @@ NOTE: Реализация методов не должна зависить о�
 
 === Specification of task 1
 
-Создать класс `FileAnalyzeUtil`.
+Создать класс `FileAnalyzeUtil`.dsdsf
 
 === Specification of task 2
 
