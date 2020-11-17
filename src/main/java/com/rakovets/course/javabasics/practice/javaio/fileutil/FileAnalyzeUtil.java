@@ -26,14 +26,20 @@ public class FileAnalyzeUtil {
 
     }
 
-    public static StringBuilder getWordsStartWhithVowels(String path) throws IOException {
+    public static StringBuilder getWordsStartWithVowels(String path) throws IOException {
 
         StringBuilder text = getRowsFromFile(path);
-        char[] ch  = {'E','e','Y','y','U','u','I','i','O','o','A','a'};
-        for (int i = 0; i < text.length(); i++){
-
+        String stringText= text.toString().replaceAll("\r\n"," ");
+        StringBuilder result = new StringBuilder();
+        String[] array = stringText.toString().split(" ");// TODO
+        String[] ch = {"E", "e", "Y", "y", "U", "u", "I", "i", "O", "o", "A", "a"};
+        for (int j = 0; j < array.length; j++) {
+            for (int i = 0; i < ch.length; i++) {
+                if (array[j].startsWith(ch[i])) {
+                    result.append(array[j] + ",");
+                }
+            }
         }
-        return text;
-
+        return result;
     }
 }
