@@ -15,29 +15,40 @@ public class FileAnalyzeUtil {
     public static StringBuilder getRowsFromFile(String path) throws IOException {
 
         BufferedReader fileReader = new BufferedReader(new FileReader(path));
-        int res = fileReader.read();
+        String res;
         StringBuilder result = new StringBuilder();
-        while (res != -1) {
-            result.append((char) res);
-            res = fileReader.read();
+        while ((res = fileReader.readLine()) != null) {
+            result.append(res + "\n");
         }
         fileReader.close();
         return result;
-
     }
 
     public static StringBuilder getWordsStartWithVowels(String path) throws IOException {
 
-        StringBuilder text = getRowsFromFile(path);
-        String stringText= text.toString().replaceAll("\r\n"," ");
+        String stringText = getRowsFromFile(path).toString();
         StringBuilder result = new StringBuilder();
-        String[] array = stringText.toString().split(" ");
+        String[] array = stringText.split("[^a-zA-Z]+");
         String[] ch = {"E", "e", "Y", "y", "U", "u", "I", "i", "O", "o", "A", "a"};
         for (int j = 0; j < array.length; j++) {
             for (int i = 0; i < ch.length; i++) {
                 if (array[j].startsWith(ch[i])) {
-                    result.append(array[j] + ",");
+                    result.append(array[j] + " ");
                 }
+            }
+        }
+        return result;
+    }
+
+    public static StringBuilder getWordsLastFirstEquals(String path) throws IOException {
+
+        String stringText = getRowsFromFile(path).toString();
+        StringBuilder result = new StringBuilder();
+        String[] array = stringText.split("[^a-zA-Z]+");
+        for (int i = 0; i < array.length - 1; i++) {
+            String firstSimbol = String.valueOf(array[i + 1].charAt(0));
+            if (array[i].endsWith(firstSimbol)) {
+                result.append(array[i] + " ");
             }
         }
         return result;
