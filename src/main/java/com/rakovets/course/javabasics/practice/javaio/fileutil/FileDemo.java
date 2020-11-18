@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.Buffer;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class FileDemo {
     public static void main(String[] args) throws IOException {
@@ -40,7 +41,7 @@ public class FileDemo {
                 simbMap.put(simb, 1);
             }
         }
-       // System.out.println(simbMap.toString() );
+        LinkedHashMap map = new LinkedHashMap();
 
     }
 }

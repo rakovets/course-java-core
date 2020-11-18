@@ -1,6 +1,7 @@
 package com.rakovets.course.javabasics.practice.javaio.fileutil;
 
 import java.io.*;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class FileAnalyzeUtil {
@@ -71,8 +72,7 @@ public class FileAnalyzeUtil {
             } else
                 simbMap.put(simb, 1);
         }
+        file.close();
         return simbMap;
-
-
     }
 }
