@@ -17,7 +17,7 @@ public class FileDemo {
         StringBuilder stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
         StringBuilder string1 = FileAnalyzeUtil.getWordsStartWithVowels(path);
         StringBuilder string2 = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
-        StringBuilder count = FileAnalyzeUtil.getCountOfsimbols(path2);
+      HashMap<String, Integer> count = FileAnalyzeUtil.getCountOfsimbols(path1);
         StringBuilder result = new StringBuilder();
 
         BufferedReader hello = new BufferedReader(new FileReader(path));
@@ -26,27 +26,27 @@ public class FileDemo {
             //    System.out.println(line);
             result.append(line + "\n");
         }
-        //System.out.println(count);
+        System.out.println(count);
 
         String[] stringArray = count.toString().toLowerCase().split("[^a-zA-Z]+");
         HashMap<String, Integer> simbMap = new HashMap<>();
-        int countS = 1;
-
-        for (int i = 0; i < stringArray.length; i++) {
-            System.out.print(stringArray[i]);
-            for (int j = 0; j < stringArray.length; j++) {
-                if (stringArray[i].equals(stringArray[j])) {
-                    if (simbMap.containsKey(stringArray[i])) {
-                        simbMap.put(stringArray[i], countS++);
-                    } else
-
-                }
+        int countS;
+        for (String simb : stringArray) {
+            if (simbMap.containsKey(simb)) {
+                countS = simbMap.get(simb);
+                countS++;
+                simbMap.put(simb, countS);
+            } else {
+                simbMap.put(simb, 1);
             }
         }
+       // System.out.println(simbMap.toString() );
+
     }
-
-
 }
+
+
+
 
 
 

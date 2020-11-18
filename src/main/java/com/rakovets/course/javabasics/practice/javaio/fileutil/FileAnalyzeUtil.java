@@ -1,6 +1,7 @@
 package com.rakovets.course.javabasics.practice.javaio.fileutil;
 
 import java.io.*;
+import java.util.HashMap;
 
 public class FileAnalyzeUtil {
     private File file;
@@ -51,21 +52,27 @@ public class FileAnalyzeUtil {
         return result;
     }
 
-
-    public static StringBuilder getCountOfsimbols(String path) throws IOException {
+    public static HashMap<String, Integer> getCountOfsimbols(String path) throws IOException {
 
         BufferedReader file = new BufferedReader(new FileReader(path));
         StringBuilder stringB = new StringBuilder();
-
+        HashMap<String, Integer> simbMap = new HashMap<>();
         int res;
-        while ( (res = file.read())!= -1) {
-            stringB.append((char)res + " ");
-
+        while ((res = file.read()) != -1) {
+            stringB.append((char) res + " ");
         }
         String[] stringArray = stringB.toString().split("[^a-zA-Z]+");
-        return stringB;
+        int countValue;
+        for (String simb : stringArray) {
+            if (simbMap.containsKey(simb)) {
+                countValue = simbMap.get(simb);
+                countValue++;
+                simbMap.put(simb, countValue);
+            } else
+                simbMap.put(simb, 1);
+        }
+        return simbMap;
 
 
-
-       }
+    }
 }
