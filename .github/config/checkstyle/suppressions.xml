@@ -100,7 +100,7 @@
     <suppress checks="ExecutableStatementCount" files="HandlerFactory\.java"/>
 
     <suppress id="ImportControlTest" files="[\\/]powermock[\\/]"
-              message=".* - org\.(powermock|mockito).*" />
+              message=".* - org\.(powermock|mockito).*"/>
 
     <suppress id="noSourceforgeNetLinks" files="[\\/]releasenotes.xml"/>
     <suppress id="noSourceforgeIoLinks" files="[\\/]google_style.xml" lines="31"/>
