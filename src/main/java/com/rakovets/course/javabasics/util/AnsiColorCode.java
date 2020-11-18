@@ -72,6 +72,14 @@ public enum AnsiColorCode {
         this.code = code;
     }
 
+    public static AnsiColorCode getRandom() {
+        AnsiColorCode randomColor = values()[(int) (Math.random() * values().length)];
+        if (randomColor.name().contains("BLACK") || randomColor.name().contains("WHITE")) {
+            randomColor = getRandom();
+        }
+        return randomColor;
+    }
+
     @Override
     public String toString() {
         return code;
