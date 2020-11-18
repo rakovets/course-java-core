@@ -1,9 +1,6 @@
 package com.rakovets.course.javabasics.practice.javaio.fileutil;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class FileAnalyzeUtil {
     private File file;
@@ -12,7 +9,7 @@ public class FileAnalyzeUtil {
         this.file = file;
     }
 
-    public static StringBuilder getRowsFromFile(String path) throws IOException {
+    public static StringBuilder getRowsFromFileToString(String path) throws IOException {
 
         BufferedReader fileReader = new BufferedReader(new FileReader(path));
         String res;
@@ -52,5 +49,18 @@ public class FileAnalyzeUtil {
             }
         }
         return result;
+    }
+
+
+    public static int getCountOfsimbols(String path) throws IOException {
+
+        String string = getRowsFromFileToString(path).toString().replaceAll("[]")
+        BufferedReader file = new BufferedReader(new FileReader(path));
+        int count = 0;
+
+        while (file.read() != -1 ){
+            count++;
+        }
+        return count;
     }
 }
