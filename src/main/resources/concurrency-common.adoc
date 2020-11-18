@@ -1,4 +1,4 @@
-= Concurrency
+= Concurrency: common
 
 == Project 'Parallel Calculator'
 

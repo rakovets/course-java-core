@@ -27,8 +27,8 @@ This project is for the course "Java Basics". It contains for each theme of this
 |14. Java Collection Framework: Map.|link:src/main/resources/jcf-map.adoc[jcf-map.adoc]
 |15. Exception Handling.|link:src/main/resources/exception-handling.adoc[exception-handling.adoc]
 |16. Java IO.|link:src/main/resources/java-io.adoc[java-io.adoc]
-|17. Concurrency.|link:src/main/resources/concurrency.adoc[concurrency.adoc]
-|18. Concurrent.|link:src/main/resources/concurrent.adoc[concurrent.adoc]
+|17. Concurrency: common.|link:src/main/resources/concurrency-common.adoc[concurrency-common.adoc]
+|18. Concurrency: thread synchronization.|link:src/main/resources/concurrency-thread-synchronization.adoc[concurrency-thread-synchronization.adoc]
 |===
 
 == Code of Conduct

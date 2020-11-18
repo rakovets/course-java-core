@@ -1,4 +1,4 @@
-= Concurrent
+= Concurrency: thread synchronization
 
 == Project `Producer-Consumer`
 
