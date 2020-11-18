@@ -5,8 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.Buffer;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class FileDemo {
     public static void main(String[] args) throws IOException {
@@ -19,6 +18,7 @@ public class FileDemo {
         StringBuilder string1 = FileAnalyzeUtil.getWordsStartWithVowels(path);
         StringBuilder string2 = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
       HashMap<String, Integer> count = FileAnalyzeUtil.getCountOfsimbols(path1);
+        LinkedList<Map.Entry<String, Integer>> sorted = FileAnalyzeUtil.getCountOfSimbolsSorted(path2);
         StringBuilder result = new StringBuilder();
 
         BufferedReader hello = new BufferedReader(new FileReader(path));
@@ -27,7 +27,7 @@ public class FileDemo {
             //    System.out.println(line);
             result.append(line + "\n");
         }
-        System.out.println(count);
+        System.out.println(sorted);
 
         String[] stringArray = count.toString().toLowerCase().split("[^a-zA-Z]+");
         HashMap<String, Integer> simbMap = new HashMap<>();
@@ -41,7 +41,7 @@ public class FileDemo {
                 simbMap.put(simb, 1);
             }
         }
-        LinkedHashMap map = new LinkedHashMap();
+
 
     }
 }

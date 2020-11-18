@@ -1,8 +1,10 @@
 package com.rakovets.course.javabasics.practice.javaio.fileutil;
 
+import com.rakovets.course.javabasics.practice.javaio.fileutil.comparators.HashMapComparator;
+
 import java.io.*;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
     private File file;
@@ -74,5 +76,30 @@ public class FileAnalyzeUtil {
         }
         file.close();
         return simbMap;
+    }
+
+    public static LinkedList<Map.Entry<String, Integer>> getCountOfSimbolsSorted(String path) throws IOException {
+
+        BufferedReader file = new BufferedReader(new FileReader(path));
+        StringBuilder stringB = new StringBuilder();
+        HashMap<String, Integer> simbMap = new HashMap<>();
+        int res;
+        while ((res = file.read()) != -1) {
+            stringB.append((char) res);
+        }
+        String[] stringArray = stringB.toString().split("[^a-zA-Z]+");
+        int countValue;
+        for (String simb : stringArray) {
+            if (simbMap.containsKey(simb)) {
+                countValue = simbMap.get(simb);
+                countValue++;
+                simbMap.put(simb, countValue);
+            } else
+                simbMap.put(simb, 1);
+        }
+        file.close();
+        LinkedList<Map.Entry<String, Integer>> list = new LinkedList<>(simbMap.entrySet());
+        list.sort(new HashMapComparator());
+        return list;
     }
 }
