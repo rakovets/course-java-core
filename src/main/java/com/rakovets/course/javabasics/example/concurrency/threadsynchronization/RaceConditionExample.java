@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.example.concurrent;
+package com.rakovets.course.javabasics.example.concurrency.threadsynchronization;
 
-import com.rakovets.course.javabasics.example.concurrent.model.ColorThread;
+import com.rakovets.course.javabasics.example.concurrency.threadsynchronization.model.ColorThread;
 import com.rakovets.course.javabasics.util.AnsiColorCode;
 
 public class RaceConditionExample {

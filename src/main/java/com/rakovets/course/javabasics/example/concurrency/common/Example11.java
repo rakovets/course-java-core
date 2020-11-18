@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.concurrency;
+package com.rakovets.course.javabasics.example.concurrency.common;
 
 /**
  * Demonstration of how to calculate the execution time for "useful work"

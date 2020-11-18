@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.concurrent.model;
+package com.rakovets.course.javabasics.example.concurrency.threadsynchronization.model;
 
 import com.rakovets.course.javabasics.util.AnsiColorCode;
 import com.rakovets.course.javabasics.util.StandardOutputUtil;
@@ -23,6 +23,6 @@ public class ColorThread extends Thread {
                 e.printStackTrace();
             }
         }
-        StandardOutputUtil.printlnWithTimeAndThread("Internal index: "+ internalIndex, color);
+        StandardOutputUtil.printlnWithTimeAndThread("Internal index: " + internalIndex, color);
     }
 }

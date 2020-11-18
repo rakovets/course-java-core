@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.concurrency.model;
+package com.rakovets.course.javabasics.example.concurrency.common.model;
 
 import com.rakovets.course.javabasics.util.AnsiColorCode;
 import com.rakovets.course.javabasics.util.StandardOutputUtil;

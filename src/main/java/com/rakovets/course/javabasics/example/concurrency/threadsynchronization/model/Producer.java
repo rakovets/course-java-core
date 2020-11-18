@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.concurrent.model;
+package com.rakovets.course.javabasics.example.concurrency.threadsynchronization.model;
 
 import java.util.Random;
 

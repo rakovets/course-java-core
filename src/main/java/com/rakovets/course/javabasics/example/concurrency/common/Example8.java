@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.example.concurrency;
+package com.rakovets.course.javabasics.example.concurrency.common;
 
-import com.rakovets.course.javabasics.example.concurrency.model.StoppableRunnable;
+import com.rakovets.course.javabasics.example.concurrency.common.model.StoppableRunnable;
 import com.rakovets.course.javabasics.util.AnsiColorCode;
 import com.rakovets.course.javabasics.util.StandardOutputUtil;
 

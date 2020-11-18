@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.concurrency;
+package com.rakovets.course.javabasics.example.concurrency.common;
 
 /**
  * Demonstration of how to work with StackTrace for current Thread
