@@ -17,7 +17,7 @@ public class FileDemo {
         StringBuilder stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
         StringBuilder string1 = FileAnalyzeUtil.getWordsStartWithVowels(path);
         StringBuilder string2 = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
-      HashMap<String, Integer> count = FileAnalyzeUtil.getCountOfsimbols(path1);
+        HashMap<String, Integer> count = FileAnalyzeUtil.getCountOfsimbols(path1);
         LinkedList<Map.Entry<String, Integer>> sorted = FileAnalyzeUtil.getCountOfSimbolsSorted(path2);
         StringBuilder result = new StringBuilder();
 
@@ -41,6 +41,28 @@ public class FileDemo {
                 simbMap.put(simb, 1);
             }
         }
+
+        String inputString = "1 23 3 12 \n 3 45 1 87 12 565 ";
+        String[] stringArr = inputString.split("[^0-9]+");
+        List<Integer> list = new LinkedList<>();
+        for (int i = 0; i < stringArr.length; i++) {
+            list.add(stringArr[i]);
+
+
+        }
+
+
+        for (String num : values) {
+
+            System.out.println(num);
+        }
+
+        Arrays.stream(values).sorted();
+        Set sortedSet = new HashSet<Integer>();
+
+        Collections.sort(Arrays.asList(values));
+        sortedSet.addAll(Arrays.asList(values));
+        //   System.out.println(sortedSet.toString());
 
 
     }

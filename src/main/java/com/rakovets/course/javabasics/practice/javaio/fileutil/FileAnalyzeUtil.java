@@ -7,11 +7,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
-    private File file;
-
-    public FileAnalyzeUtil(File file) {
-        this.file = file;
-    }
 
     public static StringBuilder getRowsFromFileToString(String path) throws IOException {
 
