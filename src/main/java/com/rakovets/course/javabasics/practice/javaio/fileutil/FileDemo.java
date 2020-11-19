@@ -1,6 +1,8 @@
 package com.rakovets.course.javabasics.practice.javaio.fileutil;
 
 
+import com.rakovets.course.javabasics.practice.javaio.fileutil.comparators.SortComparator;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,21 +46,18 @@ public class FileDemo {
         String inputString = "1 23 3 12 4 2 1 \n 4 5 3 565 54";
         String[] values = inputString.split("[^0-9]+");
         List<Integer> tempArray = new LinkedList<>();
-        for (int i = 0; i< values.length; i++){
-            tempArray.add(Integer.parseInt(String.valueOf(tempArray.get(i))));
-            tempArray.sort();
+        for (int i = 0; i < values.length; i++) {
+            tempArray.add(Integer.parseInt(String.valueOf(values[i])));
+            tempArray.sort(new SortComparator());
+
+
         }
 
-        Set sortedSet = new HashSet<Integer>();
+     //   Set sortedSet = new HashSet<Integer>();
 
-        Collections.sort(Arrays.asList(values));
-        sortedSet.addAll(Arrays.asList(values));
-        System.out.println(sortedSet.toString());
-
-
-
-
-
+      //  Collections.sort(Arrays.asList(values));
+      //  sortedSet.addAll(Arrays.asList(values));
+        System.out.println(tempArray);
 
 
     }
