@@ -48,15 +48,15 @@ public class FileDemo {
         List<Integer> tempArray = new LinkedList<>();
         for (int i = 0; i < values.length; i++) {
             tempArray.add(Integer.parseInt(String.valueOf(values[i])));
-            tempArray.sort(new SortComparator());
-
-
         }
+        Set sortedSet = new HashSet<Integer>();
 
-     //   Set sortedSet = new HashSet<Integer>();
+        //  Collections.sort(Arrays.asList(values));
+        //  sortedSet.addAll(Arrays.asList(values));
+        tempArray.sort(Integer::compareTo);
+        tempArray.stream().distinct();
 
-      //  Collections.sort(Arrays.asList(values));
-      //  sortedSet.addAll(Arrays.asList(values));
+
         System.out.println(tempArray);
 
 
