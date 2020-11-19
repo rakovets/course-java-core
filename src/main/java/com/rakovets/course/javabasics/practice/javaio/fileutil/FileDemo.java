@@ -41,28 +41,24 @@ public class FileDemo {
                 simbMap.put(simb, 1);
             }
         }
-
-        String inputString = "1 23 3 12 \n 3 45 1 87 12 565 ";
-        String[] stringArr = inputString.split("[^0-9]+");
-        List<Integer> list = new LinkedList<>();
-        for (int i = 0; i < stringArr.length; i++) {
-            list.add(stringArr[i]);
-
-
+        String inputString = "1 23 3 12 4 2 1 \n 4 5 3 565 54";
+        String[] values = inputString.split("[^0-9]+");
+        List<Integer> tempArray = new LinkedList<>();
+        for (int i = 0; i< values.length; i++){
+            tempArray.add(Integer.parseInt(String.valueOf(tempArray.get(i))));
+            tempArray.sort();
         }
 
-
-        for (String num : values) {
-
-            System.out.println(num);
-        }
-
-        Arrays.stream(values).sorted();
         Set sortedSet = new HashSet<Integer>();
 
         Collections.sort(Arrays.asList(values));
         sortedSet.addAll(Arrays.asList(values));
-        //   System.out.println(sortedSet.toString());
+        System.out.println(sortedSet.toString());
+
+
+
+
+
 
 
     }
