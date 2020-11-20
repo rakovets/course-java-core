@@ -29,6 +29,7 @@ This project is for the course "Java Basics". It contains for each theme of this
 |16. Java IO.|link:src/main/resources/java-io.adoc[java-io.adoc]
 |17. Concurrency: common.|link:src/main/resources/concurrency-common.adoc[concurrency-common.adoc]
 |18. Concurrency: thread synchronization.|link:src/main/resources/concurrency-thread-synchronization.adoc[concurrency-thread-synchronization.adoc]
+|19. Concurrency: utilities.|link:src/main/resources/concurrency-utilities.adoc[concurrency-utilities.adoc]
 |===
 
 == Code of Conduct
