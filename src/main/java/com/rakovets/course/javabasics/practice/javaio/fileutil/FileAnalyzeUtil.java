@@ -14,7 +14,9 @@ public class FileAnalyzeUtil {
         String res;
         StringBuilder result = new StringBuilder();
         while ((res = fileReader.readLine()) != null) {
+
             result.append(res + "\n");
+
         }
         fileReader.close();
         return result;
@@ -97,4 +99,45 @@ public class FileAnalyzeUtil {
         list.sort(new HashMapComparator());
         return list;
     }
+
+    public static StringBuilder getListWithMaxCombination(String path) throws IOException {
+
+        BufferedReader fileReader = new BufferedReader(new FileReader(path));
+        String res;
+        StringBuilder result = new StringBuilder();
+        while ((res = fileReader.readLine()) != null) {
+            String[] nString = res.split("[^0-9]+");
+
+            int[] tempArray = new int[nString.length];
+            List<Integer> tempMax = new LinkedList<>();
+            List<Integer> resultMax = new LinkedList<>();
+
+            for (int i = 0; i < nString.length; i++) {
+                tempArray[i] = Integer.parseInt(String.valueOf(nString[i]));
+            }
+            for (int i = 0; i < tempArray.length; i++) {
+                if (i == tempArray.length - 1) {
+                    if (tempArray[i] > tempArray[i - 1]) {
+                        tempMax.add(tempArray[i]);
+                    }
+                    if (tempMax.size() > resultMax.size()) {
+                        resultMax = new LinkedList<>(tempMax);
+                    }
+                } else if (tempArray[i] < tempArray[i + 1]) {
+                    tempMax.add(tempArray[i]);
+                } else {
+                    tempMax.add(tempArray[i]);
+                    if (tempMax.size() > resultMax.size()) {
+                        resultMax = new LinkedList<>(tempMax);
+                    }
+                    tempMax.clear();
+                }
+            }
+            result.append(resultMax.toString() + ",");
+        }
+        fileReader.close();
+        return result;
+    }
+
+
 }

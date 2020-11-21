@@ -1,12 +1,9 @@
 package com.rakovets.course.javabasics.practice.javaio.fileutil;
 
 
-import com.rakovets.course.javabasics.practice.javaio.fileutil.comparators.SortComparator;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.*;
 
 public class FileDemo {
@@ -16,50 +13,47 @@ public class FileDemo {
         String path1 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\text2.txt";
         String path2 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\spec6.txt";
 
-        StringBuilder stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
-        StringBuilder string1 = FileAnalyzeUtil.getWordsStartWithVowels(path);
-        StringBuilder string2 = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
+        //  StringBuilder stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
+        //  StringBuilder string1 = FileAnalyzeUtil.getWordsStartWithVowels(path);
+        //  StringBuilder string2 = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
         HashMap<String, Integer> count = FileAnalyzeUtil.getCountOfsimbols(path1);
         LinkedList<Map.Entry<String, Integer>> sorted = FileAnalyzeUtil.getCountOfSimbolsSorted(path2);
         StringBuilder result = new StringBuilder();
+        result = FileAnalyzeUtil.getListWithMaxCombination(path2);
+        System.out.println(result);
 
-        BufferedReader hello = new BufferedReader(new FileReader(path));
-        String line;
-        while ((line = hello.readLine()) != null) {
-            //    System.out.println(line);
-            result.append(line + "\n");
+
+        String inputString = "1 23 1 3 12 4 22 2 555 565 666 777";
+
+        String[] values = inputString.split("[^0-9]+");
+
+        int[] tempArray = new int[values.length];
+        List<Integer> tempMax = new LinkedList<>();
+        List<Integer> resultMax = new LinkedList<>();
+
+        for (int i = 0; i < values.length; i++) {
+            tempArray[i] = Integer.parseInt(String.valueOf(values[i]));
         }
-        System.out.println(sorted);
-
-        String[] stringArray = count.toString().toLowerCase().split("[^a-zA-Z]+");
-        HashMap<String, Integer> simbMap = new HashMap<>();
-        int countS;
-        for (String simb : stringArray) {
-            if (simbMap.containsKey(simb)) {
-                countS = simbMap.get(simb);
-                countS++;
-                simbMap.put(simb, countS);
+        for (int i = 0; i < tempArray.length; i++) {
+            if (i == tempArray.length - 1) {
+                if (tempArray[i] > tempArray[i - 1]) {
+                    tempMax.add(tempArray[i]);
+                }
+                if (tempMax.size() > resultMax.size()) {
+                    resultMax = new LinkedList<>(tempMax);
+                }
+            } else if (tempArray[i] < tempArray[i + 1]) {
+                tempMax.add(tempArray[i]);
             } else {
-                simbMap.put(simb, 1);
+                tempMax.add(tempArray[i]);
+                if (tempMax.size() > resultMax.size()) {
+                    resultMax = new LinkedList<>(tempMax);
+                }
+                tempMax.clear();
             }
         }
-        String inputString = "1 23 3 12 4 2 1 \n 4 5 3 565 54";
-        String[] values = inputString.split("[^0-9]+");
-        List<Integer> tempArray = new LinkedList<>();
-        for (int i = 0; i < values.length; i++) {
-            tempArray.add(Integer.parseInt(String.valueOf(values[i])));
-        }
-        Set sortedSet = new HashSet<Integer>();
 
-        //  Collections.sort(Arrays.asList(values));
-        //  sortedSet.addAll(Arrays.asList(values));
-        tempArray.sort(Integer::compareTo);
-        tempArray.stream().distinct();
-
-
-        System.out.println(tempArray);
-
-
+     //   System.out.println(resultMax.toString());
     }
 }
 
