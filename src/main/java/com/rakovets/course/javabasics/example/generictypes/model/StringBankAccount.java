@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.generics.model;
+package com.rakovets.course.javabasics.example.generictypes.model;
 
 public class StringBankAccount extends BankAccount {
     String id;

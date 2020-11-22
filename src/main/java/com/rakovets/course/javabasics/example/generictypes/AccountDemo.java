@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.example.generics;
+package com.rakovets.course.javabasics.example.generictypes;
 
-import com.rakovets.course.javabasics.example.generics.model.Account;
+import com.rakovets.course.javabasics.example.generictypes.model.Account;
 
 public class AccountDemo {
     public static void main(String[] args) {

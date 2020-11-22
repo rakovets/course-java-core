@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.generics;
+package com.rakovets.course.javabasics.example.generictypes;
 
 public class Mathematics {
     public static <T extends Comparable<T>> T max(T type1, T type2, T type3) {

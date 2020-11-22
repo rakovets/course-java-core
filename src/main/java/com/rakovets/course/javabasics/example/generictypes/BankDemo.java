@@ -1,8 +1,8 @@
-package com.rakovets.course.javabasics.example.generics;
+package com.rakovets.course.javabasics.example.generictypes;
 
-import com.rakovets.course.javabasics.example.generics.model.LongBankAccount;
-import com.rakovets.course.javabasics.example.generics.model.StringBankAccount;
-import com.rakovets.course.javabasics.example.generics.model.Transaction;
+import com.rakovets.course.javabasics.example.generictypes.model.LongBankAccount;
+import com.rakovets.course.javabasics.example.generictypes.model.StringBankAccount;
+import com.rakovets.course.javabasics.example.generictypes.model.Transaction;
 
 public class BankDemo {
     public static void main(String[] args) {
