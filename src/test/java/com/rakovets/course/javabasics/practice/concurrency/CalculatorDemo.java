@@ -9,7 +9,8 @@ public class CalculatorDemo {
     public static void main(String[] args) {
 
         LinkedList<int[]> arrayList = Concurrency.getArraysList();
-        System.out.println(arrayList);
+
+        System.out.println(Concurrency.getMaxElementFromArray(arrayList));
 
       // for (int i = 0; i < 10; i++) {
       //     int lenght = Concurrency.getLenghtForArray(i);
