@@ -39,7 +39,8 @@
 
 === Specification of task 4
 
-Числа, вводимые пользователем, представляют собой количество секунд на которое должен заснуть _thread-worker_, который выводит в *Standard Output*: `I slept ${seconds} seconds`.
+Числа, вводимые пользователем, представляют собой количество секунд на которое должен заснуть
+_thread-worker_, который выводит в *Standard Output*: `I slept ${seconds} seconds`.
 
 === Specification of task 5
 
