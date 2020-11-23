@@ -1,17 +1,20 @@
 package com.rakovets.course.javabasics.practice.javaio;
 
 import com.rakovets.course.javabasics.practice.javaio.fileutil.FileAnalyzeUtil;
+import com.rakovets.course.javabasics.practice.javaio.fileutil.comparators.HashMapComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class FileTests {
     final String path1 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test1.txt";
     final String path2 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test2.txt";
     final String path3 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test3";
+    final String path4 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test4";
 
     @Test
     void getRowsFromFileToStringTest() throws IOException {
@@ -59,6 +62,20 @@ public class FileTests {
         expcetedResult.put("n", 1);
         expcetedResult.put("o", 4);
         HashMap<String, Integer> actualResult = FileAnalyzeUtil.getCountOfSimbols(path1);
+        Assertions.assertEquals(expcetedResult, actualResult);
+    }
+
+    @Test
+    void getCountOfWordsSortedTest() throws IOException {
+
+        HashMap<String, Integer> simbMap = new HashMap<>();
+        simbMap.put("Hello", 3);
+        simbMap.put("low", 4);
+        simbMap.put("how", 5);
+        simbMap.put("hello", 6);
+        LinkedList<Map.Entry<String, Integer>> expcetedResult = new LinkedList<>(simbMap.entrySet());
+        LinkedList<Map.Entry<String, Integer>> actualResult = FileAnalyzeUtil.getCountOfWordsSorted(path4);
+        expcetedResult.sort(new HashMapComparator());
         Assertions.assertEquals(expcetedResult, actualResult);
     }
 }

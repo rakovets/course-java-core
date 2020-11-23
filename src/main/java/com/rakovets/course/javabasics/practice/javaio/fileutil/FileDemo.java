@@ -17,7 +17,8 @@ public class FileDemo {
           LinkedList<String> stringW = FileAnalyzeUtil.getWordsStartWithVowels(path);
           LinkedList<String> stringEq = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
           HashMap<String, Integer> stringSi = FileAnalyzeUtil.getCountOfSimbols(path1);
-          System.out.print(stringSi);
+          LinkedList<Map.Entry<String, Integer>> stringSort = FileAnalyzeUtil.getCountOfWordsSorted(path1);
+          System.out.print(stringSort);
 
 
     }

@@ -73,7 +73,7 @@ public class FileAnalyzeUtil {
         return simbMap;
     }
 
-    public static LinkedList<Map.Entry<String, Integer>> getCountOfSimbolsSorted(String path) throws IOException {
+    public static LinkedList<Map.Entry<String, Integer>> getCountOfWordsSorted(String path) throws IOException {
 
         BufferedReader file = new BufferedReader(new FileReader(path));
         StringBuilder stringB = new StringBuilder();
