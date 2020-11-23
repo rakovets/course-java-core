@@ -16,9 +16,11 @@ public class FileDemo {
           LinkedList<String> stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
           LinkedList<String> stringW = FileAnalyzeUtil.getWordsStartWithVowels(path);
           LinkedList<String> stringEq = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
+          LinkedList<String> stringnums = FileAnalyzeUtil.getListWithMaxCombination(path2);
           HashMap<String, Integer> stringSi = FileAnalyzeUtil.getCountOfSimbols(path1);
           LinkedList<Map.Entry<String, Integer>> stringSort = FileAnalyzeUtil.getCountOfWordsSorted(path1);
-          System.out.print(stringSort);
+
+          System.out.print(stringnums);
 
 
     }

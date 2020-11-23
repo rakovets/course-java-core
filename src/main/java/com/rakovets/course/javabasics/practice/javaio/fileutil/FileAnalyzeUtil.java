@@ -98,11 +98,11 @@ public class FileAnalyzeUtil {
         return list;
     }
 
-    public static StringBuilder getListWithMaxCombination(String path) throws IOException {
+    public static LinkedList<String> getListWithMaxCombination(String path) throws IOException {
 
         BufferedReader fileReader = new BufferedReader(new FileReader(path));
         String res;
-        StringBuilder result = new StringBuilder();
+        LinkedList<String> result = new LinkedList<>();
         while ((res = fileReader.readLine()) != null) {
             String[] nString = res.split("[^0-9]+");
             int[] tempArray = new int[nString.length];
@@ -130,7 +130,7 @@ public class FileAnalyzeUtil {
                     tempMax.clear();
                 }
             }
-            result.append(resultMax.toString() + ",");
+            result.add(resultMax.toString());
         }
         fileReader.close();
         return result;

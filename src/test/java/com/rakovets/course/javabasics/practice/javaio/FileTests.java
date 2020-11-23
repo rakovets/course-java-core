@@ -15,6 +15,7 @@ public class FileTests {
     final String path2 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test2.txt";
     final String path3 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test3";
     final String path4 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test4";
+    final String path5 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test5";
 
     @Test
     void getRowsFromFileToStringTest() throws IOException {
@@ -76,6 +77,16 @@ public class FileTests {
         LinkedList<Map.Entry<String, Integer>> expcetedResult = new LinkedList<>(simbMap.entrySet());
         LinkedList<Map.Entry<String, Integer>> actualResult = FileAnalyzeUtil.getCountOfWordsSorted(path4);
         expcetedResult.sort(new HashMapComparator());
+        Assertions.assertEquals(expcetedResult, actualResult);
+    }
+
+    @Test
+    void getListWithMaxCombinationTest() throws IOException {
+        LinkedList<String> expcetedResult = new LinkedList<>();
+        expcetedResult.add("[1, 2, 3, 4, 45]");
+        expcetedResult.add("[6, 56, 57]");
+        expcetedResult.add("[1, 2, 3, 4, 5]");
+        LinkedList<String> actualResult = FileAnalyzeUtil.getListWithMaxCombination(path5);
         Assertions.assertEquals(expcetedResult, actualResult);
     }
 }
