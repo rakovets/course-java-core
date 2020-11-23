@@ -4,7 +4,6 @@ import com.rakovets.course.javabasics.practice.javaio.fileutil.comparators.HashM
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
 
