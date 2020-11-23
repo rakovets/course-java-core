@@ -13,14 +13,9 @@ public class FileDemo {
         String path1 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\text2.txt";
         String path2 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\spec6.txt";
 
-        //  StringBuilder stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
-        //  StringBuilder string1 = FileAnalyzeUtil.getWordsStartWithVowels(path);
-        //  StringBuilder string2 = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
-        HashMap<String, Integer> count = FileAnalyzeUtil.getCountOfsimbols(path1);
-        LinkedList<Map.Entry<String, Integer>> sorted = FileAnalyzeUtil.getCountOfSimbolsSorted(path2);
-        StringBuilder result = new StringBuilder();
-        result = FileAnalyzeUtil.getListWithMaxCombination(path2);
-        System.out.println(result);
+          LinkedList<String> stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
+          System.out.print(stringB);
+
 
 
         String inputString = "1 23 1 3 12 4 22 2 555 565 666 777";

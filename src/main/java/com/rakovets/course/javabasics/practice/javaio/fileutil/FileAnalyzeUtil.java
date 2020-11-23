@@ -8,15 +8,13 @@ import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
 
-    public static StringBuilder getRowsFromFileToString(String path) throws IOException {
+    public static LinkedList<String> getRowsFromFileToString(String path) throws IOException {
 
         BufferedReader fileReader = new BufferedReader(new FileReader(path));
         String res;
-        StringBuilder result = new StringBuilder();
+        LinkedList<String> result = new LinkedList<>();
         while ((res = fileReader.readLine()) != null) {
-
-            result.append(res + "\n");
-
+            result.add(res);
         }
         fileReader.close();
         return result;
