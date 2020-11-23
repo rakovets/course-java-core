@@ -20,16 +20,16 @@ public class FileAnalyzeUtil {
         return result;
     }
 
-    public static StringBuilder getWordsStartWithVowels(String path) throws IOException {
+    public static LinkedList<String> getWordsStartWithVowels(String path) throws IOException {
 
         String stringText = getRowsFromFileToString(path).toString();
-        StringBuilder result = new StringBuilder();
+        LinkedList<String> result = new LinkedList<>();
         String[] array = stringText.split("[^a-zA-Z]+");
         String[] ch = {"E", "e", "Y", "y", "U", "u", "I", "i", "O", "o", "A", "a"};
         for (int j = 0; j < array.length; j++) {
             for (int i = 0; i < ch.length; i++) {
                 if (array[j].startsWith(ch[i])) {
-                    result.append(array[j] + " ");
+                    result.add(array[j]);
                 }
             }
         }
