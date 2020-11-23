@@ -15,7 +15,8 @@ public class FileDemo {
 
           LinkedList<String> stringB = FileAnalyzeUtil.getRowsFromFileToString(path);
           LinkedList<String> stringW = FileAnalyzeUtil.getWordsStartWithVowels(path);
-          System.out.print(stringW);
+          LinkedList<String> stringEq = FileAnalyzeUtil.getWordsLastFirstEquals(path1);
+          System.out.print(stringEq);
 
 
     }

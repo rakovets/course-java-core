@@ -10,9 +10,9 @@ import java.util.LinkedList;
 public class FileTests {
     final String path1 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test1.txt";
     final String path2 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test2.txt";
+    final String path3 = "C:\\home\\zmachinsky\\course-java-basics-fork\\src\\test\\Test3";
 
     @Test
-
     void getRowsFromFileToStringTest() throws IOException {
         LinkedList<String> expcetedResult = new LinkedList<>();
         expcetedResult.add("Test One");
@@ -22,8 +22,8 @@ public class FileTests {
         LinkedList<String> actualResult = FileAnalyzeUtil.getRowsFromFileToString(path1);
         Assertions.assertEquals(expcetedResult, actualResult);
     }
-    @Test
 
+    @Test
     void getWordsStartWithVowelsTest() throws IOException {
         LinkedList<String> expcetedResult = new LinkedList<>();
         expcetedResult.add("up");
@@ -33,6 +33,17 @@ public class FileTests {
         expcetedResult.add("It");
         expcetedResult.add("and");
         LinkedList<String> actualResult = FileAnalyzeUtil.getWordsStartWithVowels(path2);
+        Assertions.assertEquals(expcetedResult, actualResult);
+    }
+
+    @Test
+    void getWordsLastFirstEqualsTest() throws IOException {
+        LinkedList<String> expcetedResult = new LinkedList<>();
+        expcetedResult.add("to");
+        expcetedResult.add("open");
+        expcetedResult.add("and");
+        expcetedResult.add("walk");
+        LinkedList<String> actualResult = FileAnalyzeUtil.getWordsLastFirstEquals(path3);
         Assertions.assertEquals(expcetedResult, actualResult);
     }
 }

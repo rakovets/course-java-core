@@ -36,15 +36,15 @@ public class FileAnalyzeUtil {
         return result;
     }
 
-    public static StringBuilder getWordsLastFirstEquals(String path) throws IOException {
+    public static LinkedList<String> getWordsLastFirstEquals(String path) throws IOException {
 
         String stringText = getRowsFromFileToString(path).toString();
-        StringBuilder result = new StringBuilder();
+        LinkedList<String> result = new LinkedList<>();
         String[] array = stringText.split("[^a-zA-Z]+");
         for (int i = 0; i < array.length - 1; i++) {
             String firstSimbol = String.valueOf(array[i + 1].charAt(0));
             if (array[i].endsWith(firstSimbol)) {
-                result.append(array[i] + " ");
+                result.add(array[i]);
             }
         }
         return result;
