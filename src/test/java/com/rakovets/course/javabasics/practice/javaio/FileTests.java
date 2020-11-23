@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class FileTests {
@@ -44,6 +45,20 @@ public class FileTests {
         expcetedResult.add("and");
         expcetedResult.add("walk");
         LinkedList<String> actualResult = FileAnalyzeUtil.getWordsLastFirstEquals(path3);
+        Assertions.assertEquals(expcetedResult, actualResult);
+    }
+
+    @Test
+    void getCountOfSimbolsTest() throws IOException {
+        HashMap<String, Integer> expcetedResult = new HashMap<>();
+        expcetedResult.put("r", 3);
+        expcetedResult.put("s", 1);
+        expcetedResult.put("t", 2);
+        expcetedResult.put("e", 2);
+        expcetedResult.put("w", 3);
+        expcetedResult.put("n", 1);
+        expcetedResult.put("o", 4);
+        HashMap<String, Integer> actualResult = FileAnalyzeUtil.getCountOfSimbols(path1);
         Assertions.assertEquals(expcetedResult, actualResult);
     }
 }

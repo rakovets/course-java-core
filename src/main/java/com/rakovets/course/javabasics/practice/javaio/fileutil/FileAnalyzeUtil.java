@@ -50,7 +50,7 @@ public class FileAnalyzeUtil {
         return result;
     }
 
-    public static HashMap<String, Integer> getCountOfsimbols(String path) throws IOException {
+    public static HashMap<String, Integer> getCountOfSimbols(String path) throws IOException {
 
         BufferedReader file = new BufferedReader(new FileReader(path));
         StringBuilder stringB = new StringBuilder();
@@ -59,7 +59,7 @@ public class FileAnalyzeUtil {
         while ((res = file.read()) != -1) {
             stringB.append((char) res + " ");
         }
-        String[] stringArray = stringB.toString().split("[^a-zA-Z]+");
+        String[] stringArray = stringB.toString().toLowerCase().split("[^a-zA-Z]+");
         int countValue;
         for (String simb : stringArray) {
             if (simbMap.containsKey(simb)) {
@@ -105,7 +105,6 @@ public class FileAnalyzeUtil {
         StringBuilder result = new StringBuilder();
         while ((res = fileReader.readLine()) != null) {
             String[] nString = res.split("[^0-9]+");
-
             int[] tempArray = new int[nString.length];
             List<Integer> tempMax = new LinkedList<>();
             List<Integer> resultMax = new LinkedList<>();
@@ -136,6 +135,4 @@ public class FileAnalyzeUtil {
         fileReader.close();
         return result;
     }
-
-
 }
