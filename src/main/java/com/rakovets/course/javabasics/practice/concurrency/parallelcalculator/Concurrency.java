@@ -1,14 +1,15 @@
 package com.rakovets.course.javabasics.practice.concurrency.parallelcalculator;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
+import com.rakovets.course.javabasics.util.AnsiColorCode;
+import com.rakovets.course.javabasics.util.StandardOutputUtil;
+
+import java.util.*;
 
 public class Concurrency {
 
-    public static HashMap<int[], Integer> getMaxElementFromArray(LinkedList<int[]> arraysCollection) {
+    public static HashMap<String, Integer> getMaxElementFromArray(List<int[]> arraysCollection) {
 
-        HashMap<int[], Integer> resultList = new HashMap<>();
+        HashMap<String, Integer> resultList = new HashMap<>();
         for (int[] array : arraysCollection) {
             int max = array[0];
             for (int i = 0; i < array.length - 1; i++) {
@@ -16,18 +17,31 @@ public class Concurrency {
                     max = array[i];
                 }
             }
-            resultList.put(array, max);
+            resultList.put("Array_" + arraysCollection.indexOf(array), max);
         }
         return resultList;
+    }
+
+    public static void getMaxElementFromArrayWithThreads(int numbersThreads, LinkedList<int[]> listArrays) {
+
+      //  LinkedList<int[]> listArrays = Concurrency.getArraysList();
+      //  HashMap<String, Integer> resultList = new HashMap<>();
+        ParallelCalculation threadsRunnable = new ParallelCalculation(listArrays);
+        for (int t = 0; t < numbersThreads; t++) {
+            Thread thread = new Thread(threadsRunnable);
+            System.out.println("Thread " + thread.getName());
+            thread.start();
+        }
+
     }
 
 
     public static int getLengthForArray(int i) {
 
         int lenght;
-        lenght = ((int) (Math.random() * 363878));
+        lenght = ((int) (Math.random() * 363878) / (i + 1));
         if (lenght > 1000000) {
-            lenght = 999999 - 84573 / (i+1);
+            lenght = 999999 - 84573 / (i + 1);
         }
         return lenght;
     }
@@ -44,7 +58,7 @@ public class Concurrency {
 
     public static LinkedList<int[]> getArraysList() {
 
-        LinkedList<int[]> arrayList = new LinkedList<>();
+        LinkedList<int[]> arrayList = new LinkedList<int[]>();
         for (int i = 0; i < 10; i++) {
             int lenght = Concurrency.getLengthForArray(i);
             int[] tempArray = new int[lenght];

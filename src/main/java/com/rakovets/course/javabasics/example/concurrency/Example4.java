@@ -13,6 +13,7 @@ public class Example4 {
                 StandardOutputUtil.printlnWithTime("AnonymousRunnable: finished", AnsiColorCode.FG_BLUE_BOLD);
             }
         };
+
         Thread thread = new Thread(anonymousRunnable);
         thread.start();
         StandardOutputUtil.printlnWithTime("Main thread: finished", AnsiColorCode.FG_RED_BOLD);
