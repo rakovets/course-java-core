@@ -33,4 +33,10 @@ public class Store {
         StandardOutputUtil.printlnWithTimeAndThread("Total products in the Store: " + product, AnsiColorCode.FG_BLUE_BOLD);
         notify();
     }
+
+    public void produce() {
+    }
+
+    public void consume() {
+    }
 }
