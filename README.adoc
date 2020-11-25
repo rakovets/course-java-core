@@ -31,6 +31,7 @@ This project is for the course "Java Basics". It contains for each theme of this
 |18. Concurrency: thread synchronization.|link:src/main/resources/concurrency-thread-synchronization.adoc[concurrency-thread-synchronization.adoc]
 |19. Concurrency: utilities. (link:https://jcp.org/en/jsr/detail?id=166[JSR 166])|link:src/main/resources/concurrency-utilities.adoc[concurrency-utilities.adoc]
 |20. Lambda Expressions (link:https://jcp.org/en/jsr/detail?id=335[JSR 335]).|link:src/main/resources/lambda-expressions.adoc[lambda-expressions.adoc]
+|. Networking .|link:src/main/resources/networking.adoc[networking.adoc]
 |===
 
 == Code of Conduct
