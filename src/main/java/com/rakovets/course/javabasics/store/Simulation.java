@@ -13,7 +13,7 @@ public class Simulation {
 
     private static final Random globalRandom = new Random(System.currentTimeMillis());
 
-    public synchronized int getRandomIntInRangeEnclosed(int min, int max){
+    public synchronized int getRandomIntInRangeEnclosed(int min, int max) {
         return globalRandom.nextInt((max - min + 1) + min);
     }
 
@@ -23,11 +23,15 @@ public class Simulation {
     public final int ITEM_DURATION_S_MIN = 3;
     public final int ITEM_DURATION_S_MAX = 8;
 
+
+
+
+
     public final CustomerFactory customerFactory = new CustomerFactory(this, CUSTOMER_NUMBER);
 
     public final ArrayList<DeskReport> results = new ArrayList<DeskReport>(DESK_NUMBER);
 
-    public void perform(){
+    public void perform() {
         ExecutorService executor = Executors.newFixedThreadPool(DESK_NUMBER);
         for (int i = 1; i <= DESK_NUMBER; i++) {
             executor.submit(new Desk(this, i));
@@ -41,7 +45,7 @@ public class Simulation {
         }
     }
 
-    public void printResult(){
+    public void printResult() {
         int maxTimeS = 0;
         int maxItems = 0;
         int maxCustomers = 0;
@@ -49,23 +53,23 @@ public class Simulation {
         int minItems = Integer.MAX_VALUE;
         int minCustomers = Integer.MAX_VALUE;
 
-        for(DeskReport r : results){
-            if(r.getSpentTime() > maxTimeS){
+        for (DeskReport r : results) {
+            if (r.getSpentTime() > maxTimeS) {
                 maxTimeS = r.getSpentTime();
             }
 
-            if(r.getSoldItemCount() > maxItems){
+            if (r.getSoldItemCount() > maxItems) {
                 maxItems = r.getSoldItemCount();
             }
-            if(r.getSoldItemCount() < minItems){
+            if (r.getSoldItemCount() < minItems) {
                 minItems = r.getSoldItemCount();
             }
 
 
-            if(r.getServedCustomerCount() > maxCustomers){
+            if (r.getServedCustomerCount() > maxCustomers) {
                 maxCustomers = r.getServedCustomerCount();
             }
-            if(r.getServedCustomerCount() < minCustomers){
+            if (r.getServedCustomerCount() < minCustomers) {
                 minCustomers = r.getServedCustomerCount();
             }
 
@@ -89,19 +93,20 @@ public class Simulation {
         sim.printResult();
     }
 }
+
 class CustomerFactory {
 
     private Simulation simulation;
     private int capacity = 0;
 
-    public CustomerFactory(Simulation simulation, int capacity){
+    public CustomerFactory(Simulation simulation, int capacity) {
         this.simulation = simulation;
         this.capacity = capacity;
     }
 
-    public synchronized Customer getInstanceWithRandomCapacity(){
-        if(capacity-- > 1){
-            return new Customer(this.simulation.getRandomIntInRangeEnclosed(1,20));
+    public synchronized Customer getInstanceWithRandomCapacity() {
+        if (capacity-- > 1) {
+            return new Customer(this.simulation.getRandomIntInRangeEnclosed(1, 20));
         } else {
             return null;
         }
@@ -109,7 +114,7 @@ class CustomerFactory {
 
 }
 
-class Desk implements Runnable{
+class Desk implements Runnable {
     private Simulation s = null;
     private int deskNo = 0;
 
@@ -128,7 +133,7 @@ class Desk implements Runnable{
         Customer c = null;
         while ((c = s.customerFactory.getInstanceWithRandomCapacity()) != null) {
             servedCustomerCount++;
-            for(int i=c.getItemCount(); i>1; i--){
+            for (int i = c.getItemCount(); i > 1; i--) {
                 soldItemCount++;
                 spentTime += s.getRandomIntInRangeEnclosed(s.ITEM_DURATION_S_MIN, s.ITEM_DURATION_S_MAX);
             }
@@ -140,7 +145,7 @@ class Desk implements Runnable{
         System.out.println("Desk " + deskNo + "\tclosing.\tcustomers " + servedCustomerCount + "\titems " + soldItemCount + "\ttime(s) " + spentTime);
     }
 
-    private void sleep(long ms){
+    private void sleep(long ms) {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
@@ -155,7 +160,7 @@ class DeskReport {
     private int soldItemCount = 0;
     private int spentTime = 0;
 
-    public DeskReport(int deskNo, int servedCustomerCount, int soldItemCount, int spentTime){
+    public DeskReport(int deskNo, int servedCustomerCount, int soldItemCount, int spentTime) {
         this.deskNo = deskNo;
         this.servedCustomerCount = servedCustomerCount;
         this.soldItemCount = soldItemCount;
@@ -180,14 +185,14 @@ class DeskReport {
 
 }
 
-class Customer{
+class Customer {
     private int itemCount = 0;
 
-    public Customer(int itemCount){
+    public Customer(int itemCount) {
         this.itemCount = itemCount;
     }
 
-    public int getItemCount(){
+    public int getItemCount() {
         return this.itemCount;
     }
 }
