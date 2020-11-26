@@ -32,7 +32,6 @@ public class Concurrency {
             System.out.println("Thread " + thread.getName());
             thread.start();
         }
-
     }
 
 
