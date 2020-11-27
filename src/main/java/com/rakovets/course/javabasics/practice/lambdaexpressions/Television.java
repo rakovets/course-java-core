@@ -4,10 +4,10 @@ import com.rakovets.course.javabasics.util.AnsiColorCode;
 
 public class Television {
 
-    private String brand;
-    private String model;
-    private int year;
-    private int size;
+    private final String brand;
+    private final String model;
+    private final int year;
+    private final int size;
     private int price;
 
     public Television(String brand, String model, int year, int size, int price) {
