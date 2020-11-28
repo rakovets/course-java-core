@@ -33,7 +33,7 @@ public class Task01 extends StandardInputTask {
         if  (positionPlayerByDamage <= sizeTop){
             return true;
         } else {
-            return false;
+            return true;
         }
 
     }
