@@ -22,8 +22,8 @@ public class Example2StreamApi {
         // Task: print ll students
         System.out.println("All students 2:");
         Stream<Student> stream2 = group.stream();
-        // stream.forEach(System.out::println); // IllegalStateException (Stream can be used ONLY ONE time)
         stream2.forEach(System.out::println);
+//        stream2.forEach(System.out::println); // IllegalStateException (Stream can be used ONLY ONE time)
 
         // Task: print ll students
         System.out.println("All students 3:");
@@ -57,7 +57,6 @@ public class Example2StreamApi {
                 .mapToInt(Student::getFee)
                 .reduce(0, Integer::sum);
         System.out.println(totalFee);
-
     }
 
     private static boolean fitsCriteria(Student student) {

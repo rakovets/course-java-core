@@ -30,7 +30,7 @@ public class Example1Problem {
     private static void printGroup1(List<Student> group) {
         System.out.println("All students:");
         for (int i = 0; i < group.size(); i++) {
-            System.out.println(group.get(0));
+            System.out.println(group.get(i));
         }
     }
 
