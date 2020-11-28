@@ -11,19 +11,27 @@ public class MathStat {
     }
 
     public static long amountOfEvens(int[] array) {
-        return Arrays.stream(array).filter(x -> x % 2 == 0).count();
+        return Arrays.stream(array)
+                .filter(x -> x % 2 == 0)
+                .count();
     }
 
     public static long amountOfOdds(int[] array) {
-        return Arrays.stream(array).filter(x -> x % 2 != 0).count();
+        return Arrays.stream(array)
+                .filter(x -> x % 2 != 0)
+                .count();
     }
 
     public static long amountOfZeroes(int[] array) {
-        return Arrays.stream(array).filter(x -> x == 0).count();
+        return Arrays.stream(array)
+                .filter(x -> x == 0)
+                .count();
     }
 
     public static long amountOfCurrentValue(int[] array, int value) {
-        return Arrays.stream(array).filter(x -> x == value).count();
+        return Arrays.stream(array)
+                .filter(x -> x == value)
+                .count();
     }
 
 
