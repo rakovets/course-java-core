@@ -1,6 +1,7 @@
 package com.rakovets.course.javabasics.practice.lambdaexpressions;
 
 import com.rakovets.course.javabasics.util.Color;
+import com.rakovets.course.javabasics.practice.lambdaexpressions.model.TV;
 
 import java.util.Arrays;
 

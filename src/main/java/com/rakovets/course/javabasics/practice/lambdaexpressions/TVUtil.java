@@ -1,6 +1,8 @@
 package com.rakovets.course.javabasics.practice.lambdaexpressions;
 
+import com.rakovets.course.javabasics.practice.lambdaexpressions.model.TV;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class TVUtil {
     private TV[] tvs;
@@ -35,25 +37,25 @@ public class TVUtil {
 
     public Object[] getSortedByPriceAscending() {
         return Arrays.asList(tvs).stream()
-                .sorted((tv1, tv2) -> tv1.getPrice() - tv2.getPrice())
+                .sorted(Comparator.comparingInt(TV::getPrice))
                 .toArray();
     }
 
     public Object[] getSortedByPriceDescending() {
         return Arrays.asList(tvs).stream()
-                .sorted((tv1, tv2) -> tv2.getPrice() - tv1.getPrice())
+                .sorted((Comparator.comparingInt(TV::getPrice).reversed()))
                 .toArray();
     }
 
     public Object[] getSortedByDiagonalAscending() {
         return Arrays.asList(tvs).stream()
-                .sorted((tv1, tv2) -> tv1.getDiagonal() - tv2.getDiagonal())
+                .sorted(Comparator.comparingInt(TV::getDiagonal))
                 .toArray();
     }
 
     public Object[] getSortedByDiagonalDescending() {
         return Arrays.asList(tvs).stream()
-                .sorted((tv1, tv2) -> tv2.getDiagonal() - tv1.getDiagonal())
+                .sorted((Comparator.comparingInt(TV::getDiagonal).reversed()))
                 .toArray();
     }
 }
