@@ -23,7 +23,7 @@ public class CityDemo {
 
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED + "\n\nThe list of Cities:\n" + AnsiColorCode.RESET);
         cityList.forEach((String city) -> System.out.print(AnsiColorCode.FG_YELLOW
-                + city + " " + AnsiColorCode.RESET + " "));
+                                                           + city + " " + AnsiColorCode.RESET + " "));
 
         Stream<String> listStream = cityList.stream();
 
