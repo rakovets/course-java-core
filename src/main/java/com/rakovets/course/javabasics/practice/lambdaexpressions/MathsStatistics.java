@@ -8,12 +8,12 @@ import java.util.Random;
 
 public class MathsStatistics {
 
-    public static List<Integer> getListOfRandomDigits(int sizeLimit, int numberLimit) {
+    public static List<Integer> getListOfRandomDigits() {
         List<Integer> list = new ArrayList<>();
         Random random = new Random();
-        int listSize = random.nextInt(sizeLimit);
+        int listSize = random.nextInt();
         for (int i = 1; i <= listSize; i++) {
-            int number = random.nextInt(numberLimit);
+            int number = random.nextInt();
             list.add(number);
         }
         return list;
