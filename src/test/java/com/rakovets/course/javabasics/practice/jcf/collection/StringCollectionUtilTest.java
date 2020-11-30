@@ -25,14 +25,12 @@ public class StringCollectionUtilTest {
 
     @Test
     void remove() {
-        String[] array = new String[]{"this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer"};
-        String[] test = new String[]{"this","", "lots","", "fun", "for", "every", "Java", "programmer"};
+        String[] array = new String []{"we", "this", "computer", "mark", "lamp", "you", "winter", "me"};
+        String[] test = new String []{"this", "computer", "mark", "lamp", "you", "winter"};
         collection = new ArrayList<>(Arrays.asList(array));
         collectionNewRemooving = new ArrayList<>(Arrays.asList(test));
-        Assertions.assertEquals(collectionNewRemooving, StringCollectionUtil.removeWordsByLength(collection, 2));
-
-
+        StringCollectionUtil.removeWordsByLength(collection, 2);
+        Assertions.assertEquals(collectionNewRemooving, collection);
 
     }
-
 }

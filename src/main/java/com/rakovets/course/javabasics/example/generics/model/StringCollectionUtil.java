@@ -13,31 +13,18 @@ public class StringCollectionUtil {
             } else {
                 collectionNewReset.add("*");
             }
-        }
-        return collectionNewReset;
+        } return collectionNewReset;
     }
 
-    public static Collection<String> removeWordsByLength(Collection<String> collection, int length) {
-        Collection<String> collectionNewRemove = new LinkedList<>();
-        for (String string : collection) {
-            if (string.length() != length) {
-                collectionNewRemove.add(string);
-            } else {
-                collectionNewRemove.add("");
+
+    public static void removeWordsByLength(Collection<String> collection, int length) {
+        Iterator<String> iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().length() == length) {
+                iterator.remove();
             }
         }
-        return collectionNewRemove;
     }
-
-//    public static Collection<String> removeWordsByLength(Collection<String> collection, int length) {
-//        Collection<String> collectionNewRemove = new LinkedList<>();
-//        Iterator<String> iterator = collection.iterator();
-//        if (iterator.hasNext()) {
-//            if (iterator.next().length() == length) {
-//                iterator.remove();
-//            }
-//        } return collectionNewRemove;
-//    }
 }
 
 
