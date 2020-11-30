@@ -1,19 +1,19 @@
 package com.rakovets.course.javabasics.practice.concurrency;
 
 public class ArrayMax {
-    private int[] array;
+    private Integer[] array;
     private int max;
 
-    public ArrayMax(int[] array, int max) {
+    public ArrayMax(Integer[] array, int max) {
         this.array = array;
         this.max = max;
     }
 
-    public int[] getArray() {
+    public Integer[] getArray() {
         return array;
     }
 
-    public void setArray(int[] array) {
+    public void setArray(Integer[] array) {
         this.array = array;
     }
 

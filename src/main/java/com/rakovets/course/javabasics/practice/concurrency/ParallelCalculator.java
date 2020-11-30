@@ -6,20 +6,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class ParallelCalculator extends Thread {
-    private int[] array;
+    private Integer[] array;
     private int max;
     private static List<ArrayMax> result = Collections.synchronizedList(new ArrayList<>());
 
-    public ParallelCalculator(int[] array) {
+    public ParallelCalculator(Integer[] array) {
         this.array = array;
     }
 
-    public static List<ArrayMax> calcMax(List<int[]> list, int defaultNumberOfThreads){
-        int defaultNumberOfThreads = 2;
-        return calcMax(list, defaultNumberOfThreads);
-    }
-
-    public static List<ArrayMax> calcMax(List<int[]> list, int numberOfThreads){
+    public static List<ArrayMax> calcMax(List<Integer[]> list, int numberOfThreads){
         ParallelCalculator[] calculators = new ParallelCalculator[numberOfThreads];
         int threads = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -51,7 +46,7 @@ public class ParallelCalculator extends Thread {
     }
 
     public void run() {
-        int[] newArray = array.clone();
+        Integer[] newArray = array.clone();
         Arrays.sort(newArray);
         max = newArray[newArray.length - 1];
         result.add(new ArrayMax(array, max));

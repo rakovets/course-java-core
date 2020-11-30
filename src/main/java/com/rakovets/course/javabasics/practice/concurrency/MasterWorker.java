@@ -5,18 +5,20 @@ import java.util.Scanner;
 
 public class MasterWorker extends Thread {
 
-    private int num = 0;
-
-    public void run() {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        int num;
         while (true) {
             try {
                 try {
+                    System.out.println("Insert a number: ");
                     num = Integer.parseInt(input.nextLine());
-                    if (num == -1) break;
-                    sleep(num * 1000);
+                    if (num == -1) {
+                        System.out.println("Exit");
+                        break;
+                    }
                     System.out.println("I slept " + num + " seconds");
-                    num = 0;
+                    sleep(num * 1000);
                 } catch (NumberFormatException e) {
                     throw new InputMismatchException("Data is incorrect!");
                 } catch (InterruptedException e) {
@@ -27,13 +29,5 @@ public class MasterWorker extends Thread {
             }
 
         }
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
     }
 }
