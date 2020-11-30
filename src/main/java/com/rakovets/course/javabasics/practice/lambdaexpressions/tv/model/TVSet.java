@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.lambdaexpressions;
+package com.rakovets.course.javabasics.practice.lambdaexpressions.tv.model;
 
 public class TVSet {
     private String manufacturer;

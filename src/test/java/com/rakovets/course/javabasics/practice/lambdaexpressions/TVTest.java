@@ -1,11 +1,12 @@
 package com.rakovets.course.javabasics.practice.lambdaexpressions;
 
+import com.rakovets.course.javabasics.practice.lambdaexpressions.tv.TV;
+import com.rakovets.course.javabasics.practice.lambdaexpressions.tv.model.TVSet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Spliterators;
 
 public class TVTest {
     private static List<TVSet> list;

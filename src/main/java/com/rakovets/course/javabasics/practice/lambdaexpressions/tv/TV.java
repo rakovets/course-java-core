@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.practice.lambdaexpressions;
+package com.rakovets.course.javabasics.practice.lambdaexpressions.tv;
+
+import com.rakovets.course.javabasics.practice.lambdaexpressions.tv.model.TVSet;
 
 import java.util.List;
 import java.util.stream.Collectors;
