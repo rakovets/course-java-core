@@ -4,7 +4,11 @@ import com.rakovets.course.javabasics.util.AnsiColorCode;
 import com.rakovets.course.javabasics.util.StandardOutputUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.concurrent.*;
+
+import static com.rakovets.course.javabasics.util.StandardOutputUtil.printlnWithTimeAndThread;
 
 public class ImprovedParallelCalculator {
     public ArrayList<Integer> getMaxFromArrays(ArrayList<Integer[]> arrays) {
@@ -51,22 +55,29 @@ public class ImprovedParallelCalculator {
         int countArraysInEachThread = (int) (arrays.size() % countOfThread != 0
                 ? Math.floor(arrays.size() / countOfThread) + 1
                 : arrays.size() / countOfThread);
-        ArrayList<Thread> threads = new ArrayList<>();
+
+        ExecutorService service = Executors.newFixedThreadPool(countOfThread);
+
+        List<Callable<ArrayList<Integer>>> threadList = new ArrayList<>();
 
         for (int i = 0; i < countOfThread; i++) {
-            int indexOfThread = i;
             int start = i * countArraysInEachThread;
-            int nextIndex = (i+1) * countArraysInEachThread;
+            int nextIndex = (i + 1) * countArraysInEachThread;
             int end = nextIndex > arrays.size() ? arrays.size() : nextIndex;
-            ArrayList<Integer[]> deltaArrays = new ArrayList<> (arrays.subList(start, end));
-            System.out.printf("The Thread #%s is initializing \n", indexOfThread);
-            //Thread thread = new CalculateThread(deltaArrays,indexOfThread);
-           // threads.add(thread);
-           // thread.start();
+            ArrayList<Integer[]> deltaArrays = new ArrayList<>(arrays.subList(start, end));
+            threadList.add(new CalculateThread(deltaArrays));
         }
-        for (Thread thread: threads) {
-            thread.join();
+
+        List<Future<ArrayList<Integer>>> futures = service.invokeAll(threadList);
+
+        for (Future<ArrayList<Integer>> future : futures) {
+            try {
+                printlnWithTimeAndThread("future.get = " + future.get().toString(), AnsiColorCode.FG_RED_BOLD);
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }
-        StandardOutputUtil.printlnWithTime(">>>>>>>>> Method runInParallel(" + countOfThread + ") is finished", AnsiColorCode.FG_BLUE_BOLD);
+
+        service.shutdown();
     }
 }
