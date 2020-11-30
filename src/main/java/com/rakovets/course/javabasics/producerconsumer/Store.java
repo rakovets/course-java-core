@@ -55,7 +55,7 @@ public class Store {
                     wait();
                 }
 
-                // to retrive the ifrst job in the list
+                // to retrive the first job in the list
                 int val = list.removeFirst();
 
                 System.out.println("Consumer consumed-" + val + "; Current size of list = " + list.size());
