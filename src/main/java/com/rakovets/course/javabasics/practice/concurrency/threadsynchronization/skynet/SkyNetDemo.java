@@ -19,6 +19,6 @@ public class SkyNetDemo {
 
         factoryThread.start();
         factoryThread.join();
-        System.out.println(factory.getDetails().size());
+        System.out.println(factory.getDetails());
     }
 }
