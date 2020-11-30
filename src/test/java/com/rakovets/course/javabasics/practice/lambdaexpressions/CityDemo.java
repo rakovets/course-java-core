@@ -28,19 +28,24 @@ public class CityDemo {
         Stream<String> listStream = cityList.stream();
 
         System.out.println(AnsiColorCode.FG_MAGENTA_UNDERLINED + "\n\nUnique Cities:" + AnsiColorCode.RESET);
-        listStream.distinct().forEach((String city) -> System.out.print(AnsiColorCode.FG_YELLOW
-                + city + " " + AnsiColorCode.RESET + " "));
+        listStream.distinct()
+                .forEach((String city) -> System.out.print(AnsiColorCode.FG_YELLOW
+                                                           + city + " " + AnsiColorCode.RESET + " "));
 
         System.out.println(AnsiColorCode.FG_MAGENTA_UNDERLINED + "\n\nCities with long names > 6:" + AnsiColorCode.RESET);
-        cityList.stream().filter((String city) -> !(city.length() <= 6)).forEach(System.out::println);
+        cityList.stream().filter((String city) -> !(city.length() <= 6))
+                         .forEach(System.out::println);
 
         String simb = "M";
         System.out.println(AnsiColorCode.FG_MAGENTA_UNDERLINED + "\nCities from simbol: " + simb + AnsiColorCode.RESET);
-        cityList.stream().filter((String city) -> city.startsWith(simb)).distinct().forEach(System.out::println);
+        cityList.stream().filter((String city) -> city.startsWith(simb))
+                         .distinct().forEach(System.out::println);
 
         String theCity = "Tokyo";
         System.out.println(AnsiColorCode.FG_MAGENTA_UNDERLINED + "\nCount of the City: " + theCity + AnsiColorCode.RESET);
-        int count = (int)cityList.stream().filter((String city) -> city.equals(theCity)).count();
+        int count = (int)cityList.stream()
+                                 .filter((String city) -> city.equals(theCity))
+                                 .count();
         System.out.println(AnsiColorCode.FG_YELLOW  + "The City of " + theCity + " meets = " + count + AnsiColorCode.RESET);
         System.out.println("--------------------------------------");
 

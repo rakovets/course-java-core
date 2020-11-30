@@ -26,17 +26,20 @@ public class TVDemo {
         int size = 42;
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED +
                 "\n\nFilter by size:  " + size + AnsiColorCode.RESET);
-        catalog.stream().filter(model -> model.getSize() == size).forEach(System.out::println);
+        catalog.stream().filter(model -> model.getSize() == size)
+                        .forEach(System.out::println);
 
         String brand = "Sony";
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED +
                 "\n\nFilter by brand:  " + brand + AnsiColorCode.RESET);
-        catalog.stream().filter(model -> model.getBrand().equals(brand)).forEach(System.out::println);
+        catalog.stream().filter(model -> model.getBrand().equals(brand))
+                        .forEach(System.out::println);
 
         int year = 2005;
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED +
                 "\n\nFilter by Year: " + year + AnsiColorCode.RESET);
-        catalog.stream().filter(model -> model.getYear() > year).forEach(System.out::println);
+        catalog.stream().filter(model -> model.getYear() > year)
+                        .forEach(System.out::println);
 
         int priceStart = 100;
         int priceEnd = 800;
@@ -53,7 +56,7 @@ public class TVDemo {
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED +
                 "\n\nSorted by Price desc: " + AnsiColorCode.RESET);
         catalog.stream().sorted((t1,t2) -> Integer.compare(t2.getPrice(), t1.getPrice()))
-                .forEach(System.out::println);
+                        .forEach(System.out::println);
 
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED +
                 "\n\nSorted by Size: " + AnsiColorCode.RESET);
@@ -63,6 +66,6 @@ public class TVDemo {
         System.out.print(AnsiColorCode.FG_MAGENTA_UNDERLINED +
                 "\n\nSorted by Size desc: " + AnsiColorCode.RESET);
         catalog.stream().sorted((t1,t2) -> Integer.compare(t2.getSize(), t1.getSize()))
-                .forEach(System.out::println);
+               .forEach(System.out::println);
     }
 }
