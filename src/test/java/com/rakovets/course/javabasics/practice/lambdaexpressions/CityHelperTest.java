@@ -17,7 +17,6 @@ public class CityHelperTest {
         uniqueCities = List.of("London", "Minsk", "Berlin", "Moscow", "Oslo", "Boston");
         citiesWithLongName = List.of();
         citiesNamesStartedWithM = List.of("Minsk", "Moscow");
-
     }
     @Test
     void getUniqueCitiesTest() {
