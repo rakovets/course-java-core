@@ -3,10 +3,11 @@ package com.rakovets.course.javabasics.example.generics.model.map;
 import java.util.*;
 
 public class TextMonitoring {
+
     private Map<String, Integer> map;
 
-    public void researchText(String text) {
-        String[] array = text.split(" ");
+    public void researchText(String strings) {
+        String[] array = strings.split(" ");
         map = new HashMap<>();
         for (String word : array) {
             if (map.containsKey(word)) {
