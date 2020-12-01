@@ -12,13 +12,10 @@ public class ThreadWorker extends Thread {
     @Override
     public void run() {
 
-        while (true) {
+        while (!Thread.interrupted()) {
             try {
                 Integer number =  shared.queueNumbers.poll();
                 if (number == null) {
-                    if(shared.isFinished){
-                        break;
-                    }
                     System.out.println("...");
                     sleep(1000);
                 } else {
@@ -26,10 +23,9 @@ public class ThreadWorker extends Thread {
                     StandardOutputUtil.printlnWithTimeAndThread("I slept "+ number * 1000 +" seconds");
                 }
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                StandardOutputUtil.printlnWithTimeAndThread("Worker is finished", AnsiColorCode.FG_GREEN_UNDERLINED);
+                break;
             }
         }
-
-        StandardOutputUtil.printlnWithTimeAndThread("Worker thread is finished", AnsiColorCode.FG_RED_BOLD);
     }
 }
