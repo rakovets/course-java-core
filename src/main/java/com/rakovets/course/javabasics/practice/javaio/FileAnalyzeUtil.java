@@ -54,14 +54,12 @@ package com.rakovets.course.javabasics.practice.javaio;
 
 import java.io.*;
 import java.nio.CharBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 public class FileAnalyzeUtil {
 
-    public static ArrayList<String> getStringsLine(String pathFile) {
+    public static ArrayList<String> getStringsLine (String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         try {
             FileReader reader = new FileReader(pathFile);
@@ -82,7 +80,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static ArrayList<String> getStringsVowel(String pathFile) {
+    public static ArrayList<String> getStringsVowel (String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         try {
             FileReader reader = new FileReader(pathFile);
@@ -104,7 +102,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static ArrayList<String> getStringsTrace(String pathFile) {
+    public static ArrayList<String> getStringsTrace (String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         String string = "";
         String lastLatter = "";
@@ -131,7 +129,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static ArrayList<String> getStringsNum(String pathFile) {
+    public static ArrayList<String> getStringsNum (String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         String string = "";
         String lastLatter = "";
@@ -153,7 +151,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static String num(String string) {
+    public static String num (String string) {
         List<String> lists = Arrays.asList(string.split(" +"));
         List<Integer> numToList = new ArrayList<>();
         for (String str : lists)
@@ -169,13 +167,13 @@ public class FileAnalyzeUtil {
             }
             listToNum.add(numToList.subList(fromIndex, numToList.size()));
         } else return lists.get(0);
-        int s = listToNum.get(0).size();
-        int m = s;
+        int size = listToNum.get(0).size();
+        int m = size;
         int mesto = 0;
         for (int i = 1; i < listToNum.size(); i++) {
-            s = listToNum.get(i).size();
-            if (m < s) {
-                m = s;
+            size = listToNum.get(i).size();
+            if (m < size) {
+                m = size;
                 mesto = i;
             }
         }
@@ -185,4 +183,35 @@ public class FileAnalyzeUtil {
         }
         return resultat.trim();
     }
+
+    public static List<String> getRepeatLetters (String path) {
+        String strings = "";
+        List<String> list = new ArrayList<>();
+        String text = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            while ((strings = reader.readLine()) != null) {
+                if (!strings.equals("")) {
+                    text += strings + " ";
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        Map<Character, Integer> charMap = new TreeMap<>();
+        char ch = ' ';
+        text = text.replace(" ", "");
+        text = text.toLowerCase();
+        while (!text.isEmpty()) {
+            ch = text.charAt(0);
+            text = text.substring(1);
+            if (charMap.containsKey(ch)) {
+                charMap.put(ch, charMap.get(ch) + 1);
+            } else charMap.put(ch, 1);
+        }
+        for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
+            list.add(entry.getKey() + "-" + entry.getValue());
+        }
+        return list;
+    }
+
 }

@@ -41,6 +41,16 @@ public class FileAnalyzeUtilTest {
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "Numbers";
         Assertions.assertEquals(list, FileAnalyzeUtil.getStringsNum(pathFile));
     }
+
+    @Test
+    void Task6() {
+        List<String> list = Arrays.asList("a-4", "d-1", "e-3", "h-1", "i-2", "j-1", "k-1", "l-4", "m-3", "n-2", "o-3", "r-2", "v-1", "w-1", "y-1");
+        String sep = File.separator;
+        String pathFile = "src" + sep + "test" + sep + "io" + sep + "Letters";
+        Assertions.assertEquals(list, FileAnalyzeUtil.getRepeatLetters(pathFile));
+    }
+
+
 }
 
 
