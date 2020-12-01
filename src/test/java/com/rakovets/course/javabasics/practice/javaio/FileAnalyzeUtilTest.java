@@ -33,6 +33,14 @@ public class FileAnalyzeUtilTest {
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "Trace";
         Assertions.assertEquals(list, FileAnalyzeUtil.getStringsTrace(pathFile));
     }
+
+    @Test
+    void Task4() {
+        List<String> list = Arrays.asList("7 9 23", "1 4", "1 2 3 5");
+        String sep = File.separator;
+        String pathFile = "src" + sep + "test" + sep + "io" + sep + "Numbers";
+        Assertions.assertEquals(list, FileAnalyzeUtil.getStringsNum(pathFile));
+    }
 }
 
 

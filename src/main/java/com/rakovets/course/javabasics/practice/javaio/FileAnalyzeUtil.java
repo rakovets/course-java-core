@@ -131,4 +131,58 @@ public class FileAnalyzeUtil {
         }
     }
 
+    public static ArrayList<String> getStringsNum(String pathFile) {
+        ArrayList<String> file = new ArrayList<>();
+        String string = "";
+        String lastLatter = "";
+        try {
+            FileReader reader = new FileReader(pathFile);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            try {
+                while ((string = bufferedReader.readLine()) != null) {
+                    file.add(num(string));
+                }
+                return file;
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                return null;
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static String num(String string) {
+        List<String> lists = Arrays.asList(string.split(" +"));
+        List<Integer> numToList = new ArrayList<>();
+        for (String str : lists)
+            numToList.add(Integer.parseInt(str));
+        List<List<Integer>> listToNum = new ArrayList<>();
+        int fromIndex = 0;
+        if (lists.size() > 1) {
+            for (int i = 1; i < numToList.size(); i++) {
+                if (numToList.get(i - 1) >= numToList.get(i)) {
+                    listToNum.add(numToList.subList(fromIndex, i));
+                    fromIndex = i;
+                }
+            }
+            listToNum.add(numToList.subList(fromIndex, numToList.size()));
+        } else return lists.get(0);
+        int s = listToNum.get(0).size();
+        int m = s;
+        int mesto = 0;
+        for (int i = 1; i < listToNum.size(); i++) {
+            s = listToNum.get(i).size();
+            if (m < s) {
+                m = s;
+                mesto = i;
+            }
+        }
+        String resultat = "";
+        for (Integer num : listToNum.get(mesto)) {
+            resultat += num + " ";
+        }
+        return resultat.trim();
+    }
 }
