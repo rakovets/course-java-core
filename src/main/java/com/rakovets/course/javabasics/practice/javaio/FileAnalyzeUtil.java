@@ -59,7 +59,7 @@ import java.util.ArrayList;
 
 public class FileAnalyzeUtil {
 
-    public static ArrayList<String> getStrings(String pathFile) {
+    public static ArrayList<String> getStringsLine(String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         try {
             FileReader reader = new FileReader(pathFile);
@@ -79,4 +79,27 @@ public class FileAnalyzeUtil {
             return null;
         }
     }
+
+    public static ArrayList<String> getStringsVowel(String pathFile) {
+        ArrayList<String> file = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(pathFile);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            try {
+                while ((line = bufferedReader.readLine()) != null) {
+                    if (line.matches("^[aeiouyAEIOUY].*"))
+                        file.add(line);
+                }
+                return file;
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                return null;
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 }

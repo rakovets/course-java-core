@@ -15,7 +15,15 @@ public class FileAnalyzeUtilTest {
         List<String> list = Arrays.asList("Honcharuk", "Roman", "Viktorovich");
         String sep = File.separator;
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "String";
-        Assertions.assertEquals(list, FileAnalyzeUtil.getStrings(pathFile));
+        Assertions.assertEquals(list, FileAnalyzeUtil.getStringsLine(pathFile));
+    }
+
+    @Test
+    void Task2() {
+        List<String> list = Arrays.asList("Adam", "inspector");
+        String sep = File.separator;
+        String pathFile = "src" + sep + "test" + sep + "io" + sep + "Vowel";
+        Assertions.assertEquals(list, FileAnalyzeUtil.getStringsVowel(pathFile));
     }
 }
 
