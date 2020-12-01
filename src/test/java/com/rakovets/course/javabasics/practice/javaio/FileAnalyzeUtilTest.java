@@ -11,7 +11,7 @@ import java.util.List;
 public class FileAnalyzeUtilTest {
 
     @Test
-    void Task1() {
+    void Task2() {
         List<String> list = Arrays.asList("Honcharuk", "Roman", "Viktorovich");
         String sep = File.separator;
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "String";
@@ -19,7 +19,7 @@ public class FileAnalyzeUtilTest {
     }
 
     @Test
-    void Task2() {
+    void Task3() {
         List<String> list = Arrays.asList("Adam", "inspector");
         String sep = File.separator;
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "Vowel";
@@ -27,7 +27,7 @@ public class FileAnalyzeUtilTest {
     }
 
     @Test
-    void Task3() {
+    void Task4() {
         List<String> list = Arrays.asList("aca");
         String sep = File.separator;
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "Trace";
@@ -35,7 +35,7 @@ public class FileAnalyzeUtilTest {
     }
 
     @Test
-    void Task4() {
+    void Task5() {
         List<String> list = Arrays.asList("7 9 23", "1 4", "1 2 3 5");
         String sep = File.separator;
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "Numbers";
