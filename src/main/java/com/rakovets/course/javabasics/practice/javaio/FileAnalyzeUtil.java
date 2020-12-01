@@ -59,7 +59,7 @@ import java.util.*;
 
 public class FileAnalyzeUtil {
 
-    public static ArrayList<String> getStringsLine (String pathFile) {
+    public static ArrayList<String> getStringsLine(String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         try {
             FileReader reader = new FileReader(pathFile);
@@ -80,7 +80,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static ArrayList<String> getStringsVowel (String pathFile) {
+    public static ArrayList<String> getStringsVowel(String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         try {
             FileReader reader = new FileReader(pathFile);
@@ -102,7 +102,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static ArrayList<String> getStringsTrace (String pathFile) {
+    public static ArrayList<String> getStringsTrace(String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         String string = "";
         String lastLatter = "";
@@ -129,7 +129,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static ArrayList<String> getStringsNum (String pathFile) {
+    public static ArrayList<String> getStringsNum(String pathFile) {
         ArrayList<String> file = new ArrayList<>();
         String string = "";
         String lastLatter = "";
@@ -151,7 +151,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public static String num (String string) {
+    public static String num(String string) {
         List<String> lists = Arrays.asList(string.split(" +"));
         List<Integer> numToList = new ArrayList<>();
         for (String str : lists)
@@ -184,7 +184,7 @@ public class FileAnalyzeUtil {
         return resultat.trim();
     }
 
-    public static List<String> getRepeatLetters (String path) {
+    public static List<String> getRepeatLetters(String path) {
         String strings = "";
         List<String> list = new ArrayList<>();
         String text = "";
@@ -214,4 +214,38 @@ public class FileAnalyzeUtil {
         return list;
     }
 
+    public static List<String> getRepeatWord(String path) {
+        String strings = "";
+        List<String> list = new ArrayList<>();
+        String text = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            while ((strings = reader.readLine()) != null) {
+                if (!strings.equals("")) {
+                    text += strings + " ";
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        Map<String, Integer> stringMap = new TreeMap<>();
+        String[] wordsList = text.split(" +");
+        for (String word : wordsList) {
+            if (stringMap.containsKey(word)) {
+                stringMap.put(word, stringMap.get(word) + 1);
+            } else stringMap.put(word, 1);
+        }
+        int i = 0;
+        for (Map.Entry<String, Integer> entry : stringMap.entrySet()) {
+            wordsList[i++] = entry.getValue() + "-" + entry.getKey();
+
+            String[] result = Arrays.copyOf(wordsList, i);
+            Arrays.sort(result);
+            list = Arrays.asList(result);
+
+        }
+        return list;
+    }
+
 }
+
+

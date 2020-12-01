@@ -50,6 +50,14 @@ public class FileAnalyzeUtilTest {
         Assertions.assertEquals(list, FileAnalyzeUtil.getRepeatLetters(pathFile));
     }
 
+    @Test
+    void Task7() {
+        List<String> list = Arrays.asList("1-Hello", "1-I", "1-Java", "1-My", "1-Roman", "1-like", "1-name", "1-world");
+        String sep = File.separator;
+        String pathFile = "src" + sep + "test" + sep + "io" + sep + "Letters";
+        Assertions.assertEquals(list, FileAnalyzeUtil.getRepeatWord(pathFile));
+    }
+
 
 }
 
