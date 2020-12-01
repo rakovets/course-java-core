@@ -25,6 +25,14 @@ public class FileAnalyzeUtilTest {
         String pathFile = "src" + sep + "test" + sep + "io" + sep + "Vowel";
         Assertions.assertEquals(list, FileAnalyzeUtil.getStringsVowel(pathFile));
     }
+
+    @Test
+    void Task3() {
+        List<String> list = Arrays.asList("aca");
+        String sep = File.separator;
+        String pathFile = "src" + sep + "test" + sep + "io" + sep + "Trace";
+        Assertions.assertEquals(list, FileAnalyzeUtil.getStringsTrace(pathFile));
+    }
 }
 
 

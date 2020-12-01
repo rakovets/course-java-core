@@ -55,6 +55,8 @@ package com.rakovets.course.javabasics.practice.javaio;
 import java.io.*;
 import java.nio.CharBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class FileAnalyzeUtil {
@@ -88,8 +90,35 @@ public class FileAnalyzeUtil {
             String line;
             try {
                 while ((line = bufferedReader.readLine()) != null) {
-                    if (line.matches("^[aeiouyAEIOUY].*"))
+                    if (line.matches("^[AEIOUYaeiouy].*"))
                         file.add(line);
+                }
+                return file;
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                return null;
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static ArrayList<String> getStringsTrace(String pathFile) {
+        ArrayList<String> file = new ArrayList<>();
+        String string = "";
+        String lastLatter = "";
+        try {
+            FileReader reader = new FileReader(pathFile);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            try {
+                while ((string = bufferedReader.readLine()) != null) {
+                    if (!lastLatter.equals("")) {
+                        if (lastLatter.charAt(lastLatter.length() - 1) == string.charAt(0)) {
+                            file.add(lastLatter);
+                        }
+                    }
+                    lastLatter = string;
                 }
                 return file;
             } catch (IOException e) {
