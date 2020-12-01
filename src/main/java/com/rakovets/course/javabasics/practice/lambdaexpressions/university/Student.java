@@ -12,6 +12,21 @@ public class Student {
         this.yearOfStudy = yearOfStudy;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Student student = (Student) obj;
+        return this.name.equals(student.name) && this.surname.equals(student.surname) &&
+                this.specialty.equals(student.specialty) && this.yearOfStudy.equals(student.yearOfStudy);
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + " specialty: " + specialty + ", year of study: " + yearOfStudy;
+    }
+
     public String getName() {
         return name;
     }
