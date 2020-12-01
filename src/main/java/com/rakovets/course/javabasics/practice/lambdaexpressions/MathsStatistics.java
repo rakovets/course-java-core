@@ -38,5 +38,4 @@ public class MathsStatistics {
                 .filter(number -> number == someNumber)
                 .count();
     }
-
 }
