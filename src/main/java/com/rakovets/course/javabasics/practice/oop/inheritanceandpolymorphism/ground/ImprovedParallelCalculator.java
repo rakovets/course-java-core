@@ -51,7 +51,7 @@ public class ImprovedParallelCalculator {
         }
     }
     public void runInParallel (int countOfThread, ArrayList<Integer[]> arrays) throws InterruptedException {
-        StandardOutputUtil.printlnWithTime(">>>>>>>>> Method runInParallel(" + countOfThread + ") is started");
+        StandardOutputUtil.printlnWithTime(" Method runInParallel(" + countOfThread + ") is started");
         int countArraysInEachThread = (int) (arrays.size() % countOfThread != 0
                 ? Math.floor(arrays.size() / countOfThread) + 1
                 : arrays.size() / countOfThread);
