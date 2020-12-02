@@ -2,16 +2,8 @@ package com.rakovets.course.javabasics.practice.dateandtype;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class DateWrapper {
-    public static void main(String[] args) {
-        System.out.println(localDateReturn());
-        System.out.println(localDateReturnInMonth(localDateReturn(), 5));
-        System.out.println(LocalDateWithPattern(localDateReturn(), "MM d, yyyy"));
-        System.out.println(PatternWithLocalDate(localDateReturn(), "MM d, yyyy"));
-        System.out.println(daysOfDifference(localDateReturn(), localDateReturnInMonth(localDateReturn(), -1)));
-    }
 
     public static LocalDate localDateReturn() {
         LocalDate date = LocalDate.of(1993, 8, 26);
@@ -49,5 +41,13 @@ public class DateWrapper {
             }
         }
         return count;
+    }
+    //-----------Task 2
+
+    public static void myTemporalAdjuster(int daysToAdd) {
+        LocalDate date = LocalDate.of(2017,10,25);
+        CustomTemporalAdjuster customTemporalAdjuster = new CustomTemporalAdjuster(daysToAdd);
+        LocalDate result = date.with(customTemporalAdjuster);
+        System.out.println(result);
     }
 }
