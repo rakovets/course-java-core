@@ -1,8 +1,11 @@
 package com.rakovets.course.javabasics.practice.dateandtype;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 
 import static java.util.Locale.US;
 
@@ -25,5 +28,21 @@ public class DateWrapper {
 
     public static long getDays(LocalDate localDate1, LocalDate localDate2) {
         return ChronoUnit.DAYS.between(localDate1, localDate2);
+    }
+
+    public static TemporalAdjuster plusDays(int n) {
+        return temporal -> temporal.plus(Period.ofDays(n));
+    }
+
+    public static TemporalAdjuster nearestFirstDayOfYear() {
+         return temporal ->
+                ChronoUnit.DAYS.between(
+                        temporal.with(TemporalAdjusters.firstDayOfYear()),
+                        temporal
+                ) < ChronoUnit.DAYS.between(
+                        temporal,
+                        temporal.with(TemporalAdjusters.firstDayOfNextYear())
+                ) ? temporal.with(TemporalAdjusters.firstDayOfYear()) :
+                        temporal.with(TemporalAdjusters.firstDayOfNextYear());
     }
 }
