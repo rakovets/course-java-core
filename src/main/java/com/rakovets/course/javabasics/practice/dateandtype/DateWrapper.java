@@ -2,6 +2,7 @@ package com.rakovets.course.javabasics.practice.dateandtype;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 import static java.util.Locale.US;
 
@@ -22,7 +23,7 @@ public class DateWrapper {
         return LocalDate.parse(date).format(DateTimeFormatter.ofPattern(pattern, US));
     }
 
-    public static int getDays(LocalDate localDate1, LocalDate localDate2) {
-        return 0;
+    public static long getDays(LocalDate localDate1, LocalDate localDate2) {
+        return ChronoUnit.DAYS.between(localDate1, localDate2);
     }
 }
