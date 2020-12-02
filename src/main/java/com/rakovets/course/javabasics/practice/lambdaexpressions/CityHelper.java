@@ -28,7 +28,4 @@ public class CityHelper {
                 map(String::toLowerCase)
                 .collect(Collectors.groupingBy(city -> city, Collectors.counting()));
     }
-
-
-
 }

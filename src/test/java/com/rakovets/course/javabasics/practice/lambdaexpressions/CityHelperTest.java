@@ -11,14 +11,15 @@ public class CityHelperTest {
         listOfCity.add("Rome");
         listOfCity.add("Moscow");
         listOfCity.add("Kiev");
-        listOfCity.add("Moscoww");
+        listOfCity.add("Moscow");
         listOfCity.add("Minsk");
         listOfCity.add("minsk");
+        listOfCity.add("Singapore");
 
         CityHelper cityHelper = new CityHelper();
-        cityHelper.getUniqueCities(listOfCity);
-        cityHelper.getCitiesWithMoreThanSixSymbols(listOfCity);
-        cityHelper.getCitiesStartingWithSomeLetter(listOfCity,new String("K"));
+        System.out.println(cityHelper.getUniqueCities(listOfCity).toString());
+        System.out.println(cityHelper.getCitiesWithMoreThanSixSymbols(listOfCity).toString());
+        System.out.println(cityHelper.getCitiesStartingWithSomeLetter(listOfCity,new String("K")));
         System.out.println(cityHelper.getRepeatedCities(listOfCity).toString());
     }
 }
