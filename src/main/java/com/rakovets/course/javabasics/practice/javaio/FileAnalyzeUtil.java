@@ -237,15 +237,46 @@ public class FileAnalyzeUtil {
         int i = 0;
         for (Map.Entry<String, Integer> entry : stringMap.entrySet()) {
             wordsList[i++] = entry.getValue() + "-" + entry.getKey();
-
             String[] result = Arrays.copyOf(wordsList, i);
             Arrays.sort(result);
             list = Arrays.asList(result);
-
         }
         return list;
     }
 
+    public static List<String> getSortNum(String path) {
+        String strings = "";
+        List<String> list = new ArrayList<>();
+        String text = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            while ((strings = reader.readLine()) != null) {
+                if (!strings.equals("")) {
+                    text += strings + " ";
+                }
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        String[] stringNumbers = text.split(" +");
+        int[] nums = new int[stringNumbers.length];
+        for (int j = 0; j < stringNumbers.length; j++) {
+            if (!stringNumbers[j].equals("")) {
+                nums[j] = Integer.parseInt(stringNumbers[j]);
+            }
+        }
+        Arrays.sort(nums);
+        try (FileWriter writer = new FileWriter(path)) {
+            for (int j = 0; j < stringNumbers.length; j++) {
+                stringNumbers[j] = "" + nums[j];
+                writer.write(stringNumbers[j] + System.lineSeparator());
+            }
+            writer.flush();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        list.addAll(Arrays.asList(stringNumbers));
+        return list;
+    }
 }
 
 

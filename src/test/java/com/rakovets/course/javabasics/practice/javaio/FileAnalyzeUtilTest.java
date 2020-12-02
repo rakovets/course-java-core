@@ -58,7 +58,13 @@ public class FileAnalyzeUtilTest {
         Assertions.assertEquals(list, FileAnalyzeUtil.getRepeatWord(pathFile));
     }
 
-
+    @Test
+    void Task8() {
+        List<String> list = Arrays.asList("1", "2", "3");
+        String sep = File.separator;
+        String pathFile = "src" + sep + "test" + sep + "io" + sep + "NumWrite";
+        Assertions.assertEquals(list, FileAnalyzeUtil.getSortNum(pathFile));
+    }
 }
 
 
