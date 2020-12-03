@@ -12,7 +12,7 @@ public class Store {
                 e.printStackTrace();
             }
         }
-        list.add(0); //?
+       // list.add(0); //?
     }
 
 
