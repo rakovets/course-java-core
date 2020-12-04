@@ -11,7 +11,7 @@ public class DateWrapper {
     }
 
     public static LocalDate getNewLocalDate(LocalDate date, int month) {
-        return date.minusMonths(month);
+        return date.plusMonths(month);
     }
 
     public static String getLocalDateWithPattern(LocalDate date, String pattern) {
@@ -26,4 +26,5 @@ public class DateWrapper {
     public static Period getPeriodBetweenDates(LocalDate date1, LocalDate date2) {
         return Period.between(date1, date2);
     }
+
 }

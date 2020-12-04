@@ -17,5 +17,7 @@ public class DateWrapperDemo {
         System.out.println(date4);
         Period period = DateWrapper.getPeriodBetweenDates(date1, date);
         System.out.println(period);
+        MyTemporalAdjuster task2 = new MyTemporalAdjuster(3);
+        System.out.println(task2.adjustInto(date));
     }
 }
