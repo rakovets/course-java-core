@@ -1,8 +1,10 @@
 package com.rakovets.course.javabasics.practice.dateandtype;
 
+import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
 public class TimeUtilits {
@@ -20,10 +22,10 @@ public class TimeUtilits {
     }
     public LocalDate getDateFormat(String date, String formatter) {
         DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern(formatter);
-        return LocalDate.parse(date, formatter1);
+        return LocalDate.parse(date,formatter1);
     }
-    public int getAmountOfDays(LocalDate date, LocalDate date1) {
+    public long getAmountOfDays(LocalDate date, LocalDate date1) {
+        return ChronoUnit.DAYS.between(date, date1);
+    }
 
-        return 0;
-    }
 }
