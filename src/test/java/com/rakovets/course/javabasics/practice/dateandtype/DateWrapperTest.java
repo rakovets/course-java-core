@@ -41,12 +41,9 @@ public class DateWrapperTest {
         assertEquals("2020-09-02", date2.toString());
         assertEquals("December 2, 2020", DateWrapper.getLocalDateOfFormat(date1, "MMMM d, yyyy"));
 
-        Calendar calendar = new GregorianCalendar(){
-            @Override
-            public String toString() {
-                return YEAR + "-" + MONTH + "-" + DAY_OF_MONTH;
-            }
-        };
-
+        Calendar calendar = new GregorianCalendar(2020, Calendar.DECEMBER, 4);
+        LocalDate localDate = DateWrapper.getLocalDateAfter(calendar, 3);
+        assertEquals("2021-03-04", localDate.toString());
+        assertEquals("December 4, 2020", DateWrapper.getLocalDateOfFormat(calendar, "MMMM d, yyyy"));
     }
 }
