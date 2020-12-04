@@ -20,7 +20,7 @@ public class Util {
                 .collect(Collectors.toMap(s -> "-" + s.split(spliterator)[0], s -> s.split(spliterator)[1]));
     }
 
-    public static Object[] mapToArray(Map<String, String> map) {
-        return map.entrySet().toArray();
+    public static String[] mapToArray(Map<String, String> map) {
+        return map.entrySet().stream().map(entry -> entry.getKey() + "=" + entry.getValue()).toArray(String[]::new);
     }
 }

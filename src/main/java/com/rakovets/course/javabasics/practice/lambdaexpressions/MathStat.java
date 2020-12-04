@@ -23,9 +23,7 @@ public class MathStat {
     }
 
     public static long amountOfZeroes(int[] array) {
-        return Arrays.stream(array)
-                .filter(x -> x == 0)
-                .count();
+        return amountOfCurrentValue(array, 0);
     }
 
     public static long amountOfCurrentValue(int[] array, int value) {

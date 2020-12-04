@@ -1,12 +1,14 @@
 package com.rakovets.course.javabasics.practice.lambdaexpressions.model;
 
 public class Student {
+    private int id;
     private String name;
     private String surname;
     private String specialty;
     private int course;
 
-    public Student(String name, String surname, String specialty, int course) {
+    public Student(int id, String name, String surname, String specialty, int course) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.specialty = specialty;
@@ -15,7 +17,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return "\n" + name + " " + surname + ", " + specialty + ", " + course;
+        return id + "";
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

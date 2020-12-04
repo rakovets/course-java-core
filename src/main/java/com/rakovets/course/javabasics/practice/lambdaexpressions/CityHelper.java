@@ -3,29 +3,35 @@ package com.rakovets.course.javabasics.practice.lambdaexpressions;
 import java.util.Arrays;
 
 public class CityHelper {
-    private static String[] cities = {"Minsk", "Brest", "Grodno", "Vitebsk", "Gomel", "Mogilev", "Minsk", "Minsk", "Brest", "Vitebsk"};
+    private String[] cities;
 
-    public static String[] getAll() {
+    public CityHelper(String[] cities) {
+        this.cities = cities;
+    }
+
+    public String[] getAll() {
         return cities;
     }
 
-    public static Object[] getUnique() {
-        return Arrays.stream(cities).distinct().toArray();
-    }
-
-    public static Object[] getLong() {
+    public String[] getUnique() {
         return Arrays.stream(cities)
-                .filter(s -> s.length() > 6)
-                .toArray();
+                .distinct()
+                .toArray(String[]::new);
     }
 
-    public static Object[] getWithFirstLetter(char letter) {
+    public String[] getLonger(int letters) {
+        return Arrays.stream(cities)
+                .filter(s -> s.length() > letters)
+                .toArray(String[]::new);
+    }
+
+    public String[] getWithFirstLetter(char letter) {
         return Arrays.stream(cities)
                 .filter(s -> s.charAt(0) == letter)
-                .toArray();
+                .toArray(String[]::new);
     }
 
-    public static long getAmount(String city) {
+    public long getAmount(String city) {
         return Arrays.stream(cities)
                 .filter(city::equals)
                 .count();

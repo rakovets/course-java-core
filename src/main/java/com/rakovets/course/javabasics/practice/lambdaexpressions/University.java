@@ -12,7 +12,7 @@ public class University {
         this.students = students;
     }
 
-    public Map<Integer, List<Student>> getStudentsByCourse() {
+    public Map<Integer, List<Student>> getStudentsGroupingByCourse() {
         return students.stream()
                 .collect(Collectors.groupingBy(Student::getCourse));
     }
@@ -25,14 +25,14 @@ public class University {
                 .collect(Collectors.toList());
     }
 
-    public Map<String, Long> getAmountsOfSpecialties() {
+    public Map<String, Long> getAmountOfStudentsOnCurrentSpecialties() {
         return students.stream()
                 .collect(Collectors.groupingBy(Student::getSpecialty,
                         TreeMap::new,
                         Collectors.counting()));
     }
 
-    public Map<String, Map<Integer, List<Student>>> getStudentsBySpecialtiesThenByCourse() {
+    public Map<String, Map<Integer, List<Student>>> getStudentsGroupingBySpecialtiesThenByCourse() {
         return students.stream()
                 .collect(Collectors.groupingBy(Student::getSpecialty,
                         TreeMap::new,

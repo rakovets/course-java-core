@@ -1,18 +1,28 @@
 package com.rakovets.course.javabasics.practice.lambdaexpressions.model;
 
 public class TV {
+    private int id;
     private String manufacturer;
     private String model;
     private int year;
     private int diagonal;
     private int price;
 
-    public TV(String manufacturer, String model, int year, int diagonal, int price) {
+    public TV(int id, String manufacturer, String model, int year, int diagonal, int price) {
+        this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
         this.year = year;
         this.diagonal = diagonal;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getManufacturer() {
@@ -57,6 +67,6 @@ public class TV {
 
     @Override
     public String toString() {
-        return "\n" + manufacturer + " " + model + " " + diagonal + "\" " + year + " " + price + " BYN";
+        return getId() + "";
     }
 }
