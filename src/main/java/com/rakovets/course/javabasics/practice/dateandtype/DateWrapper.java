@@ -16,10 +16,6 @@ public class DateWrapper {
     public LocalDate getDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
     }
-    public Date getDate(long millis) {
-        Date date = new Date(millis);
-        return date;
-    }
 
     public Date getDateCalendar(int year, int month, int day) {
         Calendar calendar = new GregorianCalendar(year, month - 1, day);
@@ -51,9 +47,21 @@ public class DateWrapper {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(formatter);
         return LocalDate.parse(date, dateTimeFormatter);
     }
+    public Date getDateFromString(String date, String format) {
+        DateFormat df = new SimpleDateFormat(format);
+        Date date1 = null;
+        try {
+            date1 = df.parse(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } return date1;
+    }
 
     public long getDaysBetweenDates(LocalDate firstDate, LocalDate secondDate) {
         return ChronoUnit.DAYS.between(firstDate, secondDate);
+    }
+    public int getDaysBetweenDates(Date date1, Date date2) {
+        return (int) Math.abs((date1.getTime() - date2.getTime()) / (1000 * 60 * 60 * 24));
     }
 
     public LocalDate changeDate(LocalDate localDate, int days) {
