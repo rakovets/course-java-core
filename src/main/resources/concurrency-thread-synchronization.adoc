@@ -4,7 +4,7 @@
 
 === Specification of task 1
 
-Создать класс `Store` представляющий собой хранилище целых чисел. Для этого использовать структуру данных `LinkedList`
+Создать класс `Shop` представляющий собой хранилище целых чисел. Для этого использовать структуру данных `LinkedList`
 
 === Specification of task 2
 
@@ -24,11 +24,11 @@
 
 === Specification of task 6
 
-Создать и запустить поток `ProducerThread`, который производит числа в `Store`.
+Создать и запустить поток `ProducerThread`, который производит числа в `Shop`.
 
 === Specification of task 7
 
-Создать и запустить поток `ConsumerThread`, который потребляет числа из `Store`.
+Создать и запустить поток `ConsumerThread`, который потребляет числа из `Shop`.
 
 === Specification of task 8
 
