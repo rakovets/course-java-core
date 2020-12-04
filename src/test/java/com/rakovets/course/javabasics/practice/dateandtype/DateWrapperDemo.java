@@ -1,9 +1,11 @@
 package com.rakovets.course.javabasics.practice.dateandtype;
 
 import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class DateWrapperDemo {
@@ -12,6 +14,7 @@ public class DateWrapperDemo {
         String date = "12 05, 2020";
         LocalDate localDateNow = LocalDate.now();
         DateWrapper dw = new DateWrapper();
+        Date date1 = new Date();
 
         System.out.println(dw.getDate(2012, 05, 10));
         System.out.println(dw.getNextDate(localDateNow, 5));
@@ -19,6 +22,7 @@ public class DateWrapperDemo {
         System.out.println(dw.getLocalDate(date, formatter));
 
         System.out.println(dw.getDateCalendar(2020, 12, 25));
+        System.out.println(dw.getDateFormat(date1, formatter));
 
     }
 }
