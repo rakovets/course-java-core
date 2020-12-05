@@ -21,8 +21,8 @@ public class DateWrapperDemo {
         System.out.println(date4);
 
         LocalDate newDate = LocalDate.now();
-        long period = DateWrapper.getPeriodBetweenDates(date1, newDate);
-        System.out.println(period);
+        long days = DateWrapper.getDaysBetweenDates(date1, newDate);
+        System.out.println(days);
 
         MyTemporalAdjuster task2 = new MyTemporalAdjuster(3);
         System.out.println(task2.adjustInto(date));

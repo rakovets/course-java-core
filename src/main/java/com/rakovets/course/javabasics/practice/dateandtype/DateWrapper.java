@@ -2,6 +2,7 @@ package com.rakovets.course.javabasics.practice.dateandtype;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class DateWrapper {
@@ -23,7 +24,7 @@ public class DateWrapper {
         return LocalDate.parse(date, formatter);
     }
 
-    public static long getPeriodBetweenDates(LocalDate date1, LocalDate date2) {
-        return DAYS.between(date1,date2);
+    public static long getDaysBetweenDates(LocalDate date1, LocalDate date2) {
+        return DAYS.between(date1, date2);
     }
 }
