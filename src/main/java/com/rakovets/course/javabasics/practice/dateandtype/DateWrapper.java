@@ -1,8 +1,8 @@
 package com.rakovets.course.javabasics.practice.dateandtype;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class DateWrapper {
 
@@ -14,7 +14,7 @@ public class DateWrapper {
         return date.plusMonths(month);
     }
 
-    public static String getLocalDateWithPattern(LocalDate date, String pattern) {
+    public static String getLocalDateAsStringWithPattern(LocalDate date, String pattern) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         return formatter.format(date);
     }
@@ -23,8 +23,7 @@ public class DateWrapper {
         return LocalDate.parse(date, formatter);
     }
 
-    public static Period getPeriodBetweenDates(LocalDate date1, LocalDate date2) {
-        return Period.between(date1, date2);
+    public static long getPeriodBetweenDates(LocalDate date1, LocalDate date2) {
+        return DAYS.between(date1,date2);
     }
-
 }
