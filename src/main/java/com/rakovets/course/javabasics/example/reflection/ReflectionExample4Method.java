@@ -22,10 +22,8 @@ public class ReflectionExample4Method {
             // Since I provide the method name as a String I can run any method
             // without needing to follow the normal convention methodName()
             String methodName = "getFee";
-            Method privateMethod = Student.class.getDeclaredMethod(methodName);
-
-            // Shuts down security allowing you to access private methods
-            privateMethod.setAccessible(true);
+            Class<Student> studentClass = Student.class;
+            Method privateMethod = studentClass.getDeclaredMethod(methodName);
 
             // get the return value from the method
             double privateReturnVal = (double) privateMethod.invoke(student);

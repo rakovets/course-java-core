@@ -16,7 +16,8 @@ public class ReflectionExample3Field {
 
             // Define the private field you want to access
             // I can access any field with just its name dynamically
-            privateStringNickname = Student.class.getDeclaredField("nickname");
+            Class<Student> studentClass = Student.class;
+            privateStringNickname = studentClass.getDeclaredField("nickname");
 
             // Shuts down security allowing you to access private fields
             privateStringNickname.setAccessible(true);

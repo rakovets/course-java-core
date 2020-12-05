@@ -40,7 +40,7 @@ public class Student extends User implements Excludable {
         this.nickname = nickname;
     }
 
-    public double updateFee(double incrementFee) {
+    private double updateFee(double incrementFee) {
         this.fee += incrementFee;
         return this.fee;
     }
