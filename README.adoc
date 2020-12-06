@@ -33,6 +33,7 @@ This project is for the course "Java Basics". It contains for each theme of this
 |20. Lambda Expressions (link:https://jcp.org/en/jsr/detail?id=335[JSR 335]).|link:src/main/resources/lambda-expressions.adoc[lambda-expressions.adoc]
 |21. Date and Time API (link:https://jcp.org/en/jsr/detail?id=310[JSR 310]).|link:src/main/resources/date-and-time.adoc[date-and-time.adoc]
 |22. Reflection.|link:src/main/resources/reflection.adoc[reflection.adoc]
+|23. XML.|link:src/main/resources/xml.adoc[xml.adoc]
 |. Networking.|link:src/main/resources/networking.adoc[networking.adoc]
 |===
 
