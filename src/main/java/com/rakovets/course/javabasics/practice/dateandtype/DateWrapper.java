@@ -1,5 +1,4 @@
 package com.rakovets.course.javabasics.practice.dateandtype;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
