@@ -4,30 +4,33 @@ import com.rakovets.course.javabasics.reflection.HomeWork;
 import com.rakovets.course.javabasics.reflection.RefUtil;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ReflectionDemo {
 
-    public static void main(String[] args) throws NoSuchFieldException {
+    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
         Class<HomeWork> demo = HomeWork.class;
 
         Field result = RefUtil.getClassField(demo, "mark");
         System.out.println(result.getName());
 
-        Method methods = RefUtil.getClassMethods(demo, "getLessonNum");
-        System.out.println(methods.getName());
+        Method methods = RefUtil.getClassMethods(demo, "getLessonName");
+
+        System.out.println(methods);
         Method[] arrayOfmethods = RefUtil.getArrayOfMethods(demo);
         System.out.println("-------------------------------");
         for (Method method: arrayOfmethods ) {
             System.out.println(method.getName());
         }
 
+        System.out.println("**********************************");
+        HomeWork demo1 = new HomeWork(3,"Lesson String");
 
-      //  Class<HomeWork> demo1 = HomeWork.class;
-        RefUtil.getArrayOfMethodsReflection(methods, demo);
+        System.out.println(RefUtil.getArrayOfMethodsReflection(methods, demo1));
 
     }
 
