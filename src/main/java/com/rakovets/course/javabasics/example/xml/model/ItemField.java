@@ -1,6 +1,7 @@
 package com.rakovets.course.javabasics.example.xml.model;
 
 public class ItemField {
+    public static final String CONFIG = "config";
     public static final String ITEM = "item";
     public static final String MODE = "mode";
     public static final String UNIT = "unit";

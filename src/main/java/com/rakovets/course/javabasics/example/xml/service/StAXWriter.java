@@ -1,5 +1,7 @@
-package com.rakovets.course.javabasics.example.xml;
+package com.rakovets.course.javabasics.example.xml.service;
 
+
+import com.rakovets.course.javabasics.example.xml.model.ItemField;
 
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventWriter;
@@ -13,9 +15,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.CONFIG;
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.CURRENT;
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.INTERACTIVE;
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.MODE;
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.UNIT;
+
 public class StAXWriter {
+    private final static String EMPTY_PREFIX = "";
+    private final static String EMPTY_NAMESPACE_URI = "";
+
     private final XMLEventFactory eventFactory = XMLEventFactory.newInstance();
     private final XMLEvent lfEvent = eventFactory.createDTD("\n");
+    private final XMLEvent tab = eventFactory.createDTD("\t");
 
     public void saveConfig(String configFilepath) {
         // create an XMLOutputFactory
@@ -27,15 +39,15 @@ public class StAXWriter {
             eventWriter.add(eventFactory.createStartDocument());
             eventWriter.add(lfEvent);
             // create config open tag
-            eventWriter.add(eventFactory.createStartElement("", "", "config"));
+            eventWriter.add(eventFactory.createStartElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, CONFIG));
             eventWriter.add(lfEvent);
             // Write the different nodes
-            createNode(eventWriter, "mode", "1");
-            createNode(eventWriter, "unit", "901");
-            createNode(eventWriter, "current", "0");
-            createNode(eventWriter, "interactive", "0");
+            createNode(eventWriter, MODE, "1");
+            createNode(eventWriter, UNIT, "901");
+            createNode(eventWriter, CURRENT, "0");
+            createNode(eventWriter, INTERACTIVE, "0");
             // create config close tag
-            eventWriter.add(eventFactory.createEndElement("", "", "config"));
+            eventWriter.add(eventFactory.createEndElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, CONFIG));
             eventWriter.add(lfEvent);
             // create and write End Tag
             eventWriter.add(eventFactory.createEndDocument());
@@ -46,16 +58,15 @@ public class StAXWriter {
     }
 
     private void createNode(XMLEventWriter eventWriter, String name, String value) throws XMLStreamException {
-        XMLEvent tab = eventFactory.createDTD("\t");
         // create Start node
-        StartElement sElement = eventFactory.createStartElement("", "", name);
+        StartElement sElement = eventFactory.createStartElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, name);
         eventWriter.add(tab);
         eventWriter.add(sElement);
         // create Content
         Characters characters = eventFactory.createCharacters(value);
         eventWriter.add(characters);
         // create End node
-        EndElement eElement = eventFactory.createEndElement("", "", name);
+        EndElement eElement = eventFactory.createEndElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, name);
         eventWriter.add(eElement);
         eventWriter.add(lfEvent);
     }

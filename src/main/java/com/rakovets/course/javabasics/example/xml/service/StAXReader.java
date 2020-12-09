@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.xml;
+package com.rakovets.course.javabasics.example.xml.service;
 
 import com.rakovets.course.javabasics.example.xml.model.Item;
 
