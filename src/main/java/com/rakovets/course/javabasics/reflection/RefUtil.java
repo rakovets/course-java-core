@@ -23,4 +23,9 @@ public class RefUtil {
     public static Object getValueFromMethodsReflection(Method method, Object clazz) throws InvocationTargetException, IllegalAccessException {
         return method.invoke(clazz);
     }
+
+    public static void setValueFromInput(Field field, Object clazz, Object inputValue ) throws IllegalAccessException {
+        field.setAccessible(true);
+        field.set(clazz, inputValue);
+    }
 }

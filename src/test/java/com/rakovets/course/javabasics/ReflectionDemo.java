@@ -15,8 +15,8 @@ public class ReflectionDemo {
 
         Class<HomeWork> demo = HomeWork.class;
 
-        Field result = RefUtil.getClassField(demo, "mark");
-        System.out.println(result.getName());
+        Field resultField = RefUtil.getClassField(demo, "mark");
+        System.out.println(resultField.getName());
 
         Method methods = RefUtil.getClassMethods(demo, "getMark");
 
@@ -30,7 +30,13 @@ public class ReflectionDemo {
         System.out.println("**********************************");
         HomeWork demo1 = new HomeWork(3,"Lesson String");
 
+
         System.out.println(RefUtil.getValueFromMethodsReflection(methods, demo1));
+
+        RefUtil.setValueFromInput(demo.getDeclaredField("mark"), demo1, 55 );
+
+        System.out.println(demo1.getMark());
+
 
     }
 

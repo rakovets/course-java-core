@@ -2,7 +2,7 @@ package com.rakovets.course.javabasics.reflection;
 
 public class HomeWork {
     private int lessonNum;
-    private int mark;
+    public int mark;
     private String lessonName;
 
     public HomeWork(int mark) {
