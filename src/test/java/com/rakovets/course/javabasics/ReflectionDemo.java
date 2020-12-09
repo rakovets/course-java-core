@@ -30,7 +30,7 @@ public class ReflectionDemo {
         System.out.println("**********************************");
         HomeWork demo1 = new HomeWork(3,"Lesson String");
 
-        System.out.println(RefUtil.getArrayOfMethodsReflection(methods, demo1));
+        System.out.println(RefUtil.getValueFromMethodsReflection(methods, demo1));
 
     }
 

@@ -20,7 +20,7 @@ public class RefUtil {
         return clazz.getDeclaredMethods();
     }
 
-    public static Object getArrayOfMethodsReflection(Method method, Object clazz) throws InvocationTargetException, IllegalAccessException {
+    public static Object getValueFromMethodsReflection(Method method, Object clazz) throws InvocationTargetException, IllegalAccessException {
         return method.invoke(clazz);
     }
 }

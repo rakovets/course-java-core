@@ -4,6 +4,7 @@ import com.rakovets.course.javabasics.reflection.HomeWork;
 import com.rakovets.course.javabasics.reflection.RefUtil;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ReflectionTest {
     private Class<HomeWork> workClass = HomeWork.class;
-    private HomeWork testObject = new HomeWork(3,"Lesson String");
+
 
 
     @Test
@@ -39,10 +40,18 @@ public class ReflectionTest {
 
     @Test
     void getArrayOfMethodsTest() throws NoSuchMethodException {
-        Method[] expectedResult = Arrays.stream(workClass.getDeclaredMethods()).forEach();
+        Method[] expectedResult = workClass.getDeclaredMethods();
         Method[] actualResult = RefUtil.getArrayOfMethods(this.workClass);
         assertArrayEquals(expectedResult,actualResult);
     }
 
+    @Test
+    void getArrayOfMethodsReflectionTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        HomeWork testObject = new HomeWork(3,"Lesson String");
+        Method method = workClass.getDeclaredMethod("getLessonName");
+        Method method1 = workClass.getDeclaredMethod("getLessonNum");
+        assertEquals("Lesson String",RefUtil.getValueFromMethodsReflection(method,testObject));
+        assertEquals(3,RefUtil.getValueFromMethodsReflection(method1,testObject));
+    }
 
 }
