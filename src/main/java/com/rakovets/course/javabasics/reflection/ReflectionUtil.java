@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
-public class RefUtil {
+public class ReflectionUtil {
 
 
     public static Field getClassField(Class clazz, String name) throws NoSuchFieldException {
