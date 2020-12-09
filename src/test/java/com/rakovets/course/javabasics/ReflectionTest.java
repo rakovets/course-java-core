@@ -16,7 +16,7 @@ public class ReflectionTest {
     @Test
     void getClassFieldTest() throws NoSuchFieldException {
         String expectedResult = "mark";
-        String expectedResult1 = "lessonNum";
+        String expectedResult1 = "lessonNumber";
         String actualResult = RefUtil.getClassField(this.workClass, expectedResult).getName();
         String actualResult1 = RefUtil.getClassField(this.workClass, expectedResult1).getName();
         assertEquals(expectedResult, actualResult);
@@ -27,7 +27,7 @@ public class ReflectionTest {
     void getClassMethodsTest() throws NoSuchMethodException {
         String expectedResult = "getLessonName";
         String expectedResult1 = "getMark";
-        String expectedResult2 = "getLessonNum";
+        String expectedResult2 = "getLessonNumber";
         String actualResult = RefUtil.getClassMethods(this.workClass, expectedResult).getName();
         String actualResult1 = RefUtil.getClassMethods(this.workClass, expectedResult1).getName();
         String actualResult2 = RefUtil.getClassMethods(this.workClass, expectedResult2).getName();
@@ -37,7 +37,7 @@ public class ReflectionTest {
     }
 
     @Test
-    void getArrayOfMethodsTest() throws NoSuchMethodException {
+    void getArrayOfMethodsTest() {
         Method[] expectedResult = workClass.getDeclaredMethods();
         Method[] actualResult = RefUtil.getArrayOfMethods(this.workClass);
         assertArrayEquals(expectedResult, actualResult);
@@ -47,8 +47,22 @@ public class ReflectionTest {
     void getArrayOfMethodsReflectionTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         HomeWork testObject = new HomeWork(3, "Lesson String");
         Method method = workClass.getDeclaredMethod("getLessonName");
-        Method method1 = workClass.getDeclaredMethod("getLessonNum");
+        Method method1 = workClass.getDeclaredMethod("getLessonNumber");
         assertEquals("Lesson String", RefUtil.getValueFromMethodsReflection(method, testObject));
         assertEquals(3, RefUtil.getValueFromMethodsReflection(method1, testObject));
+    }
+
+    @Test
+    void setValueFromInputTest() throws NoSuchFieldException, IllegalAccessException {
+        int expectedMark = 10;
+        String expectedLessonName = "Reflection";
+        int expectedLessonNumber = 18;
+        HomeWork testObject = new HomeWork();
+        RefUtil.setValueFromInput(workClass.getDeclaredField("mark"), testObject, expectedMark);
+        RefUtil.setValueFromInput(workClass.getDeclaredField("lessonName"), testObject, expectedLessonName);
+        RefUtil.setValueFromInput(workClass.getDeclaredField("lessonNumber"), testObject, expectedLessonNumber);
+        assertEquals(expectedLessonName,testObject.getLessonName());
+        assertEquals(expectedMark,testObject.getMark());
+        assertEquals(expectedLessonNumber,testObject.getLessonNumber());
     }
 }
