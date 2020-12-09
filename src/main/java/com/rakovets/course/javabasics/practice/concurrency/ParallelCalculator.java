@@ -8,7 +8,7 @@ import java.util.List;
 public class ParallelCalculator extends Thread {
     private Integer[] array;
     private int max;
-    private static List<ArrayMax> result = Collections.synchronizedList(new ArrayList<>());
+    private static List<ArrayMax> result = new ArrayList<>();
 
     public ParallelCalculator(Integer[] array) {
         this.array = array;
