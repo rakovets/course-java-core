@@ -18,7 +18,7 @@ public class ReflectionDemo {
         Field result = RefUtil.getClassField(demo, "mark");
         System.out.println(result.getName());
 
-        Method methods = RefUtil.getClassMethods(demo, "getLessonName");
+        Method methods = RefUtil.getClassMethods(demo, "getMark");
 
         System.out.println(methods);
         Method[] arrayOfmethods = RefUtil.getArrayOfMethods(demo);
