@@ -19,7 +19,15 @@ public class Student {
         age = (int) ChronoUnit.YEARS.between(birthday, LocalDate.now());
     }
 
-    public int getAge() {
+    private int getAge() {
         return age;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
     }
 }
