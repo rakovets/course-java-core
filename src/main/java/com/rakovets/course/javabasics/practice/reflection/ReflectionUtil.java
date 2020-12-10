@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionUtil {
-    public static <T> Field getField(Class<T> tClass, String fieldName) {
+    public static Field getField(Class<?> tClass, String fieldName) {
         Field field = null;
         try {
             field = tClass.getDeclaredField(fieldName);
@@ -15,7 +15,7 @@ public class ReflectionUtil {
             e.printStackTrace();
         } return field;
     }
-    public static Method getMethod(Class tClass, String methodName) {
+    public static Method getMethod(Class<?> tClass, String methodName) {
         Method method = null;
         try {
             method = tClass.getDeclaredMethod(methodName);
@@ -24,13 +24,22 @@ public class ReflectionUtil {
         }
         return method;
     }
-    public static Method[] getMethodArray(Class tClass) {
+    public static Method[] getMethodArray(Class<?> tClass) {
         return tClass.getDeclaredMethods();
     }
-    public static void getInvokedMethod(Method method, Student student) {
+    public static Object getInvokedMethod(Method method, Student student) {
+        Object obj = null;
         try {
-            method.invoke(student);
+           obj = method.invoke(student);
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            e.printStackTrace();
+        } return obj;
+    }
+    public static void setField(Field field, Student student, Object newFee) {
+        try {
+            field.setAccessible(true);
+            field.set(student, newFee);
+        } catch (IllegalAccessException | IllegalArgumentException e) {
             e.printStackTrace();
         }
     }
