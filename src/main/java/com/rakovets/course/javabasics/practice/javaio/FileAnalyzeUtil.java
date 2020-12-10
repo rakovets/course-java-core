@@ -3,14 +3,12 @@ package com.rakovets.course.javabasics.practice.javaio;
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
 
 public class FileAnalyzeUtil {
 
     public static List<String> listString(String path, String condition) {
-        String string = "";
+        String string;
         List<String> list = new ArrayList<>();
         String lastWord = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
@@ -69,52 +67,50 @@ public class FileAnalyzeUtil {
                 index = i;
             }
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Integer num : listOfNumbersList.get(index)) {
-            result += num + " ";
+            result.append(num).append(" ");
         }
-        return result.trim();
+        return result.toString().trim();
     }
 
     public static List<String> listText(String path, String condition) {
-        String string = "";
+        String string;
         List<String> list = new ArrayList<>();
-        String text = "";
+        StringBuilder text = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             while ((string = reader.readLine()) != null) {
                 if (!string.equals("")) {
-                    text += string + " ";
+                    text.append(string).append(" ");
                 }
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         switch (condition) {
-            case "lettersFrequency":
+            case "lettersFrequency" -> {
                 Map<Character, Integer> charMap = new TreeMap<>();
-                char ch = ' ';
-                text = text.replace(" ", "");
-                text = text.toLowerCase();
-                while (!text.isEmpty()) {
+                char ch;
+                text = new StringBuilder(text.toString().replace(" ", ""));
+                text = new StringBuilder(text.toString().toLowerCase());
+                while (text.length() > 0) {
                     ch = text.charAt(0);
-                    text = text.substring(1);
+                    text = new StringBuilder(text.substring(1));
                     if (charMap.containsKey(ch)) {
                         charMap.put(ch, charMap.get(ch) + 1);
-                    }
-                    else charMap.put(ch, 1);
+                    } else charMap.put(ch, 1);
                 }
                 for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
                     list.add(entry.getKey() + "-" + entry.getValue());
                 }
-                break;
-            case "wordsFrequency":
+            }
+            case "wordsFrequency" -> {
                 Map<String, Integer> stringMap = new TreeMap<>();
-                String[] wordsList = text.split(" +");
+                String[] wordsList = text.toString().split(" +");
                 for (String word : wordsList) {
                     if (stringMap.containsKey(word)) {
                         stringMap.put(word, stringMap.get(word) + 1);
-                    }
-                    else stringMap.put(word, 1);
+                    } else stringMap.put(word, 1);
                 }
                 int i = 0;
                 for (Map.Entry<String, Integer> entry : stringMap.entrySet()) {
@@ -123,19 +119,19 @@ public class FileAnalyzeUtil {
                 String[] result = Arrays.copyOf(wordsList, i);
                 Arrays.sort(result);
                 list = Arrays.asList(result);
-                break;
-            case "sortNumbers":
-                String[] stringNumbers = text.split(" +");
-                int[] nums = new int[stringNumbers.length];
+            }
+            case "sortNumbers" -> {
+                String[] stringNumbers = text.toString().split(" +");
+                int[] numbers = new int[stringNumbers.length];
                 for (int j = 0; j < stringNumbers.length; j++) {
                     if (!stringNumbers[j].equals("")) {
-                        nums[j] = Integer.parseInt(stringNumbers[j]);
+                        numbers[j] = Integer.parseInt(stringNumbers[j]);
                     }
                 }
-                Arrays.sort(nums);
+                Arrays.sort(numbers);
                 try (FileWriter writer = new FileWriter(path)) {
                     for (int j = 0; j < stringNumbers.length; j++) {
-                        stringNumbers[j] = "" + nums[j];
+                        stringNumbers[j] = "" + numbers[j];
                         writer.write(stringNumbers[j] + System.lineSeparator());
                     }
                     writer.flush();
@@ -143,13 +139,13 @@ public class FileAnalyzeUtil {
                     System.out.println(e.getMessage());
                 }
                 list.addAll(Arrays.asList(stringNumbers));
-                break;
+            }
         }
         return list;
     }
 
     public static double getProgress(String path) {
-        String string = "";
+        String string;
         double sum = 0;
         int num = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
@@ -160,31 +156,31 @@ public class FileAnalyzeUtil {
                         sum += Double.parseDouble(element);
                         num++;
                     } catch (NumberFormatException e) {
-
+                        throw new NumberFormatException();
                     }
                 }
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return new BigDecimal(sum/num).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return new BigDecimal(sum / num).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     public static boolean changeModifier(String path, String oldModifier, String newModifier) {
-        String string = "";
-        String text = "";
+        String string;
+        StringBuilder text = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             while ((string = reader.readLine()) != null) {
-                text += string + "\n";
+                text.append(string).append("\n");
             }
         } catch (IOException e) {
             return false;
         }
         String className = new File(path).getName().replace(".java", "");
         String regEx = "(?! " + className + "| class)";
-        text = text.replaceAll(oldModifier + regEx, newModifier);
+        text = new StringBuilder(text.toString().replaceAll(oldModifier + regEx, newModifier));
         try (FileWriter writer = new FileWriter(path)) {
-            writer.write(text);
+            writer.write(text.toString());
             writer.flush();
         } catch (IOException e) {
             return false;
@@ -192,29 +188,4 @@ public class FileAnalyzeUtil {
         return true;
     }
 }
-
-//public class FileAnalyzeUtil {
-//    public static void main(String[] args) throws FileNotFoundException {
-////        FileInputStream fileInputStream = new FileInputStream("c:\\readme.txt"); //Для считывания данных из файла предназначен класс FileInputStream
-////        String res = bufferedreader.readline();
-////        while ( res != null) {
-////            System.out.println(res);
-////            res = bufferedReader.readline();
-////        }
-//        try (FileInputStream fin = new FileInputStream("c:\\\\readme.txt")) {
-//            System.out.printf("File size: %d bytes \n", fin.available());
-//            int i = -1;
-//            while ((i = fin.read()) != -1) {
-//                System.out.print((char) i);
-//            }
-//        } catch (IOException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        }
-////        Files.createFile(Path.of("c:\\readme.txt"));
-////        Path path = Path.of("c:\\readme.txt");
-////        List<String> list = Files.readAllLines(path);
-////        for(String str: list)
-////            System.out.println(str);
-//    }
 

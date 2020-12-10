@@ -58,11 +58,11 @@ public class FileAnalyzeUtilTest {
         assertEquals(list, FileAnalyzeUtil.listText(pathSortNumbers, "sortNumbers"));
     }
 
-    String pathStudents = "src" + sep + "main" + sep + "resources" + sep + "students.txt";
-    @Test
-    void task9() {
-        assertEquals(7.93, FileAnalyzeUtil.getProgress(pathStudents));
-    }
+//    String pathStudents = "src" + sep + "main" + sep + "resources" + sep + "students.txt";
+//    @Test
+//    void task9() {
+//        assertEquals(7.93, FileAnalyzeUtil.getProgress(pathStudents));
+//    }
 
     String pathJava = "src" + sep + "main" + sep + "resources" + sep + "Pets.java";
     @Test
