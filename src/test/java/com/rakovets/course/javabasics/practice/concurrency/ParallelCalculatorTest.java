@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ParallelCalculatorTest {
-    private List<int[]> list = new ArrayList<>();
+    private List<Integer[]> list = new ArrayList<>();
     private int maxArrayLength;
     private int maxNumber = 300;
     private int listSize = 10;
@@ -14,7 +14,7 @@ public class ParallelCalculatorTest {
         this.maxArrayLength = maxArrayLength;
         for(int i = 0; i < listSize; i++) {
             int arrayLength = new Random().nextInt(maxArrayLength) + 1;
-            int[] array = new int[arrayLength];
+            Integer[] array = new Integer[arrayLength];
             for(int j = 0; j < arrayLength; j++) {
                 array[j] = new Random().nextInt(maxNumber);
             }
@@ -39,7 +39,7 @@ public class ParallelCalculatorTest {
         }
     }
 
-    public List<int[]> getList() {
+    public List<Integer[]> getList() {
         return list;
     }
 }
