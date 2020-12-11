@@ -22,6 +22,6 @@ public class Property {
 
     @Override
     public String toString(){
-        return "<property>  " + "name = " + getName() + " value =" + getValue();
+        return "<property>  " + "name = " + getName() + " >" + getValue() + "</property>";
     }
 }

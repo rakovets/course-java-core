@@ -23,7 +23,7 @@ public class Mapping {
 
     @Override
     public String toString(){
-        return "<mapping>  " +"name = " + getName() + " value =" + getValue();
+        return "<mapping  " + getName() + "=" + getValue() + "/>";
     }
 }
 
