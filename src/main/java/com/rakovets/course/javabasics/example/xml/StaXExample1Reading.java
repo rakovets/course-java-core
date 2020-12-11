@@ -8,7 +8,6 @@ import java.util.List;
 public class StaXExample1Reading {
     public static void main(String[] args) {
         StAXReader read = new StAXReader();
-        // считывание пути
         List<Item> readConfig = read.readConfig(Paths.get("src", "main", "resources", "xml", "config.xml").toString());
         System.out.println(Paths.get("src", "main", "resources", "xml", "config.xml").toString());
         for (Item item : readConfig) {
