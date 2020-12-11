@@ -33,6 +33,7 @@ public class FileAnalyzeUtilTest {
     }
 
     String pathNumbers = "src" + sep + "main" + sep + "resources" + sep + "numbers";
+
     @Test
     void task5() {
         List<String> list = Arrays.asList("1 2 3", "67 68 69", "1 4 8 56", "3");
@@ -46,6 +47,7 @@ public class FileAnalyzeUtilTest {
     }
 
     String pathWords = "src" + sep + "main" + sep + "resources" + sep + "words";
+
     @Test
     void task7() {
         List<String> list = Arrays.asList("1-io", "1-oop", "3-git", "3-idea", "4-java");
@@ -53,11 +55,13 @@ public class FileAnalyzeUtilTest {
     }
 
     String pathSortNumbers = "src" + sep + "main" + sep + "resources" + sep + "sortNumbers";
+
     @Test
     void task8() {
         List<String> list = Arrays.asList("3", "5", "6", "8", "25", "33", "40", "123");
         assertEquals(list, FileAnalyzeUtil.listText(pathSortNumbers, "sortNumbers"));
     }
+}
 
 //    String pathJava = "src" + sep + "main" + sep + "resources" + sep + "Pets.java";
 //    @Test
