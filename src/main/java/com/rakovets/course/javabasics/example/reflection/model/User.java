@@ -1,9 +1,9 @@
 package com.rakovets.course.javabasics.example.reflection.model;
 
 public class User {
-    private String firstname;
-    private String lastname;
-    private int age;
+    public String firstname;
+    public String lastname;
+    public int age;
 
     public User(String firstname, String lastname) {
         this.firstname = firstname;
