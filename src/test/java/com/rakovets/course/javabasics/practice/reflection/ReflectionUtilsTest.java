@@ -4,6 +4,9 @@ import com.rakovets.course.javabasics.practice.reflection.model.Human;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 import static com.rakovets.course.javabasics.practice.reflection.model.Gender.*;
@@ -21,7 +24,7 @@ public class ReflectionUtilsTest {
     }
 
     @Test
-    void getFieldOfClassTest() throws IllegalAccessException, NoSuchFieldException {
+    void getFieldOfClassTest() throws NoSuchFieldException, IllegalAccessException {
         assertEquals("Karl", ReflectionUtils.getFieldOfClass(clazz, "name").get(human));
     }
 
@@ -35,4 +38,14 @@ public class ReflectionUtilsTest {
         assertTrue(Arrays.toString(ReflectionUtils.getMethodsOfClass(clazz)).contains("isAdult(java.lang.Integer)"));
     }
 
+    @Test
+    void callMethodOnObjectTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        assertEquals("no", ReflectionUtils.callMethodOnObject( ReflectionUtils.getMethodOfClass(clazz,"isAdult", Integer.class), human));
+    }
+
+    @Test
+    void setNewValueTes() throws NoSuchFieldException, IllegalAccessException {
+        ReflectionUtils.setNewValue(ReflectionUtils.getFieldOfClass(clazz, "name"), human, "Molly");
+        assertEquals("Molly", ReflectionUtils.getFieldOfClass(clazz, "name").get(human));
+    }
 }
