@@ -11,6 +11,8 @@ public class StaXExample1Reading {
         List<Item> readConfig = read.readConfig(Paths.get("src", "main", "resources", "xml", "config.xml").toString());
         for (Item item : readConfig) {
             System.out.println(item);
+
+
         }
     }
 }
