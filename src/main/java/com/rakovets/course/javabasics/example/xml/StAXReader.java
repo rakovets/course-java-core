@@ -26,6 +26,7 @@ public class StAXReader {
     private static final String ITEM_ATTRIBUTE_DATE = "date";
 
     public List<Item> readConfig(String configFilepath) {
+
         List<Item> items = new ArrayList<>();
         try {
             // First, create a new XMLInputFactory

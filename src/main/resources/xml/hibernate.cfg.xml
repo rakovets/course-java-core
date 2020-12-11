@@ -17,6 +17,8 @@
         <property name="hibernate.connection.characterEncoding">utf8</property>
         <property name="hibernate.connection.useUnicode">true</property>
 
+        <mapping package="com.rakovets.course.javabasics.practice.xml.model"/>
         <mapping class="net.common.model.Person"/>
+
     </session-factory>
 </hibernate-configuration>
