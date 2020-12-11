@@ -88,7 +88,7 @@ public class FileAnalyzeUtil {
             System.out.println(e.getMessage());
         }
         switch (condition) {
-            case "lettersFrequency" -> {
+            case "lettersFrequency" :
                 Map<Character, Integer> charMap = new TreeMap<>();
                 char ch;
                 text = new StringBuilder(text.toString().replace(" ", ""));
@@ -103,8 +103,8 @@ public class FileAnalyzeUtil {
                 for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
                     list.add(entry.getKey() + "-" + entry.getValue());
                 }
-            }
-            case "wordsFrequency" -> {
+                break;
+            case "wordsFrequency" :
                 Map<String, Integer> stringMap = new TreeMap<>();
                 String[] wordsList = text.toString().split(" +");
                 for (String word : wordsList) {
@@ -119,8 +119,8 @@ public class FileAnalyzeUtil {
                 String[] result = Arrays.copyOf(wordsList, i);
                 Arrays.sort(result);
                 list = Arrays.asList(result);
-            }
-            case "sortNumbers" -> {
+                break;
+            case "sortNumbers" :
                 String[] stringNumbers = text.toString().split(" +");
                 int[] numbers = new int[stringNumbers.length];
                 for (int j = 0; j < stringNumbers.length; j++) {
@@ -139,7 +139,7 @@ public class FileAnalyzeUtil {
                     System.out.println(e.getMessage());
                 }
                 list.addAll(Arrays.asList(stringNumbers));
-            }
+                break;
         }
         return list;
     }

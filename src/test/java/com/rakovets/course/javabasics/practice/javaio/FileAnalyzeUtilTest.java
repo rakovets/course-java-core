@@ -11,7 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FileAnalyzeUtilTest {
     String sep = File.separator;
-    String pathStrings = "src" + sep + "main" + sep + "resources" + sep + "strings.txt";
+    String relativePath = "src" + sep + "main" + sep + "resources" + sep + "strings";
+    String pathStrings = new File(relativePath).getAbsolutePath();
 
     @Test
     void task2() {
@@ -31,7 +32,7 @@ public class FileAnalyzeUtilTest {
         assertEquals(list, FileAnalyzeUtil.listString(pathStrings, "lastChar"));
     }
 
-    String pathNumbers = "src" + sep + "main" + sep + "resources" + sep + "numbers.txt";
+    String pathNumbers = "src" + sep + "main" + sep + "resources" + sep + "numbers";
     @Test
     void task5() {
         List<String> list = Arrays.asList("1 2 3", "67 68 69", "1 4 8 56", "3");
@@ -44,30 +45,23 @@ public class FileAnalyzeUtilTest {
         assertEquals(list, FileAnalyzeUtil.listText(pathStrings, "lettersFrequency"));
     }
 
-    String pathWords = "src" + sep + "main" + sep + "resources" + sep + "words.txt";
+    String pathWords = "src" + sep + "main" + sep + "resources" + sep + "words";
     @Test
     void task7() {
         List<String> list = Arrays.asList("1-io", "1-oop", "3-git", "3-idea", "4-java");
         assertEquals(list, FileAnalyzeUtil.listText(pathWords, "wordsFrequency"));
     }
 
-    String pathSortNumbers = "src" + sep + "main" + sep + "resources" + sep + "sortNumbers.txt";
+    String pathSortNumbers = "src" + sep + "main" + sep + "resources" + sep + "sortNumbers";
     @Test
     void task8() {
         List<String> list = Arrays.asList("3", "5", "6", "8", "25", "33", "40", "123");
         assertEquals(list, FileAnalyzeUtil.listText(pathSortNumbers, "sortNumbers"));
     }
 
-//    String pathStudents = "src" + sep + "main" + sep + "resources" + sep + "students.txt";
+//    String pathJava = "src" + sep + "main" + sep + "resources" + sep + "Pets.java";
 //    @Test
-//    void task9() {
-//        assertEquals(7.93, FileAnalyzeUtil.getProgress(pathStudents));
+//    void task10() {
+//        assertTrue(FileAnalyzeUtil.changeModifier(pathJava, "private", "public"));
 //    }
-
-    String pathJava = "src" + sep + "main" + sep + "resources" + sep + "Pets.java";
-    @Test
-    void task10() {
-        //assertTrue(FileAnalyzeUtil.changeModifier(pathJava, "public", "private"));
-        assertTrue(FileAnalyzeUtil.changeModifier(pathJava, "private", "public"));
-    }
-}
+//}
