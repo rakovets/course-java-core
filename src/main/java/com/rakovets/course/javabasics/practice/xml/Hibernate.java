@@ -9,8 +9,16 @@ import java.util.List;
 
 public class Hibernate {
 
+    public Hibernate() {
+    }
+
     private List<Property> propertyList;
     private List<Mapping> mappingList;
+
+    public Hibernate(List<Property> propertyList, List<Mapping> mappingList) {
+        this.propertyList = propertyList;
+        this.mappingList = mappingList;
+    }
 
     public void setPropertyList(List<Property> propertyList) {
         this.propertyList = propertyList;

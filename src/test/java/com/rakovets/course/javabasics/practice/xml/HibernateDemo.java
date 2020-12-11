@@ -1,5 +1,6 @@
 package com.rakovets.course.javabasics.practice.xml;
 
+import com.rakovets.course.javabasics.example.xml.StAXWriter;
 import com.rakovets.course.javabasics.practice.xml.model.Mapping;
 import com.rakovets.course.javabasics.practice.xml.model.Property;
 
@@ -16,6 +17,10 @@ public class HibernateDemo {
         List<Property> propList = readConfig.getPropertyList();
         propList.forEach(System.out::println);
         mapList.forEach(System.out::println);
+
+        Hibernate xmlWrit = new Hibernate(propList,mapList);
+        XMLWriter configXML = new XMLWriter();
+        configXML.addConfigToXML(Paths.get("src", "main", "resources", "xml", "hibernate-wrote.xml").toString(),xmlWrit);
 
 
 
