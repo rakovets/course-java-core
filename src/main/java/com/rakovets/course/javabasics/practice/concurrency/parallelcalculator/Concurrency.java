@@ -8,7 +8,6 @@ import java.util.*;
 public class Concurrency {
 
     public static HashMap<String, Integer> getMaxElementFromArray(List<int[]> arraysCollection) {
-
         HashMap<String, Integer> resultList = new HashMap<>();
         for (int[] array : arraysCollection) {
             int max = array[0];
@@ -23,9 +22,6 @@ public class Concurrency {
     }
 
     public static void getMaxElementFromArrayWithThreads(int numbersThreads, LinkedList<int[]> listArrays) {
-
-      //  LinkedList<int[]> listArrays = Concurrency.getArraysList();
-      //  HashMap<String, Integer> resultList = new HashMap<>();
         ParallelCalculation threadsRunnable = new ParallelCalculation(listArrays);
         for (int t = 0; t < numbersThreads; t++) {
             Thread thread = new Thread(threadsRunnable);
@@ -34,9 +30,7 @@ public class Concurrency {
         }
     }
 
-
     public static int getLengthForArray(int i) {
-
         int lenght;
         lenght = ((int) (Math.random() * 363878) / (i + 1));
         if (lenght > 1000000) {
@@ -46,7 +40,6 @@ public class Concurrency {
     }
 
     public static int getElementForArray(int i) {
-
         int element;
         element = ((int) (Math.random() * (141 + 1)) - 17) / (i + 1);
         if (element > 300) {
@@ -56,7 +49,6 @@ public class Concurrency {
     }
 
     public static LinkedList<int[]> getArraysList() {
-
         LinkedList<int[]> arrayList = new LinkedList<int[]>();
         for (int i = 0; i < 10; i++) {
             int lenght = Concurrency.getLengthForArray(i);

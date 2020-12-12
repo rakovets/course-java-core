@@ -17,7 +17,6 @@ public class ParallelCalculation implements Runnable {
     @Override
     public void run() {
         StandardOutputUtil.printlnWithTime("ParallelCalculation: started", AnsiColorCode.FG_YELLOW_BOLD);
-
         HashMap<String, Integer> resultList = new HashMap<>();
         for (int[] array : list) {
             int max = array[0];
@@ -28,9 +27,8 @@ public class ParallelCalculation implements Runnable {
             }
             resultList.put("Array_" + list.indexOf(array), max);
         }
-
-          System.out.println(resultList);
-          StandardOutputUtil.printlnWithTime("PrintRunnable: finished", AnsiColorCode.FG_YELLOW_BOLD);
+        System.out.println(resultList);
+        StandardOutputUtil.printlnWithTime("PrintRunnable: finished", AnsiColorCode.FG_YELLOW_BOLD);
 
     }
 }
