@@ -1,7 +1,5 @@
 package com.rakovets.course.javabasics.practice.concurrency.parallelcalculator;
 
-import com.rakovets.course.javabasics.util.AnsiColorCode;
-import com.rakovets.course.javabasics.util.StandardOutputUtil;
 
 import java.util.*;
 
