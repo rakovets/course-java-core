@@ -32,7 +32,23 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+        int size = marks.length;
+        double[] averageMarks = new double[size];
+        double averageMark = 0;
+        int numberMarks = 0;
+        int sumMarks = 0;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                sumMarks += marks[i][j];
+                numberMarks += 1;
+            }
+            averageMark = (double) sumMarks / numberMarks;
+            averageMark = (double) Math.round(averageMark * 100) / 100;
+            averageMarks[i] = averageMark;
+            sumMarks = 0;
+            numberMarks = 0;
+        }
+        return averageMarks;
     }
 
     /**
@@ -45,7 +61,19 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+        int minMark = 0;
+        int size = marks.length;
+        int[] minMarks = new int[size];
+        for (int i = 0; i < size; i++) {
+            minMark = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                if (minMark >= marks[i][j]) {
+                    minMark = marks[i][j];
+                }
+            }
+            minMarks[i] = minMark;
+        }
+        return minMarks;
     }
 
     /**
@@ -58,7 +86,19 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+        int maxMark = 0;
+        int size = marks.length;
+        int[] maxMarks = new int[size];
+        for (int i = 0; i < size; i++) {
+            maxMark = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                if (maxMark <= marks[i][j]) {
+                    maxMark = marks[i][j];
+                }
+            }
+            maxMarks[i] = maxMark;
+        }
+        return maxMarks;
     }
 
     private static int[][] nextArray(int countDisciplines, int countSemesters) {
