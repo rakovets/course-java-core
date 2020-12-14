@@ -2,15 +2,15 @@ package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class RectangleTest {
     public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle(4,6);
-        System.out.println("first point: " + rectangle.getFirstPoint());
-        System.out.println("second point: " + rectangle.getSecondPoint());
-        //System.out.println(getPerimeter);
-
-        rectangle.setFirstPoint(7);
-        rectangle.setSecondPoint(9);
-
-        System.out.println("first point: " + rectangle.getFirstPoint());
-        System.out.println("second point: " + rectangle.getSecondPoint());
+        Point firstPoint = new Point(10,20);
+        Point secondPoint = new Point(30,30);
+        Rectangle rectangle = new Rectangle(firstPoint, secondPoint);
+        System.out.printf("First Point: X = %f, Y = %f\nSecond Point: X = %f, Y = %f\n",
+                firstPoint.x,
+                firstPoint.y,
+                secondPoint.x,
+                secondPoint.y);
+        System.out.printf("Perimeter: %f\n", rectangle.getPerimeter());
+        System.out.printf("Area: %f", rectangle.getArea());
     }
 }

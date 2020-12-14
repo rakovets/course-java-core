@@ -1,41 +1,34 @@
 package com.rakovets.course.javabasics.practice.oop.classesandobjects;
 
 public class Rectangle {
-    private int firstPoint;
-    private int secondPoint;
+    Point topLeftPoint;
+    Point bottomRightPoint;
 
-
-    public Rectangle (int firstPoint, int secondPoint) {
-        this.firstPoint = firstPoint;
-        this.secondPoint = secondPoint;
+    Rectangle(Point topLeftPoint, Point bottomRightPoint) {
+        this.topLeftPoint = topLeftPoint;
+        this.bottomRightPoint = bottomRightPoint;
     }
 
-    public int getFirstPoint() {
-         return firstPoint;
+    private Point getTopLeftPoint() {
+        return this.topLeftPoint;
     }
-
-    public  void setFirstPoint(int firstPoint) {
-      this.firstPoint = firstPoint;
+    public void setTopLeftPoint(Point topLeftPoint) {
+        this.topLeftPoint = topLeftPoint;
     }
-
-    public int getSecondPoint() {
-        return secondPoint;
+    private Point getBottomRightPoint() {
+        return this.bottomRightPoint;
     }
-
-    public void setSecondPoint(int secondPoint) {
-        this.secondPoint = secondPoint;
+    public void setBottomRightPoint(Point bottomRightPoint) {
+        this.bottomRightPoint = bottomRightPoint;
     }
-
-//    public int getPerimeter() { // два метода
-//        Point firstpoint = new Point(firstPoint.getX(), secondPoint.getY());
-//        double length = Math.sqrt((secondPoint.getY() - firstPoint.getY() * (secondPoint.getY() - firstPoint.getY()) + (secondPoint.getX() - firstPoint.getX()) *(secondPoint.getX() - firstPoint.getX())));
-//        double width = Math.sqrt((firstpoint.getY() - secondPoint.getY()) * (firstpoint.getY() - secondPoint.getY()) + firstpoint.getX() - secondPoint.getX()) * (firstpoint.getX() - secondPoint.getX());
-//        double perimeter = length * width / 2;
-//      return (int) perimeter;
-//    }
-//
-//    public int getArea() {
-//
-//    }
-
+    public double getPerimeter() {
+        Point topRightPoint = new Point(bottomRightPoint.x, topLeftPoint.y);
+        double perimeter = (Math.abs(topLeftPoint.y - bottomRightPoint.y) + Math.abs(topRightPoint.x - topLeftPoint.x)) * 2;
+        return perimeter;
+    }
+    public double getArea() {
+        Point topRightPoint = new Point(bottomRightPoint.x, topLeftPoint.y);
+        double area = Math.abs(topLeftPoint.y - bottomRightPoint.y) * Math.abs(topRightPoint.x - topLeftPoint.x);
+        return area;
+    }
 }

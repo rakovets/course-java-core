@@ -4,7 +4,6 @@ public class Time {
     private int hours;
     private int minutes;
     private int seconds;
-    private int totalSeconds;
 
     Time(int totalSeconds) {
         this.hours = totalSeconds / (60 * 60);
