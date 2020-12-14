@@ -28,5 +28,23 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        String response = new String();
+        if (firstFuelReserves < secondFuelReserves && firstFuelReserves < thirdFuelReserves) {
+            response = "1";
+        } else if (firstFuelReserves > secondFuelReserves && secondFuelReserves < thirdFuelReserves) {
+            response = "2";
+        } else if (firstFuelReserves > thirdFuelReserves && secondFuelReserves > thirdFuelReserves) {
+            response = "3";
+        } else if (firstFuelReserves == secondFuelReserves && thirdFuelReserves != firstFuelReserves && thirdFuelReserves != secondFuelReserves) {
+            response = "1 2";
+        } else if (secondFuelReserves == thirdFuelReserves && firstFuelReserves != thirdFuelReserves && firstFuelReserves != secondFuelReserves) {
+            response = "2 3";
+        } else if (firstFuelReserves == thirdFuelReserves && secondFuelReserves != thirdFuelReserves && secondFuelReserves != firstFuelReserves) {
+            response = "1 3";
+        } else if (firstFuelReserves == secondFuelReserves && secondFuelReserves == thirdFuelReserves && firstFuelReserves == thirdFuelReserves) {
+            response = "1 2 3";
+        }
+        System.out.println(response);
     }
 }
