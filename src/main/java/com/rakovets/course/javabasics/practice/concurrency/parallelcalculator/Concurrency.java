@@ -1,5 +1,7 @@
 package com.rakovets.course.javabasics.practice.concurrency.parallelcalculator;
 
+import com.rakovets.course.javabasics.util.AnsiColorCode;
+import com.rakovets.course.javabasics.util.StandardOutputUtil;
 
 import java.util.*;
 
@@ -20,10 +22,10 @@ public class Concurrency {
     }
 
     public static void getMaxElementFromArrayWithThreads(int numbersThreads, LinkedList<int[]> listArrays) {
-        ParallelCalculation threadsRunnable = new ParallelCalculation(listArrays);
         for (int t = 0; t < numbersThreads; t++) {
+            ParallelCalculation threadsRunnable = new ParallelCalculation(listArrays, t, numbersThreads);
             Thread thread = new Thread(threadsRunnable);
-            System.out.println("Thread " + thread.getName());
+            System.out.println(thread.getName() + " has been created");
             thread.start();
         }
     }
@@ -47,7 +49,7 @@ public class Concurrency {
     }
 
     public static LinkedList<int[]> getArraysList() {
-        LinkedList<int[]> arrayList = new LinkedList<int[]>();
+        LinkedList<int[]> arrayList = new LinkedList<>();
         for (int i = 0; i < 10; i++) {
             int lenght = Concurrency.getLengthForArray(i);
             int[] tempArray = new int[lenght];

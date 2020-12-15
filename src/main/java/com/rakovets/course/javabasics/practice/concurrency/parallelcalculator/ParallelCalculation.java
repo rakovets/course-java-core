@@ -5,30 +5,39 @@ import com.rakovets.course.javabasics.util.StandardOutputUtil;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 public class ParallelCalculation implements Runnable {
     public LinkedList<int[]> list;
+    private final int iterator;
+    private final int numberOfThreads;
 
-    public ParallelCalculation(LinkedList<int[]> list) {
+    public ParallelCalculation(LinkedList<int[]> list, int iterator, int numberOfThreads) {
         this.list = list;
+        this.iterator = iterator;
+        this.numberOfThreads = numberOfThreads;
     }
 
     @Override
     public void run() {
-        StandardOutputUtil.printlnWithTime("ParallelCalculation: started", AnsiColorCode.FG_YELLOW_BOLD);
+        int arraysInOneThread;
+        if (list.size() % numberOfThreads == 0) {
+            arraysInOneThread = list.size() / numberOfThreads;
+        } else {
+            arraysInOneThread = list.size() / numberOfThreads + 1;
+        }
+        int iter = iterator * arraysInOneThread;
         HashMap<String, Integer> resultList = new HashMap<>();
-        for (int[] array : list) {
-            int max = array[0];
-            for (int i = 0; i < array.length - 1; i++) {
-                if (max < array[i]) {
-                    max = array[i];
+        int max = list.get(0)[0];
+        for (int n = iter; (n < (iterator * arraysInOneThread + arraysInOneThread)) && (n < list.size()); n++) {
+            for (int i = 0; i < list.get(n).length; i++) {
+                if (max < list.get(n)[i]) {
+                    max = list.get(n)[i];
                 }
             }
-            resultList.put("Array_" + list.indexOf(array), max);
+            resultList.put("Array " + list.indexOf(list.get(n)), max);
         }
-        System.out.println(resultList);
-        StandardOutputUtil.printlnWithTime("PrintRunnable: finished", AnsiColorCode.FG_YELLOW_BOLD);
-
+        StandardOutputUtil.printlnWithTime("Calculation: started for thread = " + iterator + " max Element= " + resultList, AnsiColorCode.FG_YELLOW_BOLD);
+        StandardOutputUtil.printlnWithTime("Print Runnable: finished for thread= " + iterator, AnsiColorCode.FG_RED_BOLD);
     }
 }
+
