@@ -22,5 +22,9 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int standard_weight = 110;
+        int user_weight = height - standard_weight;
+        int difference = weight - user_weight;
+        System.out.println(difference);
     }
 }
