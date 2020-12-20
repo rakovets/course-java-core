@@ -1,6 +1,8 @@
 = course-java-basics
 
-This project is for the course "Java Basics". It contains for each theme of this course:
+This project is for the course "Java Basics".
+
+It contains for each theme of this course:
 
 - code examples
 - tasks or set specifications of tasks

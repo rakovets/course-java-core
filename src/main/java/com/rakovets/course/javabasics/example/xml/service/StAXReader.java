@@ -15,11 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.CURRENT;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.INTERACTIVE;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.ITEM;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.MODE;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.UNIT;
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.*;
 
 
 public class StAXReader {

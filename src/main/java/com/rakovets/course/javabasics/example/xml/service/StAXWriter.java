@@ -1,8 +1,6 @@
 package com.rakovets.course.javabasics.example.xml.service;
 
 
-import com.rakovets.course.javabasics.example.xml.model.ItemField;
-
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLOutputFactory;
@@ -15,11 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.CONFIG;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.CURRENT;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.INTERACTIVE;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.MODE;
-import static com.rakovets.course.javabasics.example.xml.model.ItemField.UNIT;
+import static com.rakovets.course.javabasics.example.xml.model.ItemField.*;
 
 public class StAXWriter {
     private final static String EMPTY_PREFIX = "";
