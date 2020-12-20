@@ -2,7 +2,7 @@
 
 This project is for the course "Java Basics". It contains for each theme of this course:
 
-- examples
+- code examples
 - tasks or set specifications of tasks
 - tests for these tasks
 - utils for tasks/tests
@@ -11,7 +11,7 @@ This project is for the course "Java Basics". It contains for each theme of this
 
 |===
 |*Theme*|*Directory/package*
-|Intro to Java.|
+|Intro.|link:src/main/resources/intro.adoc[intro.adoc]
 |Variables. Data types. Operators.|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
 |Conditional constructions.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
 |Methods.|link:src/main/java/com/rakovets/course/javabasics/practice/methods[package: methods]
