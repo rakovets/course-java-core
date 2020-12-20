@@ -22,5 +22,8 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        double percent = annualPercentage / 100.0;
+        double year2020 = (deposit * percent * 5) + deposit;
+        System.out.println(year2020);
     }
 }
