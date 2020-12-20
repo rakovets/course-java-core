@@ -1,4 +1,4 @@
-name: Build with Gradle
+name: Test with Gradle
 on:
   push:
     branches-ignore:
@@ -13,8 +13,5 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Build with Gradle
-        uses: eskatos/gradle-command-action@v1
-        with:
-          gradle-version: 6.6.1
-          arguments: test
+      - name: Test with Gradle
+        run: ./gradlew test
