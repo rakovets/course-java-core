@@ -19,5 +19,10 @@ public class Task12 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int sec = playingTimeInSeconds % 60;
+        int min = (playingTimeInSeconds / 60) % 60;
+        int hours = (playingTimeInSeconds / 60) / 60;
+        int days = (playingTimeInSeconds / 24) / 24;
+        System.out.print( + days + " " + hours + ":" + min + ":" + sec);
     }
 }
