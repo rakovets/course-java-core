@@ -30,7 +30,7 @@ Please follow these steps to have your contribution considered by the maintainer
 The packages structure is as follows:
 
 ```out
-com.rakovets.course
+main.java.com.rakovets.rakovets.course
     |- util
     +- java.basic
         |- theme1
@@ -60,4 +60,4 @@ where:
 
 ### Java Code Style
 
-All Java code must adhere to [Java Style Code](https://github.com/rakovets/course-java-basic/wiki/java-code-style)
+All Java code must adhere to [Java Style Code](https://wiki-java-basic.dmitryrakovets.com/#/common/code-convention)
