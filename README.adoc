@@ -1,0 +1,55 @@
+= course-java-basics
+
+This project is for the course "Java Basics".
+
+It contains for each theme of this course:
+
+- code examples
+- tasks or set specifications of tasks
+- tests for these tasks
+- utils for tasks/tests
+
+== Theme
+
+|===
+|*Theme*|*Directory/package*
+|Intro.|link:src/main/resources/intro.adoc[intro.adoc]
+|Variables. Data types. Operators.|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
+|Conditional constructions.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
+|Methods.|link:src/main/java/com/rakovets/course/javabasics/practice/methods[package: methods]
+|Loops.|link:src/main/java/com/rakovets/course/javabasics/practice/loops[package: loops]
+|Arrays.|link:src/main/java/com/rakovets/course/javabasics/practice/arrays[package: arrays]
+|OOP: Classes and Objects.|link:src/main/resources/oop-classes-and-objects.adoc[oop-classes-and-objects.adoc]
+|Strings.|link:src/main/resources/strings.adoc[strings.adoc], link:src/main/java/com/rakovets/course/javabasics/practice/strings[package: strings]
+|Regular Expressions.|link:src/main/resources/regular-expressions.adoc[regular-expressions.adoc]
+|OOP: Inheritance and Polymorphism.|link:src/main/resources/oop-inheritance-and-polymorphism.adoc[oop-inheritance-and-polymorphism.adoc]
+|Generic Types (link:https://jcp.org/en/jsr/detail?id=14[JSR 14]).|link:src/main/resources/generic-types.adoc[generic-types.adoc]
+|Java Collection Framework: Collection.|link:src/main/resources/jcf-collection.adoc[jcf-collection.adoc]
+|Java Collection Framework: List.|link:src/main/resources/jcf-list.adoc[jcf-list.adoc]
+|Java Collection Framework: Set.|link:src/main/resources/jcf-set.adoc[jcf-set.adoc]
+|Java Collection Framework: Map.|link:src/main/resources/jcf-map.adoc[jcf-map.adoc]
+|Exception Handling.|link:src/main/resources/exception-handling.adoc[exception-handling.adoc]
+|Java IO.|link:src/main/resources/java-io.adoc[java-io.adoc]
+|Concurrency: common.|link:src/main/resources/concurrency-common.adoc[concurrency-common.adoc]
+|Concurrency: thread synchronization.|link:src/main/resources/concurrency-thread-synchronization.adoc[concurrency-thread-synchronization.adoc]
+|Concurrency: utilities. (link:https://jcp.org/en/jsr/detail?id=166[JSR 166])|link:src/main/resources/concurrency-utilities.adoc[concurrency-utilities.adoc]
+|Lambda Expressions (link:https://jcp.org/en/jsr/detail?id=335[JSR 335]).|link:src/main/resources/lambda-expressions.adoc[lambda-expressions.adoc]
+|Date and Time API (link:https://jcp.org/en/jsr/detail?id=310[JSR 310]).|link:src/main/resources/date-and-time.adoc[date-and-time.adoc]
+|Reflection.|link:src/main/resources/reflection.adoc[reflection.adoc]
+|XML.|link:src/main/resources/xml.adoc[xml.adoc]
+|Networking.|link:src/main/resources/networking.adoc[networking.adoc]
+|===
+
+== Code of Conduct
+
+This project is governed by the link:.github/CODE_OF_CONDUCT.md[Code of Conduct].
+By participating, you are expected to uphold this code of conduct.
+
+== Contributing
+
+Follow link:.github/CONTRIBUTING.md[CONTRIBUTING.md].
+
+== License
+
+The project is released under version 2.0 of the
+link:https://www.gnu.org/licenses/old-licenses/gpl-2.0.html[GNU General Public License].
