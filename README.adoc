@@ -12,10 +12,10 @@ It contains for each theme of this course:
 == Theme
 
 |===
-|*Theme*|*Directory/package*
+|*Theme*|*Links*
 |Intro.|link:src/main/resources/intro.adoc[intro.adoc]
-|Variables. Data types. Operators.|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
-|Conditional constructions.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
+|Data types. Variables. Operators.|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
+|Conditional statements.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
 |Methods.|link:src/main/java/com/rakovets/course/javabasics/practice/methods[package: methods]
 |Loops.|link:src/main/java/com/rakovets/course/javabasics/practice/loops[package: loops]
 |Arrays.|link:src/main/java/com/rakovets/course/javabasics/practice/arrays[package: arrays]
@@ -32,7 +32,7 @@ It contains for each theme of this course:
 |Java IO.|link:src/main/resources/java-io.adoc[java-io.adoc]
 |Concurrency: common.|link:src/main/resources/concurrency-common.adoc[concurrency-common.adoc]
 |Concurrency: thread synchronization.|link:src/main/resources/concurrency-thread-synchronization.adoc[concurrency-thread-synchronization.adoc]
-|Concurrency: utilities. (link:https://jcp.org/en/jsr/detail?id=166[JSR 166])|link:src/main/resources/concurrency-utilities.adoc[concurrency-utilities.adoc]
+|Concurrency: utilities(link:https://jcp.org/en/jsr/detail?id=166[JSR 166]). |link:src/main/resources/concurrency-utilities.adoc[concurrency-utilities.adoc]
 |Lambda Expressions (link:https://jcp.org/en/jsr/detail?id=335[JSR 335]).|link:src/main/resources/lambda-expressions.adoc[lambda-expressions.adoc]
 |Date and Time API (link:https://jcp.org/en/jsr/detail?id=310[JSR 310]).|link:src/main/resources/date-and-time.adoc[date-and-time.adoc]
 |Reflection.|link:src/main/resources/reflection.adoc[reflection.adoc]
