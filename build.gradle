@@ -1,0 +1,46 @@
+plugins {
+    id "java"
+    id "idea"
+    id "maven-publish"
+}
+
+group = "com.rakovets.course"
+version = "1.0.0"
+
+compileJava.options.encoding = "UTF-8"
+
+java {
+    withSourcesJar()
+
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(15)
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter:5.6.3")
+}
+
+
+test() {
+    useJUnitPlatform()
+    systemProperty("file.encoding", "UTF-8")
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/rakovets/course-java-basics")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
