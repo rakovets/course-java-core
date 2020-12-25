@@ -22,5 +22,8 @@ public class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+
+        int fullyLoadedTrucks = cargo / carryingCapacity;
+        System.out.print(fullyLoadedTrucks);
     }
 }
