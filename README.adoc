@@ -14,9 +14,8 @@ It contains for each theme of this course:
 |===
 |*Theme*|*Links*
 |Intro.|link:src/main/resources/intro.adoc[intro.adoc]
-|Data types. Variables. Operators.|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
+|Data types. Variables. Operators. Methods|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
 |Conditional statements.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
-|Methods.|link:src/main/java/com/rakovets/course/javabasics/practice/methods[package: methods]
 |Loops.|link:src/main/java/com/rakovets/course/javabasics/practice/loops[package: loops]
 |Arrays.|link:src/main/java/com/rakovets/course/javabasics/practice/arrays[package: arrays]
 |OOP: Classes and Objects.|link:src/main/resources/oop-classes-and-objects.adoc[oop-classes-and-objects.adoc]

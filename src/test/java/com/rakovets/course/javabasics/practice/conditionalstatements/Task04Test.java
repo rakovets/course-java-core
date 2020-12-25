@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,24 +9,28 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task04Test extends StandardOutputTest {
-    static Stream<Arguments> provideWeekdays() {
+/**
+ * @author Dmitry Rakovets
+ */
+class Task04Test {
+    static Stream<Arguments> testProvider() {
         return Stream.of(
-                Arguments.of("1", "monday"),
-                Arguments.of("2", "tuesday"),
-                Arguments.of("3", "wednesday"),
-                Arguments.of("4", "thursday"),
-                Arguments.of("5", "friday"),
-                Arguments.of("6", "saturday"),
-                Arguments.of("7", "sunday")
+                Arguments.of(0, null),
+                Arguments.of(1, "MONDAY"),
+                Arguments.of(2, "TUESDAY"),
+                Arguments.of(3, "WEDNESDAY"),
+                Arguments.of(4, "THURSDAY"),
+                Arguments.of(5, "FRIDAY"),
+                Arguments.of(6, "SATURDAY"),
+                Arguments.of(7, "SUNDAY"),
+                Arguments.of(8, null)
         );
     }
 
-    @ParameterizedTest(name = "Weekday number: {0}")
-    @MethodSource("provideWeekdays")
-    @DisplayName("Weekday converter")
-    void test(String input, String expected) {
-        Task04.main(new String[]{input});
-        assertEquals(expected, getStandardOutputContent());
+    @ParameterizedTest(name = "Day of week number: {0}")
+    @MethodSource("testProvider")
+    @DisplayName("Day of week converter")
+    void test(int dayOfWeek, String expected) {
+        assertEquals(expected, Task04.getDayOfWeekNumber((byte) dayOfWeek));
     }
 }

@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,26 +9,29 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task03Test extends StandardOutputTest {
-    static Stream<Arguments> healthPointPlayerProvider() {
+/**
+ * @author Dmitry Rakovets
+ */
+class Task03Test {
+    static Stream<Arguments> testProvider() {
         return Stream.of(
-                Arguments.of("0", "RED"),
-                Arguments.of("12", "RED"),
-                Arguments.of("25", "ORANGE"),
-                Arguments.of("49", "ORANGE"),
-                Arguments.of("50", "YELLOW"),
-                Arguments.of("57", "YELLOW"),
-                Arguments.of("75", "GREEN"),
-                Arguments.of("91", "GREEN"),
-                Arguments.of("100", "GREEN")
+                Arguments.of(0, 346, null),
+                Arguments.of(1, 6432, "RED"),
+                Arguments.of(99, 400, "RED"),
+                Arguments.of(50, 200, "ORANGE"),
+                Arguments.of(99, 200, "ORANGE"),
+                Arguments.of(50, 100, "YELLOW"),
+                Arguments.of(149, 200, "YELLOW"),
+                Arguments.of(75, 100, "GREEN"),
+                Arguments.of(1001, 1001, "GREEN"),
+                Arguments.of(101, 100, null)
         );
     }
 
-    @ParameterizedTest(name = "HP percentage: {0}")
-    @MethodSource("healthPointPlayerProvider")
+    @ParameterizedTest(name = "Current HP: {0}")
+    @MethodSource("testProvider")
     @DisplayName("Color HP")
-    void test(String position, String expected) {
-        Task03.main(new String[]{position});
-        assertEquals(expected, getStandardOutputContent());
+    void test(int currentHealthPoint, int maxHealthPoint, String expected) {
+        assertEquals(expected, Task03.getColorHealthPoint(currentHealthPoint, maxHealthPoint));
     }
 }

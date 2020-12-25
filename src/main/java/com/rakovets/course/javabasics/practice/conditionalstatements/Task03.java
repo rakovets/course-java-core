@@ -1,27 +1,44 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import java.util.Scanner;
+import com.rakovets.course.javabasics.util.StandardInputTask;
 
 /**
- * Разработать программу для игрового движка:
- * Необходимо окрасить шкалу HP игрока в соответствующий цвет, в зависимости от количества HP.
- * Меньше 25% - красный, меньше 50% - оранжевый, меньше 75% - желтый, в остальных случаях зеленый,
- * если известно:
+ * Разработать программу для игрового движка.
+ * <p>
+ * Необходимо окрасить шкалу HP игрока в соответствующий цвет, в зависимости от процентного соотношения максимального
+ * количества HP и текущего.
  *
- * @param healthPointPercentage - количество HP игрока в процентах
- * @return 'RED'/'ORANGE'/'YELLOW'/'GREEN'
+ * @author Dmitry Rakovets
  */
-public class Task03 {
+public class Task03 extends StandardInputTask {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int currentHealthPoint = 10;
+        int maxHealthPoint = 100;
 
-        // Код необходимый для тестирования, не изменять
-        Scanner scanner = new Scanner(System.in);
-        int healthPointPercentage = (args.length != 1) ? scanner.nextInt() : Integer.parseInt(args[0]);
+        String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
+        System.out.printf("Result: %s", colorHealthPoint);
+    }
 
+    /**
+     * Возвращает цвет для шкалы HP игрока, в зависимости от процентного соотношения максимального количества HP и
+     * текущего. Когда меньше 25% - красный, меньше 50% - оранжевый, меньше 75% - желтый, меньше либо равно 100 -
+     * зеленый.
+     *
+     * @param currentHealthPoint текущее количество HP игрока
+     * @param maxHealthPoint     максимальное количество HP игрока
+     * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
+     */
+    static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return null;
     }
 }
