@@ -9,6 +9,12 @@ It contains for each theme of this course:
 - tests for these tasks
 - utils for tasks/tests
 
+== Branches
+
+* `master` - production code (merge after release group)
+* `develop` - feature/refactor/fix code for all themes
+* `${theme}` - contains code for specific theme
+
 == Theme
 
 |===
