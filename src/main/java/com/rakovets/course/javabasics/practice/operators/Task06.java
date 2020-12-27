@@ -19,5 +19,12 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int nD = playingTimeInSeconds / 86400;
+        playingTimeInSeconds = playingTimeInSeconds - (nD * 86400);
+        int nH = playingTimeInSeconds / 3600;
+        playingTimeInSeconds = playingTimeInSeconds - (nH * 3600);
+        int nM = playingTimeInSeconds / 60;
+        playingTimeInSeconds = playingTimeInSeconds - (nM * 60);
+        System.out.print(nD + " " + nH + ":" + nM + ":" + playingTimeInSeconds);
     }
 }
