@@ -12,8 +12,8 @@ public class Task02 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int cargo = 20;
-        int carryingCapacity = 20;
+        int cargo = 100;
+        int carryingCapacity = 22;
 
         // Код необходимый для тестирования, не изменять
         cargo = (args.length == 0) ? cargo : Integer.parseInt(args[0]);
