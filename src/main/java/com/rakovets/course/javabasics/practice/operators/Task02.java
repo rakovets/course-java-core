@@ -13,7 +13,7 @@ public class Task02 {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
         int cargo = 100;
-        int carryingCapacity = 15;
+        int carryingCapacity = 13;
 
         // Код необходимый для тестирования, не изменять
         cargo = (args.length == 0) ? cargo : Integer.parseInt(args[0]);
