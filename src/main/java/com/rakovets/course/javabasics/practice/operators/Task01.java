@@ -12,7 +12,7 @@ public class Task01 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int cargo = 100;
+        int cargo = 120;
         int carryingCapacity = 10;
 
         // Код необходимый для тестирования, не изменять
