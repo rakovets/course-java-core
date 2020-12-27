@@ -13,7 +13,7 @@ public class Task03 {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
         int deposit = 1521;
-        int annualPercentage = 6;
+        int annualPercentage = 7;
 
         // Код необходимый для тестирования, не изменять
         deposit = (args.length == 0) ? deposit : Integer.parseInt(args[0]);
@@ -22,7 +22,7 @@ public class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        double total_deposit = deposit + 5 * deposit * annualPercentage / 100;
-        System.out.print(total_deposit);
+        double total_deposit;
+        System.out.print(total_deposit = deposit + 5 * deposit * annualPercentage / 100);
     }
 }
