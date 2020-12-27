@@ -14,8 +14,8 @@ public class Task05 {
     public static void main(String[] args) {
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int height = 186;
-        int weight = 86;
+        int height = 188;
+        int weight = 83;
 
         // Код необходимый для тестирования, не изменять
         height = (args.length == 2) ? Integer.parseInt(args[0]) : height;
@@ -24,5 +24,8 @@ public class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int standardWeight = height - 110;
+        int overWeight = weight - standardWeight;
+        System.out.print(overWeight);
     }
 }
