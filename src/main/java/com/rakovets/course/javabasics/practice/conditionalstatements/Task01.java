@@ -20,8 +20,8 @@ public class Task01 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int sizeTop = 15;
-        int positionPlayerByDamage = 5;
+        int sizeTop = 5;
+        int positionPlayerByDamage = 10;
 
         boolean topPlayer = isTopPlayer(sizeTop, positionPlayerByDamage);
         System.out.printf("Result: %b", topPlayer);
@@ -40,6 +40,6 @@ public class Task01 extends StandardInputTask {
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        return sizeTop >= positionPlayerByDamage;
     }
 }
