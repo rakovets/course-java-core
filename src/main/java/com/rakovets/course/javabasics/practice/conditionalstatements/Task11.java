@@ -1,33 +1,45 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для desktop приложения:
- * Необходимо определить, какие символы вводит пользователь:
- * - латиници
- * - кирилица
- * - цифра
- * - спец. символ
- * Так же программа не должна зависеть от регистра. Известно:
- *
- * @param letter - символ введенный пользователем
- * @return 'latin'/'cyrillic'/'digit'/'undefined'
+ * Разработать программу для desktop приложения.
  * <p>
  * Help: Unicode (decimal)
+ * <p>
+ * Необходимо определить, какие символы вводит пользователь:
+ * <ul>
+ *  <li>латиница</li>
+ *  <li>кирилица</li>
+ *  <li>цифра</li>
+ *  <li>спец. символ</li>
+ * </ul>
+ * <p>
+ * Так же программа не должна зависеть от регистра.
  */
-
 public class Task11 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        char symbol = 'а';
 
-        // Код необходимый для тестирования, не изменять
-        Scanner scanner = new Scanner(System.in);
-        char letter = (args.length != 1) ? scanner.next().charAt(0) : args[0].charAt(0);
+        String monthName = getSymbolType(symbol);
+        System.out.printf("Result: %s", monthName);
+    }
 
+    /**
+     * Определяет к какому типу относится данный символ.
+     *
+     * @param symbol символ
+     * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
+     */
+    static String getSymbolType(char symbol) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return null;
     }
 }

@@ -3,9 +3,9 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
 /**
  * Разработать программу для сервиса доставки.
  * <p>
- * Определить номер подъезда дома для текущего клиента.
+ * Определить номер этажа дома для текущего клиента.
  */
-public class Task09 {
+public class Task13 {
     /**
      * The entry point of the task
      *
@@ -19,19 +19,19 @@ public class Task09 {
         int numberApartmentsPerFloor = 4;
         int apartmentNumber = 68;
 
-        int porchNumber = getPorchNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
-        System.out.printf("Result: %s", porchNumber);
+        int floorNumber = getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
+        System.out.printf("Result: %s", floorNumber);
     }
 
     /**
-     * Определяет номер подъезда дома для текущего клиента.
+     * Определяет номер этажа дома для текущего клиента.
      *
      * @param numberFloors             количество этажей
      * @param numberApartmentsPerFloor количество квартир на этаже
      * @param apartmentNumber          номер квартиры
-     * @return номер подъезда
+     * @return номер этажа
      */
-    static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
+    static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return 0;

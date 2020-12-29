@@ -10,25 +10,29 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Dmitry Rakovets
+ */
 class Task11Test extends StandardOutputTest {
     static Stream<Arguments> provideSymbols() {
         return Stream.of(
-                Arguments.of("1", "digit"),
-                Arguments.of("0", "digit"),
-                Arguments.of("О", "cyrillic"),
-                Arguments.of("Н", "cyrillic"),
-                Arguments.of("O", "latin"),
-                Arguments.of("l", "latin"),
-                Arguments.of("+", "undefined"),
-                Arguments.of("[", "undefined")
+                Arguments.of('1', "digit"),
+                Arguments.of('0', "digit"),
+                Arguments.of('О', "cyrillic"),
+                Arguments.of('Н', "cyrillic"),
+                Arguments.of('O', "latin"),
+                Arguments.of('l', "latin"),
+                Arguments.of('+', "undefined"),
+                Arguments.of('[', "undefined")
         );
     }
 
     @ParameterizedTest(name = "Symbol: {0}")
     @MethodSource("provideSymbols")
     @DisplayName("Symbol-switcher")
-    void test(String input, String expected) {
-        Task11.main(new String[]{input});
-        assertEquals(expected, getStandardOutputContent());
+    void test(char symbol, String expected) {
+        String actual = Task11.getSymbolType(symbol);
+
+        assertEquals(expected, actual);
     }
 }

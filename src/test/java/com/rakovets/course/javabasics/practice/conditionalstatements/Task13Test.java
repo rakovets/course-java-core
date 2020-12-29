@@ -13,15 +13,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-class Task09Test extends StandardOutputTest {
+class Task13Test extends StandardOutputTest {
     static Stream<Arguments> provideApartments() {
         return Stream.of(
-                Arguments.of(2, 10, 45, 3),
-                Arguments.of(9, 4, 169, 5),
-                Arguments.of(18, 10, 180, 1),
+                Arguments.of(2, 10, 45, 1),
+                Arguments.of(9, 4, 169, 7),
+                Arguments.of(18, 10, 180, 18),
                 Arguments.of(1, 1, 1, 1),
-                Arguments.of(10, 5, 11, 1),
-                Arguments.of(10, 4, 10, 1)
+                Arguments.of(10, 5, 11, 3),
+                Arguments.of(10, 4, 10, 3)
         );
     }
 
@@ -29,7 +29,7 @@ class Task09Test extends StandardOutputTest {
     @MethodSource("provideApartments")
     @DisplayName("Apartment house")
     void test(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber, int expected) {
-        int actual = Task09.getPorchNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
+        int actual = Task13.getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
 
         assertEquals(expected, actual);
     }

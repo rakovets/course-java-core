@@ -10,24 +10,28 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Dmitry Rakovets
+ */
 class Task08Test extends StandardOutputTest {
     static Stream<Arguments> battleSettingsProvider() {
         return Stream.of(
-                Arguments.of(new String[]{"100", "UNDEAD"}, "150"),
-                Arguments.of(new String[]{"10", "ZOMBIE"}, "15"),
-                Arguments.of(new String[]{"90", "SAINT"}, "45"),
-                Arguments.of(new String[]{"15", "ANIMAL"}, "15"),
-                Arguments.of(new String[]{"25", "HUMANOID"}, "25"),
-                Arguments.of(new String[]{"1000", "PLANT"}, "1000"),
-                Arguments.of(new String[]{"100", "GHOST"}, "100")
+                Arguments.of(100, "UNDEAD", true, 150),
+                Arguments.of(10, "ZOMBIE", true, 15),
+                Arguments.of(90, "SAINT", true, 45),
+                Arguments.of(15, "ANIMAL", true, 15),
+                Arguments.of(25, "HUMANOID", true, 25),
+                Arguments.of(1000, "PLANT", true, 1000),
+                Arguments.of(100, "GHOST", true, 100)
         );
     }
 
     @ParameterizedTest(name = "Weapon damage and type mob: {0}")
     @MethodSource("battleSettingsProvider")
     @DisplayName("Battle with mob")
-    void test(String[] battleSetting, String expected) {
-        Task08.main(battleSetting);
-        assertEquals(expected, getStandardOutputContent());
+    void test(int damage, String typeMob, boolean hasHolyAttribute, int expected) {
+        int totalDamage = Task08.getTotalDamage(damage, typeMob, hasHolyAttribute);
+
+        assertEquals(expected, totalDamage);
     }
 }
