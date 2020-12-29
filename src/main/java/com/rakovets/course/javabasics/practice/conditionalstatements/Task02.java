@@ -18,7 +18,7 @@ public class Task02 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int hour = 1;
+        int hour = 22;
 
         String greeting = getGreetingByHour(hour);
         System.out.printf("Result: %s", greeting);
@@ -39,6 +39,16 @@ public class Task02 extends StandardInputTask {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = null;
+        if(hour >= 6 && hour <= 11) {
+            result = "Good morning";
+        }else if (hour >= 12 && hour <= 17) {
+            result = "Good day";
+        } else if (hour >= 18 && hour <= 23) {
+            result = "Good evening";
+        } else if (hour >= 0 && hour <= 5) {
+            result = "Good night";
+        }
+        return result;
     }
 }
