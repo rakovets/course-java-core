@@ -40,6 +40,6 @@ public class Task01 extends StandardInputTask {
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        return sizeTop >= positionPlayerByDamage;
     }
 }
