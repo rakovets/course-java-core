@@ -24,8 +24,8 @@ public class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int tanksKilledFirstPlayer = 2;
-        int tanksKilledSecondPlayer = 4;
+        int tanksKilledFirstPlayer = 4;
+        int tanksKilledSecondPlayer = 2;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
@@ -41,6 +41,8 @@ public class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+            return null;
+        }
     }
-}
+
