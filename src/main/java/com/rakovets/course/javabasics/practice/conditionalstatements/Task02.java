@@ -18,7 +18,7 @@ public class Task02 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int hour = 855;
+        int hour = 21;
 
         String greeting = getGreetingByHour(hour);
         System.out.printf("Result: %s", greeting);
