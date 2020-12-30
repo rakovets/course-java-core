@@ -40,7 +40,7 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         if (currentHealthPoint > 0) {
-            if (currentHealthPoint < maxHealthPoint*0.25) {
+            if (currentHealthPoint < maxHealthPoint * 0.25) {
                 return "RED";
             }
             if (currentHealthPoint < maxHealthPoint * 0.5) {
@@ -50,7 +50,7 @@ public class Task03 extends StandardInputTask {
                 return "YELLOW";
             }
             if (currentHealthPoint <= maxHealthPoint) {
-                return ("GREEN");
+                return "GREEN";
             }
         }
         return null;
