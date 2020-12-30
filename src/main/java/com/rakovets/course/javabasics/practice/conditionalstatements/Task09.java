@@ -17,7 +17,7 @@ public class Task09 {
         // аргументов. Типы данных изменять нельзя
         int numberFloors = 9;
         int numberApartmentsPerFloor = 4;
-        int apartmentNumber = 180;
+        int apartmentNumber = 172;
 
         int porchNumber = getPorchNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", porchNumber);
@@ -38,7 +38,7 @@ public class Task09 {
         if (porch >= apartmentNumber) {
             return  1;
         }
-        else if (porch < apartmentNumber) {
+        else {
                 if (apartmentNumber / porch > 0 && apartmentNumber % porch > 0) {
                     return apartmentNumber / porch + 1;
                 }
