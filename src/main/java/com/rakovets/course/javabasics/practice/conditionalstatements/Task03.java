@@ -39,6 +39,25 @@ public class Task03 extends StandardInputTask {
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        double playerPercentage = (double) currentHealthPoint / maxHealthPoint * 100;
+
+        String colorHealthPoint = null;
+        if (playerPercentage > 0 && playerPercentage < 25) {
+            colorHealthPoint = "RED";
+        } else if (playerPercentage >= 25 && playerPercentage < 50) {
+            colorHealthPoint = "ORANGE";
+        } else if (playerPercentage >= 50 && playerPercentage < 75) {
+            colorHealthPoint = "YELLOW";
+        } else if (playerPercentage >= 75 && playerPercentage <= 100) {
+            colorHealthPoint = "GREEN";
+        } else {
+            return null;
+        }
+        {
+            return colorHealthPoint;
+        }
     }
 }
+
+
