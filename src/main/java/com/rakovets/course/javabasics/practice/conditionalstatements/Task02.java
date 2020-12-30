@@ -39,6 +39,7 @@ public class Task02 extends StandardInputTask {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if
         return null;
     }
 }
