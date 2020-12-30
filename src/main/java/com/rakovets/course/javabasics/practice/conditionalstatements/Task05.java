@@ -22,7 +22,7 @@ public class Task05 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        byte monthNumber = (int)12;
+        byte monthNumber = 12;
 
 
         String monthName = getMonthName(monthNumber);
