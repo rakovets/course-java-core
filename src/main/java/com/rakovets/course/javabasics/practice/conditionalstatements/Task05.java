@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
 
 import com.rakovets.course.javabasics.util.StandardInputTask;
 
+import java.time.Month;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -20,7 +22,8 @@ public class Task05 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        byte monthNumber = 1;
+        byte monthNumber = (int)12;
+
 
         String monthName = getMonthName(monthNumber);
         System.out.printf("Result: %s", monthName);
@@ -35,6 +38,16 @@ public class Task05 extends StandardInputTask {
     static String getMonthName(byte monthNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (monthNumber>0 && monthNumber < 13) {
+            return String.valueOf(Month.of(monthNumber));
+        }
+       else {
+                return null;
+            }
+        }
     }
-}
+
+
+
+
+
