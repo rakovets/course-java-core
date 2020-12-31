@@ -49,8 +49,6 @@ public class Task08 {
             } else if (typeMob == "ANIMAL" | typeMob == "HUMANOID" | typeMob == "PLANT" | typeMob == "GHOST" )  {
                 return damage;
             }
-        } else  {
-            return damage;
         }
         return 0;
     }
