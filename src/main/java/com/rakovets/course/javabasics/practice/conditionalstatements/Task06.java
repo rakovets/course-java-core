@@ -43,11 +43,9 @@ public class Task06 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
             return "Player 1: " +  (BONUS_POINT + (KILL_POINT * tanksKilledFirstPlayer)) + "." + " Player 2: " + (KILL_POINT * tanksKilledSecondPlayer);
-        }
-        else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
             return "Player 1: " + KILL_POINT * tanksKilledFirstPlayer + "." + " Player 2: " + (BONUS_POINT + (KILL_POINT *tanksKilledSecondPlayer));
-        }
-        else if (tanksKilledFirstPlayer == tanksKilledSecondPlayer) {
+        } else if (tanksKilledFirstPlayer == tanksKilledSecondPlayer) {
             return "Player 1: " + (KILL_POINT * tanksKilledFirstPlayer) + "." + " Player 2: " + (KILL_POINT *tanksKilledSecondPlayer);
         }
             return null;
