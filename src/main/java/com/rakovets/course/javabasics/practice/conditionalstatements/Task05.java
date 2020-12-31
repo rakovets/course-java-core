@@ -22,7 +22,7 @@ public class Task05 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        byte monthNumber = 12;
+        byte monthNumber = 5;
 
 
         String monthName = getMonthName(monthNumber);
@@ -40,8 +40,7 @@ public class Task05 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         if (monthNumber>0 && monthNumber < 13) {
             return String.valueOf(Month.of(monthNumber));
-        }
-       else {
+        } else {
                 return null;
             }
         }
