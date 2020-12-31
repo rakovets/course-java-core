@@ -37,12 +37,10 @@ public class Task09 {
         int porch = numberFloors * numberApartmentsPerFloor;
         if (porch >= apartmentNumber) {
             return  1;
-        }
-        else {
+        } else {
                 if (apartmentNumber / porch > 0 && apartmentNumber % porch > 0) {
                     return apartmentNumber / porch + 1;
-                }
-                else if (apartmentNumber % porch == 0){
+                } else if (apartmentNumber % porch == 0){
                     return apartmentNumber/porch;
                 }
         }
