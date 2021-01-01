@@ -41,5 +41,6 @@ public class Task01 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return sizeTop >= positionPlayerByDamage;
+
     }
 }
