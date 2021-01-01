@@ -31,7 +31,7 @@ public class Task14 {
         // аргументов. Типы данных изменять нельзя
         int day = 12;
         int month = 12;
-        int year = 1989;
+        int year = 2008;
 
         String monthName = getZodiacYearName(day, month, year);
         System.out.printf("Result: %s", monthName);
@@ -48,6 +48,20 @@ public class Task14 {
     static String getZodiacYearName(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        int a = year % 12;
+        if (2001 % 12 == a) return "Snake";
+        if (2002 % 12 == a) return "Horse";
+        if (2003 % 12 == a) return "Ram";
+        if (2004 % 12 == a) return "Monkey";
+        if (2005 % 12 == a) return "Rooster";
+        if (2006 % 12 == a) return "Dog";
+        if (2007 % 12 == a) return "Pig";
+        if (2008 % 12 == a) return "Rat";
+        if (2009 % 12 == a) return "Ox";
+        if (2010 % 12 == a) return "Tiger";
+        if (2011 % 12 == a) return "Rabbit";
+        if (2012 % 12 == a) return "Dragon";
+
         return null;
     }
 }
