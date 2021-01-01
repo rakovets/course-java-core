@@ -35,6 +35,7 @@ public class Task04 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
         switch (dayOfWeekNumber) {
+
             case 1:
                 return "MONDAY";
             case 2:
@@ -51,6 +52,7 @@ public class Task04 extends StandardInputTask {
                 return "SUNDAY";
             default:
                 return null;
+
         }
 
     }
