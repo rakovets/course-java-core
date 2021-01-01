@@ -15,7 +15,7 @@ public class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int firstFuelReserves = 100;
+        int firstFuelReserves = 50;
         int secondFuelReserves = 50;
         int thirdFuelReserves = 70;
 
@@ -37,6 +37,13 @@ public class Task10 {
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        if (Math.min(Math.min(firstFuelReserves,secondFuelReserves),thirdFuelReserves) == firstFuelReserves) {
+            return 1;
+        } else if (Math.min(Math.min(firstFuelReserves,secondFuelReserves),thirdFuelReserves) == secondFuelReserves) {
+            return 2;
+        } else {
+            return 3;
+        }
     }
 }
