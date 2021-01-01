@@ -11,8 +11,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * </ul>
  * Определить сколько урона нанесет оружие по данному типу моба (моб - персонаж в игре управляемый компьютером).
  */
-public class Task08 {
-    /**
+public class Task08 {    /**
      * The entry point of the task
      *
      * @param args entry arguments
@@ -40,6 +39,16 @@ public class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (hasHolyAttribute == true) {
+            if (typeMob == "UNDEAD" || typeMob == "ZOMBIE") {
+                return damage + damage / 2;
+            } else if (typeMob == "SAINT"){
+                return damage / 2;
+            } else if (typeMob == "ANIMAL" || typeMob == "HUMANOID" || typeMob == "PLANT" || typeMob =="GHOST"){
+                return  damage;}
+        }
         return 0;
-    }
+        }
+
+
 }
