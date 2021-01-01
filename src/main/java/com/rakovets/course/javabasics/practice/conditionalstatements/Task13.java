@@ -34,9 +34,9 @@ public class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int kvartiryVposlPodezde = (apartmentNumber % (numberFloors * numberApartmentsPerFloor) < 1)
+        int apartmentsInLastPorch = (apartmentNumber % (numberFloors * numberApartmentsPerFloor) < 1)
                 ? apartmentNumber
                 : apartmentNumber % (numberFloors * numberApartmentsPerFloor);
-        return (int)Math.ceil((double)kvartiryVposlPodezde / numberApartmentsPerFloor);
+        return (int)Math.ceil((double)apartmentsInLastPorch / numberApartmentsPerFloor);
     }
 }
