@@ -44,5 +44,6 @@ public class Task02 extends StandardInputTask {
         else if (12 <= hour & hour <= 17) return"Good day";
         else if (18 <= hour & hour <= 23) return "Good evening";
         else return null;
+
     }
 }
