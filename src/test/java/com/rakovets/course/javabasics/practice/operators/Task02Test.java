@@ -1,46 +1,31 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 import com.rakovets.course.javabasics.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("Remaining cargo")
 class Task02Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task02.main(new String[]{"1", "2"});
-        assertEquals("1", getStandardOutputContent());
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(1, 2, 1),
+                Arguments.of(2, 1, 0),
+                Arguments.of(3, 2, 1),
+                Arguments.of(20, 50, 20)
+        );
     }
 
-    @Test
-    void test2() {
-        Task02.main(new String[]{"2", "1"});
-        assertEquals("0", getStandardOutputContent());
-    }
+    @MethodSource("provideArguments")
+    @ParameterizedTest(name = "Cargo: {0}. Carrying capacity: {1}")
+    void test(int cargo, int carryingCapacity, int expected) {
+        int actual = Task02.getAmountRemainingCargo(cargo, carryingCapacity);
 
-    @Test
-    void test3() {
-        Task02.main(new String[]{"3", "2"});
-        assertEquals("1", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task02.main(new String[]{"-3", "2"});
-        assertEquals("-1", getStandardOutputContent());
-    }
-
-    @Test
-    void test5() {
-        Task02.main(new String[]{"-3", "-2"});
-        assertEquals("-1", getStandardOutputContent());
-    }
-
-    @Test
-    void test6() {
-        Task02.main(new String[]{"3", "-2"});
-        assertEquals("1", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }

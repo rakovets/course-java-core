@@ -1,26 +1,40 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 /**
- * Разработать программу для банка:
- * которая будет высчитывать конечную сумма после пяти лет на депозитном счете, для плана без возможности снятия денег,
- * если известно
- *
- * @param deposit          - первоначальная сумма на счете
- * @param annualPercentage - ежегодный простой процент, т.е. ежегодный процент высчитывается от первоначальной суммы
+ * Разработать программу для банка.
  */
 public class Task03 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int deposit = 1500;
-        int annualPercentage = 3;
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int depositAmount = 1500;
+        int depositYears = 5;
+        int depositAnnualPercentage = 3;
 
-        // Код необходимый для тестирования, не изменять
-        deposit = (args.length == 0) ? deposit : Integer.parseInt(args[0]);
-        annualPercentage = (args.length == 0) ? annualPercentage : Integer.parseInt(args[1]);
+        float numberFullTrucks = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
+        System.out.printf("Result: %f", numberFullTrucks);
+    }
 
+    /**
+     * Высчитывает конечную сумма на депозитном счете, при условии:
+     * <ul>
+     *     <li>процент простой, т.е. всегда считается от первоначальной суммы вклада</li>
+     *     <li>вклад без возможности досрочного снятия</li>
+     * </ul>
+     *
+     * @param depositAmount           первоначальная сумма на счете
+     * @param depositYears            время вклада в годах
+     * @param depositAnnualPercentage ежегодный простой процент
+     */
+    static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0.0f;
     }
 }

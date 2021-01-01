@@ -1,26 +1,35 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 /**
- * Разработать программу для логистического центра:
- * которая будет разчитывать количество некоторого груза, который останется на складе, так как грузовики
- * отправляются только загруженными, если известно:
- *
- * @param cargo            - вес всего груза
- * @param carryingCapacity - грузоподъемность грузовиков
+ * Разработать программу для логистического центра.
  */
 public class Task02 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
         int cargo = 1;
         int carryingCapacity = 2;
 
-        // Код необходимый для тестирования, не изменять
-        cargo = (args.length == 0) ? cargo : Integer.parseInt(args[0]);
-        carryingCapacity = (args.length == 0) ? carryingCapacity : Integer.parseInt(args[1]);
+        int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
+        System.out.printf("Result: %d", amountRemainingCargo);
+    }
 
+    /**
+     * Рассчитывает количество некоторого груза, который останется на складе, после полной загрузки его в грузовики, т.е.
+     * грузовики должны быть загружены полностью
+     *
+     * @param cargo            вес всего груза
+     * @param carryingCapacity грузоподъемность грузовиков
+     */
+    static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0;
     }
 }
