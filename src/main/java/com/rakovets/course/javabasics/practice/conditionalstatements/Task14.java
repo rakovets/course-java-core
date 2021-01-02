@@ -29,9 +29,9 @@ public class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 27;
-        int month = 11;
-        int year = 1997;
+        int day = 19;
+        int month = 8;
+        int year = 2000;
 
         String monthName = getZodiacYearName(day, month, year);
         System.out.printf("Result: %s", monthName);
@@ -48,7 +48,7 @@ public class Task14 {
     static String getZodiacYearName(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-       int yearNumber = year % 12;
+        int yearNumber = year % 12;
         switch (yearNumber) {
             case 0: {
                return "Monkey";
