@@ -25,7 +25,7 @@ public class Task06 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int tanksKilledFirstPlayer = 4;
-        int tanksKilledSecondPlayer = 5;
+        int tanksKilledSecondPlayer = 8;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
