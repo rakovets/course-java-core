@@ -28,9 +28,9 @@ public class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
-        int year = 1989;
+        int day = 18;
+        int month = 5;
+        int year = 2001;
 
         String zodiacSign = getZodiacSign(day, month, year);
         System.out.printf("Result: %s", zodiacSign);
@@ -47,6 +47,41 @@ public class Task12 {
     static String getZodiacSign(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (day >=21 && day<=31 && month ==3  || day >=1 && day <=20 && month ==4 ){
+            return "Ram";
+        }
+        if (day >=21 && day<=30 && month ==4  || day >=1 && day <=20 && month ==5 ){
+            return "Bull";
+        }
+        if (day >=21 && day<=31 && month ==5  || day >=1 && day <=21 && month ==6 ){
+            return "Twins";
+        }
+        if (day >=22 && day<=30 && month ==6  || day >=1 && day <=22 && month ==7 ){
+            return "Crab";
+        }
+        if (day >=23 && day<=31 && month ==7  || day >=1 && day <=22 && month ==8 ){
+            return "Lion";
+        }
+        if (day >=23 && day<=30 && month ==8  || day >=1 && day <=21 && month ==9 ){
+            return "Maiden";
+        }
+        if (day >=22 && day<=31 && month ==9  || day >=1 && day <=22 && month ==10 ){
+            return "Scales";
+        }
+        if (day >=23 && day<=30 && month ==10  || day >=1 && day <=22 && month ==11 ){
+            return "Scorpion";
+        }
+        if (day >=23 && day<=31 && month ==11  || day >=1 && day <=21 && month ==12 ){
+            return "Archer";
+        }
+        if (day >=22 && day<=30 && month ==12  || day >=1 && day <=20 && month ==1 ){
+            return "Goat";
+        }if (day >=21 && day<=31 && month ==1  || day >=1 && day <=19 && month ==2 ){
+            return "Water-bearer";
+        }
+        if (day >=20 && day<=29 && month ==2  || day >=1 && day <=20 && month ==3 ){
+            return "Fish";
+        }
+        else { return null;}
     }
 }
