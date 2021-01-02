@@ -18,7 +18,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * 21.1-19.2 - `Water-bearer`
  * 20.2-20.3 - `Fish`
  */
-public class Task12 {
+class Task12 {
     /**
      * The entry point of the task
      *

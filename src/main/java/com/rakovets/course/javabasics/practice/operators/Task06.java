@@ -2,8 +2,10 @@ package com.rakovets.course.javabasics.practice.operators;
 
 /**
  * Разработать программу для игрового движка.
+ *
+ * @author Dmitry Rakovets
  */
-public class Task06 {
+class Task06 {
     /**
      * The entry point of the task
      *

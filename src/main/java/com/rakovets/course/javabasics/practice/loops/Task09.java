@@ -11,6 +11,8 @@ package com.rakovets.course.javabasics.practice.loops;
  * 10 - 50 with sell 0%
  * 12 - 59.4 with sell 1%
  * 14 - 68.5 with sell 2%
+ *
+ * @author Dmitry Rakovets
  */
 class Task09 {
     /**

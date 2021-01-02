@@ -12,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
+@DisplayName("Month converter")
 class Task05Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(0, null),
                 Arguments.of(1, "JANUARY"),
@@ -33,8 +34,7 @@ class Task05Test {
     }
 
     @ParameterizedTest(name = "Month number: {0}")
-    @MethodSource("testProvider")
-    @DisplayName("Month converter")
+    @MethodSource("provideArguments")
     void test(Integer monthNumber, String expected) {
         assertEquals(expected, Task05.getMonthName(monthNumber.byteValue()));
     }

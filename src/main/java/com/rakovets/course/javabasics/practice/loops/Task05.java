@@ -3,6 +3,8 @@ package com.rakovets.course.javabasics.practice.loops;
 /**
  * Разработать программу для игрового движка:
  * Спрогнозировать через какое время party(team) игроков убьет RaidBoss и получит вознаграждение.
+ *
+ * @author Dmitry Rakovets
  */
 class Task05 {
     /**

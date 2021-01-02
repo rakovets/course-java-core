@@ -2,8 +2,10 @@ package com.rakovets.course.javabasics.practice.operators;
 
 /**
  * Разработать программу для логистического центра.
+ *
+ * @author Dmitry Rakovets
  */
-public class Task02 {
+class Task02 {
     /**
      * The entry point of the task
      *

@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Tests for Task02.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
+@DisplayName("Money")
 class Task02Test {
     @ParameterizedTest(name = "Report: {0}")
     @CsvFileSource(resources = "/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')

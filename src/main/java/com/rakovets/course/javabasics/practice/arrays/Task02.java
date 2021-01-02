@@ -10,7 +10,7 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  * @author Dmitry Rakovets
  * @version 1.0
  */
-public class Task02 extends StandardInputTask {
+class Task02 extends StandardInputTask {
     public static void main(String[] args) {
         // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
         int countDisciplines = INPUT_SCANNER.nextInt();
@@ -50,7 +50,7 @@ public class Task02 extends StandardInputTask {
     }
 
     /**
-     * Возвращает максимальну отметку за весь период обучения.
+     * Возвращает максимальную отметку за весь период обучения.
      *
      * @param marks отметки
      * @return максимальная отметка

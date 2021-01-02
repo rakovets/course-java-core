@@ -1,7 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardInputTask;
-
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -10,7 +8,7 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  *
  * @author Dmitry Rakovets
  */
-public class Task01 extends StandardInputTask {
+class Task01 {
     /**
      * The entry point of the task
      *

@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-class Task13Test extends StandardOutputTest {
-    static Stream<Arguments> provideApartments() {
+@DisplayName("Apartment house")
+class Task13Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(2, 10, 45, 1),
                 Arguments.of(9, 4, 169, 7),
@@ -26,8 +26,7 @@ class Task13Test extends StandardOutputTest {
     }
 
     @ParameterizedTest(name = "Floors, apartment of floors and number apartment: {0}")
-    @MethodSource("provideApartments")
-    @DisplayName("Apartment house")
+    @MethodSource("provideArguments")
     void test(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber, int expected) {
         int actual = Task13.getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
 

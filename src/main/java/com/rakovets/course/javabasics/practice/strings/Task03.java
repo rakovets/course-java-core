@@ -8,9 +8,8 @@ import java.util.Arrays;
  * Разработать программу для парсера информации о персонале компании.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
-public class Task03 extends StandardInputTask {
+class Task03 extends StandardInputTask {
     /**
      * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
      */

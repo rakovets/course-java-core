@@ -5,7 +5,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * <p>
  * Определить номер этажа дома для текущего клиента.
  */
-public class Task13 {
+class Task13 {
     /**
      * The entry point of the task
      *

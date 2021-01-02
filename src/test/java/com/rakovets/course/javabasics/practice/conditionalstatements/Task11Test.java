@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-class Task11Test extends StandardOutputTest {
-    static Stream<Arguments> provideSymbols() {
+@DisplayName("Symbol-switcher")
+class Task11Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of('1', "digit"),
                 Arguments.of('0', "digit"),
@@ -28,8 +28,7 @@ class Task11Test extends StandardOutputTest {
     }
 
     @ParameterizedTest(name = "Symbol: {0}")
-    @MethodSource("provideSymbols")
-    @DisplayName("Symbol-switcher")
+    @MethodSource("provideArguments")
     void test(char symbol, String expected) {
         String actual = Task11.getSymbolType(symbol);
 

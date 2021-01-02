@@ -1,9 +1,11 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 /**
- * Разработать программу для фитнес приложения:
+ * Разработать программу для фитнес приложения.
+ *
+ * @author Dmitry Rakovets
  */
-public class Task05 {
+class Task05 {
     /**
      * The entry point of the task
      *

@@ -15,7 +15,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * <p>
  * Так же программа не должна зависеть от регистра.
  */
-public class Task11 {
+class Task11 {
     /**
      * The entry point of the task
      *

@@ -8,9 +8,8 @@ import java.util.Arrays;
  * Разработать программу для анализа банковских отчетов.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
-public class Task02 extends StandardInputTask {
+class Task02 extends StandardInputTask {
     /**
      * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
      */

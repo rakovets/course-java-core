@@ -2,8 +2,10 @@ package com.rakovets.course.javabasics.practice.operators;
 
 /**
  * Разработать программу для банка.
+ *
+ * @author Dmitry Rakovets
  */
-public class Task03 {
+class Task03 {
     /**
      * The entry point of the task
      *

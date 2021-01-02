@@ -7,6 +7,8 @@ package com.rakovets.course.javabasics.practice.loops;
  * <p>
  * Например:
  * 1234567890 -> "1 234 567 890"
+ *
+ * @author Dmitry Rakovets
  */
 class Task06 {
     /**

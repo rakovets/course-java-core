@@ -5,7 +5,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * <p>
  * Определить номер подъезда дома для текущего клиента.
  */
-public class Task09 {
+class Task09 {
     /**
      * The entry point of the task
      *

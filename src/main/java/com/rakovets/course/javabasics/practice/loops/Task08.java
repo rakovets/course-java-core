@@ -11,6 +11,8 @@ package com.rakovets.course.javabasics.practice.loops;
  * 10 - 50
  * 12 - 60
  * 14 - 70
+ *
+ * @author Dmitry Rakovets
  */
 class Task08 {
     /**

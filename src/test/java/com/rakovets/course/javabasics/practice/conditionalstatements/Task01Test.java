@@ -12,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
+@DisplayName("Position player")
 class Task01Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(5, 1, true),
                 Arguments.of(5, 5, true),
@@ -23,8 +24,7 @@ class Task01Test {
     }
 
     @ParameterizedTest(name = "Top size: {0}. Position player bu damage: {1}")
-    @MethodSource("testProvider")
-    @DisplayName("Position player")
+    @MethodSource("provideArguments")
     void test(int sizeTop, int positionPlayerByDamage, boolean expected) {
         assertEquals(expected, Task01.isTopPlayer(sizeTop, positionPlayerByDamage));
     }

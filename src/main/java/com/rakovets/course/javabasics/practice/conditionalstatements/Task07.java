@@ -11,7 +11,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * </ul>
  */
 
-public class Task07 {
+class Task07 {
     /**
      * The entry point of the task
      *

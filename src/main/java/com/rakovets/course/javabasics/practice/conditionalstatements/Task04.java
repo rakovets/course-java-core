@@ -1,14 +1,12 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardInputTask;
-
 /**
  * Разработать программу для desktop приложения:
  * которая преобразует номер дня недели в его словесный аналог.
  *
  * @author Dmitry Rakovets
  */
-public class Task04 extends StandardInputTask {
+class Task04 {
     /**
      * The entry point of the task
      *

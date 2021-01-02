@@ -5,7 +5,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * <p>
  * Программа вычисляет на какую АЗС необходимо доставить топливо в первую очередь.
  */
-public class Task10 {
+class Task10 {
     /**
      * The entry point of the task
      *

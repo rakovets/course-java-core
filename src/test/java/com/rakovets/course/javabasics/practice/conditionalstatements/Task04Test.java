@@ -12,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
+@DisplayName("Day of week converter")
 class Task04Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(0, null),
                 Arguments.of(1, "MONDAY"),
@@ -28,8 +29,7 @@ class Task04Test {
     }
 
     @ParameterizedTest(name = "Day of week number: {0}")
-    @MethodSource("testProvider")
-    @DisplayName("Day of week converter")
+    @MethodSource("provideArguments")
     void test(int dayOfWeek, String expected) {
         assertEquals(expected, Task04.getDayOfWeekNumber((byte) dayOfWeek));
     }

@@ -11,9 +11,9 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  *  <li>За 1 танк начисляется 100 очков.</li>
  * </ul>
  */
-public class Task06 {
-    public static final int BONUS_POINT = 500;
-    public static final int KILL_POINT = 100;
+class Task06 {
+    private static final int BONUS_POINT = 500;
+    private static final int KILL_POINT = 100;
 
     /**
      * The entry point of the task

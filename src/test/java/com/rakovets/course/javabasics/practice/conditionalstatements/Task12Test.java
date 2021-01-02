@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-class Task12Test extends StandardOutputTest {
-    static Stream<Arguments> zodiacsProvider() {
+@DisplayName("Zodiac")
+class Task12Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(20, 1, 2001, "Goat"),
                 Arguments.of(19, 2, 2002, "Water-bearer"),
@@ -44,8 +44,7 @@ class Task12Test extends StandardOutputTest {
     }
 
     @ParameterizedTest(name = "Birthday: {0}")
-    @MethodSource("zodiacsProvider")
-    @DisplayName("Zodiac")
+    @MethodSource("provideArguments")
     void test(int day, int month, int year, String expected) {
         String actual = Task12.getZodiacSign(day, month, year);
         assertEquals(expected, actual);

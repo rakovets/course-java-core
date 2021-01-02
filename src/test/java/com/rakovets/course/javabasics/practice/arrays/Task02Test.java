@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Dmitry Rakovets
- * @version 1.0
  */
+@DisplayName("All marks")
 class Task02Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(new int[][]{{5, 4, 5}, {4, 9, 4}, {9, 4, 5}}, Map.of("average", 5.44, "min", 4, "max", 9)),
                 Arguments.of(new int[][]{{6, 4, 8}, {9, 6, 2}, {1, 4, 5}}, Map.of("average", 5.0, "min", 1, "max", 9)),
@@ -26,21 +26,21 @@ class Task02Test {
     }
 
     @ParameterizedTest(name = "Marks: {0}")
-    @MethodSource("testProvider")
+    @MethodSource("provideArguments")
     @DisplayName("Average for all marks")
     void getAverageMarkTest(int[][] marks, Map actual) {
         assertEquals(Task02.getAverageMark(marks), actual.get("average"));
     }
 
     @ParameterizedTest(name = "Marks: {0}")
-    @MethodSource("testProvider")
+    @MethodSource("provideArguments")
     @DisplayName("Min for all marks")
     void getMinMarkTest(int[][] marks, Map actual) {
         assertEquals(Task02.getMinMark(marks), actual.get("min"));
     }
 
     @ParameterizedTest(name = "Marks: {0}")
-    @MethodSource("testProvider")
+    @MethodSource("provideArguments")
     @DisplayName("Max for all marks")
     void getMaxMarkTest(int[][] marks, Map actual) {
         assertEquals(Task02.getMaxMark(marks), actual.get("max"));

@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.loops;
 
 /**
  * Разработать программу для банка.
+ *
+ * @author Dmitry Rakovets
  */
 class Task03 {
     /**

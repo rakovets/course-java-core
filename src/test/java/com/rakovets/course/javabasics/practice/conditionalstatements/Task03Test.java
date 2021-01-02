@@ -12,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
+@DisplayName("Color HP")
 class Task03Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(0, 346, null),
                 Arguments.of(1, 6432, "RED"),
@@ -29,8 +30,7 @@ class Task03Test {
     }
 
     @ParameterizedTest(name = "Current HP: {0}")
-    @MethodSource("testProvider")
-    @DisplayName("Color HP")
+    @MethodSource("provideArguments")
     void test(int currentHealthPoint, int maxHealthPoint, String expected) {
         assertEquals(expected, Task03.getColorHealthPoint(currentHealthPoint, maxHealthPoint));
     }

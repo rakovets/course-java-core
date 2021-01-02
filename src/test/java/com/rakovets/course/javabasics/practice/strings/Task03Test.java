@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * Tests for Task03.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
+@DisplayName("Stuff")
 class Task03Test {
     private static final String CSV_FIELD_SPLITERATOR = " ";
 

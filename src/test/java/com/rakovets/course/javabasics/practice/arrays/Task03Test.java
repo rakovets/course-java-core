@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author Dmitry Rakovets
- * @version 1.0
  */
+@DisplayName("Marks for subjects")
 class Task03Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(new int[][]{{5, 4, 5}, {4, 9, 4}, {9, 4, 5}}, Map.of("average", new double[]{4.67, 5.67, 6.0}, "min", new int[]{4, 4, 4}, "max", new int[]{5, 9, 9})),
                 Arguments.of(new int[][]{{6, 4, 8}, {9, 6, 2}, {1, 4, 5}}, Map.of("average", new double[]{6.0, 5.67, 3.33}, "min", new int[]{4, 2, 1}, "max", new int[]{8, 9, 5})),
@@ -26,21 +26,21 @@ class Task03Test {
     }
 
     @ParameterizedTest(name = "Marks: {0}")
-    @MethodSource("testProvider")
+    @MethodSource("provideArguments")
     @DisplayName("Average mark for subject")
     void getAverageMarkTest(int[][] marks, Map actual) {
         assertArrayEquals(Task03.getAverageMark(marks), (double[]) actual.get("average"));
     }
 
     @ParameterizedTest(name = "Marks: {0}")
-    @MethodSource("testProvider")
+    @MethodSource("provideArguments")
     @DisplayName("Min mark for subject")
     void getMinMarkTest(int[][] marks, Map actual) {
         assertArrayEquals(Task03.getMinMark(marks), (int[]) actual.get("min"));
     }
 
     @ParameterizedTest(name = "Marks: {0}")
-    @MethodSource("testProvider")
+    @MethodSource("provideArguments")
     @DisplayName("Max mark for subject")
     void getMaxMarkTest(int[][] marks, Map actual) {
         assertArrayEquals(Task03.getMaxMark(marks), (int[]) actual.get("max"));

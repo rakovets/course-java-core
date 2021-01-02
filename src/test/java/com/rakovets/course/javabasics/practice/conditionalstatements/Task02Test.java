@@ -12,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
+@DisplayName("Greeting")
 class Task02Test {
-    static Stream<Arguments> testProvider() {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(0, "Good night"),
                 Arguments.of(1, "Good night"),
@@ -29,8 +30,7 @@ class Task02Test {
     }
 
     @ParameterizedTest(name = "Hour: {0}")
-    @MethodSource("testProvider")
-    @DisplayName("Greeting")
+    @MethodSource("provideArguments")
     void test(int hour, String expected) {
         assertEquals(expected, Task02.getGreetingByHour(hour));
     }

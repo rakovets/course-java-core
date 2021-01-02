@@ -19,7 +19,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * 2011 - `Rabbit`
  * 2012 - `Dragon`
  */
-public class Task14 {
+class Task14 {
     /**
      * The entry point of the task
      *

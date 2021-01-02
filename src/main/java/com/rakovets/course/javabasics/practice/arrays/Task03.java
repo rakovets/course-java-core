@@ -10,7 +10,7 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  * @author Dmitry Rakovets
  * @version 1.0
  */
-public class Task03 extends StandardInputTask {
+class Task03 extends StandardInputTask {
     public static void main(String[] args) {
         // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
         int countDisciplines = INPUT_SCANNER.nextInt();

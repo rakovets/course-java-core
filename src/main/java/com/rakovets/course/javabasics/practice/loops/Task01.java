@@ -3,6 +3,8 @@ package com.rakovets.course.javabasics.practice.loops;
 /**
  * Разработать программу для табличного процессора.
  * Программа генерирует номера строк при создании таблицы.
+ *
+ * @author Dmitry Rakovets
  */
 class Task01 {
     /**

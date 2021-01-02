@@ -11,7 +11,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * </ul>
  * Определить сколько урона нанесет оружие по данному типу моба (моб - персонаж в игре управляемый компьютером).
  */
-public class Task08 {
+class Task08 {
     /**
      * The entry point of the task
      *

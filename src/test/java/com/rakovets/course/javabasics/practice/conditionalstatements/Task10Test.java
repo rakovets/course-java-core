@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-class Task10Test extends StandardOutputTest {
-    static Stream<Arguments> fuelReservesProvider() {
+@DisplayName("Fuel reserves")
+class Task10Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(1, 2, 3, 1),
                 Arguments.of(2, 1, 3, 2),
@@ -27,8 +27,7 @@ class Task10Test extends StandardOutputTest {
     }
 
     @ParameterizedTest(name = "Fuel reserves: {0}")
-    @MethodSource("fuelReservesProvider")
-    @DisplayName("Fuel reserves")
+    @MethodSource("provideArguments")
     void test(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves, int expected) {
         int actual = Task10.getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
 

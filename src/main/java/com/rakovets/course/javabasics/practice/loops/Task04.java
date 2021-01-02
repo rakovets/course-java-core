@@ -4,6 +4,8 @@ package com.rakovets.course.javabasics.practice.loops;
  * Разработать программу для игрового движка.
  * Спрогнозировать какое количество HP будет у RaidBoss (RB), который имеет неограниченное количество HP и регенерацию,
  * которая пропорционально зависит от его текущего количества HP.
+ *
+ * @author Dmitry Rakovets
  */
 class Task04 {
     /**

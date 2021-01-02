@@ -8,9 +8,8 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  * которая работает с отметками только по одному предмету
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
-public class Task01 extends StandardInputTask {
+class Task01 extends StandardInputTask {
     public static void main(String[] args) {
         // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
         int countMarks = INPUT_SCANNER.nextInt();
@@ -49,7 +48,7 @@ public class Task01 extends StandardInputTask {
     }
 
     /**
-     * Возвращает максимальну отметку.
+     * Возвращает максимальную отметку.
      *
      * @param marks отметки
      * @return максимальная отметка

@@ -2,8 +2,10 @@ package com.rakovets.course.javabasics.practice.operators;
 
 /**
  * Разработать программу для метеорологической станции.
+ *
+ * @author Dmitry Rakovets
  */
-public class Task04 {
+class Task04 {
     /**
      * Скорость звука в воздушной среде 1191.6 км/ч
      */

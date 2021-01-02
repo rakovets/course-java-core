@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,8 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-class Task06Test extends StandardOutputTest {
-    static Stream<Arguments> killedTanksProvider() {
+@DisplayName("Battle City")
+class Task06Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(new int[]{2, 1}, "Player 1: 700. Player 2: 100"),
                 Arguments.of(new int[]{2, 10}, "Player 1: 200. Player 2: 1500"),
@@ -24,8 +24,7 @@ class Task06Test extends StandardOutputTest {
     }
 
     @ParameterizedTest(name = "Killed tanks: {0}")
-    @MethodSource("killedTanksProvider")
-    @DisplayName("Battle City")
+    @MethodSource("provideArguments")
     void test(int[] killedTanks, String expected) {
         String actual = Task06.getResult(killedTanks[0], killedTanks[1]);
 

@@ -1,14 +1,12 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardInputTask;
-
 /**
  * Разработать программу для desktop приложения
  * которая выведет приветствии для пользователя в зависимости от времени суток.
  *
  * @author Dmitry Rakovets
  */
-public class Task02 extends StandardInputTask {
+class Task02 {
     /**
      * The entry point of the task
      *

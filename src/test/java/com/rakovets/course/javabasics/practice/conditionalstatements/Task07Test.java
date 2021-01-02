@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.conditionalstatements;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,8 +11,9 @@ import java.util.stream.Stream;
 /**
  * @author Dmitry Rakovets
  */
-class Task07Test extends StandardOutputTest {
-    static Stream<Arguments> provideYears() {
+@DisplayName("Leap-year")
+class Task07Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(1, false),
                 Arguments.of(4, true),
@@ -24,8 +24,7 @@ class Task07Test extends StandardOutputTest {
     }
 
     @ParameterizedTest(name = "Year: {0}")
-    @MethodSource("provideYears")
-    @DisplayName("Leap-year")
+    @MethodSource("provideArguments")
     void test(int year, boolean expected) {
         boolean actual = Task07.isLeapYear(year);
 

@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.loops;
 
 /**
  * Разработать программу для фитнес браслета.
+ *
+ * @author Dmitry Rakovets
  */
 class Task07 {
     /**

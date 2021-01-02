@@ -6,9 +6,8 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  * Разработать программу для парсера полного имени сотрудника компании.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
-public class Task01 extends StandardInputTask {
+class Task01 extends StandardInputTask {
     /**
      * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
      */

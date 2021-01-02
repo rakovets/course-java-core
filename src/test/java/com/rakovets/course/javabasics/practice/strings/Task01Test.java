@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Tests for Task01.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
+@DisplayName("Names")
 class Task01Test {
     @ParameterizedTest(name = "Full name: {0}")
     @CsvFileSource(resources = "/string/task01-tests.csv", numLinesToSkip = 1, delimiter = '|')
