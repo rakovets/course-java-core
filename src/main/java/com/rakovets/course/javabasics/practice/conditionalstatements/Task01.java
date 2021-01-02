@@ -21,7 +21,7 @@ public class Task01 extends StandardInputTask {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int sizeTop = 15;
-        int positionPlayerByDamage = 10;
+        int positionPlayerByDamage = 11;
 
         boolean topPlayer = isTopPlayer(sizeTop, positionPlayerByDamage);
         System.out.printf("Result: %b", topPlayer);
