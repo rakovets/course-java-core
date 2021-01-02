@@ -28,7 +28,7 @@ public class Task11 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        char symbol = '?';
+        char symbol = 'a';
 
         String monthName = getSymbolType(symbol);
         System.out.printf("Result: %s", monthName);
@@ -43,16 +43,15 @@ public class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if (symbol >= 48 && symbol <= 57) {
-            return  "digit";
-        } else if (symbol >= 65 && symbol <= 90 || symbol >= 97 && symbol <= 122) {
-            return  "latin";
-        } else if (symbol >= 1040 && symbol <= 1105) {
-            return  "cyrillic";
-        } else if (symbol >= 33 && symbol <= 47 || symbol >= 58 && symbol <= 64 || symbol >= 91 && symbol <= 96 || symbol >= 123 && symbol <= 126) {
-            return  "undefined";
-        } return null;
-
-
+        if(Pattern.matches("[a-zA-Z]",String.valueOf(symbol) )){
+            return "latin";
+        }
+        if(Pattern.matches("[а-яА-Я]",String.valueOf(symbol) )){
+            return "cyrillic";
+        }
+        if(Pattern.matches("[0-9]",String.valueOf(symbol) )){
+            return "digital";
+        }
+        return "undefined";
     }
 }
