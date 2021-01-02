@@ -21,9 +21,9 @@ public class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int damage = -5;
-        String typeMob =  "SAINT";
-        boolean hasHolyAttribute = true;
+        int damage = 50;
+        String typeMob = "SAINT";
+        boolean hasHolyAttribute = false;
 
         int totalDamage = getTotalDamage(damage, typeMob, hasHolyAttribute);
         System.out.printf("Result: %s", totalDamage);
@@ -41,14 +41,16 @@ public class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         if (damage > 0)
-        if (hasHolyAttribute == true) {
-            if (typeMob == "UNDEAD" | typeMob == "ZOMBIE")  {
+        if (hasHolyAttribute) {
+            if (typeMob.equals("UNDEAD") || typeMob.equals("ZOMBIE"))  {
                 return (damage * 15) / 10;
-            } else if (typeMob == "SAINT")  {
+            } else if (typeMob.equals("SAINT"))  {
                 return (damage * 5) / 10;
-            } else if (typeMob == "ANIMAL" | typeMob == "HUMANOID" | typeMob == "PLANT" | typeMob == "GHOST" )  {
+            } else  {
                 return damage;
             }
+        } else  {
+            return  damage;
         }
         return 0;
     }
