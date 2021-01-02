@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Money")
 class Task02Test {
     @ParameterizedTest(name = "Report: {0}")
-    @CsvFileSource(resources = "/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')
+    @CsvFileSource(resources = "/practice/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Get list for money")
     void getArrayMoneyFromReportTest(String report, String arrayMoney) {
         assertArrayEquals(Task02.getArrayMoneyFromReport(report), ArrayUtil.parseToDouble(arrayMoney, " "));
     }
 
     @ParameterizedTest(name = "Report: {0}")
-    @CsvFileSource(resources = "/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')
+    @CsvFileSource(resources = "/practice/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Get sum for money")
     void getSumMoneyFromReportTest(String report, String arrayMoney, String sumMoney) {
         assertEquals(Task02.getSumMoneyFromReport(report), Double.valueOf(sumMoney));

@@ -17,21 +17,21 @@ class Task03Test {
     private static final String CSV_FIELD_SPLITERATOR = " ";
 
     @ParameterizedTest(name = "Information about stuff: {0}")
-    @CsvFileSource(resources = "/string/task03-tests.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/practice/string/task03-tests.csv", numLinesToSkip = 1)
     @DisplayName("Stuff: names")
     void parseToArrayNameTest(String information, String names) {
         assertArrayEquals(Task03.parseToArrayName(information), names.split(CSV_FIELD_SPLITERATOR));
     }
 
     @ParameterizedTest(name = "Information about stuff: {0}")
-    @CsvFileSource(resources = "/string/task03-tests.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/practice/string/task03-tests.csv", numLinesToSkip = 1)
     @DisplayName("Stuff: surnames")
     void parseToArraySurnameTest(String information, String names, String surnames) {
         assertArrayEquals(Task03.parseToArraySurname(information), surnames.split(CSV_FIELD_SPLITERATOR));
     }
 
     @ParameterizedTest(name = "Information about stuff: {0}")
-    @CsvFileSource(resources = "/string/task03-tests.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/practice/string/task03-tests.csv", numLinesToSkip = 1)
     @DisplayName("Stuff: salaries")
     void parseToArraySalaryTest(String information, String names, String surnames, String salaries) {
         assertArrayEquals(Task03.parseToArraySalary(information),
