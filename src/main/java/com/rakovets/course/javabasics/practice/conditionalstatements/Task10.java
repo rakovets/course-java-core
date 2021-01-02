@@ -15,7 +15,7 @@ public class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int firstFuelReserves = 5;
+        int firstFuelReserves = 8;
         int secondFuelReserves = 5;
         int thirdFuelReserves = 4;
 
