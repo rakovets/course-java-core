@@ -17,7 +17,7 @@ public class Task13 {
         // аргументов. Типы данных изменять нельзя
         int numberFloors = 5;
         int numberApartmentsPerFloor = 4;
-        int apartmentNumber = 20;
+        int apartmentNumber = 26;
 
         int floorNumber = getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", floorNumber);
