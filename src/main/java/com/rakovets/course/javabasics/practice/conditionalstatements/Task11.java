@@ -8,7 +8,7 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  * Необходимо определить, какие символы вводит пользователь:
  * <ul>
  *  <li>латиница</li>
- *  <li>кирилица</li>
+ *  <li>кириллица</li>
  *  <li>цифра</li>
  *  <li>спец. символ</li>
  * </ul>
