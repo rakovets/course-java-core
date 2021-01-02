@@ -20,7 +20,7 @@ public class Task03 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 665;
+        int currentHealthPoint = 667;
         int maxHealthPoint = 1000;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
