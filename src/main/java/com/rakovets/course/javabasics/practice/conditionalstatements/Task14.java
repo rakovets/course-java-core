@@ -30,8 +30,8 @@ public class Task14 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int day = 19;
-        int month = 8;
-        int year = 2000;
+        int month = 9;
+        int year = 2002;
 
         String monthName = getZodiacYearName(day, month, year);
         System.out.printf("Result: %s", monthName);
