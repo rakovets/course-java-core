@@ -22,7 +22,7 @@ public class Task08 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int damage = 100;
-        String typeMob = "SAINT";
+        String typeMob = "UNDEAD";
         boolean hasHolyAttribute = true;
 
         int totalDamage = getTotalDamage(damage, typeMob, hasHolyAttribute);
@@ -40,6 +40,13 @@ public class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        if (hasHolyAttribute && typeMob.equals("SAINT")) {
+            return damage/2;
+        } else if (hasHolyAttribute && typeMob.equals("UNDEAD") || hasHolyAttribute && typeMob.equals("ZOMBIE")) {
+            return damage+damage/2;
+        } else {
+            return damage;
+        }
     }
 }
