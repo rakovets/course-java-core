@@ -38,11 +38,11 @@ public class Task09 {
         if (porch >= apartmentNumber) {
             return  1;
         } else {
-                if (apartmentNumber / porch > 0 && apartmentNumber % porch > 0) {
-                    return apartmentNumber / porch + 1;
-                } else if (apartmentNumber % porch == 0){
-                    return apartmentNumber/porch;
-                }
+            if (apartmentNumber / porch > 0 && apartmentNumber % porch > 0) {
+                return apartmentNumber / porch + 1;
+            } else if (apartmentNumber % porch == 0) {
+                return apartmentNumber / porch;
+            }
         }
         return 0;
     }
