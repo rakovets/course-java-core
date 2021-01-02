@@ -34,6 +34,12 @@ public class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        int numberApartmentsPerPorch = numberFloors * numberApartmentsPerFloor;
+
+        return (apartmentNumber % numberApartmentsPerPorch == 0)
+          ? apartmentNumber / numberApartmentsPerPorch
+          : apartmentNumber / numberApartmentsPerPorch + 1;
+
     }
 }
