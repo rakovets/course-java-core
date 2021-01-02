@@ -25,7 +25,7 @@ public class Task11 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        char symbol = 'Y';
+        char symbol = 'H';
 
         String monthName = getSymbolType(symbol);
         System.out.printf("Result: %s", monthName);
