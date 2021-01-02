@@ -30,7 +30,7 @@ public class Task12 {
         // аргументов. Типы данных изменять нельзя
         int day = 19;
         int month = 8;
-        int year = 1973;
+        int year = 1975;
 
         String zodiacSign = getZodiacSign(day, month, year);
         System.out.printf("Result: %s", zodiacSign);
