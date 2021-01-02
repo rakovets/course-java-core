@@ -35,6 +35,32 @@ public class Task05 extends StandardInputTask {
     static String getMonthName(byte monthNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        switch (monthNumber) {
+            case (byte)1:
+                return "JANUARY";
+            case (byte)2:
+                return "FEBRUARYY";
+            case (byte)3:
+                return "MARCH";
+            case (byte)4:
+                return "APRIL";
+            case (byte)5:
+                return "MAY";
+            case (byte)6:
+                return "JUNE";
+            case (byte)7:
+                return "JULY";
+            case (byte)8:
+                return "AUGUST";
+            case (byte)9:
+                return "SEPTEMBER";
+            case (byte)10:
+                return "OCTOBER";
+            case (byte)11:
+                return "NOVEMBER";
+            case (byte)12:
+                return "DECEMBER";
+        }
         return null;
     }
 }
