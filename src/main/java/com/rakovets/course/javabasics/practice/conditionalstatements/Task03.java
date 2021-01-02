@@ -20,7 +20,7 @@ public class Task03 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 10;
+        int currentHealthPoint = 51;
         int maxHealthPoint = 100;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
@@ -39,6 +39,11 @@ public class Task03 extends StandardInputTask {
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if ((float)maxHealthPoint/(float)currentHealthPoint<25){
+            return "RED";
+        } if ((float)maxHealthPoint/(float)currentHealthPoint<50) {
+            return "ORANGE";
+        }
         return null;
     }
 }
