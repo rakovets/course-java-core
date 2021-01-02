@@ -1,29 +1,37 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для табличного процессора:
- * Программа генерирует номера строк при создании таблицы. Известно:
- *
- * @param rows            количество строк в таблице
- * @param headerRowEnable имеет ли таблица строку-заголовок 'true'/'false', если имеет, то для первой строки не нужно
- *                        генерировать номер
- * @author Dmitry Rakovets
- * @version 1.0
- * @return номера строк, где каждый номер на новой строке
+ * Разработать программу для табличного процессора.
+ * Программа генерирует номера строк при создании таблицы.
  */
-public class Task02 {
+class Task02 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int numberRows = 10;
+        boolean isEnableHeaderRow = true;
 
-        // Код необходимый для тестирования, не изменять
-        int rows = (args.length != 2) ? scanner.nextInt() : Integer.parseInt(args[0]);
-        boolean headerRowEnable = (args.length != 2) ? scanner.nextBoolean() : Boolean.parseBoolean(args[1]);
+        String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
+        System.out.printf("Result:\n%s", numbersColumn);
+    }
 
+    /**
+     * Генерирует текст, который содержит столбец с номерами строк.
+     *
+     * @param numberRows        количество строк в таблице
+     * @param isEnableHeaderRow имеет ли таблица строку-заголовок <code>true</code>/<code>false</code>, если имеет, то
+     *                          для первой строки не нужно генерировать номер
+     * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
+     */
+    static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return null;
     }
 }

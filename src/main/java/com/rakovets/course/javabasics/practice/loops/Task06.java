@@ -1,27 +1,39 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для бухгалтерии:
- * Конвертировать чесловую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
- * пробелом. Известно:
- *
- * @param amount сумма
- * @author Dmitry Rakovets
- * @version 1.0
- * @return сумма в бухгалтерском формате
+ * Разработать программу для бухгалтерии.
+ * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
+ * пробелом.
+ * <p>
+ * Например:
+ * 1234567890 -> "1 234 567 890"
  */
-public class Task06 {
+class Task06 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        long amount = 1500;
 
-        // Код необходимый для тестирования, не изменять
-        long amount = (args.length != 1 ? scanner.nextLong() : Long.parseLong(args[0]));
+        String amountWithAccountingFormat = convertToAccountingFormat(amount);
+        System.out.printf("Result: %s", amountWithAccountingFormat);
+    }
 
+    /**
+     * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
+     * пробелом.
+     *
+     * @param amount сумма
+     * @return сумма в бухгалтерском формате
+     */
+    static String convertToAccountingFormat(long amount) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return null;
     }
 }

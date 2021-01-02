@@ -1,31 +1,39 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для игрового движка:
- * Спрогнозировать какое количество HP будет у RaidBoss, который имеет неограниченое количество HP и регенерацию,
- * которая пропорционально зависит от его текущего количества HP. Известно:
- *
- * @param healthPoints                         количество HP Raid Boss после появления (respawn)
- * @param regenerationPercentFromCurrentHealth регенерация здоровья (процент / час)
- * @param hoursAfterRespawn                    время прошедшее после появления Raid Boss
- * @author Dmitry Rakovets
- * @version 1.0
- * @return количество HP
+ * Разработать программу для игрового движка.
+ * Спрогнозировать какое количество HP будет у RaidBoss (RB), который имеет неограниченное количество HP и регенерацию,
+ * которая пропорционально зависит от его текущего количества HP.
  */
-public class Task04 {
+class Task04 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int healthPoints = 1000;
+        double regenerationPercentFromCurrentHealth = 100;
+        int hoursAfterRespawn = 10;
 
-        // Код необходимый для тестирования, не изменять
-        int healthPoints = (args.length != 3) ? scanner.nextInt() : Integer.parseInt(args[0]);
-        double regenerationPercentFromCurrentHealth = (args.length != 3) ? scanner.nextDouble() : Double.parseDouble(args[1]);
-        double hoursAfterRespawn = (args.length != 3) ? scanner.nextDouble() : Double.parseDouble(args[2]);
+        int featureHealthPoint = calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
+        System.out.printf("Result: %d", featureHealthPoint);
+    }
 
+    /**
+     * Высчитывает количество HP у RaidBoss после возрождения.
+     *
+     * @param healthPoints                         количество HP Raid Boss после появления (respawn)
+     * @param regenerationPercentFromCurrentHealth регенерация здоровья (процент / час)
+     * @param hoursAfterRespawn                    время прошедшее после появления Raid Boss
+     * @return количество HP
+     */
+    static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0;
     }
 }

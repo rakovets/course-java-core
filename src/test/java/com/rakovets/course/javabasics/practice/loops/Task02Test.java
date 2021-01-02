@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,23 +11,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Dmitry Rakovets
- * @version 1.0
  */
-class Task02Test extends StandardOutputTest {
-    static Stream<Arguments> testArgumentsProvider() {
+@DisplayName("Generator rows of table (improve)")
+class Task02Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(new String[]{"13", "false"}, "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"),
-                Arguments.of(new String[]{"9", "false"}, "1\n2\n3\n4\n5\n6\n7\n8\n9"),
-                Arguments.of(new String[]{"13", "true"}, "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"),
-                Arguments.of(new String[]{"9", "true"}, "\n1\n2\n3\n4\n5\n6\n7\n8")
+                Arguments.of(13, false, "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"),
+                Arguments.of(9, false, "1\n2\n3\n4\n5\n6\n7\n8\n9"),
+                Arguments.of(13, true, "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"),
+                Arguments.of(9, true, "\n1\n2\n3\n4\n5\n6\n7\n8")
         );
     }
 
-    @ParameterizedTest(name = "Count rows and is table header: {0}")
-    @MethodSource("testArgumentsProvider")
-    @DisplayName("Generator rows of table (improve)")
-    void test(String[] position, String expected) {
-        Task02.main(position);
-        assertEquals(expected, getStandardOutputContentWithTrim());
+    @ParameterizedTest(name = "Count rows: {0}. Is table header: {1}")
+    @MethodSource("provideArguments")
+    void test(int numberRows, boolean isEnableHeaderRow, String expected) {
+        String actual = Task02.generateNumbersColumn(numberRows, isEnableHeaderRow);
+
+        assertEquals(expected, actual);
     }
 }

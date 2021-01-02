@@ -1,30 +1,37 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для банка:
- * Необходимо расчитать прибыль, которую получит клиент по вкладу с ежегодным перерасчетом. Известно:
- *
- * @param depositAmount        сумма вклада
- * @param annualDepositPercent ежегодный процент вклада
- * @param depositTerm          продолжительность вклада (в годах)
- * @author Dmitry Rakovets
- * @version 1.0
- * @return прибыль округленную математически
+ * Разработать программу для банка.
  */
-public class Task03 {
+class Task03 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        double depositAmount = 1500.0;
+        double annualDepositPercent = 7.0;
+        int depositTerm = 5;
 
-        // Код необходимый для тестирования, не изменять
-        double depositAmount = (args.length != 3 ? scanner.nextDouble() : Double.parseDouble(args[0]));
-        double annualDepositPercent = (args.length != 3 ? scanner.nextDouble() : Double.parseDouble(args[1]));
-        int depositTerm = (args.length != 3 ? scanner.nextInt() : Integer.parseInt(args[2]));
+        double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
+        System.out.printf("Result: %f", totalDepositAmount);
+    }
 
+    /**
+     * Рассчитывает прибыль, которую получит клиент по вкладу с ежегодным перерасчетом (сложный процент).
+     *
+     * @param depositAmount        сумма вклада
+     * @param annualDepositPercent ежегодный процент вклада
+     * @param depositTerm          продолжительность вклада (в годах)
+     * @return прибыль округленную математически
+     */
+    static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0.0;
     }
 }

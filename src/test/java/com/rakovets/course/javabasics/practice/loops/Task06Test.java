@@ -1,6 +1,5 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,23 +11,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Dmitry Rakovets
- * @version 1.0
  */
-class Task06Test extends StandardOutputTest {
-    static Stream<Arguments> testArgumentsProvider() {
+@DisplayName("Generator rows of table")
+class Task06Test {
+    static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("13524624562456", "13 524 624 562 456"),
-                Arguments.of("-92346234", "-92 346 234"),
-                Arguments.of("123456453456", "123 456 453 456"),
-                Arguments.of("-834563456234", "-834 563 456 234")
+                Arguments.of(13524624562456L, "13 524 624 562 456"),
+                Arguments.of(-92346234L, "-92 346 234"),
+                Arguments.of(123456453456L, "123 456 453 456"),
+                Arguments.of(-834563456234L, "-834 563 456 234")
         );
     }
 
-    @ParameterizedTest(name = "Count rows: {0}")
-    @MethodSource("testArgumentsProvider")
-    @DisplayName("Generator rows of table")
-    void test(String position, String expected) {
-        Task06.main(new String[]{position});
-        assertEquals(expected, getStandardOutputContentWithTrim());
+    @ParameterizedTest
+    @MethodSource("provideArguments")
+    void test(long amount, String expected) {
+        String actual = Task06.convertToAccountingFormat(amount);
+
+        assertEquals(expected, actual);
     }
 }

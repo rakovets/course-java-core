@@ -1,30 +1,38 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
  * Разработать программу для игрового движка:
- * Спрогнозировать через какое время party(team) игроков убьет RaidBoss и получит вознаграждение. Известно:
- *
- * @param healthPoints               количество HP RaidBoss
- * @param regenerationPercentPerHour регенерация HP RaidBoss (%/hour)
- * @param averageDamagePerHour       средний урон команды игроков по Raid Boss (HP/hour)
- * @author Dmitry Rakovets
- * @version 1.0
- * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
+ * Спрогнозировать через какое время party(team) игроков убьет RaidBoss и получит вознаграждение.
  */
-public class Task05 {
+class Task05 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int healthPoints = 1000;
+        double regenerationPercentFromCurrentHealth = 10;
+        int averageDamagePerHour = 200;
 
-        // Код необходимый для тестирования, не изменять
-        int healthPoints = (args.length != 3 ? scanner.nextInt() : Integer.parseInt(args[0]));
-        double regenerationPercentFromCurrentHealth = (args.length != 3 ? scanner.nextDouble() : Double.parseDouble(args[1]));
-        int averageDamagePerHour = (args.length != 3 ? scanner.nextInt() : Integer.parseInt(args[2]));
+        double raidTime = calculateRaidTime(healthPoints, regenerationPercentFromCurrentHealth, averageDamagePerHour);
+        System.out.printf("Result: %f", raidTime);
+    }
 
+    /**
+     * Высчитывает через какое время команда игроков убьет RaidBoss.
+     *
+     * @param healthPoints               количество HP RaidBoss
+     * @param regenerationPercentPerHour регенерация HP RaidBoss (%/hour)
+     * @param averageDamagePerHour       средний урон команды игроков по Raid Boss (HP/hour)
+     * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
+     */
+    static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0;
     }
 }

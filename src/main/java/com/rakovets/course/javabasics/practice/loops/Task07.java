@@ -1,30 +1,37 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для фитнес браслета:
- * Программа позволяет расчитать пробег, который необходимо совершить спортсмену для подготовки к марафону. Известно:
- *
- * @param startDistance  дистанция которую пробегает спортсмен до начала тренировки
- * @param finishDistance дистанция которую желает пробежать спортсмен после окончания тренировок
- * @param dailyProgress  ежедневный прогресс % по одношению к предыдущему забегу
- * @author Dmitry Rakovets
- * @version 1.0
- * @return пробег (точность 10 метром)
+ * Разработать программу для фитнес браслета.
  */
-public class Task07 {
+class Task07 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int startDistance = 1000;
+        int finishDistance = 40000;
+        int dailyProgress = 5;
 
-        // Код необходимый для тестирования, не изменять
-        int startDistance = (args.length != 3) ? scanner.nextInt() : Integer.parseInt(args[0]);
-        int finishDistance = (args.length != 3) ? scanner.nextInt() : Integer.parseInt(args[1]);
-        double dailyProgress = (args.length != 3) ? scanner.nextDouble() : Double.parseDouble(args[2]);
+        double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
+        System.out.printf("Result: %f", totalDistance);
+    }
 
+    /**
+     * Рассчитывает пробег, который совершит спортсмен при подготовке к марафону. Известно:
+     *
+     * @param startDistance  дистанция которую пробегает спортсмен до начала тренировки
+     * @param finishDistance дистанция которую желает пробежать спортсмен после окончания тренировок
+     * @param dailyProgress  ежедневный прогресс в процентах по отношению к предыдущему забегу
+     * @return пробег (точность 10 метром)
+     */
+    static double calculateTotalDistance(int startDistance, int finishDistance, int dailyProgress) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0.0;
     }
 }

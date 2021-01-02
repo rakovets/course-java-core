@@ -1,34 +1,52 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для сети оптовых гипермаркетов:
- * Необходимо сформировать price для некоторого продукта. Известно:
- *
- * @param startPriceAllItems      стоимость всех продуктов, с которых начинается price
- * @param startNumberItems        количество продуктов, с которых начинается price
- * @param differentialNumberItems разница в количестве продуктов между соседними значениями price
- * @param differentialSell        скидка % на всю покупку за приобретение дополнительных differentialNumberItems товара
- * @param sizeTotalPrice          размерность итогового price
- * @author Dmitry Rakovets
- * @version 1.0
- * @return price, где формат вывода одной записи '${numberItems} - ${cost} with sell ${totalSell}%'
+ * Разработать программу для сети оптовых гипермаркетов.
+ * Необходимо сформировать список цен для некоторого продукта.
+ * <p>
+ * Пример:
+ * Список начинается с 10 единиц товара за 50 единиц денег, размерность списка 3, разница в количестве между соседними
+ * значениями в списке 2 единицы товара. Скидка за каждые дополнительные 2 единицы товара: 1%. В итоге получим:
+ * <p>
+ * 10 - 50 with sell 0%
+ * 12 - 59.4 with sell 1%
+ * 14 - 68.5 with sell 2%
  */
-public class Task09 {
+class Task09 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int startNumberItems = 4;
+        double startPriceAllItems = 3;
+        int differentialNumberItems = 5;
+        int sizeTotalPrice = 6;
+        int differentialSell = 4;
 
-        // Код необходимый для тестирования, не изменять
-        double startPriceAllItems = (args.length != 5 ? scanner.nextDouble() : Double.parseDouble(args[0]));
-        int startNumberItems = (args.length != 5 ? scanner.nextInt() : Integer.parseInt(args[1]));
-        int differentialNumberItems = (args.length != 5 ? scanner.nextInt() : Integer.parseInt(args[2]));
-        int sizeTotalPrice = (args.length != 5 ? scanner.nextInt() : Integer.parseInt(args[3]));
-        double differentialSell = (args.length != 5 ? scanner.nextDouble() : Double.parseDouble(args[4]));
+        String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
+        System.out.printf("Result:\n%s", totalPriceList);
+    }
 
+    /**
+     * Генерирует список цен для продукта.
+     *
+     * @param startNumberItems        количество продуктов, с которых начинается список цен
+     * @param startPriceAllItems      стоимость всех продуктов, с которых начинается список цен
+     * @param differentialNumberItems разница в количестве продуктов между соседними значениями списка цен
+     * @param sizeTotalPrice          размерность списка цен
+     * @param differentialSell        скидка в процентах на всю покупку за приобретение дополнительных
+     *                                <code>differentialNumberItems</code> товара
+     * @return список цен, где формат вывода одной записи в списке цен:
+     * '${numberItems} - ${cost} with sell ${totalSell}%'
+     */
+    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int differentialSell, int sizeTotalPrice) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return null;
     }
 }

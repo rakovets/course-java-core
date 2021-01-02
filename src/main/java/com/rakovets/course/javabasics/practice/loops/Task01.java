@@ -1,26 +1,34 @@
 package com.rakovets.course.javabasics.practice.loops;
 
-import java.util.Scanner;
-
 /**
- * Разработать программу для табличного процессора:
- * Программа генерирует номера строк при создании таблицы. Известно:
- *
- * @param rows количество строк в таблице
- * @author Dmitry Rakovets
- * @version 1.0
- * @return номера строк, где каждый номер на новой строке
+ * Разработать программу для табличного процессора.
+ * Программа генерирует номера строк при создании таблицы.
  */
-public class Task01 {
+class Task01 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Console, для проверки различных вариантов входных параметров
-        Scanner scanner = new Scanner(System.in);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int rows = 10;
 
-        // Код необходимый для тестирования, не изменять
-        int rows = (args.length != 1) ? scanner.nextInt() : Integer.parseInt(args[0]);
+        String numbersColumn = generateNumbersColumn(rows);
+        System.out.printf("Result:\n%s", numbersColumn);
+    }
 
+    /**
+     * Генерирует текст, который содержит столбец с номерами строк.
+     *
+     * @param numberRows количество строк в таблице
+     * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
+     */
+    static String generateNumbersColumn(int numberRows) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return null;
     }
 }
