@@ -49,8 +49,6 @@ public class Task04 extends StandardInputTask {
             case 7:
                 return("SUNDAY");
             default:
-
-
         }
         return null;
     }
