@@ -14,18 +14,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Dmitry Rakovets
  */
 @DisplayName("Money")
+@SuppressWarnings("unused")
 class Task02Test {
     @ParameterizedTest(name = "Report: {0}")
     @CsvFileSource(resources = "/practice/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Get list for money")
-    void getArrayMoneyFromReportTest(String report, String arrayMoney) {
-        assertArrayEquals(Task02.getArrayMoneyFromReport(report), ArrayUtil.parseToDouble(arrayMoney, " "));
+    void getArrayMoneyFromReportTest(String report, String arrayMoney, String sumMoney) {
+        double[] expected = ArrayUtil.parseToDouble(arrayMoney, " ");
+
+        double[] actual = Task02.getArrayMoneyFromReport(report);
+
+        assertArrayEquals(actual, expected);
     }
 
     @ParameterizedTest(name = "Report: {0}")
     @CsvFileSource(resources = "/practice/string/task02-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Get sum for money")
     void getSumMoneyFromReportTest(String report, String arrayMoney, String sumMoney) {
-        assertEquals(Task02.getSumMoneyFromReport(report), Double.valueOf(sumMoney));
+        double expected = Double.parseDouble(sumMoney);
+
+        double actual = Task02.getSumMoneyFromReport(report);
+
+        assertEquals(actual, expected);
     }
 }

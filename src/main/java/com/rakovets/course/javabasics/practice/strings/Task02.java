@@ -1,26 +1,29 @@
 package com.rakovets.course.javabasics.practice.strings;
 
-import com.rakovets.course.javabasics.util.StandardInputTask;
-
 import java.util.Arrays;
 
 /**
- * Разработать программу для анализа банковских отчетов.
+ * Разработать программу для разбора (parsing) банковских отчетов.
  *
  * @author Dmitry Rakovets
  */
-class Task02 extends StandardInputTask {
+@SuppressWarnings("unused")
+class Task02 {
     /**
-     * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
+     * The entry point of the task
+     *
+     * @param args entry arguments
      */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-        System.out.println("Enter report with money format: ' count$ '");
-        String text = INPUT_SCANNER.nextLine();
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        String bankReport = "Remaining 10$  12$ essentially 13$ unchanged.";
 
-        // Вызов методов
-        System.out.println(Arrays.toString(getArrayMoneyFromReport(text)));
-        System.out.println(getSumMoneyFromReport(text));
+        double[] moneyFromReport = getArrayMoneyFromReport(bankReport);
+        System.out.printf("Money from the report: %s\n", Arrays.toString(moneyFromReport));
+        double sumMoneyFromReport = getSumMoneyFromReport(bankReport);
+        System.out.printf("Sum money from the report: %s\n", sumMoneyFromReport);
     }
 
     /**
@@ -32,7 +35,6 @@ class Task02 extends StandardInputTask {
     static double[] getArrayMoneyFromReport(String report) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
@@ -45,7 +47,6 @@ class Task02 extends StandardInputTask {
     static double getSumMoneyFromReport(String report) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return 0.0;
     }
 }

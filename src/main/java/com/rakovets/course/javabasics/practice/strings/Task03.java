@@ -5,61 +5,64 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
 import java.util.Arrays;
 
 /**
- * Разработать программу для парсера информации о персонале компании.
+ * Разработать программу для разбора (parsing) информации о персонале компании.
  *
  * @author Dmitry Rakovets
  */
+@SuppressWarnings("unused")
 class Task03 extends StandardInputTask {
     /**
-     * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
+     * The entry point of the task
+     *
+     * @param args entry arguments
      */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-        System.out.println("Enter information with format: 'Name Surname Salary; ...;'");
-        String text = INPUT_SCANNER.nextLine();
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        String informationAboutStuff = INPUT_SCANNER.nextLine();
 
-        // Вызов методов
-        System.out.println(Arrays.toString(parseToArrayName(text)));
-        System.out.println(Arrays.toString(parseToArraySurname(text)));
-        System.out.println(Arrays.toString(parseToArraySalary(text)));
+        String[] names = parseToArrayName(informationAboutStuff);
+        System.out.printf("Names: %s\n", Arrays.toString(names));
+        String[] surnames = parseToArraySurname(informationAboutStuff);
+        System.out.printf("Surnames: %s\n", Arrays.toString(surnames));
+        int[] salaries = parseToArraySalary(informationAboutStuff);
+        System.out.printf("Salaries: %s\n", Arrays.toString(salaries));
     }
 
     /**
      * Возвращает массив имен персонала.
      *
-     * @param text строка, которая содержит всю информацию
+     * @param informationAboutStuff строка, которая содержит всю информацию
      * @return массив имен персонала, где каждый элемент ~ имя одного сотрудника
      */
-    static String[] parseToArrayName(String text) {
+    static String[] parseToArrayName(String informationAboutStuff) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
     /**
      * Возвращает массив фамилий персонала.
      *
-     * @param text строка, которая содержит всю информацию
+     * @param informationAboutStuff строка, которая содержит всю информацию
      * @return массив фамилий персонала, где каждый элемент ~ фамилия одного сотрудника
      */
-    static String[] parseToArraySurname(String text) {
+    static String[] parseToArraySurname(String informationAboutStuff) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
     /**
      * Возвращает массив зарплат персонала.
      *
-     * @param text строка, которая содержит всю информацию
+     * @param informationAboutStuff строка, которая содержит всю информацию
      * @return массив зарплат персонала, где каждый элемент ~ зарплата одного сотрудника
      */
-    static int[] parseToArraySalary(String text) {
+    static int[] parseToArraySalary(String informationAboutStuff) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 }

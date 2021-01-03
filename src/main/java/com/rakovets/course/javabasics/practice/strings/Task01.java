@@ -1,25 +1,29 @@
 package com.rakovets.course.javabasics.practice.strings;
 
-import com.rakovets.course.javabasics.util.StandardInputTask;
-
 /**
- * Разработать программу для парсера полного имени сотрудника компании.
+ * Разработать программу для разбора (parsing) полного имени сотрудника компании.
  *
  * @author Dmitry Rakovets
  */
-class Task01 extends StandardInputTask {
+@SuppressWarnings("unused")
+class Task01 {
     /**
-     * Запрашивает ввод данных от пользователя и вызывает все методы класса для этих данных.
+     * The entry point of the task
+     *
+     * @param args entry arguments
      */
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-        System.out.println("Enter full name with format: 'Name Surname'");
-        String text = INPUT_SCANNER.nextLine();
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        String fullName = "Nappie Lopez-gomez";
 
-        // Вызов методов
-        System.out.println(getName(text));
-        System.out.println(getSurname(text));
-        System.out.println(reverseFullName(text));
+        String name = getName(fullName);
+        System.out.printf("Name: %s\n", name);
+        String surname = getSurname(fullName);
+        System.out.printf("Surname: %s\n", surname);
+        String reverseFullName = reverseFullName(fullName);
+        System.out.printf("Reversed full name: %s\n", reverseFullName);
     }
 
     /**
@@ -31,7 +35,6 @@ class Task01 extends StandardInputTask {
     static String getName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
@@ -44,7 +47,6 @@ class Task01 extends StandardInputTask {
     static String getSurname(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
@@ -57,7 +59,6 @@ class Task01 extends StandardInputTask {
     static String reverseFullName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 }

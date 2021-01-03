@@ -12,25 +12,34 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Dmitry Rakovets
  */
 @DisplayName("Names")
+@SuppressWarnings("unused")
 class Task01Test {
     @ParameterizedTest(name = "Full name: {0}")
-    @CsvFileSource(resources = "/practice/string/task01-tests.csv", numLinesToSkip = 1, delimiter = '|')
+    @CsvFileSource(resources = "/practice/string/task01-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Get name")
-    void getNameTest(String fullName, String name) {
-        assertEquals(Task01.getName(fullName), name);
+    void getNameTest(String fullName, String name, String surname) {
+        String actual = Task01.getName(fullName);
+
+        assertEquals(name, actual);
     }
 
     @ParameterizedTest(name = "Full name: {0}")
-    @CsvFileSource(resources = "/practice/string/task01-tests.csv", numLinesToSkip = 1, delimiter = '|')
+    @CsvFileSource(resources = "/practice/string/task01-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Get surname")
     void getSurnameTest(String fullName, String name, String surname) {
-        assertEquals(Task01.getSurname(fullName), surname);
+        String actual = Task01.getSurname(fullName);
+
+        assertEquals(surname, actual);
     }
 
     @ParameterizedTest(name = "Full name: {0}")
-    @CsvFileSource(resources = "/practice/string/task01-tests.csv", numLinesToSkip = 1, delimiter = '|')
+    @CsvFileSource(resources = "/practice/string/task01-tests.csv", numLinesToSkip = 1, delimiter = ',')
     @DisplayName("Reverse full name")
     void reverseFullNameTest(String fullName, String name, String surname) {
-        assertEquals(Task01.reverseFullName(fullName), surname + " " + name);
+        var expected = surname + " " + name;
+
+        String actual = Task01.reverseFullName(fullName);
+
+        assertEquals(expected, actual);
     }
 }

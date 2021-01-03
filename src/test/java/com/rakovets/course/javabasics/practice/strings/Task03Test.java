@@ -13,28 +13,40 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * @author Dmitry Rakovets
  */
 @DisplayName("Stuff")
+@SuppressWarnings("unused")
 class Task03Test {
     private static final String CSV_FIELD_SPLITERATOR = " ";
 
     @ParameterizedTest(name = "Information about stuff: {0}")
     @CsvFileSource(resources = "/practice/string/task03-tests.csv", numLinesToSkip = 1)
     @DisplayName("Stuff: names")
-    void parseToArrayNameTest(String information, String names) {
-        assertArrayEquals(Task03.parseToArrayName(information), names.split(CSV_FIELD_SPLITERATOR));
+    void parseToArrayNameTest(String information, String names, String surnames, String salaries) {
+        String[] expected = names.split(CSV_FIELD_SPLITERATOR);
+
+        String[] actual = Task03.parseToArrayName(information);
+
+        assertArrayEquals(actual, expected);
     }
 
     @ParameterizedTest(name = "Information about stuff: {0}")
     @CsvFileSource(resources = "/practice/string/task03-tests.csv", numLinesToSkip = 1)
     @DisplayName("Stuff: surnames")
-    void parseToArraySurnameTest(String information, String names, String surnames) {
-        assertArrayEquals(Task03.parseToArraySurname(information), surnames.split(CSV_FIELD_SPLITERATOR));
+    void parseToArraySurnameTest(String information, String names, String surnames, String salaries) {
+        String[] expected = surnames.split(CSV_FIELD_SPLITERATOR);
+
+        String[] actual = Task03.parseToArraySurname(information);
+
+        assertArrayEquals(actual, expected);
     }
 
     @ParameterizedTest(name = "Information about stuff: {0}")
     @CsvFileSource(resources = "/practice/string/task03-tests.csv", numLinesToSkip = 1)
     @DisplayName("Stuff: salaries")
     void parseToArraySalaryTest(String information, String names, String surnames, String salaries) {
-        assertArrayEquals(Task03.parseToArraySalary(information),
-                ArrayUtil.parseToInt(salaries, CSV_FIELD_SPLITERATOR));
+        int[] expected = ArrayUtil.parseToInt(salaries, CSV_FIELD_SPLITERATOR);
+
+        int[] actual = Task03.parseToArraySalary(information);
+
+        assertArrayEquals(actual, expected);
     }
 }
