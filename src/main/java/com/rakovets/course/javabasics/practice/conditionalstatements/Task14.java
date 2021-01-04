@@ -48,6 +48,36 @@ public class Task14 {
     static String getZodiacYearName(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiacYearName = null;
+        if (year == 2001 || (year - 2001) % 12 == 0) {
+            zodiacYearName = "Snake";
+        } else if (year == 2002 || (year - 2002) % 12 == 0) {
+            zodiacYearName = "Horse";
+        } else if (year == 2003 || (year - 2003) % 12 == 0) {
+            zodiacYearName = "Ram";
+        } else if (year == 2004 || (year - 2004) % 12 == 0) {
+            zodiacYearName = "Monkey";
+        } else if (year == 2005 || (year - 2005) % 12 == 0) {
+            zodiacYearName = "Rooster";
+        } else if (year == 2006 || (year - 2006) % 12 == 0) {
+            zodiacYearName = "Dog";
+        } else if (year == 2007 || (year - 2007) % 12 == 0) {
+            zodiacYearName = "Pig";
+        } else if (year == 2008 || (year - 2008) % 12 == 0) {
+            zodiacYearName = "Rat";
+        } else if (year == 2009 || (year - 2009) % 12 == 0) {
+            zodiacYearName = "Ox";
+        } else if (year == 2010 || (year - 2010) % 12 == 0) {
+            zodiacYearName = "Tiger";
+        } else if (year == 2011 || (year - 2011) % 12 == 0) {
+            zodiacYearName = "Rabbit";
+        } else if (year == 2012 || (year - 2012) % 12 == 0) {
+            zodiacYearName = "Dragon";
+        } else {
+            return null;
+        }
+        {
+            return zodiacYearName;
+        }
     }
 }
