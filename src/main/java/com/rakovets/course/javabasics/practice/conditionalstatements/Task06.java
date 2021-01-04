@@ -24,8 +24,8 @@ public class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int tanksKilledFirstPlayer = 2;
-        int tanksKilledSecondPlayer = 4;
+        int tanksKilledFirstPlayer = 1;
+        int tanksKilledSecondPlayer = 1;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
@@ -41,6 +41,13 @@ public class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (tanksKilledFirstPlayer>tanksKilledSecondPlayer){
+            return "Player 1: "+ (tanksKilledFirstPlayer*KILL_POINT+BONUS_POINT)+". " +"Player 2: "+ (tanksKilledSecondPlayer*KILL_POINT);
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
+            return "Player 1: "+ (tanksKilledFirstPlayer*KILL_POINT)+". " +"Player 2: "+ (tanksKilledSecondPlayer*KILL_POINT+BONUS_POINT);
+        } else  if (tanksKilledFirstPlayer==tanksKilledSecondPlayer) {
+            return "Player 1: "+ (tanksKilledFirstPlayer*KILL_POINT)+". " +"Player 2: "+ (tanksKilledSecondPlayer*KILL_POINT);
+        }
         return null;
     }
 }
