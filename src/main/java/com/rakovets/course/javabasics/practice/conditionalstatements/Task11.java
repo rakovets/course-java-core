@@ -40,11 +40,16 @@ public class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if ((symbol >= 65 & symbol <= 90) | (symbol >= 97 & symbol <= 122))  return "latin";
-        if (symbol >= 48 & symbol <= 57) return "digit";
-        else if (symbol >= 1024 & symbol <= 1327) return "cyrillic";
-        else if (symbol >= 65520 & symbol <= 65535) return "special character";
-        else return "undefined";
+        if ((symbol >= 65 & symbol <= 90) | (symbol >= 97 & symbol <= 122))
+            return "latin";
+        if (symbol >= 48 & symbol <= 57)
+            return "digit";
+        else if (symbol >= 1024 & symbol <= 1327)
+            return "cyrillic";
+        else if (symbol >= 65520 & symbol <= 65535)
+            return "special character";
+        else
+            return "undefined";
 
     }
 }

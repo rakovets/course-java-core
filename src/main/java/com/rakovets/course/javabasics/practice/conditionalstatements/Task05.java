@@ -36,7 +36,6 @@ public class Task05 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         switch (monthNumber) {
-
             case 1:
                 return "JANUARY";
             case 2:

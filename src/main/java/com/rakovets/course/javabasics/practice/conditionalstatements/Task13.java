@@ -37,8 +37,13 @@ public class Task13 {
         int a = numberFloors * numberApartmentsPerFloor;
         System.out.println("numberApartmentsPerEntrance " + a);
 
-        if (apartmentNumber == a) return numberFloors;
-        if (apartmentNumber < a)  return apartmentNumber / numberApartmentsPerFloor + 1;
+        if (apartmentNumber == a) {
+            return numberFloors;
+        }
+
+        if (apartmentNumber < a) {
+            return apartmentNumber / numberApartmentsPerFloor + 1;
+        }
 
         int b = apartmentNumber / a;
         int c = apartmentNumber - b * a;

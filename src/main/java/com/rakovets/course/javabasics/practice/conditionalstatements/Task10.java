@@ -38,15 +38,17 @@ public class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         if (firstFuelReserves <= secondFuelReserves) {
-            if (firstFuelReserves <= thirdFuelReserves)
+            if (firstFuelReserves <= thirdFuelReserves) {
                 return 1;
-            else
+            } else {
                 return 3;
+            }
         } else {
-            if (secondFuelReserves <= thirdFuelReserves)
+            if (secondFuelReserves <= thirdFuelReserves) {
                 return 2;
-            else
+            } else {
                 return 3;
+            }
         }
 
     }

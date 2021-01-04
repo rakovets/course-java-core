@@ -40,11 +40,17 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         float hp = (float) currentHealthPoint / maxHealthPoint;
-        if (hp > 0 & hp < 0.25) return "RED";
-        else if (hp > 0 & hp < 0.5) return "ORANGE";
-        else if (hp > 0 & hp < 0.75) return "YELLOW";
-        else if (hp > 0 & hp <= 1) return "GREEN";
-        else return null;
+        if (hp > 0 & hp < 0.25) {
+            return "RED";
+        } else if (hp > 0 & hp < 0.5) {
+            return "ORANGE";
+        } else if (hp > 0 & hp < 0.75) {
+            return "YELLOW";
+        } else if (hp > 0 & hp <= 1) {
+            return "GREEN";
+        } else {
+            return null;
+        }
 
     }
 }

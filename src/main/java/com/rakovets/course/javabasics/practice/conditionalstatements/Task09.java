@@ -35,8 +35,10 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int numberApartmentPenEntrance = numberFloors * numberApartmentsPerFloor;
-        if (apartmentNumber <= numberApartmentPenEntrance) return 1;
-        return (apartmentNumber / numberApartmentPenEntrance) + 1;
+        if (apartmentNumber <= numberApartmentPenEntrance) {
+            return 1;
+        }
+        return (apartmentNumber / numberApartmentPenEntrance + 1);
 
     }
 }

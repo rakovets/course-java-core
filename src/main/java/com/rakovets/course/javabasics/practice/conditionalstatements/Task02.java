@@ -39,11 +39,17 @@ public class Task02 extends StandardInputTask {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if (0 <= hour & hour <= 5)  return "Good night";
-        else if (6 <= hour & hour <= 11) return "Good morning";
-        else if (12 <= hour & hour <= 17) return"Good day";
-        else if (18 <= hour & hour <= 23) return "Good evening";
-        else return null;
+        if (0 <= hour & hour <= 5) {
+            return "Good night";
+        } else if (6 <= hour & hour <= 11) {
+            return "Good morning";
+        } else if (12 <= hour & hour <= 17) {
+            return "Good day";
+        } else if (18 <= hour & hour <= 23) {
+            return "Good evening";
+        } else {
+            return null;
+        }
 
     }
 }
