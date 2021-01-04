@@ -47,8 +47,7 @@ public class Task11 {
         } else if (symbol >= 1040 && symbol <= 1105) {
             return "cyrillic";
         } else if (symbol >= 33 && symbol <= 47 || symbol >= 58 && symbol <= 64 || symbol >= 91 && symbol <= 96 || symbol >= 123 && symbol <= 126) {
-            return "special symbol";
-        }
-        return null;
+            return "undefined";
+        } return null;
     }
 }
