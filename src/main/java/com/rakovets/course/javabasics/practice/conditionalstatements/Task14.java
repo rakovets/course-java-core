@@ -49,7 +49,7 @@ public class Task14 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         switch (year) {
-            case (year%12 == 1):
+         //   case (year%12 == 1):
         }
         return null;
     }
