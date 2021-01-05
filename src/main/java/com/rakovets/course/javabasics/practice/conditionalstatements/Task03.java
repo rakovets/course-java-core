@@ -38,7 +38,7 @@ public class Task03 extends StandardInputTask {
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        // Код , решающий задачу пишем ниже, при этом используя параметры метода
        double CurrentStateHealthPoint = currentHealthPoint * 100.00 / maxHealthPoint ;
        if(CurrentStateHealthPoint >0 ) {
            if (CurrentStateHealthPoint < 25) {
