@@ -48,6 +48,9 @@ public class Task14 {
     static String getZodiacYearName(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        switch (year) {
+            case (year%12 == 1):
+        }
         return null;
     }
 }
