@@ -2,7 +2,6 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
 
 import com.rakovets.course.javabasics.util.StandardInputTask;
 
-import java.time.Month;
 
 /**
  * Разработать программу для игрового движка.
@@ -39,29 +38,29 @@ public class Task05 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метод
         switch (monthNumber) {
             case 1:
-                return Month.JANUARY.toString();
+                return "JANUARY";
             case 2:
-                return Month.FEBRUARY.toString();
+                return "FEBRUARY";
             case 3:
-                return Month.MARCH.toString();
+                return "MARCH";
             case 4:
-                return Month.APRIL.toString();
+                return "APRIL";
             case 5:
-                return Month.MAY.toString();
+                return "MAY";
             case 6:
-                return Month.JUNE.toString();
+                return "JUNE";
             case 7:
-                return Month.JULY.toString();
+                return "JULY";
             case 8:
-                return Month.AUGUST.toString();
+                return "AUGUST";
             case 9:
-                return Month.SEPTEMBER.toString();
+                return "SEPTEMBER";
             case 10:
-                return Month.OCTOBER.toString();
+                return "OCTOBER";
             case 11:
-                return Month.NOVEMBER.toString();
+                return "NOVEMBER";
             case 12:
-                return Month.DECEMBER.toString();
+                return "DECEMBER";
             default:
                 return null;
         }
