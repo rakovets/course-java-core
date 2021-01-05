@@ -40,7 +40,6 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
        double CurrentStateHealthPoint = currentHealthPoint * 100.00 / maxHealthPoint ;
-       System.out.println(CurrentStateHealthPoint);
        if(CurrentStateHealthPoint >0 ) {
            if (CurrentStateHealthPoint < 25) {
                return "RED";
