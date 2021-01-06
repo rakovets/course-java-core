@@ -31,6 +31,10 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder table = new StringBuilder();
+        for (int i = 1; i < numberRows; i++)  {
+             table.append(i).append("\n");
+        }
+        return table.toString() + numberRows;
     }
 }
