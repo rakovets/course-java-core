@@ -33,7 +33,7 @@ class Task01 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         StringBuilder table = new StringBuilder();
         for (int i = 1; i < numberRows; i++)  {
-             table.append(i).append("\n");
+            table.append(i).append("\n");
         }
         return table.toString() + numberRows;
     }
