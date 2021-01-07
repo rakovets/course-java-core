@@ -21,8 +21,8 @@ It contains for each theme of this course:
 |*Theme*|*Links*
 |Intro.|link:src/main/resources/practice/intro.adoc[intro.adoc]
 |Data types. Variables. Operators. Methods|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
-|Conditional statements.|link:src/main/java/com/rakovets/course/javabasics/practice/conditionalstatements[package: conditionalstatements]
-|Loops.|link:src/main/java/com/rakovets/course/javabasics/practice/loops[package: loops]
+|Decision-making statements.|link:src/main/java/com/rakovets/course/javabasics/practice/statements/decisionmaking[package: statements-decision-making]
+|Looping statements.|link:src/main/java/com/rakovets/course/javabasics/practice/statements/looping[package: statements-looping]
 |Arrays.|link:src/main/java/com/rakovets/course/javabasics/practice/arrays[package: arrays]
 |OOP: Classes and Objects.|link:src/main/resources/practice/oop-classes-and-objects.adoc[oop-classes-and-objects.adoc]
 |Strings.|link:src/main/resources/practice/strings.adoc[strings.adoc], link:src/main/java/com/rakovets/course/javabasics/practice/strings[package: strings]
