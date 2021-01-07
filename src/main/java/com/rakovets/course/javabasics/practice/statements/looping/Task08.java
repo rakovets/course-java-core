@@ -42,7 +42,7 @@ class Task08 {
      * @param sizeTotalPrice          размерность списка цен
      * @return price, где формат вывода одной записи '${numberItems} - ${cost}'
      */
-    static String generateTotalPriceList(int startNumberItems, int startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
+    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return null;

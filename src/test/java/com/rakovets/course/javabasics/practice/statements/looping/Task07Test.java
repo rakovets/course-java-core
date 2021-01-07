@@ -16,11 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Task07Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(13, 20, 5.0, 143.35),
-                Arguments.of(20, 42, 4.0, 553.42),
-                Arguments.of(5, 10, 10.0, 57.18),
-                Arguments.of(1, 20, 1.0, 1918.62),
-                Arguments.of(0, 20, 5.0, 0.00)
+                Arguments.of(13, 20, 5, 143.35),
+                Arguments.of(20, 42, 4, 553.42),
+                Arguments.of(5, 10, 10, 57.18),
+                Arguments.of(1, 20, 1, 1918.62),
+                Arguments.of(0, 20, 5, 0.00)
         );
     }
 
