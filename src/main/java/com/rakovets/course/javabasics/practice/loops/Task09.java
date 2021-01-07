@@ -27,8 +27,8 @@ class Task09 {
         int startNumberItems = 4;
         double startPriceAllItems = 3;
         int differentialNumberItems = 5;
+        double differentialSell = 4;
         int sizeTotalPrice = 6;
-        int differentialSell = 4;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -46,7 +46,7 @@ class Task09 {
      * @return список цен, где формат вывода одной записи в списке цен:
      * '${numberItems} - ${cost} with sell ${totalSell}%'
      */
-    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int differentialSell, int sizeTotalPrice) {
+    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return null;
