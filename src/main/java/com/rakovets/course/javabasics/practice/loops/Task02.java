@@ -42,14 +42,14 @@ class Task02 {
             for (int number = 1; number < numberRows; number++) {
             numberLine += number + "\n";
         }
-            numberLine = "\n"+numberLine;
+            numberLine = "\n" + numberLine;
 
         } else {
             for (int number = 1; number < numberRows; number++) {
                 numberLine += number + "\n";
             }
         }
-        return numberLine+numberRows;
+        return numberLine + numberRows;
 
 
     }

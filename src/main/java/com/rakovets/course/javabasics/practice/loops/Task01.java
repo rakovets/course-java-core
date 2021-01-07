@@ -37,6 +37,6 @@ class Task01 {
         for (int number = 1; number < numberRows; number++) {
             numberLine += number + "\n";
         }
-        return numberLine+numberRows;
+        return numberLine + numberRows;
     }
 }
