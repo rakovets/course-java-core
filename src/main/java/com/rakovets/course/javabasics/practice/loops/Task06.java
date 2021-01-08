@@ -36,6 +36,18 @@ class Task06 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String stringAmount = "";
+
+        if (amount > 0) {
+            for ( ; amount > 1000; amount /= 1000){
+                stringAmount = " " + amount % 1000 + stringAmount;
+            }
+        } else {
+            for ( ; amount < -1000; amount /= 1000) {
+                stringAmount = " " + Math.abs(amount % 1000) + stringAmount;
+            }
+        }
+        return amount % 1000 + stringAmount;
+
     }
 }
