@@ -24,10 +24,10 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startPriceAllItems = 2;
-        int startNumberItems = 2;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startPriceAllItems = 34;
+        int startNumberItems = 10;
+        int differentialNumberItems = 1;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -45,6 +45,14 @@ class Task08 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String str = startNumberItems + " - " + startPriceAllItems;
+
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            startPriceAllItems = (startNumberItems + differentialNumberItems) * startPriceAllItems / startNumberItems;
+            startNumberItems += differentialNumberItems;
+            str += "\n" + startNumberItems + " - " + startPriceAllItems;
+        }
+        return str;
+
     }
 }
