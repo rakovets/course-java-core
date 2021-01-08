@@ -39,10 +39,10 @@ class Task07 {
         double totalDistanceCalculating = progressDistance;
 
         while (progressDistance <= finishDistance && progressDistance != 0) {
-            progressDistance += (progressDistance*dailyProgress/100);
+            progressDistance += (progressDistance * dailyProgress / 100);
             totalDistanceCalculating += progressDistance;
         }
         double scale = Math.pow(10, 2);
-        return Math.round((totalDistanceCalculating-progressDistance)* scale) / scale;
+        return Math.round((totalDistanceCalculating - progressDistance) * scale) / scale;
     }
 }
