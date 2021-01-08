@@ -32,9 +32,10 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         StringBuilder table = new StringBuilder();
-        for (int i = 1; i < numberRows; i++)  {
+        for (int i = 1; i <= numberRows; i++)  {
             table.append(i).append("\n");
         }
-        return table.toString() + numberRows;
+        table.deleteCharAt(table.length() - 1);
+        return table.toString();
     }
 }
