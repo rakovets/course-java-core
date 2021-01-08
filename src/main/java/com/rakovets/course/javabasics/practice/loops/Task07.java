@@ -15,8 +15,8 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startDistance = 1000;
-        int finishDistance = 40000;
+        int startDistance = 10;
+        int finishDistance = 100;
         int dailyProgress = 5;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
@@ -34,6 +34,15 @@ class Task07 {
     static double calculateTotalDistance(int startDistance, int finishDistance, int dailyProgress) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+
+        double progressDistance = startDistance;
+        double totalDistanceCalculating = progressDistance;
+
+        while (progressDistance <= finishDistance && progressDistance != 0) {
+            progressDistance += (progressDistance*dailyProgress/100);
+            totalDistanceCalculating += progressDistance;
+        }
+        double scale = Math.pow(10, 2);
+        return Math.round((totalDistanceCalculating-progressDistance)* scale) / scale;
     }
 }
