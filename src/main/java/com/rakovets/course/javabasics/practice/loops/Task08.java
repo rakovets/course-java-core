@@ -40,11 +40,27 @@ class Task08 {
      * @param startPriceAllItems      стоимость всех продуктов, с которых начинается список цен
      * @param differentialNumberItems разница в количестве продуктов между соседними значениями списка цен
      * @param sizeTotalPrice          размерность списка цен
-     * @return price, где формат вывода одной записи '${numberItems} - ${cost}'
+     * @return price, где формат вывода одной записи '${numberItems} - ${cost}'. Для ${cost} использовать точность до
+     * 2 знаков после вещественного разделителя:
+     * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        StringBuilder totalPriceList = new StringBuilder();
+        double totalSell = 0;
+        double cost;
+        double itemPrise = startPriceAllItems / startNumberItems;
+        for (int i = 1; i <= sizeTotalPrice; i++) {
+            if (i == 1) {
+                totalPriceList.toString();
+            } else
+                startNumberItems = startNumberItems + differentialNumberItems;
+            cost = startNumberItems * itemPrise - (startNumberItems * itemPrise * totalSell / 100);
+            cost = Math.round(100.0 * cost) / 100.0;
+            totalPriceList.append(startNumberItems).append(" - ").append(cost).append("\n");
+        }
+        return totalPriceList.toString().replaceAll("[\n\r]$", "");
     }
 }
