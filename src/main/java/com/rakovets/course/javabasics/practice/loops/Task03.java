@@ -29,11 +29,18 @@ class Task03 {
      * @param depositAmount        сумма вклада
      * @param annualDepositPercent ежегодный процент вклада
      * @param depositTerm          продолжительность вклада (в годах)
-     * @return прибыль округленную математически
+     * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+
+        for (int i = 1; i <= depositTerm; i++) {
+            depositAmount = depositAmount + (depositAmount * annualDepositPercent / 100);
+            depositAmount = Math.round(100.0 * depositAmount) / 100.0;
+        }
+        return depositAmount;
     }
 }
+
+
