@@ -24,10 +24,10 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
+        int startNumberItems = 51;
+        double startPriceAllItems = 30;
         int differentialNumberItems = 5;
-        double differentialSell = 4;
+        double differentialSell = 1;
         int sizeTotalPrice = 6;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
@@ -49,6 +49,16 @@ class Task09 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder price =  new StringBuilder();
+        int quantity = startNumberItems;
+        double productPrice = startPriceAllItems;
+        double pricePerItem = productPrice / quantity;
+        for (int i = 0; i < sizeTotalPrice; i++ ) {
+            quantity = startNumberItems + (i * differentialNumberItems);
+            productPrice = startPriceAllItems + pricePerItem * (i * differentialNumberItems);
+            price.append(quantity).append(" - ").append(productPrice).append("\n");
+        }
+        price.deleteCharAt(price.length() - 1);
+        return price.toString();
     }
 }
