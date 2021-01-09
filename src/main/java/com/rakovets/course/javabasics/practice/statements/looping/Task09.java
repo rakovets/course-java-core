@@ -44,7 +44,9 @@ class Task09 {
      * @param differentialSell        скидка в процентах на всю покупку за приобретение дополнительных
      *                                <code>differentialNumberItems</code> товара
      * @return список цен, где формат вывода одной записи в списке цен:
-     * '${numberItems} - ${cost} with sell ${totalSell}%'
+     * '${numberItems} - ${cost} with sell ${totalSell}%'. Для ${cost} использовать точность до 2 знаков после
+     * вещественного разделителя:
+     * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
