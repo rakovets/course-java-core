@@ -1,5 +1,8 @@
 package com.rakovets.course.javabasics.practice.loops;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +27,11 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 51;
-        double startPriceAllItems = 30;
+        int startNumberItems = 5;
+        double startPriceAllItems = 100;
         int differentialNumberItems = 5;
         double differentialSell = 1;
-        int sizeTotalPrice = 6;
+        int sizeTotalPrice = 20;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -52,13 +55,15 @@ class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         StringBuilder price =  new StringBuilder();
-        int quantity = startNumberItems;
-        double productPrice = startPriceAllItems;
-        double pricePerItem = productPrice / quantity;
+        int quantity;
+        double productPrice;
+        double pricePerItem = startPriceAllItems / startNumberItems;
         for (int i = 0; i < sizeTotalPrice; i++ ) {
             quantity = startNumberItems + (i * differentialNumberItems);
-            productPrice = startPriceAllItems + pricePerItem * (i * differentialNumberItems);
-            price.append(quantity).append(" - ").append(productPrice).append("\n");
+            productPrice = (pricePerItem * quantity);
+            productPrice  -= productPrice * (i * differentialSell / 100);
+            productPrice = BigDecimal.valueOf(productPrice).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            price.append(quantity).append(" - ").append(productPrice).append(" with sell ").append(differentialSell * i).append("%").append("\n");
         }
         price.deleteCharAt(price.length() - 1);
         return price.toString();
