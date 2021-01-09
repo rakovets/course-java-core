@@ -30,7 +30,7 @@ class Task08 {
         int startPriceAllItems = 20;
         int startNumberItems = 10;
         int differentialNumberItems = 2;
-        int sizeTotalPrice = 3;
+        int sizeTotalPrice = 15;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
