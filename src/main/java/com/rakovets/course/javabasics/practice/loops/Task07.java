@@ -1,5 +1,8 @@
 package com.rakovets.course.javabasics.practice.loops;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для фитнес браслета.
  *
@@ -15,36 +18,27 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startDistance = 13;
-        int finishDistance = 20;
-        int dailyProgress = 5;
+        int startDistance = 1000;
+        int finishDistance = 40000;
+        double dailyProgress = 5;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
         System.out.printf("Result: %f", totalDistance);
     }
 
     /**
-     * Рассчитывает пробег, который совершит спортсмен при подготовке к марафону. Известно:
+     * Рассчитывает пробег (т.е дистанцию, которую пробежал спортсмен за все тренировки), который совершит спортсмен
+     * при подготовке к марафону.
      *
-     * @param startDistance  дистанция которую пробегает спортсмен до начала тренировки
-     * @param finishDistance дистанция которую желает пробежать спортсмен после окончания тренировок
-     * @param dailyProgress  ежедневный прогресс в процентах по отношению к предыдущему забегу
-     * @return пробег (точность 10 метром)
+     * @param startDistance             дистанция которую пробегает спортсмен до начала тренировки
+     * @param finishDistance            дистанция которую желает пробежать спортсмен после окончания тренировок
+     * @param dailyProgressAsPercentage ежедневный прогресс в процентах по отношению к предыдущему забегу
+     * @return пробег (с точностью до 2 знаков после десятичного разделителя)
      */
-    static double calculateTotalDistance(int startDistance, int finishDistance, int dailyProgress) {
+    static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double res =  startDistance;
-        double total = startDistance;
-        if (startDistance == 0) {
-            return 0.00;
-        }
-        while (res < finishDistance) {
-            res = res + (res * dailyProgress / 100);
-            total += res;
-
-        }
-        return Math.round((total-res) * 100.0) / 100.0;
-
+        double totalDistance = 0;
+        return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

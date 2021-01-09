@@ -29,7 +29,7 @@ class Task03 {
      * @param depositAmount        сумма вклада
      * @param annualDepositPercent ежегодный процент вклада
      * @param depositTerm          продолжительность вклада (в годах)
-     * @return прибыль округленную математически
+     * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
