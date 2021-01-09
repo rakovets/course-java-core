@@ -16,17 +16,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Task07Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(13, 20, 5, 143.35),
-                Arguments.of(20, 42, 4, 553.42),
-                Arguments.of(5, 10, 10, 57.18),
-                Arguments.of(1, 20, 1, 1918.62),
-                Arguments.of(0, 20, 5, 0.00)
+                Arguments.of(13, 20, 5, 150.51),
+                Arguments.of(2000, 4200, 4, 57556.16),
+                Arguments.of(50, 100, 10, 628.97),
+                Arguments.of(100, 2000, 1, 193780.77),
+                Arguments.of(0, 20, 5, 0.0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void test(int startDistance, int finishDistance, int dailyProgress, double expected) {
+    void test(int startDistance, int finishDistance, double dailyProgress, double expected) {
         double actual = Task07.calculateTotalDistance(startDistance, finishDistance, dailyProgress);
 
         assertEquals(expected, actual);
