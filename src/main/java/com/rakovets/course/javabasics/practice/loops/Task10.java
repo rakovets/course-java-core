@@ -13,7 +13,7 @@ package com.rakovets.course.javabasics.practice.loops;
  *
  * @author Dmitry Rakovets
  */
-class Task10 {
+class Task10<i> {
     /**
      * The entry point of the task
      *
@@ -24,7 +24,7 @@ class Task10 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startNumber = 0;
-        int finishNumber = 50;
+        int finishNumber = 1;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -40,6 +40,28 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+
+        int numberOfPrimes = 0;
+        for (int i = startNumber + 1; i < finishNumber; i++) {
+            boolean primeNumber = true;
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    primeNumber = false;
+                    break;
+                }
+            }
+            if (primeNumber)
+                numberOfPrimes++;
+        }
+        return numberOfPrimes;
     }
 }
+
+
+
+
+
+
+
+
