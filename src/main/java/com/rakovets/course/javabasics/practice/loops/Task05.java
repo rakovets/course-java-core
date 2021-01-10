@@ -16,9 +16,9 @@ class Task05 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 10;
-        int averageDamagePerHour = 200;
+        int healthPoints = 10000;
+        double regenerationPercentFromCurrentHealth = 5.0;
+        int averageDamagePerHour = 500;
 
         double raidTime = calculateRaidTime(healthPoints, regenerationPercentFromCurrentHealth, averageDamagePerHour);
         System.out.printf("Result: %f", raidTime);
@@ -35,6 +35,18 @@ class Task05 {
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double regeneration;
+        double currentHealthWithRegenerationInHour = healthPoints;
+        int time = 0;
+        while (currentHealthWithRegenerationInHour >0 && time <=24) {
+            regeneration = currentHealthWithRegenerationInHour * regenerationPercentPerHour / 100;
+            currentHealthWithRegenerationInHour += regeneration;
+            currentHealthWithRegenerationInHour -= averageDamagePerHour;
+            time++;
+        }
+        if (time <= 24)
+        {
+            return time;
+        } else return -1;
     }
 }
