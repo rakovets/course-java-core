@@ -23,7 +23,7 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumber = 0;
+        int startNumber = -10;
         int finishNumber = 50;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
@@ -40,6 +40,28 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        int primeNumberCounter = 0;
+        int operationalCounter = 0;
+
+        if (finishNumber == 2) {
+            return 1;
+        } else if (finishNumber < 2) {
+            return 0;
+        } else {
+            for (; startNumber <= finishNumber; startNumber++) {
+
+                for (int denominator = 2; denominator <= startNumber; denominator++) {
+                    if (startNumber % denominator == 0 && startNumber != denominator) {
+                        operationalCounter = 0;
+                        break;
+                    } else {
+                        operationalCounter = 1;
+                    }
+                }
+                primeNumberCounter += operationalCounter;
+            }
+            return primeNumberCounter;
+        }
     }
 }
