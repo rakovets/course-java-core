@@ -28,7 +28,7 @@ class Task08 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startPriceAllItems = 20;
-        int startNumberItems = 10;
+        int startNumberItems = 15;
         int differentialNumberItems = 2;
         int sizeTotalPrice = 15;
 
