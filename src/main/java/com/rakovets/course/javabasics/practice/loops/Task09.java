@@ -51,6 +51,21 @@ class Task09 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder totalPriceList = new StringBuilder();
+        double totalSell = 0;
+        double cost = 0;
+        double itemPrise = startPriceAllItems / startNumberItems;
+        for (int i = 1; i <= sizeTotalPrice; i++) {
+            if (i == 1) {
+                totalPriceList.toString();
+            } else
+                startNumberItems = startNumberItems + differentialNumberItems;
+            totalSell = differentialSell * (i - 1);
+            cost = startNumberItems * itemPrise - (startNumberItems * itemPrise * totalSell / 100);
+            cost = Math.round(100.0 * cost) / 100.0;
+            totalPriceList.append(startNumberItems).append(" - ").append(cost).append(" with sell ").append(totalSell).append("%").append("\n");
+        }
+        return totalPriceList.toString().replaceAll("[\n\r]$", "");
     }
 }
+

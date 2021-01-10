@@ -36,6 +36,18 @@ class Task06 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder accountingFormat = new StringBuilder();
+        int i;
+        boolean negativeAmount = amount < 0;
+        amount = Math.abs(amount);
+        do {
+            i = (int) (amount % 1000);
+            amount /= 1000;
+            accountingFormat.insert(0, i + " ");
+        } while (amount > 0);
+        if (negativeAmount) {
+            accountingFormat.insert(0, "-");
+        }
+        return accountingFormat.toString().replaceAll("[ \r]$", "");
     }
 }
