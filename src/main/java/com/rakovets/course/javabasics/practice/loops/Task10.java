@@ -41,18 +41,20 @@ class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int number = 0;
-            for (int i = startNumber; i <= finishNumber; i++)  {
-                int j = 0;
-                for (int k = 2; k <= i / k; k++)  {
-                    if (i % k == 0) {
-                        j++;
-                        break;
-                    }
+        for (int i = startNumber + 1; i <= finishNumber; i++) {
+            int j = 0;
+            for (int k = 2; k <= i / k; k++) {
+                if (i % k == 0) {
+                    j++;
+                    break;
                 }
-                if (j < 1)
-                    number++;
             }
-            return number;
+            if (j < 1)
+                number++;
         }
+        if (startNumber >= 1) {
+            return number;
+        } else
+            return number - 1;
     }
-
+}
