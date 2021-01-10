@@ -1,5 +1,8 @@
 package com.rakovets.course.javabasics.practice.loops;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +27,11 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
+        int startNumberItems = 5;
+        double startPriceAllItems = 100.0;
         int differentialNumberItems = 5;
-        double differentialSell = 4;
-        int sizeTotalPrice = 6;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 20;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -51,6 +54,18 @@ class Task09 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String returnList = "";
+        double differentialSellTotal = 0.0;
+        double step = startPriceAllItems / startNumberItems;
+        double finishPriceAllItems = startPriceAllItems;
+        for (int i = 0; i < sizeTotalPrice -1 ; i++) {
+            returnList += startNumberItems + " - " + finishPriceAllItems +" with sell " + differentialSellTotal + "%"  + "\n";
+            startNumberItems += differentialNumberItems;
+            differentialSellTotal +=differentialSell;
+            startPriceAllItems = startNumberItems * step - startNumberItems * step  * differentialSellTotal/100;
+            finishPriceAllItems = BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+        returnList += startNumberItems + " - " + finishPriceAllItems +" with sell " + differentialSellTotal + "%";
+        return returnList;
     }
 }
