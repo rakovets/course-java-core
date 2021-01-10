@@ -37,9 +37,10 @@ class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
             double hpTotal = healthPoints;
+
             for (int hour = 1; hour <= hoursAfterRespawn; hour++) {
-            double healing =  hpTotal * regenerationPercentFromCurrentHealth / 100;
-            hpTotal += healing;
+                double healing =  hpTotal * regenerationPercentFromCurrentHealth / 100;
+                hpTotal += healing;
         }
         return (int) (hpTotal);
     }
