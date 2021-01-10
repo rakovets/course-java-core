@@ -41,9 +41,9 @@ class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int number = 0;
-            for (int i = startNumber; i <= finishNumber; i++) {
+            for (int i = startNumber; i <= finishNumber; i++)  {
                 int j = 0;
-                for (int k = 2; k <= i/k; k++) {
+                for (int k = 2; k <= i / k; k++)  {
                     if (i % k == 0) {
                         j++;
                         break;
