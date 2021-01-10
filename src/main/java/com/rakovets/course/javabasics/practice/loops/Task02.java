@@ -34,6 +34,18 @@ class Task02 {
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (isEnableHeaderRow == true) {
+            String stroka = "\n";
+            for (int i = 1; i < numberRows - 1; i++) {
+                stroka += i + "\n";
+            }
+            return stroka + (numberRows - 1);
+        } else {
+            String stroka = "";
+            for (int i = 1; i < numberRows; i++) {
+                stroka += + i + "\n";
+            }
+            return stroka + numberRows;
+        }
     }
 }
