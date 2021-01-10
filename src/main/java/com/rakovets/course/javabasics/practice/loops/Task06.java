@@ -36,6 +36,18 @@ class Task06 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = "";
+        long threeСharactersToTheRight = 0L;
+        while (amount > 1000 || amount < -1000) {
+            if (amount > 0) {
+                threeСharactersToTheRight = amount % 1000;
+            } else {
+                threeСharactersToTheRight = amount % 1000 * -1;
+            }
+            result = " " + threeСharactersToTheRight + result;
+            amount = amount / 1000;
+        }
+        result = amount + result;
+        return result;
     }
 }
