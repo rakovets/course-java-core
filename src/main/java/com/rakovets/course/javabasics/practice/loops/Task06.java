@@ -20,7 +20,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 15000000;
+        long amount = 1234;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -38,9 +38,12 @@ class Task06 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int length = String.valueOf(amount).length();
         StringBuilder sum = new StringBuilder((Long.toString(amount)));
-        for (int i = 1; i < length; i++)  {
-            length -= 3;
-            sum.insert(length, " ");
+        for (int i = 1; i < length; i++) {
+            if (length > 3 && amount > 0 || length > 4 && amount < 0) {
+                length -= 3;
+                sum.insert(length, " ");
+            } else if (length < 4 && amount <= 0)
+                sum.append(amount);
         }
         return sum.toString();
     }
