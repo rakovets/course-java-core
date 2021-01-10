@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.strings;
+package com.rakovets.course.javabasics.practice.string;
 
 /**
  * Разработать программу для разбора (parsing) полного имени сотрудника компании.

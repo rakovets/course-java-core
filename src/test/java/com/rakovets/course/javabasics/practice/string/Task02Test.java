@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.strings;
+package com.rakovets.course.javabasics.practice.string;
 
 import com.rakovets.course.javabasics.util.ArrayUtil;
 import org.junit.jupiter.api.DisplayName;

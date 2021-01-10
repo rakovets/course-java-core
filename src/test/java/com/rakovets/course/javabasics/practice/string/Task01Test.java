@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.strings;
+package com.rakovets.course.javabasics.practice.string;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
