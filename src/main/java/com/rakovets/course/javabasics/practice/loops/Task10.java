@@ -40,6 +40,30 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        boolean numberPrimeNumber = false;
+        int result = 0;
+        int divider = 0;
+        if (finishNumber > 2) {
+            for ( ; startNumber <= finishNumber; startNumber++) {
+                divider = 1;
+                while (divider < (startNumber)) {
+                    divider += 1;
+                    if (startNumber % divider == 0 && startNumber != divider) {
+                        numberPrimeNumber = false;
+                        break;
+                    } else {
+                        numberPrimeNumber = true;
+                    }
+                }
+                if (numberPrimeNumber == true) {
+                    result += 1;
+                }
+            }
+        } else if (finishNumber == 2){
+            return  1;
+        } else {
+            return 0;
+        }
+        return result;
     }
 }
