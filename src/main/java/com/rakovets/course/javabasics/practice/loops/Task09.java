@@ -1,5 +1,8 @@
 package com.rakovets.course.javabasics.practice.loops;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +27,11 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
-        int differentialNumberItems = 5;
-        double differentialSell = 4;
-        int sizeTotalPrice = 6;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 3;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -54,18 +57,14 @@ class Task09 {
 
         double priceOfOneItem = startPriceAllItems / startNumberItems;
         double sellCalculating = differentialSell;
-        String priceListCalculating = startNumberItems + " - " + startPriceAllItems + " with sell 0.0%" + "\n";
+        String priceListCalculating = startNumberItems + " - " + startPriceAllItems + " with sell 0.0%";
 
-        for (int sizeOfPrice = 1; sizeOfPrice < (sizeTotalPrice - 1); sizeOfPrice++) {
+        for (int sizeOfPrice = 1; sizeOfPrice < sizeTotalPrice; sizeOfPrice++) {
             startNumberItems += differentialNumberItems;
-            double totalPrice = startNumberItems * priceOfOneItem * (100 - sellCalculating) / 100;
-            priceListCalculating += startNumberItems + " - " + totalPrice + " with sell " + sellCalculating + "%" + "\n";
+            double totalPrice = BigDecimal.valueOf(startNumberItems * priceOfOneItem * (100 - sellCalculating) / 100).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            priceListCalculating += "\n" + startNumberItems + " - " + totalPrice + " with sell " + sellCalculating + "%";
             sellCalculating += differentialSell;
         }
-
-        startNumberItems += differentialNumberItems;
-        double finishTotalPrice = startNumberItems * priceOfOneItem * (100 - sellCalculating) / 100;
-
-        return priceListCalculating + startNumberItems + " - " + finishTotalPrice + " with sell " + sellCalculating + "%";
+        return priceListCalculating;
     }
 }
