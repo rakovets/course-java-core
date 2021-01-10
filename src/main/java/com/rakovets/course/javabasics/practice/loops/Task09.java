@@ -27,7 +27,7 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 5;
+        int startNumberItems = 10;
         double startPriceAllItems = 100;
         int differentialNumberItems = 5;
         double differentialSell = 1;
