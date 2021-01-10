@@ -17,7 +17,7 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 100;
+        int healthPoints = 150;
         double regenerationPercentFromCurrentHealth = 10;
         int hoursAfterRespawn = 10;
 
