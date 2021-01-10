@@ -34,6 +34,13 @@ class Task03 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double totalProfit = depositAmount;
+        double yearProfit;
+        for (int i = 1; i <= depositTerm; i++ )
+        {
+            yearProfit = (totalProfit * (annualDepositPercent / 100));
+            totalProfit += yearProfit;
+        }
+        return  Math.round(totalProfit * 100.0) / 100.0;
     }
 }
