@@ -24,7 +24,7 @@ class Task10<i> {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startNumber = 0;
-        int finishNumber = 1;
+        int finishNumber = 2;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -41,22 +41,23 @@ class Task10<i> {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
-
-        int numberOfPrimes = 0;
-        for (int i = startNumber + 1; i < finishNumber; i++) {
-            boolean primeNumber = true;
-            for (int j = 2; j <= Math.sqrt(i); j++) {
-                if (i % j == 0) {
-                    primeNumber = false;
-                    break;
-                }
-            }
-            if (primeNumber)
-                numberOfPrimes++;
+        int primeNumber = 0;
+        for (int i = startNumber + 1; i <= finishNumber; i++) {
+            int number = 0;
+            for (int j = 2; j <= i / j; j++)
+                if (i % j == 0)
+                    number++;
+            if (number < 1)
+                primeNumber++;
         }
-        return numberOfPrimes;
+        if (startNumber < 1) {
+            return primeNumber - 1;
+        }
+        return primeNumber;
     }
 }
+
+
 
 
 
