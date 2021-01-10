@@ -16,8 +16,8 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberRows = 13;
-        boolean isEnableHeaderRow = false;
+        int numberRows = 12;
+        boolean isEnableHeaderRow = true;
 
         String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
         System.out.printf("Result:\n%s", numbersColumn);
