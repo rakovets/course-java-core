@@ -39,6 +39,15 @@ class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
+        double distancePerDay = startDistance;
+        if (startDistance > 0) {
+            while (distancePerDay < finishDistance) {
+                distancePerDay *= (dailyProgressAsPercentage / 100 + 1);
+                totalDistance += distancePerDay;
+            }
+        } else {
+            return 0.00;
+        }
         return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
