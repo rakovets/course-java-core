@@ -1,26 +1,29 @@
 package com.rakovets.course.javabasics.practice.arrays;
 
-import com.rakovets.course.javabasics.util.ArrayUtil;
-import com.rakovets.course.javabasics.util.StandardInputTask;
+import java.util.Arrays;
 
 /**
- * Разработать программу для электронного дневника:
- * которая работает с отметками по каждому предмету.
+ * Разработать программу для электронного дневника, которая работает с отметками по каждому предмету.
  *
  * @author Dmitry Rakovets
- * @version 1.0
  */
-public class Task03 extends StandardInputTask {
+class Task03 {
     public static void main(String[] args) {
-        // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-        int countDisciplines = INPUT_SCANNER.nextInt();
-        int countSemesters = INPUT_SCANNER.nextInt();
-        int[][] marks = ArrayUtil.fill2DArrayFromStandardInput(INPUT_SCANNER, countDisciplines, countSemesters);
+        //FIXME
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int[][] marks = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
 
-        // Вызов методов
-        getAverageMark(marks);
-        getMinMark(marks);
-        getMaxMark(marks);
+        double[] averageMark = getAverageMarks(marks);
+        System.out.printf("Average mark: %s\n", Arrays.toString(averageMark));
+        int[] minMark = getMinMarks(marks);
+        System.out.printf("Min mark: %s\n", Arrays.toString(minMark));
+        int[] maxMark = getMaxMarks(marks);
+        System.out.printf("Max mark: %s\n", Arrays.toString(maxMark));
     }
 
     /**
@@ -29,10 +32,9 @@ public class Task03 extends StandardInputTask {
      * @param marks отметки
      * @return средняя арифметическая отметка
      */
-    static double[] getAverageMark(int[][] marks) {
+    static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
@@ -42,23 +44,21 @@ public class Task03 extends StandardInputTask {
      * @param marks отметки
      * @return минимальная отметка
      */
-    static int[] getMinMark(int[][] marks) {
+    static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 
     /**
-     * Возвращает максимальну отметку по предметам за весь период обучения.
+     * Возвращает максимальную отметку по предметам за весь период обучения.
      *
      * @param marks отметки
      * @return максимальная отметка
      */
-    static int[] getMaxMark(int[][] marks) {
+    static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         return null;
     }
 }

@@ -1,34 +1,33 @@
 package com.rakovets.course.javabasics.practice.operators;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
-class Task03Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task03.main(new String[]{"1501", "7"});
-        assertEquals("2026.0", getStandardOutputContent(), "quoter root 3");
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Deposit in Bank")
+class Task03Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(1501, 5, 7, 2026.0f),
+                Arguments.of(0, 15, 100, 0.0f),
+                Arguments.of(10000, 5, 0, 10000.0f),
+                Arguments.of(100, 5, 100, 600.0f)
+        );
     }
 
-    @Test
-    void test2() {
-        Task03.main(new String[]{"0", "100"});
-        assertEquals("0.0", getStandardOutputContent());
-    }
+    @MethodSource("provideArguments")
+    @ParameterizedTest(name = "Deposit. Amount: {0}, years: {1}, annual percentage: {2}")
+    void testGetTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage, float expected) {
+        float actual = Task03.getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
 
-    @Test
-    void test3() {
-        Task03.main(new String[]{"10000", "0"});
-        assertEquals("10000.0", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task03.main(new String[]{"100", "100"});
-        assertEquals("600.0", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }

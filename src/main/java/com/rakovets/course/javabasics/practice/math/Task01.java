@@ -7,10 +7,11 @@ package com.rakovets.course.javabasics.practice.math;
  * @param penaltyPointFirstPlayer  - штрафные очки первого игрока
  * @param penaltyPointSecondPlayer - штрафные очки второго игрока
  */
-public class Task01 {
+class Task01 {
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
         int penaltyPointFirstPlayer = 1;
         int penaltyPointSecondPlayer = 2;
 

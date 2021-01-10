@@ -9,10 +9,11 @@ package com.rakovets.course.javabasics.practice.math;
  * @return формат вывода: 'Celsius {c}° - Kelvin {k}° - Fahrenheit {f}°'
  * где {c} - температура в Цельсиях и т.д.
  */
-public class Task06 {
+class Task06 {
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
         double temperatureInCelsius = 0;
 
         // Код необходимый для тестирования, не изменять

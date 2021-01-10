@@ -1,38 +1,34 @@
 package com.rakovets.course.javabasics.practice.operators;
 
-import com.rakovets.course.javabasics.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task06Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task06.main(new String[]{"1"});
-        assertEquals("0 0:0:1", getStandardOutputContent());
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Playing Time")
+class Task06Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(1, "0 0:0:1"),
+                Arguments.of(61, "0 0:1:1"),
+                Arguments.of(3661, "0 1:1:1"),
+                Arguments.of(86401, "1 0:0:1"),
+                Arguments.of(914701, "10 14:5:1")
+        );
     }
 
-    @Test
-    void test2() {
-        Task06.main(new String[]{"61"});
-        assertEquals("0 0:1:1", getStandardOutputContent());
-    }
+    @MethodSource("provideArguments")
+    @ParameterizedTest(name = "Cargo: {0}. Carrying capacity: {1}")
+    void test(int playingTimeInSeconds, String expected) {
+        String actual = Task06.getPlayingTime(playingTimeInSeconds);
 
-    @Test
-    void test3() {
-        Task06.main(new String[]{"3661"});
-        assertEquals("0 1:1:1", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task06.main(new String[]{"86401"});
-        assertEquals("1 0:0:1", getStandardOutputContent());
-    }
-
-    @Test
-    void test5() {
-        Task06.main(new String[]{"914701"});
-        assertEquals("10 14:5:1", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }

@@ -1,28 +1,41 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 /**
- * Разработать программу для фитнес приложения:
- * которая расчитывает избыточность веса пользователя. Избыточность веса - это разница между текущим весом и
- * стандартным весом для текущего роста (стандартный вес = текущий рост - 110). Может быть как положительный так и
- * отрицательный.
- * Если известно:
+ * Разработать программу для фитнес приложения.
  *
- * @param height - рост
- * @param weight - вес
+ * @author Dmitry Rakovets
  */
-public class Task05 {
+class Task05 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
         int height = 186;
         int weight = 86;
 
-        // Код необходимый для тестирования, не изменять
-        height = (args.length == 2) ? Integer.parseInt(args[0]) : height;
-        weight = (args.length == 2) ? Integer.parseInt(args[1]) : weight;
+        int deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
+        System.out.printf("Result: %d", deviationStandardWeight);
+    }
 
+    /**
+     * Рассчитывает избыточность веса пользователя.
+     * <ul>
+     *  <li>Под избыточность веса понимается разница между текущим весом и стандартным весом для текущего роста
+     * (стандартный вес = текущий рост - 110), т.н. индекс Брока</li>
+     *  <li>Может быть как положительной, так и отрицательной</li>
+     * </ul>
+     *
+     * @param height - рост
+     * @param weight - вес
+     */
+    static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0;
     }
 }

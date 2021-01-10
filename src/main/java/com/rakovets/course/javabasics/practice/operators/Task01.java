@@ -1,26 +1,36 @@
 package com.rakovets.course.javabasics.practice.operators;
 
 /**
- * Разработать программу для логистического центра:
- * которая будет рассчитывать количество полностью загруженных грузовиков, необходимых
- * для перевозки некоторого груза, если известно:
+ * Разработать программу для логистического центра.
  *
- * @param cargo            - вес всего груза
- * @param carryingCapacity - грузоподъемность грузовиков
+ * @author Dmitry Rakovets
  */
-public class Task01 {
+class Task01 {
+    /**
+     * The entry point of the task
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
-        int cargo = 1;
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
+        int cargo = 11;
         int carryingCapacity = 2;
 
-        // Код необходимый для тестирования, не изменять
-        cargo = (args.length == 0) ? cargo : Integer.parseInt(args[0]);
-        carryingCapacity = (args.length == 0) ? carryingCapacity : Integer.parseInt(args[1]);
+        int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
+        System.out.printf("Result: %d", numberFullTrucks);
+    }
 
+    /**
+     * Рассчитывает количество полностью загруженных грузовиков, необходимых для перевозки некоторого груза.
+     *
+     * @param cargo            вес всего груза
+     * @param carryingCapacity грузоподъемность грузовиков
+     */
+    static int getNumberFullTrucks(int cargo, int carryingCapacity) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        return 0;
     }
 }

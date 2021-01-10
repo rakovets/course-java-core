@@ -7,10 +7,11 @@ package com.rakovets.course.javabasics.practice.math;
  * @param encoderDegrees - показания энкодера после поездки
  * @param tireRadius     - радиус колеса
  */
-public class Task05 {
+class Task05 {
     public static void main(String[] args) {
         //FIXME
-        // Переменные, которые можно изменять для проверки различных вариантов входных параметров
+        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
+        // аргументов. Типы данных изменять нельзя
         int encoderDegrees = 258;
         int tireRadius = 3;
 
