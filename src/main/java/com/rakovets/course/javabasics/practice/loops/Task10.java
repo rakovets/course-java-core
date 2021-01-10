@@ -23,8 +23,8 @@ class Task10<i> {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumber = 0;
-        int finishNumber = 2;
+        int startNumber = -20;
+        int finishNumber = 3;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -41,28 +41,28 @@ class Task10<i> {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
-        int primeNumber = 0;
-        for (int i = startNumber + 1; i <= finishNumber; i++) {
-            int number = 0;
-            for (int j = 2; j <= i / j; j++)
-                if (i % j == 0)
-                    number++;
-            if (number < 1)
-                primeNumber++;
+        int numberOfPrimes = 0;
+        boolean isPrimeNumber = false;
+
+        if (finishNumber == 2) {
+            numberOfPrimes = 1;
+        } else if (finishNumber > 2) {
+            for (int i; startNumber <= finishNumber; startNumber++) {
+                i = 1;
+                while (i < startNumber) {
+                    i += 1;
+                    if (startNumber != i && startNumber % i == 0) {
+                        isPrimeNumber = false;
+                        break;
+                    } else {
+                        isPrimeNumber = true;
+                    }
+                }
+                if (isPrimeNumber) {
+                    numberOfPrimes += 1;
+                }
+            }
         }
-        if (startNumber < 1) {
-            return primeNumber - 1;
-        }
-        return primeNumber;
+        return numberOfPrimes;
     }
 }
-
-
-
-
-
-
-
-
-
-
