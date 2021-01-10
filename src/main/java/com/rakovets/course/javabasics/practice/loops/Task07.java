@@ -39,6 +39,11 @@ class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
+        double marathon = startDistance;
+        while (marathon > 0 && marathon <= finishDistance) {
+            marathon = marathon + marathon * dailyProgressAsPercentage/100;
+            totalDistance = totalDistance + marathon;
+        }
         return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
