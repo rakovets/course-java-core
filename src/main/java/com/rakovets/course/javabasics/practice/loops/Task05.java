@@ -42,7 +42,7 @@ class Task05 {
             regeneration = health * (regenerationPercentPerHour/100);
             health += regeneration;
             health -= averageDamagePerHour;
-            ++time;
+            time++;
         }
         if (time <= 24)  {
             return time;
