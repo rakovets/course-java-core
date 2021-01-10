@@ -23,8 +23,8 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumber = 0;
-        int finishNumber = 50;
+        int startNumber = 1;
+        int finishNumber = 10;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -40,6 +40,19 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int count = 0;
+        for (int num = startNumber; num <= finishNumber; num++) {
+            boolean isSimple = true;
+            for (int i = 2; i <num; i++) {
+                if(num % i == 0) {
+                  isSimple = false;
+                  break;
+                }
+            }
+            if(isSimple) {
+                count++;
+            }
+        }
+        return count;
     }
 }
