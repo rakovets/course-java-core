@@ -20,7 +20,7 @@ class Task07 {
         // аргументов. Типы данных изменять нельзя
         int startDistance = 1000;
         int finishDistance = 40000;
-        double dailyProgress = 5;
+        double dailyProgress = 7;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
         System.out.printf("Result: %f", totalDistance);
