@@ -50,7 +50,7 @@ class Task10 {
                     k++;
             }
             if (k<2)
-                primenumbers++;
+                primenumbers++ ;
 
         }
         return primenumbers;
