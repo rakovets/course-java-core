@@ -40,6 +40,19 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int primenumbers=0;
+        int i,j;
+        for (i=startNumber;i<finishNumber;i++)
+        {int k=0;
+            for (j=2;j<=i;j++)
+            {
+                if ((i%j) == 0)
+                    k++;
+            }
+            if (k<2)
+                primenumbers++;
+
+        }
+        return primenumbers;
     }
 }
