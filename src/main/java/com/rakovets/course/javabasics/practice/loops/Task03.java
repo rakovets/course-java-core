@@ -15,9 +15,9 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        double depositAmount = 1500.0;
+        double depositAmount = 10000.0;
         double annualDepositPercent = 7.0;
-        int depositTerm = 5;
+        int depositTerm = 7;
 
         double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
         System.out.printf("Result: %f", totalDepositAmount);
@@ -35,9 +35,9 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalSUMM=depositAmount;
-        for (int i=1; i==depositTerm; i++){
-            totalSUMM = totalSUMM+(depositAmount*annualDepositPercent/100);
-        }
-        return 0.0;
+        for (int i=1; i<=depositTerm; i++){
+            totalSUMM = totalSUMM+(totalSUMM*annualDepositPercent/100);
+         }
+        return Math.round(totalSUMM * 100.0) / 100.0;
     }
 }
