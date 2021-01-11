@@ -13,7 +13,7 @@ package com.rakovets.course.javabasics.practice.loops;
  *
  * @author Dmitry Rakovets
  */
-class Task10<i> {
+class Task10 {
     /**
      * The entry point of the task
      *
