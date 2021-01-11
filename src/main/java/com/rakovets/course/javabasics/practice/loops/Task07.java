@@ -39,6 +39,11 @@ class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
-        return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double dailyDistance = startDistance;
+        while (dailyDistance > 0 && dailyDistance <= finishDistance) {
+            dailyDistance = dailyDistance + dailyDistance * dailyProgressAsPercentage / 100;
+            totalDistance = totalDistance + dailyDistance;
+        }
+        return BigDecimal.valueOf(totalDistance).setScale(2,RoundingMode.HALF_UP).doubleValue();
     }
 }
