@@ -2,7 +2,7 @@ package com.rakovets.course.javabasics.practice.loops;
 
 /**
  * Разработать программу для табличного процессора.
- * Программа генерирует номера строк при создании таблицы.
+ * .
  *
  * @author Dmitry Rakovets
  */
@@ -16,7 +16,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int rows = 10;
+        int rows = 5;
 
         String numbersColumn = generateNumbersColumn(rows);
         System.out.printf("Result:\n%s", numbersColumn);
@@ -31,6 +31,10 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String allRows = "";
+        for (int i = 1; i < numberRows; i++) {
+            allRows = allRows + i + "\n";
+        }
+        return allRows + numberRows;
     }
 }
