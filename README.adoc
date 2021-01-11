@@ -20,12 +20,12 @@ It contains for each theme of this course:
 |===
 |*Theme*|*Links*
 |Intro.|link:src/main/resources/practice/intro.adoc[intro.adoc]
-|Data types. Variables. Operators. Methods|link:src/main/java/com/rakovets/course/javabasics/practice/operators[package: operators]
-|Decision-making statements.|link:src/main/java/com/rakovets/course/javabasics/practice/statements/decisionmaking[package: statements-decision-making]
-|Looping statements.|link:src/main/java/com/rakovets/course/javabasics/practice/statements/looping[package: statements-looping]
-|Arrays.|link:src/main/java/com/rakovets/course/javabasics/practice/arrays[package: arrays]
+|Data types. Variables. Operators. Methods|link:src/main/java/com/rakovets/course/java/core/practice/operators[package: operators]
+|Decision-making statements.|link:src/main/java/com/rakovets/course/java/core/practice/statements/decisionmaking[package: statements-decision-making]
+|Looping statements.|link:src/main/java/com/rakovets/course/java/core/practice/statements/looping[package: statements-looping]
+|Arrays.|link:src/main/java/com/rakovets/course/java/core/practice/array[package: arrays]
 |OOP. Classes and Objects.|link:src/main/resources/practice/oop-classes-and-objects.adoc[oop-classes-and-objects.adoc]
-|String.|link:src/main/resources/practice/string.adoc[string.adoc], link:src/main/java/com/rakovets/course/javabasics/practice/string[package: string]
+|String.|link:src/main/resources/practice/string.adoc[string.adoc], link:src/main/java/com/rakovets/course/java/core/practice/string[package: string]
 |Regular Expressions.|link:src/main/resources/practice/regular-expressions.adoc[regular-expressions.adoc]
 |OOP. Principles.|link:src/main/resources/practice/oop-principles.adoc[oop-principles.adoc]
 |Generic Types (link:https://jcp.org/en/jsr/detail?id=14[JSR 14]).|link:src/main/resources/practice/generic-types.adoc[generic-types.adoc]
