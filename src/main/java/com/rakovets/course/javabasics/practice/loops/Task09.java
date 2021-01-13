@@ -66,9 +66,9 @@ class Task09 {
             cost = Math.round(100.0 * cost) / 100.0;
             totalPriceList.append(startNumberItems).append(" - ").append(cost).append(" with sell ").append(totalSell).append("%").append("\n");
         }
-        return totalPriceList.toString().replaceAll("[\n\r]$", "");
+        totalPriceList.deleteCharAt(totalPriceList.length() - 1);
+        return totalPriceList.toString();
     }
 }
-
 
 
