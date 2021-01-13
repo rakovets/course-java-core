@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,20 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        double sumOfMarks = 0;
+        double[] markCalculating = new double[marks.length];
+        int newArrayCounter = 0;
+
+        for (int[] mark : marks) {
+            for (int markCounter : mark) {
+                sumOfMarks += markCounter;
+            }
+            markCalculating[newArrayCounter] = BigDecimal.valueOf(sumOfMarks / mark.length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            newArrayCounter++;
+            sumOfMarks = 0;
+        }
+        return markCalculating;
     }
 
     /**
@@ -47,7 +62,21 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        int[] minMarkCalculating = new int[marks.length];
+        int newArrayCounter = 0;
+
+        for (int[] mark : marks) {
+            int minNumber = mark[0];
+            for (int markCounter : mark) {
+                if (markCounter < minNumber) {
+                    minNumber = markCounter;
+                }
+            }
+            minMarkCalculating[newArrayCounter] = minNumber;
+            newArrayCounter++;
+        }
+        return minMarkCalculating;
     }
 
     /**
@@ -59,6 +88,20 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        int[] maxMarkCalculating = new int[marks.length];
+        int newArrayCounter = 0;
+
+        for (int[] mark : marks) {
+            int maxNumber = mark[0];
+            for (int markCounter : mark) {
+                if (markCounter > maxNumber) {
+                    maxNumber = markCounter;
+                }
+            }
+            maxMarkCalculating[newArrayCounter] = maxNumber;
+            newArrayCounter++;
+        }
+        return maxMarkCalculating;
     }
 }
