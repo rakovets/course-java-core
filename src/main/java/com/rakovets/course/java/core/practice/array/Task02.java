@@ -38,7 +38,7 @@ class Task02 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double sum = 0;
 
-        for (int[] mark : marks) {
+        for (int[] mark : marks)  {
             for (int j = 0; j < marks[0].length; j++)  {
                 sum += mark[j];
             }
@@ -57,8 +57,8 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int minMark = marks [0][0];
-        for (int[] mark : marks)  {
-            for (int j = 0; j < marks[0].length; j++)  {
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
                 if (minMark > mark[j])  {
                     minMark = mark[j];
                 }
@@ -75,14 +75,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int minMark = marks [0][0];
-        for (int[] mark : marks)  {
-            for (int j = 0; j < marks[0].length; j++)  {
-                if (minMark < mark[j])  {
-                    minMark = mark[j];
+        int maxMark = marks [0][0];
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (maxMark < mark[j]) {
+                    maxMark = mark[j];
                 }
             }
         }
-        return minMark;
+        return maxMark;
     }
 }
