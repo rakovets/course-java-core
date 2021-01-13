@@ -19,7 +19,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int[] marks = {5, 7, -3, 4, 5, 6};
+        int[] marks = {5, 2, -3, 4, 5, 6};
 
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
@@ -58,9 +58,9 @@ class Task01 {
 
         int min = marks[0];
 
-        for (int i = 1; i < marks.length; i++) {
-            if (marks[i] < min) {
-                min = marks[i];
+        for (int mark : marks) {
+            if (mark < min) {
+                min = mark;
             }
         }
         return min;
@@ -79,9 +79,9 @@ class Task01 {
 
             int max = marks[0];
 
-            for (int i = 1; i < marks.length; i++) {
-                if (marks[i] > max) {
-                    max = marks[i];
+            for (int mark : marks) {
+                if (mark > max) {
+                    max = mark;
                 }
             }
             return max;
