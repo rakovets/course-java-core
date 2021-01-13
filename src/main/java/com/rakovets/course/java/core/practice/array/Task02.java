@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками по всем предметам.
  *
@@ -11,9 +14,7 @@ class Task02 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
+                {0, 1, 2}, {3, 4, 5}, {6, 7, 8}
         };
 
         double averageMark = getAverageMark(marks);
@@ -33,7 +34,16 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        int counter = 0;
+        int sum = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                counter++;
+                sum += marks[i][j];
+            }
+        }
+        double average = (double) sum / counter;
+        return BigDecimal.valueOf(average).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
@@ -45,6 +55,22 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+//        int temp;
+//        int min = marks[0][0];
+//        for (int i = 0; i < marks.length; i++) {
+//            for (int j = 0; j < marks[i].length - 1; j++) {
+//                if (marks[i][j] < marks[i][j+1]) {
+//                    temp = marks[i][j];
+//                    marks[i][j] = marks[i][j+1];
+//                    marks[i][j+1] = temp;
+//                }
+//                if (marks[i][j] < min) {
+//                    min = marks[i][j];
+//                }
+//
+//            }
+//        }
+//        System.out.println(min);
         return 0;
     }
 
