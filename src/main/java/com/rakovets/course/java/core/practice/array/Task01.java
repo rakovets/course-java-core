@@ -39,6 +39,7 @@ class Task01 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
         double sumOfMarks = 0;
+
         for (int mark : marks) {
             sumOfMarks += mark;
         }
@@ -56,6 +57,7 @@ class Task01 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
         int minNumber = marks[0];
+
         for (int mark : marks) {
             if (mark < minNumber) {
                 minNumber = mark;
@@ -75,6 +77,7 @@ class Task01 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
         int maxNumber = marks[0];
+
         for (int mark : marks) {
             if (mark > maxNumber) {
                 maxNumber = mark;

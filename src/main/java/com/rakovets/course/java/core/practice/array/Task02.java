@@ -43,8 +43,8 @@ class Task02 {
 
         for (int[] mark : marks) {
             sumOfArraysLength += mark.length;
-            for (int i : mark) {
-                sumOfMarks += i;
+            for (int markCounter : mark) {
+                sumOfMarks += markCounter;
             }
         }
         return BigDecimal.valueOf(sumOfMarks / sumOfArraysLength).setScale(2, RoundingMode.HALF_UP).doubleValue();
@@ -64,9 +64,9 @@ class Task02 {
         int minNumber = marks[0][0];
 
         for (int[] mark : marks) {
-            for (int i : mark) {
-                if (i < minNumber) {
-                    minNumber = i;
+            for (int markCounter : mark) {
+                if (markCounter < minNumber) {
+                    minNumber = markCounter;
                 }
             }
         }
@@ -86,9 +86,9 @@ class Task02 {
         int maxNumber = marks[0][0];
 
         for (int[] mark : marks) {
-            for (int i : mark) {
-                if (i > maxNumber) {
-                    maxNumber = i;
+            for (int markCounter : mark) {
+                if (markCounter > maxNumber) {
+                    maxNumber = markCounter;
                 }
             }
         }
