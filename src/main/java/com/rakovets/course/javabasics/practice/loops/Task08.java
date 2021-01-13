@@ -56,11 +56,12 @@ class Task08 {
             if (i == 1) {
                 totalPriceList.toString();
             } else
-                startNumberItems = startNumberItems + differentialNumberItems;
+            startNumberItems = startNumberItems + differentialNumberItems;
             cost = startNumberItems * itemPrise - (startNumberItems * itemPrise * totalSell / 100);
             cost = Math.round(100.0 * cost) / 100.0;
             totalPriceList.append(startNumberItems).append(" - ").append(cost).append("\n");
         }
-        return totalPriceList.toString().replaceAll("[\n\r]$", "");
+        totalPriceList.deleteCharAt(totalPriceList.length() - 1);
+        return totalPriceList.toString();
     }
 }
