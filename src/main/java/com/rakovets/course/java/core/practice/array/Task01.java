@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками только по одному предмету.
  *
@@ -15,7 +18,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int[] marks = {1, 2, 3, 4, 5, 6};
+        int[] marks = {5, 4, 5, 4, 9, 4, 9, 4, 5, 4};
 
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
@@ -34,7 +37,12 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        int sum = 0;
+        for (int x: marks) {
+            sum += x;
+        }
+        double average = (double) sum / marks.length;
+        return Math.round(average * 100.0) / 100.0;
     }
 
     /**
@@ -46,7 +54,17 @@ class Task01 {
     static int getMinMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int temp = 0;
+        for (int i = 0; i < marks.length - 1; i++) {
+            for (int j = 0; j < marks.length - 1; j++) {
+                if (marks[j] > marks[j+1]) {
+                    temp = marks[j];
+                    marks[j] = marks[j+1];
+                    marks[j+1] = temp;
+                }
+            }
+        }
+        return marks[0];
     }
 
     /**
@@ -58,6 +76,16 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int temp = 0;
+        for (int i = 0; i < marks.length - 1; i++) {
+            for (int j = 0; j < marks.length - 1; j++) {
+                if (marks[j] > marks[j+1]) {
+                    temp = marks[j];
+                    marks[j] = marks[j+1];
+                    marks[j+1] = temp;
+                }
+            }
+        }
+        return marks[marks.length - 1];
     }
 }
