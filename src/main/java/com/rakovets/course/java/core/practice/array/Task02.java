@@ -12,7 +12,7 @@ class Task02 {
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
                 {1, 2, 3},
-                {4, 5, 6},
+                {4, 5, -6},
                 {7, 8, 9}
         };
 
@@ -33,7 +33,16 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double result = 0;
+        int count = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                result += marks[i][j];
+                count++;
+            }
+        }
+        result = Math.round(result / count * 100) / 100.0;
+        return result;
     }
 
     /**
@@ -45,7 +54,15 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int result = marks[0][0];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (result > marks[i][j]) {
+                    result = marks[i][j];
+                }
+            }
+        }
+        return result;
     }
 
     /**
@@ -57,6 +74,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int result = marks[0][0];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (result < marks[i][j]) {
+                    result = marks[i][j];
+                }
+            }
+        }
+        return result;
     }
 }
