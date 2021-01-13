@@ -34,7 +34,11 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double sum=0;
+        for (double i=0; i<marks.length-1; i++){
+        sum=sum+(double)marks[i];
+        }
+        return sum/marks.length;
     }
 
     /**
