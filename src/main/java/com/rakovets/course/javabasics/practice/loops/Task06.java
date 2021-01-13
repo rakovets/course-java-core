@@ -49,6 +49,7 @@ class Task06 {
         if (negativeAmount) {
             accountingFormat.insert(0, "-");
         }
-        return accountingFormat.toString().replaceAll("[ \r]$", "");
+        accountingFormat.deleteCharAt(accountingFormat.length() - 1);
+        return accountingFormat.toString();
     }
 }
