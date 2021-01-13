@@ -14,8 +14,8 @@ class Task03 {
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
                 {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
+                {8, 5, 6},
+                {7, -8, 9}
         };
 
         double[] averageMark = getAverageMarks(marks);
@@ -35,7 +35,17 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] result = new double[marks.length];
+        int count = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                result[i] += marks[i][j];
+                count++;
+            }
+            result[i] = Math.round(result[i] / count * 100 ) / 100.0;
+            count = 0;
+        }
+        return result;
     }
 
     /**
@@ -47,7 +57,16 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] result = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            result[i] = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (result[i] > marks[i][j]) {
+                    result[i] = marks[i][j];
+                }
+            }
+        }
+        return result;
     }
 
     /**
@@ -59,6 +78,15 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] result = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            result[i] = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (result[i] < marks[i][j]) {
+                    result[i] = marks[i][j];
+                }
+            }
+        }
+        return result;
     }
 }
