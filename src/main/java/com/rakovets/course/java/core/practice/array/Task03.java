@@ -42,7 +42,7 @@ class Task03 {
                 sum += marks[i][j];
             }
             average[i] = Math.round (sum / marks[0].length * 100.00) / 100.00;
-            sum -=sum;
+            sum -= sum;
         }
        return average;
     }
