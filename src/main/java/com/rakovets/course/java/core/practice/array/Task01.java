@@ -15,7 +15,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int[] marks = {1, 2, 3, 4, 5, 6};
+        int[] marks = {6, 9, -3, 4, 5, 4};
 
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
@@ -34,7 +34,12 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double result = 0;
+        for (int i : marks) {
+            result += i;
+        }
+        result = Math.round(result / marks.length * 100) / 100.0;
+        return result;
     }
 
     /**
@@ -46,7 +51,13 @@ class Task01 {
     static int getMinMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int result = marks[0];
+        for (int i = 1; i < marks.length; i++) {
+            if (result > marks[i] ) {
+                result = marks[i];
+            }
+        }
+        return result;
     }
 
     /**
@@ -58,6 +69,12 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int result = marks[0];
+        for (int i = 1; i < marks.length; i++) {
+            if (result < marks[i] ) {
+                result = marks[i];
+            }
+        }
+        return result;
     }
 }
