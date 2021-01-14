@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.util.Arrays;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками только по одному предмету.
  *
@@ -15,7 +17,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int[] marks = {1, 2, 3, 4, 5, 6};
+        int[] marks = {1, 1, 1, 1, 1, 1};
 
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
@@ -35,10 +37,10 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double sum=0;
-        for (double i=0; i<marks.length-1; i++){
-        sum=sum+(double)marks[i];
+        for (int i=0; i<marks.length; i++){
+        sum=sum+marks[i];
         }
-        return sum/marks.length;
+        return  (double) Math.round(sum/marks.length* 100) / 100;
     }
 
     /**
@@ -50,6 +52,11 @@ class Task01 {
     static int getMinMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        Arrays.sort(marks);
+        for (int b=0; b<= marks.length; b++) {
+            System.out.println(marks[b]);
+        }
+        System.out.println();
         return 0;
     }
 
