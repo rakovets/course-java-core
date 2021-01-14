@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,20 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        double sum = 0;
+        double[] marksCalc = new double[marks.length];
+        int counter = 0;
+
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                sum += i;
+            }
+            marksCalc[counter] = BigDecimal.valueOf(sum / mark.length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            counter++;
+            sum = 0;
+        }
+        return marksCalc;
     }
 
     /**
@@ -47,8 +62,23 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        int[] minMark = new int[marks.length];
+        int counter = 0;
+
+        for (int[] mark : marks) {
+            int minNum = mark[0];
+            for (int markCounter : mark) {
+                if (markCounter < minNum) {
+                    minNum = markCounter;
+                }
+            }
+            minMark[counter] = minNum;
+            counter++;
+        }
+        return minMark;
     }
+
 
     /**
      * Возвращает максимальную отметку по предметам за весь период обучения.
@@ -59,6 +89,20 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        int[] maxMark = new int[marks.length];
+        int counter = 0;
+
+        for (int[] mark : marks) {
+            int maxNum = mark[0];
+            for (int markCounter : mark) {
+                if (markCounter > maxNum) {
+                    maxNum = markCounter;
+                }
+            }
+            maxMark[counter] = maxNum;
+            counter++;
+        }
+        return maxMark;
     }
 }
