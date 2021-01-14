@@ -53,10 +53,10 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         Arrays.sort(marks);
-        for (int b=0; b<= marks.length; b++) {
-            System.out.println(marks[b]);
-        }
-        System.out.println();
+//        for (int b=0; b<= marks.length; b++) {
+//            System.out.println(marks[b]);
+//        }
+//        System.out.println();
         return 0;
     }
 
