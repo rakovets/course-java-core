@@ -35,7 +35,23 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double sum;
+        int counter;
+        double average;
+        double[] averageGrade = new double[marks.length];
+        int k = 0;
+        for (int i = 0; i < marks.length; i++) {
+            sum = 0;
+            counter = 0;
+            for (int j = 0; j < marks[i].length; j++) {
+                sum += marks[i][j];
+            }
+            counter += marks[i].length;
+            average = sum / counter;
+            averageGrade[k] = (double) Math.round(average * 100) / 100;
+            k++;
+        }
+        return averageGrade;
     }
 
     /**
@@ -47,7 +63,20 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int min;
+        int k = 0;
+        int[] minGrade = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            min = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < min) {
+                    min = marks[i][j];
+                }
+            }
+            minGrade[k] = min;
+            k++;
+        }
+        return minGrade;
     }
 
     /**
@@ -59,6 +88,19 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int max;
+        int k = 0;
+        int[] maxGrade = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            max = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > max) {
+                    max = marks[i][j];
+                }
+            }
+            maxGrade[k] = max;
+            k++;
+        }
+        return maxGrade;
     }
 }
