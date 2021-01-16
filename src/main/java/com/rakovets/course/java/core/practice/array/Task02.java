@@ -14,7 +14,7 @@ class Task02 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
-                {0, 1, 2}, {3, 4, 5}, {6, 7, 8}
+                {70, 46, 100}, {33, 68, 25}, {17, 49, 67}
         };
 
         double averageMark = getAverageMark(marks);
@@ -35,15 +35,15 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int counter = 0;
-        int sum = 0;
+        double sum = 0;
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
                 counter++;
                 sum += marks[i][j];
             }
         }
-        double average = (double) sum / counter;
-        return BigDecimal.valueOf(average).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        double average = sum / counter;
+        return (double) Math.round(average * 100) / 100;
     }
 
     /**
@@ -55,23 +55,15 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-//        int temp;
-//        int min = marks[0][0];
-//        for (int i = 0; i < marks.length; i++) {
-//            for (int j = 0; j < marks[i].length - 1; j++) {
-//                if (marks[i][j] < marks[i][j+1]) {
-//                    temp = marks[i][j];
-//                    marks[i][j] = marks[i][j+1];
-//                    marks[i][j+1] = temp;
-//                }
-//                if (marks[i][j] < min) {
-//                    min = marks[i][j];
-//                }
-//
-//            }
-//        }
-//        System.out.println(min);
-        return 0;
+        int min = marks[0][0];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < min) {
+                    min = marks[i][j];
+                }
+            }
+        }
+        return min;
     }
 
     /**
@@ -83,6 +75,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int max = marks[0][0];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > max) {
+                    max = marks[i][j];
+                }
+            }
+        }
+        return max;
     }
 }
