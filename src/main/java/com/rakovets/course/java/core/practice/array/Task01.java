@@ -18,7 +18,6 @@ class Task01 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int[] marks = {1, 1, 1, 1, 1, 1};
-
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
         int minMark = getMinMark(marks);
@@ -53,11 +52,7 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         Arrays.sort(marks);
-//        for (int b=0; b<= marks.length; b++) {
-//            System.out.println(marks[b]);
-//        }
-//        System.out.println();
-        return 0;
+        return marks[0];
     }
 
     /**
@@ -69,6 +64,7 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        Arrays.sort(marks);
+        return marks[marks.length-1];
     }
 }
