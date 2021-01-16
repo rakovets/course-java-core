@@ -33,7 +33,8 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+
+        return  (double) Math.round(sum/marks.length* 100) / 100;
     }
 
     /**
