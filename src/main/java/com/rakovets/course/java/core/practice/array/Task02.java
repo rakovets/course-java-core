@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками по всем предметам.
  *
@@ -11,9 +14,7 @@ class Task02 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
+                {6, 4, 7}, {0, 1, 2}, {1, 4, 4}, {4, 4, 5}
         };
 
         double averageMark = getAverageMark(marks);
@@ -33,7 +34,22 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double arrayNumberElements = 0;
+        double elementsAmount = 0;
+        double averageMark = 0;
+        for (int i = 0; i<marks.length;i++) {
+            for (int j = 0; j<marks[0].length;j++) {
+                arrayNumberElements = marks[0].length * marks.length;
+            }
+        }
+        for (int[] mark : marks) {
+            for (int j = 0; marks[0].length > j; j++) {
+                elementsAmount += mark[j];
+                averageMark = elementsAmount / arrayNumberElements;
+                averageMark = new BigDecimal(averageMark).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
+        }
+        return averageMark;
     }
 
     /**
@@ -45,7 +61,15 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int min = marks[0][0];
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (min > mark[j]) {
+                    min = mark[j];
+                }
+            }
+        }
+        return min;
     }
 
     /**
@@ -57,6 +81,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int max = marks[0][0];
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (max < mark[j]) {
+                    max = mark[j];
+                }
+            }
+        }
+        return max;
     }
 }
