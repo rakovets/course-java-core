@@ -6,17 +6,17 @@ public class Time {
     private int seconds;
 
     public Time(int totalSeconds) {
-    this.seconds = totalSeconds;
+        this.seconds = totalSeconds;
     }
 
     public Time(int hours, int minutes, int seconds) {
-    this.hours = hours;
-    this.minutes = minutes;
-    this.seconds = seconds;
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
     }
 
     public int getHours() {
-        return this.hours;
+        return hours;
     }
 
     public void setHours(int hours) {
@@ -24,7 +24,7 @@ public class Time {
     }
 
     public int getMinutes() {
-        return this.minutes;
+        return minutes;
     }
 
     public void setMinutes(int minutes) {
@@ -32,7 +32,7 @@ public class Time {
     }
 
     public int getSeconds() {
-        return this.seconds;
+        return seconds;
     }
 
     public void setSeconds(int seconds) {
