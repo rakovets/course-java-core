@@ -6,7 +6,7 @@ public class Atm {
     private int numberBanknotes20;
     private int amount;
 
-    Atm(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20, int amount) {
+    public Atm(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20, int amount) {
         this.numberBanknotes100 = numberBanknotes100;
         this.numberBanknotes50 = numberBanknotes50;
         this.numberBanknotes20 = numberBanknotes20;
