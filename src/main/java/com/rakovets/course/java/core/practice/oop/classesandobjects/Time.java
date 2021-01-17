@@ -5,11 +5,11 @@ public class Time {
     private int minutes;
     private int seconds;
 
-    Time(int totalSeconds) {
+    public Time(int totalSeconds) {
     this.seconds = totalSeconds;
     }
 
-    Time(int hours, int minutes, int seconds) {
+    public Time(int hours, int minutes, int seconds) {
     this.hours = hours;
     this.minutes = minutes;
     this.seconds = seconds;
