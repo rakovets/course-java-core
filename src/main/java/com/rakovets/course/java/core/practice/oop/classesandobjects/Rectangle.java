@@ -4,13 +4,13 @@ public class Rectangle {
     private Point firstPoint;
     private Point secondPoint;
 
-    Rectangle(Point firstPoint, Point secondPoint) {
-    this.firstPoint = firstPoint;
-    this.secondPoint = secondPoint;
+    public Rectangle(Point firstPoint, Point secondPoint) {
+        this.firstPoint = firstPoint;
+        this.secondPoint = secondPoint;
     }
 
     public Point getFirstPoint() {
-    return this.firstPoint;
+        return firstPoint;
     }
 
     public void setFirstPoint(Point firstPoint) {
@@ -18,7 +18,7 @@ public class Rectangle {
     }
 
     public Point getSecondPoint() {
-        return this.secondPoint;
+        return secondPoint;
     }
 
     public void setSecondPoint(Point secondPoint) {
