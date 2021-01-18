@@ -35,7 +35,15 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] totalMarks = new double[marks.length];
+        for (int i = 0; i < marks.length;i++) {
+            int sum = 0;
+            for (int j = 0; j < marks[i].length;j++) {
+                sum += marks[i][j];
+            }
+            totalMarks[i] = Math.round(100.0 * sum / marks[i].length) / 100.0;
+        }
+        return totalMarks;
     }
 
     /**
@@ -47,7 +55,17 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMarks = new int[marks.length];
+        for (int i = 0; i < marks.length;i++) {
+            int min = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (min > marks[i][j]) {
+                    min = marks[i][j];
+                }
+            }
+            minMarks[i] = min;
+        }
+        return minMarks;
     }
 
     /**
@@ -59,6 +77,16 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMarks = new int[marks.length];
+        for (int i = 0; i < marks.length;i++) {
+            int max = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (max < marks[i][j]) {
+                    max = marks[i][j];
+                }
+            }
+            maxMarks[i] = max;
+        }
+        return maxMarks;
     }
 }
