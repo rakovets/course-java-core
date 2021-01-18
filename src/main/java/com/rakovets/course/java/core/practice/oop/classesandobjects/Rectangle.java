@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.oop.classesandobjects;
 
 public class Rectangle {
-    public Point firstPoint;
-    public Point secondPoint;
+    private Point firstPoint;
+    private Point secondPoint;
 
     Rectangle() {
     }
