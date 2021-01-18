@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.util.Arrays;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками по всем предметам.
  *
@@ -33,8 +35,13 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
-        return  (double) Math.round(sum/marks.length* 100) / 100;
+        double sum = 0;
+        for(int i=0;i<marks.length;i++) {
+            for(int j=0;j<marks[i].length;j++) {
+                sum+=marks[i][j];
+            }
+        }
+        return  (double) Math.round(sum/(marks.length*marks[0].length)* 100) / 100;
     }
 
     /**
@@ -46,9 +53,16 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int[] flatarray = new int[marks.length * marks[0].length];
+        int ctr = 0;
+        for (int row = 0; row < marks.length; row++) {
+            for (int col = 0; col < marks [0].length; col++) {
+                flatarray[ctr++] = marks[row][col];
+            }
+        }
+        Arrays.sort(flatarray);
+        return flatarray[0];
     }
-
     /**
      * Возвращает максимальную отметку за весь период обучения.
      *
@@ -58,6 +72,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int[] flatarray = new int[marks.length * marks[0].length];
+        int ctr = 0;
+        for (int row = 0; row < marks.length; row++) {
+            for (int col = 0; col < marks [0].length; col++) {
+                flatarray[ctr++] = marks[row][col];
+            }
+        }
+        Arrays.sort(flatarray);
+        return flatarray[flatarray.length-1];
     }
 }
