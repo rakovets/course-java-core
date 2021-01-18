@@ -31,15 +31,14 @@ public class Atm {
         numberBanknotes20 += number;
     }
 
-    public boolean isPossibleIssue(int amount) {
+    public void isPossibleIssue(int amount) {
         int count = 0;
-        for (int i = 0; i <= numberBanknotes100 && i * 100 <= amount; i++) {
-            for (int j = 0; j <= numberBanknotes50 && j * 50 <= amount; j++) {
-                for (int k = 0; k <= numberBanknotes20 && k * 20 <= amount; k++) {
+        for (int i = 0; i <= numberBanknotes100 && i * 100 <= amount && count < 1; i++) {
+            for (int j = 0; j <= numberBanknotes50 && j * 50 <= amount  && count < 1; j++) {
+                for (int k = 0; k <= numberBanknotes20 && k * 20 <= amount && count < 1; k++) {
                     if (100 * i + 50 * j + 20 * k == amount) {
                         count++;
                         System.out.println("You can get this amount");
-                        return true;
                     }
                 }
             }
@@ -47,7 +46,6 @@ public class Atm {
         if (count == 0) {
             System.out.println("No available options. Choose another amount");
         }
-        return false;
     }
 
     public void getOptionsCombinationBanknotes(int amount) {
