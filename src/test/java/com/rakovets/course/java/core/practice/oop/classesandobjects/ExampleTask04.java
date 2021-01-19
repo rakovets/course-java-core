@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop.classesandobjects;
 
-public class AtmTest {
+public class ExampleTask04 {
     public static void main(String[] args) {
         Atm testATM = new Atm(1000, 2000, 4000);
         testATM.addBanknotes100(50);
