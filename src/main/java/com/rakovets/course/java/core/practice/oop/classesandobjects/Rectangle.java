@@ -14,7 +14,7 @@ public class Rectangle {
     }
 
     public void setFirstPoint(Point firstPoint) {
-    this.firstPoint = firstPoint;
+        this.firstPoint = firstPoint;
     }
 
     public Point getSecondPoint() {
