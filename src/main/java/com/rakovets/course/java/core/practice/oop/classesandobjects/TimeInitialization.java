@@ -10,8 +10,8 @@ public class TimeInitialization {
         playtime.setMinutes(345);
         playtime.setSeconds(10);
         playtime.setHours(6);
+        playtime.setHours(-86);
         System.out.println(playtime.getHours() + ":" + playtime.getMinutes() + ":" + playtime.getSeconds());
         System.out.println(playtime.getTotalSeconds());
-
     }
 }
