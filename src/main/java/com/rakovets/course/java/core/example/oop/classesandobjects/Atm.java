@@ -24,7 +24,6 @@ public class Atm {
     }
 
     public boolean isPossibleIssue(int amount) {
-
         for (int i = 0; i <= numberBanknotes100; i++) {
             for (int j = 0; j <= numberBanknotes50; j++) {
                 for (int k = 0; k <= numberBanknotes20; k++) {
