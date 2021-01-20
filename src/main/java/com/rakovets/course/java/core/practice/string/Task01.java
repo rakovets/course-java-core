@@ -16,7 +16,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        String fullName = "Nappie Lopez-gomez";
+        String fullName = "Rolton Doshirack";
 
         String name = getName(fullName);
         System.out.printf("Name: %s\n", name);
@@ -35,7 +35,8 @@ class Task01 {
     static String getName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] name = fullName.split(" ");
+        return name[0];
     }
 
     /**
@@ -47,7 +48,8 @@ class Task01 {
     static String getSurname(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] surname = fullName.split(" ");
+        return surname[1];
     }
 
     /**
@@ -59,6 +61,7 @@ class Task01 {
     static String reverseFullName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] str = fullName.split(" ");
+        return str[1] + " " + str[0];
     }
 }
