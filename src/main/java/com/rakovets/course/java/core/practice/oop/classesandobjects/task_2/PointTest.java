@@ -4,7 +4,12 @@ import com.rakovets.course.java.core.practice.oop.classesandobjects.task_2.model
 
 public class PointTest {
     public static void main(String[] args) {
-        Point point = new Point(0,5);
-        point.distance(4,10);
+        Point point = new Point(5,6);
+        point.setX(2);
+        point.setY(3);
+        System.out.println(point.getX());
+        System.out.println(point.getY());
+        point.distance(new Point(0,6));
+
     }
 }
