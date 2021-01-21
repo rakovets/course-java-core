@@ -20,8 +20,55 @@ class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("concatProviderArguments")
-    void getOneStringOfTwoTest(String expectedString, String str1, String str2) {
+    void getOneStringOfTwo(String expectedString, String str1, String str2) {
         String actualString = StringUtil.getOneStringOfTwo(str1, str2);
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
+    static Stream<Arguments> findIndexProviderArguments() {
+        return Stream.of(
+                Arguments.of(7, "v", "Hello everybody!"),
+                Arguments.of(-1, "z", "Good job!"),
+                Arguments.of(5, "a", " You are velcom  ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("findIndexProviderArguments")
+    void getIndexOfChar(int expectedIndex, char c, String str) {
+        int actualIndex = StringUtil.getIndexOfChar(c, str);
+        Assertions.assertEquals(expectedIndex, actualIndex);
+    }
+
+    static Stream<Arguments> equalsProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, "How do you do?", "How do you do?"),
+                Arguments.of(false, " How do you do?", "How do you do?"),
+                Arguments.of(false, "How Do you do?", "How do you do?"),
+                Arguments.of(false, " ", "How do you do?")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("equalsProviderArguments")
+    void getIndexOfChar(boolean expectedValue, String str1, String str2) {
+        boolean actualValue = StringUtil.isEqualsTwoStrings(str1, str2);
+        Assertions.assertEquals(expectedValue, actualValue);
+    }
+
+    static Stream<Arguments> trimProviderArguments() {
+        return Stream.of(
+                Arguments.of("how do you do?", "How Do you do?"),
+                Arguments.of("how do you do?", "  How do yoU do?   "),
+                Arguments.of("how   do you do?", "How   do yoU do? "),
+                Arguments.of("how   do you do?", "   How   do yoU do?")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("trimProviderArguments")
+    void getTrimAndLowerCase(String expectedString, String str) {
+        String actualString = StringUtil.getTrimAndLowerCase(str);
         Assertions.assertEquals(expectedString, actualString);
     }
 }
