@@ -22,7 +22,7 @@ public class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        float y =(SOUND_SPEED*time);
-        System.out.print(y);
+        float distance = (SOUND_SPEED * time);
+        System.out.print(distance);
     }
 }

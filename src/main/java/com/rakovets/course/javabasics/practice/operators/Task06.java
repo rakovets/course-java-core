@@ -9,6 +9,7 @@ package com.rakovets.course.javabasics.practice.operators;
  */
 public class Task06 {
     public static void main(String[] args) {
+        final int SECONDS_IN_DAY = 86400;
         //FIXME
         // Переменные, которые можно изменять для проверки различных вариантов входных параметров
         int playingTimeInSeconds = 156;
@@ -19,12 +20,12 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        int nD = playingTimeInSeconds / 86400;
-        playingTimeInSeconds = playingTimeInSeconds - (nD * 86400);
-        int nH = playingTimeInSeconds / 3600;
-        playingTimeInSeconds = playingTimeInSeconds - (nH * 3600);
-        int nM = playingTimeInSeconds / 60;
-        playingTimeInSeconds = playingTimeInSeconds - (nM * 60);
-        System.out.print(nD + " " + nH + ":" + nM + ":" + playingTimeInSeconds);
+        int days = playingTimeInSeconds / SECONDS_IN_DAY;
+        playingTimeInSeconds = playingTimeInSeconds - (days * 86400);
+        int hours = playingTimeInSeconds / 3600;
+        playingTimeInSeconds = playingTimeInSeconds - (hours * 3600);
+        int minutes = playingTimeInSeconds / 60;
+        playingTimeInSeconds = playingTimeInSeconds - (minutes * 60);
+        System.out.print(days + " " + hours + ":" + minutes + ":" + playingTimeInSeconds);
     }
 }

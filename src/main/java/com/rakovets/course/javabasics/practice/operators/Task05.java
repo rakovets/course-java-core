@@ -24,8 +24,8 @@ public class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        int standW = height - 110;
-        int overW = weight - standW;
-        System.out.print(overW);
+        int standardWeight = height - 110;
+        int overWeight = weight - standardWeight;
+        System.out.print(overWeight);
     }
 }
