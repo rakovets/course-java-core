@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop.classesandobjects;
 
-public class PointInizialization {
+public class PointInitialization {
     public static void main(String[] args) {
         Point a = new Point(3, 7);
         System.out.println(a.getX() + " " + a.getY());

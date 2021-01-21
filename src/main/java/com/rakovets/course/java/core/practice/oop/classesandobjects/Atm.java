@@ -51,7 +51,6 @@ public class Atm {
 
     public String[] getOptionsCombinationBanknotes(int amount) {
         String optionsCombination = "";
-
         if (isPossibleIssue(amount)) {
             for (int a = 0; a <= this.numberBanknotes100; a++) {
                 for (int b = 0; b <= this.numberBanknotes50; b++) {
@@ -69,7 +68,7 @@ public class Atm {
 
     public void getCash (String option) {
         for (int a = 0; a <= this.numberBanknotes100; a++) {
-             for (int b = 0; b <= this.numberBanknotes50; b++) {
+            for (int b = 0; b <= this.numberBanknotes50; b++) {
                 for (int c = 0; c <= this.numberBanknotes20; c++) {
                    String optionsChecking = a + "*100BYN, " + b + "*50BYN, " + c + "*20BYN";
                    if (optionsChecking.equals(option)) {
@@ -78,7 +77,7 @@ public class Atm {
                        this.numberBanknotes20 -= c;
                    }
                 }
-             }
+            }
         }
     }
 }

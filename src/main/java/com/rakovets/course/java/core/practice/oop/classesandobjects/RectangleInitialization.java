@@ -5,7 +5,7 @@ public class RectangleInitialization {
         Point d = new Point(5, 10);
         Point e = new Point(7,12);
         Rectangle de = new Rectangle(d, e);
-        System.out.println(e.getX() + " " + e.getY()+ " " + d.getX() + " " + d.getY());
+        System.out.println(de.getArea());
 
         de.setSecondPoint(new Point(2,15));
         System.out.println(de.getPerimeter());
