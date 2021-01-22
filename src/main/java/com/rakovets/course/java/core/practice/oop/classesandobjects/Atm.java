@@ -4,32 +4,30 @@ public class Atm {
     private int numberBanknotes100;
     private int numberBanknotes50;
     private int numberBanknotes20;
-    private int amount;
 
-    public Atm(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20, int amount) {
+    public Atm(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20) {
         this.numberBanknotes100 = numberBanknotes100;
         this.numberBanknotes50 = numberBanknotes50;
         this.numberBanknotes20 = numberBanknotes20;
-        this.amount = amount;
     }
 
     public void addBanknotes100(int number) {
-        this.numberBanknotes100 = number;
+        this.numberBanknotes100 += number;
     }
 
     public void addBanknotes50(int number) {
-        this.numberBanknotes50 = number;
+        this.numberBanknotes50 += number;
     }
 
     public void addBanknotes20(int number) {
-        this.numberBanknotes20 = number;
+        this.numberBanknotes20 += number;
     }
 
     public boolean isPossibleIssue(int amount) {
         boolean isPossibleIssue = false;
         for (int i = 0; i <= this.numberBanknotes20; i++) {
-            for (int j = 0; j <= this.numberBanknotes20; j++) {
-                for (int k = 0; k <= this.numberBanknotes20; k++) {
+            for (int j = 0; j <= this.numberBanknotes50; j++) {
+                for (int k = 0; k <= this.numberBanknotes100; k++) {
                     if (i * 20 + j * 50 + k * 100 == amount) {
                         isPossibleIssue = true;
                         break;
@@ -53,22 +51,27 @@ public class Atm {
                         if (b) {
                             String optionsCombinationBanknotes = "";
                             optionsCombinationBanknotes = "Option " + ++option + ": ";
-                            if (i != 0)
+                            if (i != 0) {
                                 optionsCombinationBanknotes += "20 x " + i + "   ";
-                            if (j != 0)
+                            }
+                            if (j != 0) {
                                 optionsCombinationBanknotes += "50 x " + j + "   ";
-                            if (k != 0)
+                            }
+                            if (k != 0) {
                                 optionsCombinationBanknotes += "100 x " + k;
-                            System.out.println(optionsCombinationBanknotes);
+                                System.out.println(optionsCombinationBanknotes);
+                            } else {
+                                System.out.println("The amount you selected is not available. Enter another amount");
+                            }
                         }
                     }
                 }
             }
-        } else
-            System.out.println("The amount you selected is not available. Enter another amount");
+        }
     }
 
     public void getCash(int selectedOption) {
+        int amount = 0;
         if (this.isPossibleIssue(amount)) {
             int option = 0;
             for (int i = 0; i <= numberBanknotes20; i++) {
