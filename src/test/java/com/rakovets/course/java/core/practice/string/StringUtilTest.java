@@ -71,4 +71,18 @@ class StringUtilTest {
         String actualString = StringUtil.getTrimAndLowerCase(str);
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    static Stream<Arguments> getCharsProviderArguments() {
+        return Stream.of(
+                Arguments.of(" you do?", "how do you do?", 5),
+                Arguments.of("would be nice to get 10", "It would be nice to get 10 points for homework", 3)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getCharsProviderArguments")
+    void getCharsOfString(String expectedString, String str, int start) {
+        String actualString = StringUtil.getCharsOfString(str, start);
+        Assertions.assertEquals(expectedString, actualString);
+    }
 }

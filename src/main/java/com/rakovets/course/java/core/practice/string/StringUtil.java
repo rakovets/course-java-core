@@ -18,4 +18,10 @@ public class StringUtil {
     static String getTrimAndLowerCase(String str){
         return str.trim().toLowerCase();
     }
+
+    static String getCharsOfString(String str, int start) {
+        char[] dst = new char[10 - start];
+        str.getChars(start, 10, dst, 0);
+        return dst.toString();
+    }
 }
