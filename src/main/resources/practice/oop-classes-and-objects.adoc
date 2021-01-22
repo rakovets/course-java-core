@@ -1,103 +1,99 @@
-= OOP (classes and objects)
+= OOP. Classes and Objects
+
+NOTE: Для каждого созданного класса, нужно создать демонстрационные/тестовые классы, которые демонстрируют/тестирую работу ВСЕХ конструкторов и методов.
+
+WARNING: ТОЛЬКО демонстрационные классы могут содержать вывод в *Standard Output* (консольный вывод).
 
 == Specification of task 1
 
-Создать class `Time`.
+1. Создать class `Time`.
 
-*Fields*:
+2. Создать *Fields*:
 
-- `hours`
-- `minutes`
-- `seconds`
+* `hours` - - возможные значения `0`+
+* `minutes` - возможные значения `0`-`59`
+* `seconds` - возможные значения `0`-`59`
 
-*Constructors*:
+3. Создать *Constructors*:
 
-- `Time(totalSeconds)` - принимает общее время в секунда
-- `Time(hours, minutes, seconds)`
+* `Time(totalSeconds)` - принимает общее время в секундах, возможные значения `0`+
+* `Time(hours, minutes, seconds)`
 
-*Methods*:
+4. Создать *Methods*:
 
-- `getHours()`
-- `setHours(hours)`
-- `getMinutes()`
-- `setMinutes(minutes)`
-- `getSeconds()`
-- `setSeconds()`
-- `getTotalSeconds()` - возвращает общее время в секундах
-
-WARNING: Протестировать работу конструкторов и методов в class `TimeTest`
+* `getHours()`
+* `setHours(hours)`
+* `getMinutes()`
+* `setMinutes(minutes)`
+* `getSeconds()`
+* `setSeconds()`
+* `getTotalSeconds()` - возвращает общее время в секундах
 
 == Specification of task 2
 
-Создать class `Point`, описывающей точку в декартовой системе координат.
+1. Создать class `Point`, описывающей точку в декартовой системе координат.
 
-*Fields*:
+2. Создать *Fields*:
 
-- `x` - координата точки по оси Ox
-- `y` - координата точки по оси Oy
+* `x` - координата точки по оси Ox
+* `y` - координата точки по оси Oy
 
-*Constructors*:
+3. Создать *Constructors*:
 
-- `Point(x, y)` – принимает координаты `x` и `y`
+* `Point(x, y)` – принимает координаты `x` и `y`
 
-*Methods*:
+4. Создать *Methods*:
 
-- `getX()`
-- `setX()`
-- `getY()`
-- `setY()`
-- `distance(point)` – принимает объект типа `Point`, возвращает расстояние от текущей точки (экземпляра, для которого был вызван), до принимаемой точки
-
-WARNING: Протестировать работу конструкторов и методов в class `PointTest`
+* `getX()`
+* `setX()`
+* `getY()`
+* `setY()`
+* `getDistance(point)` – принимает объект типа `Point`, возвращает расстояние от текущей точки (экземпляра, для которого был вызван), до принимаемой точки
 
 == Specification of task 3
 
-Создать class `Rectangle`.
+1. Создать class `Rectangle`.
 
-*Fields*:
+2. Создать *Fields*:
 
-- `firstPoint` - первая точка
-- `secondPoint` – вторая точка
+* `firstPoint` - первая точка
+* `secondPoint` – вторая точка
 
-*Constructors*:
+3. Создать *Constructors*:
 
-- `Rectangle(firstPoint, secondPoint)` – принимает два объекта типа `Point`
+* `Rectangle(firstPoint, secondPoint)` – принимает два объекта типа `Point`
 
-*Methods*:
+4. Создать *Methods*:
 
-- `getFirstPoint()`
-- `setFirstPoint()`
-- `getSecondPoint()`
-- `setSecondPoint()`
-- `getPerimeter()` – возвращает периметр прямоугольника
-- `getArea()` – возвращает площадь прямоугольника
-
-WARNING: Протестировать работу конструкторов и методов в class `RectangleTest`
+* `getFirstPoint()`
+* `setFirstPoint()`
+* `getSecondPoint()`
+* `setSecondPoint()`
+* `getPerimeter()` – возвращает периметр прямоугольника
+* `getArea()` – возвращает площадь прямоугольника
 
 == Specification of task 4
 
-Создать class `Atm` описывающий банкомат.
+1. Создать class `Atm` описывающий банкомат.
 
-*Fields*:
+2. Создать *Fields*:
 
-- `numberBanknotes100`
-- `numberBanknotes50`
-- `numberBanknotes20`
+* `numberBanknotes20`
+* `numberBanknotes50`
+* `numberBanknotes100`
 
-*Constructors*:
+3. Создать *Constructors*:
 
-- `Atm(numberBanknotes100, numberBanknotes50, numberBanknotes20)`
+* `Atm(numberBanknotes20, numberBanknotes50, numberBanknotes100)`
 
-*Methods*:
+4. Создать *Methods*:
 
-- `addBanknotes100(number)`
-- `addBanknotes50(number)`
-- `addBanknotes20(number)`
+* `addBanknotes20(number)`
+* `addBanknotes50(number)`
+* `addBanknotes100(number)`
 
-*Methods**:
+5. * Создать *Methods*:
 
-- `isPossibleIssue(amount)` - проверяет, возможно ли выдать сумму, которую запросил клиент
-- `getOptionsCombinationBanknotes(amount)` - возвращает все возможное варианты для выдачы суммы
-- `getCash(option)` - выдает деньги клиенту, для выбранного им варианта
-
-WARNING: Протестировать работу конструкторов и методов class `AtmTest`
+* `isPossibleIssue(amount)` - проверяет, возможно ли выдать сумму, которую запросил клиент
+* `getOptionsCombinationBanknotes(amount)` - возвращает все возможные варианты для суммы выдаваемых купюр
+* `getCash(option)` - выдает деньги клиенту, для выбранного им варианта
