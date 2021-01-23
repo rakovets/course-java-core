@@ -342,4 +342,55 @@ public class StringUtilTest {
         // THAT
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    // task 15. Метод принимает два слова и возвращает строку, из букв, которые уникальны для каждого.
+    // Если уникальные буквы повторяются в одном слове - возвращает все повторения.
+    // В случае строк равных null возвращает null.
+    // Например, если заданные слова процессор и информация, то ответом должно быть: п е с с и ф м а я.
+
+    static Stream<Arguments> provideArgumentsForGetUniqueLetters() {
+        return Stream.of(
+                Arguments.of("sskenrto", "Sasuke","Naruto"),
+                Arguments.of("", "Sasuke","Sasuke"),
+                Arguments.of("naruto", "Naruto",""),
+                Arguments.of(null, null, "")
+
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForGetUniqueLetters")
+    void getUniqueLetters(String expectedString, String str1, String str2) {
+        // GIVEN
+
+        // WHEN
+        String actualString = StringUtil.getUniqueLetters(str1,str2);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
+    // task 16. Метод возвращает булинное значение идентичности двух массивов строк
+    // вне зависимости от порядка расположения элементов. В случае массивов равных null возвращает false.
+    static Stream<Arguments> provideArgumentsForIsArraysEqual() {
+        return Stream.of(
+                Arguments.of(true, new String []{"123", "456", "789"}, new String []{"456", "789", "123"}),
+                Arguments.of(true, new String []{"Sasuke", "Sakura", "Naruto"}, new String []{"Naruto", "Sasuke", "Sakura"}),
+                Arguments.of(false, new String []{"Sasuke", "Sakura", "Naruto"}, new String []{"naruto", "sasuke", "sakura"}),
+                Arguments.of(false, null, new String []{"123", "456", "789"})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsArraysEqual")
+    void isArraysEqual(boolean expectedBoolean, String[] str1, String[] str2) {
+        // GIVEN
+
+        // WHEN
+        boolean actualBoolean = StringUtil.isArraysEqual(str1, str2);
+
+        // THAT
+        Assertions.assertEquals(expectedBoolean, actualBoolean);
+    }
+
 }

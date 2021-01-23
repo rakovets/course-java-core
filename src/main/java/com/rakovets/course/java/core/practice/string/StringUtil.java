@@ -180,4 +180,43 @@ public class StringUtil {
         return null;
     }
 
+    // task 15. Метод принимает два слова и возвращает строку, из букв, которые уникальны для каждого.
+    // Если уникальные буквы повторяются в одном слове - возвращает все эти повторения.
+    // В случае строк равных null возвращает null.
+     static public String getUniqueLetters (String firstWord, String secondWord) {
+        if (firstWord != null && secondWord != null) {
+            String firstWordPure = firstWord.trim().toLowerCase(Locale.ROOT);
+            String secondWordPure = secondWord.trim().toLowerCase(Locale.ROOT);
+            StringBuilder firstWordBuilder = new StringBuilder(firstWordPure);
+            StringBuilder secondWordBuilder = new StringBuilder(secondWordPure);
+            boolean ifMatches = false;
+
+            for (int x = 0; x < firstWordPure.length(); x++) {
+                for (int y = 0; y < secondWordPure.length(); y++) {
+                    if (firstWordPure.charAt(x) == secondWordPure.charAt(y)) {
+                        secondWordBuilder.replace(y, y + 1, " ");
+                        ifMatches = true;
+                    }
+                }
+                if (ifMatches) {
+                    firstWordBuilder.replace(x, x + 1, " ");
+                }
+                ifMatches = false;
+            }
+            return firstWordBuilder.append(secondWordBuilder).toString().replaceAll("\\s", "");
+        }
+        return null;
+    }
+
+    // task 16. Метод возвращает булинное значение идентичности двух массивов строк
+    // вне зависимости от порядка расположения элементов. В случае массивов равных null возвращает false.
+
+    static public boolean isArraysEqual (String[] firstArray, String[] secondArray) {
+        if (firstArray != null && secondArray != null) {
+            Arrays.sort(firstArray);
+            Arrays.sort(secondArray);
+            return Arrays.equals(firstArray, secondArray);
+        }
+        return false;
+    }
 }
