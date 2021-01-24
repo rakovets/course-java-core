@@ -9,54 +9,18 @@ Please follow these steps to have your contribution considered by the maintainer
 
 ### Git Commit Messages
 
-- Use the present tense ("add feature" not "added feature")
-- Use the imperative mood ("move cursor to..." not "moves cursor to...")
+- Use the present tense (`add feature` not `added feature`)
+- Use the imperative mood (`move cursor to...` not `moves cursor to...`)
 - Limit the first line to 50 characters or less
 - Limit body to 72 characters or less
 - Reference issues and pull requests liberally after the first line
-- The first line of the commit contains the name of the artifact (task/test/doc) and the name of the module
+- The first line of the commit contains the name of the artifact (task/test/example) and the name of the theme
 - Consider starting the commit message with:
-    - `task:` when adding/fixing/deleting tasks
-    - `test:` when adding/fixing/deleting tasks
-    - `example:` when adding/fixing/deleting tasks
-    - `doc:` when adding/updating/deleting documentation
-    - `git:` when to merge or to do another operation with git
-    - `ci:` when adding/updating/refactoring CI
-    - `util:` when adding/updating/deleting utils
-    - etc.
-
-### Packages
-
-The packages structure is as follows:
-
-```out
-main.java.com.rakovets.rakovets.course
-    |- util
-    +- java.basic
-        |- theme1
-            |- example
-                |- *.java
-                |- ...
-                +- *.java
-            |- Task1.java
-            |- Task2.java
-            |- ...
-            |- TaskN.java
-            +- tasks.md
-        |- theme2
-        |- ...
-        +- themeN
-            |- subtheme1
-            |- subtheme2
-            |- ...
-            |- subthemeN
-```
-
-where:
-- `themeN` - main theme
-- `subthemeN` - subtheme for main theme (example: `collection.list`, where `collection` - main theme, `list` - subtheme)
-- `example` - contains examples for current theme
-- `TaskN.java` - task for current theme
+    - `feat:` when adding/updating tasks/example/tests
+    - `refactor:` when changing/deleting tasks/example/tests
+    - `fix:` when fixing mistakes in tasks/example/tests
+    - `docs:` when adding/updating/deleting documentation
+    - `env:` when adding/updating/deleting something for environment
 
 ### Java Code Style
 
