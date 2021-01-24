@@ -179,4 +179,117 @@ class StringUtilTest {
         String[] actual = StringUtil.getPartsOfString(str, parts);
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    //task12
+    static Stream<Arguments> ProvideArgumentsForGetNumberOfWordsMethod() {
+        return Stream.of(
+                Arguments.of(3, "How are you?"),
+                Arguments.of(4, "How are you, bro?"),
+                Arguments.of(3, "How  are   you?"),
+                Arguments.of(5, "How are you, 234 bro?"),
+                Arguments.of(1, "How"),
+                Arguments.of(0, " ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForGetNumberOfWordsMethod")
+    void getNumberOfWords(int expected, String str) {
+        int actual = StringUtil.getNumberOfWords(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task13
+    static Stream<Arguments> ProvideArgumentsForGetFlMethod() {
+        return Stream.of(
+                Arguments.of("DR", "DmitRY RakOVets"),
+                Arguments.of("YF", "Yauhen filiau")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForGetFlMethod")
+    void getFl(String expected, String str) {
+        String actual = StringUtil.getFl(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task14
+    static Stream<Arguments> ProvideArgumentsForGetNumeralMethod() {
+        return Stream.of(
+                Arguments.of("54", "aaa bbb 5 ccc 4"),
+                Arguments.of("6", "aaa  bbbb 6 ccccc"),
+                Arguments.of("543278", "aaa54aa bbb32 78ccc")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForGetNumeralMethod")
+    void getNumeral(String expected, String str) {
+        String actual = StringUtil.getNumeral(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task15
+    static Stream<Arguments> ProvideArgumentsForGetNoRepeatingCharsMethod() {
+        return Stream.of(
+                Arguments.of("nfrtv", "information", "motivation")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForGetNoRepeatingCharsMethod")
+    void getNoRepeatingChars(String expected, String str1, String str2) {
+        String actual = StringUtil.getNoRepeatingChars(str1, str2);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task16
+    static Stream<Arguments> ProvideArgumentsForIsIdenticallyMethod() {
+        return Stream.of(
+                Arguments.of(true, new String[] {"3", "7", "5", "8"}, new String[] {"8", "3", "5", "7"}),
+                Arguments.of(true, new String[] {"Hello", "Good", "Bue"}, new String[] {"Good", "Hello", "Bue"}),
+                Arguments.of(false, new String[] {"Hello", "Good", "Bue"}, new String[] {"HelloO", "Good", "Bue"})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForIsIdenticallyMethod")
+    void isIdentically(boolean expected, String[] str1, String[] str2) {
+        boolean actual = StringUtil.isIdentically(str1, str2);
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
+    //task18
+    static Stream<Arguments> ProvideArgumentsForRemoveRepeatsMethod() {
+        return Stream.of(
+                Arguments.of("abcdef", "aaabbcdeef")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForRemoveRepeatsMethod")
+    void removeRepeats(String expected, String str) {
+        String actual = StringUtil.removeRepeats(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task 19
+    static Stream<Arguments> ProvideArgumentsForRomanToArabicMethod() {
+        return Stream.of(
+                Arguments.of("1512", "DDDXII"),
+                Arguments.of("410", "CDX"),
+                Arguments.of("9", "IX"),
+                Arguments.of("900", "CM")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("ProvideArgumentsForRomanToArabicMethod")
+    void romanToArabic(int expected, String str) {
+        int actual = StringUtil.romanToArabic(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
