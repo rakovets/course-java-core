@@ -394,21 +394,21 @@ public class StringUtilTest {
 
     // task 18. метод заменяет несколько последовательных одинаковых символов в строке одним.
     // В случае строки равной null возвращает null.
-    static Stream<Arguments> provideArgumentsForGetRemovedRepeating() {
+    static Stream<Arguments> provideArgumentsForRemoveRepeating() {
         return Stream.of(
                 Arguments.of("abcdef", "aaabbcdeeff"),
-                Arguments.of("a b c de f", "aaa  bbb  c  dee  f"),
+                Arguments.of("a b c de f", "aaaaaaa  bbb   c  dee  f"),
                 Arguments.of(null, null)
         );
     }
 
     @ParameterizedTest
-    @MethodSource("provideArgumentsForGetRemovedRepeating")
-    void getRemovedRepeating(String expectedString, String str1) {
+    @MethodSource("provideArgumentsForRemoveRepeating")
+    void removeRepeating(String expectedString, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.getRemovedRepeating(str1);
+        String actualString = StringUtil.removeRepeating(str1);
 
         // THEN
         Assertions.assertEquals(expectedString, actualString);

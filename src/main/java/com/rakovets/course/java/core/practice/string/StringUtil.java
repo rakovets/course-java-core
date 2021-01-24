@@ -211,7 +211,6 @@ public class StringUtil {
 
     // task 16. Метод возвращает булинное значение идентичности двух массивов строк
     // вне зависимости от порядка расположения элементов. В случае массивов равных null возвращает false.
-
     public static boolean isArraysEqual (String[] firstArray, String[] secondArray) {
         if (firstArray != null && secondArray != null) {
             Arrays.sort(firstArray);
@@ -221,19 +220,40 @@ public class StringUtil {
         return false;
     }
 
+    // task 17. Метод возвращает время выполнения двух циклов, выполняющих y-кратное сложение строк.
+    // Первый цикл использует оператор сложения и String, второй - StringBuilder и метод append.
+    public static String getMethodsSpeedComparison (int y) {
+        String testString = "String is immutable";
+        String concatenation = testString;
+        StringBuilder testBuilder = new StringBuilder(testString);
+        long startTime = System.nanoTime();
+
+        for (int x = 0; x < y; x++) {
+            concatenation += testString;
+        }
+        long stringExecutionSpeed = System.nanoTime() - startTime;
+
+        for (int z = 0; z < y; z++) {
+            testBuilder.append(testString);
+        }
+        long stringBuilderExecutionSpeed = System.nanoTime() - stringExecutionSpeed - startTime;
+
+        return "Number of iterations - " + y + "\nString concatenation speed: " + stringExecutionSpeed + "\nStringBuilder.append speed: " + stringBuilderExecutionSpeed;
+    }
+
     // task 18. метод заменяет несколько последовательных одинаковых символов в строке одним.
     // В случае строки равной null возвращает null.
-    public static String getRemovedRepeating (String example) {
+    public static String removeRepeating (String example) {
         if (example != null) {
+            StringBuilder exampleInProgress = new StringBuilder(example);
 
-            StringBuilder exampleInProgress = new StringBuilder(example.replaceAll("\\s", "\u0000"));
-
-            for (int x = 0; x + 1 < example.length(); x++) {
-                if (example.charAt(x) == example.charAt(x + 1)) {
-                    exampleInProgress.replace(x + 1, x + 2, " ");
+            for (int x = 0; x + 1 < exampleInProgress.length(); x++) {
+                if (exampleInProgress.charAt(x) == exampleInProgress.charAt(x + 1)) {
+                    exampleInProgress.replace(x + 1, x + 2, "");
+                    x--;
                 }
             }
-            return exampleInProgress.toString().replaceAll("\\s", "").replaceAll("\u0000", " ");
+            return exampleInProgress.toString();
         }
         return null;
     }
