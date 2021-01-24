@@ -203,12 +203,12 @@ public class StringUtilTest {
         Assertions.assertEquals(expectedInt, actualInt);
     }
 
-    // task 9. Метод возвращает количество всех точек, запятых и восклицательных знаков в строке.
+    // task 9. Метод возвращает общее количество знаков препинания (точек, запятых, вопросительных и восклицательных знаков).
     // В случае строки равной null возвращает -1.
     static Stream<Arguments> provideArgumentsForGetNumberOfPunctuationMarks() {
         return Stream.of(
                 Arguments.of(0, "Hello"),
-                Arguments.of(7, "Wait!!! I suggest we keep it between ourselves, shall we? I beg you... "),
+                Arguments.of(8, "Wait!!! I suggest we keep it between ourselves, shall we? I beg you... "),
                 Arguments.of(2, "Для кириллицы тоже ок, круто же!"),
                 Arguments.of(-1, null)
         );
@@ -346,7 +346,6 @@ public class StringUtilTest {
     // task 15. Метод принимает два слова и возвращает строку, из букв, которые уникальны для каждого.
     // Если уникальные буквы повторяются в одном слове - возвращает все повторения.
     // В случае строк равных null возвращает null.
-    // Например, если заданные слова процессор и информация, то ответом должно быть: п е с с и ф м а я.
 
     static Stream<Arguments> provideArgumentsForGetUniqueLetters() {
         return Stream.of(
