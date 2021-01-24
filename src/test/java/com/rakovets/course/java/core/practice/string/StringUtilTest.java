@@ -30,7 +30,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.getStringConcat(str1, str2);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -55,7 +55,7 @@ public class StringUtilTest {
         // WHEN
         int actualInt = StringUtil.getIndexOf(str1, x);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedInt, actualInt);
     }
 
@@ -80,7 +80,7 @@ public class StringUtilTest {
         // WHEN
         boolean actualBoolean = StringUtil.isStringsEquals(str1, str2);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
 
@@ -103,7 +103,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.getTrimmedUpperCase(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -127,7 +127,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.getSubstringFromTen(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -151,7 +151,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.replaceSadEmoji(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -176,7 +176,7 @@ public class StringUtilTest {
         // WHEN
         boolean actualBoolean = StringUtil.doesStringStartsAndEndsWithWord(str1, str2);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
 
@@ -199,7 +199,7 @@ public class StringUtilTest {
         // WHEN
         int actualInt = StringUtil.getNumberOfVowels(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedInt, actualInt);
     }
 
@@ -222,7 +222,7 @@ public class StringUtilTest {
         // WHEN
         int actualInt = StringUtil.getNumberOfPunctuationMarks(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedInt, actualInt);
     }
 
@@ -246,7 +246,7 @@ public class StringUtilTest {
         // WHEN
         boolean actualBoolean = StringUtil.isPalindrome(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
 
@@ -271,7 +271,7 @@ public class StringUtilTest {
         // WHEN
         String[] actualString = StringUtil.splitByIndex(str1, n);
 
-        // THAT
+        // THEN
         assertArrayEquals(expectedString, actualString);
     }
 
@@ -294,7 +294,7 @@ public class StringUtilTest {
         // WHEN
         int actualInt = StringUtil.getNumberOfWords(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedInt, actualInt);
     }
 
@@ -316,7 +316,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.getInitials(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -339,7 +339,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.getOnlyDigits(str1);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -366,7 +366,7 @@ public class StringUtilTest {
         // WHEN
         String actualString = StringUtil.getUniqueLetters(str1,str2);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -389,8 +389,29 @@ public class StringUtilTest {
         // WHEN
         boolean actualBoolean = StringUtil.isArraysEqual(str1, str2);
 
-        // THAT
+        // THEN
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
 
+    // task 18. метод заменяет несколько последовательных одинаковых символов в строке одним.
+    // В случае строки равной null возвращает null.
+    static Stream<Arguments> provideArgumentsForGetRemovedRepeating() {
+        return Stream.of(
+                Arguments.of("abcdef", "aaabbcdeeff"),
+                Arguments.of("a b c de f", "aaa  bbb  c  dee  f"),
+                Arguments.of(null, null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForGetRemovedRepeating")
+    void getRemovedRepeating(String expectedString, String str1) {
+        // GIVEN
+
+        // WHEN
+        String actualString = StringUtil.getRemovedRepeating(str1);
+
+        // THEN
+        Assertions.assertEquals(expectedString, actualString);
+    }
 }

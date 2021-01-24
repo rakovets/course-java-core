@@ -219,4 +219,21 @@ public class StringUtil {
         }
         return false;
     }
+
+    // task 18. метод заменяет несколько последовательных одинаковых символов в строке одним.
+    // В случае строки равной null возвращает null.
+    static public String getRemovedRepeating (String example) {
+        if (example != null) {
+
+            StringBuilder exampleInProgress = new StringBuilder(example.replaceAll("\\s", "\u0000"));
+
+            for (int x = 0; x + 1 < example.length(); x++) {
+                if (example.charAt(x) == example.charAt(x + 1)) {
+                    exampleInProgress.replace(x + 1, x + 2, " ");
+                }
+            }
+            return exampleInProgress.toString().replaceAll("\\s", "").replaceAll("\u0000", " ");
+        }
+        return null;
+    }
 }
