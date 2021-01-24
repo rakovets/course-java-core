@@ -113,7 +113,94 @@ public class StringUtilTest<expectedString, actualString> {
         String actualString = StringUtil.replace(str);
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    //Task 7 Test
+    static Stream<Arguments> startsWithAndEndsWithProviderArguments() {
+        return Stream.of(
+                Arguments.of("false", "Hello world, hello", "Hello"),
+                Arguments.of("false", "Hell word, hello", "Hello"),
+                Arguments.of("true", "Hello, world. Hello", "Hello")
+
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("startsWithAndEndsWithProviderArguments")
+    void startsWithAndEndsWith(boolean expectedBoolean, String str, String word) {
+        boolean actualSBoolean = StringUtil.startsWithAndEndsWith(str, word);
+        Assertions.assertEquals(expectedBoolean, actualSBoolean);
+    }
+
+    //Task 8 Test
+    static Stream<Arguments> vowelsProviderArguments() {
+        return Stream.of(
+                Arguments.of("7", "What a wonderful day!"),
+                Arguments.of("4", "Hello... Java..."),
+                Arguments.of("3", "Hello, world!!!!!!!!!!!!")
+
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("vowelsProviderArguments")
+    void vowels(int expectedInt, String str) {
+        int actualInt = StringUtil.vowels(str);
+        Assertions.assertEquals(expectedInt, actualInt);
+    }
+
+
+    //Task 9 Test
+    static Stream<Arguments> punctuationProviderArguments() {
+        return Stream.of(
+                Arguments.of("1", "What a wonderful day!"),
+                Arguments.of("6", "Hello... Java..."),
+                Arguments.of("13", "Hello, world!!!!!!!!!!!!")
+
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("punctuationProviderArguments")
+    void punctuation(int expectedInt, String str) {
+        int actualInt = StringUtil.punctuation(str);
+        Assertions.assertEquals(expectedInt, actualInt);
+    }
+
+    //Task 10 Test
+    static Stream<Arguments> palindromeProviderArguments() {
+        return Stream.of(
+                Arguments.of("false", "What a wonderful day!"),
+                Arguments.of("true", "I did, did I"),
+                Arguments.of("true", "No lemon, no melon")
+
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("palindromeProviderArguments")
+    void palindrome(boolean expectedBoolean, String str) {
+        boolean actualBoolean = StringUtil.palindrome(str);
+        Assertions.assertEquals(expectedBoolean, actualBoolean);
+    }
+
+    // Task 12 Test
+    static Stream<Arguments> numbersOfWordsProviderArguments() {
+        return Stream.of(
+                Arguments.of("4", "What a wonderful day!"),
+                Arguments.of("2", "Hello... Java..."),
+                Arguments.of("3", "Hello, amazing world!!!!!!!!!!!!")
+
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("numbersOfWordsProviderArguments")
+    void numbersOfWords(int expectedInt, String str) {
+        int actualInt = StringUtil.numbersOfWords(str);
+        Assertions.assertEquals(expectedInt, actualInt);
+    }
 }
+
 
 
 
