@@ -29,7 +29,7 @@ class Task01 {
     /**
      * Возвращает имя сотрудника.
      *
-     * @param fullName полное имя сотрудника в формате '${name} ${surname}'
+     * @param fullName полное имя сотрудника согласно паттерну '${name} ${surname}'
      * @return имя сотрудника
      */
     static String getName(String fullName) {
@@ -42,7 +42,7 @@ class Task01 {
     /**
      * Возвращает фамилию сотрудника.
      *
-     * @param fullName полное имя сотрудника в формате '${name} ${surname}'
+     * @param fullName полное имя сотрудника согласно паттерну '${name} ${surname}'
      * @return фамилия сотрудника
      */
     static String getSurname(String fullName) {
@@ -55,7 +55,7 @@ class Task01 {
     /**
      * Возвращает полное имя сотрудника в обратном формате.
      *
-     * @param fullName полное имя сотрудника в формате '${name} ${surname}'
+     * @param fullName полное имя сотрудника согласно паттерну '${name} ${surname}'
      * @return полное имя сотрудника в обратном формате
      */
     static String reverseFullName(String fullName) {
