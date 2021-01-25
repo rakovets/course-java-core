@@ -346,7 +346,6 @@ public class StringUtilTest {
     // task 15. Метод принимает два слова и возвращает строку, из букв, которые уникальны для каждого.
     // Если уникальные буквы повторяются в одном слове - возвращает все повторения.
     // В случае строк равных null возвращает null.
-
     static Stream<Arguments> provideArgumentsForGetUniqueLetters() {
         return Stream.of(
                 Arguments.of("sskenrto", "Sasuke","Naruto"),
@@ -437,5 +436,4 @@ public class StringUtilTest {
         // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
-
 }
