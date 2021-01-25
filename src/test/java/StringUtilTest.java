@@ -319,4 +319,25 @@ public class StringUtilTest {
         // THAT
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    //TASK_16: Заданы два массива строк. Определить, является ли содержимое этих массивов идентичным. Порядок расположения элементов значения не имеет.
+    static Stream<Arguments> matchStringArraysProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, new String[]{"a", "b", "c"}, new String[]{"a", "b", "c"}),
+                Arguments.of(true, new String[]{"a", "b", "c"}, new String[]{"b", "a", "c"}),
+                Arguments.of(false, new String[]{"A", "B", "C"}, new String[]{"a", "b", "c"}),
+                Arguments.of(false, null, new String[]{"a", "b", "c"}),
+                Arguments.of(false, new String[]{"a", "b", "c"},  null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("matchStringArraysProviderArguments")
+    void matchStringArrays(boolean expectedBoolean, String[] str1, String[] str2) {
+        // WHEN
+        boolean actualBoolean = StringUtil.matchStringArrays(str1, str2);
+
+        // THAT
+        Assertions.assertEquals(expectedBoolean, actualBoolean);
+    }
 }
