@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.string;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Arrays;
 
 public class StringUtil {
 
@@ -163,6 +164,42 @@ public class StringUtil {
              if (str1 != null && str1.length() > 0) {
                  return str1.replaceAll("[^0-9]", "");
              } return null;
+    }
+
+    //TASK_16: Заданы два массива строк. Определить, является ли содержимое этих массивов идентичным. Порядок расположения элементов значения не имеет.
+    public static boolean matchStringArrays(String[] str1, String[] str2) {
+             if (str1 != null && str2 != null) {
+                 Arrays.sort(str1);
+                 Arrays.sort(str2);
+
+                 return Arrays.equals(str1, str2);
+
+             } return false;
+    }
+
+    //Task_17: Написать два цикла, выполняющих многократное сложение строк, один с помощью оператора сложения и `String`,
+    // второй с помощью `StringBuilder` и метода `append`. Сравнить скорость их выполнения.
+    public static String compareResults(String str1, int n) {
+             if (str1 != null) {
+                 String concat = str1;
+
+                 StringBuilder concatBuilder = new StringBuilder(str1);
+                 long startTime = System.nanoTime();
+
+                 for (int i = 0; i < n; i++) {
+                        concat += str1;
+                 }
+
+                 long concatinationSpeed = System.nanoTime() - startTime;
+
+                 for (int j = 0; j < n; j++) {
+                     concatBuilder.append(str1);
+                 }
+                 long stringBuilderSpeed = System.nanoTime() - concatinationSpeed -  startTime;
+
+                 return "Iterations " + n + "\nConcatination speed: " + concatinationSpeed + "\nString Builder speed: " + stringBuilderSpeed;
+             }
+             return null;
     }
 }
 
