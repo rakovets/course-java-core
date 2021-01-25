@@ -171,71 +171,20 @@ public class StringUtil {
 
     //task19
     static int romanToArabic(String str) {
+        int[] arabicArray = {1000, 500, 100, 50, 10, 5, 1};
+        String roman = "MDCLXVI ";
         int arabicNumbers = 0;
         str += " ";
-        char nextChar = 'a';
+        int index1 = 0;
+        int index2 = 0;
         for (int i = 0; i < str.length() - 1; i++) {
-            nextChar = str.charAt(i + 1);
-            if (str.charAt(i) == 'M') {
-                arabicNumbers += 1000;
-            } else if (str.charAt(i) == 'D') {
-                arabicNumbers += 500;
-            } else if (str.charAt(i) == 'C') {
-                if (nextChar == 'M') {
-                    arabicNumbers += 900;
-                    i++;
-                } else if (nextChar == 'D'){
-                    arabicNumbers += 400;
-                    i++;
-                } else {
-                    arabicNumbers += 100;
-                }
-            } else if (str.charAt(i) == 'L') {
-                if (nextChar == 'D') {
-                    arabicNumbers += 450;
-                    i++;
-                } else if (nextChar == 'M') {
-                    arabicNumbers += 950;
-                    i++;
-                } else {
-                    arabicNumbers += 50;
-                }
-            } else if (str.charAt(i) == 'X') {
-                if (nextChar == 'L') {
-                    arabicNumbers += 40;
-                    i++;
-                } else if (arabicNumbers == 'C') {
-                    arabicNumbers += 90;
-                    i++;
-                } else if (arabicNumbers == 'D') {
-                    arabicNumbers += 490;
-                    i++;
-                } if (arabicNumbers == 'M') {
-                    arabicNumbers += 990;
-                    i++;
-                } else {
-                    arabicNumbers += 10;
-                }
-            } else if (str.charAt(i) == 'V') {
-                if (nextChar == 'L') {
-                    arabicNumbers += 45;
-                    i++;
-                } else  if (nextChar == 'C') {
-                    arabicNumbers += 95;
-                    i++;
-                } else {
-                    arabicNumbers += 5;
-                }
-            } else if (str.charAt(i) == 'I') {
-                if (nextChar == 'X') {
-                    arabicNumbers += 9;
-                    i++;
-                } else if (nextChar == 'V') {
-                    arabicNumbers += 4;
-                    i++;
-                } else {
-                    arabicNumbers += 1;
-                }
+            index1 = roman.indexOf(str.charAt(i));
+            index2 = roman.indexOf(str.charAt(i + 1));
+            if (index1 <= index2) {
+                arabicNumbers += arabicArray[index1];
+            } else {
+                arabicNumbers += arabicArray[index2] - arabicArray[index1];
+                i++;
             }
         }
         return arabicNumbers;
