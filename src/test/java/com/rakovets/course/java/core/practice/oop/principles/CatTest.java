@@ -16,6 +16,14 @@ class CatTest {
     }
 
     @Test
+    void purr() {
+        Cat jack = new Cat("Jack");
+        String expected = "mrrr";
+        String actual = jack.purr();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     void getName() {
         Cat jack = new Cat("Jack");
         String expected = "Jack";
@@ -31,6 +39,4 @@ class CatTest {
         String actual = jack.getName();
         Assertions.assertEquals(expected, actual);
     }
-
-
 }
