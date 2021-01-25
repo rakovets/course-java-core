@@ -118,6 +118,15 @@ public class StringUtil {//01
 
     //task15
     static String getNoRepeatingChars(String str1, String str2) {
+        for (int i = 0; i < str1.length(); i++) {
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i) == str2.charAt(j)) {
+                    str2 = str2.substring(0, j) + str2.substring(j + 1);
+                    str1 = str1.substring(0, i) + str1.substring(i + 1);
+                    i = 0;
+                }
+            }
+        }
         return str1 + str2;
     }
 
@@ -139,21 +148,21 @@ public class StringUtil {//01
     }
 
     //task17
-    static long getSpeed(String str1, String str2, int count) {
+    static String getSpeedOfString(int count) {
+        String forTesting1 = "Hello, my friend! The weather is good today, isn't it?";
+        String forTesting2 = "Java";
         long startTime1 = System.currentTimeMillis();
         for (int i = 1; i < count; i++) {
-            str1 += str2;
+           forTesting1 += forTesting2;
         }
-        long endTime1 = System.nanoTime();
-        long duration1 = (endTime1 - startTime1);
-        StringBuffer strBuffer = new StringBuffer(str1);
+        long endTime1 = System.currentTimeMillis();
+        StringBuffer strBuffer = new StringBuffer(forTesting1);
         long startTime2 = System.currentTimeMillis();
         for (int i = 1; i < count; i++) {
-        strBuffer.append(str2);
+            strBuffer.append(forTesting2);
         }
-        long endTime2 = System.nanoTime();
-        long duration2 = (endTime2 - startTime2);
-        return duration2 - duration1;
+        long endTime2 = System.currentTimeMillis();
+        return (endTime1 - startTime1) + " - " + (endTime2 - startTime2);
     }
 
     //task18

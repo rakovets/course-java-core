@@ -9,8 +9,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//task01
 class StringUtilTest {
-    static Stream<Arguments> concatProviderArguments() {//task01
+    static Stream<Arguments> concatProviderArguments() {
         return Stream.of(
                 Arguments.of("HelloJava", "Hello", "Java"),
                 Arguments.of("Java", "", "Java"),
@@ -25,7 +26,8 @@ class StringUtilTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
-    static Stream<Arguments> findIndexProviderArguments() {//Task02
+    //Task02
+    static Stream<Arguments> findIndexProviderArguments() {
         return Stream.of(
                 Arguments.of(7, "v", "Hello everybody!"),
                 Arguments.of(-1, "z", "Good job!"),
@@ -40,7 +42,8 @@ class StringUtilTest {
         Assertions.assertEquals(expectedIndex, actualIndex);
     }
 
-    static Stream<Arguments> equalsProviderArguments() {//task03
+    //task03
+    static Stream<Arguments> equalsProviderArguments() {
         return Stream.of(
                 Arguments.of(true, "How do you do?", "How do you do?"),
                 Arguments.of(false, " How do you do?", "How do you do?"),
@@ -56,7 +59,8 @@ class StringUtilTest {
         Assertions.assertEquals(expectedValue, actualValue);
     }
 
-    static Stream<Arguments> trimProviderArguments() {//task04
+    //task04
+    static Stream<Arguments> trimProviderArguments() {
         return Stream.of(
                 Arguments.of("HOW DO YOU DO?", "How Do you do?"),
                 Arguments.of("HOW DO YOU DO?", "  How do yoU do?   "),
@@ -72,7 +76,8 @@ class StringUtilTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
-    static Stream<Arguments> getSubProviderArguments() {//task05
+    //task05
+    static Stream<Arguments> getSubProviderArguments() {
         return Stream.of(
                 Arguments.of("o you do?", "how do you do?", 5),
                 Arguments.of("would be nice to get 10", "It would be nice to get 10 points for homework", 3)
@@ -86,7 +91,8 @@ class StringUtilTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
-    static Stream<Arguments> ReplaceProviderArguments() {//task06
+    //task06
+    static Stream<Arguments> ReplaceProviderArguments() {
         return Stream.of(
                 Arguments.of("Hop hei :) halalej :)", "Hop hei :( halalej :)"),
                 Arguments.of(":):):)", ":):(:("),
@@ -101,7 +107,8 @@ class StringUtilTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
-    static Stream<Arguments> ProvideArgumentsForStartAndEndWordMethod() {//task07
+    //task07
+    static Stream<Arguments> ProvideArgumentsForStartAndEndWordMethod() {
         return Stream.of(
                 Arguments.of(true, "hello It would be nice to get 10 points for homework hello", "hello"),
                 Arguments.of(false, "hello It would be nice to get 10 points for homework", "hello"),
@@ -118,7 +125,8 @@ class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForGetVowelsMethod() {//task08
+    //task08
+    static Stream<Arguments> ProvideArgumentsForGetVowelsMethod() {
         return Stream.of(
                 Arguments.of(14, "it would be nice to get 10 points for homework"),
                 Arguments.of(0, "ddd 55 fff"),
@@ -134,7 +142,8 @@ class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForgetSumOfSymbolsMethod() {//task09
+    //task09
+    static Stream<Arguments> ProvideArgumentsForgetSumOfSymbolsMethod() {
         return Stream.of(
                 Arguments.of(9, "A man!, .a p!l,an.. a c,anal-Pa!nama"),
                 Arguments.of(1, "A man, a plan a canal-Panama"),
@@ -149,7 +158,8 @@ class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForPalindromeMethod() {//task10
+    //task10
+    static Stream<Arguments> ProvideArgumentsForPalindromeMethod() {
         return Stream.of(
                 Arguments.of(true, "A man, a plan a canal-Panama"),
                 Arguments.of(true, "A man, a plan a canal-Panama  "),
@@ -233,7 +243,11 @@ class StringUtilTest {
     //task15
     static Stream<Arguments> ProvideArgumentsForGetNoRepeatingCharsMethod() {
         return Stream.of(
-                Arguments.of("nfrtv", "information", "motivation")
+                Arguments.of("frnvt", "information", "motivation"),
+                Arguments.of("hellgod", "hello", "good"),
+                Arguments.of("dogcat", "dog", "cat"),
+                Arguments.of("cat", "", "cat")
+
         );
     }
 
@@ -260,12 +274,22 @@ class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
+    //task17
+    public static void main(String[] args) {
+        System.out.println("Test01. Concat speed - Append speed: " + StringUtil.getSpeedOfString(10));
+        System.out.println("Test02. Concat speed - Append speed: " + StringUtil.getSpeedOfString(100));
+        System.out.println("Test03. Concat speed - Append speed: " + StringUtil.getSpeedOfString(1000));
+        System.out.println("Test04. Concat speed - Append speed: " + StringUtil.getSpeedOfString(10000));
+        System.out.println("Test05. Concat speed - Append speed: " + StringUtil.getSpeedOfString(100000));
+    }
 
     //task18
     static Stream<Arguments> ProvideArgumentsForRemoveRepeatsMethod() {
         return Stream.of(
-                Arguments.of("abcdef", "aaabbcdeef")
+                Arguments.of("abcdef", "aaabbcdeef"),
+                Arguments.of("a", "aaa"),
+                Arguments.of(" ", "  "),
+                Arguments.of("", "")
         );
     }
 
