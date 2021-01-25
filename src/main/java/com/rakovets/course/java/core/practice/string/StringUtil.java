@@ -6,43 +6,50 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringUtil {//01
+public class StringUtil {
+    //task01
     static String getOneStringOfTwo(String str1, String str2) {
         return str1.concat(str2);
     }
 
-    static int getIndexOfChar(char c, String str) {//02
+    //task03
+    static int getIndexOfChar(char c, String str) {
         return str.indexOf(c);
     }
 
-    static boolean isEqualsTwoStrings(String str1, String str2) {//03
+    //task03
+    static boolean isEqualsTwoStrings(String str1, String str2) {
         return str1.equals(str2);
     }
 
-    static String getTrimAndLowerCase(String str) {//04
+    //task04
+    static String getTrimAndLowerCase(String str) {
         return str.trim().toUpperCase();
     }
 
-    static String getPartOfString(String str, int start) {//05
+    //task05
+    static String getPartOfString(String str, int start) {
         if (str.length() - start >= 23) {
             return str.substring(start, start + 23);
         }
             return str.substring(start);
-
     }
 
+    //task06
     static String replaceSmiles(String str) {//06
         return str.replace(":(", ":)");
     }
 
-    static  boolean startAndEndWord(String str1, String word) {//07
+    //task07
+    static  boolean startAndEndWord(String str1, String word) {
         if (str1.startsWith(word) && str1.endsWith(word)) {
             return true;
         }
         return false;
     }
 
-    static int getVowels(String str) {//08
+    //task08
+    static int getVowels(String str) {
         int count = 0;
         str = str.toLowerCase();
         char[] strInChars=new char[str.length()];
@@ -55,7 +62,8 @@ public class StringUtil {//01
         return count;
     }
 
-    static int getSumOfSymbols(String str) {//09
+    //task09
+    static int getSumOfSymbols(String str) {
         char[] symbolsOfString = new char[str.length()];
         str.getChars(0, symbolsOfString.length, symbolsOfString, 0);
         int sumOfSymbols = 0;
@@ -67,7 +75,8 @@ public class StringUtil {//01
         return sumOfSymbols;
     }
 
-    static boolean isPalindrome(String str) {//10
+    //task10
+    static boolean isPalindrome(String str) {
         str = str.replaceAll("\\W", "").toLowerCase();
         char[] palindrome = new char[str.length()];
         str.getChars(0, palindrome.length, palindrome, 0);
@@ -132,18 +141,8 @@ public class StringUtil {//01
 
     //task16
     static boolean isIdentically(String[] str1, String[] str2) {
-         String c1 = "";
-         String c2 = "";
-        for (int i = 0; i < str1.length; i++) {
-            for (int j = i; j < str2.length; j++) {
-                if (str1[i] == str2[j]) {
-                    c1 = str2[i];
-                    c2 = str2[j];
-                    str2[i] = c2;
-                    str2[j] = c1;
-                }
-            }
-        }
+        Arrays.sort(str1);
+        Arrays.sort(str2);
         return Arrays.equals(str1, str2);
     }
 
@@ -192,13 +191,41 @@ public class StringUtil {//01
                     arabicNumbers += 100;
                 }
             } else if (str.charAt(i) == 'L') {
-                arabicNumbers += 50;
+                if (nextChar == 'D') {
+                    arabicNumbers += 450;
+                    i++;
+                } else if (nextChar == 'M') {
+                    arabicNumbers += 950;
+                    i++;
+                } else {
+                    arabicNumbers += 50;
+                }
             } else if (str.charAt(i) == 'X') {
-                arabicNumbers += 10;
+                if (nextChar == 'L') {
+                    arabicNumbers += 40;
+                    i++;
+                } else if (arabicNumbers == 'C') {
+                    arabicNumbers += 90;
+                    i++;
+                } else if (arabicNumbers == 'D') {
+                    arabicNumbers += 490;
+                    i++;
+                } if (arabicNumbers == 'M') {
+                    arabicNumbers += 990;
+                    i++;
+                } else {
+                    arabicNumbers += 10;
+                }
             } else if (str.charAt(i) == 'V') {
-                arabicNumbers += 5;
-            } else if (str.charAt(i) == 'V') {
-                arabicNumbers += 3;
+                if (nextChar == 'L') {
+                    arabicNumbers += 45;
+                    i++;
+                } else  if (nextChar == 'C') {
+                    arabicNumbers += 95;
+                    i++;
+                } else {
+                    arabicNumbers += 5;
+                }
             } else if (str.charAt(i) == 'I') {
                 if (nextChar == 'X') {
                     arabicNumbers += 9;
