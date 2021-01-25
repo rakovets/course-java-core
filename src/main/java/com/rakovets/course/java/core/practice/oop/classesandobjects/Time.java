@@ -14,8 +14,8 @@ public class Time {
         this.seconds = seconds;
     }
 
-    Time (int totalSeconds) {
-        this(0, 0, totalSeconds);
+    Time (int seconds) {
+        this(0, 0, seconds);
     }
 
     public int getHours() {
