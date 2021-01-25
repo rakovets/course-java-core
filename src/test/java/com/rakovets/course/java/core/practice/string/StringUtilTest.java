@@ -110,11 +110,9 @@ class StringUtilTest {
     //task07
     static Stream<Arguments> ProvideArgumentsForStartAndEndWordMethod() {
         return Stream.of(
-                Arguments.of(true, "hello It would be nice to get 10 points for homework hello", "hello"),
-                Arguments.of(false, "hello It would be nice to get 10 points for homework", "hello"),
-                Arguments.of(false, " It would be nice to get 10 points for homework hello", "hello"),
-                Arguments.of(false, "It would be nice to get 10 points for homework", "hello"),
-                Arguments.of(false, "Hello It would be nice to get 10 points for homework hello", "hello")
+                Arguments.of(true, "hello, how are you hello", "hello"),
+                Arguments.of(false, "hello, how are you", "hello"),
+                Arguments.of(false, "HELLO, how are you hello", "hello")
         );
     }
 
@@ -163,7 +161,8 @@ class StringUtilTest {
         return Stream.of(
                 Arguments.of(true, "A man, a plan a canal-Panama"),
                 Arguments.of(true, "A man, a plan a canal-Panama  "),
-                Arguments.of(false, "A man, aa plan a canal-Panama")
+                Arguments.of(false, "A man, aa plan a canal-Panama"),
+                Arguments.of(true, "Do geese see God?")
         );
     }
 
