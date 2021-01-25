@@ -6,8 +6,7 @@ public class ExampleTask04 {
         testATM.addBanknotes100(50);
         testATM.addBanknotes50(60);
         testATM.addBanknotes20(70);
-        testATM.isPossibleIssue(1055);
-        testATM.getOptionsCombinationBanknotes(1500);
-        testATM.getCash(47);
+        System.out.println(testATM.isPossibleIssue(1000));
+        System.out.println(testATM.getOptionsCombinationBanknotes(100));
     }
 }
