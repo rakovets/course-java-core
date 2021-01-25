@@ -186,7 +186,7 @@ public class StringUtilTest {
         return Stream.of(
                 Arguments.of(2, "Hello"),
                 Arguments.of(15, "King Arthur was a great warrior defending England."),
-                Arguments.of(0, "С русским языком не работаем"),
+                Arguments.of(0, "src.txt"),
                 Arguments.of(-1, null)
         );
     }
@@ -209,7 +209,7 @@ public class StringUtilTest {
         return Stream.of(
                 Arguments.of(0, "Hello"),
                 Arguments.of(8, "Wait!!! I suggest we keep it between ourselves, shall we? I beg you... "),
-                Arguments.of(2, "Для кириллицы тоже ок, круто же!"),
+                Arguments.of(2, "It's cool, isn't it?"),
                 Arguments.of(-1, null)
         );
     }
@@ -392,7 +392,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
 
-    // task 18. метод заменяет несколько последовательных одинаковых символов в строке одним.
+    // task 18. Метод заменяет несколько последовательных одинаковых символов в строке одним.
     // В случае строки равной null возвращает null.
     static Stream<Arguments> provideArgumentsForRemoveRepeating() {
         return Stream.of(
@@ -413,4 +413,29 @@ public class StringUtilTest {
         // THEN
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    // task 19. Метод возвращает результат преобразования римской записи числа в арабскую.
+    // Распознает значения чисел от 1 до 3999. В случае строки равной null возвращает null.
+    static Stream<Arguments> provideArgumentsForConvertToArabic() {
+        return Stream.of(
+                Arguments.of("3999", "MMMCMXCIX"),
+                Arguments.of("10", "X"),
+                Arguments.of("9", "IX"),
+                Arguments.of("1484", "MCDLXXXIV"),
+                Arguments.of(null, null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForConvertToArabic")
+    void convertToArabic(String expectedString, String str1) {
+        // GIVEN
+
+        // WHEN
+        String actualString = StringUtil.convertToArabic(str1);
+
+        // THEN
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
 }

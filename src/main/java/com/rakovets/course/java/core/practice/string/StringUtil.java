@@ -133,7 +133,6 @@ public class StringUtil {
     // В случае строки равной null возвращает null.
     public static String[] splitByIndex (String example, int n) {
         if (example != null && n > 0) {
-
             StringBuilder exampleWithDivider = new StringBuilder(example);
 
                 for (int x = n; x < exampleWithDivider.length(); ) {
@@ -241,7 +240,7 @@ public class StringUtil {
         return "Number of iterations - " + y + "\nString concatenation speed: " + stringExecutionSpeed + "\nStringBuilder.append speed: " + stringBuilderExecutionSpeed;
     }
 
-    // task 18. метод заменяет несколько последовательных одинаковых символов в строке одним.
+    // task 18. Метод заменяет несколько последовательных одинаковых символов в строке одним.
     // В случае строки равной null возвращает null.
     public static String removeRepeating (String example) {
         if (example != null) {
@@ -254,6 +253,49 @@ public class StringUtil {
                 }
             }
             return exampleInProgress.toString();
+        }
+        return null;
+    }
+
+    // task 19. Метод возвращает результат преобразования римской записи числа в арабскую.
+    // Распознает значения чисел от 1 до 3999. В случае строки равной null возвращает null.
+    public static String convertToArabic (String roman) {
+        if (roman != null) {
+            int[] calculatingArray = new int[roman.trim().length()];
+            for (int x = 0; x < calculatingArray.length; x++) {
+                switch(roman.charAt(x)) {
+                    case 'M':
+                        calculatingArray[x] = 1000;
+                        break;
+                    case 'D':
+                        calculatingArray[x] = 500;
+                        break;
+                    case 'C':
+                        calculatingArray[x] = 100;
+                        break;
+                    case 'L':
+                        calculatingArray[x] = 50;
+                        break;
+                    case 'X':
+                        calculatingArray[x] = 10;
+                        break;
+                    case 'V':
+                        calculatingArray[x] = 5;
+                        break;
+                    case 'I':
+                        calculatingArray[x] = 1;
+                        break;
+                }
+            }
+            int arabicNumberCalculating = calculatingArray[0];
+            for (int y = 0; y + 1 < calculatingArray.length; y++) {
+                if (calculatingArray[y] >= calculatingArray[y + 1]) {
+                    arabicNumberCalculating += calculatingArray[y + 1];
+                } else {
+                    arabicNumberCalculating += (calculatingArray[y + 1] - (calculatingArray[y] * 2)) ;
+                }
+            }
+            return "" + arabicNumberCalculating;
         }
         return null;
     }
