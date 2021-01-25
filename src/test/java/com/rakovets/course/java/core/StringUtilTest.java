@@ -8,8 +8,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 class StringUtilTest {
-
-    static Stream<Arguments> Test1() {
+    //Test1
+    static Stream<Arguments> getConcatProviderArguments() {
         return Stream.of(
                 Arguments.of("HelloJava", "Hello", "Java"),
                 Arguments.of("Java", "", "Java"),
@@ -20,13 +20,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test1")
+    @MethodSource("getConcatProviderArguments")
     void getConcat(String expectedString, String one, String two) {
         String actualString = StringUtil.getConcat(one, two);
         Assertions.assertEquals(actualString, expectedString);
     }
-
-    static Stream<Arguments> Test2() {
+    //Test2
+    static Stream<Arguments> getIndexProviderArguments() {
         return Stream.of(
                 Arguments.of(1, "Exit", 'x'),
                 Arguments.of(-1, "Exit", 'o'),
@@ -37,13 +37,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test2")
+    @MethodSource("getIndexProviderArguments")
     void getIndex(int expectedInt, String str, char x) {
         int actualInt = StringUtil.getIndex(str, x);
         Assertions.assertEquals(actualInt, expectedInt);
     }
-
-    static Stream<Arguments> Test3() {
+    //Test3
+    static Stream<Arguments> getEqualsProviderArguments() {
         return Stream.of(
                 Arguments.of(true, "Anton", "Anton"),
                 Arguments.of(false, "Anton", "anton"),
@@ -54,13 +54,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test3")
+    @MethodSource("getEqualsProviderArguments")
     void getEquals(boolean expectedBoolean, String one, String two) {
         boolean actualBoolean = StringUtil.getEquals(one, two);
         Assertions.assertEquals(actualBoolean, expectedBoolean);
     }
-
-    static Stream<Arguments> Test4() {
+    //Test4
+    static Stream<Arguments> getTrimAndUpperCaseProviderArguments() {
         return Stream.of(
                 Arguments.of("anton", "  anton  "),
                 Arguments.of("anton khramau", "   anton khramau   "),
@@ -70,13 +70,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test4")
+    @MethodSource("getTrimAndUpperCaseProviderArguments")
     void getTrim(String expectedString, String str) {
         String actualString = StringUtil.getTrim(str);
         Assertions.assertEquals(actualString, expectedString);
     }
-
-    static Stream<Arguments> Test5() {
+    //Test5
+    static Stream<Arguments>  getSubstringProviderArguments() {
         return Stream.of(
                 Arguments.of("01234567890123", "1234567890123456789012345678901234567890", 10, 23),
                 Arguments.of("67890 1234567890 1234567890 1", "1234567890 1234567890 1234567890 1234567890", 6, 34),
@@ -87,13 +87,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test5")
+    @MethodSource(" getSubstringProviderArguments")
     void getSubString(String expectedString, String str, int start, int finish) {
         String actualString = StringUtil.getSubString(str, start, finish);
         Assertions.assertEquals(actualString, expectedString);
     }
-
-    static Stream<Arguments> Test6() {
+    //Test6
+    static Stream<Arguments> getReplaceProviderArguments() {
         return Stream.of(
                 Arguments.of("Anton :)", "Anton :("),
                 Arguments.of("Anton :) :) :)", "Anton :( :) :("),
@@ -103,13 +103,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test6")
+    @MethodSource("getReplaceProviderArguments")
     void getReplace(String expectedString, String str) {
         String actualString = StringUtil.getReplace(str);
         Assertions.assertEquals(expectedString, actualString);
     }
-
-    static Stream<Arguments> Test7() {
+    //Test7
+    static Stream<Arguments> getStartsAndEndsWithProviderArguments() {
         return Stream.of(
                 Arguments.of(true, "AT word AT", "AT"),
                 Arguments.of(false, "AT word", "AT"),
@@ -123,13 +123,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test7")
+    @MethodSource("getStartsAndEndsWithProviderArguments")
     void getTrueFalse(boolean expectedBoolean, String string, String word) {
         boolean actualBoolean = StringUtil.getTrueFalse(string, word);
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
-
-    static Stream<Arguments> Test8() {
+    //Test8
+    static Stream<Arguments> getVowelsProviderArguments() {
         return Stream.of(
                 Arguments.of(2, "true"),
                 Arguments.of(5, "I am Superman"),
@@ -140,13 +140,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test8")
+    @MethodSource("getVowelsProviderArguments")
     void getConsonants(int expectedInt, String str) {
         int actualInt = StringUtil.getConsonants(str);
         Assertions.assertEquals(expectedInt, actualInt);
     }
-
-    static Stream<Arguments> Test9() {
+    //Test9
+    static Stream<Arguments> getPeriodsCommasExclamationMarksProviderArguments() {
         return Stream.of(
                 Arguments.of(4, "A, b!, c."),
                 Arguments.of(3, ",How. are you!"),
@@ -156,13 +156,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test9")
+    @MethodSource("getPeriodsCommasExclamationMarksProviderArguments")
     void getPunctuationMarks(int expectedInt, String str) {
         int actualInt = StringUtil.getPunctuationMarks(str);
         Assertions.assertEquals(expectedInt, actualInt);
     }
-
-    static Stream<Arguments> Test10() {
+    //Test10
+    static Stream<Arguments> getPalindromeProviderArguments() {
         return Stream.of(
                 Arguments.of(true, "101"),
                 Arguments.of(true, "1 0 1"),
@@ -173,13 +173,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test10")
+    @MethodSource("getPalindromeProviderArguments")
     void getPalindrome(boolean expectedBoolean, String str) {
         boolean actualBoolean = StringUtil.getPalindrome(str);
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
-
-    static Stream<Arguments> Test11() {
+    //Test11
+    static Stream<Arguments> getArrayProviderArguments() {
         return Stream.of(
                 Arguments.of(new String[]{"How", "are", "you"}, "Howareyou", 3),
                 Arguments.of(null, "How are you?", 7),
@@ -190,13 +190,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test11")
+    @MethodSource("getArrayProviderArguments")
     void getParseString(String[] expectedArray, String str, int n) {
         String[] actualArray = StringUtil.getParseString(str, n);
         Assertions.assertArrayEquals(expectedArray, actualArray);
     }
-
-    static Stream<Arguments> Test12() {
+    //Test12
+    static Stream<Arguments> getNumberOfWordsProviderArguments() {
         return Stream.of(
                 Arguments.of(3, "How are you?"),
                 Arguments.of(3, "   How are     you?   "),
@@ -205,13 +205,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test12")
+    @MethodSource("getNumberOfWordsProviderArguments")
     void getSplit(int expectedInt, String str) {
         int actualInt = StringUtil.getSplit(str);
         Assertions.assertEquals(expectedInt, actualInt);
     }
-
-    static Stream<Arguments> Test13() {
+    //Test13
+    static Stream<Arguments> getInitialsProviderArguments() {
         return Stream.of(
                 Arguments.of("A.K.V.", "Anton Khramau Vitalievich"),
                 Arguments.of("A.K.V.", "anton Khramau vitalievich"),
@@ -220,13 +220,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test13")
+    @MethodSource("getInitialsProviderArguments")
     void getFullName(String expectedString, String nameSurnamePatronymic) {
         String actualString = StringUtil.getFullName(nameSurnamePatronymic);
         Assertions.assertEquals(expectedString, actualString);
     }
-
-    static Stream<Arguments> Test14() {
+    //Test14
+    static Stream<Arguments> getAllNumbersProviderArguments() {
         return Stream.of(
                 Arguments.of("12323243423", "go12 32 324, break one 3 4 frodo23Kevin"),
                 Arguments.of(null, null)
@@ -234,13 +234,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test14")
+    @MethodSource("getAllNumbersProviderArguments")
     void getNumbers(String expectedString, String text) {
         String actualString = StringUtil.getNumbers(text);
         Assertions.assertEquals(expectedString, actualString);
     }
-
-    static Stream<Arguments> Test15() {
+    //Test15
+    static Stream<Arguments> getDifferentLettersProviderArguments() {
         return Stream.of(
                 Arguments.of("H w a v r y a y I o n o t h ", "He likes walk every day", "I do not like she"),
                 Arguments.of("", "war", "war"),
@@ -250,13 +250,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test15")
+    @MethodSource("getDifferentLettersProviderArguments")
     void getFind(String expectedString, String one, String two) {
         String actualString = StringUtil.getFind(one, two);
         Assertions.assertEquals(expectedString, actualString);
     }
-
-    static Stream<Arguments> Test16() {
+    //Test16
+    static Stream<Arguments> getAreArraysIdenticalProviderArguments() {
         return Stream.of(
                 Arguments.of(true, new String[]{"1", "2", "3"}, new String[]{"1", "2", "3"}),
                 Arguments.of(true, new String[]{"1", "2", "3"}, new String[]{"3", "1", "2"}),
@@ -268,26 +268,26 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test16")
+    @MethodSource("getAreArraysIdenticalProviderArguments")
     void getArrayString(boolean expectedBoolean, String[] one, String[] two) {
         boolean actualBoolean = StringUtil.getArrayString(one, two);
         Assertions.assertEquals(expectedBoolean, actualBoolean);
     }
-
-    static Stream<Arguments> Test17() {
+    //Test17
+    static Stream<Arguments> getExecutionTimeProviderArguments() {
         return Stream.of(
                 Arguments.of(-1, "adadfrefe")
         );
     }
 
     @ParameterizedTest
-    @MethodSource("Test17")
+    @MethodSource("getExecutionTimeProviderArguments")
     void compareStringMethods(int expected, String str) {
         int actual = StringUtil.compareStringMethods(str);
         Assertions.assertEquals(expected, actual);
     }
-
-    static Stream<Arguments> Test18() {
+    //Test18
+    static Stream<Arguments> getReplacedIdenticalCharactersProviderArguments() {
         return Stream.of(
                 Arguments.of("adadfrefe", "aaadddadfrefffee"),
                 Arguments.of("a1d2adf3refe", "aaa111ddd222adf3refffee"),
@@ -296,13 +296,13 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test18")
+    @MethodSource("getReplacedIdenticalCharactersProviderArguments")
     void getCopy(String expectedString, String str) {
         String actualString = StringUtil.getCopy(str);
         Assertions.assertEquals(expectedString, actualString);
     }
-
-    static Stream<Arguments> Test19() {
+    //Test19
+    static Stream<Arguments> getConversionFromRomanToArabicProviderArguments() {
         return Stream.of(
                 Arguments.of(21, "XXI"),
                 Arguments.of(900, "cm"),
@@ -311,10 +311,9 @@ class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("Test19")
+    @MethodSource("getConversionFromRomanToArabicProviderArguments")
     void getRomeNumbers(int expectedString, String str) {
        int actualString = StringUtil.getRomeNumbers(str);
        Assertions.assertEquals(expectedString, actualString);
     }
 }
-
