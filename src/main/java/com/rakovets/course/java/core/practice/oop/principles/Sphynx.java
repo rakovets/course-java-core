@@ -14,4 +14,16 @@ public class Sphynx extends Cat{
     public String purr() {
         return "mrrr-sfi";
     }
+
+    @Override
+    public String mew(Person person) {
+        person.changeHappiness(18);
+        return "mew-sim";
+    }
+
+    @Override
+    public String purr(Person person) {
+        person.changeHappiness(-18);
+        return "mrrr-sim";
+    }
 }

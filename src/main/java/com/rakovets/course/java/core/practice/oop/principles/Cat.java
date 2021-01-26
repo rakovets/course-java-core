@@ -23,13 +23,13 @@ public class Cat {
         return name;
     }
 
-    public String mew(Person bill) {
-        bill.changeHappiness(-10);
+    public String mew(Person name) {
+        name.changeHappiness(-10);
         return "mew-mew";
     }
 
-    public String purr(Person bill) {
-        bill.changeHappiness(15);
+    public String purr(Person name) {
+        name.changeHappiness(15);
         return "mrrr";
     }
 }
