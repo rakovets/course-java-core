@@ -34,7 +34,7 @@ public class PersonTest {
     }
 
     @Test
-    void getHapiness() {
+    void getHappiness() {
         Person hugh = new Person(40.0);
         Assertions.assertEquals(40.0, hugh.getHappiness());
     }

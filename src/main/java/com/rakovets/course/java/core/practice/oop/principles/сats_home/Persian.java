@@ -17,12 +17,14 @@ public class Persian extends Cat {
     }
 
     @Override
-    public void mew(Person random) {
+    public String mew(Person random) {
         random.changeHappiness(-15.0);
+        return "mew-mew-mew";
     }
 
     @Override
-    public void purr(Person random) {
+    public String purr(Person random) {
         random.changeHappiness(+15.0);
+        return "purr-purr-purr";
     }
 }

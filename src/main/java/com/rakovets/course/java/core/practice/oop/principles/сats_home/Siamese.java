@@ -17,12 +17,14 @@ public class Siamese extends Cat {
     }
 
     @Override
-    public void mew(Person random) {
+    public String mew(Person random) {
         random.changeHappiness(-30.0);
+        return "mew-mew";
     }
 
     @Override
-    public void purr(Person random) {
+    public String purr(Person random) {
         random.changeHappiness(+30.0);
+        return "purr-purr";
     }
 }

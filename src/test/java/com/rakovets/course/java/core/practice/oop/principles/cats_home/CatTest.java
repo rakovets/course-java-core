@@ -56,6 +56,7 @@ public class CatTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("meeeow", sheldon.mew(random));
     }
 
     static Stream<Arguments> provideArgumentsForPurr() {
@@ -74,5 +75,6 @@ public class CatTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("prrr-prrr", sheldon.purr(random));
     }
 }

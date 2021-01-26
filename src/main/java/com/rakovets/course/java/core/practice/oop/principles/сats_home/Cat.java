@@ -23,11 +23,13 @@ public class Cat {
         this.name = name;
     }
 
-    public void mew(Person random) {
+    public String mew(Person random) {
         random.changeHappiness(-25.0);
+        return "meeeow";
     }
 
-    public void purr(Person random) {
+    public String purr(Person random) {
         random.changeHappiness(+25.0);
+        return "prrr-prrr";
     }
 }

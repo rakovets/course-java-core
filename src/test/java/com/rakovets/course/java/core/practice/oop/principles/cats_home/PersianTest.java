@@ -43,6 +43,7 @@ public class PersianTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("mew-mew-mew", fluffy.mew(random));
     }
 
     static Stream<Arguments> provideArgumentsForPurr() {
@@ -61,5 +62,6 @@ public class PersianTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("purr-purr-purr", fluffy.purr(random));
     }
 }

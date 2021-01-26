@@ -43,6 +43,7 @@ public class SiameseTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("mew-mew", kleo.mew(random));
     }
 
     static Stream<Arguments> provideArgumentsForPurr() {
@@ -61,5 +62,6 @@ public class SiameseTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("purr-purr", kleo.purr(random));
     }
 }

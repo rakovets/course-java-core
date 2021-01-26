@@ -43,6 +43,7 @@ public class SphynxTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("mr-meoooow", bastet.mew(random));
     }
 
     static Stream<Arguments> provideArgumentsForPurr() {
@@ -61,5 +62,6 @@ public class SphynxTest {
         double actualDouble = random.getHappiness();
 
         Assertions.assertEquals(expectedDouble, actualDouble);
+        Assertions.assertEquals("purr-prrrr", bastet.purr(random));
     }
 }

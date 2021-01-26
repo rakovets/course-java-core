@@ -17,12 +17,14 @@ public class Sphynx extends Cat {
     }
 
     @Override
-    public void mew(Person random) {
+    public String mew(Person random) {
         random.changeHappiness(-10.0);
+        return "mr-meoooow";
     }
 
     @Override
-    public void purr(Person random) {
+    public String purr(Person random) {
         random.changeHappiness(+10.0);
+        return "purr-prrrr";
     }
 }
