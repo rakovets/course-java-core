@@ -45,7 +45,6 @@ public class CatTest {
                 Arguments.of(10.0, new Person(35.0)),
                 Arguments.of(-25.0, new Person(0.0)),
                 Arguments.of(75.0, new Person(100.0))
-
         );
     }
 
@@ -64,7 +63,6 @@ public class CatTest {
                 Arguments.of(60.0, new Person(35.0)),
                 Arguments.of(25.0, new Person(0.0)),
                 Arguments.of(125.0, new Person(100.0))
-
         );
     }
 

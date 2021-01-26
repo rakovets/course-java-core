@@ -32,7 +32,6 @@ public class SiameseTest {
                 Arguments.of(5.0, new Person(35.0)),
                 Arguments.of(-30.0, new Person(0.0)),
                 Arguments.of(70.0, new Person(100.0))
-
         );
     }
 
@@ -51,7 +50,6 @@ public class SiameseTest {
                 Arguments.of(65.0, new Person(35.0)),
                 Arguments.of(30.0, new Person(0.0)),
                 Arguments.of(130.0, new Person(100.0))
-
         );
     }
 
@@ -64,5 +62,4 @@ public class SiameseTest {
 
         Assertions.assertEquals(expectedDouble, actualDouble);
     }
-
 }
