@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.string;
 
+
+
 /**
  * Разработать программу для разбора (parsing) полного имени сотрудника компании.
  *
@@ -35,7 +37,7 @@ class Task01 {
     static String getName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+         return fullName.split("\\s")[0];
     }
 
     /**
@@ -47,7 +49,9 @@ class Task01 {
     static String getSurname(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int index1 = fullName.indexOf(" ");
+        String surname = fullName.substring(index1+1,fullName.length());
+        return surname;
     }
 
     /**
@@ -59,6 +63,13 @@ class Task01 {
     static String reverseFullName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] separateWords = fullName.split(" ");
+        String tmp = separateWords[0];
+        separateWords[0] = separateWords[separateWords.length-1];
+        separateWords[separateWords.length-1] = tmp;
+        String reverseFullName = fullName;
+        //System.out.println("SEPARATE "+ separateWords[0]);
+        //System.out.println("tmp "+ tmp);
+        return reverseFullName;
     }
 }
