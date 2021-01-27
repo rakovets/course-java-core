@@ -6,7 +6,6 @@ public class Cat {
     public Cat(String name) {
         this.name = name;
     }
-
     // Методы
     public String mew() {
         return "Mew";
@@ -15,6 +14,7 @@ public class Cat {
     public String purr() {
         return "Purr";
     }
+
     public String getName() {
         return this.name;
     }
@@ -22,6 +22,7 @@ public class Cat {
     public void setName(String name) {
         this.name = name;
     }
+
     public String mew(Person user) {
         user.changeHappiness(-10);
         return "Mew";

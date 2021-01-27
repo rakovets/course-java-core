@@ -12,5 +12,15 @@ public class Persian extends Cat {
         public String purr () {
             return "Purrr";
         }
+
+    public String mew(Person user) {
+        user.changeHappiness(-15);
+        return "Mew-mew";
     }
+
+    public String purr(Person user) {
+        user.changeHappiness(15);
+        return "Purr-purr";
+    }
+}
 

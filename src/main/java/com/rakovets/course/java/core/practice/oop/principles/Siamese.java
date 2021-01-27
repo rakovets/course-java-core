@@ -9,7 +9,18 @@ public class Siamese extends Cat {
     public String mew() {
         return "Mew-mew";
     }
+
     public String purr() {
+        return "Purr-purr";
+    }
+
+    public String mew(Person user) {
+        user.changeHappiness(-20);
+        return "Mew-mew";
+    }
+
+    public String purr(Person user) {
+        user.changeHappiness(20);
         return "Purr-purr";
     }
 }
