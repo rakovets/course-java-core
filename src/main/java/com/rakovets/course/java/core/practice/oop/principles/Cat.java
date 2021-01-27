@@ -1,11 +1,12 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Cat {
-    public String name;
-    //Конструктор
+    private String name;
+
     public Cat(String name) {
         this.name = name;
     }
+
     // Методы
     public String mew() {
         return "Mew";
