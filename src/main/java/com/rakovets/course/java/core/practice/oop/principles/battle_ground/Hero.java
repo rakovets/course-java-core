@@ -10,7 +10,9 @@ public abstract class Hero implements Mortal{
 
     public Hero (String name, int health) {
         this.name = name;
+        if (health > 100) {
         this.health = health;
+        }
     }
 
     public String getName() {
@@ -20,7 +22,11 @@ public abstract class Hero implements Mortal{
     public abstract void attackEnemy(Enemy enemy);
 
     public void takeDamage(int damage) {
+        if (this.health - damage > 0) {
         this.health -= damage;
+        } else {
+            this.health = 0;
+        }
     }
 
     public int getHealth() {
@@ -28,7 +34,9 @@ public abstract class Hero implements Mortal{
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health >= 0) {
+            this.health = health;
+        }
     }
 
     @Override

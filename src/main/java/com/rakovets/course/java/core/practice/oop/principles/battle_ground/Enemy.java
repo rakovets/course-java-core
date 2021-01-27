@@ -4,7 +4,9 @@ public abstract class Enemy implements Mortal {
     private int health;
 
     public Enemy(int health) {
-        this.health = health;
+        if (health > 0) {
+            this.health = health;
+        }
     }
 
     public int getHealth() {
@@ -12,11 +14,17 @@ public abstract class Enemy implements Mortal {
     }
 
     public void setHealth(int healthUpdate) {
-        this.health = healthUpdate;
+        if (healthUpdate >= 0) {
+            this.health = healthUpdate;
+        }
     }
 
     public void takeDamage(int damage) {
-        this.health -= damage;
+         if (this.health - damage > 0) {
+            this.health -= damage;
+        } else {
+            this.health = 0;
+        }
     }
 
     @Override
@@ -24,9 +32,5 @@ public abstract class Enemy implements Mortal {
         return this.health > 0;
     }
 
-    public void attackHero(Hero hero) {
-        if (this.isAlive()) {
-            hero.takeDamage(5);
-        }
-    }
+    public abstract void attackHero(Hero hero);
 }

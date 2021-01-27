@@ -10,14 +10,24 @@ public class Angel extends Enemy {
     public void takeDamage(int damage) {
         if (damage > 20) {
             int divineHealth = getHealth() - (damage / 2);
-            setHealth(divineHealth);
+            if (divineHealth > 0) {
+                this.setHealth(divineHealth);
+            } else {
+                this.setHealth(0);
+            }
         }
     }
 
     @Override
     public void attackHero(Hero hero) {
-        if (this.isAlive()) {
+        if (this.isAlive() && hero.isAlive()) {
             hero.takeDamage(50);
+        }
+    }
+
+    public void resurrectEnemy(Enemy enemy) {
+        if (this.isAlive() && !enemy.isAlive()) {
+            enemy.setHealth(30);
         }
     }
 }
