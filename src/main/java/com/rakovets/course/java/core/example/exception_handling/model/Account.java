@@ -1,20 +1,25 @@
 package com.rakovets.course.java.core.example.exception_handling.model;
 
-import com.rakovets.course.java.core.example.exception_handling.exception.AccountExpiredException;
+import com.rakovets.course.java.core.example.exception_handling.exception.AccountException;
 
 public class Account {
     private double amount;
-    private boolean isExpired = true;
+    private final boolean isExpired;
 
-    public void takeCash(int amount) throws AccountExpiredException {
+    public Account(double amount, boolean isExpired) {
+        this.amount = amount;
+        this.isExpired = isExpired;
+    }
+
+    public int takeCash(int amount) throws AccountException {
         System.out.println("Start processing request!");
         if (isExpired) {
-            throw new AccountExpiredException("Account is expired", "Time to life: wrong");
+            throw new AccountException("Account is expired", "Time to life: wrong");
         } else if (this.amount < amount) {
-            throw new AccountExpiredException("No money on the account");
-        } else {
-            this.amount -= amount;
+            throw new AccountException("No money on the account");
         }
+        this.amount -= amount;
         System.out.println("Finish processing request!");
+        return amount;
     }
 }

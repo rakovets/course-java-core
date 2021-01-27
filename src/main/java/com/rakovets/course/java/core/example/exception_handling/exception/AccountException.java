@@ -1,13 +1,13 @@
 package com.rakovets.course.java.core.example.exception_handling.exception;
 
-public class AccountExpiredException extends Exception {
+public class AccountException extends Exception {
     private String debugMessage;
 
-    public AccountExpiredException(String message) {
+    public AccountException(String message) {
         super(message);
     }
 
-    public AccountExpiredException(String message, String debugMessage) {
+    public AccountException(String message, String debugMessage) {
         super(message);
         this.debugMessage = debugMessage;
     }
