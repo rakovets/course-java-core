@@ -12,16 +12,16 @@ public class UniversityDemo {
         Student[] j109 = new Student[10];
 
         // Vector -> Stack
-        Vector<Student> vectorStudent = new Vector();
+        Vector<Student> vectorStudent = new Vector<>();
         vectorStudent.add(new Student("Tom"));
         Student student = (Student) vectorStudent.get(0);
         System.out.println(student.getName());
 
-        Stack stackStudent = new Stack();
+        Stack<Student> stackStudent = new Stack<>();
         stackStudent.empty();
 
         // Hashtable
-        Hashtable<Integer, Student> hashtableStudent = new Hashtable();
+        Hashtable<Integer, Student> hashtableStudent = new Hashtable<>();
         hashtableStudent.put(1, new Student("Student1"));
         hashtableStudent.put(1, new Student("Student4"));
         hashtableStudent.put(1, new Student("Student2"));
