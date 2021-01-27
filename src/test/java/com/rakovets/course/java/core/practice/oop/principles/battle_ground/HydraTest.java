@@ -19,6 +19,12 @@ public class HydraTest {
         Hydra wrath = new Hydra(500);
         wrath.setHealth(200);
         Assertions.assertEquals(200, wrath.getHealth());
+
+        wrath.setHealth(-100);
+        Assertions.assertEquals(200, wrath.getHealth());
+
+        wrath.setHealth(0);
+        Assertions.assertEquals(0, wrath.getHealth());
     }
 
     @Test
@@ -50,7 +56,7 @@ public class HydraTest {
         return Stream.of(
                 Arguments.of(290, new Warrior("Geralt", 300)),
                 Arguments.of(260, new Mag("Dambldor", 300)),
-                Arguments.of(0, new Mag("Dambldor", 30)),
+                Arguments.of(60, new Mag("Dambldor", 100)),
                 Arguments.of(280, new Archer("Legolas", 300))
         );
     }
@@ -72,6 +78,7 @@ public class HydraTest {
         Archer bard = new Archer("Bard", 300);
         wrath.attackHero(bard);
         int actualIntHydraIsDead = bard.getHealth();
+
         Assertions.assertEquals(300, actualIntHydraIsDead);
 
         wrath.setHealth(500);
@@ -102,6 +109,7 @@ public class HydraTest {
         int actualIntHero1HydraIsDead = hero1.getHealth();
         int actualIntHero2HydraIsDead = hero2.getHealth();
         int actualIntHero3HydraIsDead = hero3.getHealth();
+
         Assertions.assertEquals(480, actualIntHero1HydraIsDead);
         Assertions.assertEquals(990, actualIntHero2HydraIsDead);
         Assertions.assertEquals(460, actualIntHero3HydraIsDead);
@@ -112,6 +120,7 @@ public class HydraTest {
         int actualIntHero1HeroIsDead = hero1.getHealth();
         int actualIntHero2HeroIsDead = hero2.getHealth();
         int actualIntHero3HeroIsDead = hero3.getHealth();
+
         Assertions.assertEquals(480, actualIntHero1HeroIsDead);
         Assertions.assertEquals(990, actualIntHero2HeroIsDead);
         Assertions.assertEquals(0, actualIntHero3HeroIsDead);

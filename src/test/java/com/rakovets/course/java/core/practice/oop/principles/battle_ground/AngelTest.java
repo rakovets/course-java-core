@@ -45,7 +45,6 @@ public class AngelTest {
         Assertions.assertEquals(expectedInt, actualInt);
     }
 
-
     static Stream<Arguments> provideArgumentsForAttackHero() {
         return Stream.of(
                 Arguments.of(275, new Warrior("Geralt", 300)),

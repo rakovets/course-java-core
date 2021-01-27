@@ -18,7 +18,7 @@ public class Archer extends Hero {
 
     public void attackFatalShot(Enemy enemy) {
         if (this.isAlive() && enemy.isAlive()) {
-            enemy.takeDamage(enemy.getHealth());
+            enemy.setHealth(0);
         }
     }
 

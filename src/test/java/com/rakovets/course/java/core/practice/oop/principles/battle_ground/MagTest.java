@@ -14,6 +14,7 @@ public class MagTest {
         Mag gandalf = new Mag("Gandalf", 500);
         Assertions.assertEquals(500, gandalf.getHealth());
         Assertions.assertEquals("Gandalf", gandalf.getName());
+
         Mag galadriel = new Mag("Galadriel");
         Assertions.assertEquals("Galadriel", galadriel.getName());
         Assertions.assertEquals(100, galadriel.getHealth());
@@ -24,8 +25,10 @@ public class MagTest {
         Mag gandalf = new Mag("Gandalf", 500);
         gandalf.setHealth(-100);
         Assertions.assertEquals(500, gandalf.getHealth());
+
         gandalf.setHealth(200);
         Assertions.assertEquals(200, gandalf.getHealth());
+
         gandalf.setHealth(0);
         Assertions.assertEquals(0, gandalf.getHealth());
     }
@@ -122,6 +125,7 @@ public class MagTest {
         Wolf akela = new Wolf(300);
         gandalf.curseEnemy(akela);
         int actualIntMagIsDead = akela.getHealth();
+
         Assertions.assertEquals(300, actualIntMagIsDead);
 
         gandalf.setHealth(500);
