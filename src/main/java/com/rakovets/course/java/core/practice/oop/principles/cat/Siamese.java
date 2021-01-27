@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.cat;
 
 public class Siamese extends Cat {
     public Siamese(String name) {

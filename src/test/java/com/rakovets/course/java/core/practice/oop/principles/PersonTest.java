@@ -1,11 +1,8 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
+import com.rakovets.course.java.core.practice.oop.principles.cat.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import javax.accessibility.Accessible;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
 

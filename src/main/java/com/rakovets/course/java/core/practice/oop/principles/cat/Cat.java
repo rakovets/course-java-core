@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.cat;
 
 public class Cat {
     private String name;
@@ -33,4 +33,3 @@ public class Cat {
         this.name = name;
     }
 }
-

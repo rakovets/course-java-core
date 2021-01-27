@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
+import com.rakovets.course.java.core.practice.oop.principles.cat.Person;
+import com.rakovets.course.java.core.practice.oop.principles.cat.Sphynx;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
