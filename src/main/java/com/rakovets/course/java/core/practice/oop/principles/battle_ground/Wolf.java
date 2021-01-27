@@ -8,17 +8,16 @@ public class Wolf extends Enemy {
     @Override
     public void attackHero(Hero hero) {
         if (this.isAlive() && hero.isAlive()) {
-            if (this.getHealth() < 15) {
+            if (this.getHealth() < 35) {
                 hero.takeDamage(20);
             }
             hero.takeDamage(10);
         }
     }
 
-    public Wolf callThePack() {
+    public void healWounds() {
         if (this.isAlive() && this.getHealth() < 15) {
-            return new Wolf(50);
+            this.setHealth(this.getHealth() + 20);
         }
-        return null;
     }
 }

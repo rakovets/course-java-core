@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
-import com.rakovets.course.java.core.practice.oop.principles.сats_home.Cat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
