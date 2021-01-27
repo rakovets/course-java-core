@@ -22,5 +22,13 @@ public class Cat {
     public void setName(String name) {
         this.name = name;
     }
+    public String mew(Person user) {
+        user.changeHappiness(-10);
+        return "Mew";
+    }
 
+    public String purr(Person user) {
+        user.changeHappiness(10);
+        return "Purr";
+    }
 }
