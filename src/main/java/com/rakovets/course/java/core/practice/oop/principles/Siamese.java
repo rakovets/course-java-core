@@ -6,7 +6,7 @@ public class Siamese extends Cat {
     }
 
     @Override
-    public String mew(){
+    public String mew() {
         return "mew-sim";
     }
 
