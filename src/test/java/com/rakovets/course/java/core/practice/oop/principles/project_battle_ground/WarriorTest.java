@@ -12,7 +12,7 @@ class WarriorTest {
         //Given
         Hero warrior = new Warrior("Kraken", 100);
         Enemy zombie = new Zombie(100);
-        int expectedEnemyHealth = 90;
+        int expectedEnemyHealth = 85;
 
         //When
         warrior.attackEnemy(zombie);

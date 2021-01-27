@@ -9,7 +9,7 @@ public class Mag extends Hero {
     @Override
     public String attackEnemy(Enemy enemy) {
         enemy.takeDamage(20);
-        return "Mag attack " + enemy.getClass().getSimpleName() + " with 15 points of damage";
+        return "Mag attack " + enemy.getClass().getSimpleName() + " with 20 points of damage";
     }
 
     //special ability

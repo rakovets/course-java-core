@@ -10,7 +10,7 @@ class MagTest {
         //Given
         Hero mag = new Mag("Sigmund",100);
         Enemy zombie = new Zombie(100);
-        int expectedEnemyHealth = 85;
+        int expectedEnemyHealth = 80;
 
         //When
         mag.attackEnemy(zombie);
