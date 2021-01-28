@@ -10,11 +10,7 @@ public class Angel extends Enemy {
     public void takeDamage(int damage) {
         if (damage > 20) {
             int divineHealth = getHealth() - (damage / 2);
-            if (divineHealth > 0) {
-                this.setHealth(divineHealth);
-            } else {
-                this.setHealth(0);
-            }
+            this.setHealth(Math.max(divineHealth, 0));
         }
     }
 

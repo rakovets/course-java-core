@@ -11,12 +11,8 @@ public class Mag extends Hero {
 
     @Override
     public void takeDamage(int damage) {
-        int magVulnerability = damage * 2;
-        if (this.getHealth() - magVulnerability > 0) {
-            this.setHealth(this.getHealth() - magVulnerability);
-        } else {
-            this.setHealth(0);
-        }
+        int damageVulnerability = damage * 2;
+        this.setHealth(Math.max(this.getHealth() - damageVulnerability, 0));
     }
 
     @Override
@@ -28,8 +24,8 @@ public class Mag extends Hero {
 
     public void curseEnemy(Enemy enemy) {
         if (this.isAlive() && enemy.isAlive()) {
-            while (enemy.isAlive() && !(enemy instanceof Angel)) {
-            enemy.takeDamage(5);
+            while (enemy.isAlive()) {
+            enemy.takeDamage(30);
             }
         }
     }

@@ -8,11 +8,7 @@ public class Hydra extends Enemy {
     @Override
     public void takeDamage(int damage) {
         int thickFat = getHealth() - (damage / 3);
-          if (thickFat > 0) {
-            this.setHealth(thickFat);
-        } else {
-            this.setHealth(0);
-        }
+        this.setHealth(Math.max(thickFat, 0));
     }
 
     @Override

@@ -19,12 +19,8 @@ public class Warrior extends Hero {
 
     @Override
     public void takeDamage(int damage) {
-        int warriorTanksDamage = damage / 2;
-        if (this.getHealth() - warriorTanksDamage > 0) {
-            this.setHealth(this.getHealth() - warriorTanksDamage);
-        } else {
-            this.setHealth(0);
-        }
+        int damageResist = damage / 2;
+        this.setHealth(Math.max(this.getHealth() - damageResist, 0));
     }
 
     public void healWounds(int healing) {

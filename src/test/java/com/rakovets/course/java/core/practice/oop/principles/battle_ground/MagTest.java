@@ -103,8 +103,7 @@ public class MagTest {
         return Stream.of(
                 Arguments.of(0, new Wolf(300)),
                 Arguments.of(0, new Hydra(500)),
-                Arguments.of(5, new Angel(5)),
-                Arguments.of(3000, new Angel(3000))
+                Arguments.of(0, new Angel(5))
         );
     }
 
