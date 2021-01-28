@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,11 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EnemyTest {
-
-    @Test
-    void takeDamage() {
-        assertEquals(-7, Enemy.takeDamage(7));
-    }
 
     @Test
     void getHealth() {
