@@ -25,11 +25,11 @@ public class Cat {
 
     public String mew(Person random) {
         random.changeHappiness(-25.0);
-        return "meeeow";
+        return mew();
     }
 
     public String purr(Person random) {
         random.changeHappiness(+25.0);
-        return "prrr-prrr";
+        return purr();
     }
 }

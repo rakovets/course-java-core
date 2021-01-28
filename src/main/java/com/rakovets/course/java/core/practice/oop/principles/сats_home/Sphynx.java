@@ -19,12 +19,12 @@ public class Sphynx extends Cat {
     @Override
     public String mew(Person random) {
         random.changeHappiness(-10.0);
-        return "mr-meoooow";
+        return mew();
     }
 
     @Override
     public String purr(Person random) {
         random.changeHappiness(+10.0);
-        return "purr-prrrr";
+        return purr();
     }
 }
