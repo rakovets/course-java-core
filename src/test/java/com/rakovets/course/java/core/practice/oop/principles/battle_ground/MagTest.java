@@ -12,10 +12,15 @@ public class MagTest {
     @Test
     void Mag() {
         Mag gandalf = new Mag("Gandalf", 500);
+
         Assertions.assertEquals(500, gandalf.getHealth());
         Assertions.assertEquals("Gandalf", gandalf.getName());
+    }
 
+    @Test
+    void MagOnlyName() {
         Mag galadriel = new Mag("Galadriel");
+
         Assertions.assertEquals("Galadriel", galadriel.getName());
         Assertions.assertEquals(100, galadriel.getHealth());
     }
@@ -23,25 +28,32 @@ public class MagTest {
     @Test
     void setHealth() {
         Mag gandalf = new Mag("Gandalf", 500);
-        gandalf.setHealth(-100);
-        Assertions.assertEquals(500, gandalf.getHealth());
 
         gandalf.setHealth(200);
-        Assertions.assertEquals(200, gandalf.getHealth());
 
-        gandalf.setHealth(0);
-        Assertions.assertEquals(0, gandalf.getHealth());
+        Assertions.assertEquals(200, gandalf.getHealth());
+    }
+
+    @Test
+    void setHealthNegativNumber() {
+        Mag gandalf = new Mag("Gandalf", 500);
+
+        gandalf.setHealth(-100);
+
+        Assertions.assertEquals(500, gandalf.getHealth());
     }
 
     @Test
     void getName() {
         Mag gandalf = new Mag("Gandalf", 500);
+
         Assertions.assertEquals("Gandalf", gandalf.getName());
     }
 
     @Test
     void getHealth() {
         Mag gandalf = new Mag("Gandalf", 500);
+
         Assertions.assertEquals(500, gandalf.getHealth());
     }
 
@@ -57,6 +69,7 @@ public class MagTest {
     @MethodSource("provideArgumentsForTakeDamage")
     void takeDamage(int expectedInt, int damage) {
         Mag gandalf = new Mag("Gandalf", 500);
+
         gandalf.takeDamage(damage);
         int actualInt = gandalf.getHealth();
 
@@ -76,6 +89,7 @@ public class MagTest {
     @MethodSource("provideArgumentsForAttackEnemy")
     void attackEnemy(int expectedInt, Enemy enemy) {
         Mag gandalf = new Mag("Gandalf", 500);
+
         gandalf.attackEnemy(enemy);
         int actualInt = enemy.getHealth();
 
@@ -83,15 +97,22 @@ public class MagTest {
     }
 
     @Test
-    void attackEnemy() {
+    void attackEnemyIfMagIsDead() {
         Mag gandalf = new Mag("Gandalf", 500);
-        gandalf.setHealth(0);
         Angel castiel = new Angel(3000);
+
+        gandalf.setHealth(0);
         gandalf.attackEnemy(castiel);
         int actualIntMagIsDead = castiel.getHealth();
-        Assertions.assertEquals(3000, actualIntMagIsDead);
 
-        gandalf.setHealth(500);
+        Assertions.assertEquals(3000, actualIntMagIsDead);
+    }
+
+    @Test
+    void attackEnemyIfEnemyIsDead() {
+        Mag gandalf = new Mag("Gandalf", 500);
+        Angel castiel = new Angel(3000);
+
         castiel.setHealth(0);
         gandalf.attackEnemy(castiel);
         int actualIntAngelIsDead = castiel.getHealth();
@@ -111,6 +132,7 @@ public class MagTest {
     @MethodSource("provideArgumentsForCurseEnemy")
     void curseEnemy(int expectedInt, Enemy enemy) {
         Mag gandalf = new Mag("Gandalf", 500);
+
         gandalf.curseEnemy(enemy);
         int actualInt = enemy.getHealth();
 
@@ -118,18 +140,24 @@ public class MagTest {
     }
 
     @Test
-    void curseEnemy() {
+    void curseEnemyIfMagIsDead() {
         Mag gandalf = new Mag("Gandalf", 500);
-        gandalf.setHealth(0);
         Wolf akela = new Wolf(300);
+
+        gandalf.setHealth(0);
         gandalf.curseEnemy(akela);
         int actualIntMagIsDead = akela.getHealth();
 
         Assertions.assertEquals(300, actualIntMagIsDead);
+    }
 
-        gandalf.setHealth(500);
+    @Test
+    void curseEnemyIfEnemyIsDead() {
+        Mag gandalf = new Mag("Gandalf", 500);
+        Wolf akela = new Wolf(300);
+
         akela.setHealth(0);
-        gandalf.attackEnemy(akela);
+        gandalf.curseEnemy(akela);
         int actualIntWolfIsDead = akela.getHealth();
 
         Assertions.assertEquals(0, actualIntWolfIsDead);
@@ -139,11 +167,18 @@ public class MagTest {
     void resurrectHero() {
         Mag gandalf = new Mag("Gandalf", 500);
         Warrior aragorn = new Warrior("Aragorn");
+
         aragorn.setHealth(0);
         gandalf.resurrectHero(aragorn);
         int actualInt = aragorn.getHealth();
 
         Assertions.assertEquals(100, actualInt);
+    }
+
+    @Test
+    void resurrectHeroIfMagIsDead() {
+        Mag gandalf = new Mag("Gandalf", 500);
+        Warrior aragorn = new Warrior("Aragorn");
 
         gandalf.setHealth(0);
         aragorn.setHealth(0);
@@ -151,12 +186,16 @@ public class MagTest {
         int actualIntMagIsDead = aragorn.getHealth();
 
         Assertions.assertEquals(0, actualIntMagIsDead);
+    }
 
-        aragorn.setHealth(300);
-        gandalf.setHealth(500);
+    @Test
+    void resurrectHeroIfHeroIsAlive() {
+        Mag gandalf = new Mag("Gandalf", 500);
+        Warrior aragorn = new Warrior("Aragorn");
+
         gandalf.resurrectHero(aragorn);
         int actualIntAragornIsAlive = aragorn.getHealth();
 
-        Assertions.assertEquals(300, actualIntAragornIsAlive);
+        Assertions.assertEquals(100, actualIntAragornIsAlive);
     }
 }

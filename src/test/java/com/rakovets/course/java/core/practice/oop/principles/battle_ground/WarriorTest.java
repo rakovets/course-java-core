@@ -12,10 +12,15 @@ public class WarriorTest {
     @Test
     void Warrior() {
         Warrior geralt = new Warrior("Geralt", 1000);
+
         Assertions.assertEquals(1000, geralt.getHealth());
         Assertions.assertEquals("Geralt", geralt.getName());
+    }
 
+    @Test
+    void WarriorOnlyName() {
         Warrior link = new Warrior("Link");
+
         Assertions.assertEquals("Link", link.getName());
         Assertions.assertEquals(100, link.getHealth());
     }
@@ -23,25 +28,32 @@ public class WarriorTest {
     @Test
     void setHealth() {
         Warrior geralt = new Warrior("Geralt", 1000);
-        geralt.setHealth(-100);
-        Assertions.assertEquals(1000, geralt.getHealth());
-
-        geralt.setHealth(200);
-        Assertions.assertEquals(200, geralt.getHealth());
 
         geralt.setHealth(0);
+
         Assertions.assertEquals(0, geralt.getHealth());
+    }
+
+    @Test
+    void setHealthNegativNumber() {
+        Warrior geralt = new Warrior("Geralt", 1000);
+
+        geralt.setHealth(-100);
+
+        Assertions.assertEquals(1000, geralt.getHealth());
     }
 
     @Test
     void getName() {
         Warrior geralt = new Warrior("Geralt", 1000);
+
         Assertions.assertEquals("Geralt", geralt.getName());
     }
 
     @Test
     void getHealth() {
         Warrior geralt = new Warrior("Geralt", 1000);
+
         Assertions.assertEquals(1000, geralt.getHealth());
     }
 
@@ -57,6 +69,7 @@ public class WarriorTest {
     @MethodSource("provideArgumentsForTakeDamage")
     void takeDamage(int expectedInt, int damage) {
         Warrior geralt = new Warrior("Geralt", 1000);
+
         geralt.takeDamage(damage);
         int actualInt = geralt.getHealth();
 
@@ -76,6 +89,7 @@ public class WarriorTest {
     @MethodSource("provideArgumentsForAttackEnemy")
     void attackEnemy(int expectedInt, Enemy enemy) {
         Warrior geralt = new Warrior("Geralt", 1000);
+
         geralt.attackEnemy(enemy);
         int actualInt = enemy.getHealth();
 
@@ -83,15 +97,22 @@ public class WarriorTest {
     }
 
     @Test
-    void attackEnemy() {
+    void attackEnemyIfWarriorIsDead() {
         Warrior geralt = new Warrior("Geralt", 1000);
-        geralt.setHealth(0);
         Wolf akela = new Wolf(300);
+
+        geralt.setHealth(0);
         geralt.attackEnemy(akela);
         int actualIntWarriorIsDead = akela.getHealth();
-        Assertions.assertEquals(300, actualIntWarriorIsDead);
 
-        geralt.setHealth(500);
+        Assertions.assertEquals(300, actualIntWarriorIsDead);
+    }
+
+    @Test
+    void attackEnemyIfEnemyIsDead() {
+        Warrior geralt = new Warrior("Geralt", 1000);
+        Wolf akela = new Wolf(300);
+
         akela.setHealth(0);
         geralt.attackEnemy(akela);
         int actualIntWolfIsDead = akela.getHealth();
@@ -102,11 +123,19 @@ public class WarriorTest {
     @Test
     void healWounds() {
         Warrior geralt = new Warrior("Geralt", 120);
+
         geralt.healWounds(20);
+
         Assertions.assertEquals(140, geralt.getHealth());
+    }
+
+    @Test
+    void healWoundsIfWarriorIsDead() {
+        Warrior geralt = new Warrior("Geralt", 120);
 
         geralt.setHealth(0);
         geralt.healWounds(100);
+
         Assertions.assertEquals(0, geralt.getHealth());
     }
 }

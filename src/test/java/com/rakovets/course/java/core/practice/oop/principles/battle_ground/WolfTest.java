@@ -17,13 +17,16 @@ public class WolfTest {
     @Test
     void setHealth() {
         Wolf akela = new Wolf(100);
+
         akela.setHealth(200);
+
         Assertions.assertEquals(200, akela.getHealth());
     }
 
     @Test
     void getHealth() {
         Wolf akela = new Wolf(100);
+
         Assertions.assertEquals(100, akela.getHealth());
     }
 
@@ -39,6 +42,7 @@ public class WolfTest {
     @MethodSource("provideArgumentsForTakeDamage")
     void takeDamage(int expectedInt, int damage) {
         Wolf akela = new Wolf(100);
+
         akela.takeDamage(damage);
         int actualInt = akela.getHealth();
 
@@ -56,6 +60,7 @@ public class WolfTest {
     @MethodSource("provideArgumentsForAttackHero")
     void attackHero(int expectedInt, Wolf wolf) {
         Archer legolas = new Archer("Legolas", 300);
+
         wolf.attackHero(legolas);
         int actualInt = legolas.getHealth();
 
@@ -63,15 +68,22 @@ public class WolfTest {
     }
 
     @Test
-    void attackHero() {
+    void attackHeroIfWolfIsDead() {
         Wolf akela = new Wolf(100);
-        akela.setHealth(0);
         Archer bard = new Archer("Bard", 300);
+
+        akela.setHealth(0);
         akela.attackHero(bard);
         int actualIntWolfIsDead = bard.getHealth();
-        Assertions.assertEquals(300, actualIntWolfIsDead);
 
-        akela.setHealth(500);
+        Assertions.assertEquals(300, actualIntWolfIsDead);
+    }
+
+    @Test
+    void attackHeroIfHeroIsDead() {
+        Wolf akela = new Wolf(100);
+        Archer bard = new Archer("Bard", 300);
+
         bard.setHealth(0);
         akela.attackHero(bard);
         int actualIntBardIsDead = bard.getHealth();
@@ -82,15 +94,28 @@ public class WolfTest {
     @Test
     void healWounds()  {
         Wolf akela = new Wolf(10);
-        akela.healWounds();
-        Assertions.assertEquals(30, akela.getHealth());
 
-        akela.setHealth(100);
         akela.healWounds();
+
+        Assertions.assertEquals(30, akela.getHealth());
+    }
+
+    @Test
+    void healWoundsIfHealthIsUnderCriticalHealthPoint()  {
+        Wolf akela = new Wolf(100);
+
+        akela.healWounds();
+
         Assertions.assertEquals(100, akela.getHealth());
+    }
+
+    @Test
+    void healWoundsIfWolfIsDead()  {
+        Wolf akela = new Wolf(10);
 
         akela.setHealth(0);
         akela.healWounds();
+
         Assertions.assertEquals(0, akela.getHealth());
     }
 }

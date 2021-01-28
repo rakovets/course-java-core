@@ -12,39 +12,55 @@ public class ArcherTest {
     @Test
     void Archer() {
         Archer legolas = new Archer("Legolas", 750);
+
         Assertions.assertEquals(750, legolas.getHealth());
         Assertions.assertEquals("Legolas", legolas.getName());
+    }
 
+    @Test
+    void ArcherOnlyName() {
         Archer bard = new Archer("Bard");
+
         Assertions.assertEquals("Bard", bard.getName());
         Assertions.assertEquals(100, bard.getHealth());
+    }
 
+    @Test
+    void ArcherHealthUnderHundred() {
         Archer dowahkiin = new Archer("Dowahkiin", 1);
+
         Assertions.assertEquals(100, dowahkiin.getHealth());
     }
 
     @Test
     void setHealth() {
         Archer legolas = new Archer("Legolas", 750);
-        legolas.setHealth(-100);
-        Assertions.assertEquals(750, legolas.getHealth());
 
         legolas.setHealth(200);
-        Assertions.assertEquals(200, legolas.getHealth());
 
-        legolas.setHealth(0);
-        Assertions.assertEquals(0, legolas.getHealth());
+        Assertions.assertEquals(200, legolas.getHealth());
+    }
+
+    @Test
+    void setHealthWithNegativNumber() {
+        Archer legolas = new Archer("Legolas", 750);
+
+        legolas.setHealth(-100);
+
+        Assertions.assertEquals(750, legolas.getHealth());
     }
 
     @Test
     void getName() {
         Archer legolas = new Archer("Legolas", 750);
+
         Assertions.assertEquals("Legolas",legolas.getName());
     }
 
     @Test
     void getHealth() {
         Archer legolas = new Archer("Legolas", 750);
+
         Assertions.assertEquals(750, legolas.getHealth());
     }
 
@@ -60,6 +76,7 @@ public class ArcherTest {
     @MethodSource("provideArgumentsForTakeDamage")
     void takeDamage(int expectedInt, int damage) {
         Archer legolas = new Archer("Legolas", 750);
+
         legolas.takeDamage(damage);
         int actualInt = legolas.getHealth();
 
@@ -79,6 +96,7 @@ public class ArcherTest {
     @MethodSource("provideArgumentsForAttackEnemy")
     void attackEnemy(int expectedInt, Enemy enemy) {
         Archer legolas = new Archer("Legolas", 750);
+
         legolas.attackEnemy(enemy);
         int actualInt = enemy.getHealth();
 
@@ -86,16 +104,22 @@ public class ArcherTest {
     }
 
     @Test
-    void attackEnemy() {
+    void attackEnemyIfArcherIsDead() {
         Archer legolas = new Archer("Legolas", 750);
-        legolas.setHealth(0);
         Wolf akela = new Wolf(300);
+
+        legolas.setHealth(0);
         legolas.attackEnemy(akela);
         int actualIntArcherIsDead = akela.getHealth();
 
         Assertions.assertEquals(300, actualIntArcherIsDead);
+    }
 
-        legolas.setHealth(500);
+    @Test
+    void attackEnemyIfEnemyIsDead() {
+        Archer legolas = new Archer("Legolas", 750);
+        Wolf akela = new Wolf(300);
+
         akela.setHealth(0);
         legolas.attackEnemy(akela);
         int actualIntWolfIsDead = akela.getHealth();
@@ -116,6 +140,7 @@ public class ArcherTest {
     @MethodSource("provideArgumentsForAttackFatalShot")
     void attackFatalShot(int expectedInt, Enemy enemy) {
         Archer legolas = new Archer("Legolas", 750);
+
         legolas.attackFatalShot(enemy);
         int actualInt = enemy.getHealth();
 
@@ -123,16 +148,22 @@ public class ArcherTest {
     }
 
     @Test
-    void attackFatalShot() {
+    void attackFatalShotIfArcherIsDead() {
         Archer legolas = new Archer("Legolas", 750);
-        legolas.setHealth(0);
         Wolf akela = new Wolf(300);
+
+        legolas.setHealth(0);
         legolas.attackEnemy(akela);
         int actualIntArcherIsDead = akela.getHealth();
 
         Assertions.assertEquals(300, actualIntArcherIsDead);
+    }
 
-        legolas.setHealth(500);
+    @Test
+    void attackFatalShotIfEnemyIsDead() {
+        Archer legolas = new Archer("Legolas", 750);
+        Wolf akela = new Wolf(300);
+
         akela.setHealth(0);
         legolas.attackEnemy(akela);
         int actualIntWolfIsDead = akela.getHealth();
@@ -141,45 +172,51 @@ public class ArcherTest {
     }
 
     @Test
-    void attackWallOfArrows() {
+    void attackWallOfArrowsTrippleDamage() {
+        Archer legolas = new Archer("Legolas", 750);
+        Wolf akela = new Wolf(300);
+
+        legolas.attackWallOfArrows(akela, akela, akela);
+        int actualInt = akela.getHealth();
+
+        Assertions.assertEquals(285, actualInt);
+    }
+
+    @Test
+    void attackWallOfArrowsDoubleDamage() {
+        Archer legolas = new Archer("Legolas", 750);
+        Wolf akela = new Wolf(300);
+
+        legolas.attackWallOfArrows(akela, akela);
+        int actualInt = akela.getHealth();
+
+        Assertions.assertEquals(286, actualInt);
+    }
+
+    @Test
+    void attackWallOfArrowsArcherIsDead() {
+        Archer legolas = new Archer("Legolas", 750);
+        Wolf akela = new Wolf(300);
+
+        legolas.setHealth(0);
+        legolas.attackWallOfArrows(akela, akela, akela);
+        int actualInt = akela.getHealth();
+
+        Assertions.assertEquals(300, actualInt);
+    }
+
+    @Test
+    void attackWallOfArrowsEnemyIsDead() {
         Archer legolas = new Archer("Legolas", 750);
         Hydra wrath = new Hydra(1000);
         Wolf akela = new Wolf(300);
-        Angel castiel = new Angel(3000);
 
-        legolas.attackWallOfArrows(wrath, akela, castiel);
-        int actualIntHydra = wrath.getHealth();
-        int actualIntWolf = akela.getHealth();
-        int actualIntAngel = castiel.getHealth();
-
-        Assertions.assertEquals(999, actualIntHydra);
-        Assertions.assertEquals(295, actualIntWolf);
-        Assertions.assertEquals(3000, actualIntAngel);
-
-        legolas.attackWallOfArrows(wrath, akela);
-        int actualIntHydraSecondShot = wrath.getHealth();
-        int actualIntWolfSecondShot = akela.getHealth();
-
-        Assertions.assertEquals(997, actualIntHydraSecondShot);
-        Assertions.assertEquals(288, actualIntWolfSecondShot);
-
-        legolas.setHealth(0);
-        legolas.attackWallOfArrows(wrath,akela,castiel);
-        int actualIntHydraArcherIsDead = wrath.getHealth();
-        int actualIntWolfArcherIsDead = akela.getHealth();
-        int actualIntAngelArcherIsDead = castiel.getHealth();
-
-        Assertions.assertEquals(997, actualIntHydraArcherIsDead);
-        Assertions.assertEquals(288, actualIntWolfArcherIsDead);
-        Assertions.assertEquals(3000, actualIntAngelArcherIsDead);
-
-        legolas.setHealth(500);
         akela.setHealth(0);
         legolas.attackWallOfArrows(wrath, akela);
         int actualIntHydraEnemyIsDead = wrath.getHealth();
         int actualIntWolfEnemyIsDead = akela.getHealth();
 
-        Assertions.assertEquals(997, actualIntHydraEnemyIsDead);
+        Assertions.assertEquals(1000, actualIntHydraEnemyIsDead);
         Assertions.assertEquals(0, actualIntWolfEnemyIsDead);
     }
 }

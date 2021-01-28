@@ -17,13 +17,16 @@ public class AngelTest {
     @Test
     void setHealth() {
         Angel castiel = new Angel(1000);
+
         castiel.setHealth(500);
+
         Assertions.assertEquals(500, castiel.getHealth());
     }
 
     @Test
     void getHealth() {
         Angel castiel = new Angel(1000);
+
         Assertions.assertEquals(1000, castiel.getHealth());
     }
 
@@ -39,6 +42,7 @@ public class AngelTest {
     @MethodSource("provideArgumentsForTakeDamage")
     void takeDamage(int expectedInt, int damage) {
         Angel castiel = new Angel(1000);
+
         castiel.takeDamage(damage);
         int actualInt = castiel.getHealth();
 
@@ -57,6 +61,7 @@ public class AngelTest {
     @MethodSource("provideArgumentsForAttackHero")
     void attackHero(int expectedInt, Hero hero) {
         Angel castiel = new Angel(1000);
+
         castiel.attackHero(hero);
         int actualInt = hero.getHealth();
 
@@ -64,15 +69,22 @@ public class AngelTest {
     }
 
     @Test
-    void attackHero() {
+    void attackHeroIfAngelIsDead() {
         Angel castiel = new Angel(1000);
-        castiel.setHealth(0);
         Archer bard = new Archer("Bard", 300);
+
+        castiel.setHealth(0);
         castiel.attackHero(bard);
         int actualIntAngelIsDead = bard.getHealth();
-        Assertions.assertEquals(300, actualIntAngelIsDead);
 
-        castiel.setHealth(500);
+        Assertions.assertEquals(300, actualIntAngelIsDead);
+    }
+
+    @Test
+    void attackHeroIfHeroIsDead() {
+        Angel castiel = new Angel(1000);
+        Archer bard = new Archer("Bard", 300);
+
         bard.setHealth(0);
         castiel.attackHero(bard);
         int actualIntBardIsDead = bard.getHealth();
@@ -84,11 +96,18 @@ public class AngelTest {
     void resurrectEnemy() {
         Angel castiel = new Angel(1000);
         Hydra wrath = new Hydra(300);
+
         wrath.setHealth(0);
         castiel.resurrectEnemy(wrath);
         int actualInt = wrath.getHealth();
 
         Assertions.assertEquals(30, actualInt);
+    }
+
+    @Test
+    void resurrectEnemyIfAngelIsDead() {
+        Angel castiel = new Angel(1000);
+        Hydra wrath = new Hydra(300);
 
         castiel.setHealth(0);
         wrath.setHealth(0);
@@ -96,9 +115,13 @@ public class AngelTest {
         int actualIntAngelIsDead = wrath.getHealth();
 
         Assertions.assertEquals(0, actualIntAngelIsDead);
+    }
 
-        wrath.setHealth(300);
-        castiel.setHealth(500);
+    @Test
+    void resurrectEnemyIfEnemyIsAlive() {
+        Angel castiel = new Angel(1000);
+        Hydra wrath = new Hydra(300);
+
         castiel.resurrectEnemy(wrath);
         int actualIntHydraIsAlive = wrath.getHealth();
 

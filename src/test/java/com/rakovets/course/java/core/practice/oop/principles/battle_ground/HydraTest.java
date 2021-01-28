@@ -17,19 +17,25 @@ public class HydraTest {
     @Test
     void setHealth() {
         Hydra wrath = new Hydra(500);
-        wrath.setHealth(200);
-        Assertions.assertEquals(200, wrath.getHealth());
-
-        wrath.setHealth(-100);
-        Assertions.assertEquals(200, wrath.getHealth());
 
         wrath.setHealth(0);
+
         Assertions.assertEquals(0, wrath.getHealth());
+    }
+
+    @Test
+    void setHealthNegativNumber() {
+        Hydra wrath = new Hydra(500);
+
+        wrath.setHealth(-100);
+
+        Assertions.assertEquals(500, wrath.getHealth());
     }
 
     @Test
     void getHealth() {
         Hydra wrath = new Hydra(500);
+
         Assertions.assertEquals(500, wrath.getHealth());
     }
 
@@ -46,6 +52,7 @@ public class HydraTest {
     @MethodSource("provideArgumentsForTakeDamage")
     void takeDamage(int expectedInt, int damage) {
         Hydra wrath = new Hydra(500);
+
         wrath.takeDamage(damage);
         int actualInt = wrath.getHealth();
 
@@ -65,6 +72,7 @@ public class HydraTest {
     @MethodSource("provideArgumentsForAttackHero")
     void attackHero(int expectedInt, Hero hero) {
         Hydra wrath = new Hydra(500);
+
         wrath.attackHero(hero);
         int actualInt = hero.getHealth();
 
@@ -72,16 +80,22 @@ public class HydraTest {
     }
 
     @Test
-    void attackHero() {
+    void attackHeroIfHydraIsDead() {
         Hydra wrath = new Hydra(500);
-        wrath.setHealth(0);
         Archer bard = new Archer("Bard", 300);
+
+        wrath.setHealth(0);
         wrath.attackHero(bard);
         int actualIntHydraIsDead = bard.getHealth();
 
         Assertions.assertEquals(300, actualIntHydraIsDead);
+    }
 
-        wrath.setHealth(500);
+    @Test
+    void attackHeroIfEnemyIsDead() {
+        Hydra wrath = new Hydra(500);
+        Archer bard = new Archer("Bard", 300);
+
         bard.setHealth(0);
         wrath.attackHero(bard);
         int actualIntBardIsDead = bard.getHealth();
@@ -93,36 +107,37 @@ public class HydraTest {
     void attackMultiplyHero() {
         Hydra wrath = new Hydra(500);
         Archer hero1 = new Archer("Bard", 500);
-        Warrior hero2 = new Warrior("Aragorn", 1000);
-        Mag hero3 = new Mag("Gandalf", 500);
-        wrath.attackMultiplyHero(hero1, hero2, hero3);
-        int actualIntHero1 = hero1.getHealth();
-        int actualIntHero2 = hero2.getHealth();
-        int actualIntHero3 = hero3.getHealth();
 
-        Assertions.assertEquals(480, actualIntHero1);
-        Assertions.assertEquals(990, actualIntHero2);
-        Assertions.assertEquals(460, actualIntHero3);
+        wrath.attackMultiplyHero(hero1, hero1, hero1);
+        int actualIntHero1 = hero1.getHealth();
+
+        Assertions.assertEquals(440, actualIntHero1);
+    }
+
+    @Test
+    void attackMultiplyHeroIfHydraIsDead() {
+        Hydra wrath = new Hydra(500);
+        Archer hero1 = new Archer("Bard", 500);
 
         wrath.setHealth(0);
-        wrath.attackMultiplyHero(hero1, hero2, hero3);
+        wrath.attackMultiplyHero(hero1, hero1, hero1);
         int actualIntHero1HydraIsDead = hero1.getHealth();
-        int actualIntHero2HydraIsDead = hero2.getHealth();
-        int actualIntHero3HydraIsDead = hero3.getHealth();
 
-        Assertions.assertEquals(480, actualIntHero1HydraIsDead);
-        Assertions.assertEquals(990, actualIntHero2HydraIsDead);
-        Assertions.assertEquals(460, actualIntHero3HydraIsDead);
+        Assertions.assertEquals(500, actualIntHero1HydraIsDead);
+    }
 
-        wrath.setHealth(500);
-        hero3.setHealth(0);
-        wrath.attackMultiplyHero(hero1, hero2, hero3);
+    @Test
+    void attackMultiplyHeroIfHeroIsDead() {
+        Hydra wrath = new Hydra(500);
+        Archer hero1 = new Archer("Bard", 500);
+        Warrior hero2 = new Warrior("Aragorn", 1000);
+
+        hero2.setHealth(0);
+        wrath.attackMultiplyHero(hero1, hero2, hero1);
         int actualIntHero1HeroIsDead = hero1.getHealth();
         int actualIntHero2HeroIsDead = hero2.getHealth();
-        int actualIntHero3HeroIsDead = hero3.getHealth();
 
-        Assertions.assertEquals(480, actualIntHero1HeroIsDead);
-        Assertions.assertEquals(990, actualIntHero2HeroIsDead);
-        Assertions.assertEquals(0, actualIntHero3HeroIsDead);
+        Assertions.assertEquals(500, actualIntHero1HeroIsDead);
+        Assertions.assertEquals(0, actualIntHero2HeroIsDead);
     }
 }
