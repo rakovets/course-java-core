@@ -1,8 +1,5 @@
-package com.rakovets.course.java.core.practice.oop.principles.cat.home.tests;
+package com.rakovets.course.java.core.practice.oop.principles.cat_home;
 
-import com.rakovets.course.java.core.practice.oop.principles.cat.home.Person;
-import com.rakovets.course.java.core.practice.oop.principles.cat.home.Sphynx;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -30,7 +27,7 @@ class SphynxTest {
     void mew(double expectedDouble, Person person) {
         Sphynx sphynx = new Sphynx("Sphynx");
         sphynx.mew(person);
-        Assertions.assertEquals(expectedDouble, Person.getHappiness());
+        assertEquals(expectedDouble, person.getHappiness());
     }
 
     @Test
@@ -49,6 +46,6 @@ class SphynxTest {
     void purr(double expectedDouble, Person person) {
         Sphynx sphynx = new Sphynx("Sphynx");
         sphynx.purr(person);
-        Assertions.assertEquals(expectedDouble, Person.getHappiness());
+        assertEquals(expectedDouble, person.getHappiness());
     }
 }

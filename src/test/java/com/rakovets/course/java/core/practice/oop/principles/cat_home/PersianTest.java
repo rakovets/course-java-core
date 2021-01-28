@@ -1,8 +1,5 @@
-package com.rakovets.course.java.core.practice.oop.principles.cat.home.tests;
+package com.rakovets.course.java.core.practice.oop.principles.cat_home;
 
-import com.rakovets.course.java.core.practice.oop.principles.cat.home.Persian;
-import com.rakovets.course.java.core.practice.oop.principles.cat.home.Person;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -30,7 +27,7 @@ class PersianTest {
     void mew(double expectedDouble, Person person) {
         Persian persian = new Persian("Persian");
         persian.mew(person);
-        Assertions.assertEquals(expectedDouble, Person.getHappiness());
+        assertEquals(expectedDouble, person.getHappiness());
     }
 
     @Test
@@ -49,6 +46,6 @@ class PersianTest {
     void purr(double expectedDouble, Person person) {
         Persian persian = new Persian("Persian");
         persian.purr(person);
-        Assertions.assertEquals(expectedDouble, Person.getHappiness());
+        assertEquals(expectedDouble, person.getHappiness());
     }
 }

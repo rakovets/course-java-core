@@ -1,8 +1,5 @@
-package com.rakovets.course.java.core.practice.oop.principles.cat.home.tests;
+package com.rakovets.course.java.core.practice.oop.principles.cat_home;
 
-import com.rakovets.course.java.core.practice.oop.principles.cat.home.Cat;
-import com.rakovets.course.java.core.practice.oop.principles.cat.home.Person;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -30,7 +27,7 @@ class CatTest {
     void mew(double expectedDouble, Person person) {
         Cat cat = new Cat("Cat");
         cat.mew(person);
-        Assertions.assertEquals(expectedDouble, Person.getHappiness());
+        assertEquals(expectedDouble, person.getHappiness());
     }
 
     @Test
@@ -49,7 +46,7 @@ class CatTest {
     void purr(double expectedDouble, Person person) {
         Cat cat = new Cat("Cat");
         cat.purr(person);
-        Assertions.assertEquals(expectedDouble, Person.getHappiness());
+        assertEquals(expectedDouble, person.getHappiness());
     }
 
     @Test
@@ -61,6 +58,6 @@ class CatTest {
     void setName() {
         Cat name = new Cat("Cat");
         name.setName("Better Cat");
-        Assertions.assertEquals("Better Cat", name.getName());
+        assertEquals("Better Cat", name.getName());
     }
 }
