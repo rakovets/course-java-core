@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle.ground.tests;
+package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
 public class Zombie extends Enemy {
     public Zombie(int health) {
