@@ -40,20 +40,17 @@ public class Task02 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
-        String greeting = null;
-        if (hour >= 0 && hour <= 5)  {
-            greeting = "Good night";
-        } else if (hour >= 6 && hour <= 11)  {
-            greeting = "Good morning";
+        String result = null;
+        if (hour >= 6 && hour <= 11) {
+            return "good morning";
         } else if (hour >= 12 && hour <= 17) {
-            greeting = "Good day";
-        }else if (hour >= 18 && hour <= 23)  {
-            greeting = "Good evening";
-        } else {
+            return "good day";
+        } else if (hour >= 18 && hour <= 23) {
+            return "good evening";
+        } else if (hour >= 0 && hour <= 5) {
+            return "good night";
+        } else
             return null;
-        }
-        {
-            return greeting;
-        }
+
     }
 }

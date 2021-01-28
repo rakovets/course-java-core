@@ -34,17 +34,13 @@ public class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int apartmentsInOnePorch = numberFloors * numberApartmentsPerFloor;
-        int porchNumber = apartmentNumber / apartmentsInOnePorch;
-        int floorNumber = apartmentNumber - porchNumber * apartmentsInOnePorch;
-        int clientsFloorNumber = floorNumber / numberApartmentsPerFloor + 1;
-
-        if (apartmentNumber == apartmentsInOnePorch) {
-            return(numberFloors);
-        } else if (apartmentNumber >= numberApartmentsPerFloor) {
-            return (clientsFloorNumber);
-        } else {
-            return 0;
+        int porchNumber = (int) (apartmentNumber / (double) (numberFloors * numberApartmentsPerFloor));
+        int diff = apartmentNumber - porchNumber * numberFloors * numberApartmentsPerFloor;
+        if (diff > 0) {
+            return (int) Math.ceil(diff / (double) numberApartmentsPerFloor);
+        }else {
+            return (int) (apartmentNumber / (double) numberApartmentsPerFloor);
         }
+
     }
 }

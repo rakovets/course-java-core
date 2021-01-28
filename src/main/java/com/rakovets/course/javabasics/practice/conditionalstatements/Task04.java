@@ -33,33 +33,23 @@ public class Task04 extends StandardInputTask {
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
-        String nameWeekday = null;
         switch (dayOfWeekNumber) {
             case 1:
-                nameWeekday = "MONDAY";
-                break;
+                return("monday");
             case 2:
-                nameWeekday = "TUESDAY";
-                break;
+                return("tuesday");
             case 3:
-                nameWeekday = "WEDNESDAY";
-                break;
+                return ("wednesday");
             case 4:
-                nameWeekday = "THURSDAY";
-                break;
+                return ("thursday");
             case 5:
-                nameWeekday = "FRIDAY";
-                break;
+                return ("friday");
             case 6:
-                nameWeekday = "SATURDAY";
-                break;
+                return ("saturday");
             case 7:
-                nameWeekday = "SUNDAY";
-                break;
+                return("sunday");
+            default:
         }
-        {
-                return nameWeekday;
+        return null;
         }
     }
-}

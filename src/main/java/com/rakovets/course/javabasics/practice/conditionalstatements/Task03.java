@@ -40,22 +40,16 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
-        double playerPercentage = (double) currentHealthPoint / maxHealthPoint * 100;
-
-        String colorHealthPoint = null;
-        if (playerPercentage > 0 && playerPercentage < 25) {
-            colorHealthPoint = "RED";
-        } else if (playerPercentage >= 25 && playerPercentage < 50) {
-            colorHealthPoint = "ORANGE";
-        } else if (playerPercentage >= 50 && playerPercentage < 75) {
-            colorHealthPoint = "YELLOW";
-        } else if (playerPercentage >= 75 && playerPercentage <= 100) {
-            colorHealthPoint = "GREEN";
-        } else {
+       var percentHP = currentHealthPoint * 100.0 / maxHealthPoint;
+       if (percentHP > 0 && percentHP < 25) {
+            return "red";
+        } else if (percentHP >= 25 && percentHP < 50) {
+            return "orange";
+        } else if (percentHP  >= 50 && percentHP < 75) {
+            return "yellow";
+        } else if (percentHP >= 75 && percentHP  <=100) {
+            return "Green";
+        }
             return null;
-        }
-        {
-            return colorHealthPoint;
-        }
     }
 }
