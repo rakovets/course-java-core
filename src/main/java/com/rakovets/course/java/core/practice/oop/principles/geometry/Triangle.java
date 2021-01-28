@@ -1,28 +1,28 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Triangle implements TwoDimensionalShapes {
-    private static double base;
-    private static double height;
+    private double base;
+    private double height;
 
     public Triangle(double base, double height) {
-        Triangle.base = base;
-        Triangle.height = height;
+        this.base = base;
+        this.height = height;
     }
 
-    public static double getBase() {
-        return base;
+    public double getBase() {
+        return this.base;
     }
 
     public void setBase(double base) {
-        Triangle.base = base;
+        this.base = base;
     }
 
-    public static double getHeight() {
-        return height;
+    public double getHeight() {
+        return this.height;
     }
 
     public void setHeight(double height) {
-        Triangle.height = height;
+        this.height = height;
     }
 
     @Override

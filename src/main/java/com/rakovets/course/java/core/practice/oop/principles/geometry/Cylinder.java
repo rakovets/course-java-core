@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Cylinder implements ThreeDimensionalShapes {
-    private static double radius;
-    private static double height;
+    private double radius;
+    private double height;
 
     public Cylinder(double radius, double height) {
-        Cylinder.radius = radius;
-        Cylinder.height = height;
+        this.radius = radius;
+        this.height = height;
     }
 
     @Override
@@ -15,7 +15,8 @@ public class Cylinder implements ThreeDimensionalShapes {
     }
 
     private double calculateArea() {
-        return Math.round(((2 * Math.PI * radius * height + 2 * Math.PI * radius * radius) * 10) / 10);
+        return Math.round(((2 * Math.PI * radius * height + 2 * Math.PI * radius * radius) * 10) /
+                10);
     }
 
     @Override

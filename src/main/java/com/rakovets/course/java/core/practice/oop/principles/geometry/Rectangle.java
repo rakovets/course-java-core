@@ -1,28 +1,28 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Rectangle implements TwoDimensionalShapes {
-    private static double firstSide;
-    private static double secondSide;
+    private double firstSide;
+    private double secondSide;
 
     public Rectangle(double firstSide, double secondSide) {
-        Rectangle.firstSide = firstSide;
-        Rectangle.secondSide = secondSide;
+        this.firstSide = firstSide;
+        this.secondSide = secondSide;
     }
 
-    public static double getFirstSide() {
-        return firstSide;
+    public double getFirstSide() {
+        return this.firstSide;
     }
 
     public void setFirstSide(double firstSide) {
-        Rectangle.firstSide = firstSide;
+        this.firstSide = firstSide;
     }
 
-    public static double getSecondSide() {
-        return secondSide;
+    public double getSecondSide() {
+        return this.secondSide;
     }
 
     public void setSecondSide(double secondSide) {
-        Rectangle.secondSide = secondSide;
+        this.secondSide = secondSide;
     }
 
     @Override

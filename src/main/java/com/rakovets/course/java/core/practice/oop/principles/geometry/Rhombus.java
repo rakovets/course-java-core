@@ -1,28 +1,28 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Rhombus implements TwoDimensionalShapes {
-    private static double firstDiagonal;
-    private static double secondDiagonal;
+    private double firstDiagonal;
+    private double secondDiagonal;
 
     public Rhombus(double firstDiagonal, double secondDiagonal) {
-        Rhombus.firstDiagonal = firstDiagonal;
-        Rhombus.secondDiagonal = secondDiagonal;
+        this.firstDiagonal = firstDiagonal;
+        this.secondDiagonal = secondDiagonal;
     }
 
-    public static double getFirstDiagonal() {
-        return firstDiagonal;
+    public double getFirstDiagonal() {
+        return this.firstDiagonal;
     }
 
     public void setFirstDiagonal(double firstDiagonal) {
-        Rhombus.firstDiagonal = firstDiagonal;
+        this.firstDiagonal = firstDiagonal;
     }
 
-    public static double getSecondDiagonal() {
-        return secondDiagonal;
+    public double getSecondDiagonal() {
+        return this.secondDiagonal;
     }
 
     public void setSecondDiagonal(double secondDiagonal) {
-        Rhombus.secondDiagonal = secondDiagonal;
+        this.secondDiagonal = secondDiagonal;
     }
 
     @Override

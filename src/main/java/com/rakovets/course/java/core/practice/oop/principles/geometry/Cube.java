@@ -1,10 +1,10 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Cube implements ThreeDimensionalShapes {
-    private static double side;
+    private double side;
 
     public Cube(double side) {
-        Cube.side = side;
+        this.side = side;
     }
 
     @Override

@@ -1,18 +1,18 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Circle implements TwoDimensionalShapes {
-    private static double radius;
+    private double radius;
 
     public Circle(double radius) {
-        Circle.radius = radius;
+        this.radius = radius;
     }
 
-    public static double getRadius() {
-        return radius;
+    public double getRadius() {
+        return this.radius;
     }
 
     public void setRadius(double radius) {
-        Circle.radius = radius;
+        this.radius = radius;
     }
 
     @Override

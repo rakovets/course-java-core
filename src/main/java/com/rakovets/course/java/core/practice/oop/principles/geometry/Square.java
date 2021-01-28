@@ -1,18 +1,18 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
 public class Square implements TwoDimensionalShapes {
-    private static double side;
+    private double side;
 
     public Square(double side) {
-        Square.side = side;
+        this.side = side;
     }
 
-    public static double getSide() {
-        return side;
+    public double getSide() {
+        return this.side;
     }
 
     public void setSide(double side) {
-        Square.side = side;
+        this.side = side;
     }
 
     @Override
