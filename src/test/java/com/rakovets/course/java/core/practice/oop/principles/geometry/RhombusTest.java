@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,28 +8,26 @@ class RhombusTest {
 
     @Test
     void getFirstDiagonal() {
-        new Rhombus(1.0, 2.0);
-        Assertions.assertEquals(1.0, Rhombus.getFirstDiagonal());
+        assertEquals(1.0,  new Rhombus(1.0, 2.0).getFirstDiagonal());
     }
 
     @Test
     void setFirstDiagonal() {
         Rhombus firstDiagonal = new Rhombus(1.0, 2.0);
         firstDiagonal.setFirstDiagonal(4.5);
-        Assertions.assertEquals(4.5, Rhombus.getFirstDiagonal());
+        assertEquals(4.5, firstDiagonal.getFirstDiagonal());
     }
 
     @Test
     void getSecondDiagonal() {
-        new Rhombus(1.0, 2.0);
-        Assertions.assertEquals(2.0, Rhombus.getSecondDiagonal());
+        assertEquals(2.0,  new Rhombus(1.0, 2.0).getSecondDiagonal());
     }
 
     @Test
     void setSecondDiagonal() {
         Rhombus secondDiagonal = new Rhombus(1.0, 3.8);
         secondDiagonal.setSecondDiagonal(3.8);
-        Assertions.assertEquals(3.8, Rhombus.getSecondDiagonal());
+        assertEquals(3.8, secondDiagonal.getSecondDiagonal());
     }
 
     @Test

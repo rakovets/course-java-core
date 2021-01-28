@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,27 +9,27 @@ class RectangleTest {
     @Test
     void getFirstSide() {
         new Rectangle(2.0, 3.0);
-        Assertions.assertEquals(2.0, Rectangle.getFirstSide());
+        assertEquals(2.0, new Rectangle(2.0, 3.0).getFirstSide());
     }
 
     @Test
     void setFirstSide() {
         Rectangle side = new Rectangle(5.5, 7.8);
         side.setFirstSide(5.5);
-        Assertions.assertEquals(5.5, Rectangle.getFirstSide());
+        assertEquals(5.5, side.getFirstSide());
     }
 
     @Test
     void getSecondSide() {
         new Rectangle(2.0, 3.0);
-        Assertions.assertEquals(3.0, Rectangle.getSecondSide());
+        assertEquals(3.0, new Rectangle(2.0, 3.0).getSecondSide());
     }
 
     @Test
     void setSecondSide() {
         Rectangle side = new Rectangle(5.5, 7.8);
         side.setSecondSide(7.8);
-        Assertions.assertEquals(7.8, Rectangle.getSecondSide());
+        assertEquals(7.8, side.getSecondSide());
     }
 
     @Test

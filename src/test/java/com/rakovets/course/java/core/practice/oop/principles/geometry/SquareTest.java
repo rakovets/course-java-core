@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,15 +8,14 @@ class SquareTest {
 
     @Test
     void getSide() {
-        new Square(5.0);
-        Assertions.assertEquals(5.0, Square.getSide());
+        assertEquals(5.0, new Square(5.0).getSide());
     }
 
     @Test
     void setSide() {
         Square side = new Square(7.7);
         side.setSide(7.7);
-        Assertions.assertEquals(7.7, Square.getSide());
+        assertEquals(7.7, side.getSide());
     }
 
     @Test

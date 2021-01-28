@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.geometry;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,15 +8,14 @@ class CircleTest {
 
     @Test
     void getRadius() {
-        new Circle(2.0);
-        Assertions.assertEquals(2.0, Circle.getRadius());
+        assertEquals(2.0, new Circle(2.0).getRadius());
     }
 
     @Test
     void setRadius() {
         Circle radius = new Circle(5.5);
         radius.setRadius(5.5);
-        Assertions.assertEquals(5.5, Circle.getRadius());
+        assertEquals(5.5, radius.getRadius());
     }
 
     @Test
