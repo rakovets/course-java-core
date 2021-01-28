@@ -1,10 +1,10 @@
-package com.rakovets.course.java.core.practice.oop.principles.cat.home;
+package com.rakovets.course.java.core.practice.oop.principles.cat_home;
 
 public class Cat {
-    private static String name;
+    private String name;
 
     public Cat(String name) {
-        Cat.name = name;
+        this.name = name;
     }
 
     public String mew() {
@@ -28,6 +28,6 @@ public class Cat {
 }
 
     public void setName(String name) {
-        Cat.name = name;
+        this.name = name;
     }
 }

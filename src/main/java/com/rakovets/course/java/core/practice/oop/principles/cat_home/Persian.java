@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.cat.home;
+package com.rakovets.course.java.core.practice.oop.principles.cat_home;
 
 public class Persian extends Cat {
 
