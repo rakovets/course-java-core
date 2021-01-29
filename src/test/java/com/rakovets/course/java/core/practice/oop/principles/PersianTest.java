@@ -16,7 +16,9 @@ class PersianTest {
     void mew() {
         Persian jack = new Persian("Jack");
         String expected = "mew-pers";
+
         String actual = jack.mew();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -24,7 +26,9 @@ class PersianTest {
     void purr() {
         Persian jack = new Persian("Jack");
         String expected = "mrrr-pers";
+
         String actual = jack.purr();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,8 +43,10 @@ class PersianTest {
     @MethodSource("ProvideArgumentsForPersianMewForPersonMethod")
     void testMewForPerson(double expected, Person bill) {
         Persian cat = new Persian("Tushkan");
+
         cat.mew(bill);
         double actual = bill.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -55,8 +61,10 @@ class PersianTest {
     @MethodSource("ProvideArgumentsForPersianPurrForPersonMethod")
     void testPurrForPerson(double expected, Person bill) {
         Persian cat = new Persian("Tushkan");
+
         cat.purr(bill);
         double actual = bill.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 
