@@ -22,8 +22,10 @@ class GoblinTest {
     @MethodSource("ProvideArgumentsForGivePoisonMethod")
     void givePoison(int expected, Warrior warrior) {
         Goblin goblin = new Goblin(100);
+
         goblin.givePoison(warrior);
         int actual = warrior.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 }
