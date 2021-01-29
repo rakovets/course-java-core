@@ -23,8 +23,10 @@ class ArcherTest {
     @MethodSource("ProvideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, Enemy enemy) {
         Archer archer = new Archer("Jon", 98);
+
         archer.attackEnemy(enemy);
         int actual = enemy.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,8 +41,10 @@ class ArcherTest {
     @MethodSource("ProvideArgumentsForSuperPowerMethod")
     void superPower(int expected, int health) {
         Archer archer = new Archer("Jon", health);
+
         archer.superPower();
         int actual = archer.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 }
