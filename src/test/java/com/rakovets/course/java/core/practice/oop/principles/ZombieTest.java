@@ -22,8 +22,10 @@ class ZombieTest {
     @ParameterizedTest
     @MethodSource("ProvideArgumentsForIsAliveMethod")
     void ressurect(int expected, Zombie zombie) {
+
         zombie.ressurect();
         int actual = zombie.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 }
