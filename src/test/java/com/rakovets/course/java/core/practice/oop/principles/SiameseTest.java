@@ -32,7 +32,7 @@ class SiameseTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForSiameseMewForPersonMethod() {
+    static Stream<Arguments> provideArgumentsForSiameseMewForPersonMethod() {
         return Stream.of(
                 Arguments.of(118, new Person(100)),
                 Arguments.of(88, new Person(70))
@@ -40,7 +40,7 @@ class SiameseTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForSiameseMewForPersonMethod")
+    @MethodSource("provideArgumentsForSiameseMewForPersonMethod")
     void testMewForPerson(double expected, Person bill) {
         Sphynx cat = new Sphynx("Tushkan");
 
@@ -50,7 +50,7 @@ class SiameseTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForSiamesePurrForPersonMethod() {
+    static Stream<Arguments> provideArgumentsForSiamesePurrForPersonMethod() {
         return Stream.of(
                 Arguments.of(82, new Person(100)),
                 Arguments.of(52, new Person(70))
@@ -58,7 +58,7 @@ class SiameseTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForSiamesePurrForPersonMethod")
+    @MethodSource("provideArgumentsForSiamesePurrForPersonMethod")
     void testPurrForPerson(double expected, Person bill) {
         Sphynx cat = new Sphynx("Tushkan");
 

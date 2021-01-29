@@ -53,7 +53,7 @@ class CatTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForMewForPersonMethod() {
+    static Stream<Arguments> provideArgumentsForMewForPersonMethod() {
         return Stream.of(
                 Arguments.of(90, new Person(100)),
                 Arguments.of(60, new Person(70))
@@ -61,7 +61,7 @@ class CatTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForMewForPersonMethod")
+    @MethodSource("provideArgumentsForMewForPersonMethod")
     void testMew(double expected, Person bill) {
         Cat cat = new Cat("Tushkan");
 
@@ -71,7 +71,7 @@ class CatTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForPurrForPersonMethod() {
+    static Stream<Arguments> provideArgumentsForPurrForPersonMethod() {
         return Stream.of(
                 Arguments.of(115, new Person(100)),
                 Arguments.of(85, new Person(70))
@@ -79,7 +79,7 @@ class CatTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForPurrForPersonMethod")
+    @MethodSource("provideArgumentsForPurrForPersonMethod")
     void testPurr(double expected, Person bill) {
         Cat cat = new Cat("Tushkan");
 

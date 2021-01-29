@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GoblinTest {
 
-    static Stream<Arguments> ProvideArgumentsForGivePoisonMethod() {
+    static Stream<Arguments> provideArgumentsForGivePoisonMethod() {
         return Stream.of(
                 Arguments.of(46, new Warrior("Vasya", 92))
         );
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForGivePoisonMethod")
+    @MethodSource("provideArgumentsForGivePoisonMethod")
     void givePoison(int expected, Warrior warrior) {
         Goblin goblin = new Goblin(100);
 

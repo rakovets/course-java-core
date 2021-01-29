@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WarriorTest {
 
-    static Stream<Arguments> ProvideArgumentsForAttackEnemyMethod() {
+    static Stream<Arguments> provideArgumentsForAttackEnemyMethod() {
         return Stream.of(
                 Arguments.of(79, new Enemy(100)),
                 Arguments.of(28, new Enemy(49))
@@ -20,7 +20,7 @@ class WarriorTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForAttackEnemyMethod")
+    @MethodSource("provideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, Enemy enemy) {
         Warrior warrior = new Warrior("Jon", 98);
 
@@ -30,7 +30,7 @@ class WarriorTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForSuperPowerMethod() {
+    static Stream<Arguments> provideArgumentsForSuperPowerMethod() {
         return Stream.of(
                 Arguments.of(31, 19),
                 Arguments.of(32, 25)
@@ -38,7 +38,7 @@ class WarriorTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForSuperPowerMethod")
+    @MethodSource("provideArgumentsForSuperPowerMethod")
     void superPower(int expected, int health) {
         Warrior warrior = new Warrior("Jon", health);
 

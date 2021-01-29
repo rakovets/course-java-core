@@ -50,7 +50,7 @@ class SphynxTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForSphynxPurrForPersonMethod() {
+    static Stream<Arguments> provideArgumentsForSphynxPurrForPersonMethod() {
         return Stream.of(
                 Arguments.of(87, new Person(100)),
                 Arguments.of(57, new Person(70))
@@ -58,7 +58,7 @@ class SphynxTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForSphynxPurrForPersonMethod")
+    @MethodSource("provideArgumentsForSphynxPurrForPersonMethod")
     void testPurrForPerson(double expected, Person bill) {
         Siamese cat = new Siamese("Tushkan");
 

@@ -43,7 +43,7 @@ class HeroTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForIsAliveMethod() {
+    static Stream<Arguments> provideArgumentsForIsAliveMethod() {
         return Stream.of(
                 Arguments.of(true, 1),
                 Arguments.of(false, 0)
@@ -51,7 +51,7 @@ class HeroTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForIsAliveMethod")
+    @MethodSource("provideArgumentsForIsAliveMethod")
     void IsAlive(boolean expected, int health) {
         Mag mag = new Mag("Jon", health);
 
@@ -71,7 +71,7 @@ class HeroTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForAttackEnemyMethod() {
+    static Stream<Arguments> provideArgumentsForAttackEnemyMethod() {
         return Stream.of(
                 Arguments.of(83, 100),
                 Arguments.of(73, 90)
@@ -79,7 +79,7 @@ class HeroTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForAttackEnemyMethod")
+    @MethodSource("provideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, int health) {
         Mag mag = new Mag("Jon", 100);
         Enemy enemy = new Enemy(health);

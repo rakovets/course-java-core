@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ZombieTest {
 
-    static Stream<Arguments> ProvideArgumentsForIsAliveMethod() {
+    static Stream<Arguments> provideArgumentsForIsAliveMethod() {
         return Stream.of(
                 Arguments.of(90, new Zombie(90)),
                 Arguments.of(100, new Zombie(0))
@@ -20,7 +20,7 @@ class ZombieTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForIsAliveMethod")
+    @MethodSource("provideArgumentsForIsAliveMethod")
     void ressurect(int expected, Zombie zombie) {
 
         zombie.ressurect();

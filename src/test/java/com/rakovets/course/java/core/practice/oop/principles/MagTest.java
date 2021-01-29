@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MagTest {
 
-    static Stream<Arguments> ProvideArgumentsForAttackEnemyMethod() {
+    static Stream<Arguments> provideArgumentsForAttackEnemyMethod() {
         return Stream.of(
                 Arguments.of(83, new Enemy(100)),
                 Arguments.of(53, new Enemy(70))
@@ -20,7 +20,7 @@ class MagTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForAttackEnemyMethod")
+    @MethodSource("provideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, Enemy enemy) {
         Mag mag = new Mag("Jon", 98);
 
@@ -30,7 +30,7 @@ class MagTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForSuperPowerMethod() {
+    static Stream<Arguments> provideArgumentsForSuperPowerMethod() {
         return Stream.of(
                 Arguments.of(29, 19),
                 Arguments.of(30, 25)
@@ -38,7 +38,7 @@ class MagTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForSuperPowerMethod")
+    @MethodSource("provideArgumentsForSuperPowerMethod")
     void superPower(int expected, int health) {
         Mag mag = new Mag("Jon", health);
 

@@ -50,7 +50,7 @@ class PersianTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForPersianPurrForPersonMethod() {
+    static Stream<Arguments> provideArgumentsForPersianPurrForPersonMethod() {
         return Stream.of(
                 Arguments.of(84, new Person(100)),
                 Arguments.of(54, new Person(70))
@@ -58,7 +58,7 @@ class PersianTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForPersianPurrForPersonMethod")
+    @MethodSource("provideArgumentsForPersianPurrForPersonMethod")
     void testPurrForPerson(double expected, Person bill) {
         Persian cat = new Persian("Tushkan");
 

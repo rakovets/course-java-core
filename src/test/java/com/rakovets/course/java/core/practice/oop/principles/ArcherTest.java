@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArcherTest {
 
-    static Stream<Arguments> ProvideArgumentsForAttackEnemyMethod() {
+    static Stream<Arguments> provideArgumentsForAttackEnemyMethod() {
         return Stream.of(
                 Arguments.of(81, new Enemy(100)),
                 Arguments.of(32, new Enemy(51))
@@ -20,7 +20,7 @@ class ArcherTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForAttackEnemyMethod")
+    @MethodSource("provideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, Enemy enemy) {
         Archer archer = new Archer("Jon", 98);
 
@@ -30,7 +30,7 @@ class ArcherTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ProvideArgumentsForSuperPowerMethod() {
+    static Stream<Arguments> provideArgumentsForSuperPowerMethod() {
         return Stream.of(
                 Arguments.of(30, 19),
                 Arguments.of(31, 25)
@@ -38,7 +38,7 @@ class ArcherTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ProvideArgumentsForSuperPowerMethod")
+    @MethodSource("provideArgumentsForSuperPowerMethod")
     void superPower(int expected, int health) {
         Archer archer = new Archer("Jon", health);
 
