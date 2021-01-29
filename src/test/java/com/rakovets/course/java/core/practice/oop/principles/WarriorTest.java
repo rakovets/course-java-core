@@ -23,8 +23,10 @@ class WarriorTest {
     @MethodSource("ProvideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, Enemy enemy) {
         Warrior warrior = new Warrior("Jon", 98);
+
         warrior.attackEnemy(enemy);
         int actual = enemy.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,8 +41,10 @@ class WarriorTest {
     @MethodSource("ProvideArgumentsForSuperPowerMethod")
     void superPower(int expected, int health) {
         Warrior warrior = new Warrior("Jon", health);
+
         warrior.superPower();
         int actual = warrior.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 }
