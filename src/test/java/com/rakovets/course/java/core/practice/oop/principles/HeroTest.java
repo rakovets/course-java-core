@@ -16,7 +16,9 @@ class HeroTest {
     void getName() {
         Warrior warrior = new Warrior("Vasya", 100);
         String expected = "Vasya";
+
         String actual = warrior.getName();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -24,7 +26,9 @@ class HeroTest {
     void getHealth() {
         Warrior warrior = new Warrior("Vasya", 100);
         int expected = 100;
+
         int actual = warrior.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -33,7 +37,9 @@ class HeroTest {
         Warrior warrior = new Warrior("Vasya", 100);
         warrior.setHealth(10);
         int expected = 10;
+
         int actual = warrior.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -48,7 +54,9 @@ class HeroTest {
     @MethodSource("ProvideArgumentsForIsAliveMethod")
     void IsAlive(boolean expected, int health) {
         Mag mag = new Mag("Jon", health);
+
         boolean actual = mag.isAlive();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -57,7 +65,9 @@ class HeroTest {
         Warrior warrior = new Warrior("Vasya", 100);
         warrior.takeDamage(10);
         int expected = 90;
+
         int actual = warrior.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -73,8 +83,10 @@ class HeroTest {
     void attackEnemy(int expected, int health) {
         Mag mag = new Mag("Jon", 100);
         Enemy enemy = new Enemy(health);
+
         mag.attackEnemy(enemy);
         int actual = enemy.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 }
