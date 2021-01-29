@@ -16,7 +16,9 @@ class CatTest {
     void mew() {
         Cat jack = new Cat("Jack");
         String expected = "mew-mew";
+
         String actual = jack.mew();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -24,7 +26,9 @@ class CatTest {
     void purr() {
         Cat jack = new Cat("Jack");
         String expected = "mrrr";
+
         String actual = jack.purr();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -32,7 +36,9 @@ class CatTest {
     void getName() {
         Cat jack = new Cat("Jack");
         String expected = "Jack";
+
         String actual = jack.getName();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -41,7 +47,9 @@ class CatTest {
         Cat jack = new Cat("Bill");
         jack.setName("Jack");
         String expected = "Jack";
+
         String actual = jack.getName();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -56,8 +64,10 @@ class CatTest {
     @MethodSource("ProvideArgumentsForMewForPersonMethod")
     void testMew(double expected, Person bill) {
         Cat cat = new Cat("Tushkan");
+
         cat.mew(bill);
         double actual = bill.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -72,8 +82,10 @@ class CatTest {
     @MethodSource("ProvideArgumentsForPurrForPersonMethod")
     void testPurr(double expected, Person bill) {
         Cat cat = new Cat("Tushkan");
+
         cat.purr(bill);
         double actual = bill.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 }
