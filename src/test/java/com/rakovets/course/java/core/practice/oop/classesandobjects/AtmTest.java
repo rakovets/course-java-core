@@ -1,3 +1,5 @@
+package com.rakovets.course.java.core.practice.oop.classesandobjects;
+
 import com.rakovets.course.java.core.example.oop.classesandobjects.Atm;
 
 public class AtmTest {
