@@ -16,7 +16,9 @@ class SiameseTest {
     void mew() {
         Siamese jack = new Siamese("Jack");
         String expected = "mew-sim";
+
         String actual = jack.mew();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -24,7 +26,9 @@ class SiameseTest {
     void purr() {
         Siamese jack = new Siamese("Jack");
         String expected = "mrrr-sim";
+
         String actual = jack.purr();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,8 +43,10 @@ class SiameseTest {
     @MethodSource("ProvideArgumentsForSiameseMewForPersonMethod")
     void testMewForPerson(double expected, Person bill) {
         Sphynx cat = new Sphynx("Tushkan");
+
         cat.mew(bill);
         double actual = bill.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -55,8 +61,10 @@ class SiameseTest {
     @MethodSource("ProvideArgumentsForSiamesePurrForPersonMethod")
     void testPurrForPerson(double expected, Person bill) {
         Sphynx cat = new Sphynx("Tushkan");
+
         cat.purr(bill);
         double actual = bill.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 }
