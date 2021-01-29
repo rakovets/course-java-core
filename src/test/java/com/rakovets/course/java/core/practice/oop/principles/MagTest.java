@@ -23,8 +23,10 @@ class MagTest {
     @MethodSource("ProvideArgumentsForAttackEnemyMethod")
     void attackEnemy(int expected, Enemy enemy) {
         Mag mag = new Mag("Jon", 98);
+
         mag.attackEnemy(enemy);
         int actual = enemy.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,8 +41,10 @@ class MagTest {
     @MethodSource("ProvideArgumentsForSuperPowerMethod")
     void superPower(int expected, int health) {
         Mag mag = new Mag("Jon", health);
+
         mag.superPower();
         int actual = mag.getHealth();
+
         Assertions.assertEquals(expected, actual);
     }
 }
