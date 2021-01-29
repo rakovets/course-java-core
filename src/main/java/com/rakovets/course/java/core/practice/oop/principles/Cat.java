@@ -25,11 +25,11 @@ public class Cat {
 
     public String mew(Person name) {
         name.changeHappiness(-10);
-        return "mew-mew";
+        return mew();
     }
 
     public String purr(Person name) {
         name.changeHappiness(15);
-        return "mrrr";
+        return purr();
     }
 }
