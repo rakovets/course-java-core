@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
-public abstract class Hero implements Mortal{
-    private static String name;
-    private static int health;
+public abstract class Hero implements Mortal {
+    private String name;
+    private int health;
 
     public Hero(String name, int health) {
-        Hero.name = name;
-        Hero.health = health;
+        this.name = name;
+        this.health = health;
     }
 
     public String getName() {
@@ -18,7 +18,7 @@ public abstract class Hero implements Mortal{
     }
 
     public void setHealth(int health) {
-        Hero.health = health;
+        this.health = health;
     }
 
     public abstract void attackEnemy(Enemy enemy);
