@@ -19,7 +19,7 @@ abstract class Enemy implements Mortal{
     }
 
     public void takeDamage(int damage) {
-        this.health -= damage;
+        this.health = (damage > this.health) ? 0 : this.health - damage;
     }
 
     public boolean isAlive(){
