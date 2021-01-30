@@ -6,6 +6,8 @@ public class Mag extends Hero {
     private final int MAX_RECOVERY = 10;
     private final int MAX_HEALTH_FOR_RECOVERY = 50;
     private final int MIN_RECOVERY = 5;
+    private final int DAMAGE = 17;
+
     public Mag(String name, int health) {
         super(name, health);
         this.health = health;
@@ -13,7 +15,7 @@ public class Mag extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(17);
+        enemy.takeDamage(DAMAGE);
     }
 
     @Override

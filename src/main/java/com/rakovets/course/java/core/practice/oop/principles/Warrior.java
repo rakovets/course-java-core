@@ -6,6 +6,8 @@ public class Warrior extends Hero {
     private final int MAX_RECOVERY = 12;
     private final int MAX_HEALTH_FOR_RECOVERY = 50;
     private final int MIN_RECOVERY = 7;
+    private final int DAMAGE = 21;
+
     public Warrior(String name, int health) {
         super(name, health);
         this.health = health;
@@ -13,7 +15,7 @@ public class Warrior extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(21);
+        enemy.takeDamage(DAMAGE);
     }
 
     @Override

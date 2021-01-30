@@ -6,6 +6,8 @@ public class Archer extends Hero {
     private final int MAX_RECOVERY = 11;
     private final int MAX_HEALTH_FOR_RECOVERY = 50;
     private final int MIN_RECOVERY = 6;
+    private final int DAMAGE = 19;
+
     public Archer(String name, int health) {
         super(name, health);
         this.health = health;
@@ -13,7 +15,7 @@ public class Archer extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(19);
+        enemy.takeDamage(DAMAGE);
     }
 
     @Override
