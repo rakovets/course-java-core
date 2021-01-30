@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
 
 public class Golem extends Enemy {
+    int damageFromGolem = 20;
 
     public Golem(int health) {
         super(health);
@@ -8,7 +9,7 @@ public class Golem extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamage(20);
+        hero.takeDamage(damageFromGolem);
     }
     @Override
     public void takeDamage (int damage) {

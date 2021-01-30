@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
 
 public class Ork extends Enemy {
+    int damageFromOrk = 30;
 
     public Ork(int health) {
         super(health);
@@ -8,12 +9,12 @@ public class Ork extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamage(30);
+        hero.takeDamage(damageFromOrk);
     }
 
     public void lastBlow(Hero hero) {
         if (!this.isAlive()) {
-            hero.takeDamage(30);
+            hero.takeDamage(damageFromOrk);
         }
     }
 }

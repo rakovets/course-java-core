@@ -17,25 +17,36 @@ public class MageTest {
     }
 
     @Test
-    void setHealth() {
-        Mage librarian = new Mage("Iezekiel", 100);
-        librarian.setHealth(150);
-        Assertions.assertEquals(150, librarian.getHealth());
-        librarian.setHealth(-150);
-        Assertions.assertEquals(-150, librarian.getHealth());
-        librarian.setHealth(0);
-        Assertions.assertEquals(0, librarian.getHealth());
+    static Stream<Arguments> setHealthProvidedArguments() {
+        return Stream.of(
+                Arguments.of(150,  150),
+                Arguments.of(-150, -150),
+                Arguments.of(0, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("setHealthProvidedArguments")
+    void setHealth(int expectedInt, int health) {
+        Mage wizard = new Mage("Telion", 100);
+
+        wizard.setHealth(health);
+        int actualInt = wizard.getHealth();
+
+        Assertions.assertEquals(expectedInt, actualInt);
     }
 
     @Test
     void getName() {
         Mage librarian = new Mage("Iezekiel", 100);
+
         Assertions.assertEquals("Iezekiel", librarian.getName());
     }
 
     @Test
     void getHealh() {
         Mage librarian = new Mage("Iezekiel", 100);
+
         Assertions.assertEquals(100, librarian.getHealth());
     }
 
@@ -44,10 +55,11 @@ public class MageTest {
         Mage librarian = new Mage("Iezekiel", 100);
         Ork nob = new Ork(60);
         librarian.attackEnemy(nob);
+
         int actualInt = nob.getHealth();
+
         Assertions.assertEquals(45, actualInt);
     }
-
 
     @Test
     static Stream<Arguments> takeDamageProvidedArguments() {
@@ -63,6 +75,7 @@ public class MageTest {
     void takeDamage(int expectedInt, int damage) {
         Mage librarian = new Mage("Iezekiel", 100);
         librarian.takeDamage(damage);
+
         int actualInt = librarian.getHealth();
 
         Assertions.assertEquals(expectedInt, actualInt);
@@ -75,9 +88,11 @@ public class MageTest {
         Zombue zom2 = new Zombue(20);
         Zombue zom3 = new Zombue(100);
         librarian.fireBlast(zom1, zom2, zom3);
+
         int actualInt1 = zom1.getHealth();
         int actualInt2 = zom2.getHealth();
         int actualInt3 = zom3.getHealth();
+
         Assertions.assertEquals(80, actualInt1);
         Assertions.assertEquals(80, actualInt1);
         Assertions.assertEquals(80, actualInt1);

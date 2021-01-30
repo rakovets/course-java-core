@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
 import java.util.Random;
 
 public class Zombue extends Enemy {
+    int damageFromZombue = 10;
 
     public Zombue(int health) {
         super(health);
@@ -10,7 +11,7 @@ public class Zombue extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamage(10);
+        hero.takeDamage(damageFromZombue);
     }
 
     public void resurrection() {

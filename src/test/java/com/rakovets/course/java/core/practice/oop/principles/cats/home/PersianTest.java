@@ -22,7 +22,7 @@ public class PersianTest {
 
     @Test
     void purr() {
-        Assertions.assertEquals("Perrmememe", new Persian("Kote").purr());
+        Assertions.assertEquals("Prrrrrrr", new Persian("Kote").purr());
     }
 
     static Stream<Arguments> mewProvidedArguments() {

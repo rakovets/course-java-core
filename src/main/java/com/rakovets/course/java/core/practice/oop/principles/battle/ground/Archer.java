@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
 
 public class Archer extends Hero {
+    int damageFromArcher = 10;
 
     public Archer(String name, int health) {
         super(name, health);
@@ -8,7 +9,7 @@ public class Archer extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(10);
+        enemy.takeDamage(damageFromArcher);
     }
 
     @Override
@@ -22,6 +23,6 @@ public class Archer extends Hero {
     }
 
     public void arrowByArrow(Enemy enemy) {
-        enemy.takeDamage(30);
+        enemy.takeDamage(damageFromArcher * 3);
     }
 }

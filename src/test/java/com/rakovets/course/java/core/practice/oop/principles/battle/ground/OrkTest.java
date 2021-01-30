@@ -13,23 +13,34 @@ public class OrkTest {
     @Test
     void Ork() {
         Ork ork = new Ork( 100);
+
         Assertions.assertEquals(100, ork.getHealth());
     }
 
     @Test
-    void setHealth() {
+    static Stream<Arguments> setHealthProvidedArguments() {
+        return Stream.of(
+                Arguments.of(150,  150),
+                Arguments.of(-150, -150),
+                Arguments.of(0, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("setHealthProvidedArguments")
+    void setHealth(int expectedInt, int health) {
         Ork ork = new Ork(100);
-        ork.setHealth(150);
-        Assertions.assertEquals(150, ork.getHealth());
-        ork.setHealth(-150);
-        Assertions.assertEquals(-150, ork.getHealth());
-        ork.setHealth(0);
-        Assertions.assertEquals(0, ork.getHealth());
+
+        ork.setHealth(health);
+        int actualInt = ork.getHealth();
+
+        Assertions.assertEquals(expectedInt, actualInt);
     }
 
     @Test
     void getHealh() {
         Ork ork = new Ork(100);
+
         Assertions.assertEquals(100, ork.getHealth());
     }
 
@@ -38,7 +49,9 @@ public class OrkTest {
         Ork ork = new Ork(100);
         Mage librarian = new Mage("Iezekiel", 60);
         ork.attackHero(librarian);
+
         int actualInt = librarian.getHealth();
+
         Assertions.assertEquals(30, actualInt);
     }
 
@@ -47,6 +60,7 @@ public class OrkTest {
         Ork ork = new Ork(0);
         Mage librarian = new Mage("Iezekiel", 60);
         ork.lastBlow(librarian);
+
         Assertions.assertEquals(30, librarian.getHealth());
     }
 
@@ -64,6 +78,7 @@ public class OrkTest {
     void takeDamage(int expectedInt, int damage) {
         Ork ork = new Ork(100);
         ork.takeDamage(damage);
+
         int actualInt = ork.getHealth();
 
         Assertions.assertEquals(expectedInt, actualInt);

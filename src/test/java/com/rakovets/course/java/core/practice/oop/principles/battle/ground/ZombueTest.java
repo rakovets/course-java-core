@@ -13,23 +13,34 @@ public class ZombueTest {
     @Test
     void Zombue() {
         Zombue zom = new Zombue( 100);
+
         Assertions.assertEquals(100, zom.getHealth());
     }
 
     @Test
-    void setHealth() {
-            Zombue zom = new Zombue(100);
-            zom.setHealth(150);
-            Assertions.assertEquals(150, zom.getHealth());
-            zom.setHealth(-150);
-            Assertions.assertEquals(-150, zom.getHealth());
-            zom.setHealth(0);
-            Assertions.assertEquals(0, zom.getHealth());
+    static Stream<Arguments> setHealthProvidedArguments() {
+        return Stream.of(
+                Arguments.of(150,  150),
+                Arguments.of(-150, -150),
+                Arguments.of(0, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("setHealthProvidedArguments")
+    void setHealth(int expectedInt, int health) {
+        Zombue zom = new Zombue( 100);
+
+        zom.setHealth(health);
+        int actualInt = zom.getHealth();
+
+        Assertions.assertEquals(expectedInt, actualInt);
     }
 
     @Test
     void getHealh() {
         Zombue zom = new Zombue(100);
+
         Assertions.assertEquals(100, zom.getHealth());
     }
 
@@ -38,16 +49,21 @@ public class ZombueTest {
         Zombue zom = new Zombue(100);
         Mage librarian = new Mage("Iezekiel", 60);
         zom.attackHero(librarian);
+
         int actualInt = librarian.getHealth();
+
         Assertions.assertEquals(50, actualInt);
     }
 
     @Test
     void resurrection() {
         Zombue zom = new Zombue(0);
+
         zom.resurrection();
+
         Assertions.assertEquals(20, zom.getHealth());
     }
+
     @Test
     static Stream<Arguments> takeDamageProvidedArguments() {
         return Stream.of(
@@ -61,6 +77,7 @@ public class ZombueTest {
     @MethodSource("takeDamageProvidedArguments")
     void takeDamage(int expectedInt, int damage) {
         Zombue zom = new Zombue(100);
+
         zom.takeDamage(damage);
         int actualInt = zom.getHealth();
 

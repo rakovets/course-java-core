@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
 
 public class Warrior extends Hero {
+    int damageFromWarrior = 25;
 
     public Warrior(String name, int health) {
         super(name, health);
@@ -8,7 +9,7 @@ public class Warrior extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(25);
+        enemy.takeDamage(damageFromWarrior);
     }
 
     @Override

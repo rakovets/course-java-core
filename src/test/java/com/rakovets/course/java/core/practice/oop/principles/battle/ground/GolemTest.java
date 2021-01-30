@@ -16,19 +16,29 @@ public class GolemTest {
     }
 
     @Test
-    void setHealth() {
-        Golem golem = new Golem(100);
-        golem.setHealth(150);
-        Assertions.assertEquals(150, golem.getHealth());
-        golem.setHealth(-150);
-        Assertions.assertEquals(-150, golem.getHealth());
-        golem.setHealth(0);
-        Assertions.assertEquals(0, golem.getHealth());
+    static Stream<Arguments> setHealthProvidedArguments() {
+        return Stream.of(
+                Arguments.of(150,  150),
+                Arguments.of(-150, -150),
+                Arguments.of(0, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("setHealthProvidedArguments")
+    void setHealth(int expectedInt, int health) {
+        Golem golem = new Golem( 100);
+
+        golem.setHealth(health);
+        int actualInt = golem.getHealth();
+
+        Assertions.assertEquals(expectedInt, actualInt);
     }
 
     @Test
     void getHealh() {
         Golem golem = new Golem(100);
+
         Assertions.assertEquals(100, golem.getHealth());
     }
 
@@ -37,7 +47,9 @@ public class GolemTest {
         Golem golem = new Golem(100);
         Mage librarian = new Mage("Iezekiel", 60);
         golem.attackHero(librarian);
+
         int actualInt = librarian.getHealth();
+
         Assertions.assertEquals(40, actualInt);
     }
 
@@ -55,6 +67,7 @@ public class GolemTest {
     void takeDamage(int expectedInt, int damage) {
         Golem golem = new Golem(100);
         golem.takeDamage(damage);
+
         int actualInt = golem.getHealth();
 
         Assertions.assertEquals(expectedInt, actualInt);
