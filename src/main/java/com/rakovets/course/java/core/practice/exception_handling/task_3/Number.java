@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.exception_handling;
+package com.rakovets.course.java.core.practice.exception_handling.task_3;
 
 public class Number {
     public static boolean checkPositiveNumber(int a) throws ScannerException {
