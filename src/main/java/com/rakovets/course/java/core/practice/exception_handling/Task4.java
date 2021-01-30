@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 public class Task4 {
     public static void main(String[] args) {
-
         try {
             System.out.println(getIntegerFromString("12345b") + 10);
         } catch (IllegalArgumentsForParserException illegal) {
