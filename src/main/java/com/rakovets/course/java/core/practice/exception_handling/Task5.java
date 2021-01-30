@@ -8,7 +8,7 @@ public class Task5 {
         try {
             string = string.toUpperCase(Locale.ROOT).trim() + "123";
         } catch (NullPointerException nullPointer) {
-            throw new ImpossibleAccountNameException(nullPointer.getMessage(), string);
+            throw new ImpossibleAccountNameException("Invalid name: String value is " + nullPointer.getMessage(), string);
         }
         return string;
     }

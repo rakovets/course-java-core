@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.exception_handling;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import java.util.Locale;
 
 public class Task5Test {
     @Test
@@ -10,15 +9,8 @@ public class Task5Test {
         // GIVEN
         String test = null;
         String actualMessage = "";
-        String expectedMessage = "";
 
         // WHEN
-        try {
-            test.toUpperCase(Locale.ROOT);
-        } catch (NullPointerException nullPointer) {
-            expectedMessage = nullPointer.getMessage();
-        }
-
         try {
             Task5.getCorrectName(test);
         } catch(ImpossibleAccountNameException invalidName) {
@@ -26,7 +18,7 @@ public class Task5Test {
         }
 
         // THEN
-        Assertions.assertEquals(expectedMessage, actualMessage);
+        Assertions.assertEquals("Invalid name: String value is null", actualMessage);
     }
 
     @Test
