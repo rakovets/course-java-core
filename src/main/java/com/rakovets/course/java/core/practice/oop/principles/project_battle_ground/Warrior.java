@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.project_battle_ground;
 
 public class Warrior extends Hero {
+    public static final int WARRIOR_DAMAGE = 15;
 
     public Warrior(String name, int health) {
         super(name, health);
@@ -9,13 +10,13 @@ public class Warrior extends Hero {
     @Override
     public String attackEnemy(Enemy enemy) {
         if (isAlive()) {
-            enemy.takeDamage(15);
+            enemy.takeDamage(WARRIOR_DAMAGE);
             return "Warrior attack " + enemy.getClass().getSimpleName() + " with 15 points of damage";
         } else {
             return "Warrior is died";
         }
     }
-    //special ability
+
     public String hitHealthHammer(Enemy enemy, Hero hero) {
         if (isAlive()) {
             if (hero.getHealth() <= 10) {

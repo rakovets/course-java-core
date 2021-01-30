@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.oop.principles.project_battle_gro
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Mutant extends Enemy{
+    public static final int MUTANT_DAMAGE = 20;
 
     public Mutant(int health) {
         super(health);
@@ -11,14 +12,13 @@ public class Mutant extends Enemy{
     @Override
     public String attackHero(Hero hero) {
         if (isAlive()) {
-            hero.takeDamage(5);
+            hero.takeDamage(MUTANT_DAMAGE);
             return "Mutant attack " + hero.getClass().getSimpleName() + " with 5 points of damage";
         } else {
             return "Mutant is died";
         }
     }
 
-    //special ability
     public String doComboAttack(Hero hero) {
         if (isAlive()) {
             if (ThreadLocalRandom.current().nextInt(2) > 0) {

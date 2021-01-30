@@ -9,7 +9,7 @@ public abstract class Hero implements Mortal{
         if (health > 0 && health <= 100) {
             this.health = health;
         } else {
-            System.out.println("Health is out of bounds, please set health in 1 - 100");
+            this.health = 0;
         }
     }
 
@@ -26,7 +26,7 @@ public abstract class Hero implements Mortal{
     }
 
     public void takeDamage(int damage) {
-        this.health -= damage;
+        this.health = (damage > this.health) ? 0 : this.health - damage;
     }
 
     public abstract String attackEnemy(Enemy enemy);

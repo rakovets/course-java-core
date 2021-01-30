@@ -7,7 +7,7 @@ abstract class Enemy implements Mortal{
         if (health > 0 && health <= 100) {
             this.health = health;
         } else {
-            System.out.println("Health is out of bounds, please set health in 1 - 100");
+            this.health = 0;
         }
     }
     public void setHealth(int health) {

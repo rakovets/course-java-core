@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.project_battle_ground;
 
 public class Mag extends Hero {
+    public static final int MAG_DAMAGE = 20;
 
     public Mag(String name, int health) {
         super(name, health);
@@ -8,11 +9,10 @@ public class Mag extends Hero {
 
     @Override
     public String attackEnemy(Enemy enemy) {
-        enemy.takeDamage(20);
+        enemy.takeDamage(MAG_DAMAGE);
         return "Mag attack " + enemy.getClass().getSimpleName() + " with 20 points of damage";
     }
 
-    //special ability
     public String healthSpell(Hero hero) {
         if (isAlive()) {
             if (hero.getHealth() <= 5) {

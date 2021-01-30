@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop.principles.project_battle_gro
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Archer extends Hero {
-
+    public static final int ARCHER_DAMAGE = 5;
 
     public Archer(String name, int health) {
         super(name, health);
@@ -11,7 +11,7 @@ public class Archer extends Hero {
 
     @Override
     public String attackEnemy(Enemy enemy) {
-        enemy.takeDamage(5);
+        enemy.takeDamage(ARCHER_DAMAGE);
         return "Warrior attack " + enemy.getClass().getSimpleName() + " with 5 points of damage";
     }
 

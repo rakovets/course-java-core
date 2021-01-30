@@ -18,6 +18,4 @@ public class Person {
     public void setHappiness(double happines) {
         this.happines = happines;
     }
-
-
 }
