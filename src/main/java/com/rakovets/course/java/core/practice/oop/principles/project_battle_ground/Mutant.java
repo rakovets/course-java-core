@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop.principles.project_battle_gro
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Mutant extends Enemy{
-    public static final int MUTANT_DAMAGE = 20;
+    public static final int MUTANT_DAMAGE = 5;
 
     public Mutant(int health) {
         super(health);
