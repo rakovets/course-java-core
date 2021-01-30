@@ -11,12 +11,9 @@ public class Task3 {
            if (isNameCorrect(name)) {
                System.out.println("Welcome, " + name);
            }
-        } catch (ImpossibleAccountNameException forbidden){
+        } catch (ImpossibleAccountNameException forbidden) {
             System.out.println(forbidden.getMessage());
-            StackTraceElement[] stackTrace = forbidden.getStackTrace();
-            for (StackTraceElement stackTraceElement : stackTrace) {
-                System.out.println(stackTraceElement);
-            }
+            forbidden.printStackTrace(System.out);
         }
     }
 
@@ -25,7 +22,7 @@ public class Task3 {
         Matcher matcher = pattern.matcher(string);
         boolean found = matcher.find();
         if (found) {
-            throw new ImpossibleAccountNameException();
+            throw new ImpossibleAccountNameException("Invalid account name", string);
         } else {
             return true;
         }

@@ -8,6 +8,7 @@ public class Task1 {
 
         try {
             test.toUpperCase(Locale.ROOT);
+            System.out.println(test);
         } catch (Exception nullPointer) {
             System.out.println("Something goes wrong: " + nullPointer.getMessage());
         }

@@ -11,10 +11,7 @@ public class Task4 {
         } catch (IllegalArgumentsForParserException illegal) {
             System.out.println(illegal.getMessage());
             System.out.println(illegal.getAdvice());
-            StackTraceElement[] stackTrace = illegal.getStackTrace();
-            for (StackTraceElement stackTraceElement : stackTrace) {
-                System.out.println(stackTraceElement);
-            }
+            illegal.printStackTrace(System.out);
         }
     }
 
