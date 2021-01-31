@@ -13,4 +13,14 @@ public class Siamese extends Cat {
     public String purr() {
         return "mr";
     }
+
+    public void mew(Person user) {
+        user.changeHappiness(-20);
+        mew();
+    }
+
+    public void purr(Person user) {
+        user.changeHappiness(20);
+        purr();
+    }
 }

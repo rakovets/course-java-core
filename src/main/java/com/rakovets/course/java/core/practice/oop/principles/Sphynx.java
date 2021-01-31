@@ -13,4 +13,14 @@ public class Sphynx extends Cat {
     public String purr() {
         return "mr-mr-mr";
     }
+
+    public void mew(Person user) {
+        user.changeHappiness(-25);
+        mew();
+    }
+
+    public void purr(Person user) {
+        user.changeHappiness(25);
+        purr();
+    }
 }
