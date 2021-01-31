@@ -12,4 +12,3 @@ public class ImpossibleAccountNameException extends Exception {
         return WRONG_NAME;
     }
 }
-
