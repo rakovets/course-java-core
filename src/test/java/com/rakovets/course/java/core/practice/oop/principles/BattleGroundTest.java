@@ -22,9 +22,7 @@ public class BattleGroundTest {
     void startBattleGroundTest(int[] expected, Hero hero, Enemy enemy) {
         for (int i = 0; i < 3; i++) {
             hero.attackEnemy(enemy);
-            System.out.printf("Здоровье врага: %d\n", enemy.getHealth());
             enemy.attackHero(hero);
-            System.out.printf("Здоровье героя: %d\n", hero.getHealthHero());
         }
         Assertions.assertArrayEquals(expected, new int[]{hero.getHealthHero(), enemy.getHealth()});
     }
@@ -43,11 +41,9 @@ public class BattleGroundTest {
         while (enemy.isAlive() && hero.isAlive()) {
             if (hero.isAlive()) {
                 hero.attackEnemy(enemy);
-                System.out.printf("Здоровье врага: %d\n", enemy.getHealth());
             }
             if (enemy.isAlive()) {
                 enemy.attackHero(hero);
-                System.out.printf("Здоровье героя: %d\n", hero.getHealthHero());
             }
         }
 
