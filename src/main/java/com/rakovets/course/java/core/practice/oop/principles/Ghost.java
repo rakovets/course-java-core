@@ -7,7 +7,6 @@ public class Ghost extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        System.out.println("Враг атакует героя");
         if (!(hero instanceof Mag)) {
             hero.takeDamageHero(15);
         }

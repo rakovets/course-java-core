@@ -6,7 +6,6 @@ public class Skeleton extends Enemy {
     }
     @Override
     public void attackHero(Hero hero) {
-        System.out.println("Враг атакует героя");
         if (hero instanceof Archer) {
             hero.takeDamageHero(5);
         } else {

@@ -9,7 +9,6 @@ public class Zombie extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        System.out.println("Враг атакует героя");
         if (hero instanceof Warrior) {
             hero.takeDamageHero(15);
         } else {

@@ -20,17 +20,13 @@ public abstract class Hero implements Mortal {
     public void takeDamageHero(int damage) {
         this.healthHero -= damage;
         if (!isAlive()) {
-            System.out.println("Герой мертв");
             this.healthHero = 0;
         }
     }
 
     @Override
     public boolean isAlive() {
-        if (this.healthHero > 0) {
-            return true;
-        }
-        return false;
+        return this.healthHero > 0;
     }
 
     public abstract void attackEnemy(Enemy enemy);
