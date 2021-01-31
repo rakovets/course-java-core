@@ -3,15 +3,11 @@ package com.rakovets.course.java.core.practice.exception_handling;
 import java.lang.reflect.Array;
 
 public class Task05 {
-    public static void main(String[] args) {
+    public static void catchAndChangeException(String str) throws CustomNullException{
         try {
-            getValueOfArray();
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            System.out.println(ex.getMessage());
+            str = str.toString();
+        } catch (Exception e) {
+            throw new CustomNullException(e.getMessage());
         }
-    }
-
-    public static void getValueOfArray() throws ArrayIndexOutOfBoundsException {
-        throw new ArrayIndexOutOfBoundsException();
     }
 }
