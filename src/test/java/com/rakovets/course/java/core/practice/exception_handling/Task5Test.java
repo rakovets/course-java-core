@@ -1,3 +1,5 @@
+package com.rakovets.course.java.core.practice.exception_handling;
+
 import com.rakovets.course.java.core.practice.exception_handling.CustomRunTimeException;
 import com.rakovets.course.java.core.practice.exception_handling.Task5;
 import org.junit.jupiter.api.Assertions;
