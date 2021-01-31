@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
 public class Task06 {
-    public static void getRandomException() throws Exception{
+    public static void getRandomException() throws Exception {
         double i = Math.random();
         if (i > 0 && i <= 0.33) {
             throw new Exception("Exception 1");
