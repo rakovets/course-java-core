@@ -8,25 +8,25 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class CatTest {
-    @Test
+import static org.junit.jupiter.api.Assertions.*;
+
+class SphynxTest {
     void mew() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
-        String expectedMew = "meow";
+        Sphynx sphynx = new Sphynx("Boris");
+        String expectedMew = "meow-meow-meow";
         // WHEN
-        String actualMew = cat.mew();
+        String actualMew = sphynx.mew();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
 
-    @Test
     void purr() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
-        String expectedMew = "mr";
+        Sphynx sphynx = new Sphynx("Boris");
+        String expectedMew = "mr-mr-mr";
         // WHEN
-        String actualMew = cat.purr();
+        String actualMew = sphynx.mew();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
@@ -34,10 +34,10 @@ class CatTest {
     @Test
     void getName() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
+        Sphynx sphynx = new Sphynx("Boriska");
         String expectedMew = "Boriska";
         // WHEN
-        String actualMew = cat.getName();
+        String actualMew = sphynx.getName();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
@@ -45,11 +45,11 @@ class CatTest {
     @Test
     void setName() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
+        Sphynx sphynx = new Sphynx("Boriska");
         String expectedMew = "Jerry";
         // WHEN
-        cat.setName("Jerry");
-        String actualMew = cat.getName();
+        sphynx.setName("Jerry");
+        String actualMew = sphynx.getName();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
@@ -57,28 +57,28 @@ class CatTest {
     @Test
     static Stream<Arguments> ProviderArgumentsForMew() {
         return Stream.of(
-                Arguments.of(90, new Person(100))
+                Arguments.of(75, new Person(100))
         );
     }
     @ParameterizedTest
     @MethodSource("ProviderArgumentsForMew")
     void mew(double expectedDouble, Person user) {
-        Cat cat = new Cat("Boris");
-        cat.mew(user);
+        Sphynx sphynx = new Sphynx("Boriska");
+        sphynx.mew(user);
         Assertions.assertEquals(expectedDouble, user.getHappiness());
     }
 
     @Test
     static Stream<Arguments> ProviderArgumentsForPurr() {
         return Stream.of(
-                Arguments.of(110, new Person(100))
+                Arguments.of(125, new Person(100))
         );
     }
     @ParameterizedTest
     @MethodSource("ProviderArgumentsForPurr")
     void purr(double expectedDouble, Person user) {
-        Cat cat = new Cat("Boris");
-        cat.purr(user);
+        Sphynx sphynx = new Sphynx("Boriska");;
+        sphynx.purr(user);
         Assertions.assertEquals(expectedDouble, user.getHappiness());
     }
 }

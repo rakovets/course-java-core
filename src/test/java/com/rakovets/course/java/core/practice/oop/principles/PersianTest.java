@@ -8,25 +8,24 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class CatTest {
-    @Test
+class PersianTest {
+
     void mew() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
-        String expectedMew = "meow";
+        Persian persian = new Persian("Boris");
+        String expectedMew = "meow-meow";
         // WHEN
-        String actualMew = cat.mew();
+        String actualMew = persian.mew();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
 
-    @Test
     void purr() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
-        String expectedMew = "mr";
+        Persian persian = new Persian("Boris");
+        String expectedMew = "mr-mr";
         // WHEN
-        String actualMew = cat.purr();
+        String actualMew = persian.mew();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
@@ -34,10 +33,10 @@ class CatTest {
     @Test
     void getName() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
+        Persian persian = new Persian("Boriska");
         String expectedMew = "Boriska";
         // WHEN
-        String actualMew = cat.getName();
+        String actualMew = persian.getName();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
@@ -45,11 +44,11 @@ class CatTest {
     @Test
     void setName() {
         // GIVEN
-        Cat cat = new Cat("Boriska");
+        Persian persian = new Persian("Boris");
         String expectedMew = "Jerry";
         // WHEN
-        cat.setName("Jerry");
-        String actualMew = cat.getName();
+        persian.setName("Jerry");
+        String actualMew = persian.getName();
         // THAN
         Assertions.assertEquals(expectedMew, actualMew);
     }
@@ -57,28 +56,28 @@ class CatTest {
     @Test
     static Stream<Arguments> ProviderArgumentsForMew() {
         return Stream.of(
-                Arguments.of(90, new Person(100))
+                Arguments.of(85, new Person(100))
         );
     }
     @ParameterizedTest
     @MethodSource("ProviderArgumentsForMew")
     void mew(double expectedDouble, Person user) {
-        Cat cat = new Cat("Boris");
-        cat.mew(user);
+        Persian persian = new Persian("Boris");
+        persian.mew(user);
         Assertions.assertEquals(expectedDouble, user.getHappiness());
     }
 
     @Test
     static Stream<Arguments> ProviderArgumentsForPurr() {
         return Stream.of(
-                Arguments.of(110, new Person(100))
+                Arguments.of(115, new Person(100))
         );
     }
     @ParameterizedTest
     @MethodSource("ProviderArgumentsForPurr")
     void purr(double expectedDouble, Person user) {
-        Cat cat = new Cat("Boris");
-        cat.purr(user);
+        Persian persian = new Persian("Boris");
+        persian.purr(user);
         Assertions.assertEquals(expectedDouble, user.getHappiness());
     }
 }
