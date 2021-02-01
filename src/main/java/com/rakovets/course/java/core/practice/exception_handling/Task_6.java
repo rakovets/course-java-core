@@ -14,7 +14,7 @@ public class Task_6 {
         }
     }
 
-    public static String someMethod() throws InterruptedException, NumberFormatException, IllegalClassFormatException {
+    public static void someMethod() throws InterruptedException, NumberFormatException, IllegalClassFormatException {
         Random random = new Random();
         int i = random.nextInt(3);
         if (i == 1) {
