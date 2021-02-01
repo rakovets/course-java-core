@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.stream.Stream;
 
@@ -12,7 +13,7 @@ public class MathTest {
     // Task 1.
     static Stream<Arguments> provideArgumentsForGetMax() {
         return Stream.of(
-                Arguments.of(12, 10, 12, 5),
+                Arguments.of(12, 12, 12, 5),
                 Arguments.of(8.9, 8.9, 5.0, -9.6),
                 Arguments.of(567L, 78L, 6L, 567L)
         );
@@ -109,6 +110,55 @@ public class MathTest {
 
         // WHEN
         N actualNumber = Math.getMinFromArray(array);
+
+        // THEN
+        Assertions.assertEquals(expectedNumber, actualNumber);
+    }
+
+    // Task 6.
+    static Stream<Arguments> provideArgumentsForSortGenericArray() {
+        return Stream.of(
+                Arguments.of(new Integer[] {-2, 1, 2, 3, 4}, new Integer[] {1, 2, 3, 4, -2}),
+                Arguments.of(new Double[] {-9.8, 1.3, 3.5, 4.7, 7.0, 10.0}, new Double[] {3.5, 4.7, 7.0, 1.3, 10.0, -9.8}),
+                Arguments.of(new Byte[] {0, 0, 3, 3, 7, 8}, new Byte[] {3, 7, 0, 3, 0, 8}),
+                Arguments.of(new Long[] {6L, 78L, 567L}, new Long[] {78L, 6L, 567L})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForSortGenericArray")
+    <N extends Number> void sortGenericArray(N[] expectedArray, N[] array) {
+        // GIVEN
+
+        // WHEN
+        N[] actualArray = Math.sortGenericArray(array);
+
+        // THEN
+        assertArrayEquals(expectedArray, actualArray);
+    }
+
+    // Task 7.
+    static Stream<Arguments> provideArgumentsForGetIndexBinarySearchArray() {
+        return Stream.of(
+                Arguments.of(4, 4, new Integer[] {-2, 1, 2, 3, 4}),
+                Arguments.of(0, -9.8, new Double[] {-9.8, 1.3, 3.5, 4.7, 7.0, 10.0}),
+                Arguments.of(2, 3, new Byte[] {0, 0, 3, 4, 7, 8}),
+                Arguments.of(2, 78L, new Long[] {-9L, 6L, 78L, 567L, 79587L, }),
+                Arguments.of(-1, 0.0, new Double[] {-9.8, 1.3, 3.5, 4.7, 7.0, 10.0}),
+                Arguments.of(-1, -5, new Integer[] {-2, 1, 2, 3, 4}),
+                Arguments.of(-1, 987L, new Long[] {6L, 78L, 567L}),
+                Arguments.of(-1, null, new Integer[] {-2, 1, 2, 3, 4}),
+                Arguments.of(-1, 5, null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForGetIndexBinarySearchArray")
+    <N extends Number> void getIndexBinarySearchArray(int expectedNumber, N key, N[] array) {
+        // GIVEN
+
+        // WHEN
+        int actualNumber = Math.getIndexBinarySearchArray(array, key);
 
         // THEN
         Assertions.assertEquals(expectedNumber, actualNumber);

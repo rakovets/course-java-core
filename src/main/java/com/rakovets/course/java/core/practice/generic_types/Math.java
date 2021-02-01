@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.generic_types;
 import java.util.Arrays;
 
 public abstract class Math {
-
     // Task 1
     public static <K extends Number> K getMax(K x, K y, K z) {
         double ex = x.doubleValue();
@@ -13,8 +12,7 @@ public abstract class Math {
 
         if (result == ex) {
             return x;
-        }
-        if (result == ey) {
+        } else if (result == ey) {
             return y;
         } else {
             return z;
@@ -34,14 +32,11 @@ public abstract class Math {
 
         if (result == ad) {
             return a;
-        }
-        if (result == bd) {
+        } else if (result == bd) {
             return b;
-        }
-        if (result == cd) {
+        } else if (result == cd) {
             return c;
-        }
-        if (result == dd) {
+        } else if (result == dd) {
             return d;
         } else {
             return e;
@@ -60,15 +55,58 @@ public abstract class Math {
 
     // Task 4
     public static <N extends Number> N getMaxFromArray(N[] array) {
-        Arrays.sort(array);
+        N[] calculationArray = array;
+        Arrays.sort(calculationArray);
 
-        return array[array.length - 1];
+        return calculationArray[calculationArray.length - 1];
     }
 
     // Task 5
     public static <N extends Number> N getMinFromArray(N[] array) {
-        Arrays.sort(array);
+        N[] calculationArray = array;
+        Arrays.sort(calculationArray);
 
-        return array[0];
+        return calculationArray[0];
+    }
+
+    // Task 6
+    public static <N extends Number> N[] sortGenericArray(N[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (array[j].doubleValue() > array[j + 1].doubleValue()) {
+                    N auxiliary = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = auxiliary;
+                }
+            }
+        }
+        return array;
+    }
+
+    // Task 7
+    public static <N extends Number> int getIndexBinarySearchArray(N[] array, N key) {
+        if (array == null || key == null) {
+            return -1;
+        }
+
+        if (key.doubleValue() > array[array.length - 1].doubleValue() || key.doubleValue() < array[0].doubleValue()) {
+            return -1;
+        }
+
+        int firstLimit = 0;
+        int lastLimit = array.length - 1;
+
+        while(lastLimit >= firstLimit) {
+            int middleIndex = (firstLimit + lastLimit) / 2;
+
+            if (array[middleIndex].doubleValue() == key.doubleValue()) {
+                return middleIndex;
+            } else if (array[middleIndex].doubleValue() < key.doubleValue()) {
+                firstLimit = middleIndex + 1;
+            } else if (array[middleIndex].doubleValue() > key.doubleValue()) {
+                lastLimit = middleIndex - 1;
+            }
+        }
+        return -1;
     }
 }
