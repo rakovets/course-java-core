@@ -13,7 +13,7 @@ public class Pair <K, V> {
         return new Pair<> (pair.getSecondField(), pair.getFirstField());
     }
 
-    public  Pair<V, K> getSwapped() {
+    public Pair<V, K> getSwapped() {
         return new Pair<> (this.getSecondField(), this.getFirstField());
     }
 
