@@ -15,9 +15,5 @@ class TestTask5 {
         int actualHeight = acceptableHeight.checkHeight(150);
 
         Assertions.assertEquals(expectedHeight, actualHeight);
-
-
-
-
     }
 }
