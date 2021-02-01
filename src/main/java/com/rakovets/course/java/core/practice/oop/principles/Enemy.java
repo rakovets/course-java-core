@@ -19,16 +19,18 @@ public class Enemy implements Mortal {
         health -= damage;
     }
 
-    public void attackHero(Hero hero) {
-         hero.takeDamage(20);
+    public boolean isAlive() {
+        return health > 0;
     }
 
-    @Override
-    public boolean isAlive() {
-        if (this.health > 0) {
-            return true;
-        }
-        return false;
+    public void attackHero() {
+        System.out.println("Enemy is attacking");
     }
+
+    public void attackHero(Hero hero) {
+        attackHero();
+        hero.takeDamage(20);
+    }
+
 
 }

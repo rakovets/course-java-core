@@ -8,8 +8,7 @@ public class Zombie extends Enemy {
 
     public void resurrect() {
         if (!isAlive()) {
-            setHealth(500);
+            setHealth(50);
         }
     }
-
 }

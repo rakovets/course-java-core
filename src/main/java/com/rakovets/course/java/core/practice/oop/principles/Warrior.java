@@ -1,13 +1,21 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Warrior extends Hero {
-
-    public Warrior(String name) {
-        super(name);
+    public Warrior(String name, double health) {
+        super(name, health);
     }
 
-    public String attackEnemy(Enemy enemy) {
+    public void attackEnemy() {
+        System.out.println("Warrior is attacking Enemy");
+    }
+
+    public void attackEnemy(Enemy enemy) {
+        attackEnemy();
         enemy.takeDamage(15);
-        return "Warrior is attacking the enemy";
     }
+
+    public void takeDamage(int damage) {
+        setHealth(getHealth() - damage + 1);
+    }
+
 }
