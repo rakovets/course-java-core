@@ -9,8 +9,7 @@ public class Task7 {
 
         if (temperature <= 0) {
             throw new Exception("Don't leave the room, don't make a mistake!");
-        } else {
-            return "Nice time to go out!";
         }
+        return "Nice time to go out!";
     }
 }

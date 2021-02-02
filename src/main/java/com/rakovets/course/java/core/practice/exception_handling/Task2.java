@@ -11,7 +11,7 @@ public class Task2 {
             }
             testArray[test] = test;
             System.out.println(testArray[test]);
-        } catch (Exception ex) {
+        } catch (ArrayIndexOutOfBoundsException ex) {
                 System.out.println(ex.getMessage());
         }
     }
