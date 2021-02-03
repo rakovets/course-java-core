@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MathTest {
 
-    static Stream<Arguments> provideArgumentsForGetMaxOf3numbersMethod() {
+    static Stream<Arguments> provideArgumentsForGetMaxOfThreeNumbersMethod() {
         return Stream.of(
                 Arguments.of(65, 45, 64, 65),
                 Arguments.of(34.2, 29.1, 34.2, 30.7),
@@ -18,15 +18,15 @@ class MathTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideArgumentsForGetMaxOf3numbersMethod")
-    void getMinOf5numbers(double expected, Number x, Number y, Number z) {
+    @MethodSource("provideArgumentsForGetMaxOfThreeNumbersMethod")
+    <T extends Number> void getMaxOfThreeNumbers(T expected, T x, T y, T z) {
 
-        double actual = Math.getMaxOf3numbers(x, y, z);
+        T actual = Math.getMaxOfThreeNumbers(x, y, z);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForGetMinOf5numbersMethod() {
+    static Stream<Arguments> provideArgumentsForgetMinOfFiveNumbersMethod() {
         return Stream.of(
                 Arguments.of(2, 45, 2, 65, 78, 2),
                 Arguments.of(29.1, 29.1, 34.2, 30.7, 29.1, 56),
@@ -35,10 +35,10 @@ class MathTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideArgumentsForGetMinOf5numbersMethod")
-    void getMinOf5numbers(double expected, Number a, Number b, Number c, Number d, Number e) {
+    @MethodSource("provideArgumentsForgetMinOfFiveNumbersMethod")
+    <T extends Number> void getMinOfFiveNumbers(T expected, T a, T b, T c, T d, T e) {
 
-        double actual = Math.getMinOf5numbers(a, b, c, d, e);
+        T actual = Math.getMinOfFiveNumbers(a, b, c, d, e);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -46,14 +46,13 @@ class MathTest {
     static Stream<Arguments> provideArgumentsForGetAverageMethod() {
         return Stream.of(
                 Arguments.of(2, new Integer[] {1, 2, 3}),
-                Arguments.of(3.675, new Number[] {1.4, 2.5, 3.6, 7.2}),
                 Arguments.of(3.675, new Double[] {1.4, 2.5, 3.6, 7.2})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetAverageMethod")
-    void getAverage(double expected, Number[] myArray) {
+    <T extends Number> void getAverage(double expected, T[] myArray) {
 
         double actual = Math.getAverage(myArray);
 
@@ -63,16 +62,15 @@ class MathTest {
     static Stream<Arguments> provideArgumentsForGetMaxOfArrayMethod() {
         return Stream.of(
                 Arguments.of(3, new Integer[] {1, 2, 3}),
-                Arguments.of(7.2, new Number[] {1.4, 2.5, 3.6, 7.2}),
                 Arguments.of(8.5, new Double[] {1.4, 8.5, 3.6, 7.2})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetMaxOfArrayMethod")
-    void getMaxOfArray(double expected, Number[] myArray) {
+    <T extends Number> void getMaxOfArray(T expected, T[] myArray) {
 
-        double actual = Math.getMaxOfArray(myArray);
+        T actual = Math.getMaxOfArray(myArray);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -80,16 +78,15 @@ class MathTest {
     static Stream<Arguments> provideArgumentsForGetMinOfArrayMethod() {
         return Stream.of(
                 Arguments.of(1, new Integer[] {1, 2, 3}),
-                Arguments.of(-2.5, new Number[] {1.4, -2.5, 3.6, 7.2}),
                 Arguments.of(1.4, new Double[] {1.4, 8.5, 3.6, 7.2})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetMinOfArrayMethod")
-    void getMinOfArray(double expected, Number[] myArray) {
+    <T extends Number> void getMinOfArray(T expected, T[] myArray) {
 
-        double actual = Math.getMinOfArray(myArray);
+        T actual = Math.getMinOfArray(myArray);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -97,16 +94,15 @@ class MathTest {
     static Stream<Arguments> provideArgumentsForSortArrayMethod() {
         return Stream.of(
                 Arguments.of(new Integer[] {1, 2, 3}, new Integer[] {1, 2, 3}),
-                Arguments.of(new Number[] {-2.5, 1.4, 3.6, 7.2}, new Number[] {1.4, -2.5, 3.6, 7.2}),
                 Arguments.of(new Double[] {1.4, 3.6, 7.2, 8.5}, new Double[] {1.4, 8.5, 3.6, 7.2})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForSortArrayMethod")
-    void sortArray(Number[] expected, Number[] myArray) {
+    <T extends Number> void sortArray(T[] expected, T[] myArray) {
 
-        Number[] actual = Math.sortArray(myArray);
+        T[] actual = Math.sortArray(myArray);
 
         Assertions.assertArrayEquals(expected, actual);
     }

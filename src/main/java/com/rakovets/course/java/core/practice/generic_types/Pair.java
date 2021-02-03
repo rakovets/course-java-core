@@ -10,13 +10,11 @@ public class Pair <K, V>{
     }
 
     public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
-        Pair<V, K> newPair = new Pair<>(pair.two, pair.one);
-        return newPair;
+        return new Pair<>(pair.getTwo(), pair.getOne());
     }
 
     public Pair<V, K> getSwapped() {
-        Pair<V, K> newPair = new Pair<>(this.two, this.one);
-        return newPair;
+        return new Pair<>(this.getTwo(), this.getOne());
     }
 
     public K getOne() {
