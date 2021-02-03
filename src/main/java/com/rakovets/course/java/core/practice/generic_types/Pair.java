@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
-public class Pair<K, V>{
+public class Pair <K, V>{
     private K one;
     private V two;
 
@@ -9,12 +9,14 @@ public class Pair<K, V>{
         this.two = two;
     }
 
-    public static String swap(Pair pair) {
-        return pair.getTwo().toString() + pair.getOne().toString();
+    public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
+        Pair<V, K> newPair = new Pair<>(pair.two, pair.one);
+        return newPair;
     }
 
-    public String getSwap() {
-        return two.toString() + one.toString();
+    public Pair<V, K> getSwapped() {
+        Pair<V, K> newPair = new Pair<>(this.two, this.one);
+        return newPair;
     }
 
     public K getOne() {
