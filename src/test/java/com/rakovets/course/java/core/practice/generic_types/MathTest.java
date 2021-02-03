@@ -122,7 +122,6 @@ class MathTest {
 
         int actualNumber = Math.findNumber(numberForCheck, myArray);
 
-        // THEN
         Assertions.assertEquals(expectedNumber, actualNumber);
     }
 }
