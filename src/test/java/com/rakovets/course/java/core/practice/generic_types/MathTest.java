@@ -106,4 +106,23 @@ class MathTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    static Stream<Arguments> provideArgumentsForFindNumberMethod() {
+        return Stream.of(
+                Arguments.of(-1, null, new Integer[] {1, 2, 3, 4, 5, 6}),
+                Arguments.of(2, 3.1, new Double[] {1.1, 2.1, 3.1, 4.1, 5.1, 6.1}),
+                Arguments.of(6, 7L, new Long[] {1L, 2L, 3L, 4L, 5L, 6L, 7L }),
+                Arguments.of(-1, 7, new Integer[] {1, 2, 3, 4, 5, 6})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForFindNumberMethod")
+    <T extends Number> void findNumber(int expectedNumber, T numberForCheck, T[] myArray) {
+
+        int actualNumber = Math.findNumber(numberForCheck, myArray);
+
+        // THEN
+        Assertions.assertEquals(expectedNumber, actualNumber);
+    }
 }

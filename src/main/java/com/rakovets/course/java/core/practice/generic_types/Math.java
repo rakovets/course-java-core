@@ -28,8 +28,8 @@ public abstract class Math {
 
     public static <T extends Number> double getAverage(T[] myArray) {
         double sum = 0;
-        for (int i = 0; i < myArray.length; i++) {
-            sum += myArray[i].doubleValue();
+        for (T t : myArray) {
+            sum += t.doubleValue();
         }
         return sum / myArray.length;
     }
@@ -73,5 +73,24 @@ public abstract class Math {
         return myArray;
     }
 
-
+    public static <T extends Number> int findNumber(T numberForCheck, T[] myArray) {
+        if (numberForCheck == null || myArray ==null) {
+            return -1;
+        }
+        int index = -1;
+        int start = 0;
+        int end = myArray.length - 1;
+        while (start <= end) {
+            int middle = (start + end) / 2;
+            if (myArray[middle].doubleValue() < numberForCheck.doubleValue()) {
+                start = middle + 1;
+            } else if (myArray[middle].doubleValue() > numberForCheck.doubleValue()) {
+                end = middle - 1;
+            } else if (myArray[middle].doubleValue() == numberForCheck.doubleValue()) {
+                index = middle;
+                break;
+            }
+        }
+        return index;
+    }
 }
