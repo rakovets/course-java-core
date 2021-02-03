@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
 public class Mag extends Hero {
     private int health;
+    private final int DAMAGE = 70;
 
     public Mag(String name, int health) {
         super(name, health);
@@ -10,7 +11,7 @@ public class Mag extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takeDamage(70);
+        enemy.takeDamage(DAMAGE);
     }
 
     public int addHealth() {
