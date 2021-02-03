@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.oop.principles.cat_home;
 
 public class Siamese extends Cat {
+    private final double PERCENTHAPPINESS_MEW = -15.0;
+    private final double PERCENTHAPPINESS_PURR = 15.0;
 
     public Siamese(String name) {
         super(name);
@@ -13,7 +15,7 @@ public class Siamese extends Cat {
 
     @Override
     public void mew(Person person) {
-        person.changeHappiness(-15.0);
+        person.changeHappiness(PERCENTHAPPINESS_MEW);
     }
 
     @Override
@@ -23,6 +25,6 @@ public class Siamese extends Cat {
 
     @Override
     public void purr(Person person) {
-        person.changeHappiness(+15.0);
+        person.changeHappiness(PERCENTHAPPINESS_PURR);
     }
 }
