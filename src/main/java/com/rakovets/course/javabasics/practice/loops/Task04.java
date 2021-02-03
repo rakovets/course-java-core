@@ -37,7 +37,6 @@ class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double healthPointsByTime = healthPoints;
-
         for (int i = 1; i <= hoursAfterRespawn; i++) {
             healthPointsByTime = healthPointsByTime + (healthPointsByTime * regenerationPercentFromCurrentHealth / 100);
         }

@@ -31,11 +31,10 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
-        StringBuilder numbersColumn = new StringBuilder();
+        StringBuilder allrows = new StringBuilder();
         for (int i = 1; i < numberRows; i++) {
-            numbersColumn.append(i).append("\n");
+            allrows.append(i).append("\n");
         }
-        return numbersColumn.toString() + numberRows;
+        return allrows.toString() + numberRows;
     }
 }

@@ -35,9 +35,8 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         for (int i = 1; i <= depositTerm; i++) {
-            depositAmount = depositAmount + (depositAmount * annualDepositPercent / 100);
-            depositAmount = Math.round(100.0 * depositAmount) / 100.0;
+            depositAmount += (depositAmount * annualDepositPercent) / 100;
         }
-        return depositAmount;
+        return (double) Math.round(depositAmount * 100) / 100.0;
     }
 }
