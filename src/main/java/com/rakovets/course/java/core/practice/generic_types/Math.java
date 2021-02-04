@@ -4,12 +4,11 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public abstract class Math {
-    //TASK1
+
     public static <T extends Number> double getMaxOfThree(T x, T y, T z) {
         return java.lang.Math.max(x.doubleValue(), (java.lang.Math.max(y.doubleValue(), z.doubleValue())));
     }
 
-    //TASK2
     public static <T extends Number> T getMinOfFive(T x, T y, T z, T c, T n) {
         Double[] arrayOfNumbers = new Double[5];
 
@@ -23,22 +22,17 @@ public abstract class Math {
 
         if (arrayOfNumbers[0] == x.doubleValue()) {
             return x;
-        }
-        else if (arrayOfNumbers[0] == y.doubleValue()) {
+        } else if (arrayOfNumbers[0] == y.doubleValue()) {
             return  y;
-        }
-        else if (arrayOfNumbers[0] == z.doubleValue()) {
+        } else if (arrayOfNumbers[0] == z.doubleValue()) {
             return z;
-        }
-        else if (arrayOfNumbers[0] == c.doubleValue()) {
+        } else if (arrayOfNumbers[0] == c.doubleValue()) {
             return c;
-        }
-        else {
+        } else {
             return n;
         }
     }
 
-    //TASK3
     public static <T extends Number> double getAverageSumOfArray(T[] items) {
         double sum = 0;
 
@@ -48,23 +42,18 @@ public abstract class Math {
         return sum / items.length;
     }
 
-    //TASK4
     public static <T extends Number> T getMaxOfArray(T[] array) {
-
         Arrays.sort(array);
 
         return array[array.length - 1];
     }
 
-    //TASK5
     public static <T extends Number> T getMinOfArray(T[] array) {
-
         Arrays.sort(array);
 
         return (array[0]);
     }
 
-    //TASK6
     public static <T extends Number> T[] getSortOfArray(T[] array) {
         for (int i = array.length - 1; i < 0; i--) {
             for (int n = 0; n < i; n++) {
@@ -78,26 +67,25 @@ public abstract class Math {
         return array;
     }
 
-    //TASK7 Реализуйте статический обобщенный метод для двоичного поискав массиве. Двоичный поиск реализовать самостоятельно.
     public static <T extends Number> int getBinarySearch(T point, T[] arrayForBin) {
         if (point == null || arrayForBin ==null) {
             return -1;
         }
-            int index = -1;
-            int start = 0;
-            int end = arrayForBin.length - 1;
+        int index = -1;
+        int start = 0;
+        int end = arrayForBin.length - 1;
 
-            while (start <= end) {
-                int mid = (start + end) / 2;
-                if (arrayForBin[mid].doubleValue() < point.doubleValue()) {
-                    start = mid + 1;
-                } else if (arrayForBin[mid].doubleValue() > point.doubleValue()) {
-                    end = mid - 1;
-                } else if (arrayForBin[mid].doubleValue() == point.doubleValue()) {
-                    index = mid;
-                    break;
-                }
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (arrayForBin[mid].doubleValue() < point.doubleValue()) {
+                start = mid + 1;
+            } else if (arrayForBin[mid].doubleValue() > point.doubleValue()) {
+                end = mid - 1;
+            } else if (arrayForBin[mid].doubleValue() == point.doubleValue()) {
+                index = mid;
+                break;
             }
-            return index;
         }
+        return index;
+    }
 }

@@ -19,7 +19,7 @@ public class ObscureTest {
 
     @ParameterizedTest
     @MethodSource("isEmptyProvideArguments")
-    <T extends  String>  void isEmpty(Boolean expectedBoolean, T obj) {
+    void isEmpty(Boolean expectedBoolean, String obj) {
         Obscure<String> obj1 = new Obscure<>(obj);
 
         Boolean actualBoolean = obj1.isEmpty();
@@ -36,7 +36,7 @@ public class ObscureTest {
 
     @ParameterizedTest
     @MethodSource("isPresentProvideArguments")
-    <T extends  String>  void isPresent(Boolean expectedBoolean, T obj) {
+    void isPresent(Boolean expectedBoolean, String obj) {
         Obscure<String> obj1 = new Obscure<>(obj);
 
         Boolean actualBoolean = obj1.isPresent();
@@ -53,10 +53,10 @@ public class ObscureTest {
 
     @ParameterizedTest
     @MethodSource("orElseProvideArguments")
-    <T extends  String>  void orElse(String expectedString, T obj) {
+    void orElse(String expectedString, String obj) {
         Obscure<String> obj1 = new Obscure<>(obj);
 
-        String actualString = obj1.orElse();
+        String actualString = obj1.orElse(obj);
 
         Assertions.assertEquals(expectedString, actualString);
     }
@@ -70,14 +70,14 @@ public class ObscureTest {
 
     @ParameterizedTest
     @MethodSource("orElseThrowProvideArguments")
-    <T extends  String>  void orElseThrow(String expectedString, T obj) {
+    void orElseThrow(String expectedString, String obj) throws Exception {
         Obscure<String> obj1 = new Obscure<>(obj);
         String actualString = "";
 
         try {
             actualString = obj1.orElseThrow();
-        } catch (NullPointerException nu) {
-            actualString = nu.getMessage();
+        } catch (Exception ex) {
+            actualString = ex.getMessage();
         }
 
         Assertions.assertEquals(expectedString, actualString);
