@@ -1,7 +1,5 @@
 = JCF: List.
 
-NOTE: Обязательным условием выполнения является тестирование классов.
-
 == Project `Studio`
 
 === Specification of task 1
