@@ -61,26 +61,20 @@ public class ObscureTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
-    static Stream<Arguments> orElseThrowProvideArguments() {
-        return Stream.of(
-                Arguments.of("Hey!", "Hey!"),
-                Arguments.of("Object is not exist", null)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("orElseThrowProvideArguments")
-    void orElseThrow(String expectedString, String obj) throws Exception {
-        Obscure<String> obj1 = new Obscure<>(obj);
+    @Test
+    void orElseThrow() {
+        String test = null;
+        Obscure<String> obj1 = new Obscure<>(test);
         String actualString = "";
+        NullPointerException ex = new NullPointerException("Object is not exist");
 
         try {
-            actualString = obj1.orElseThrow();
-        } catch (Exception ex) {
-            actualString = ex.getMessage();
+            actualString = obj1.orElseThrow(ex);
+        } catch (Exception actual) {
+            actualString = actual.getMessage();
         }
 
-        Assertions.assertEquals(expectedString, actualString);
+        Assertions.assertEquals("Object is not exist", actualString);
     }
 
     @Test

@@ -26,11 +26,11 @@ public class Obscure<T> {
         return obj;
     }
 
-    public T orElseThrow() throws Exception {
-        if(isPresent()) {
-            return this.getObj();
+    public T orElseThrow(Exception ex) throws Exception {
+        if(isEmpty()) {
+            throw ex;
         }
-        throw new Exception("Object is not exist");
+        return this.getObj();
     }
 
     public static <T> Obscure<T> of(T obj) {
