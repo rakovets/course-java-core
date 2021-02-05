@@ -53,19 +53,19 @@ public class ObscureTest {
 
     static Stream<Arguments> provideArgumentsForOrElse() {
         return Stream.of(
-                Arguments.of(new Integer[]{1, 2, 3},  new Integer[]{1, 2, 3}),
-                Arguments.of(null, null)
+                Arguments.of(new Integer[]{1, 2, 3},  new Integer[]{1, 2, 3}, new Integer[]{5, 5, 5}),
+                Arguments.of(new Integer[]{5, 5, 5},  null, new Integer[]{5, 5, 5})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForOrElse")
-    void orElse (Integer[] expectedObject, Integer[] n) {
+    void orElse (Integer[] expectedObject, Integer[] n, Integer[] defaultObj) {
         // GIVEN
         Obscure<Integer[]> obs = new Obscure<>(n);
 
         // WHEN
-        Integer[] actualObject = obs.orElse();
+        Integer[] actualObject = obs.orElse(defaultObj);
 
         // THEN
         assertArrayEquals(expectedObject, actualObject);
@@ -77,12 +77,13 @@ public class ObscureTest {
         Integer test = null;
         Obscure<Integer> obs = new Obscure<>(test);
         String actualString = "";
+        NullPointerException ex = new NullPointerException("Object doesn't exist");
 
         // WHEN
        try {
-           actualString = obs.orElseThrow().toString();
-       } catch (NullPointerException exp) {
-           actualString = exp.getMessage();
+           actualString = obs.orElseThrow(ex).toString();
+       } catch (Exception actual) {
+           actualString = actual.getMessage();
        }
 
         // THEN
@@ -95,11 +96,12 @@ public class ObscureTest {
         Integer test = 42;
         Obscure<Integer> obs = new Obscure<>(test);
         String actualString = "";
+        NullPointerException ex = new NullPointerException("Object doesn't exist");
 
         // WHEN
         try {
-            actualString = obs.orElseThrow().toString();
-        } catch (NullPointerException exp) {
+            actualString = obs.orElseThrow(ex).toString();
+        } catch (Exception exp) {
             actualString = exp.getMessage();
         }
 

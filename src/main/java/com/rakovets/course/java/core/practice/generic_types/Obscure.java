@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 public class Obscure <A> {
     private final A object;
-    private final A defaultObject = null;
 
     public Obscure(A object) {
         this.object = object;
@@ -16,16 +15,16 @@ public class Obscure <A> {
         return this.object == null;
     }
 
-    public A orElse() {
+    public A orElse(A defaultObject) {
         if (isPresent()) {
             return this.getObject();
         }
-        return this.getDefaultObject();
+        return defaultObject;
     }
 
-    public A orElseThrow() throws NullPointerException {
+    public A orElseThrow(Exception ex) throws Exception {
         if (isEmpty()) {
-            throw new NullPointerException("Object doesn't exist");
+            throw ex;
         }
         return this.getObject();
     }
@@ -40,9 +39,5 @@ public class Obscure <A> {
 
     public A getObject() {
         return object;
-    }
-
-    public A getDefaultObject() {
-        return defaultObject;
     }
 }
