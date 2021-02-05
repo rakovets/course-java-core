@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.generic_types;
 import java.util.Arrays;
 
 public abstract class Math {
-    // Task 1
     public static <K extends Number> K getMax(K x, K y, K z) {
         double ex = x.doubleValue();
         double ey = y.doubleValue();
@@ -19,7 +18,6 @@ public abstract class Math {
         }
     }
 
-    // Task 2
     public static <N extends Number> N getMin(N a, N b, N c, N d, N e) {
         double ad = a.doubleValue();
         double bd = b.doubleValue();
@@ -43,7 +41,6 @@ public abstract class Math {
         }
     }
 
-    // Task 3
     public static <N extends Number> double getAverage(N[] array) {
         double sum = 0;
 
@@ -53,7 +50,6 @@ public abstract class Math {
         return sum / array.length;
     }
 
-    // Task 4
     public static <N extends Number> N getMaxFromArray(N[] array) {
         N[] calculationArray = array;
         Arrays.sort(calculationArray);
@@ -61,7 +57,6 @@ public abstract class Math {
         return calculationArray[calculationArray.length - 1];
     }
 
-    // Task 5
     public static <N extends Number> N getMinFromArray(N[] array) {
         N[] calculationArray = array;
         Arrays.sort(calculationArray);
@@ -69,7 +64,6 @@ public abstract class Math {
         return calculationArray[0];
     }
 
-    // Task 6
     public static <N extends Number> N[] sortGenericArray(N[] array) {
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -83,7 +77,6 @@ public abstract class Math {
         return array;
     }
 
-    // Task 7
     public static <N extends Number> int getIndexBinarySearchArray(N[] array, N key) {
         if (array == null || key == null) {
             return -1;

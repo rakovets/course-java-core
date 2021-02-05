@@ -10,7 +10,6 @@ public class Array <N extends Number> {
         this.array = array;
     }
 
-    // Task 1.
     public void fillArray() {
         if (this.getArray() instanceof Double[]) {
             Double[] arrayScanner = new Double[this.array.length];
@@ -98,7 +97,6 @@ public class Array <N extends Number> {
         }
     }
 
-    // Task 3.
     @Override
     public String toString() {
         StringBuilder testBuilder = new StringBuilder("");
@@ -108,7 +106,6 @@ public class Array <N extends Number> {
         return "Array: " + testBuilder.toString();
     }
 
-    // Task 4.
     public N getMax() {
         N[] calculationArray = this.array;
         Arrays.sort(calculationArray);
@@ -116,7 +113,6 @@ public class Array <N extends Number> {
         return calculationArray[calculationArray.length - 1];
     }
 
-    // Task 5.
     public  N getMin() {
         N[] calculationArray = this.array;
         Arrays.sort(calculationArray);
@@ -124,7 +120,6 @@ public class Array <N extends Number> {
         return calculationArray[0];
     }
 
-    // Task 6.
     public double getAverageNumber() {
         double sum = 0;
 
@@ -134,7 +129,6 @@ public class Array <N extends Number> {
         return sum / this.array.length;
     }
 
-    // Task 7.
     public N[] sortAscending() {
         for (int i = this.array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -148,7 +142,6 @@ public class Array <N extends Number> {
         return this.array;
     }
 
-    // Task 8.
     public N[] sortDescending() {
         for (int i = this.array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -162,7 +155,6 @@ public class Array <N extends Number> {
         return this.array;
     }
 
-    // Task 9.
     public int searchBinary(N key) {
         if (this.array == null || key == null) {
             return -1;
@@ -189,7 +181,6 @@ public class Array <N extends Number> {
         return -1;
     }
 
-    // Task 10.
     public void replace (int index, N number) {
         this.array[index] = number;
     }
