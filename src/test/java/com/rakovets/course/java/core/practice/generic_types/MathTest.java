@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 
 public class MathTest {
 
-    // Task 1.
     static Stream<Arguments> provideArgumentsForGetMax() {
         return Stream.of(
                 Arguments.of(12, 12, 12, 5),
@@ -31,7 +30,6 @@ public class MathTest {
         Assertions.assertEquals(expectedNumber, actualNumber);
     }
 
-    // Task 2.
     static Stream<Arguments> provideArgumentsForGetMin() {
         return Stream.of(
                 Arguments.of(-2, 10, 12, 5, 0, -2),
@@ -52,7 +50,6 @@ public class MathTest {
         Assertions.assertEquals(expectedNumber, actualNumber);
     }
 
-    // Task 3.
     static Stream<Arguments> provideArgumentsForGetAverage() {
         return Stream.of(
                 Arguments.of(2.5, new Integer[] {1, 2, 3, 4}),
@@ -73,7 +70,6 @@ public class MathTest {
         Assertions.assertEquals(expectedDouble, actualDouble);
     }
 
-    // Task 4.
     static Stream<Arguments> provideArgumentsForGetMaxFromArray() {
         return Stream.of(
                 Arguments.of(4, new Integer[] {1, 2, 3, 4}),
@@ -94,7 +90,6 @@ public class MathTest {
         Assertions.assertEquals(expectedNumber, actualNumber);
     }
 
-    // Task 5.
     static Stream<Arguments> provideArgumentsForGetMinFromArray() {
         return Stream.of(
                 Arguments.of(-2, new Integer[] {1, 2, 3, 4, -2}),
@@ -115,7 +110,6 @@ public class MathTest {
         Assertions.assertEquals(expectedNumber, actualNumber);
     }
 
-    // Task 6.
     static Stream<Arguments> provideArgumentsForSortGenericArray() {
         return Stream.of(
                 Arguments.of(new Integer[] {-2, 1, 2, 3, 4}, new Integer[] {1, 2, 3, 4, -2}),
@@ -137,7 +131,6 @@ public class MathTest {
         assertArrayEquals(expectedArray, actualArray);
     }
 
-    // Task 7.
     static Stream<Arguments> provideArgumentsForGetIndexBinarySearchArray() {
         return Stream.of(
                 Arguments.of(4, 4, new Integer[] {-2, 1, 2, 3, 4}),
