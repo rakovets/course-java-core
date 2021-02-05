@@ -12,11 +12,10 @@ public class PairTest {
 
         // WHEN
         Pair<Integer, String> then = Pair.swap(given);
-        String actualString = then.getSecondField() + then.getFirstField().toString();
-        String expectedString = given.getFirstField() + given.getSecondField().toString();
 
         // THEN
-        Assertions.assertEquals(expectedString, actualString);
+        Assertions.assertEquals(given.getFirstField(), then.getSecondField());
+        Assertions.assertEquals(given.getSecondField(), then.getFirstField());
     }
 
     @Test
