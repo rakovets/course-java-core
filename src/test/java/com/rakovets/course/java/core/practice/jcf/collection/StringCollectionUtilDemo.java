@@ -18,7 +18,7 @@ public class StringCollectionUtilDemo {
         for (String name : names) {
             System.out.println(name);
         }
-        System.out.println("\n");
+        System.out.print("\n");
 
         StringCollectionUtil.removeWordsByLength(names, 1);
         for (String name : names) {
