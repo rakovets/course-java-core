@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Enemy implements Mortal {
+    public static final int ATTACK = 25;
+
     private double health;
 
     public Enemy(double health) {
@@ -29,7 +31,7 @@ public class Enemy implements Mortal {
 
     public void attackHero(Hero hero) {
         attackHero();
-        hero.takeDamage(20);
+        hero.takeDamage(ATTACK);
     }
 
 

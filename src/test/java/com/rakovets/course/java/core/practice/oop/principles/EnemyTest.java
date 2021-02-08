@@ -65,7 +65,7 @@ class EnemyTest {
 
     static Stream<Arguments> providerArgumentsForAttackHero() {
         return Stream.of(
-                Arguments.of(181, new Enemy(500))
+                Arguments.of(176, new Enemy(500))
         );
     }
     @ParameterizedTest
