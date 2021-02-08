@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf.map;
 
+import com.rakovets.course.java.core.practice.jcf.map.words_monitoring.TextMonitoring;
+
 import java.util.Collection;
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf.map;
+package com.rakovets.course.java.core.practice.jcf.map.words_monitoring;
 
 import java.util.*;
 import java.util.regex.Matcher;
