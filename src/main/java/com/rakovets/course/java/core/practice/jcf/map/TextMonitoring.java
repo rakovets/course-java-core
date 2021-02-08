@@ -5,8 +5,7 @@ import java.util.*;
 public class TextMonitoring {
     public static Map<String, Integer> researchText(String str){
         Map<String, Integer> repeatedWords = new HashMap<>();
-        String[] words = str.split("\\s*\\W\\s*");
-        for (String word : words) {
+        for (String word : str.split("\\s*\\W\\s*")) {
             if (repeatedWords.containsKey(word)) {
                 repeatedWords.put(word, repeatedWords.get(word) + 1);
             } else {
@@ -30,9 +29,9 @@ public class TextMonitoring {
     public static List<String> getUniqueWords(String str) {
         Set<Map.Entry<String, Integer>> set = researchText(str).entrySet();
         List<String> uniqueWords = new ArrayList<>();
-        for (Map.Entry<String, Integer> me : set) {
-            if (me.getValue() == 1) {
-                uniqueWords.add(me.getKey());
+        for (Map.Entry<String, Integer> pair : set) {
+            if (pair.getValue() == 1) {
+                uniqueWords.add(pair.getKey());
             }
         }
         return uniqueWords;
@@ -40,14 +39,25 @@ public class TextMonitoring {
 
     public static int getFrequencyWord(String str, String word) {
         Set<Map.Entry<String, Integer>> set = researchText(str).entrySet();
-        for (Map.Entry<String, Integer> me : set) {
-            if (me.getKey().equals(word)) {
-                return me.getValue();
+        for (Map.Entry<String, Integer> pair : set) {
+            if (pair.getKey().equals(word)) {
+                return pair.getValue();
             }
         }
         return 0;
     }
 
-    public static void getFrequencyWords(boolean isAscendingFrequency, String str) {
+    public static Map<String, Integer> getFrequencyWords(boolean isAscendingFrequency, String str) {
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(researchText(str).entrySet());
+        if (isAscendingFrequency) {
+            list.sort(Map.Entry.comparingByValue());
+        } else {
+            list.sort(Map.Entry.<String, Integer>comparingByValue().reversed());
+        }
+        Map<String, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedMap;
     }
 }

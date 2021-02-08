@@ -13,7 +13,7 @@ public class Manager {
         actors.add(new Actor("bill", "cim", 121, 17));
         actors.add(new Actor("bill", "dim", 119, 12));
         Studio actorsForFilm = new Studio(actors);
-        Comparator<Actor> actorComparatorByFeeAndAge = new ActorComparatorByFeeAndLastName();
+        Comparator<Actor> actorComparatorByFeeAndAge = new ActorComparatorByLastNameAndAge();
         actors.sort(actorComparatorByFeeAndAge);
         for (Actor actor : actors) {
             System.out.println(actor);
