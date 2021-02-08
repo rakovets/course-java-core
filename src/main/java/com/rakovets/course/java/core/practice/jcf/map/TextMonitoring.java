@@ -4,7 +4,15 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class TextMonitoring {
+public class TextMonitoring {
+    private String text;
+    private Map<String, Integer> wordMap;
+
+    public TextMonitoring(String text) {
+        this.text = text;
+        this.wordMap = researchText(text);
+    }
+
     public static Map<String, Integer> researchText(String string) {
         Pattern punctuationDeleting = Pattern.compile("[,.!?*\\-:+]");
         Matcher matcher = punctuationDeleting.matcher(string);
@@ -20,25 +28,41 @@ public abstract class TextMonitoring {
         return wordMap;
     }
 
-    public static int getCountUniqueWords(String string) {
-        return researchText(string).size();
+    public int getCountUniqueWords() {
+        return this.wordMap.size();
     }
 
-    public static Collection<String> getUniqueWords(String string) {
-        return researchText(string).keySet();
+    public Collection<String> getUniqueWords() {
+        return this.wordMap.keySet();
     }
 
-    public static int getFrequencyWord(String string, String word) {
-        return researchText(string).get(word);
+    public int getFrequencyWord(String word) {
+        if (this.wordMap.get(word) == null) {
+            return 0;
+        }
+        return this.wordMap.get(word);
     }
 
-    public static Collection<Map.Entry<String, Integer>> getFrequencyWords(String string, boolean isAscendingFrequency) {
-        List<Map.Entry<String, Integer>> list = new ArrayList<>(researchText(string).entrySet());
+    public Collection<Map.Entry<String, Integer>> getFrequencyWords(boolean isAscendingFrequency) {
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(this.wordMap.entrySet());
         if (isAscendingFrequency) {
             list.sort(new AscendingFrequencyComparator());
         } else {
             list.sort(new DescendingFrequencyComparator());
         }
         return list;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Map<String, Integer> getWordMap() {
+        return wordMap;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+        this.wordMap = researchText(text);
     }
 }

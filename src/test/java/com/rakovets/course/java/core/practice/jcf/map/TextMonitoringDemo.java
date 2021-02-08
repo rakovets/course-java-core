@@ -14,16 +14,19 @@ public class TextMonitoringDemo {
                 "Left me here to weep and moan";
         System.out.println(TextMonitoring.researchText(text));
 
-        System.out.println("Count unique words = " + TextMonitoring.getCountUniqueWords(text));
+        TextMonitoring example = new TextMonitoring(text);
 
-        Collection<String> unique = TextMonitoring.getUniqueWords(text);
+        System.out.println("Count unique words = " + example.getCountUniqueWords());
+
+        Collection<String> unique = example.getUniqueWords();
         for (String word : unique) {
             System.out.println(word);
         }
 
-        System.out.println("Frequency word \"Lift\" is: " + TextMonitoring.getFrequencyWord(text, "Lift"));
+        System.out.println("Frequency word \"Lift\" is: " + example.getFrequencyWord("Lift"));
+        System.out.println("Frequency word \"Pikachu\" is: " + example.getFrequencyWord("Pikachu"));
 
-        Collection<Map.Entry<String, Integer>> wordsFrequency = TextMonitoring.getFrequencyWords(text, false);
+        Collection<Map.Entry<String, Integer>> wordsFrequency = example.getFrequencyWords(false);
         for (Map.Entry<String, Integer> entry : wordsFrequency) {
             System.out.println(entry);
         }
