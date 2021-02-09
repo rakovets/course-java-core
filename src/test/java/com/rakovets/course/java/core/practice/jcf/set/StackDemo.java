@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.jcf.set;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
-public class SetDemo {
+public class StackDemo {
     public static <T> void main(String[] args) {
         Stack<Integer> newStack = new Stack<>(10, true);
 
