@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CollectionTest {
+public class CollectionDemo {
     public static void main(String[] args) {
         //List<String> wordsList = Arrays.asList("Hell", "is", "not", "a", "Hell");
         List<String> wordsList = new ArrayList<>();

@@ -3,6 +3,14 @@ package com.rakovets.course.java.core.practice.jcf.map;
 import java.util.*;
 
 public class TextMonitoring {
+    private String text;
+    private Map<String, Integer> map;
+
+    public TextMonitoring(String text) {
+        this.text = text;
+        this.map = researchText(text);
+    }
+
     public static Map<String, Integer> researchText(String text) {
         Map<String, Integer> wordCounts = new HashMap<>();
 
@@ -14,20 +22,20 @@ public class TextMonitoring {
         return wordCounts;
     }
 
-    public static int getCountUniqueWords(String text) {
-        return researchText(text).size();
+    public int getCountUniqueWords() {
+        return map.size();
     }
 
-    public static Collection<String> getUniqueWords(String text) {
-        return researchText(text).keySet();
+    public Collection<String> getUniqueWords() {
+        return map.keySet();
     }
 
-    public static int getFrequencyWord(String text, String word) {
-        return researchText(text).get(word);
+    public int getFrequencyWord(String word) {
+        return map.get(word);
     }
 
-    public static Collection<Map.Entry<String, Integer>> getFrequencyWords(String text, String word, boolean isAscendingFrequency) {
-        List<Map.Entry<String, Integer>> list = new ArrayList<>(researchText(text).entrySet());
+    public Collection<Map.Entry<String, Integer>> getFrequencyWords(boolean isAscendingFrequency) {
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
 
         if (isAscendingFrequency) {
             list.sort(new Comparator<>() {
@@ -53,5 +61,18 @@ public class TextMonitoring {
             });
         }
         return list;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Map<String, Integer> getMap() {
+        return map;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+        this.map = researchText(text);
     }
 }
