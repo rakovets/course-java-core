@@ -9,16 +9,16 @@ public class SchoolClass {
         this.students = students;
     }
 
-    public static Student getBestStudent(SchoolClass studentsInClass) {
+    public Student getBestStudent(List<Student> studentsInClass) {
         double maxMark = 0;
         int index = 0;
-        for (int i = 0; i < studentsInClass.students.size(); i++) {
-            if (studentsInClass.students.get(i).getAverageAnnualMark() > maxMark) {
-                maxMark = studentsInClass.students.get(i).getAverageAnnualMark();
+        for (int i = 0; i < studentsInClass.size(); i++) {
+            if (studentsInClass.get(i).getAverageAnnualMark() > maxMark) {
+                maxMark = studentsInClass.get(i).getAverageAnnualMark();
                 index = i;
             }
         }
-        return studentsInClass.students.get(index);
+        return studentsInClass.get(index);
     }
 
     @Override

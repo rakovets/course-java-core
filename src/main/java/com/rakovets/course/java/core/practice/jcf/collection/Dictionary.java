@@ -14,12 +14,18 @@ public class Dictionary {
         this.counterTop = counterTop;
     }
 
+    public Dictionary(Map<String, String> dictionary, Map<String, Integer> counterTop, String firstWord, String firstTranslate) {
+        this.counterTop = counterTop;
+        this.dictionary = dictionary;
+        dictionary.put(firstWord, firstTranslate);
+    }
+
     public String putNewWordAndTranslate(String word, String translate) {
         if (dictionary.containsKey(word)) {
             return word + ": this word already in dictionary. You can add/delete translate if you want";
         } else {
             dictionary.put(word, translate);
-            return word + " added in dictionary";
+            return word + ": added in dictionary";
         }
     }
 
@@ -32,7 +38,7 @@ public class Dictionary {
         }
     }
 
-    public String changeTranslate(String word, String translate){
+    public String changeTranslate(String word, String translate) {
         if (dictionary.containsKey(word)) {
             dictionary.put(word, translate);
             return word + ": changed translate on " + translate;
@@ -41,9 +47,9 @@ public class Dictionary {
         }
     }
 
-    public String removeTranslate(String word, String translate){
+    public String removeTranslate(String word) {
         if (dictionary.containsKey(word)) {
-            dictionary.put(word, dictionary.remove(word));
+            dictionary.put(word, "");
             return word + ": all translate removed ";
         } else {
             return word + ": no such word in dictionary";
@@ -54,15 +60,14 @@ public class Dictionary {
         if (dictionary.containsKey(word)) {
             if (counterTop.get(word) == null) {
                 counterTop.put(word, 1);
-                return word + ": " + dictionary.get(word);
+                return dictionary.get(word);
             } else {
                 counterTop.put(word, counterTop.get(word) + 1);
-                return word + ": " + dictionary.get(word);
+                return dictionary.get(word);
             }
         } else {
             return "No such word in dictionary. Try again";
         }
-
     }
 
     public String addNewWord(String word) {
@@ -73,16 +78,16 @@ public class Dictionary {
         }
     }
 
-    public String changeWord(String word){
+    public String changeWord(String word, String newWord) {
         if (dictionary.containsKey(word)) {
-            dictionary.put(word, dictionary.get(word));
+            dictionary.put(newWord, dictionary.remove(word));
             return word + ": changed";
         } else {
             return word + ": no such word in dictionary";
         }
     }
 
-    public String removeWord(String word){
+    public String removeWord(String word) {
         if (dictionary.containsKey(word)) {
             dictionary.entrySet().removeIf(entry -> word.equals(entry.getKey()));
             return word + ": removed ";
@@ -131,4 +136,6 @@ public class Dictionary {
                 "dictionary=" + dictionary +
                 '}';
     }
+
+
 }

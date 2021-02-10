@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.jcf.collection;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Pier {
     public static Map<String, Double> getAverageWaitTimeByPerson(Map<String, Integer> averageTimeBetweenBoats) {

@@ -9,23 +9,24 @@ public class Studio {
         this.actors = actors;
     }
 
-    public void fire(Studio listOfActors) {
+    public static List<Actor> fire(List<Actor> listOfActors) {
         int index = 0;
         int maxFee = 0;
-        for (int i = 0; i < listOfActors.actors.size(); i++) {
-            if (listOfActors.actors.get(i).getFee() > maxFee) {
-                maxFee = listOfActors.actors.get(i).getFee();
+        for (int i = 0; i < listOfActors.size(); i++) {
+            if (listOfActors.get(i).getFee() > maxFee) {
+                maxFee = listOfActors.get(i).getFee();
                 index = i;
             }
         }
-        listOfActors.actors.remove(index);
+        listOfActors.remove(index);
+        return listOfActors;
     }
 
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
 
-    @Override
-    public String toString() {
-        return "Studio{" +
-                "actors=" + actors +
-                '}';
+    public List<Actor> getActors() {
+        return actors;
     }
 }
