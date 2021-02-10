@@ -50,15 +50,7 @@ public class StackProject<N> {
 
     public boolean isStackFull() {
         if(isSizeFixed) {
-            Iterator<N> iter = stack.iterator();
-            int count = 0;
-
-            while (iter.hasNext()) {
-                if (iter.next() != null) {
-                    count += 1;
-                }
-            }
-            return count == capacity;
+            return stack.size() == capacity;
         } else {
             return false;
         }

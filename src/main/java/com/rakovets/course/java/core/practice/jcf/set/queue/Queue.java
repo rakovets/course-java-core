@@ -22,15 +22,7 @@ public class Queue<N> {
     }
 
     public boolean isFull() {
-        Iterator<N> iter = queue.iterator();
-        int count = 0;
-
-        while (iter.hasNext()) {
-            if (iter.next() != null) {
-                count += 1;
-            }
-        }
-        return count == length;
+        return queue.size() == length;
     }
 
     public void enqueue(N member) {
