@@ -43,4 +43,30 @@ public class TextMonitoringTest {
         // THEN
         Assertions.assertEquals(0, actualInt);
     }
+
+    @Test
+    void getFrequencyWordsDescending() {
+        // GIVEN
+        String text = "Alex Alex Alex Sally Sally Nick";
+        TextMonitoring example = new TextMonitoring(text);
+
+        // WHEN
+        String actualString = example.getFrequencyWords(false).toString();
+
+        // THEN
+        Assertions.assertEquals("[Alex=3, Sally=2, Nick=1]", actualString);
+    }
+
+    @Test
+    void getFrequencyWordsAscending() {
+        // GIVEN
+        String text = "Alex Alex Alex Sally Sally Nick";
+        TextMonitoring example = new TextMonitoring(text);
+
+        // WHEN
+        String actualString = example.getFrequencyWords(true).toString();
+
+        // THEN
+        Assertions.assertEquals("[Nick=1, Sally=2, Alex=3]", actualString);
+    }
 }
