@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf.map;
 
 import com.rakovets.course.java.core.practice.jcf.map.words_monitoring.TextMonitoring;
-
 import java.util.Collection;
 import java.util.Map;
 
@@ -18,15 +17,10 @@ public class TextMonitoringDemo {
 
         TextMonitoring example = new TextMonitoring(text);
 
-        System.out.println("Count unique words = " + example.getCountUniqueWords());
-
         Collection<String> unique = example.getUniqueWords();
         for (String word : unique) {
             System.out.println(word);
         }
-
-        System.out.println("Frequency word \"Lift\" is: " + example.getFrequencyWord("Lift"));
-        System.out.println("Frequency word \"Pikachu\" is: " + example.getFrequencyWord("Pikachu"));
 
         Collection<Map.Entry<String, Integer>> wordsFrequency = example.getFrequencyWords(false);
         for (Map.Entry<String, Integer> entry : wordsFrequency) {
