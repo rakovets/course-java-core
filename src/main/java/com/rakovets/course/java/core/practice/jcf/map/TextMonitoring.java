@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.jcf.map;
 import java.util.*;
 
 public class TextMonitoring {
-    public static Map<String, Integer> researchText(String str){
+    public static Map<String, Integer> researchText(String str) {
         Map<String, Integer> repeatedWords = new HashMap<>();
         for (String word : str.split("\\s*\\W\\s*")) {
             if (repeatedWords.containsKey(word)) {
