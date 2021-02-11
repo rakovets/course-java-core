@@ -42,3 +42,4 @@ public abstract class Math {
         return min[0];
     }
 }
+

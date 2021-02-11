@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
+
 import java.util.Arrays;
 import java.util.Scanner;
 

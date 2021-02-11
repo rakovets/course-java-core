@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
