@@ -3,13 +3,14 @@ package com.rakovets.course.java.core.example.date_and_time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class DateTimeFormatterExample1Parse {
     public static void main(String[] args) {
         String dateTimePattern = "MMMM d, yyyy HH:mm:ss";
         String dateTimeAsString = "June 5, 2020 12:10:56";
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(dateTimePattern);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(dateTimePattern, Locale.US);
         LocalDateTime localDateTime = LocalDateTime.parse(dateTimeAsString, dateTimeFormatter);
 
         System.out.printf("'%s' parse to '%s'\n", dateTimeAsString, localDateTime);
@@ -17,7 +18,7 @@ public class DateTimeFormatterExample1Parse {
         String dateFormatterPattern = "MMMM d, yyyy";
         String dateAsString = "June 5, 2020";
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(dateFormatterPattern);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(dateFormatterPattern, Locale.US);
         LocalDate localDate = LocalDate.parse(dateAsString, dateFormatter);
 
         System.out.printf("'%s' parse to '%s'\n", dateAsString, localDate);
