@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.exception_handling;
 
 import com.rakovets.course.java.core.practice.exception_handling.model.Task_6;
 
-public class Task_6_demo {
+public class Task6Demo {
     public static void main(String[] args) throws Exception {
         try {
             Task_6.getRandomException();

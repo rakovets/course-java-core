@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.exception;
 
-public class NullException extends NullPointerException {
+public class NullException extends RuntimeException {
     private String debugMessage;
 
     public NullException(String message) {

@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-public class Task_1_demo {
+public class Task1Demo {
     public static void main(String[] args) {
         try {
             String string = null;
