@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.jcf.list;
 import java.util.Comparator;
 
 public class ActorComparatorByLastNameAndAge implements Comparator <Actor> {
-
     @Override
     public int compare(Actor o1, Actor o2) {
         if (o1 == o2) {

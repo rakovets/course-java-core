@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,7 +32,7 @@ class StringCollectionUtilTest {
         List<String> excepted = new ArrayList<>(list);
         excepted.remove(1);
 
-        List<String> actual = StringCollectionUtil.removeWordsByLength(list, 7);
+        Collection<String> actual = StringCollectionUtil.removeWordsByLength(list, 7);
 
         Assertions.assertEquals(excepted, actual);
     }

@@ -20,39 +20,30 @@ public class Dictionary {
         dictionary.put(firstWord, firstTranslate);
     }
 
-    public String putNewWordAndTranslate(String word, String translate) {
+    public boolean putNewWordAndTranslate(String word, String translate) {
         if (dictionary.containsKey(word)) {
-            return word + ": this word already in dictionary. You can add/delete translate if you want";
+            return false;
         } else {
             dictionary.put(word, translate);
-            return word + ": added in dictionary";
+            return true;
         }
     }
 
-    public String addTranslate(String word, String translate) {
+    public void addTranslate(String word, String translate) {
         if (dictionary.containsKey(word)) {
             dictionary.put(word, dictionary.get(word) + ", " + translate);
-            return word + ": add " + translate + " to translate";
-        } else {
-            return word + ": no such word in dictionary";
         }
     }
 
-    public String changeTranslate(String word, String translate) {
+    public void changeTranslate(String word, String translate) {
         if (dictionary.containsKey(word)) {
             dictionary.put(word, translate);
-            return word + ": changed translate on " + translate;
-        } else {
-            return word + ": no such word in dictionary";
         }
     }
 
-    public String removeTranslate(String word) {
+    public void removeTranslate(String word) {
         if (dictionary.containsKey(word)) {
             dictionary.put(word, "");
-            return word + ": all translate removed ";
-        } else {
-            return word + ": no such word in dictionary";
         }
     }
 
@@ -70,29 +61,24 @@ public class Dictionary {
         }
     }
 
-    public String addNewWord(String word) {
+    public boolean addNewWord(String word) {
         if (dictionary.containsKey(word)) {
-            return "This word already in dictionary";
+            return false;
         } else {
-            return dictionary.put(word, "");
+            dictionary.put(word, "");
+            return true;
         }
     }
 
-    public String changeWord(String word, String newWord) {
+    public void changeWord(String word, String newWord) {
         if (dictionary.containsKey(word)) {
             dictionary.put(newWord, dictionary.remove(word));
-            return word + ": changed";
-        } else {
-            return word + ": no such word in dictionary";
         }
     }
 
-    public String removeWord(String word) {
+    public void removeWord(String word) {
         if (dictionary.containsKey(word)) {
             dictionary.entrySet().removeIf(entry -> word.equals(entry.getKey()));
-            return word + ": removed ";
-        } else {
-            return word + ": no such word in dictionary";
         }
     }
 
