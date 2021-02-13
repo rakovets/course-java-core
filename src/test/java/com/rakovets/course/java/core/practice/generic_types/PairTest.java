@@ -23,11 +23,15 @@ class PairTest {
     @Test
     void getSwapped() {
         Pair<String, Double> testObj = new Pair<>("trtrtr", 55.55);
+        String expected1 = testObj.getOne() + testObj.getTwo().toString();
+        String expected2 = testObj.getTwo().toString();
 
         Pair<Double, String> changedObj = testObj.getSwapped();
-        String actual = changedObj.getTwo() + changedObj.getOne().toString();
-        String expected = testObj.getOne() + testObj.getTwo().toString();
+        String actual1 = changedObj.getTwo() + changedObj.getOne().toString();
+        String actual2 = changedObj.getOne().toString();
 
-        Assertions.assertEquals(expected, actual);
+
+        Assertions.assertEquals(expected1, actual1);
+        Assertions.assertEquals(expected2, actual2);
     }
 }

@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
 public class Pair <K, V>{
-    private K one;
-    private V two;
+    private K key;
+    private V value;
 
     public Pair(K one, V two) {
-        this.one = one;
-        this.two = two;
+        this.key = one;
+        this.value = two;
     }
 
     public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
@@ -18,18 +18,18 @@ public class Pair <K, V>{
     }
 
     public K getOne() {
-        return one;
+        return key;
     }
 
     public void setOne(K one) {
-        this.one = one;
+        this.key = one;
     }
 
     public V getTwo() {
-        return two;
+        return value;
     }
 
     public void setTwo(V two) {
-        this.two = two;
+        this.value = two;
     }
 }

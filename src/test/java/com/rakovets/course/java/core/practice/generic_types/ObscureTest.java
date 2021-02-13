@@ -47,49 +47,52 @@ public class ObscureTest {
 
     static Stream<Arguments> provideArgumentsForOrElse() {
         return Stream.of(
-                Arguments.of(100.0,  100.0),
-                Arguments.of(null, null)
+                Arguments.of(new Integer[]{1, 1, 1},  new Integer[]{1, 1, 1}, new Integer[]{2, 2, 2}),
+                Arguments.of(new Integer[]{2, 2, 2},  null, new Integer[]{2, 2, 2})
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForOrElse")
-    void orElse (Double expected, Double num) {
-        Obscure<Double> obs = new Obscure<>(num);
+    void orElse (Integer[] expectedObject, Integer[] n, Integer[] defaultObj) {
+        Obscure<Integer[]> obscure = new Obscure<>(n);
 
-        Double actual = obs.orElse();
+        Integer[] actualObject = obscure.orElse(defaultObj);
 
-        Assertions.assertEquals(expected, actual);
+        assertArrayEquals(expectedObject, actualObject);
     }
 
     @Test
     void orElseThrow_Exception() {
-        Double num = null;
-        Obscure<Double> obs = new Obscure<>(num);
-        String actual = "";
+        Integer test = null;
+        Obscure<Integer> obs = new Obscure<>(test);
+        String actualString = "";
+        NullPointerException ex = new NullPointerException("Object doesn't exist");
 
         try {
-            actual = obs.orElseThrow().toString();
-        } catch (NullPointerException exp) {
-            actual = exp.getMessage();
+            actualString = obs.orElseThrow(ex).toString();
+        } catch (Exception actual) {
+            actualString = actual.getMessage();
         }
 
-        Assertions.assertEquals("No object", actual);
+        Assertions.assertEquals("Object doesn't exist", actualString);
     }
+
 
     @Test
     void orElseThrow() {
-        Double test = 100.0;
-        Obscure<Double> obs = new Obscure<>(test);
-        String actual = "";
+        Integer test = 10;
+        Obscure<Integer> obscure = new Obscure<>(test);
+        String actualString = "";
+        NullPointerException ex = new NullPointerException("Object doesn't exist");
 
         try {
-            actual = obs.orElseThrow().toString();
-        } catch (NullPointerException exp) {
-            actual = exp.getMessage();
+            actualString = obscure.orElseThrow(ex).toString();
+        } catch (Exception exp) {
+            actualString = exp.getMessage();
         }
 
-        Assertions.assertEquals(test.toString(), actual);
+        Assertions.assertEquals(test.toString(), actualString);
     }
 
     @Test

@@ -16,18 +16,18 @@ public class Obscure <T> {
         return object == null;
     }
 
-    public T orElse() {
+    public T orElse(T defaultObject) {
         if (isPresent()) {
             return this.getObject();
         }
-        return this.getDefaultObject();
+        return defaultObject;
     }
 
-    public T orElseThrow() throws NullPointerException {
-        if (isPresent()) {
-            return this.getObject();
+    public T orElseThrow(Exception ex) throws Exception {
+        if (isEmpty()) {
+            throw ex;
         }
-        throw new NullPointerException("No object");
+        return this.getObject();
     }
 
     public static <T> Obscure<T> of(T object) {
