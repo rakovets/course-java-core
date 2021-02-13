@@ -102,21 +102,21 @@ class ObscureTest<T> {
     static Stream<Arguments> orElseThrowProviderArguments() {
         return Stream.of(
                 Arguments.of("JAWA", "JAWA"),
-                Arguments.of("NullPointerException", null)
+                Arguments.of("ArithmeticException", null)
         );
     }
 
     @ParameterizedTest
     @MethodSource("orElseThrowProviderArguments")
-    void orElseThrow(String expectedResult, T obj) {
+    void orElseThrow(String expectedResult, T obj) throws Exception {
         // GIVEN
         Obscure <T> obscure = new Obscure<>(obj);
 
         // WHEN
         String actualResult;
         try {
-            actualResult = (String) obscure.orElseThrow();
-        } catch (NullPointerException ex) {
+            actualResult = (String) obscure.orElseThrow(new ArithmeticException("ArithmeticException"));
+        } catch (ArithmeticException ex) {
             actualResult = ex.getMessage();
         }
         // THAT

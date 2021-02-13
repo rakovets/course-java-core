@@ -27,11 +27,11 @@ public class Obscure <T> {
         }
     }
 
-    public T orElseThrow() throws NullPointerException {
+    public T orElseThrow(Exception exception) throws Exception {
         if (isPresent()) {
             return this.obj;
         } else {
-            throw new NullPointerException("NullPointerException");
+            throw exception;
         }
     }
 
