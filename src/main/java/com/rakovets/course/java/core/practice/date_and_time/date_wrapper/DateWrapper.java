@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.date_and_time.date_wrapper;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -25,4 +27,14 @@ public class DateWrapper {
     public static long getDaysBetweenDates(LocalDate first, LocalDate second) {
         return Math.abs(DAYS.between(first, second));
     }
+
+    public static LocalDate getDateAfterDays (LocalDate date, int days) {
+        TemporalAdjuster afterDays = (temporal) -> temporal.plus(days, DAYS);
+        return (LocalDate) afterDays.adjustInto(date);
+    }
+
+    public static TemporalAdjuster closestNewYear = (temporal) ->
+            Math.abs(DAYS.between(temporal, temporal.with(TemporalAdjusters.firstDayOfYear()))) >= 183L
+                    ? temporal.with(TemporalAdjusters.firstDayOfNextYear())
+                    : temporal.with(TemporalAdjusters.firstDayOfYear());
 }

@@ -21,7 +21,7 @@ public class DateWrapperTest {
         LocalDate actualDate = DateWrapper.getLocalDate(2020, 10, 23);
 
         // THEN
-        Assertions.assertEquals("2020-10-23", actualDate.toString());
+        Assertions.assertEquals(LocalDate.of(2020, 10, 23), actualDate);
     }
 
     static Stream<Arguments> provideArgumentsForGetLocalDateAfterMonth() {
@@ -38,10 +38,10 @@ public class DateWrapperTest {
         // GIVEN
 
         // WHEN
-        LocalDate actualDate = DateWrapper.getLocalDateAfterMonth(test, month);
+        String actualString = DateWrapper.getLocalDateAfterMonth(test, month).toString();
 
         // THEN
-        Assertions.assertEquals(expectedString, actualDate.toString());
+        Assertions.assertEquals(expectedString, actualString);
     }
 
     static Stream<Arguments> provideArgumentsForFormatLocalDate() {
@@ -84,7 +84,7 @@ public class DateWrapperTest {
         LocalDate actualDate = DateWrapper.parseStringToLocalDate(string, formatter);
 
         // THEN
-        Assertions.assertEquals("2020-02-23", actualDate.toString());
+        Assertions.assertEquals(LocalDate.of(2020, 2, 23), actualDate);
     }
 
     static Stream<Arguments> provideArgumentsForGetDaysBetweenDates() {
@@ -106,5 +106,46 @@ public class DateWrapperTest {
 
         // THEN
         Assertions.assertEquals(expectedLong, actualLong);
+    }
+
+    static Stream<Arguments> provideArgumentsForGetDateAfterDays() {
+        return Stream.of(
+                Arguments.of(LocalDate.of(2000, 1, 23), 22),
+                Arguments.of(LocalDate.of(2000, 2, 1), 31),
+                Arguments.of(LocalDate.of(2001, 1, 1), 366)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForGetDateAfterDays")
+    void getDateAfterDays(LocalDate expectedDate, int days) {
+        // GIVEN
+        LocalDate test = LocalDate.of(2000, 1, 1);
+
+        // WHEN
+        LocalDate actualDate = DateWrapper.getDateAfterDays(test, days);
+
+        // THEN
+        Assertions.assertEquals(expectedDate, actualDate);
+    }
+
+    static Stream<Arguments> provideArgumentsForAdjustInto() {
+        return Stream.of(
+                Arguments.of(LocalDate.of(2000, 1, 1), LocalDate.of(2000, 2, 20)),
+                Arguments.of(LocalDate.of(2001, 1, 1),  LocalDate.of(2000, 9, 10)),
+                Arguments.of(LocalDate.of(2000, 1, 1),  LocalDate.of(2000, 6, 15))
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForAdjustInto")
+    void adjustIntoClosestNewYear(LocalDate expectedDate, LocalDate date) {
+        // GIVEN
+
+        // WHEN
+        LocalDate actualDate = (LocalDate) DateWrapper.closestNewYear.adjustInto(date);
+
+        // THEN
+        Assertions.assertEquals(expectedDate, actualDate);
     }
 }
