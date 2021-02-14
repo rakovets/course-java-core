@@ -36,7 +36,6 @@ public abstract class DateWrapper {
         return Math.abs(DAYS.between(first, second));
     }
 
-    // TASK 2
     public static LocalDate getDateAfterDays (LocalDate date, int days) {
         TemporalAdjuster afterDays = temporal -> temporal.plus(days, DAYS);
         return (LocalDate) afterDays.adjustInto(date);
@@ -47,7 +46,6 @@ public abstract class DateWrapper {
                     ? temporal.with(TemporalAdjusters.firstDayOfNextYear())
                     : temporal.with(TemporalAdjusters.firstDayOfYear());
 
-    // TASK 3
     public static Date getDate(int year, int month, int days) throws ParseException {
         String string = days + "." + month + "." + year;
         return new SimpleDateFormat( "dd.MM.yyyy" ).parse(string);
