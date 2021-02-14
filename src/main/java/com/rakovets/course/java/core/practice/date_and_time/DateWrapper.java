@@ -15,8 +15,8 @@ public class DateWrapper {
         return  LocalDate.of(year, month, day);
     }
 
-    public static LocalDate nextDate(int month) {
-        return LocalDate.now().plusMonths(month);
+    public static LocalDate nextDate(LocalDate date, int month) {
+        return date.plusMonths(month);
     }
 
     public static String getDateByPattern(LocalDate date, DateTimeFormatter formatter) {
