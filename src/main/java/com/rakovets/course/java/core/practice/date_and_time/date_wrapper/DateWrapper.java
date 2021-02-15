@@ -48,7 +48,7 @@ public abstract class DateWrapper {
 
     public static Date getDate(int year, int month, int days) throws ParseException {
         String string = days + "." + month + "." + year;
-        return new SimpleDateFormat( "dd.MM.yyyy" ).parse(string);
+        return new SimpleDateFormat("dd.MM.yyyy").parse(string);
     }
 
     public static Date getDateAfterMonth(Date date, int month) {
