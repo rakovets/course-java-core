@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.date_and_time;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -59,15 +60,9 @@ class DateWrapperTest {
     }
 
     @Test
-    void getDate() {
-        Date actual = new Date();
+    void getDate() throws ParseException {
+       Date actual = DateWrapper.getDate(2020, 1, 1);
 
-        try {
-            actual = DateWrapper.getDate(2020, 1, 1);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        Assertions.assertEquals("Wed Jan 01 00:00:00 MSK 2020", actual.toString());
+       Assertions.assertEquals("Wed Jan 01 00:00:00 MSK 2020", actual.toString());
     }
 }
