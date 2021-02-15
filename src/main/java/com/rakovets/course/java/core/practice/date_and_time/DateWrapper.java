@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.date_and_time;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
-import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
@@ -15,17 +14,17 @@ public class DateWrapper {
         return  LocalDate.of(year, month, day);
     }
 
-    public static LocalDate nextDate(LocalDate date, int month) {
+    public static LocalDate getNextDateWithMonth(LocalDate date, int month) {
         return date.plusMonths(month);
     }
 
-    public static String getDateByPattern(LocalDate date, DateTimeFormatter formatter) {
-        return date.format(formatter);
+    public static String getDateByPattern(LocalDate date, String formatter) {
+        return date.format(DateTimeFormatter.ofPattern(formatter));
     }
 
-    public static LocalDate getLocalDateByPattern(String date, DateTimeFormatter formatter) {
+    public static LocalDate getLocalDateByPattern(String date, String formatter) {
 
-        return LocalDate.parse(date, formatter);
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern(formatter));
     }
 
     public static long getDaysCount(LocalDate date1, LocalDate date2) {
