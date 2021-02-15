@@ -42,7 +42,7 @@ public abstract class DateWrapper {
     }
 
     public static TemporalAdjuster closestNewYear = temporal ->
-            (temporal.get(ChronoField.DAY_OF_YEAR) >= 183)
+            (temporal.get(ChronoField.DAY_OF_YEAR) >= (temporal.range(ChronoField.DAY_OF_YEAR).getMaximum() / 2))
                     ? temporal.with(TemporalAdjusters.firstDayOfNextYear())
                     : temporal.with(TemporalAdjusters.firstDayOfYear());
 
