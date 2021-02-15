@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -138,21 +137,6 @@ class DateWrapperTest {
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
-    @Test
-    void GetDateFromString() {
-        //Given
-        String expectedResult = "Thu Jul 01 00:00:00 MSK 2021";
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        //When
-        Date actualResult = new Date();
-        try {
-            actualResult = DateWrapper.getDateFromString("01-07-2021", dateFormat);
-        } catch (ParseException ex) {
-            System.out.println(ex.getMessage());
-        }
-        //Than
-        Assertions.assertEquals(expectedResult, actualResult.toString());
-    }
 
     @Test
     void testGetDaysBetween() {
@@ -255,19 +239,19 @@ class DateWrapperTest {
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
-        static Stream<Arguments> getFirstJanuaryForCalendarProviderArguments() {
-            return Stream.of(
-                    Arguments.of("01-01-2021", new GregorianCalendar(2020, Calendar.JULY,2), new SimpleDateFormat("dd-MM-yyyy")),
-                    Arguments.of("01-01-2020", new GregorianCalendar(2020, Calendar.JULY,1), new SimpleDateFormat("dd-MM-yyyy"))
-            );
-        }
-
-        @ParameterizedTest
-        @MethodSource("getFirstJanuaryForCalendarProviderArguments")
-        void getFirstJanuaryForCalendar(String expectedResult, Calendar calendar, DateFormat dateFormat) {
-            // WHEN
-            String actualResult = DateWrapper.getFirstJanuary(calendar, dateFormat);
-            // THAT
-            Assertions.assertEquals(expectedResult, actualResult);
-        }
+    static Stream<Arguments> getFirstJanuaryForCalendarProviderArguments() {
+        return Stream.of(
+                Arguments.of("01-01-2021", new GregorianCalendar(2020, Calendar.JULY, 2), new SimpleDateFormat("dd-MM-yyyy")),
+                Arguments.of("01-01-2020", new GregorianCalendar(2020, Calendar.JULY, 1), new SimpleDateFormat("dd-MM-yyyy"))
+        );
     }
+
+    @ParameterizedTest
+    @MethodSource("getFirstJanuaryForCalendarProviderArguments")
+    void getFirstJanuaryForCalendar(String expectedResult, Calendar calendar, DateFormat dateFormat) {
+        // WHEN
+        String actualResult = DateWrapper.getFirstJanuary(calendar, dateFormat);
+        // THAT
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
+}
