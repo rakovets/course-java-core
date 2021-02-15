@@ -58,11 +58,4 @@ class DateWrapperTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
-    @Test
-    void getDate() throws ParseException {
-       Date actual = DateWrapper.getDate(2020, 1, 1);
-
-       Assertions.assertEquals("Wed Jan 01 00:00:00 MSK 2020", actual.toString());
-    }
 }
