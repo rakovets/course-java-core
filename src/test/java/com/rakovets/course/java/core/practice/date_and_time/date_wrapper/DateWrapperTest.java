@@ -134,19 +134,19 @@ class DateWrapperTest {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         //When
         String actualResult = DateWrapper.getStringDate(date, dateFormat);
-        //ThanalDate
+        //Than
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @Test
     void GetDateFromString() throws ParseException {
         //Given
-        Date date = new Date(1625086800000L);
+        String expectedResult = "Thu Jul 01 00:00:00 MSK 2021";
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         //When
         Date actualResult = DateWrapper.getDateFromString("01-07-2021", dateFormat);
         //Than
-        Assertions.assertEquals(date.toString(), actualResult.toString());
+        Assertions.assertEquals(expectedResult, actualResult.toString());
     }
 
     @Test
