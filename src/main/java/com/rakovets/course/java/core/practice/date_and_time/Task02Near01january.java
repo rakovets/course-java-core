@@ -9,13 +9,10 @@ import java.time.temporal.*;
 public class Task02Near01january implements TemporalAdjuster {
     @Override
     public Temporal adjustInto(Temporal temporal) {
-
-        LocalDate local1 = LocalDate.from((TemporalAccessor) TemporalAdjusters.firstDayOfYear());
-        LocalDate local2 = LocalDate.from((TemporalAccessor) TemporalAdjusters.firstDayOfNextYear());
-        if (Period.between(LocalDate.from(temporal), local1).getDays() >= Period.between(LocalDate.from(temporal), local2).getDays()) {
-            return (Temporal)TemporalAdjusters.firstDayOfNextYear();
+        if (temporal.get(ChronoField.DAY_OF_YEAR) >= 183) {
+           return temporal.with(TemporalAdjusters.firstDayOfNextYear());
         } else {
-            return (Temporal)TemporalAdjusters.firstDayOfYear();
+           return temporal.with(TemporalAdjusters.firstDayOfYear());
         }
     }
 }

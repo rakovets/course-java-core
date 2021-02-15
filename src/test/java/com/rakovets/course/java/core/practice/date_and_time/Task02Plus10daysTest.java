@@ -4,17 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.Year;
-import java.time.temporal.Temporal;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class Task02Near01januaryTest {
+class Task02Plus10daysTest {
 
     @Test
     void adjustInto() {
-        LocalDate expected = LocalDate.of(2021, 1, 1);
-        Task02Near01january near = new Task02Near01january();
+        LocalDate expected = LocalDate.of(2020, 12, 15);
+        Task02Plus10days near = new Task02Plus10days();
 
         LocalDate local = LocalDate.of(2020, 12, 5);
 
