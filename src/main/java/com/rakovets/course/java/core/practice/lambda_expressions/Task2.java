@@ -1,15 +1,31 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import com.rakovets.course.java.core.example.lambda_expressions.lambda.model.BinaryOperation;
+import java.util.stream.IntStream;
 
-public class Task2 {
-    BinaryOperation<Integer> addition = (x, y) -> x * y;
-    Integer result = addition.operate(2, 5);
+public abstract class Task2 {
+    public static void getMultiplicationTable() {
+        IntStream.rangeClosed(1, 10)
+                .forEach(i -> {
+                    IntStream.rangeClosed(1, 10)
+                            .forEach(j -> System.out.printf("%d * %d = %d\n", i, j, i * j));
+                    System.out.println();
+                });
+    }
 
-  /*  phoneStream
-            .flatMap(p -> Stream.of(
-            String.format("название: %s  цена без скидки: %d", p.getName(), p.getPrice()),
-            String.format("название: %s  цена со скидкой: %d", p.getName(), p.getPrice() - (int) (p.getPrice() * 0.1))
-            ))
-            .forEach(s -> System.out.println(s)); */
+    public static void getMultiplicationTableInFiveColumns() {
+        IntStream.rangeClosed(1, 10)
+                .forEach(i -> {
+                    IntStream.rangeClosed(1, 5)
+                            .forEach(j -> System.out.printf("%d * %d = %d\t\t", i, j, i * j));
+                    System.out.println();
+                });
+        System.out.println();
+
+        IntStream.rangeClosed(1, 10)
+                .forEach(i -> {
+                    IntStream.rangeClosed(6, 10)
+                            .forEach(j -> System.out.printf("%d * %d = %d\t\t", i, j, i * j));
+                    System.out.println();
+                });
+    }
 }
