@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Task1 {
     private final String[] array;
@@ -31,7 +29,7 @@ public class Task1 {
 
     public Map<String, String> generateMap() {
         return Arrays.stream(entries)
-                .collect(Collectors.toMap(p -> p.split(" ")[0], t -> t.split(" ")[1]));
+                .collect(Collectors.toMap(key -> key.split(" ")[0], value -> value.split(" ")[1]));
     }
 
     public List<String> transformMapToList(Map<String, String> map) {
