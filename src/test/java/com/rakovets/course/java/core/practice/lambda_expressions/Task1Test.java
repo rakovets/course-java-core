@@ -9,10 +9,10 @@ public class Task1Test {
     @Test
     void generateMap() {
         // GIVEN
-        Task1 test = new Task1(new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"});
+        String[] example = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
 
         // WHEN
-        String actualString = test.generateMap().toString();
+        String actualString = Task1.generateMap(example).toString();
 
         // THEN
         Assertions.assertEquals("{-o=out.txt, -d=1, -i=in.txt, --limit=40}", actualString);
@@ -21,12 +21,12 @@ public class Task1Test {
     @Test
     void transformMapToList() {
         // GIVEN
-        Task1 test = new Task1(new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"});
+        String[] example = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
         List<String> expectedList = new ArrayList<>();
         Collections.addAll(expectedList, "-o: out.txt", "-d: 1", "-i: in.txt", "--limit: 40");
 
         // WHEN
-        List<String> actualList = test.transformMapToList(test.generateMap());
+        List<String> actualList = Task1.transformMapToList(Task1.generateMap(example));
 
         // THEN
         Assertions.assertEquals(expectedList, actualList);

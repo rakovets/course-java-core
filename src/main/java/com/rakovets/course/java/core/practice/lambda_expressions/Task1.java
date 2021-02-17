@@ -6,16 +6,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Task1 {
-    private final String[] array;
-    private final String[] entries;
-
-    public Task1(String[] array) {
-        this.array = array;
-        this.entries = getEntries();
+public abstract class Task1 {
+    public static Map<String, String> generateMap(String[] array) {
+        return Arrays.stream(getEntries(array))
+                .collect(Collectors.toMap(key -> key.split(" ")[0], value -> value.split(" ")[1]));
     }
 
-    private String[] getEntries() {
+    public static List<String> transformMapToList(Map<String, String> map) {
+        return map.entrySet().stream()
+                .collect(
+                        ArrayList::new,
+                        (list, item) -> list.add(item.getKey() + ": " + item.getValue()),
+                        ArrayList::addAll);
+    }
+
+    private static String[] getEntries(String[] array) {
         String[] work = new String[array.length/2];
         int y = 0;
 
@@ -25,18 +30,5 @@ public class Task1 {
             y++;
         }
         return work;
-    }
-
-    public Map<String, String> generateMap() {
-        return Arrays.stream(entries)
-                .collect(Collectors.toMap(key -> key.split(" ")[0], value -> value.split(" ")[1]));
-    }
-
-    public List<String> transformMapToList(Map<String, String> map) {
-        return map.entrySet().stream()
-                .collect(
-                        ArrayList::new,
-                        (list, item) -> list.add(item.getKey() + ": " + item.getValue()),
-                        ArrayList::addAll);
     }
 }
