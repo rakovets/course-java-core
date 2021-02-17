@@ -71,7 +71,7 @@ class UniversityTest {
         University studentsInUniversity = new University(listOfStudent);
         Map<String, Long> expected = new LinkedHashMap<>();
         expected.put("Economy", 1L);
-        expected.put("Build", 3L);
+        expected.put("Build", 2L);
         expected.put("Philosophy", 1L);
 
         Map<String, Long> actual = studentsInUniversity.getNumberStudentsOfSpeciality();
