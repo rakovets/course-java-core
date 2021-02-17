@@ -7,11 +7,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Task01 {
-    public static void main(String[] args) {
-        String[] str = new String[] {"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
-        System.out.println(Arrays.toString(getArray(getMap(str))));
-    }
-
     public static Map<String, String> getMap(String[] keyValue) {
         keyValue[0] = keyValue[0].substring(1);
         String[] str = String.join(" ", keyValue).split(" -");
