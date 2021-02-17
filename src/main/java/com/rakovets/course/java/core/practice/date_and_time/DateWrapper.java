@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
@@ -26,8 +27,8 @@ public class DateWrapper {
         return localDate.format(DateTimeFormatter.ofPattern(pattern, US));
     }
 
-    public static String localDateFormat(String localDate, String pattern) {
-        return LocalDate.parse(localDate).format(DateTimeFormatter.ofPattern(pattern, US));
+    public static LocalDate localDateFormat(String localDate, String pattern) {
+        return LocalDate.parse(localDate, DateTimeFormatter.ofPattern(pattern, US));
     }
 
     public static int daysBetween(LocalDate localDate1, LocalDate localDate2) {
@@ -39,8 +40,8 @@ public class DateWrapper {
     }
 
     public static TemporalAdjuster firstJanuary(LocalDate localDate) {
-        int months = localDate.getMonthValue();
-        if (months < 6)
+        int HALF_YEAR = 183;
+        if  (localDate.get(ChronoField.DAY_OF_YEAR) < HALF_YEAR)
             return temporal -> temporal.with(TemporalAdjusters.firstDayOfYear());
         else
             return temporal -> temporal.with(TemporalAdjusters.firstDayOfNextYear());
