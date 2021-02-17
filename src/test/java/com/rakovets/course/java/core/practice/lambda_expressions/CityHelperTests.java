@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CityHelperDemo {
+public class CityHelperTests {
 
     @Test
     void getUniqueCity() {
