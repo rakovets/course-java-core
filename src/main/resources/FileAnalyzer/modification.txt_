@@ -1,0 +1,5 @@
+ void replaceAccessModifiers() {
+         String filePath = "src" + File.separator + "main" + File.separator + "resources" + File.separator
+                 + "modification.txt"; FileAnalyzeUtil.replaceAccessModifiers(filePath, "public",
+                 "public");
+     }

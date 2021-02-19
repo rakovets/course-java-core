@@ -1,0 +1,5 @@
+Student1,10,8,10,5,5
+Student2,5,2,8,5,1
+Student3,8,5,5,2,9
+Student4,7,4,6,4,6
+Student5,4,10,8,9,9
