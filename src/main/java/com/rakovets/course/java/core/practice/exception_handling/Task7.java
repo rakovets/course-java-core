@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.exception_handling;
 
 import java.util.Random;
 
-public class Task_7 {
+public class Task7 {
     public static void main(String[] args) {
         try {
             someMethod();

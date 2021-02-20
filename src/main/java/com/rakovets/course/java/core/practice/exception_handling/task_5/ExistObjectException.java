@@ -1,14 +1,9 @@
 package com.rakovets.course.java.core.practice.exception_handling.task_5;
 
-public class ExistObjectException extends Exception {
-    private String description;
+public class ExistObjectException extends NullPointerException {
 
-    public ExistObjectException(String message, String description) {
-        super(message);
-        this.description = description;
+    public ExistObjectException(NullPointerException e, String description) {
+        super(description);
     }
 
-    public String getDescription() {
-        return description;
-    }
 }

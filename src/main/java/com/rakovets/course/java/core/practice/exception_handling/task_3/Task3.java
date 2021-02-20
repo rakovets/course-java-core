@@ -9,7 +9,7 @@ public class Task3 {
             boolean result = Number.checkPositiveNumber(a);
             System.out.println(result);
         } catch (ScannerException e) {
-            System.out.println("Stack trace " + e.fillInStackTrace());
+            e.printStackTrace();
             System.out.println(e.getMessage());
             System.out.println(e.getNumber());
         }
