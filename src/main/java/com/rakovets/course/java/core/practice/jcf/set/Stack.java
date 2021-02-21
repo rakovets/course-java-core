@@ -2,10 +2,11 @@ package com.rakovets.course.java.core.practice.jcf.set;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public class Stack<E> {
     private int size = 5;
-    private HashSet stack;
+    private Set stack;
 
     public Stack( int size, boolean isFixed) {
         if (isFixed && size > 0) {
