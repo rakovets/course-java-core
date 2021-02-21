@@ -2,13 +2,10 @@ package com.rakovets.course.java.core.practice.io;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FileAnalyzeUtilTest {
 
@@ -83,8 +80,9 @@ class FileAnalyzeUtilTest {
 
     @Test
     void getSortNumbers() {
+        FileAnalyzeUtil.getSortNumbers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/sort-numbers.txt");
         String expected = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/sort-numbers_.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/sort-numbers.txt_"))) {
             String s;
             while ((s = br.readLine()) != null) {
                 expected += s;
@@ -93,8 +91,44 @@ class FileAnalyzeUtilTest {
             System.out.println(ex.getMessage());
         }
 
-        FileAnalyzeUtil.getSortNumbers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/sort-numbers.txt");
         String actual = "[0, 9, 23, 24]";
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getAverageMark() {
+        Map<String, Double> expected = new HashMap<>();
+        expected.put("ivanov", 7.75);
+        expected.put("sidorov", 5.0);
+
+        Map<String, Double> actual = FileAnalyzeUtil.getAverageMark("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/average-mark.txt");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void replaceModifiers() {
+        String expected = "";
+        String actual = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/replace-modifiers-for-junit.txt"))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                expected += s;
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        FileAnalyzeUtil.replaceModifiers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/replace-modifiers-origin.txt", "public", "protected");
+        try (BufferedReader br = new BufferedReader(new FileReader("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/replace-modifiers-origin.txt_"))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                actual += s;
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         Assertions.assertEquals(expected, actual);
     }
