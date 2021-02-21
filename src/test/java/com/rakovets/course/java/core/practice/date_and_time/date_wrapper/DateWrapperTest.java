@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -93,9 +94,9 @@ class DateWrapperTest {
 
     @ParameterizedTest
     @MethodSource("getFirstJanuaryProviderArguments")
-    void getFirstJanuary(LocalDate expectedResult, LocalDate localDate) {
+    void getFirstJanuary(LocalDate expectedResult, Temporal temporal) {
         // WHEN
-        LocalDate actualResult = DateWrapper.getFirstJanuary(localDate);
+        Temporal actualResult = DateWrapper.getFirstJanuary(temporal);
         // THAT
         Assertions.assertEquals(expectedResult, actualResult);
     }

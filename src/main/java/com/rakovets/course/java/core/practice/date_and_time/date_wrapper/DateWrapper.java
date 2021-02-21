@@ -5,9 +5,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjuster;
-import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.*;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,18 +35,16 @@ public class DateWrapper {
         return localDate.with(dayAdjuster);
     }
 
-    public static LocalDate getFirstJanuary(LocalDate localDate) {
-        TemporalAdjuster firstJanuaryAdjusterOfThisYear = TemporalAdjusters.firstDayOfYear();
-        TemporalAdjuster firstJanuaryAdjusterOfNextYear = TemporalAdjusters.firstDayOfNextYear();
-        if (localDate.getMonthValue() > 7) {
-            return localDate.with(firstJanuaryAdjusterOfNextYear);
+    public static Temporal getFirstJanuary(Temporal temporal) {
+        if (temporal.get(ChronoField.MONTH_OF_YEAR) > 7) {
+            return temporal.with(TemporalAdjusters.firstDayOfNextYear());
         }
-        if (localDate.getMonthValue() == 7) {
-            if (localDate.getDayOfMonth() >= 2) {
-                return localDate.with(firstJanuaryAdjusterOfNextYear);
+        if (temporal.get(ChronoField.MONTH_OF_YEAR) == 7) {
+            if (temporal.get(ChronoField.DAY_OF_MONTH) >= 2) {
+                return temporal.with(TemporalAdjusters.firstDayOfNextYear());
             }
         }
-        return localDate.with(firstJanuaryAdjusterOfThisYear);
+        return temporal.with(TemporalAdjusters.firstDayOfYear());
     }
 
     public static String getDate(Date date, DateFormat formatter) {
