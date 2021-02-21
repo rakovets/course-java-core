@@ -1,17 +1,11 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
-import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
-public class CustomTemporal implements TemporalAdjuster {
-
-    // прибавляет к дате N дней
-    public static TemporalAdjuster addDays(LocalDate ld, long days) {
-        return ld.plusDays(days);
-    }
+public class ChangeDate implements TemporalAdjuster {
     // изменяет дату на ближайшее (в днях) 1 января
     @Override
     public Temporal adjustInto(Temporal temporal) {
