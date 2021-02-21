@@ -122,7 +122,7 @@ public class DateWrapperTest {
     @MethodSource("closestFirstDayProvideArguments")
     void closestFirstDay(LocalDate expectedDate, LocalDate date1) {
 
-        LocalDate actualDate = DateWrapper.closestFirstDay(date1);
+        LocalDate actualDate =(LocalDate) DateWrapper.closestFirstDay.adjustInto(date1);
 
         Assertions.assertEquals(expectedDate, actualDate);
     }

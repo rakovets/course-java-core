@@ -37,13 +37,15 @@ public class DateWrapper {
         return (LocalDate) adjuster.adjustInto(date);
     }
 
-    public static LocalDate closestFirstDay(LocalDate date) {
-        int dayYear = date.get(ChronoField.DAY_OF_YEAR);
+    public static TemporalAdjuster closestFirstDay = (temporal) -> {
 
-        if (dayYear < 183) {
-            return date.with(TemporalAdjusters.firstDayOfYear());
+        int dayYear = temporal.get(ChronoField.DAY_OF_YEAR);
+        int halfYear = 183;
+
+        if (dayYear < halfYear) {
+            return temporal.with(TemporalAdjusters.firstDayOfYear());
         } else {
-            return date.with(TemporalAdjusters.firstDayOfNextYear());
+            return temporal.with(TemporalAdjusters.firstDayOfNextYear());
         }
-    }
+   };
 }
