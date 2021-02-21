@@ -10,7 +10,7 @@ public class DemoDateAndTime {
         System.out.println(DateWrapper.getStringDate(LocalDate.now(), DateTimeFormatter.ofPattern("LL-dd-ee-yy")));
         System.out.println(DateWrapper.getLocalDate("1999/10/17", DateTimeFormatter.ofPattern("yyyy/MM/dd")));
         System.out.println(DateWrapper.getDifference(LocalDate.now(), LocalDate.of(2021, 01, 01)));
-        System.out.println(new AddDays().adjustInto(LocalDate.now()));
-        System.out.println(new ChangeDate().adjustInto(LocalDate.now()));
+        System.out.println(new AddDaysAdjuster().adjustInto(LocalDate.now()));
+        System.out.println(new ChangeDateAdjuster().adjustInto(LocalDate.now()));
     }
 }

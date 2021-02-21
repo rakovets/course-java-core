@@ -5,7 +5,7 @@ import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
-public class ChangeDate implements TemporalAdjuster {
+public class ChangeDateAdjuster implements TemporalAdjuster {
     // изменяет дату на ближайшее (в днях) 1 января
     @Override
     public Temporal adjustInto(Temporal temporal) {
