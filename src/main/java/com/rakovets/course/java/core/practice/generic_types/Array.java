@@ -19,14 +19,14 @@ public class Array<T extends Number> {
     }
 
     public void fillArray() {
-        Number arrayValue = 0;
-        Scanner sc = new Scanner(System.in);
 
+        Scanner sc = new Scanner(System.in);
+        T arrayValue = null;
         for (int i = 0; i < this.array.length; i++) {
             if (sc.hasNextDouble()) {
-                arrayValue = sc.nextDouble();
+                arrayValue = (T) Double.valueOf(sc.nextDouble());
             }
-            this.array[i] = (T) arrayValue;
+            this.array[i] = arrayValue;
         }
     }
 
@@ -46,17 +46,17 @@ public class Array<T extends Number> {
         return this.array[this.array.length - 1];
     }
 
-    public Number getMinArray() {
+    public T getMinArray() {
         Arrays.sort(this.array);
         return this.array[0];
     }
 
-    public Number getArithmeticMean() {
+    public T getArithmeticMean() {
         double sumNumbers = 0;
         for (int i = 0; i < this.array.length; i++) {
             sumNumbers += this.array[i].doubleValue();
         }
-        return sumNumbers / this.array.length;
+        return (T)Double.valueOf(sumNumbers / this.array.length);
     }
 
     public void sortAscending() {
@@ -95,7 +95,7 @@ public class Array<T extends Number> {
         this.array[indexArray] = (T) newValue;
     }
 
-    public Number searchBinary(Number number) {
-        return Arrays.binarySearch(this.array, number);
+    public T searchBinary(Number number) {
+        return (T) Integer.valueOf(Arrays.binarySearch(this.array, number));
     }
 }
