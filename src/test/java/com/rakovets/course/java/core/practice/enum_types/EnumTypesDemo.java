@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
-public class EnumTypesTest {
+public class EnumTypesDemo {
     public static void main(String[] args) {
         Seasons favorite = Seasons.SUMMER;
         System.out.println(favorite + "\n");
