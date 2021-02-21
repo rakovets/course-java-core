@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 public class Obscure<T> {
     private T obj;
-    private T defaultObj = null;
 
     public Obscure(T obj) {
         this.obj = obj;
@@ -13,18 +12,18 @@ public class Obscure<T> {
     }
 
     public boolean isPresent() {
-        return getObj() != null;
+        return obj != null;
     }
 
     public boolean isEmpty() {
-        return getObj() == null;
+        return obj == null;
     }
 
     public T orElse(T obj) {
         if (isPresent()) {
-            return getObj();
+            return this.getObj();
         } else {
-            return defaultObj;
+            return obj;
         }
     }
 
