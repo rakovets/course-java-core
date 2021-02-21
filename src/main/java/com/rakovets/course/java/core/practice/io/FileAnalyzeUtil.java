@@ -60,27 +60,40 @@ public class FileAnalyzeUtil {
 
     public static List<String> getMaxConsistencyOfNumbers(String path) {
         List<String> list = new LinkedList<>();
+        List<String> listForReturn = new LinkedList<>();
         int counter = 0;
         int counterMax = 0;
-        String maxNum = "";
+        int lineNum = -1;
+        String result = "";
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String s;
             while ((s = br.readLine()) != null) {
-                String[] arrayWords = s.split(" ");
-                for (int i = 1; i < arrayWords.length; i++) {
-                    if (Integer.parseInt(arrayWords[i]) > Integer.parseInt(arrayWords[i - 1])) {
-                        maxNum = maxNum + arrayWords[i] + " ";
+                Collections.addAll(list, s.split(" "));
+                list.add("0");
+                lineNum++;
+                for (int i = 0; i < list.size() - 1; i++) {
+                    if (Integer.parseInt(list.get(i + 1)) > Integer.parseInt(list.get(i))) {
+                        result += list.get(i) + " ";
+                        counter++;
+                    } else if (counter > counterMax) {
+                        if (listForReturn.size() >= lineNum) {
+                            listForReturn.remove(lineNum);
+                        }
+                        result += list.get(i);
+                        listForReturn.add(result);
+                        counterMax = counter;
+                        counter = 0;
+                        result = "";
                     } else {
-                        maxNum = maxNum + arrayWords[i] + " | ";
-                        list.add(maxNum);
-                        maxNum = "";
+                        result = "";
+                        counter = 0;
                     }
                 }
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        return list;
+        return listForReturn;
     }
 
     public static Map<Character, Integer> getNumbersOfChars(String path) {
