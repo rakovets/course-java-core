@@ -59,7 +59,7 @@ public class FileAnalyzeUtil {
     }
 
     public static List<String> getMaxConsistencyNumbers(String path) {
-        List<String> list = new LinkedList<>();
+        List<String> listOfOneString = new LinkedList<>();
         List<String> listForReturn = new LinkedList<>();
         int counter = 0;
         int counterMax = 0;
@@ -68,18 +68,20 @@ public class FileAnalyzeUtil {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String s;
             while ((s = br.readLine()) != null) {
-                Collections.addAll(list, s.split(" "));
-                list.add("0");
+                listOfOneString.clear();
+                Collections.addAll(listOfOneString, s.split(" "));
+                listOfOneString.add("0");
                 lineNum++;
-                for (int i = 0; i < list.size() - 1; i++) {
-                    if (Integer.parseInt(list.get(i + 1)) > Integer.parseInt(list.get(i))) {
-                        result += list.get(i) + " ";
+                counterMax = 0;
+                for (int i = 0; i < listOfOneString.size() - 1; i++) {
+                    if (Integer.parseInt(listOfOneString.get(i + 1)) > Integer.parseInt(listOfOneString.get(i))) {
+                        result += listOfOneString.get(i) + " ";
                         counter++;
                     } else if (counter > counterMax) {
                         if (listForReturn.size() > lineNum) {
                             listForReturn.remove(lineNum);
                         }
-                        result += list.get(i);
+                        result += listOfOneString.get(i);
                         listForReturn.add(result);
                         counterMax = counter;
                         counter = 0;
@@ -93,6 +95,7 @@ public class FileAnalyzeUtil {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+
         return listForReturn;
     }
 

@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.*;
 
 class FileAnalyzeUtilTest {
-
     @Test
     void getListOfStrings() {
         List<String> expected = new LinkedList<>();
@@ -47,6 +46,7 @@ class FileAnalyzeUtilTest {
         List<String> expected = new LinkedList<>();
         expected.add("1 2 3");
         expected.add("67 68 69");
+        expected.add("29 30 31");
 
         List<String> actual = FileAnalyzeUtil.getMaxConsistencyNumbers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/list-max-consistency.txt");
 
@@ -110,7 +110,6 @@ class FileAnalyzeUtilTest {
     @Test
     void replaceModifiers() {
         String expected = "";
-        String actual = "";
         try (BufferedReader br = new BufferedReader(new FileReader("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/replace-modifiers-for-junit.txt"))) {
             String s;
             while ((s = br.readLine()) != null) {
@@ -120,6 +119,7 @@ class FileAnalyzeUtilTest {
             System.out.println(ex.getMessage());
         }
 
+        String actual = "";
         FileAnalyzeUtil.replaceModifiers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/replace-modifiers-origin.txt", "public", "protected");
         try (BufferedReader br = new BufferedReader(new FileReader("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/replace-modifiers-origin.txt_"))) {
             String s;
