@@ -21,15 +21,7 @@ public class Pair <K, V>{
         return key;
     }
 
-    public void setOne(K one) {
-        this.key = one;
-    }
-
     public V getTwo() {
         return value;
-    }
-
-    public void setTwo(V two) {
-        this.value = two;
     }
 }

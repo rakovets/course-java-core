@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 public class Obscure <T> {
     private final T object;
-    private final T defaultObject = null;
 
     public Obscure(T object) {
         this.object = object;
@@ -40,9 +39,5 @@ public class Obscure <T> {
 
     public T getObject() {
         return object;
-    }
-
-    public T getDefaultObject() {
-        return defaultObject;
     }
 }
