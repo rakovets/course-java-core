@@ -1,11 +1,10 @@
 package com.rakovets.course.java.core.practice.io;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public abstract class FileAnalyzeUtil {
 
@@ -90,4 +89,66 @@ public abstract class FileAnalyzeUtil {
         return receiver;
     }
 
+    public static Map<Character, Integer> getLettersFrequency(String filePath) {
+        String data = getList(filePath).toString().replaceAll("\\W", "").toLowerCase(Locale.ROOT);
+        Map<Character, Integer> receiver = new HashMap<>();
+
+        for (char x : data.toCharArray()) {
+            Integer frequency = receiver.get(x);
+            receiver.put(x, frequency == null ? 1 : frequency + 1);
+        }
+        return receiver;
+    }
+
+    public static List<String> getAscendingWordFrequency(String filePath) {
+        String data = getList(filePath).toString().replaceAll("\\W", " ").toLowerCase(Locale.ROOT);
+        String[] wordArray = data.trim().split("\\s+");
+
+        Map<String, Integer> wordMap = new HashMap<>();
+        for (String word : wordArray) {
+            Integer frequency = wordMap.get(word);
+            wordMap.put(word, frequency == null ? 1 : frequency + 1);
+        }
+        return wordMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .map(entry -> String.format("'%s' - %d", entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+    }
+
+    public static boolean sortAndWriteNumbers(String filePath) {
+        String data = getList(filePath).toString().replaceAll("\\D", " ");
+
+        List<Integer> numbers = Arrays.stream(data.trim().split("\\s+"))
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath + "_"))) {
+            bw.write(numbers.toString().replaceAll("[\\[\\]]", ""));
+            return true;
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+
+    public static List<String> getStudentAverageMark(String filePath) {
+        List<String> receiver = new ArrayList<>();
+
+        List<String> data = getList(filePath);
+        for (String studentMarks : data) {
+            String surname = studentMarks.replaceAll("[\\W\\d]","");
+            double averageMark = 0.0;
+            String[] marksString = studentMarks.replaceAll("\\D", " ").trim().split("\\s+");
+            Optional<Integer> marks = Arrays.stream(marksString)
+                    .map(Integer::parseInt)
+                    .reduce(Integer::sum);
+
+            if (marks.isPresent()) {
+                averageMark = (double) marks.get() / marksString.length;
+            }
+            receiver.add(String.format("%s - average mark: %.2f", surname, averageMark));
+        }
+        return receiver;
+    }
 }
