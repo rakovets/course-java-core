@@ -76,7 +76,7 @@ public class FileAnalyzeUtil {
                         result += list.get(i) + " ";
                         counter++;
                     } else if (counter > counterMax) {
-                        if (listForReturn.size() >= lineNum) {
+                        if (listForReturn.size() > lineNum) {
                             listForReturn.remove(lineNum);
                         }
                         result += list.get(i);
