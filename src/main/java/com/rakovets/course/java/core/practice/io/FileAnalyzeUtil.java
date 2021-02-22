@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public abstract class FileAnalyzeUtil {
     public static List<String> getList(String filePath) {
         List<String> receiver = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String string;
             while ((string = reader.readLine()) != null) {
@@ -55,8 +56,8 @@ public abstract class FileAnalyzeUtil {
 
     public static List<String> getLongestAscendingCombination(String filePath) {
         List<String> receiver = new ArrayList<>();
-
         List<String> data = getList(filePath);
+
         for (String string : data) {
             String examplePure = string.replaceAll("\\D", " ");
             String[] exampleArray = examplePure.trim().split("\\s+");
@@ -102,8 +103,8 @@ public abstract class FileAnalyzeUtil {
     public static List<String> getAscendingWordFrequency(String filePath) {
         String data = getList(filePath).toString().replaceAll("\\W", " ").toLowerCase(Locale.ROOT);
         String[] wordArray = data.trim().split("\\s+");
-
         Map<String, Integer> wordMap = new HashMap<>();
+
         for (String word : wordArray) {
             Integer frequency = wordMap.get(word);
             wordMap.put(word, frequency == null ? 1 : frequency + 1);
@@ -133,8 +134,8 @@ public abstract class FileAnalyzeUtil {
 
     public static List<String> getStudentAverageMark(String filePath) {
         List<String> receiver = new ArrayList<>();
-
         List<String> data = getList(filePath);
+
         for (String studentMarks : data) {
             String surname = studentMarks.replaceAll("[\\W\\d]","");
             double averageMark = 0.0;
