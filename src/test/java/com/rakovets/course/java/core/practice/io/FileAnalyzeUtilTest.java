@@ -43,12 +43,12 @@ class FileAnalyzeUtilTest {
     }
 
     @Test
-    void getMaxConsistencyOfNumbers() {
+    void getMaxConsistencyNumbers() {
         List<String> expected = new LinkedList<>();
         expected.add("1 2 3");
         expected.add("67 68 69");
 
-        List<String> actual = FileAnalyzeUtil.getMaxConsistencyOfNumbers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/list-max-consistency.txt");
+        List<String> actual = FileAnalyzeUtil.getMaxConsistencyNumbers("src/test/java/com/rakovets/course/java/core/practice/io/filesForFileAnalyzer/list-max-consistency.txt");
 
         Assertions.assertEquals(expected, actual);
     }

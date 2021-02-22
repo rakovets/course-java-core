@@ -58,7 +58,7 @@ public class FileAnalyzeUtil {
         return list;
     }
 
-    public static List<String> getMaxConsistencyOfNumbers(String path) {
+    public static List<String> getMaxConsistencyNumbers(String path) {
         List<String> list = new LinkedList<>();
         List<String> listForReturn = new LinkedList<>();
         int counter = 0;
