@@ -95,7 +95,6 @@ public class FileAnalyzeUtil {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
         return listForReturn;
     }
 
@@ -130,7 +129,6 @@ public class FileAnalyzeUtil {
                     }
                 }
             }
-
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
