@@ -60,7 +60,7 @@ public class FileAnalyzeUtil {
 
     public static List<String> getMaxConsistencyNumbers(String path) {
         List<String> listOfOneString = new LinkedList<>();
-        List<String> listForReturn = new LinkedList<>();
+        List<String> listMaxConsistency = new LinkedList<>();
         int counter = 0;
         int counterMax = 0;
         int lineNum = -1;
@@ -78,11 +78,11 @@ public class FileAnalyzeUtil {
                         result += listOfOneString.get(i) + " ";
                         counter++;
                     } else if (counter > counterMax) {
-                        if (listForReturn.size() > lineNum) {
-                            listForReturn.remove(lineNum);
+                        if (listMaxConsistency.size() > lineNum) {
+                            listMaxConsistency.remove(lineNum);
                         }
                         result += listOfOneString.get(i);
-                        listForReturn.add(result);
+                        listMaxConsistency.add(result);
                         counterMax = counter;
                         counter = 0;
                         result = "";
@@ -95,7 +95,7 @@ public class FileAnalyzeUtil {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        return listForReturn;
+        return listMaxConsistency;
     }
 
     public static Map<Character, Integer> getNumbersOfChars(String path) {
