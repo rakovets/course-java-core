@@ -118,8 +118,8 @@ public class FileAnalyzeUtilTest {
         // GIVEN
 
         // WHEN
-        boolean actualBoolean = FileAnalyzeUtil.replaceModifiers("src/main/java/com/rakovets/course/java/core" +
-                "/practice/io/Task10Example.java", "private", "public");
+        boolean actualBoolean = FileAnalyzeUtil.replaceModifiers("src/main/resources/Task10Example.java",
+                "private", "public");
 
         // THEN
         Assertions.assertTrue(actualBoolean);

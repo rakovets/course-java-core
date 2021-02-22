@@ -1,11 +1,9 @@
-package com.rakovets.course.java.core.practice.io;
-
 public class Task10Example {
-    public final String producer;
-    public final String model;
-    public final int productionYear;
-    public final double diagonal;
-    public double price;
+    private final String producer;
+    private final String model;
+    private final int productionYear;
+    private final double diagonal;
+    private double price;
 
     public Task10Example(String producer, String model, int productionYear, double diagonal, double price) {
         this.producer = producer;
