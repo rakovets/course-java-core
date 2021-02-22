@@ -184,11 +184,10 @@ public class FileAnalyzeUtil {
 
     public static void replaceModifiers(String path, String modifierOld, String modifierNew ) {
         try {
-            Charset charset = StandardCharsets.UTF_8;
             Path pathFileOrigin = Paths.get(path);
             Files.write(Paths.get(path + "_"),
-                    Files.readString(pathFileOrigin, charset).replace(modifierOld, modifierNew)
-                            .getBytes(charset));
+                    Files.readString(pathFileOrigin).replace(modifierOld, modifierNew)
+                            .getBytes());
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
