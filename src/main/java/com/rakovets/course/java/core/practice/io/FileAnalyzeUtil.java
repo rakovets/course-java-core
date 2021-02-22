@@ -125,6 +125,7 @@ public abstract class FileAnalyzeUtil {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath + "_"))) {
             bw.write(numbers.toString().replaceAll("[\\[\\]]", ""));
+            bw.flush();
             return true;
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -161,6 +162,7 @@ public abstract class FileAnalyzeUtil {
             for(String data : receiver) {
                 bw.write(data + "\n");
             }
+            bw.flush();
             return true;
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
