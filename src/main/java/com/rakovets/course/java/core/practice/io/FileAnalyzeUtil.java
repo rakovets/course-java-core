@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public abstract class FileAnalyzeUtil {
-
     public static List<String> getList(String filePath) {
         List<String> receiver = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -60,8 +59,8 @@ public abstract class FileAnalyzeUtil {
         List<String> data = getList(filePath);
         for (String string : data) {
             String examplePure = string.replaceAll("\\D", " ");
-
             String[] exampleArray = examplePure.trim().split("\\s+");
+
             int first = Integer.parseInt(exampleArray[0]);
             String combination = exampleArray[0];
             Map <String, Integer> results = new HashMap<>();
@@ -150,5 +149,21 @@ public abstract class FileAnalyzeUtil {
             receiver.add(String.format("%s - average mark: %.2f", surname, averageMark));
         }
         return receiver;
+    }
+
+    public static boolean replaceModifiers(String filePath, String previous, String necessary) {
+        List<String> receiver = getList(filePath).stream()
+                .map(string -> string.replaceAll(previous, necessary))
+                .collect(Collectors.toList());
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath + "_"))) {
+            for(String data : receiver) {
+                bw.write(data + "\n");
+            }
+            return true;
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
 }
