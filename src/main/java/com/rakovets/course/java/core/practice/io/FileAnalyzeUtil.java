@@ -32,7 +32,7 @@ public abstract class FileAnalyzeUtil {
     public static List<String> getListLastLetterEqualsFirstLetter(String filePath) {
         List<String> receiver = new ArrayList<>();
 
-        String data = getList(filePath).toString().replaceAll("\\W", " ");
+        String data = getList(filePath).toString().replaceAll("[\\W\\d]", " ");
         String[] exampleArray = data.trim().split("\\s+");
         String first = exampleArray[0];
 
