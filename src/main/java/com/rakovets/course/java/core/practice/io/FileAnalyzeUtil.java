@@ -2,8 +2,6 @@ package com.rakovets.course.java.core.practice.io;
 
 import java.io.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public abstract class FileAnalyzeUtil {
@@ -34,12 +32,8 @@ public abstract class FileAnalyzeUtil {
     public static List<String> getListLastLetterEqualsFirstLetter(String filePath) {
         List<String> receiver = new ArrayList<>();
 
-        String data = getList(filePath).toString();
-        Pattern punctuationDeleting = Pattern.compile("[,.!?*\\-:\\[\\]+]");
-        Matcher matcher = punctuationDeleting.matcher(data);
-        String examplePure = matcher.replaceAll("");
-
-        String[] exampleArray = examplePure.trim().split("\\s+");
+        String data = getList(filePath).toString().replaceAll("\\W", " ");
+        String[] exampleArray = data.trim().split("\\s+");
         String first = exampleArray[0];
 
         for (int x = 1; x < exampleArray.length; x++) {
