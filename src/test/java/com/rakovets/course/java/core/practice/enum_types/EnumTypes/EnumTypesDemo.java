@@ -8,7 +8,7 @@ class EnumTypesDemo {
         enumTypes.getFavoriteSeason();
         System.out.println("Description: ");
         enumTypes.favorite();
-        System.out.println(enumTypes.getDescription(Season.SUMMER));
+        enumTypes.getDescription(Season.SUMMER);
         System.out.println("All seasons:");
         enumTypes.display();
     }
