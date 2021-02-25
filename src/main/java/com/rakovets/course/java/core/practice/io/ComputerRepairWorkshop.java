@@ -14,19 +14,19 @@ public class ComputerRepairWorkshop {
         }
     }
 
-    public static void deSerializeComputer(String path) {
+    public static void deserializeComputer(String path) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
             Computer computer = (Computer) ois.readObject();
-            System.out.printf("COMPUTER:\nManufacturer: %s\nModel: %s\nYear: %d\n", computer.getManufacturer(), computer.getModel(), computer.getYear());
+            System.out.printf(computer.toString());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
 
-    public static void deSerializeNotebook(String path) {
+    public static void deserializeNotebook(String path) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
             Notebook notebook = (Notebook) ois.readObject();
-            System.out.printf("NOTEBOOK:\nManufacturer: %s \nModel: %s \nYear: %d\nColor: %s\nRadius: %d\nButtons: %d", notebook.getManufacturer(), notebook.getModel(), notebook.getYear(), notebook.getColor(), notebook.getTouchpad().getRadius(), notebook.getTouchpad().getButtons());
+            System.out.printf(notebook.toString());
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

@@ -19,4 +19,15 @@ public class Notebook extends Computer implements Serializable {
     public String getColor() {
         return color;
     }
+
+    @Override
+    public String toString() {
+        return "NOTEBOOK\n" +
+                "Manufacturer: " + getManufacturer() +
+                ", Model: " + getModel() +
+                ", Year: " + getYear() +
+                ", Color: " + getColor() +
+                ", Touchpad radius: " + getTouchpad().getRadius() +
+                ", Touchpad buttons: " + getTouchpad().getButtons() + "\n";
+    };
 }

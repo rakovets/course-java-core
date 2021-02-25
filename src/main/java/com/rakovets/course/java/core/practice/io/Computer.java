@@ -24,4 +24,12 @@ public class Computer implements Serializable {
     public int getYear() {
         return year;
     }
+
+    @Override
+    public String toString() {
+        return "COMPUTER\n" +
+                "Manufacturer: " + getManufacturer() +
+                ", Model: " + getModel() +
+                ", Year: " + getYear() + "\n";
+    };
 }
