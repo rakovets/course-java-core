@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrency.common.censor;
 
+import com.rakovets.course.java.core.util.AnsiColorCode;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +17,7 @@ public class RemovingForbiddenWordsThread extends Thread {
 
     @Override
     public void run() {
-        try {
-            System.out.println("sleep...");
-            Thread.sleep(5000);
-            System.out.println("start...");
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println(AnsiColorCode.FG_GREEN_BOLD_BRIGHT + "Start removing forbidden words..." + AnsiColorCode.RESET);
         try (BufferedReader br = new BufferedReader(new FileReader(forbiddenWordsPath));
              BufferedReader br2 = new BufferedReader(new FileReader(mergedFilesPath))) {
             File tmp = File.createTempFile("tmp", null);
@@ -34,7 +29,6 @@ public class RemovingForbiddenWordsThread extends Thread {
                     listOfForbiddenWords.add(word);
                 }
             }
-
             BufferedWriter bwTmp = new BufferedWriter(new FileWriter(tmp.getPath(), true));
 
             while ((s = br2.readLine()) != null) {
@@ -57,5 +51,6 @@ public class RemovingForbiddenWordsThread extends Thread {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
+        System.out.println(AnsiColorCode.FG_GREEN_BOLD_BRIGHT + "Finished removing forbidden words..." + AnsiColorCode.RESET);
     }
 }

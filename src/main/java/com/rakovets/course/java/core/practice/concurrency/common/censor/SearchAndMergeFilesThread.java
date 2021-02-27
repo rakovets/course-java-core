@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrency.common.censor;
 
+import com.rakovets.course.java.core.util.AnsiColorCode;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,6 +19,7 @@ public class SearchAndMergeFilesThread extends Thread{
 
     @Override
     public void run() {
+        System.out.println(AnsiColorCode.FG_BLUE_BOLD_BRIGHT + "Start search and merge files..." + AnsiColorCode.RESET);
         try {
             Files.walk(Paths.get(pathForSearch)).filter(Files::isRegularFile)
                     .forEach(e -> {
@@ -42,5 +45,6 @@ public class SearchAndMergeFilesThread extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(AnsiColorCode.FG_BLUE_BOLD_BRIGHT + "Finished search and merge files..." + AnsiColorCode.RESET);
     }
 }
