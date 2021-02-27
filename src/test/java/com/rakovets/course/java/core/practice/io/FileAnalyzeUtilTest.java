@@ -13,7 +13,7 @@ public class FileAnalyzeUtilTest {
     void getListOfStrings() {
         String expectedList = "[Aux test out time enum, compile under Inbox, Aux test out time enum, Aux test]";
 
-        String actualList = FileAnalyzeUtil.getListOfStrings("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\text.txt").toString();
+        String actualList = FileAnalyzeUtil.getListOfStrings("src/test/java/com/rakovets/course/java/core/practice/io/text.txt").toString();
 
         Assertions.assertEquals(expectedList, actualList);
     }
@@ -21,7 +21,7 @@ public class FileAnalyzeUtilTest {
     @Test
     void getStartFromVowels() {
 
-        String  actualList = FileAnalyzeUtil.getStartFromVowels("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\text.txt").toString();
+        String  actualList = FileAnalyzeUtil.getStartFromVowels("src/test/java/com/rakovets/course/java/core/practice/io/text.txt").toString();
 
         Assertions.assertEquals("[Aux test out time enum, compile under Inbox, Aux test out time enum, Aux test]", actualList);
     }
@@ -29,7 +29,7 @@ public class FileAnalyzeUtilTest {
     @Test
     void getWordsMatchesByFirstLastChar() {
 
-        List<String> actualList = FileAnalyzeUtil.getWordsMatchesByFirstLastChar("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\text.txt");
+        List<String> actualList = FileAnalyzeUtil.getWordsMatchesByFirstLastChar("src/test/java/com/rakovets/course/java/core/practice/io/text.txt");
 
         Assertions.assertEquals("[out, time, enum, out, time, enum]", actualList.toString());
     }
@@ -37,7 +37,7 @@ public class FileAnalyzeUtilTest {
     @Test
     void getLongestCombo() {
 
-        List<String> actualList = FileAnalyzeUtil.getLongestCombo("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\numbers.txt");
+        List<String> actualList = FileAnalyzeUtil.getLongestCombo("src/test/java/com/rakovets/course/java/core/practice/io/numbers.txt");
 
         Assertions.assertEquals("[1 65 135]", actualList.toString());
     }
@@ -47,7 +47,7 @@ public class FileAnalyzeUtilTest {
 
         String expectedString = "{ =14, A=3, B=1, C=1, D=1, E=9, I=4, ,=3, L=1, M=5, N=4, O=4, P=1, R=1, S=3, T=10, U=8, X=4, [=1, ]=1}";
 
-        String actualString = FileAnalyzeUtil.getCharsFrequency("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\text.txt").toString();
+        String actualString = FileAnalyzeUtil.getCharsFrequency("src/test/java/com/rakovets/course/java/core/practice/io/text.txt").toString();
 
         Assertions.assertEquals(expectedString, actualString);
     }
@@ -57,7 +57,7 @@ public class FileAnalyzeUtilTest {
 
         String expectedString = "['compile' - 1, 'under' - 1, 'Inbox' - 1, 'time' - 2, 'enum' - 2, 'out' - 2, 'test' - 3, 'Aux' - 3, '' - 4]";
 
-        String actualString = FileAnalyzeUtil.getWordsFrequency("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\text.txt").toString();
+        String actualString = FileAnalyzeUtil.getWordsFrequency("src/test/java/com/rakovets/course/java/core/practice/io/text.txt").toString();
 
         Assertions.assertEquals(expectedString, actualString);
     }
@@ -65,7 +65,7 @@ public class FileAnalyzeUtilTest {
     @Test
     void storeResultToFile() {
 
-        boolean actualBoolean = FileAnalyzeUtil.storeResultToFile("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\numbers.txt");
+        boolean actualBoolean = FileAnalyzeUtil.storeResultToFile("src/test/java/com/rakovets/course/java/core/practice/io/numbers.txt");
 
         Assertions.assertTrue(actualBoolean);
     }
@@ -80,7 +80,7 @@ public class FileAnalyzeUtilTest {
                 "Dorn 6.333333333333333",
                 "Kerz 6.333333333333333");
 
-        List<String> actualList = FileAnalyzeUtil.getStudentsMarks("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\StudentsMarks.txt");
+        List<String> actualList = FileAnalyzeUtil.getStudentsMarks("src/test/java/com/rakovets/course/java/core/practice/io/StudentsMarks.txt");
 
         Assertions.assertEquals(expectedList, actualList);
     }
@@ -88,7 +88,7 @@ public class FileAnalyzeUtilTest {
     @Test
     void replaceModifiers() {
 
-        boolean actualBoolean = FileAnalyzeUtil.replaceModifiers("src\\test\\java\\com\\rakovets\\course\\java\\core\\practice\\io\\Student.java",
+        boolean actualBoolean = FileAnalyzeUtil.replaceModifiers("src/test/java/com/rakovets/course/java/core/practice/io/Student.java",
                 "private", "public");
 
         Assertions.assertTrue(actualBoolean);
