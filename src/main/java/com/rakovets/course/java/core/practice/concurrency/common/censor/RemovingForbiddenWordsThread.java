@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RemovingForbiddenWordsThread extends Thread {
+    private String forbiddenWordsPath;
+    private String mergedFilesPath;
+
+    public RemovingForbiddenWordsThread(String forbiddenWordsPath, String mergedFilesPath) {
+        this.forbiddenWordsPath = forbiddenWordsPath;
+        this.mergedFilesPath = mergedFilesPath;
+    }
+
     @Override
     public void run() {
         try {
@@ -15,9 +23,9 @@ public class RemovingForbiddenWordsThread extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        try (BufferedReader br = new BufferedReader(new FileReader("src/test/resources/practice/concurrency/forbiddenWords.txt"));
-             BufferedReader br2 = new BufferedReader(new FileReader("src/test/resources/practice/concurrency/mergedFiles.txt"))) {
-            File tmp = File.createTempFile("tmp", null, new File("src/test/resources/practice/concurrency"));
+        try (BufferedReader br = new BufferedReader(new FileReader(forbiddenWordsPath));
+             BufferedReader br2 = new BufferedReader(new FileReader(mergedFilesPath))) {
+            File tmp = File.createTempFile("tmp", null);
             String s;
             List<String> listOfForbiddenWords = new ArrayList<>();
             while ((s = br.readLine()) != null) {
@@ -40,9 +48,12 @@ public class RemovingForbiddenWordsThread extends Thread {
                 }
                 bwTmp.write("\n");
             }
+            br2.close();
             bwTmp.close();
-
-
+            File oldFile = new File(mergedFilesPath);
+            if (oldFile.delete()) {
+                tmp.renameTo(new File(mergedFilesPath));
+            }
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

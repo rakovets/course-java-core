@@ -5,22 +5,24 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class SearchAndMergeFilesThread extends Thread{
-    private String path;
+    private String pathForSearch;
     private String wordForSearch;
+    private String mergedFilesPath;
 
-    public SearchAndMergeFilesThread(String path, String wordForSearch) {
-        this.path = path;
+    public SearchAndMergeFilesThread(String pathForSearch, String wordForSearch, String mergedFilesPath) {
+        this.pathForSearch = pathForSearch;
         this.wordForSearch = wordForSearch;
+        this.mergedFilesPath = mergedFilesPath;
     }
 
     @Override
     public void run() {
         try {
-            Files.walk(Paths.get(path)).filter(Files::isRegularFile)
+            Files.walk(Paths.get(pathForSearch)).filter(Files::isRegularFile)
                     .forEach(e -> {
                         try (BufferedReader br = new BufferedReader(new FileReader(e.toString()));
                              BufferedReader br2 = new BufferedReader(new FileReader(e.toString()));
-                             BufferedWriter bw = new BufferedWriter(new FileWriter("src/test/resources/practice/concurrency/mergedFiles.txt", true))) {
+                             BufferedWriter bw = new BufferedWriter(new FileWriter(mergedFilesPath, true))) {
                             String text;
                             int counter = 0;
                             while ((text = br.readLine()) != null) {
