@@ -27,6 +27,5 @@ public class ThreadMaster extends Thread {
             }
         }
         listOfNumbers.add(-1);
-        System.out.println("Master stopped");
     }
 }
