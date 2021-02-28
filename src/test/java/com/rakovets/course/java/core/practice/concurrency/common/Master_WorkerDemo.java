@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.concurrency.common;
 
 import java.util.LinkedList;
 
-public class Demo {
+public class Master_WorkerDemo {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();
 
