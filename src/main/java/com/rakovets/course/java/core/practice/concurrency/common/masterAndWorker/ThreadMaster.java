@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrency.common.masterAndWorker;
 
-import java.io.FileWriter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +19,7 @@ public class ThreadMaster extends Thread {
                 numbers = scanner.next();
                 listOfNumbers.add(Integer.parseInt(numbers));
                 System.out.println(listOfNumbers.toString());
-                Thread.sleep(5000);
+                Thread.sleep(300);
             } catch (Exception e) {
                 try {
                     throw new UserInputException("Error number. Try again");

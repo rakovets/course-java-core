@@ -6,16 +6,18 @@ import java.util.List;
 
 public class ThreadWorker extends Thread {
     private List<Integer> listOfNumbers;
+    private boolean isActive;
 
     public ThreadWorker(List<Integer> listOfNumbers) {
         this.listOfNumbers = listOfNumbers;
+        this.isActive = true;
     }
 
     @Override
     public void run() {
         int counter = 0;
         int sleepCounter = 0;
-        while (!(listOfNumbers.get(counter) == -1)) {
+        while (isActive) {
             for ( ; counter < listOfNumbers.size(); ) {
                 try (FileWriter writer = new FileWriter("src/test/resources/practice/concurrency/masterWorker/worker.txt", true)) {
                     Thread.sleep(listOfNumbers.get(counter) * 1000);
