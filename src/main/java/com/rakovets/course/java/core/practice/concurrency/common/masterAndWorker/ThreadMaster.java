@@ -18,8 +18,6 @@ public class ThreadMaster extends Thread {
             try {
                 numbers = scanner.next();
                 listOfNumbers.add(Integer.parseInt(numbers));
-                System.out.println(listOfNumbers.toString());
-                Thread.sleep(300);
             } catch (Exception e) {
                 try {
                     throw new UserInputException("Error number. Try again");
