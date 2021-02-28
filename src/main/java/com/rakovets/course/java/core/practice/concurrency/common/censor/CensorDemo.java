@@ -4,16 +4,18 @@ import java.util.Scanner;
 
 public class CensorDemo {
     public static void main(String[] args) throws InterruptedException {
-
-
-        SearchAndMergeFilesThread searchAndMergeFilesThread = new SearchAndMergeFilesThread("src/test/resources/practice/concurrency/censor", "weather", "src/test/resources/practice/concurrency/mergedFiles.txt");
+        String mergedFiles = "src/test/resources/practice/concurrency/mergedFiles.txt";
+        String forbiddenWords = "src/test/resources/practice/concurrency/forbiddenWords.txt";
+        System.out.println("Enter path directory for search:");
+        Scanner scanner1 = new Scanner(System.in);
+        String pathForSearch = scanner1.nextLine();
+        System.out.println("Enter word for search:");
+        Scanner scanner2 = new Scanner(System.in);
+        String wordForSearch = scanner2.nextLine();
+        SearchAndMergeFilesThread searchAndMergeFilesThread = new SearchAndMergeFilesThread(pathForSearch, wordForSearch, mergedFiles);
         searchAndMergeFilesThread.start();
         searchAndMergeFilesThread.join();
-
-        RemovingForbiddenWordsThread removeForbiddenWords = new RemovingForbiddenWordsThread("src/test/resources/practice/concurrency/forbiddenWords.txt", "src/test/resources/practice/concurrency/mergedFiles.txt");
+        RemovingForbiddenWordsThread removeForbiddenWords = new RemovingForbiddenWordsThread(forbiddenWords, mergedFiles);
         removeForbiddenWords.start();
-
-
-
     }
 }

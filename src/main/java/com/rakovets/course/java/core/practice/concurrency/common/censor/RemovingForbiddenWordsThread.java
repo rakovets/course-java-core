@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.concurrency.common.censor;
 
 import com.rakovets.course.java.core.util.AnsiColorCode;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
