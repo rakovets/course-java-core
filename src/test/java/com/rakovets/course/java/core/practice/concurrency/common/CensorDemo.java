@@ -1,4 +1,7 @@
-package com.rakovets.course.java.core.practice.concurrency.common.censor;
+package com.rakovets.course.java.core.practice.concurrency.common;
+
+import com.rakovets.course.java.core.practice.concurrency.common.censor.RemovingForbiddenWordsThread;
+import com.rakovets.course.java.core.practice.concurrency.common.censor.SearchAndMergeFilesThread;
 
 import java.util.Scanner;
 
