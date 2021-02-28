@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.example.concurrency.thread_synchronization.model;
 
 import com.rakovets.course.java.core.util.AnsiColorCode;
+import com.rakovets.course.java.core.util.StandardOutputUtil;
 
 public class Store {
     private int product = 0;
