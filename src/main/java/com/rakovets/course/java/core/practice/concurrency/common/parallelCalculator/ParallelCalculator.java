@@ -5,9 +5,9 @@ import com.rakovets.course.java.core.util.AnsiColorCode;
 import java.util.*;
 
 public abstract class ParallelCalculator {
-    public static Map<Integer, int[]> calculate(List<int[]> list) {
+    public static Map<Integer, int[]> calculate(List<int[]> arraysOfInt) {
         Map<Integer, int[]> map = new HashMap<>();
-        for (int[] number : list) {
+        for (int[] number : arraysOfInt) {
             OptionalInt sum = Arrays.stream(number).reduce(Integer::sum);
             if (sum.isPresent()) {
                 map.put(sum.getAsInt(), number);
@@ -16,9 +16,9 @@ public abstract class ParallelCalculator {
         return map;
     }
 
-    public static Map<Integer, int[]> calculateWithThreads(List<int[]> data, int numberOfThreads) {
+    public static Map<Integer, int[]> calculateWithThreads(List<int[]> arraysOfInt, int numberOfThreads) {
         Map<Integer, int[]> map = new HashMap<>();
-        List<int[]> list = new ArrayList<>(data);
+        List<int[]> list = new ArrayList<>(arraysOfInt);
         long startTime = System.currentTimeMillis();
         Runnable thread = () -> {
             while (!list.isEmpty()) {
