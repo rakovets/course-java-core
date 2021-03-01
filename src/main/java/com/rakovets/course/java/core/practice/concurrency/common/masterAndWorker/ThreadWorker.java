@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class ThreadWorker extends Thread {
-    private List<Integer> listOfNumbers;
+    private volatile List<Integer> listOfNumbers;
     private boolean isActive;
 
     public ThreadWorker(List<Integer> listOfNumbers) {
