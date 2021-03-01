@@ -16,7 +16,7 @@ public abstract class ParallelCalculator {
         return map;
     }
 
-    public static Map<Integer, int[]> calculateWithThreads(List<int[]> arraysOfInt, int numberOfThreads) {
+    public static Map<Integer, int[]> calculateWithThreads(List<int[]> arraysOfInt, int numberOfThreads, AnsiColorCode codes) {
         Map<Integer, int[]> map = new HashMap<>();
         List<int[]> list = new ArrayList<>(arraysOfInt);
         long startTime = System.currentTimeMillis();
@@ -32,7 +32,7 @@ public abstract class ParallelCalculator {
                     e.printStackTrace();
                 }
             }
-            System.out.println(numberOfThreads + " Threads: " + (System.currentTimeMillis() - startTime) + "ms");
+                    System.out.printf(codes + "%d Threads: %d ms\n" + codes, numberOfThreads, System.currentTimeMillis() - startTime);
         };
         for (int x = 1; x <= numberOfThreads; x++) {
             new Thread(thread).start();

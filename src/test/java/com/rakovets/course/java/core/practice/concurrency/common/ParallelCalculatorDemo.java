@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrency.common;
 
 import com.rakovets.course.java.core.practice.concurrency.common.parallelCalculator.ParallelCalculator;
+import com.rakovets.course.java.core.util.AnsiColorCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,9 @@ public class ParallelCalculatorDemo {
         for (int x = 0; x < 10; x++) {
             list.add(new Random().ints(new Random().nextInt(1000000), 1, 301).toArray());
         }
-        ParallelCalculator.calculateWithThreads(list, 1);
-        ParallelCalculator.calculateWithThreads(list, 2);
-        ParallelCalculator.calculateWithThreads(list, 5);
-        ParallelCalculator.calculateWithThreads(list, 10);
+        ParallelCalculator.calculateWithThreads(list, 1, AnsiColorCode.FG_RED_BOLD_BRIGHT);
+        ParallelCalculator.calculateWithThreads(list, 2, AnsiColorCode.FG_GREEN_BOLD_BRIGHT);
+        ParallelCalculator.calculateWithThreads(list, 5, AnsiColorCode.FG_CYAN_BOLD_BRIGHT);
+        ParallelCalculator.calculateWithThreads(list, 10, AnsiColorCode.FG_YELLOW_BOLD_BRIGHT);
     }
 }
