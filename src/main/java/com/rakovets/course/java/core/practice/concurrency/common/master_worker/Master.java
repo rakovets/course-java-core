@@ -19,7 +19,6 @@ public class Master extends Thread {
                 System.out.println("Enter your number: ");
                 System.out.println("(To exit the program, enter '-1')");
                 String string = scanner.nextLine();
-
                 try {
                     key = Integer.parseInt(string);
                 } catch (NumberFormatException ex) {
@@ -30,7 +29,6 @@ public class Master extends Thread {
                         continue;
                     }
                 }
-
                 if (key == -1) {
                     System.out.println("The app is closing");
                     request.add(key);
@@ -44,7 +42,6 @@ public class Master extends Thread {
                     request.add(key);
                     System.out.println("You have entered " + key);
                 }
-
             } catch (Exception exp) {
                 try {
                     throw new UserInputException("Something went wrong");
