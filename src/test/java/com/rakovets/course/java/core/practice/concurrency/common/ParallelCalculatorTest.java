@@ -47,6 +47,12 @@ public class ParallelCalculatorTest {
         // WHEN
         Map<Integer, int[]> actualMap = ParallelCalculator.calculateInThreads(data, 3);
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            System.out.println("Thread interrupted");
+        }
+
         // THEN
         Assertions.assertEquals(expectedMap.entrySet(), actualMap.entrySet());
     }
