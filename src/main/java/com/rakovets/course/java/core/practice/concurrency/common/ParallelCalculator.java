@@ -37,7 +37,7 @@ public class ParallelCalculator {
                 }
             }
             long timeSpent = System.currentTimeMillis() - startTime;
-            System.out.println(numberOfThreads + " Threads spent " + timeSpent +" milliseconds");
+            System.out.println(numberOfThreads + " Threads spent " + timeSpent + " milliseconds");
         };
 
         for (int x = 0; x <= threadsQuantity; x++) {
