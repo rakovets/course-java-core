@@ -1,0 +1,34 @@
+= Networking
+
+== Project 'File Server'
+
+Создание файлового сервера.
+
+== Specification of task 1
+
+Добавить следующую команд для файлового сервера:
+
+* `LIST` - вернуть список доступных файлов
+* `GET ${filepath}` - вернуть файл по указанному `filepath` клиенту или `FILE NOT EXIST`, если такого файла не существует.
+* `DELETE ${filepath}` - удалить файл по указанному `filepath` на сервере,  в случае успеха вернуть - `OK`, в случае неудачи - `FILE NOT EXIST`
+* `SEND ${source-filepath} ${destination-filepath}`  - создать из файла клиента, который находится по `source-filepath`, файл по указанному `destination-filepath` на сервере, в случае успеха вернуть - `OK`, в случае неудачи - `FILE EXIST`
+
+== Specification of task 2
+
+Сервер должен логировать все операции в консоль.
+
+== Project 'Client for File Server'
+
+Создать **CLI** (*Command Line Interface*) клиента для файлового сервера
+
+== Specification of task 1
+
+Клиенту можно указать `host` и `port` файлового сервера.
+
+== Specification of task 2
+
+Клиент выводит достпные команды.
+
+== Specification of task 2
+
+Пользователь может выбрать необходимую команду и, если необходимо, указать `filepath` для файла/файлов.
