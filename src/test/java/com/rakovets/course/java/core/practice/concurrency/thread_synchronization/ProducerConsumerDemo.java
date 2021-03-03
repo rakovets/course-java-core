@@ -10,16 +10,12 @@ import java.util.List;
 public class ProducerConsumerDemo {
     public static void main(String[] args) {
         Store store = new Store(new LinkedList<>());
-
         Producer producer = new Producer(store);
-        Consumer consumer1 = new Consumer(store);
-
+        Consumer consumer = new Consumer(store);
         producer.start();
-        consumer1.start();
-
-
+        consumer.start();
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
             System.out.println(ex.getMessage());
         }
