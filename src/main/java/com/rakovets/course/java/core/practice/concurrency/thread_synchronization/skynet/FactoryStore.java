@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class FactoryStore {
-    private final List<Details> store;
+    private final List<RoboParts> store;
 
     public FactoryStore() {
         this.store = new LinkedList<>();
@@ -18,23 +18,23 @@ public class FactoryStore {
             int detailDeterminer = random.nextInt(4);
             switch (detailDeterminer) {
                 case 0:
-                    store.add(Details.HEAD);
+                    store.add(RoboParts.HEAD);
                     break;
                 case 1:
-                    store.add(Details.TORSO);
+                    store.add(RoboParts.TORSO);
                     break;
                 case 2:
-                    store.add(Details.HAND);
+                    store.add(RoboParts.HAND);
                     break;
                 case 3:
-                    store.add(Details.FEET);
+                    store.add(RoboParts.FEET);
                     break;
             }
         }
     }
 
-    public synchronized List<Details> loot() {
-        List<Details> looted = new LinkedList<>();
+    public synchronized List<RoboParts> loot() {
+        List<RoboParts> looted = new LinkedList<>();
         while (!store.isEmpty()) {
                 looted.add(store.remove(0));
                 try {
@@ -46,7 +46,7 @@ public class FactoryStore {
         return looted;
     }
 
-    public List<Details> getStore() {
+    public List<RoboParts> getStore() {
         return store;
     }
 }

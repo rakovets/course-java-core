@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Team implements Runnable {
     private final FactoryStore store;
-    private final List<Details> parts;
+    private final List<RoboParts> parts;
     private int numberOfRobots = 0;
 
     public Team(FactoryStore store) {
@@ -20,48 +20,14 @@ public class Team implements Runnable {
     }
 
     private void assembleRobots() {
-        List<Details> heads = new LinkedList<>();
-        List<Details> hands = new LinkedList<>();
-        List<Details> torsos = new LinkedList<>();
-        List<Details> feet = new LinkedList<>();
-
-        for (Details detail : parts) {
-            switch (detail) {
-                case HEAD:
-                    heads.add(Details.HEAD);
-                    break;
-                case TORSO:
-                    torsos.add(Details.TORSO);
-                    break;
-                case FEET:
-                    feet.add(Details.FEET);
-                    break;
-                case HAND:
-                    hands.add(Details.HAND);
-                    break;
-            }
-        }
-        parts.clear();
-
-        while (!heads.isEmpty()) {
-            if (torsos.size() >= 1 && hands.size() >= 2 && feet.size() >= 2) {
-                numberOfRobots += 1;
-                heads.remove(Details.HEAD);
-                torsos.remove(Details.TORSO);
-                hands.remove(Details.HAND);
-                hands.remove(Details.HAND);
-                feet.remove(Details.FEET);
-                feet.remove(Details.FEET);
-            } else {
-                parts.addAll(heads);
-                parts.addAll(torsos);
-                parts.addAll(hands);
-                parts.addAll(feet);
-                heads.clear();
-                torsos.clear();
-                hands.clear();
-                feet.clear();
-            }
+        while (parts.containsAll(RoboParts.getModel())) {
+            parts.remove(RoboParts.HEAD);
+            parts.remove(RoboParts.TORSO);
+            parts.remove(RoboParts.HAND);
+            parts.remove(RoboParts.HAND);
+            parts.remove(RoboParts.FEET);
+            parts.remove(RoboParts.FEET);
+            numberOfRobots += 1;
         }
     }
 
@@ -69,7 +35,7 @@ public class Team implements Runnable {
         return numberOfRobots;
     }
 
-    public List<Details> getParts() {
+    public List<RoboParts> getParts() {
         return parts;
     }
 }
