@@ -16,19 +16,14 @@ public class FactionThread implements Runnable {
     @Override
     public void run() {
         warehouse.addAll(factory.consumeParts());
+        getRobot();
     }
 
     public void getRobot() {
         LinkedList<RoboParts> robotPattern = new LinkedList<>();
         Collections.addAll(robotPattern, RoboParts.HEAD, RoboParts.HAND, RoboParts.HAND, RoboParts.TORSO, RoboParts.FEET, RoboParts.FEET);
         while (warehouse.containsAll(robotPattern)) {
-            warehouse.remove(RoboParts.HEAD);
-            warehouse.remove(RoboParts.HAND);
-            warehouse.remove(RoboParts.HAND);
-            warehouse.remove(RoboParts.TORSO);
-            warehouse.remove(RoboParts.FEET);
-            warehouse.remove(RoboParts.FEET);
-
+            warehouse.removeAll(robotPattern);
             numberOfRobots += 1;
         }
     }
