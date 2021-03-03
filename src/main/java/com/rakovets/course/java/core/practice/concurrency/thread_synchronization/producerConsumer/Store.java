@@ -2,9 +2,7 @@ package com.rakovets.course.java.core.practice.concurrency.thread_synchronizatio
 
 import com.rakovets.course.java.core.util.AnsiColorCode;
 import com.rakovets.course.java.core.util.StandardOutputUtil;
-
 import java.util.LinkedList;
-import java.util.Random;
 
 public class Store {
     private LinkedList<Integer> store;
@@ -16,8 +14,6 @@ public class Store {
     }
 
     public synchronized void produce() {
-        AnsiColorCode randomColor = AnsiColorCode.getRandom();
-        Random random = new Random();
         while (isActive) {
             while (this.store.size() >= 10) {
                 try {
