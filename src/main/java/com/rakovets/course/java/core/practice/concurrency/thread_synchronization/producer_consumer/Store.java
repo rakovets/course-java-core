@@ -46,7 +46,7 @@ public class Store {
                 StandardOutputUtil.println(result, randomColor);
                 StandardOutputUtil.println("Storage size: " + this.storeList.size() + " " + Thread.currentThread().getName(), randomColor);
                 notifyAll();
-                Thread.sleep(new Random().nextInt(11));
+                wait(new Random().nextInt(11));
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
