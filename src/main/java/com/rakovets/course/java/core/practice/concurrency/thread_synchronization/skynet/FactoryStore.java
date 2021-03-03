@@ -9,7 +9,6 @@ public class FactoryStore {
 
     public FactoryStore() {
         this.store = new LinkedList<>();
-
     }
 
     public synchronized void produce() {

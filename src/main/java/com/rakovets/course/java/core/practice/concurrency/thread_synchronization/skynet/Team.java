@@ -6,19 +6,11 @@ import java.util.List;
 public class Team implements Runnable {
     private final FactoryStore store;
     private final List<Details> parts;
-    private final List<Details> heads;
-    private final List<Details> hands;
-    private final List<Details> torsos;
-    private final List<Details> feet;
     private int numberOfRobots = 0;
 
     public Team(FactoryStore store) {
         this.store = store;
         this.parts = new LinkedList<>();
-        this.hands = new LinkedList<>();
-        this.heads = new LinkedList<>();
-        this.torsos = new LinkedList<>();
-        this.feet = new LinkedList<>();
     }
 
     @Override
@@ -28,6 +20,11 @@ public class Team implements Runnable {
     }
 
     private void assembleRobots() {
+        List<Details> heads = new LinkedList<>();
+        List<Details> hands = new LinkedList<>();
+        List<Details> torsos = new LinkedList<>();
+        List<Details> feet = new LinkedList<>();
+
         for (Details detail : parts) {
             switch (detail) {
                 case HEAD:
@@ -45,6 +42,7 @@ public class Team implements Runnable {
             }
         }
         parts.clear();
+
         while (!heads.isEmpty()) {
             if (torsos.size() >= 1 && hands.size() >= 2 && feet.size() >= 2) {
                 numberOfRobots += 1;
