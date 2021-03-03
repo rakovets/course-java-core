@@ -1,0 +1,31 @@
+package com.rakovets.course.java.core.practice.io.project_computer_repair_workshop;
+
+private class Computer {
+    private String cpu;
+    private String gpu;
+    private String resolution;
+    private Double size;
+
+    private Computer(String cpu, String gpu, String resolution, Double size) {
+        this.cpu = cpu;
+        this.gpu = gpu;
+        this.resolution = resolution;
+        this.size = size;
+    }
+
+    private String getCpu() {
+        return cpu;
+    }
+
+    private String getGpu() {
+        return gpu;
+    }
+
+    private String getResolution() {
+        return resolution;
+    }
+
+    private Double getSize() {
+        return size;
+    }
+}
