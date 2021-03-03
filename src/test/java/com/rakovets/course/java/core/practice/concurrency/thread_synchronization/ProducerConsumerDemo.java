@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.concurrency.thread_synchronizatio
 
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producerConsumer.Consumer;
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producerConsumer.Producer;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producerConsumer.Store;
 
 public class ProducerConsumerDemo {
     public static void main(String[] args) {

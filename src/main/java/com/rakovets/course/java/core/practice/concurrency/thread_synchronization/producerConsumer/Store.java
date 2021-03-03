@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producerConsumer;
 
 import java.util.LinkedList;
 import java.util.Random;
