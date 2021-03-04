@@ -35,10 +35,10 @@ public class Store {
                     System.out.println("Storage is empty " + Thread.currentThread().getName());
                     wait();
                 }
+                wait((int)(Math.random() * 10));
                 Integer first = store.removeFirst();
                 System.out.printf("%s, Remove: %d, Storage size: %d\n", Thread.currentThread().getName(), first, store.size());
                 notifyAll();
-                wait((int)(Math.random() * 10));
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
