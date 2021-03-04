@@ -15,7 +15,7 @@ public class Storage {
 
     public synchronized void produce() throws InterruptedException {
         Random random = new Random();
-        while (days < 20) {
+        while (days < 100) {
             while (storage.isEmpty()) {
                 for (int i = 0; i < random.nextInt(10); i++) {
                     int randomOfDetails = random.nextInt(4);
@@ -44,7 +44,7 @@ public class Storage {
 
     public synchronized Map<Details, Integer> getDetails() throws InterruptedException {
         Map<Details, Integer> detailsMap = new HashMap<>();
-        while (days < 20) {
+        while (days < 100) {
             while (storage.isEmpty()) {
                 wait();
             }

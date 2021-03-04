@@ -4,11 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 public class World extends Thread {
-    private Map<Details, Integer> detailsList;
     private Storage storage;
 
-    public World(Map<Details, Integer> detailsList, Storage storage) {
-        this.detailsList = detailsList;
+    public World(Storage storage) {
         this.storage = storage;
     }
 

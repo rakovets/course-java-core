@@ -3,11 +3,9 @@ package com.rakovets.course.java.core.practice.concurrency.thread_synchronizatio
 import java.util.Map;
 
 public class Wednesday extends Thread {
-    private Map<Details, Integer> detailsList;
     private Storage storage;
 
-    public Wednesday(Map<Details, Integer> detailsList, Storage storage) {
-        this.detailsList = detailsList;
+    public Wednesday(Storage storage) {
         this.storage = storage;
     }
 

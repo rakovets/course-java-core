@@ -10,12 +10,10 @@ import java.util.Map;
 public class SkyNetDemo {
     public static void main(String[] args) {
         List<Details> detailStorage = new LinkedList<>();
-        Map<Details, Integer> detailWorld = new HashMap<>();
-        Map<Details, Integer> detailWednersday = new HashMap<>();
         Storage storage = new Storage(detailStorage);
         Factory factory = new Factory(storage);
-        World world = new World(detailWorld, storage);
-        Wednesday wednesday = new Wednesday(detailWednersday, storage);
+        World world = new World(storage);
+        Wednesday wednesday = new Wednesday(storage);
 
         world.start();
         wednesday.start();
