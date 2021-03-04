@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producerConsumer;
 
-import com.rakovets.course.java.core.util.AnsiColorCode;
-import com.rakovets.course.java.core.util.StandardOutputUtil;
 import java.util.LinkedList;
 
 public class Store {
@@ -14,6 +12,7 @@ public class Store {
     }
 
     public synchronized void produce() {
+        int number;
         while (isActive) {
             while (this.store.size() >= 10) {
                 try {
@@ -22,9 +21,9 @@ public class Store {
                     ex.printStackTrace();
                 }
             }
-            store.add((int)(Math.random() * 1000));
-            StandardOutputUtil.println("Number added. " + Thread.currentThread().getName(), AnsiColorCode.BG_BLUE_BRIGHT);
-            StandardOutputUtil.println("Storage size: " + this.store.size(), AnsiColorCode.BG_BLUE_BRIGHT);
+            number = (int)(Math.random() * 1000);
+            store.add(number);
+            System.out.printf("%s, Number %d added, Storage size: %d\n", Thread.currentThread().getName(), number, store.size());
             notifyAll();
         }
     }
@@ -33,12 +32,11 @@ public class Store {
         while (isActive) {
             try {
                 while (store.isEmpty()) {
-                    StandardOutputUtil.println("Consumer: Store is empty " + Thread.currentThread().getName(), AnsiColorCode.FG_GREEN_BOLD_BRIGHT);
+                    System.out.println("Storage is empty " + Thread.currentThread().getName());
                     wait();
                 }
                 Integer first = store.removeFirst();
-                StandardOutputUtil.println("remove " + first, AnsiColorCode.FG_YELLOW_BOLD_BRIGHT);
-                StandardOutputUtil.println("Storage size: " + this.store.size() + " " + Thread.currentThread().getName(), AnsiColorCode.FG_YELLOW_BOLD_BRIGHT);
+                System.out.printf("%s, Remove: %d, Storage size: %d\n", Thread.currentThread().getName(), first, store.size());
                 notifyAll();
                 wait((int)(Math.random() * 10));
             } catch (InterruptedException ex) {
@@ -47,7 +45,7 @@ public class Store {
         }
     }
 
-    public void isActive(boolean working) {
-        isActive = working;
+    public void isActive(boolean value) {
+        isActive = value;
     }
 }
