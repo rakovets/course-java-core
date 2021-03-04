@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Team implements Runnable {
-    private final FactoryStore store;
-    private final List<RoboParts> parts;
-    private int numberOfRobots = 0;
+    protected final FactoryStore store;
+    protected final List<RoboParts> parts;
+    protected int numberOfRobots = 0;
 
     public Team(FactoryStore store) {
         this.store = store;
@@ -19,7 +19,7 @@ public class Team implements Runnable {
         assembleRobots();
     }
 
-    private void assembleRobots() {
+    protected void assembleRobots() {
         while (parts.containsAll(RoboParts.getModel())) {
             parts.remove(RoboParts.HEAD);
             parts.remove(RoboParts.TORSO);
