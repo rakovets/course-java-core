@@ -21,22 +21,18 @@ public class FractionThread extends Thread {
                 switch (detail) {
                     case HEAD:
                         fractionDetailStorage.changeDetailQuantity(Detail.HEAD,
-                            fractionDetailStorage.getDetailQuantity(Detail.HEAD),
                             fractionDetailStorage.getDetailQuantity(Detail.HEAD) + 1);
                         break;
                     case TORSO:
                         fractionDetailStorage.changeDetailQuantity(Detail.TORSO,
-                            fractionDetailStorage.getDetailQuantity(Detail.TORSO),
                             fractionDetailStorage.getDetailQuantity(Detail.TORSO) + 1);
                         break;
                     case HAND:
                         fractionDetailStorage.changeDetailQuantity(Detail.HAND,
-                            fractionDetailStorage.getDetailQuantity(Detail.HAND),
                             fractionDetailStorage.getDetailQuantity(Detail.HAND) + 1);
                         break;
                     case FEET:
                         fractionDetailStorage.changeDetailQuantity(Detail.FEET,
-                            fractionDetailStorage.getDetailQuantity(Detail.FEET),
                             fractionDetailStorage.getDetailQuantity(Detail.FEET) + 1);
                         break;
                 }
@@ -55,16 +51,12 @@ public class FractionThread extends Thread {
                 fractionDetailStorage.getDetailQuantity(Detail.FEET) >= 2) {
             fractionRobot.robot.add(1);
             fractionDetailStorage.changeDetailQuantity(Detail.HEAD,
-                    fractionDetailStorage.getDetailQuantity(Detail.HEAD),
                     fractionDetailStorage.getDetailQuantity(Detail.HEAD) - 1);
             fractionDetailStorage.changeDetailQuantity(Detail.TORSO,
-                    fractionDetailStorage.getDetailQuantity(Detail.TORSO),
                     fractionDetailStorage.getDetailQuantity(Detail.TORSO) - 1);
             fractionDetailStorage.changeDetailQuantity(Detail.HAND,
-                    fractionDetailStorage.getDetailQuantity(Detail.HAND),
                     fractionDetailStorage.getDetailQuantity(Detail.HAND) - 2);
             fractionDetailStorage.changeDetailQuantity(Detail.FEET,
-                    fractionDetailStorage.getDetailQuantity(Detail.FEET),
                     fractionDetailStorage.getDetailQuantity(Detail.FEET) - 2);
 
             StandardOutputUtil.println("Fraction " + fraction + " created " +
