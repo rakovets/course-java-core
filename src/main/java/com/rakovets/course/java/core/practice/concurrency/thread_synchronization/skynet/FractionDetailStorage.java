@@ -17,7 +17,7 @@ public class FractionDetailStorage {
         return fractionStorage.get(detail);
     }
 
-    public void changeDetailQuantity(Detail detail, int oldQuantity, int newQuantity) {
-        fractionStorage.replace(detail, oldQuantity, newQuantity);
+    public void changeDetailQuantity(Detail detail, int quantity) {
+        fractionStorage.replace(detail, quantity);
     }
 }
