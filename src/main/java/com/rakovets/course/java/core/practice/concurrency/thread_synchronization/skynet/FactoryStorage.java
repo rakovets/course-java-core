@@ -17,7 +17,7 @@ public class FactoryStorage {
         return factoryStorage.get(detail);
     }
 
-    public void changeDetailQuantity(Detail detail, int oldQuantity, int newQuantity) {
-        factoryStorage.replace(detail, oldQuantity, newQuantity);
+    public void changeDetailQuantity(Detail detail, int quantity) {
+        factoryStorage.replace(detail, quantity);
     }
 }
