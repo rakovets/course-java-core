@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Storage {
     private List<Details> storage;
@@ -17,9 +15,9 @@ public class Storage {
 
     public synchronized void produce() throws InterruptedException {
         Random random = new Random();
-        while (days < 2) {
-            if (storage.isEmpty()) {
-                for (int i = 0; i < 10; i++) {
+        while (days < 20) {
+            while (storage.isEmpty()) {
+                for (int i = 0; i < random.nextInt(10); i++) {
                     int randomOfDetails = random.nextInt(4);
                     switch (randomOfDetails) {
                         case 0:
@@ -36,28 +34,32 @@ public class Storage {
                             break;
                     }
                 }
-            } else {
                 days++;
                 notifyAll();
-                wait();
             }
+            wait();
         }
+        notifyAll();
     }
 
-    public synchronized List<Details> getDetails() throws InterruptedException {
-        List<Details> detailsList = new LinkedList<>();
-        int counter = 0;
-        while (days < 2) {
-            while (storage.isEmpty() || counter == 5) {
+    public synchronized Map<Details, Integer> getDetails() throws InterruptedException {
+        Map<Details, Integer> detailsMap = new HashMap<>();
+        while (days < 20) {
+            while (storage.isEmpty()) {
                 wait();
-                counter = 0;
             }
-            for ( ; counter < 5; counter++) {
-                detailsList.add(storage.remove(0));
+            if (detailsMap.containsKey(storage.get(0))) {
+                detailsMap.put(storage.get(0), detailsMap.get(storage.get(0)) + 1);
+                storage.remove(0);
+            } else {
+                detailsMap.put(storage.get(0), 1);
+                storage.remove(0);
             }
-            notifyAll();
+            if (storage.isEmpty()) {
+                notifyAll();
             }
-        return detailsList;
         }
-
+        notifyAll();
+        return detailsMap;
+    }
 }
