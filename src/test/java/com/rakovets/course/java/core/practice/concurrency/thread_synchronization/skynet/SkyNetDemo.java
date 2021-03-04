@@ -17,7 +17,6 @@ public class SkyNetDemo {
 
         int days = 100;
         for (int i = 1; i <= days; i++) {
-            StandardOutputUtil.println("DAY " + i, AnsiColorCode.FG_BLACK_BOLD);
             factoryThread = new Thread(factory);
             factoryThread.start();
             try {
@@ -41,20 +40,19 @@ public class SkyNetDemo {
                 e.printStackTrace();
             }
         }
-        StandardOutputUtil.println("\n" + "AFTER 100 DAYS:", AnsiColorCode.FG_BLACK_BOLD);
-        StandardOutputUtil.println("FRACTION WEDNESDAY CREATED " +
-                fractionWednesday.fractionRobot.robot.size() + " ROBOTS", AnsiColorCode.FG_MAGENTA_UNDERLINED);
-        StandardOutputUtil.println("FRACTION WORLD CREATED " +
-                fractionWorld.fractionRobot.robot.size() + " ROBOTS", AnsiColorCode.FG_MAGENTA_UNDERLINED);
+
+        System.out.println("\n" + "AFTER 100 DAYS:");
+        System.out.println("FRACTION 'WEDNESDAY' CREATED " +
+                fractionWednesday.fractionRobot.robot.size() + " ROBOTS");
+        System.out.println("FRACTION 'WORLD' CREATED " +
+                fractionWorld.fractionRobot.robot.size() + " ROBOTS");
 
         if (fractionWednesday.fractionRobot.robot.size() > fractionWorld.fractionRobot.robot.size())
-            StandardOutputUtil.println("FRACTION WEDNESDAY HAS STRONGER ARMY",
-                    AnsiColorCode.FG_YELLOW_BOLD);
+            StandardOutputUtil.println("FRACTION 'WEDNESDAY' HAS STRONGER ARMY", AnsiColorCode.FG_RED_BOLD);
         else if (fractionWednesday.fractionRobot.robot.size() < fractionWorld.fractionRobot.robot.size())
-            StandardOutputUtil.println("FRACTION WORLD HAS STRONGER ARMY",
-                    AnsiColorCode.FG_YELLOW_BOLD);
+            StandardOutputUtil.println("FRACTION 'WORLD' HAS STRONGER ARMY", AnsiColorCode.FG_RED_BOLD);
         else
             StandardOutputUtil.println("FRACTIONS ARMIES ARE EQUAL",
-                    AnsiColorCode.FG_YELLOW_BOLD);
+                    AnsiColorCode.FG_RED_BOLD);
     }
 }
