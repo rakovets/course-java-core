@@ -1,8 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet;
 
-import com.rakovets.course.java.core.util.AnsiColorCode;
-import com.rakovets.course.java.core.util.StandardOutputUtil;
-
 import java.util.Random;
 
 public class FactoryThread extends Thread {
@@ -29,12 +26,6 @@ public class FactoryThread extends Thread {
                             factoryStorage.getDetailQuantity(Detail.FEET) + 1);
                     break;
             }
-
-            StandardOutputUtil.println("Factory produced: " +
-                    factoryStorage.getDetailQuantity(Detail.HEAD) + " heads, " +
-                    factoryStorage.getDetailQuantity(Detail.TORSO) + " torsos, " +
-                    factoryStorage.getDetailQuantity(Detail.HAND) + " hands, " +
-                    factoryStorage.getDetailQuantity(Detail.FEET) + " feet", AnsiColorCode.FG_GREEN_BOLD);
         }
     }
 
