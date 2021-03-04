@@ -1,8 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet;
 
-import com.rakovets.course.java.core.util.AnsiColorCode;
-import com.rakovets.course.java.core.util.StandardOutputUtil;
-
 public class FractionThread extends Thread {
     private final FactoryThread factoryThread;
     public Detail detail;
@@ -39,12 +36,6 @@ public class FractionThread extends Thread {
             }
         }
 
-        StandardOutputUtil.println("Fraction " + fraction + " consumed: " +
-                fractionDetailStorage.getDetailQuantity(Detail.HEAD) + " heads, " +
-                fractionDetailStorage.getDetailQuantity(Detail.TORSO) + " torsos, " +
-                fractionDetailStorage.getDetailQuantity(Detail.HAND) + " hands, " +
-                fractionDetailStorage.getDetailQuantity(Detail.FEET) + " feet", AnsiColorCode.FG_BLUE_BOLD);
-
         while (fractionDetailStorage.getDetailQuantity(Detail.HEAD) >= 1 &&
                 fractionDetailStorage.getDetailQuantity(Detail.TORSO) >= 1 &&
                 fractionDetailStorage.getDetailQuantity(Detail.HAND) >= 2 &&
@@ -58,9 +49,6 @@ public class FractionThread extends Thread {
                     fractionDetailStorage.getDetailQuantity(Detail.HAND) - 2);
             fractionDetailStorage.changeDetailQuantity(Detail.FEET,
                     fractionDetailStorage.getDetailQuantity(Detail.FEET) - 2);
-
-            StandardOutputUtil.println("Fraction " + fraction + " created " +
-                    +fractionRobot.robot.size() + " robots", AnsiColorCode.FG_RED_BRIGHT);
         }
     }
 }
