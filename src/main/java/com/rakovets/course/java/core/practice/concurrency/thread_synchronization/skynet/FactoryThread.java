@@ -14,68 +14,61 @@ public class FactoryThread extends Thread {
             switch (new Random().nextInt(4)) {
                 case 1:
                     factoryStorage.changeDetailQuantity(Detail.HEAD,
-                            factoryStorage.getDetailQuantity(Detail.HEAD),
                             factoryStorage.getDetailQuantity(Detail.HEAD) + 1);
                     break;
                 case 2:
                     factoryStorage.changeDetailQuantity(Detail.TORSO,
-                            factoryStorage.getDetailQuantity(Detail.TORSO),
                             factoryStorage.getDetailQuantity(Detail.TORSO) + 1);
                     break;
                 case 3:
                     factoryStorage.changeDetailQuantity(Detail.HAND,
-                            factoryStorage.getDetailQuantity(Detail.HAND),
                             factoryStorage.getDetailQuantity(Detail.HAND) + 1);
                     break;
                 default:
                     factoryStorage.changeDetailQuantity(Detail.FEET,
-                            factoryStorage.getDetailQuantity(Detail.FEET),
                             factoryStorage.getDetailQuantity(Detail.FEET) + 1);
                     break;
-                }
-         StandardOutputUtil.println("Factory produced: " +
-                 factoryStorage.getDetailQuantity(Detail.HEAD) + " heads, " +
-                 factoryStorage.getDetailQuantity(Detail.TORSO) + " torsos, " +
-                 factoryStorage.getDetailQuantity(Detail.HAND) + " hands, " +
-                 factoryStorage.getDetailQuantity(Detail.FEET) + " feet", AnsiColorCode.FG_GREEN_BOLD);
+            }
+
+            StandardOutputUtil.println("Factory produced: " +
+                    factoryStorage.getDetailQuantity(Detail.HEAD) + " heads, " +
+                    factoryStorage.getDetailQuantity(Detail.TORSO) + " torsos, " +
+                    factoryStorage.getDetailQuantity(Detail.HAND) + " hands, " +
+                    factoryStorage.getDetailQuantity(Detail.FEET) + " feet", AnsiColorCode.FG_GREEN_BOLD);
         }
     }
 
     public synchronized Detail consume() {
-            switch (new Random().nextInt(4)) {
-                case 1:
-                    if (factoryStorage.getDetailQuantity(Detail.HEAD) >= 1) {
-                        factoryStorage.changeDetailQuantity(Detail.HEAD,
-                                factoryStorage.getDetailQuantity(Detail.HEAD),
-                                factoryStorage.getDetailQuantity(Detail.HEAD) - 1);
-                        return Detail.HEAD;
-                    }
-                    break;
-                case 2:
-                    if (factoryStorage.getDetailQuantity(Detail.TORSO) >= 1) {
-                        factoryStorage.changeDetailQuantity(Detail.TORSO,
-                                factoryStorage.getDetailQuantity(Detail.TORSO),
-                                factoryStorage.getDetailQuantity(Detail.TORSO) - 1);
-                        return Detail.TORSO;
-                    }
-                    break;
-                case 3:
-                    if (factoryStorage.getDetailQuantity(Detail.HAND) >= 1) {
-                        factoryStorage.changeDetailQuantity(Detail.HAND,
-                                factoryStorage.getDetailQuantity(Detail.HAND),
-                                factoryStorage.getDetailQuantity(Detail.HAND) - 1);
-                        return Detail.HAND;
-                    }
-                    break;
-                default:
-                    if (factoryStorage.getDetailQuantity(Detail.FEET) >= 1) {
-                        factoryStorage.changeDetailQuantity(Detail.FEET,
-                                factoryStorage.getDetailQuantity(Detail.FEET),
-                                factoryStorage.getDetailQuantity(Detail.FEET) - 1);
-                        return Detail.FEET;
-                    }
-                    break;
+        switch (new Random().nextInt(4)) {
+            case 1:
+                if (factoryStorage.getDetailQuantity(Detail.HEAD) >= 1) {
+                    factoryStorage.changeDetailQuantity(Detail.HEAD,
+                            factoryStorage.getDetailQuantity(Detail.HEAD) - 1);
+                    return Detail.HEAD;
                 }
-         return null;
+                break;
+            case 2:
+                if (factoryStorage.getDetailQuantity(Detail.TORSO) >= 1) {
+                    factoryStorage.changeDetailQuantity(Detail.TORSO,
+                            factoryStorage.getDetailQuantity(Detail.TORSO) - 1);
+                    return Detail.TORSO;
+                }
+                break;
+            case 3:
+                if (factoryStorage.getDetailQuantity(Detail.HAND) >= 1) {
+                    factoryStorage.changeDetailQuantity(Detail.HAND,
+                            factoryStorage.getDetailQuantity(Detail.HAND) - 1);
+                    return Detail.HAND;
+                }
+                break;
+            default:
+                if (factoryStorage.getDetailQuantity(Detail.FEET) >= 1) {
+                    factoryStorage.changeDetailQuantity(Detail.FEET,
+                            factoryStorage.getDetailQuantity(Detail.FEET) - 1);
+                    return Detail.FEET;
+                }
+                break;
+        }
+        return null;
     }
 }
