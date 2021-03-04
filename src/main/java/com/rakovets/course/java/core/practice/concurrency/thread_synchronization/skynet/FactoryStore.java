@@ -7,95 +7,112 @@ import java.util.stream.Collectors;
 
 public class FactoryStore {
     private final List<RoboParts> store;
+    private final int maxDaysOfWork;
+    private int currentDayOfWork;
 
-    public FactoryStore() {
+    public FactoryStore(int maxDaysOfWork) {
         this.store = new LinkedList<>();
+        this.maxDaysOfWork = maxDaysOfWork;
+        this.currentDayOfWork = 0;
     }
 
     public synchronized void produce() {
         Random random = new Random();
-        int consignmentOfDay = random.nextInt(11);
-        for (int x = 0; x < consignmentOfDay; x++) {
-            int detailDeterminer = random.nextInt(4);
-            switch (detailDeterminer) {
-                case 0:
-                    store.add(RoboParts.HEAD);
-                    break;
-                case 1:
-                    store.add(RoboParts.TORSO);
-                    break;
-                case 2:
-                    store.add(RoboParts.HAND);
-                    break;
-                case 3:
-                    store.add(RoboParts.FEET);
-                    break;
+        while (currentDayOfWork <= maxDaysOfWork) {
+            while (!store.isEmpty()) {
+                try {
+                    wait();
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
             }
+            int consignmentOfDay = random.nextInt(11);
+            for (int x = 0; x < consignmentOfDay; x++) {
+                int detailDeterminer = random.nextInt(4);
+                switch (detailDeterminer) {
+                    case 0:
+                        store.add(RoboParts.HEAD);
+                        break;
+                    case 1:
+                        store.add(RoboParts.TORSO);
+                        break;
+                    case 2:
+                        store.add(RoboParts.HAND);
+                        break;
+                    case 3:
+                        store.add(RoboParts.FEET);
+                        break;
+                }
+            }
+            currentDayOfWork++;
+            notifyAll();
         }
     }
 
-    public synchronized List<RoboParts> loot() {
+    public synchronized int loot() {
         List<RoboParts> looted = new LinkedList<>();
-        while (!store.isEmpty()) {
-                looted.add(store.remove(0));
-                try {
-                    wait(2);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+        while (currentDayOfWork <= maxDaysOfWork) {
+            try {
+                while (store.isEmpty()) {
+                    wait();
                 }
+                looted.add(store.remove(0));
+                notifyAll();
+                wait(1);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-        return looted;
+        }
+        return assembleRobots(looted);
     }
 
-    public synchronized List<RoboParts> smartLoot(List<RoboParts> presentParts) {
-        List<RoboParts> looted = new LinkedList<>(presentParts);
-        while (!store.isEmpty()) {
-            if (looted.isEmpty()) {
-                looted.add(store.remove(0));
-                try {
-                    wait(2);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+    public synchronized int smartLoot() {
+        List<RoboParts> looted = new LinkedList<>();
+        int numberOfRobots = 0;
+        while (currentDayOfWork <= maxDaysOfWork) {
+            numberOfRobots += assembleRobots(looted);
+            try {
+                while (store.isEmpty()) {
+                    wait();
                 }
-            } else {
-                List<RoboParts> existingPartsWithoutDoubles = looted.stream().distinct().collect(Collectors.toCollection(LinkedList::new));
-                List<RoboParts> missingParts = RoboParts.getModel();
-                missingParts.removeAll(existingPartsWithoutDoubles);
-                if (!missingParts.isEmpty()) {
-                    for (RoboParts part : missingParts) {
-                        if (store.contains(part)) {
-                            looted.add(part);
-                            store.remove(part);
-                            try {
-                                wait(4);
-                            } catch (InterruptedException ex) {
-                                ex.printStackTrace();
-                            }
-                        } else {
-                            if (!store.isEmpty()) {
-                                looted.add(store.remove(0));
-                                try {
-                                    wait(2);
-                                } catch (InterruptedException ex) {
-                                    ex.printStackTrace();
-                                }
+
+                if (looted.isEmpty()) {
+                    looted.add(store.remove(0));
+                } else {
+                    for(RoboParts part : RoboParts.values()) {
+                        if (!looted.contains(part)) {
+                            if (store.contains(part)) {
+                                looted.add(part);
+                                store.remove(part);
                             }
                         }
                     }
-                } else {
-                    looted.add(store.remove(0));
-                    try {
-                        wait(2);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
+                    if(!store.isEmpty())
+                        looted.add(store.remove(0));
                     }
-                }
+                notifyAll();
+                wait(2);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
         }
-        for (RoboParts part : presentParts) {
-            looted.remove(part);
+        return numberOfRobots;
+    }
+
+    private static int assembleRobots(List<RoboParts> roboParts) {
+        int numberOfRobots = 0;
+        if (!roboParts.isEmpty()) {
+            while (roboParts.containsAll(RoboParts.getModel())) {
+                roboParts.remove(RoboParts.HEAD);
+                roboParts.remove(RoboParts.TORSO);
+                roboParts.remove(RoboParts.HAND);
+                roboParts.remove(RoboParts.HAND);
+                roboParts.remove(RoboParts.FEET);
+                roboParts.remove(RoboParts.FEET);
+                numberOfRobots += 1;
+            }
         }
-        return looted;
+        return numberOfRobots;
     }
 
     public List<RoboParts> getStore() {

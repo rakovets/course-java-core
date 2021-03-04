@@ -7,7 +7,6 @@ public class SmartTeam extends Team {
 
     @Override
     public void run() {
-        parts.addAll(store.smartLoot(parts));
-        assembleRobots();
+        numberOfRobots = store.smartLoot();
     }
 }

@@ -7,27 +7,25 @@ import com.rakovets.course.java.core.practice.concurrency.thread_synchronization
 
 public class SkynetDemo {
     public static void main(String[] args) {
-        FactoryStore store = new FactoryStore();
+        FactoryStore store = new FactoryStore(100);
         Factory factory = new Factory(store);
         Team world = new Team(store);
         Team wednesday = new Team(store);
-        int days = 100;
 
-        for (int x = 0; x < days; x++) {
-            try {
-                Thread producer = new Thread(factory);
-                producer.start();
-                producer.join();
+        Thread producer = new Thread(factory);
+        Thread loki = new Thread(world);
+        Thread odin = new Thread(wednesday);
 
-                Thread loki = new Thread(world);
-                Thread odin = new Thread(wednesday);
-                loki.start();
-                odin.start();
-                odin.join();
-                loki.join();
-            } catch (InterruptedException ex) {
-                System.out.println(ex.getMessage());
-            }
+        producer.start();
+        loki.start();
+        odin.start();
+
+        try {
+            producer.join();
+            odin.join();
+            loki.join();
+        } catch (InterruptedException ex) {
+            System.out.println(ex.getMessage());
         }
 
         if (wednesday.getNumberOfRobots() > world.getNumberOfRobots()) {
@@ -38,23 +36,25 @@ public class SkynetDemo {
             System.out.printf("It's a draw!\nScore %d : %d\n", world.getNumberOfRobots(), wednesday.getNumberOfRobots());
         }
 
-        SmartTeam smartWednesday = new SmartTeam(store);
-        SmartTeam smartWorld = new SmartTeam(store);
-        for (int x = 0; x < days; x++) {
-            try {
-                Thread producer = new Thread(factory);
-                producer.start();
-                producer.join();
+        FactoryStore storeSmart = new FactoryStore(100);
+        Factory smartFactory = new Factory(storeSmart);
+        SmartTeam smartWednesday = new SmartTeam(storeSmart);
+        SmartTeam smartWorld = new SmartTeam(storeSmart);
 
-                Thread odin = new Thread(smartWednesday);
-                Thread loki = new Thread(smartWorld);
-                odin.start();
-                loki.start();
-                odin.join();
-                loki.join();
-            } catch (InterruptedException ex) {
-                System.out.println(ex.getMessage());
-            }
+        Thread producerSmart = new Thread(smartFactory);
+        Thread lokiSmart = new Thread(smartWorld);
+        Thread odinSmart = new Thread(smartWednesday);
+
+        producerSmart.start();
+        lokiSmart.start();
+        odinSmart.start();
+
+        try {
+            producerSmart.join();
+            odinSmart.join();
+            lokiSmart.join();
+        } catch (InterruptedException ex) {
+            System.out.println(ex.getMessage());
         }
 
         if (smartWednesday.getNumberOfRobots() > smartWorld.getNumberOfRobots()) {
