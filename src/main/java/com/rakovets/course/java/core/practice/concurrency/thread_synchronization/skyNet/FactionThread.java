@@ -16,6 +16,7 @@ public class FactionThread implements Runnable {
     @Override
     public void run() {
         warehouse.addAll(factory.consumeParts());
+        getRobot();
     }
 
     public void getRobot() {
