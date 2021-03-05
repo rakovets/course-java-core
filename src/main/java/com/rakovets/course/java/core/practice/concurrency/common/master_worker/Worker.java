@@ -20,28 +20,24 @@ public class Worker extends Thread {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(this.resultDestination))) {
             boolean runner = true;
             do {
-                if (request.isEmpty()) {
-                    bw.write(String.format("%s - ...\n", new Timestamp(System.currentTimeMillis()).toString()));
-                    bw.flush();
-                    try {
-                        Thread.sleep(1000L);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    int seconds = request.poll();
-                    if (seconds == -1) {
-                        runner = false;
-                    } else {
-                        try {
-                            Thread.sleep(seconds * 1000L);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        bw.write(String.format("%s - I slept %d seconds\n",
-                                new Timestamp(System.currentTimeMillis()).toString(), seconds));
+                try {
+                    if (request.isEmpty()) {
+                        bw.write(String.format("%s - ...\n", new Timestamp(System.currentTimeMillis()).toString()));
                         bw.flush();
+                        Thread.sleep(1000L);
+                    } else {
+                        int seconds = request.poll();
+                        if (seconds == -1) {
+                            runner = false;
+                        } else {
+                            Thread.sleep(seconds * 1000L);
+                            bw.write(String.format("%s - I slept %d seconds\n",
+                                    new Timestamp(System.currentTimeMillis()).toString(), seconds));
+                            bw.flush();
+                        }
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             } while (runner);
         } catch (IOException ex) {

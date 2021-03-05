@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Collector implements Runnable {
-    private final String filepath;
+    private final String directoryForSearch;
     private final String searchWord;
-    private final String destination;
+    private final String filepathForMergeFile;
 
     public Collector(String filepath, String searchWord, String destination) {
-        this.filepath = filepath;
+        this.directoryForSearch = filepath;
         this.searchWord = searchWord;
-        this.destination = destination;
+        this.filepathForMergeFile = destination;
     }
 
     @Override
     public void run () {
-        File directory = new File(filepath);
+        File directory = new File(directoryForSearch);
         if (directory.isDirectory()) {
             File[] directoryFiles = directory.listFiles();
             List<File> chosenFiles = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Collector implements Runnable {
                 }
             }
 
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(destination))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(filepathForMergeFile))) {
                 for(String data : chosenData) {
                     bw.write(data + "\n");
                 }
@@ -74,7 +74,7 @@ public class Collector implements Runnable {
                     System.out.println(exception.getMessage());
                 }
             }
-            System.out.println("Data was collected in File: " + destination);
+            System.out.println("Data was collected in File: " + filepathForMergeFile);
         } else {
             try {
                 throw new CensorException("Collector: Invalid directory address");

@@ -17,13 +17,13 @@ public class ParallelCalculatorTest {
         List<int[]> data = new ArrayList<>();
         Collections.addAll(data, first, second, third);
 
-        Map<Integer, int[]> expectedMap = new HashMap<>();
-        expectedMap.put(6, first);
-        expectedMap.put(15, second);
-        expectedMap.put(24, third);
+        Map<int[], Integer> expectedMap = new HashMap<>();
+        expectedMap.put(first, 6);
+        expectedMap.put(second, 15);
+        expectedMap.put(third, 24);
 
         // WHEN
-        Map<Integer, int[]> actualMap = ParallelCalculator.calculate(data);
+        Map<int[], Integer> actualMap = ParallelCalculator.calculate(data);
 
         // THEN
         Assertions.assertEquals(expectedMap.entrySet(), actualMap.entrySet());
@@ -39,13 +39,13 @@ public class ParallelCalculatorTest {
         List<int[]> data = new ArrayList<>();
         Collections.addAll(data, first, second, third);
 
-        Map<Integer, int[]> expectedMap = new HashMap<>();
-        expectedMap.put(6, first);
-        expectedMap.put(15, second);
-        expectedMap.put(24, third);
+        Map<int[], Integer> expectedMap = new HashMap<>();
+        expectedMap.put(first, 6);
+        expectedMap.put(second, 15);
+        expectedMap.put(third, 24);
 
         // WHEN
-        Map<Integer, int[]> actualMap = ParallelCalculator.calculateInThreads(data, 3);
+        Map<int[], Integer> actualMap = ParallelCalculator.calculateInThreads(data, 3);
 
         try {
             Thread.sleep(1000);
