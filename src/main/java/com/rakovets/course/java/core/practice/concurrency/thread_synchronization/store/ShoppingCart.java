@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 public class ShoppingCart {
-    List<Product> shoppingCart = new ArrayList<>();
-    ProductStorage products = new ProductStorage();
+    private final List<Product> shoppingCart = new ArrayList<>();
+    private final ProductStorage products = new ProductStorage();
 
     public List<Product> getShoppingCart() {
         for (int i = 0; i < new Random().nextInt(4) + 1; i++) {
