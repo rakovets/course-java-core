@@ -1,22 +1,16 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization;
 
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.CashRegister;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.Customer;
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.CustomerQueue;
-
-import java.util.Random;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.CustomerThread;
 
 public class CashRegisterDemo {
     public static void main(String[] args) {
-        Random random = new Random();
-        int quantityOfCustomerToday = random.nextInt(15);
         CustomerQueue todayQueue = new CustomerQueue();
 
-        for (int x = 0; x < quantityOfCustomerToday; x++) {
-            todayQueue.getQueue().add(Customer.generate((random.nextInt(6) + 1)));
-        }
-
         System.out.println("Store is open");
+        Thread customers = new Thread(new CustomerThread(todayQueue));
+        customers.start();
         Thread cashRegister1 = new Thread(new CashRegister(todayQueue));
         Thread cashRegister2 = new Thread(new CashRegister(todayQueue));
         Thread cashRegister3 = new Thread(new CashRegister(todayQueue));
@@ -24,6 +18,8 @@ public class CashRegisterDemo {
         cashRegister2.start();
         cashRegister3.start();
         try {
+            Thread.sleep(1000);
+            todayQueue.setWorkingTime(false);
             cashRegister1.join();
             cashRegister2.join();
             cashRegister3.join();

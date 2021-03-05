@@ -10,15 +10,7 @@ public class Customer {
     public Customer(List<StoreGoods> purchases) {
         this.purchases = purchases;
     }
-
-    public List<StoreGoods> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<StoreGoods> purchases) {
-        this.purchases = purchases;
-    }
-
+    
     public static Customer generate(int quantityOfGoods) {
         Random random = new Random();
         List<StoreGoods> purchases = new LinkedList<>();
@@ -47,5 +39,13 @@ public class Customer {
             }
         }
         return customer;
+    }
+
+    public List<StoreGoods> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<StoreGoods> purchases) {
+        this.purchases = purchases;
     }
 }
