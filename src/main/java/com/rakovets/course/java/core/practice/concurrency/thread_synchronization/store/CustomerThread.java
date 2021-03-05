@@ -1,26 +1,16 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store;
 
-import com.rakovets.course.java.core.util.AnsiColorCode;
-import com.rakovets.course.java.core.util.StandardOutputUtil;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.view.ShoppingCartView;
 
 import java.util.List;
 
 public class CustomerThread implements Runnable {
     private final Store store;
-    private final List<Product> shoppingList;
-    private static int numberOfCustomer;
-    private final String customer;
-    public ShoppingCart shoppingCart = new ShoppingCart();
+    private final ShoppingCartView shoppingCartView = new ShoppingCartView();
 
     public CustomerThread(Store store) {
         this.store = store;
-        numberOfCustomer++;
-        customer = "CUSTOMER_" + numberOfCustomer;
-        shoppingList = shoppingCart.getShoppingCart();
-        StandardOutputUtil.println(customer + " shopping cart:", AnsiColorCode.FG_GREEN_BOLD);
-        for(Product product : shoppingList) {
-            StandardOutputUtil.println(product, AnsiColorCode.FG_BLUE_BOLD_BRIGHT);
-        }
+        shoppingCartView.shoppingCartView();
     }
 
     public void run() {
@@ -28,10 +18,10 @@ public class CustomerThread implements Runnable {
     }
 
     public List<Product> getShoppingList() {
-        return shoppingList;
+        return shoppingCartView.shoppingList;
     }
 
     public String getCustomer() {
-        return customer;
+        return shoppingCartView.customer;
     }
 }
