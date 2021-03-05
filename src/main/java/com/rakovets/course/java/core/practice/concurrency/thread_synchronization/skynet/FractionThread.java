@@ -7,6 +7,7 @@ public class FractionThread extends Thread {
     private final FractionDetailStorage fractionDetailStorage = new FractionDetailStorage();
     public FractionRobot fractionRobot = new FractionRobot();
     public String fraction;
+    public int numberOfRobot;
 
     public FractionThread(FactoryThread factoryThread) {
         this.factoryThread = factoryThread;
@@ -40,7 +41,7 @@ public class FractionThread extends Thread {
                 fractionDetailStorage.getDetailQuantity(Detail.TORSO) >= 1 &&
                 fractionDetailStorage.getDetailQuantity(Detail.HAND) >= 2 &&
                 fractionDetailStorage.getDetailQuantity(Detail.FEET) >= 2) {
-            fractionRobot.robot.add(1);
+            fractionRobot.robot.add(numberOfRobot);
             fractionDetailStorage.changeDetailQuantity(Detail.HEAD,
                     fractionDetailStorage.getDetailQuantity(Detail.HEAD) - 1);
             fractionDetailStorage.changeDetailQuantity(Detail.TORSO,
