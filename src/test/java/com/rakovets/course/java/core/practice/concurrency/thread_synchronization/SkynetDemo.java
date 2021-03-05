@@ -21,7 +21,6 @@ public class SkynetDemo {
         odin.start();
 
         try {
-            producer.join();
             odin.join();
             loki.join();
         } catch (InterruptedException ex) {
@@ -50,7 +49,6 @@ public class SkynetDemo {
         odinSmart.start();
 
         try {
-            producerSmart.join();
             odinSmart.join();
             lokiSmart.join();
         } catch (InterruptedException ex) {

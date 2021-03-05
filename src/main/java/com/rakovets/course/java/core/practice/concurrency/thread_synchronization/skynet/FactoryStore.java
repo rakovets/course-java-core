@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.concurrency.thread_synchronizatio
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class FactoryStore {
     private final List<RoboParts> store;
@@ -19,46 +18,43 @@ public class FactoryStore {
     public synchronized void produce() {
         Random random = new Random();
         while (currentDayOfWork <= maxDaysOfWork) {
-            while (!store.isEmpty()) {
-                try {
-                    wait();
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+            if (store.isEmpty()) {
+                int consignmentOfDay = random.nextInt(11);
+                for (int x = 0; x < consignmentOfDay; x++) {
+                    int detailDeterminer = random.nextInt(4);
+                    switch (detailDeterminer) {
+                        case 0:
+                            store.add(RoboParts.HEAD);
+                            break;
+                        case 1:
+                            store.add(RoboParts.TORSO);
+                            break;
+                        case 2:
+                            store.add(RoboParts.HAND);
+                            break;
+                        case 3:
+                            store.add(RoboParts.FEET);
+                            break;
+                    }
                 }
+                currentDayOfWork++;
             }
-            int consignmentOfDay = random.nextInt(11);
-            for (int x = 0; x < consignmentOfDay; x++) {
-                int detailDeterminer = random.nextInt(4);
-                switch (detailDeterminer) {
-                    case 0:
-                        store.add(RoboParts.HEAD);
-                        break;
-                    case 1:
-                        store.add(RoboParts.TORSO);
-                        break;
-                    case 2:
-                        store.add(RoboParts.HAND);
-                        break;
-                    case 3:
-                        store.add(RoboParts.FEET);
-                        break;
-                }
+            try {
+                wait(2);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-            currentDayOfWork++;
-            notifyAll();
         }
     }
 
     public synchronized int loot() {
         List<RoboParts> looted = new LinkedList<>();
         while (currentDayOfWork <= maxDaysOfWork) {
-            try {
-                while (store.isEmpty()) {
-                    wait();
-                }
+            if (!store.isEmpty()) {
                 looted.add(store.remove(0));
-                notifyAll();
-                wait(1);
+            }
+            try {
+                wait(2);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
@@ -70,27 +66,21 @@ public class FactoryStore {
         List<RoboParts> looted = new LinkedList<>();
         int numberOfRobots = 0;
         while (currentDayOfWork <= maxDaysOfWork) {
-            numberOfRobots += assembleRobots(looted);
-            try {
-                while (store.isEmpty()) {
-                    wait();
-                }
-
-                if (looted.isEmpty()) {
-                    looted.add(store.remove(0));
-                } else {
-                    for(RoboParts part : RoboParts.values()) {
-                        if (!looted.contains(part)) {
-                            if (store.contains(part)) {
-                                looted.add(part);
-                                store.remove(part);
-                            }
+            if (!store.isEmpty()) {
+                for (RoboParts part : RoboParts.values()) {
+                    if (!looted.contains(part)) {
+                        if (store.contains(part)) {
+                            looted.add(part);
+                            store.remove(part);
                         }
                     }
-                    if(!store.isEmpty())
-                        looted.add(store.remove(0));
-                    }
-                notifyAll();
+                }
+                if (!store.isEmpty()) {
+                    looted.add(store.remove(0));
+                }
+                numberOfRobots += assembleRobots(looted);
+            }
+            try {
                 wait(2);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
