@@ -1,0 +1,11 @@
+package com.rakovets.course.java.core.practice.io.file_analyzer;
+
+public enum Task {
+    GET_MY_LIST,
+    LIST_WORDS_START_WITH_VOWEL,
+    WORDS_WITH_EQUAL_FIRST_AND_LAST_LETTER,
+    LIST_OF_LARGEST_NUMBER_COMBINATION,
+    FREQUENCY_OF_WORDS_ASCENDING_ORDER,
+    SORT_IN_ASCENDING_ORDER,
+    FREQUENCY_OF_REPETITION
+}
