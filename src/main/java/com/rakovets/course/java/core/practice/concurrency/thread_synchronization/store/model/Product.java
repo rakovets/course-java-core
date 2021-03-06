@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.model;
 
 public enum Product {
     VEGETABLES,

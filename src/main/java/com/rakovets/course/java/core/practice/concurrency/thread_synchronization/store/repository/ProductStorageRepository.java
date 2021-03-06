@@ -1,12 +1,14 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.repository;
+
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.model.Product;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProductStorage {
+public class ProductStorageRepository {
     private final Map<Integer, Product> productStorage = new HashMap<>();
 
-    public ProductStorage() {
+    public ProductStorageRepository() {
         productStorage.put(0, Product.VEGETABLES);
         productStorage.put(1, Product.FRUITS);
         productStorage.put(2, Product.BREAD);

@@ -1,13 +1,14 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.repository;
+
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.store.model.Cashier;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cashiers {
-
+public class CashiersRepository {
     private final Map<Integer, Cashier> cashiers = new HashMap<>();
 
-    public Cashiers() {
+    public CashiersRepository() {
         cashiers.put(0, Cashier.CASHIER_1);
         cashiers.put(1, Cashier.CASHIER_2);
         cashiers.put(2, Cashier.CASHIER_3);
