@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.io.ComputerRepairWorkshop;
+package com.rakovets.course.java.core.practice.io.computer_repair_workshop;
 
 import java.io.Serializable;
 

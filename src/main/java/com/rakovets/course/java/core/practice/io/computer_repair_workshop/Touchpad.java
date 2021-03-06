@@ -1,10 +1,10 @@
-package com.rakovets.course.java.core.practice.io.ComputerRepairWorkshop;
+package com.rakovets.course.java.core.practice.io.computer_repair_workshop;
 
 import java.io.Serializable;
 
 public class Touchpad implements Serializable {
-    String connectionType;
-    String gestureSupport;
+    private final String connectionType;
+    private final String gestureSupport;
 
     public Touchpad(String connectionType, String gestureSupport) {
         this.connectionType = connectionType;
