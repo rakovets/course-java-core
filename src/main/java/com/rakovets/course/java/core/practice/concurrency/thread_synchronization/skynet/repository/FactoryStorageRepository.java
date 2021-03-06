@@ -1,12 +1,14 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.repository;
+
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.model.Detail;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class FactoryStorage {
+public class FactoryStorageRepository {
     private final Map<Detail, Integer> factoryStorage = new HashMap<>();
 
-    public FactoryStorage() {
+    public FactoryStorageRepository() {
         factoryStorage.put(Detail.HEAD, 0);
         factoryStorage.put(Detail.TORSO, 0);
         factoryStorage.put(Detail.HAND, 0);
