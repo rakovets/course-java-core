@@ -1,6 +1,8 @@
-package com.rakovets.course.java.core.practice.io.ComputerRepairWorkshop;
+package com.rakovets.course.java.core.practice.io.computer_repair_workshop;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 class ComputerDemo {
 
@@ -9,12 +11,12 @@ class ComputerDemo {
         System.out.println("model = " + computer.getModel());
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Computer computer = new Computer("HP", "Pavilion");
-        String filePath = "src/main/resources/ComputerRepairWorkshop/computer.txt";
+        Path filePath = Paths.get("src", "main", "resources", "computer_repair_workshop", "computer.txt");
 
         try {
-            FileOutputStream file = new FileOutputStream(filePath);
+            FileOutputStream file = new FileOutputStream(String.valueOf(filePath));
             ObjectOutputStream out = new ObjectOutputStream(file);
             out.writeObject(computer);
             out.close();
@@ -22,13 +24,13 @@ class ComputerDemo {
             System.out.println("Object has been serialized\n"
                     + "Data before Deserialization:");
             printData(computer);
-        }
-        catch (IOException ex) {
-            System.out.println("IOException is caught");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
+
         try {
-            FileInputStream file = new FileInputStream(filePath);
+            FileInputStream file = new FileInputStream(String.valueOf(filePath));
             ObjectInputStream in = new ObjectInputStream(file);
             computer = (Computer) in.readObject();
             in.close();
