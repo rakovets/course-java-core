@@ -1,10 +1,10 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.service;
 
-public class ProducerThread implements Runnable {
-    private final Store store;
+public class ProducerThreadService implements Runnable {
+    private final StoreService store;
     protected boolean isRun = true;
 
-    public ProducerThread(Store store) {
+    public ProducerThreadService(StoreService store) {
         this.store = store;
     }
 

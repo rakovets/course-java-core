@@ -1,8 +1,8 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.repository;
 
 import java.util.LinkedList;
 
-public class ProductList {
+public class ProductListRepository {
     private static final LinkedList<Integer> productList = new LinkedList<>();
 
     public static int size() {

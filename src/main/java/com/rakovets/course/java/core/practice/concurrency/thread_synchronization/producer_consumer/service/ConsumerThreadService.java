@@ -1,12 +1,12 @@
-package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer;
+package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.service;
 
 import java.util.Random;
 
-public class ConsumerThread implements Runnable {
-    private final Store store;
+public class ConsumerThreadService implements Runnable {
+    private final StoreService store;
     protected boolean isRun = true;
 
-    public ConsumerThread(Store store) {
+    public ConsumerThreadService(StoreService store) {
         this.store = store;
     }
 
