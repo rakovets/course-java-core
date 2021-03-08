@@ -6,7 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProductRepository {
-    private final Map<Integer, Product> products = new HashMap<>();
+    private static final Map<Integer, Product> products;
+
+    static {
+
+        products = new HashMap<>();
+
+    }
 
     public ProductRepository() {
         products.put(0, Product.VEGETABLES);

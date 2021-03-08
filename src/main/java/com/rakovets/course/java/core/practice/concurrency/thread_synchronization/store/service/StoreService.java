@@ -6,9 +6,16 @@ import com.rakovets.course.java.core.practice.concurrency.thread_synchronization
 import java.util.Random;
 
 public class StoreService {
-    private final CashiersRepository cashiersRepository = new CashiersRepository();
+    private static final CashiersRepository cashiersRepository;
     public int cashier = new Random().nextInt(cashiersRepository.getSize());
-    private final StoreViewConsole storeViewConsole = new StoreViewConsole();
+    private static final StoreViewConsole storeViewConsole;
+
+    static {
+
+        cashiersRepository = new CashiersRepository();
+        storeViewConsole = new StoreViewConsole();
+
+    }
 
     public void consume(CustomerService customerService) {
         synchronized (cashiersRepository.get(cashier)) {

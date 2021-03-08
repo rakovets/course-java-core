@@ -8,7 +8,13 @@ import com.rakovets.course.java.core.util.AnsiColorCode;
 import com.rakovets.course.java.core.util.StandardOutputUtil;
 
 public class StoreViewConsole implements StoreView {
-    private final CashiersRepository cashiersRepository = new CashiersRepository();
+    private static final CashiersRepository cashiersRepository;
+
+    static {
+
+        cashiersRepository = new CashiersRepository();
+
+    }
 
     public void cashiersServed(CustomerService customerService) {
         StoreService storeService = new StoreService();

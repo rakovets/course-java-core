@@ -6,7 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CashiersRepository {
-    private final Map<Integer, Cashier> cashiers = new HashMap<>();
+    private static final Map<Integer, Cashier> cashiers;
+
+    static {
+
+        cashiers = new HashMap<>();
+
+    }
 
     public CashiersRepository() {
         cashiers.put(0, Cashier.CASHIER_1);

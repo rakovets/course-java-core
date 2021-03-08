@@ -5,12 +5,14 @@ import com.rakovets.course.java.core.practice.concurrency.thread_synchronization
 
 public class StoreController {
     private static final int numberOfCustomers;
-    private final CustomerService[] customerService = new CustomerService[numberOfCustomers];
-    private final StoreService storeService = new StoreService();
+    private static final CustomerService[] customerService;
+    private static final StoreService storeService;
 
     static {
 
         numberOfCustomers = 10;
+        customerService = new CustomerService[numberOfCustomers];
+        storeService = new StoreService();
 
     }
 
