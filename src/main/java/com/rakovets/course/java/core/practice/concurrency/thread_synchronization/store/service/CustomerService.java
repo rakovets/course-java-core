@@ -5,11 +5,11 @@ import com.rakovets.course.java.core.practice.concurrency.thread_synchronization
 
 import java.util.List;
 
-public class CustomerThreadService implements Runnable {
+public class CustomerService implements Runnable {
     private final StoreService storeService;
     private final ShoppingCartViewConsole shoppingCartViewConsole = new ShoppingCartViewConsole();
 
-    public CustomerThreadService(StoreService storeService) {
+    public CustomerService(StoreService storeService) {
         this.storeService = storeService;
         shoppingCartViewConsole.shoppingCartView();
     }

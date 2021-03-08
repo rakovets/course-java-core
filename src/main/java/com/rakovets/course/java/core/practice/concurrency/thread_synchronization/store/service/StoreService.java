@@ -10,9 +10,9 @@ public class StoreService {
     public int cashier = new Random().nextInt(cashiersRepository.getSize());
     private final StoreViewConsole storeViewConsole = new StoreViewConsole();
 
-    public void consume(CustomerThreadService customerThreadService) {
+    public void consume(CustomerService customerService) {
         synchronized (cashiersRepository.get(cashier)) {
-            storeViewConsole.cashiersServed(customerThreadService);
+            storeViewConsole.cashiersServed(customerService);
         }
     }
 }

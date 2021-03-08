@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class ShoppingCartRepository {
     private final List<Product> shoppingCart = new ArrayList<>();
-    private final ProductStorageRepository products = new ProductStorageRepository();
+    private final ProductRepository products = new ProductRepository();
 
     public List<Product> getShoppingCart() {
         for (int i = 0; i < new Random().nextInt(4) + 1; i++) {
