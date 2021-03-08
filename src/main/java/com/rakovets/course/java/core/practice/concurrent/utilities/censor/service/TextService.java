@@ -9,12 +9,13 @@ import java.util.Scanner;
 public class TextService {
     public static Path pathToDirectory;
     public static String searchWord;
-    private static final CensorViewConsole censorViewConsole = new CensorViewConsole();
+    private static final CensorViewConsole censorViewConsole;
 
     static {
 
         pathToDirectory = Path.of("src", "main", "resources", "text_files");
         searchWord = "Java";
+        censorViewConsole = new CensorViewConsole();
 
     }
 

@@ -7,9 +7,16 @@ import java.io.*;
 import java.nio.file.Path;
 
 public class MergeFilesService {
-    private static final StringBuilder data = new StringBuilder();
-    private static final StringBuffer mergedText = new StringBuffer();
+    private static final StringBuilder data;
+    private static final StringBuffer mergedText;
     public static String line;
+
+    static {
+
+        data = new StringBuilder();
+        mergedText = new StringBuffer();
+
+    }
 
     public static void mergeFiles(Path pathOfMergedFile) {
         File mergedFile = new File(String.valueOf(pathOfMergedFile));

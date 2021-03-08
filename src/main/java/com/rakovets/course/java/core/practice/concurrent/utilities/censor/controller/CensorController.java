@@ -16,15 +16,17 @@ public class CensorController {
     public static Path pathToTextFiles;
     public static Path directoryPath;
     private static final Path pathToForbiddenWords;
-    private final File fileOfForbiddenWords = new File(String.valueOf(pathToForbiddenWords));
+    private static final File fileOfForbiddenWords;
     private static final Path pathOfMergedFile;
-    private final CensorViewConsole censorViewConsole = new CensorViewConsole();
+    private static final CensorViewConsole censorViewConsole;
 
     static {
 
         directoryPath = Path.of("src", "main", "resources", "text_files");
         pathToForbiddenWords = Paths.get("src", "main", "resources", "ForbiddenWords.txt");
         pathOfMergedFile = Path.of("src", "main", "resources", "MergedFiles.txt");
+        fileOfForbiddenWords = new File(String.valueOf(pathToForbiddenWords));
+        censorViewConsole = new CensorViewConsole();
 
     }
 

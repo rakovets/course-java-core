@@ -10,7 +10,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class CutFilesService {
-    private static final List<Future<String>> futureList = new ArrayList<>();
+    private static final List<Future<String>> futureList;
+
+    static {
+
+        futureList = new ArrayList<>();
+
+    }
 
     public static void cutFiles(String[] fileNames) {
         int numberOfFiles = fileNames.length;

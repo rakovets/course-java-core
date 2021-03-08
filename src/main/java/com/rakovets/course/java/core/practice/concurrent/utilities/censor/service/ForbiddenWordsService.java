@@ -10,7 +10,13 @@ import java.util.Set;
 public class ForbiddenWordsService {
     public static BufferedReader reader;
     public static String string;
-    public static Set<String> forbiddenWords = new HashSet<>();
+    public static Set<String> forbiddenWords;
+
+    static {
+
+        forbiddenWords = new HashSet<>();
+
+    }
 
     public static void getForbiddenWords(Path forbiddenPath) {
         try {

@@ -12,9 +12,15 @@ public class CutterService implements Callable<String> {
     private static Path path;
     private static String word;
     private static Path pathOfDirectory;
-    private static final AtomicInteger numberOfFiles = new AtomicInteger();
+    private static final AtomicInteger numberOfFiles;
     private final StringBuffer data = new StringBuffer();
     public String str;
+
+    static {
+
+        numberOfFiles = new AtomicInteger();
+
+    }
 
     public CutterService(String fileName) {
         this.fileName = fileName;
