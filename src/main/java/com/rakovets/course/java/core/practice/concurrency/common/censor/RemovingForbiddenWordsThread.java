@@ -23,7 +23,7 @@ public class RemovingForbiddenWordsThread extends Thread {
             String s;
             List<String> listOfForbiddenWords = new ArrayList<>();
             while ((s = br.readLine()) != null) {
-                String[] arrayWords = s.split(" ");
+                String[] arrayWords = s.split("\\W");
                 for (String word : arrayWords) {
                     listOfForbiddenWords.add(word);
                 }

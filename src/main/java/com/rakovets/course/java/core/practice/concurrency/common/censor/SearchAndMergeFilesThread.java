@@ -30,6 +30,7 @@ public class SearchAndMergeFilesThread extends Thread{
                             while ((text = br.readLine()) != null) {
                                 if (text.contains(wordForSearch)) {
                                     counter++;
+                                    break;
                                 }
                             }
                             if (counter > 0) {
