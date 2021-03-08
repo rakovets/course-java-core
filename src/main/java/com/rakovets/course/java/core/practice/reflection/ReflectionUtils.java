@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.reflection;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionUtils {
@@ -15,5 +16,13 @@ public class ReflectionUtils {
     public Method[] getArrayMethods(Class<User> clazz) {
         Class<?> cls = clazz.getClass();
         return cls.getMethods();
+    }
+
+    public String callMethod(Method method, User user) throws InvocationTargetException, IllegalAccessException {
+        return (String) method.invoke(user);
+    }
+
+    public void setNewValue(Field field, User user, int value) throws IllegalAccessException {
+        field.set(user, value);
     }
 }
