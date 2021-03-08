@@ -2,9 +2,9 @@ package com.rakovets.course.java.core.practice.concurrent.utilities.master_worke
 
 import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.exceptions.UserInputException;
 
-public class ThreadMasterControllerStarter {
+public class MasterControllerStarter {
     public static void main(String[] args) throws UserInputException {
-        ThreadMasterController threadMasterController = new ThreadMasterController();
-        threadMasterController.start();
+        MasterController masterController = new MasterController();
+        masterController.start();
     }
 }

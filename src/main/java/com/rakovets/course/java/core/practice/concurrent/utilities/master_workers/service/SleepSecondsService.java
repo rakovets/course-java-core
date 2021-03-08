@@ -10,13 +10,15 @@ public class SleepSecondsService implements Callable<Object> {
     }
 
     public Object call() {
-        sleep();
+        if (numberOfSeconds > 0) {
+            sleep(numberOfSeconds * 1000);
+        }
         return null;
     }
 
-    private static void sleep() {
+    private static void sleep(int millis) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

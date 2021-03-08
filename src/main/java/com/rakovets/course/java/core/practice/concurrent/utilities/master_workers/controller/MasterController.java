@@ -2,26 +2,34 @@ package com.rakovets.course.java.core.practice.concurrent.utilities.master_worke
 
 import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.exceptions.UserInputException;
 import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.repository.CommonResourceRepository;
-import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.service.ThreadWorkerService;
-import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.view.ThreadMasterViewConsole;
+import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.service.WorkerService;
+import com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.view.MasterViewConsole;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ThreadMasterController {
-    private final ThreadMasterViewConsole threadMasterViewConsole = new ThreadMasterViewConsole();
-    private final CommonResourceRepository commonResourceRepository = new CommonResourceRepository();
-    private final ThreadWorkerService threadWorkerService = new ThreadWorkerService(commonResourceRepository);
+public class MasterController {
+    private static final MasterViewConsole masterViewConsole;
+    private static final CommonResourceRepository commonResourceRepository;
+    private static final WorkerService workerService;
     public int number;
+
+    static {
+
+        masterViewConsole = new MasterViewConsole();
+        commonResourceRepository = new CommonResourceRepository();
+        workerService = new WorkerService(commonResourceRepository);
+
+    }
 
     public void start() {
         ExecutorService service = Executors.newSingleThreadExecutor();
-        service.submit(threadWorkerService);
+        service.submit(workerService);
         Scanner input = new Scanner(System.in);
         while (true) {
             try {
-                threadMasterViewConsole.enterNumber();
+                masterViewConsole.enterNumber();
                 number = Integer.parseInt(input.nextLine());
                 commonResourceRepository.list.add(number);
                 if (number == -1) {
@@ -34,7 +42,7 @@ public class ThreadMasterController {
                         e.printStackTrace();
                     }
             } catch (NumberFormatException e) {
-                threadMasterViewConsole.invalidInput();
+                masterViewConsole.invalidInput();
             }
         }
     }

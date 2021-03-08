@@ -12,21 +12,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
-public class ThreadWorkerService implements Callable<Object> {
+public class WorkerService implements Callable<Object> {
     private final CommonResourceRepository commonResourceRepository;
     public static int numberOfThreads;
-    private final List<Future<?>> futures = new ArrayList<>();
+    private static final List<Future<?>> futures;
     private static final Path filePath;
-    private final Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    private static final Timestamp timestamp;
 
     static {
 
         numberOfThreads = 2;
+        futures = new ArrayList<>();
         filePath = Paths.get("src", "main", "resources", "MasterWorker.txt");
+        timestamp = new Timestamp(System.currentTimeMillis());
 
     }
 
-    public ThreadWorkerService(CommonResourceRepository commonResourceRepository) {
+    public WorkerService(CommonResourceRepository commonResourceRepository) {
         this.commonResourceRepository = commonResourceRepository;
     }
 

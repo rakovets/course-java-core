@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.concurrent.utilities.master_workers.view;
 
-public class ThreadMasterViewConsole implements ThreadMasterView {
+public class MasterViewConsole implements MasterView {
 
     public void enterNumber() {
         System.out.println("Enter any positive number:");
