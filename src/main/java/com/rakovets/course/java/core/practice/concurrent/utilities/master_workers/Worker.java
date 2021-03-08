@@ -11,7 +11,7 @@ public class Worker implements Runnable {
     private final CopyOnWriteArrayList<Integer> request;
     private final String resultDestination;
     private final String name;
-    ReentrantLock locker;
+    private final ReentrantLock locker;
 
     public Worker(CopyOnWriteArrayList<Integer> request, String resultDestination, String name, ReentrantLock locker) {
         this.request = request;
@@ -24,8 +24,8 @@ public class Worker implements Runnable {
     public void run() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(this.resultDestination, true))) {
             boolean runner = true;
-            try {
-                do {
+            do {
+                try {
                     locker.lock();
                     if (request.isEmpty()) {
                         bw.write(String.format("%s - %s - ...\n", new Timestamp(System.currentTimeMillis()).toString(), this.name));
@@ -46,10 +46,11 @@ public class Worker implements Runnable {
                             Thread.sleep(seconds * 1000L);
                         }
                     }
-                } while (runner);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    locker.unlock();
+                }
+            } while (runner);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
