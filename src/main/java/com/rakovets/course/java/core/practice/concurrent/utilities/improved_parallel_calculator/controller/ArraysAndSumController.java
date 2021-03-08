@@ -6,11 +6,12 @@ import com.rakovets.course.java.core.practice.concurrent.utilities.improved_para
 
 public class ArraysAndSumController {
     public static int numberOfThreads;
-    private final ListOfArrays listOfArrays = new ListOfArrays();
+    private static final ListOfArrays listOfArrays;
 
     static {
 
         numberOfThreads = 2;
+        listOfArrays = new ListOfArrays();
 
     }
 

@@ -11,9 +11,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class ImprovedParallelCalculatorService implements Callable<Integer> {
-    private static final List<Callable<Integer>> callableTasks = new ArrayList<>();
+    private static final List<Callable<Integer>> callableTasks;
     private final int[] array;
-    private static final List<ArrayAndSum> arrayAndSum = new ArrayList<>();
+    private static final List<ArrayAndSum> arrayAndSum;
+
+    static {
+
+        callableTasks = new ArrayList<>();
+        arrayAndSum = new ArrayList<>();
+
+    }
 
     public ImprovedParallelCalculatorService(int[] array) {
         this.array = array;

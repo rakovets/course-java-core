@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Random;
 
 public class ListOfArrays {
-    public static List<int[]> listOfArrays = new ArrayList<>();
+    public static List<int[]> listOfArrays;
     public static int valueOfElements;
     public static int numberOfArrays;
 
     static {
 
+        listOfArrays = new ArrayList<>();
         valueOfElements = 300;
         numberOfArrays = 100;
 

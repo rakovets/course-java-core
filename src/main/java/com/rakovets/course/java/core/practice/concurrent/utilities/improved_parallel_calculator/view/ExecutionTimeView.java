@@ -3,7 +3,13 @@ package com.rakovets.course.java.core.practice.concurrent.utilities.improved_par
 import com.rakovets.course.java.core.practice.concurrent.utilities.improved_parallel_calculator.service.ExecutionTimeService;
 
 public class ExecutionTimeView {
-    private final ExecutionTimeService executionTimeService = new ExecutionTimeService();
+    private static final ExecutionTimeService executionTimeService;
+
+    static {
+
+        executionTimeService = new ExecutionTimeService();
+
+    }
 
     public void executionTimeView() {
         System.out.println("Calculation of sum in 1 thread took: " +
