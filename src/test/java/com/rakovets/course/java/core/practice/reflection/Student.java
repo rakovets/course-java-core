@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.reflection;
 public class Student {
     private String name;
     private int fee;
-    private final int upValueFee = 10;
 
     public Student(String name, int fee) {
         this.name = name;
@@ -19,8 +18,11 @@ public class Student {
         return fee;
     }
 
-    public void plusFee() {
-        fee += upValueFee;
+    public int plusFee(int value) {
+        return fee += value;
     }
 
+    public void resetFee() {
+        fee = 0;
+    }
 }

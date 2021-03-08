@@ -2,16 +2,11 @@ package com.rakovets.course.java.core.practice.reflection;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ReflectionUtilsTest {
-
     Student student = new Student("Vasya", 100);
 
     @Test
@@ -33,22 +28,10 @@ class ReflectionUtilsTest {
     }
 
     @Test
-    void getArrayOfMethod() throws NoSuchMethodException {
-        Method[] expected = new Method[3];
-        expected[0] = ReflectionUtils.getMethod(Student.class, "getName");
-        expected[1] = ReflectionUtils.getMethod(Student.class, "getFee");
-        expected[2] = ReflectionUtils.getMethod(Student.class, "plusFee");
-
-        Method[] actual = ReflectionUtils.getArrayOfMethod(Student.class);
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
     void startMethod() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        int expected = 110;
+        int expected = 0;
 
-        ReflectionUtils.startMethod(Student.class.getDeclaredMethod("plusFee"), student);
+        ReflectionUtils.startMethod(Student.class.getDeclaredMethod("resetFee"), student);
 
         Assertions.assertEquals(expected, student.getFee());
     }
@@ -60,5 +43,24 @@ class ReflectionUtilsTest {
         ReflectionUtils.setValueInField(Student.class.getDeclaredField("name"), student, "Petya");
 
         Assertions.assertEquals(expected, student.getName());
+    }
+
+    @Test
+    void getMethodWithParams() throws NoSuchMethodException {
+        String expected = "plusFee";
+
+        Method actual = ReflectionUtils.getMethodWithParams(Student.class, "plusFee", int.class);
+
+        Assertions.assertEquals(expected, actual.getName());
+    }
+
+    @Test
+    void startMethodWithArgs() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Object[] params = new Object[]{50};
+        int expected = 150;
+
+        ReflectionUtils.startMethodWithArgs(Student.class.getDeclaredMethod("plusFee", int.class), student, params);
+
+        Assertions.assertEquals(expected, student.getFee());
     }
 }

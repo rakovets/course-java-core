@@ -27,11 +27,11 @@ public class ReflectionUtils {
         field.set(obj, value);
     }
 
-    public static Method getMethod(Class<?> clazz, String methodName, Class<?>... params) throws NoSuchMethodException {
+    public static Method getMethodWithParams(Class<?> clazz, String methodName, Class<?>... params) throws NoSuchMethodException {
         return clazz.getDeclaredMethod(methodName, params);
     }
 
-    public static Object startMethod(Method method, Object obj, Object... args) throws InvocationTargetException, IllegalAccessException {
+    public static Object startMethodWithArgs(Method method, Object obj, Object... args) throws InvocationTargetException, IllegalAccessException {
         method.setAccessible(true);
         return method.invoke(obj, args);
     }
