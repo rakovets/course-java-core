@@ -7,11 +7,12 @@ import java.util.Random;
 
 public class FactoryService extends Thread {
     public static int NUMBER_OF_PRODUCED_DETAILS;
-    private final FactoryDetailRepository factoryDetailRepository = new FactoryDetailRepository();
+    private static final FactoryDetailRepository factoryDetailRepository;
 
     static {
 
         NUMBER_OF_PRODUCED_DETAILS = 10;
+        factoryDetailRepository = new FactoryDetailRepository();
 
     }
 

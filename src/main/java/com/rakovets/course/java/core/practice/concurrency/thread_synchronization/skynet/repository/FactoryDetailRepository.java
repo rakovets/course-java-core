@@ -6,7 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FactoryDetailRepository {
-    private final Map<Detail, Integer> factoryDetails = new HashMap<>();
+    private static final Map<Detail, Integer> factoryDetails;
+
+    static {
+
+        factoryDetails = new HashMap<>();
+
+    }
 
     public FactoryDetailRepository() {
         factoryDetails.put(Detail.HEAD, 0);

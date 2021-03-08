@@ -8,13 +8,14 @@ public class FractionService extends Thread {
     private final FactoryService factoryService;
     public Detail detail;
     public static int NUMBER_OF_CONSUMED_DETAILS;
-    private final FractionDetailRepository fractionDetailRepository = new FractionDetailRepository();
+    private static final FractionDetailRepository fractionDetailRepository;
     public FractionRobotRepository fractionRobotRepository = new FractionRobotRepository();
     public String fraction;
     public int numberOfRobot;
 
     static {
 
+        fractionDetailRepository = new FractionDetailRepository();
         NUMBER_OF_CONSUMED_DETAILS = 5;
 
     }

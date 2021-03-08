@@ -10,9 +10,17 @@ import com.rakovets.course.java.core.util.StandardOutputUtil;
 import java.util.Random;
 
 public class SkyNetViewConsole implements SkyNetView {
-    private final FactoryService factory = new FactoryService();
-    private final FractionWednesday fractionWednesday = new FractionWednesday(factory);
-    private final FractionWorld fractionWorld = new FractionWorld(factory);
+    private static final FactoryService factory;
+    private static final FractionWednesday fractionWednesday;
+    private static final FractionWorld fractionWorld;
+
+    static {
+
+        factory = new FactoryService();
+        fractionWednesday = new FractionWednesday(factory);
+        fractionWorld = new FractionWorld(factory);
+
+    }
 
     public void skyNetView() {
         for (int i = 1; i <= SkyNetController.daysOfArmiesComparison; i++) {
@@ -39,6 +47,7 @@ public class SkyNetViewConsole implements SkyNetView {
                 e.printStackTrace();
             }
         }
+
         System.out.println("\n" + "AFTER 100 DAYS:");
         System.out.println("FRACTION 'WEDNESDAY' CREATED " +
                 fractionWednesday.fractionRobotRepository.robot.size() + " ROBOTS");
@@ -52,5 +61,6 @@ public class SkyNetViewConsole implements SkyNetView {
         else
             StandardOutputUtil.println("FRACTIONS ARMIES ARE EQUAL",
                     AnsiColorCode.FG_RED_BOLD);
+
     }
 }

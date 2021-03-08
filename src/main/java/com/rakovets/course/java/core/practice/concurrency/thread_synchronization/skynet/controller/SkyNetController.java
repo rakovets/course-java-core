@@ -8,17 +8,21 @@ import com.rakovets.course.java.core.practice.concurrency.thread_synchronization
 import java.util.Random;
 
 public class SkyNetController {
-    private final FactoryService factory = new FactoryService();
-    private final FractionWednesday fractionWednesday = new FractionWednesday(factory);
-    private final FractionWorld fractionWorld = new FractionWorld(factory);
+    private static final FactoryService factory;
+    private static final FractionWednesday fractionWednesday;
+    private static final FractionWorld fractionWorld;
     public static Thread factoryThread;
     public static Thread wednesdayThread;
     public static Thread worldThread;
-    private final SkyNetViewConsole skyNetViewConsole = new SkyNetViewConsole();
+    private static final SkyNetViewConsole skyNetViewConsole;
     public static int daysOfArmiesComparison;
 
     static {
 
+        factory = new FactoryService();
+        fractionWednesday = new FractionWednesday(factory);
+        fractionWorld = new FractionWorld(factory);
+        skyNetViewConsole = new SkyNetViewConsole();
         daysOfArmiesComparison = 100;
 
     }

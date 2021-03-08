@@ -6,7 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FractionDetailRepository {
-    private final Map<Detail, Integer> fractionDetails = new HashMap<>();
+    private static final Map<Detail, Integer> fractionDetails;
+
+    static {
+
+        fractionDetails = new HashMap<>();
+
+    }
 
     public FractionDetailRepository() {
         fractionDetails.put(Detail.HEAD, 0);
