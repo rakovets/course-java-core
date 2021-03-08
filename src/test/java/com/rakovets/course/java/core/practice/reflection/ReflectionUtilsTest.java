@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.*;
 
 class ReflectionUtilsTest {
     Student student = new Student("Vasya", 100);
@@ -25,6 +26,14 @@ class ReflectionUtilsTest {
         Method actual = ReflectionUtils.getMethod(Student.class, "getName");
 
         Assertions.assertEquals(expected, actual.getName());
+    }
+
+    @Test
+    void getArrayOfMethod() {
+        Assertions.assertTrue(Arrays.toString(ReflectionUtils.getArrayOfMethod(Student.class)).contains("getName"));
+        Assertions.assertTrue(Arrays.toString(ReflectionUtils.getArrayOfMethod(Student.class)).contains("getFee"));
+        Assertions.assertTrue(Arrays.toString(ReflectionUtils.getArrayOfMethod(Student.class)).contains("plusFee"));
+        Assertions.assertTrue(Arrays.toString(ReflectionUtils.getArrayOfMethod(Student.class)).contains("resetFee"));
     }
 
     @Test
