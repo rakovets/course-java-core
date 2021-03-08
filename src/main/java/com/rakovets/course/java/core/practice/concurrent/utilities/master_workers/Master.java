@@ -51,8 +51,4 @@ public class Master implements Runnable {
             }
         }
     }
-
-    public CopyOnWriteArrayList<Integer> getRequest() {
-        return request;
-    }
 }
