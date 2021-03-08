@@ -41,4 +41,13 @@ public class Bike {
     public int getEngineVolume() {
         return engineVolume;
     }
+
+    @Override
+    public String toString() {
+        return "Bike{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                '}';
+    }
 }

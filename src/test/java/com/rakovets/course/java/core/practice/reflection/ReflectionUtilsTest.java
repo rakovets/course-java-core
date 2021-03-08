@@ -7,14 +7,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class ReflectionUtilsTest {
 
     @Test
     void getField() throws NoSuchFieldException {
         //Given
-        String expectedResult = "private java.lang.String com.rakovets.course.java.core.practice.reflection.Bike.brand";
+        String expectedResult = "private final java.lang.String com.rakovets.course.java.core.practice.reflection.Bike.brand";
 
         //When
         String actualResult = ReflectionUtils.getField(Bike.class, "brand").toString();
@@ -44,6 +44,7 @@ class ReflectionUtilsTest {
         expectedResult.add("getEngineVolume");
         expectedResult.add("getModel");
         expectedResult.add("getNumberPlate");
+        expectedResult.add("toString");
 
         //When
         List<String> actualResult = ReflectionUtils.getMethodsArray(Bike.class);
@@ -68,11 +69,11 @@ class ReflectionUtilsTest {
     void changeFieldWithString() throws NoSuchFieldException, IllegalAccessException {
         //Given
         Bike ducati = new Bike("Ducati", "Panigale", 1099);
-        String expectedResult = "Ducati Diavel 1099";
+        String expectedResult = "Bike{brand='Ducati', model='Diavel', engineVolume=1099}";
 
         //When
         ReflectionUtils.changeField(Bike.class.getDeclaredField("model"), ducati, "Diavel");
-        String actualResult = String.format("%s %s %s", ducati.getBrand(), ducati.getModel(), ducati.getEngineVolume());
+        String actualResult = ducati.toString();
 
         //Than
         Assertions.assertEquals(expectedResult, actualResult);
@@ -82,11 +83,11 @@ class ReflectionUtilsTest {
     void testChangeFieldWithInt() throws NoSuchFieldException, IllegalAccessException {
         //Given
         Bike ducati = new Bike("Ducati", "Panigale", 1099);
-        String expectedResult = "Ducati Panigale 1299";
+        String expectedResult = "Bike{brand='Ducati', model='Panigale', engineVolume=1299}";
 
         //When
         ReflectionUtils.changeField(Bike.class.getDeclaredField("engineVolume"), ducati, 1299);
-        String actualResult = String.format("%s %s %s", ducati.getBrand(), ducati.getModel(), ducati.getEngineVolume());
+        String actualResult = ducati.toString();
 
         //Than
         Assertions.assertEquals(expectedResult, actualResult);
