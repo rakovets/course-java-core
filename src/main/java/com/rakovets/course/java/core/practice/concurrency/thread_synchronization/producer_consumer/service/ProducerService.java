@@ -1,25 +1,23 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.service;
 
-import java.util.Random;
-
-public class ConsumerThreadService implements Runnable {
+public class ProducerService implements Runnable {
     private final StoreService store;
-    protected boolean isRun = true;
+    public boolean isRun = true;
 
-    public ConsumerThreadService(StoreService store) {
+    public ProducerService(StoreService store) {
         this.store = store;
     }
 
     public void run() {
         while (isRun) {
-            sleep(new Random().nextInt(1000));
-            store.consume();
+            store.produce();
+            sleep();
         }
     }
 
-    private static void sleep(long millis) {
+    private static void sleep() {
         try {
-            Thread.sleep(millis);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

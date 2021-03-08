@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.concurrency.thread_synchronizatio
 
 import java.util.LinkedList;
 
-public class ProductListRepository {
+public class ProductRepository {
     private static final LinkedList<Integer> productList = new LinkedList<>();
 
     public static int size() {

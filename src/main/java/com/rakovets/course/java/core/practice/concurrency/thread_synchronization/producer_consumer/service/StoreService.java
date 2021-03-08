@@ -1,24 +1,30 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.service;
 
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.repository.ProductListRepository;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.repository.ProductRepository;
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.view.StoreViewConsole;
 
 import java.util.Random;
 
 public class StoreService {
-    protected final int SIZE = 10;
+    public static final int STORE_SIZE;
     private final StoreViewConsole storeViewConsole = new StoreViewConsole();
 
+    static {
+
+        STORE_SIZE = 10;
+
+    }
+
     public synchronized void produce() {
-        while (ProductListRepository.size() == SIZE) {
+        while (ProductRepository.size() == STORE_SIZE) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        while (ProductListRepository.size() < SIZE) {
-            ProductListRepository.add(new Random().nextInt());
+        while (ProductRepository.size() < STORE_SIZE) {
+            ProductRepository.add(new Random().nextInt());
             storeViewConsole.produceView();
 
         }
@@ -26,14 +32,14 @@ public class StoreService {
     }
 
     public synchronized void consume() {
-        while (ProductListRepository.size() == 0) {
+        while (ProductRepository.size() == 0) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        ProductListRepository.removeFirst();
+        ProductRepository.removeFirst();
         storeViewConsole.consumeView();
         notify();
     }
