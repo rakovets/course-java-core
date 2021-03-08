@@ -7,11 +7,12 @@ import java.util.Random;
 
 public class StoreService {
     public static final int STORE_SIZE;
-    private final StoreViewConsole storeViewConsole = new StoreViewConsole();
+    private static final StoreViewConsole storeViewConsole;
 
     static {
 
         STORE_SIZE = 10;
+        storeViewConsole = new StoreViewConsole();
 
     }
 

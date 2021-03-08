@@ -5,7 +5,13 @@ import com.rakovets.course.java.core.practice.concurrency.thread_synchronization
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.producer_consumer.service.StoreService;
 
 public class NumberStoreController {
-    private final StoreService storeService = new StoreService();
+    private static final StoreService storeService;
+
+    static {
+
+        storeService = new StoreService();
+
+    }
 
     public void start() {
         new Thread(new ProducerService(storeService)).start();
