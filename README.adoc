@@ -1,6 +1,6 @@
 = course-java-core
 
-This project is for the course "Core Java".
+This project is for the course "Java Core".
 
 It contains for each theme of this course:
 
@@ -20,7 +20,7 @@ It contains for each theme of this course:
 |===
 |*Theme*|*Links*
 |Intro.|link:src/main/resources/practice/intro.adoc[intro.adoc]
-|Data types. Variables. Operators. Methods|link:src/main/java/com/rakovets/course/java/core/practice/operators[package: operators]
+|Data types. Variables. Operators. Methods.|link:src/main/java/com/rakovets/course/java/core/practice/operators[package: operators]
 |Decision-making statements.|link:src/main/java/com/rakovets/course/java/core/practice/decision_making_statement[package: decision_making_statement]
 |Looping statements.|link:src/main/java/com/rakovets/course/java/core/practice/looping_statement[package: looping_statement]
 |Array.|link:src/main/java/com/rakovets/course/java/core/practice/array[package: array]
@@ -40,7 +40,7 @@ It contains for each theme of this course:
 |Java IO.|link:src/main/resources/practice/java-io.adoc[java-io.adoc]
 |Concurrency.|link:src/main/resources/practice/concurrency.adoc[concurrency.adoc]
 |Concurrency. Thread synchronization.|link:src/main/resources/practice/concurrency-thread-synchronization.adoc[concurrency-thread-synchronization.adoc]
-|Concurrent utilities(link:https://jcp.org/en/jsr/detail?id=166[JSR 166]). |link:src/main/resources/practice/concurrent-utilities.adoc[concurrent-utilities.adoc]
+|Concurrent utilities(link:https://jcp.org/en/jsr/detail?id=166[JSR 166]).|link:src/main/resources/practice/concurrent-utilities.adoc[concurrent-utilities.adoc]
 |Reflection.|link:src/main/resources/practice/reflection.adoc[reflection.adoc]
 |XML.|link:src/main/resources/practice/xml/xml.adoc[xml.adoc]
 |Networking.|link:src/main/resources/practice/networking.adoc[networking.adoc]
