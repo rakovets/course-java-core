@@ -5,5 +5,4 @@ import java.util.List;
 
 public class FractionRobotRepository {
     public List<Integer> robot = new ArrayList<>();
-
 }

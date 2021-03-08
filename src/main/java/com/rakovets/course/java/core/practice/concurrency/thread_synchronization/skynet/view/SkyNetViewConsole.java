@@ -1,41 +1,40 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.view;
 
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.controller.SkyNetStarterController;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.controller.SkyNetController;
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.model.FractionWednesday;
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.model.FractionWorld;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.service.FactoryThreadService;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.service.FactoryService;
 import com.rakovets.course.java.core.util.AnsiColorCode;
 import com.rakovets.course.java.core.util.StandardOutputUtil;
 
 import java.util.Random;
 
 public class SkyNetViewConsole implements SkyNetView {
-    private final FactoryThreadService factory = new FactoryThreadService();
+    private final FactoryService factory = new FactoryService();
     private final FractionWednesday fractionWednesday = new FractionWednesday(factory);
     private final FractionWorld fractionWorld = new FractionWorld(factory);
 
     public void skyNetView() {
-        int days = 100;
-        for (int i = 1; i <= days; i++) {
-            SkyNetStarterController.factoryThread = new Thread(factory);
-            SkyNetStarterController.factoryThread.start();
+        for (int i = 1; i <= SkyNetController.daysOfArmiesComparison; i++) {
+            SkyNetController.factoryThread = new Thread(factory);
+            SkyNetController.factoryThread.start();
             try {
-                SkyNetStarterController.factoryThread.join();
+                SkyNetController.factoryThread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            SkyNetStarterController.worldThread = new Thread(fractionWorld);
-            SkyNetStarterController.wednesdayThread = new Thread(fractionWednesday);
+            SkyNetController.worldThread = new Thread(fractionWorld);
+            SkyNetController.wednesdayThread = new Thread(fractionWednesday);
             if (new Random().nextInt(2) == 0) {
-                SkyNetStarterController.worldThread.start();
-                SkyNetStarterController.wednesdayThread.start();
+                SkyNetController.worldThread.start();
+                SkyNetController.wednesdayThread.start();
             } else {
-                SkyNetStarterController.wednesdayThread.start();
-                SkyNetStarterController.worldThread.start();
+                SkyNetController.wednesdayThread.start();
+                SkyNetController.worldThread.start();
             }
             try {
-                SkyNetStarterController.worldThread.join();
-                SkyNetStarterController.wednesdayThread.join();
+                SkyNetController.worldThread.join();
+                SkyNetController.wednesdayThread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

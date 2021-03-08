@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.model;
 
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.service.FactoryThreadService;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.service.FractionThreadService;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.service.FactoryService;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.service.FractionService;
 
-public class FractionWednesday extends FractionThreadService {
+public class FractionWednesday extends FractionService {
 
-    public FractionWednesday(FactoryThreadService factoryThreadService) {
-        super(factoryThreadService);
+    public FractionWednesday(FactoryService factoryService) {
+        super(factoryService);
         fraction = "WEDNESDAY";
     }
 }
