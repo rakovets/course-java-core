@@ -23,8 +23,6 @@ public class Censor {
             String filepath = targetData[0];
             String searchWord = targetData [1];
 
-            long start = System.nanoTime();
-
             List<String> forbiddenWords = forbiddenWordsReceiving.get();
             Future<List<File>> future = executor.submit(new FileCollector(filepath, searchWord));
             List<File> chosenFiles = future.get();
@@ -37,7 +35,6 @@ public class Censor {
                 executor.execute(new Cleaner(listForProcessing, lockForList, lockForWriting, forbiddenWords, censoredDataPath));
             }
             executor.shutdown();
-            System.out.printf("Censored in %d nanos\n", (System.nanoTime() - start));
         } catch (InterruptedException | ExecutionException exception) {
             System.out.println(exception.getMessage());
         }

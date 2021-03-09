@@ -30,6 +30,8 @@ public class Cleaner implements Runnable {
             if (!chosenFiles.isEmpty()) {
                 File fileForCleaning = chosenFiles.remove(0);
                 lockForChosenFiles.unlock();
+                long start = System.nanoTime();
+
                 try (BufferedReader reader = new BufferedReader(new FileReader(fileForCleaning))) {
                     String string;
                     while ((string = reader.readLine()) != null) {
@@ -82,7 +84,8 @@ public class Cleaner implements Runnable {
 
                 cleaningObject.clear();
                 purifiedText.clear();
-
+                System.out.printf("Cleaner %s have censored %s in %d nanos\n",
+                        Thread.currentThread().getName(), fileForCleaning.getName(), (System.nanoTime() - start));
             } else {
                 lockForChosenFiles.unlock();
             }
