@@ -1,39 +1,46 @@
 package com.rakovets.course.java.core.practice.concurrent.utilities.censor;
 
+import java.io.File;
+import java.util.List;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Censor {
     private final String forbiddenWordsSource;
     private final String censoredDataPath;
-    private String filepath = "";
-    private String searchWord = "";
 
     public Censor(String forbiddenWordsSource, String censoredDataPath) {
         this.forbiddenWordsSource = forbiddenWordsSource;
         this.censoredDataPath = censoredDataPath;
     }
 
-    public void check() {
-        String[] targetData = CensorTargetInput.inputTargetData();
-        filepath = targetData[0];
-        searchWord = targetData [1];
+    public void check(int cleanerNumber) {
+        ExecutorService executor = Executors.newFixedThreadPool(cleanerNumber);
+        try {
+            Future<List<String>> forbiddenWordsReceiving = executor.submit(new ForbiddenWordsSupplier(forbiddenWordsSource));
+
+            String[] targetData = CensorTargetInput.inputTargetData();
+            String filepath = targetData[0];
+            String searchWord = targetData [1];
 
             long start = System.nanoTime();
 
-            Thread collector = new Thread(new Collector(filepath, searchWord, censoredDataPath));
-            collector.start();
-            try {
-                collector.join();
-            } catch (InterruptedException interruptedException) {
-                System.out.println(interruptedException.getMessage());
-            }
-            Thread cleaner = new Thread(new Cleaner(forbiddenWordsSource, censoredDataPath));
-            cleaner.start();
-            try {
-                cleaner.join();
-            } catch (InterruptedException interruptedException) {
-                System.out.println(interruptedException.getMessage());
-            }
-            System.out.println("Your data has been censored");
-            System.out.printf("Censored in %d nanos\n", (System.nanoTime() - start));
-        }
+            List<String> forbiddenWords = forbiddenWordsReceiving.get();
+            Future<List<File>> future = executor.submit(new FileCollector(filepath, searchWord));
+            List<File> chosenFiles = future.get();
 
+            CopyOnWriteArrayList<File> listForProcessing = new CopyOnWriteArrayList<>(chosenFiles);
+            ReentrantLock lockForList = new ReentrantLock();
+            ReentrantLock lockForWriting = new ReentrantLock();
+
+            for (int x = 1; x <= cleanerNumber; x++) {
+                executor.execute(new Cleaner(listForProcessing, lockForList, lockForWriting, forbiddenWords, censoredDataPath));
+            }
+            executor.shutdown();
+            System.out.printf("Censored in %d nanos\n", (System.nanoTime() - start));
+        } catch (InterruptedException | ExecutionException exception) {
+            System.out.println(exception.getMessage());
+        }
+        System.out.println("Your data has been censored");
+    }
 }
