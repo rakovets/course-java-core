@@ -2,7 +2,8 @@ package com.rakovets.course.java.core.practice.concurrent.utilities.improved_par
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class ImprovedParallelCalculator {
@@ -40,11 +41,12 @@ public abstract class ImprovedParallelCalculator {
                 }
             System.out.println(marker + " - " + (System.currentTimeMillis() - start));
         };
-        Executor executor = (runnable) -> new Thread(runnable).start();
 
+        ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
         for (int x = 1; x <= numberOfThreads; x++) {
             executor.execute(calculatorUnit);
         }
+        executor.shutdown();
         return result;
     }
 }
