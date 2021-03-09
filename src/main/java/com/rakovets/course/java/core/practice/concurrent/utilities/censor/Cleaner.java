@@ -84,7 +84,7 @@ public class Cleaner implements Runnable {
 
                 cleaningObject.clear();
                 purifiedText.clear();
-                System.out.printf("Cleaner %s have censored %s in %d nanos\n",
+                System.out.printf("Cleaner %s censored %s in %d nanos\n",
                         Thread.currentThread().getName(), fileForCleaning.getName(), (System.nanoTime() - start));
             } else {
                 lockForChosenFiles.unlock();
