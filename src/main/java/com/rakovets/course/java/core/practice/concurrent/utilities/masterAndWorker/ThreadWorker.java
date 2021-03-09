@@ -18,26 +18,23 @@ public class ThreadWorker extends Thread {
     public void run() {
         int counter = 0;
         while (isActive) {
-            if (counter == listOfNumbers.size()) {
-                try (FileWriter writer = new FileWriter("src/test/java/resources/practice/concurrent/utilities/masterWorker/worker.txt", true)) {
+            try (FileWriter writer = new FileWriter("src/test/java/resources/practice/concurrent/utilities/masterWorker/worker.txt", true)) {
+                if (counter == listOfNumbers.size()) {
                     Thread.sleep(1000);
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                     writer.write(timestamp + " - ...\n");
-                } catch (InterruptedException | IOException e) {
-                    e.printStackTrace();
                 }
-            }
-            if (counter < listOfNumbers.size() && listOfNumbers.get(counter) != -1) {
-                try (FileWriter writer = new FileWriter("src/test/java/resources/practice/concurrent/utilities/masterWorker/worker.txt", true)) {
+                if (counter < listOfNumbers.size() && listOfNumbers.get(counter) != -1) {
+
                     Thread.sleep(listOfNumbers.get(counter) * 1000);
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                     writer.write(timestamp + " - I slept " + listOfNumbers.get(counter) + " seconds\n");
                     counter++;
-                } catch (InterruptedException | IOException e) {
-                    e.printStackTrace();
+                } else if (counter < listOfNumbers.size() && listOfNumbers.get(counter) == -1) {
+                    isActive = false;
                 }
-            } else if (counter < listOfNumbers.size() && listOfNumbers.get(counter) == -1) {
-                isActive = false;
+            } catch (InterruptedException | IOException e) {
+                e.printStackTrace();
             }
         }
     }
