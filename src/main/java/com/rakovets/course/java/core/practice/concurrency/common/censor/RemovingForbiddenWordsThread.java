@@ -31,7 +31,7 @@ public class RemovingForbiddenWordsThread extends Thread {
             BufferedWriter bwTmp = new BufferedWriter(new FileWriter(tmp.getPath(), true));
 
             while ((s = br2.readLine()) != null) {
-                String[] arrayWords = s.split(" ");
+                String[] arrayWords = s.split("\\W");
                 for (String word : arrayWords) {
                     if (listOfForbiddenWords.contains(word)) {
                         bwTmp.write("");
