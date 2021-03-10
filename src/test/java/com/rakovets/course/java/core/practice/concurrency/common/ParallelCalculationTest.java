@@ -17,12 +17,12 @@ public class ParallelCalculationTest {
         List<int[]> list = new ArrayList<>();
         Collections.addAll(list, array1, array2, array3);
 
-        Map<Integer, int[]> expectedResult = new HashMap<>();
-        expectedResult.put(16, array1);
-        expectedResult.put(19, array2);
-        expectedResult.put(17, array3);
+        Map<int[], Integer> expectedResult = new HashMap<>();
+        expectedResult.put(array1, 16);
+        expectedResult.put(array2, 19);
+        expectedResult.put(array3, 17);
 
-        Map<Integer, int[]> actualResult = ParallelCalculator.getSum(list);
+        Map<int[], Integer> actualResult = ParallelCalculator.getSum(list);
 
         Assertions.assertEquals(expectedResult.entrySet(), actualResult.entrySet());
     }
@@ -37,12 +37,12 @@ public class ParallelCalculationTest {
         List<int[]> list = new ArrayList<>();
         Collections.addAll(list, array1, array2, array3);
 
-        Map<Integer, int[]> expectedResult = new HashMap<>();
-        expectedResult.put(16, array1);
-        expectedResult.put(19, array2);
-        expectedResult.put(17, array3);
+        Map<int[], Integer> expectedResult = new HashMap<>();
+        expectedResult.put(array1, 16);
+        expectedResult.put(array2, 19);
+        expectedResult.put(array3, 17);
 
-        Map<Integer, int[]> actualResult = ParallelCalculator.fewThreads(list, 10);
+        Map<int[], Integer> actualResult = ParallelCalculator.fewThreads(list, 10);
 
         Assertions.assertEquals(expectedResult.entrySet(), actualResult.entrySet());
     }

@@ -21,32 +21,28 @@ public class Worker implements Runnable {
             boolean stop = true;
 
             do {
-                if (list.isEmpty()) {
-                    bw.write(String.format("%s - ...\n", new Timestamp(System.currentTimeMillis()).toString()));
-                    bw.flush();
-                    try {
+                try {
+                    if (list.isEmpty()) {
+                        bw.write(String.format("%s - ...\n", new Timestamp(System.currentTimeMillis()).toString()));
+                        bw.flush();
                         Thread.sleep(1000L);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    int seconds = list.poll();
-                    if (seconds == -1) {
-                        stop = false;
                     } else {
-                        try {
+                        int seconds = list.poll();
+                        if (seconds == -1) {
+                            stop = false;
+                        } else {
                             Thread.sleep(seconds * 1000L);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
                             bw.write(String.format("%s - I slept %d seconds\n",
                                     new Timestamp(System.currentTimeMillis()).toString(), seconds));
                             bw.flush();
+                        }
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             } while (stop);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+        System.out.println(ex.getMessage());
         }
     }
 }
