@@ -4,18 +4,7 @@ import com.rakovets.course.java.core.util.AnsiColorCode;
 
 import java.util.*;
 
-public abstract class ParallelCalculator {
-    public static Map<int[], Integer> calculate(List<int[]> arraysOfInt) {
-        Map<int[], Integer> map = new HashMap<>();
-        for (int[] number : arraysOfInt) {
-            OptionalInt sum = Arrays.stream(number).reduce(Integer::sum);
-            if (sum.isPresent()) {
-                map.put(number, sum.getAsInt());
-            }
-        }
-        return map;
-    }
-
+public class ParallelCalculator {
     public static Map<int[], Integer> calculateWithThreads(List<int[]> arraysOfInt, int numberOfThreads, AnsiColorCode codes) {
         Map<int[], Integer> map = new HashMap<>();
         List<int[]> list = new ArrayList<>(arraysOfInt);
