@@ -1,13 +1,15 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization;
 
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.Factory;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.FactoryStore;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.SmartTeam;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.Team;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet.*;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SkynetDemo {
     public static void main(String[] args) {
-        FactoryStore store = new FactoryStore(100);
+        List<RoboPart> list = new LinkedList<>();
+        FactoryStore store = new FactoryStore(list, 100);
         Factory factory = new Factory(store);
         Team world = new Team(store);
         Team wednesday = new Team(store);
@@ -35,7 +37,8 @@ public class SkynetDemo {
             System.out.printf("It's a draw!\nScore %d : %d\n", world.getNumberOfRobots(), wednesday.getNumberOfRobots());
         }
 
-        FactoryStore storeSmart = new FactoryStore(100);
+        List<RoboPart> smartList = new ArrayList<>();
+        FactoryStore storeSmart = new FactoryStore(smartList,100);
         Factory smartFactory = new Factory(storeSmart);
         SmartTeam smartWednesday = new SmartTeam(storeSmart);
         SmartTeam smartWorld = new SmartTeam(storeSmart);

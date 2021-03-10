@@ -1,111 +1,50 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skynet;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 public class FactoryStore {
-    private final List<RoboParts> store;
+    private final List<RoboPart> store;
     private final int maxDaysOfWork;
-    private int currentDayOfWork;
+    private int currentDayOfWork = 0;
 
-    public FactoryStore(int maxDaysOfWork) {
-        this.store = new LinkedList<>();
+    public FactoryStore(List<RoboPart> storeList, int maxDaysOfWork) {
+        this.store = storeList;
         this.maxDaysOfWork = maxDaysOfWork;
-        this.currentDayOfWork = 0;
     }
 
-    public synchronized void produce() {
-        Random random = new Random();
-        while (currentDayOfWork <= maxDaysOfWork) {
-            if (store.isEmpty()) {
-                int consignmentOfDay = random.nextInt(11);
-                for (int x = 0; x < consignmentOfDay; x++) {
-                    int detailDeterminer = random.nextInt(4);
-                    switch (detailDeterminer) {
-                        case 0:
-                            store.add(RoboParts.HEAD);
-                            break;
-                        case 1:
-                            store.add(RoboParts.TORSO);
-                            break;
-                        case 2:
-                            store.add(RoboParts.HAND);
-                            break;
-                        case 3:
-                            store.add(RoboParts.FEET);
-                            break;
-                    }
-                }
-                currentDayOfWork++;
-            }
-            try {
-                wait(2);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+    public void addToStore(RoboPart roboPart) {
+        store.add(roboPart);
+    }
+
+    public RoboPart pickUpFromStore() {
+        return store.remove(0);
+    }
+
+    public RoboPart pickUpFromStore(RoboPart roboPart) {
+        if (store.remove(roboPart)) {
+            return roboPart;
+        } else {
+            return null;
         }
     }
 
-    public synchronized int loot() {
-        List<RoboParts> looted = new LinkedList<>();
-        while (currentDayOfWork <= maxDaysOfWork) {
-            if (!store.isEmpty()) {
-                looted.add(store.remove(0));
-            }
-            try {
-                wait(2);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return assembleRobots(looted);
+    public boolean isEmpty() {
+        return this.store.isEmpty();
     }
 
-    public synchronized int smartLoot() {
-        List<RoboParts> looted = new LinkedList<>();
-        int numberOfRobots = 0;
-        while (currentDayOfWork <= maxDaysOfWork) {
-            if (!store.isEmpty()) {
-                for (RoboParts part : RoboParts.values()) {
-                    if (!looted.contains(part)) {
-                        if (store.contains(part)) {
-                            looted.add(part);
-                            store.remove(part);
-                        }
-                    }
-                }
-                if (!store.isEmpty()) {
-                    looted.add(store.remove(0));
-                }
-                numberOfRobots += assembleRobots(looted);
-            }
-            try {
-                wait(2);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return numberOfRobots;
+    public boolean isInStock(RoboPart roboPart) {
+        return store.contains(roboPart);
     }
 
-    private static int assembleRobots(List<RoboParts> roboParts) {
-        int numberOfRobots = 0;
-        if (!roboParts.isEmpty()) {
-            while (roboParts.containsAll(RoboParts.getModel())) {
-                roboParts.remove(RoboParts.HEAD);
-                roboParts.remove(RoboParts.TORSO);
-                roboParts.remove(RoboParts.HAND);
-                roboParts.remove(RoboParts.HAND);
-                roboParts.remove(RoboParts.FEET);
-                roboParts.remove(RoboParts.FEET);
-                numberOfRobots += 1;
-            }
-        }
-        return numberOfRobots;
+    public void updateCurrentDay() {
+        this.currentDayOfWork++;
     }
 
-    public List<RoboParts> getStore() {
-        return store;
+    public int getMaxDaysOfWork() {
+        return maxDaysOfWork;
+    }
+
+    public int getCurrentDayOfWork() {
+        return currentDayOfWork;
     }
 }
