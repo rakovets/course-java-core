@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.concurrent.utilities;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ImprovedParallelCalculator {
@@ -44,9 +46,11 @@ public class ImprovedParallelCalculator {
             System.out.println("Thread " + numberOfThreads + " - " + (System.currentTimeMillis() - startTime));
         };
 
-        for (int x = 0; x < threadsQuantity; x++) {
-            new Thread(calculatorThread).start();
+        ExecutorService executor = Executors.newFixedThreadPool(threadsQuantity);
+        for (int x = 1; x <= threadsQuantity; x++) {
+            executor.execute(calculatorThread);
         }
+        executor.shutdown();
         return mapSumThreads;
-    }
+     }
 }

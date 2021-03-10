@@ -44,6 +44,12 @@ public class ImprovedParallelCalculatorTest {
 
         Map<int[],Integer> actualResult = ImprovedParallelCalculator.fewThreads(list, 10);
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            System.out.println("Thread interrupted");
+        }
+
         Assertions.assertEquals(expectedResult.entrySet(), actualResult.entrySet());
     }
 }
