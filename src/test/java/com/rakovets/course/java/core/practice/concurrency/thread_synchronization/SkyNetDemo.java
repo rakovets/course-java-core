@@ -1,18 +1,23 @@
 package com.rakovets.course.java.core.practice.concurrency.thread_synchronization;
 
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet.FactionThread;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet.Faction;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet.RoboPart;
+import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet.Storage;
 import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet.Factory;
-import com.rakovets.course.java.core.practice.concurrency.thread_synchronization.skyNet.FactoryThread;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class SkyNetDemo {
     public static void main(String[] args) {
-        Factory factory = new Factory(100);
+        List<RoboPart> list = new LinkedList<>();
+        Storage storage = new Storage(list,100);
 
-        FactoryThread factoryThread = new FactoryThread(factory);
-        FactionThread world = new FactionThread(factory);
-        FactionThread wednesday = new FactionThread(factory);
+        Factory factory = new Factory(storage);
+        Faction world = new Faction(storage);
+        Faction wednesday = new Faction(storage);
 
-       Thread produceParts = new Thread(factoryThread);
+       Thread produceParts = new Thread(factory);
        Thread worldLoki = new Thread(world);
        Thread wednesdayOdin = new Thread(wednesday);
 
