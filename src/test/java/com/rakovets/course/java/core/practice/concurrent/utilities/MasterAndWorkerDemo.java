@@ -5,19 +5,20 @@ import com.rakovets.course.java.core.practice.concurrent.utilities.masterAndWork
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MasterAndWorkerDemo {
     public static void main(String[] args) {
         List<Integer> list = new LinkedList<>();
         ReentrantLock locker = new ReentrantLock();
-        ThreadWorker threadWorker = new ThreadWorker(list, locker);
-        threadWorker.start();
-        ThreadWorker threadWorker2 = new ThreadWorker(list, locker);
-        threadWorker2.start();
-        ThreadWorker threadWorker3 = new ThreadWorker(list, locker);
-        threadWorker3.start();
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        for (int x = 0; x < 3; x++) {
+            executorService.submit(new ThreadWorker(list, locker));
+        }
         ThreadMaster threadMaster = new ThreadMaster(list);
         threadMaster.start();
+        executorService.shutdown();
     }
 }
