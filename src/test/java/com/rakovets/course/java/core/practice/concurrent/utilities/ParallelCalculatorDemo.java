@@ -10,7 +10,7 @@ import java.util.Random;
 public class ParallelCalculatorDemo {
     public static void main(String[] args) throws InterruptedException {
         List<int[]> list = new ArrayList<>();
-        for (int x = 0; x < 10; x++) {
+        for (int x = 0; x < 100; x++) {
             list.add(new Random().ints(new Random().nextInt(1000000), 1, 301).toArray());
         }
         ParallelCalculator.calculateWithThreads(list, 1, AnsiColorCode.FG_RED_BOLD_BRIGHT);

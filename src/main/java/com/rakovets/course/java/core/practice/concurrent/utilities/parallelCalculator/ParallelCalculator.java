@@ -3,26 +3,17 @@ package com.rakovets.course.java.core.practice.concurrent.utilities.parallelCalc
 import com.rakovets.course.java.core.util.AnsiColorCode;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 
-public abstract class ParallelCalculator {
-    public static Map<int[], Integer> calculate(List<int[]> arraysOfInt) {
-        Map<int[], Integer> map = new HashMap<>();
-        for (int[] number : arraysOfInt) {
-            OptionalInt sum = Arrays.stream(number).reduce(Integer::sum);
-            if (sum.isPresent()) {
-                map.put(number, sum.getAsInt());
-            }
-        }
-        return map;
-    }
-
+public class ParallelCalculator {
     public static Map<int[], Integer> calculateWithThreads(List<int[]> arraysOfInt, int numberOfThreads, AnsiColorCode codes) {
         Map<int[], Integer> map = new HashMap<>();
         List<int[]> list = new ArrayList<>(arraysOfInt);
         long startTime = System.currentTimeMillis();
         ReentrantLock locker = new ReentrantLock();
-        Runnable thread = () -> {
+        Runnable task = () -> {
             while (!list.isEmpty()) {
                 locker.lock();
                 if (!list.isEmpty()) {
@@ -38,9 +29,11 @@ public abstract class ParallelCalculator {
             }
                     System.out.printf(codes + "%d Threads: %d ms\n" + codes, numberOfThreads, System.currentTimeMillis() - startTime);
         };
-        for (int x = 1; x <= numberOfThreads; x++) {
-            new Thread(thread).start();
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+        for (int x = 0; x < numberOfThreads; x++) {
+            executorService.execute(task);
         }
+        executorService.shutdown();
         return map;
     }
 }
