@@ -1,9 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrent.utilities.improved_parallel_calculator;
 
 import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class ImprovedParallelCalculator {
@@ -23,9 +21,9 @@ public abstract class ImprovedParallelCalculator {
         CopyOnWriteArrayList<int[]> listForProcessing = new CopyOnWriteArrayList<>(data);
         ReentrantLock lock = new ReentrantLock();
         String marker = String.format("Thread of %d threads", numberOfThreads);
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
 
-        Runnable calculatorUnit = () -> {
+        Callable<Boolean> calculatorUnit = () -> {
                 while (!listForProcessing.isEmpty()) {
                     lock.lock();
                     if (!listForProcessing.isEmpty()) {
@@ -39,12 +37,20 @@ public abstract class ImprovedParallelCalculator {
                         lock.unlock();
                     }
                 }
-            System.out.println(marker + " - " + (System.currentTimeMillis() - start));
+                System.out.println(marker + " - " + (System.nanoTime() - start) + " nanos");
+                return true;
         };
 
         ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
+        Collection<Callable<Boolean>> tasks = new ArrayList<>();
         for (int x = 1; x <= numberOfThreads; x++) {
-            executor.execute(calculatorUnit);
+            tasks.add(calculatorUnit);
+        }
+
+        try {
+            executor.invokeAll(tasks);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
         }
         executor.shutdown();
         return result;
