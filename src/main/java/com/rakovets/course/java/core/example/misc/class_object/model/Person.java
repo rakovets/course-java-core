@@ -32,6 +32,7 @@ public class Person implements Cloneable {
         return result;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void finalize() { // @Deprecated(since="9")
         System.out.println(this.toString());
