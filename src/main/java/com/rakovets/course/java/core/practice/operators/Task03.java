@@ -19,8 +19,8 @@ class Task03 {
         int depositYears = 5;
         int depositAnnualPercentage = 3;
 
-        float numberFullTrucks = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
-        System.out.printf("Result: %f", numberFullTrucks);
+        float totalDepositAmount = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
+        System.out.printf("Result: %f", totalDepositAmount);
     }
 
     /**
