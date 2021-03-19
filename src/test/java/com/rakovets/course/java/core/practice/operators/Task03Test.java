@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Task03Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(1501, 5, 7, 2026.0f),
+                Arguments.of(1501, 5, 7, 2026.35f),
                 Arguments.of(0, 15, 100, 0.0f),
                 Arguments.of(10000, 5, 0, 10000.0f),
                 Arguments.of(100, 5, 100, 600.0f)
