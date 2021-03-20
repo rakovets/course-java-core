@@ -15,7 +15,7 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int depositAmount = 1500;
+        int depositAmount = 1222;
         int depositYears = 5;
         int depositAnnualPercentage = 3;
 
@@ -35,8 +35,6 @@ class Task03 {
      * @param depositAnnualPercentage ежегодный простой процент
      */
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        return ((float)((depositAmount / 100f) * depositAnnualPercentage) * depositYears + depositAmount);
     }
 }
