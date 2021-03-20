@@ -20,7 +20,7 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        float milliseconds = 2000f;
+        float milliseconds = 5000f;
 
         float distance = getDistance(milliseconds);
         System.out.printf("Result: %f", distance);
@@ -33,8 +33,6 @@ class Task04 {
      * @param milliseconds время (в миллисекундах) между срабатыванием датчика света и звука
      */
     static float getDistance(float milliseconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        return SOUND_SPEED * (milliseconds / 3600f);
     }
 }
