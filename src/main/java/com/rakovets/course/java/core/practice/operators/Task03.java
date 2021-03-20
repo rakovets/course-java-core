@@ -15,9 +15,9 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int depositAmount = 1500;
+        int depositAmount = 1501;
         int depositYears = 5;
-        int depositAnnualPercentage = 3;
+        int depositAnnualPercentage = 7;
 
         float totalDepositAmount = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
         System.out.printf("Result: %f", totalDepositAmount);
@@ -37,9 +37,6 @@ class Task03 {
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        float a = (int) (depositAmount);
-        float b = (int) (depositYears);
-        float c = (int) (depositAnnualPercentage);
-        return a+a*b*c/100;
+        return depositAmount+depositAmount*depositAnnualPercentage*depositYears*0.01F;
     }
 }
