@@ -36,6 +36,8 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int indBro=0;
+        indBro=weight-(height-110);
+        return indBro;
     }
 }
