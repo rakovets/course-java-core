@@ -30,6 +30,13 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        /**
+         * дни - playingTimeInSeconds/86400
+         * часы - playingTimeInSeconds%86400/3600
+         * минуты - playingTimeInSeconds%86400%3600/60
+         * секунды - playingTimeInSeconds%86400%3600%60
+        */
+        String PlayingTime = String.valueOf((int) (playingTimeInSeconds/86400)+" "+(playingTimeInSeconds%86400/3600)+":"+(playingTimeInSeconds%86400%3600/60)+":"+(playingTimeInSeconds%86400%3600%60));
+       return PlayingTime;
     }
 }
