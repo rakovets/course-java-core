@@ -32,6 +32,6 @@ class Task06 {
         int h = playingTimeInSeconds % 86400 / 3600;
         int m = playingTimeInSeconds % 86400 % 3600 / 60;
         int s = playingTimeInSeconds % 86400 % 3600 % 60;
-        return ( d + " " + h + ":" + m + ":" +s);
+        return ( d + " " + h + ":" + m + ":" + s );
     }
 }
