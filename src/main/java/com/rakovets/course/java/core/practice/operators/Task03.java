@@ -40,6 +40,7 @@ class Task03 {
 
         float depositAnnualAmount=depositAmount*depositAnnualPercentage/100f;
         float totalDepositAmount=depositAmount+depositAnnualAmount*depositYears;
+
         return totalDepositAmount;
     }
 }
