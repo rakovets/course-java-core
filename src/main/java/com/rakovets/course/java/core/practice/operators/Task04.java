@@ -33,8 +33,7 @@ class Task04 {
      * @param milliseconds время (в миллисекундах) между срабатыванием датчика света и звука
      */
     static float getDistance(float milliseconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        float solution = (milliseconds / 1000f * (1191.6f / 3600f * 1000f));
+        return solution;
     }
 }
