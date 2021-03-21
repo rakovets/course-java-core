@@ -15,7 +15,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int playingTimeInSeconds = 4567;
+        int playingTimeInSeconds = 86401;
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);
@@ -30,6 +30,13 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
-    }
+        int day=playingTimeInSeconds/86_400;
+        int secondResidueAfterDay=playingTimeInSeconds-day*86_400;
+        int hour=secondResidueAfterDay/3_600;
+        int secondResidueAfterHour=secondResidueAfterDay-hour*3_600;
+        int minute=secondResidueAfterHour/60;
+        int second=secondResidueAfterHour-minute*60;
+        String time=day+" "+hour+":"+minute+":"+second;
+        return time;
+        }
 }
