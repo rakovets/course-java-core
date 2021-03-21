@@ -17,8 +17,8 @@ class Task07Test {
         return Stream.of(
                 Arguments.of(1, false),
                 Arguments.of(4, true),
-                Arguments.of(400, false),
-                Arguments.of(2400, false),
+                Arguments.of(100, false),
+                Arguments.of(2400, true),
                 Arguments.of(2019, false)
         );
     }
