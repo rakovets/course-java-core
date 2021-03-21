@@ -36,6 +36,7 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         int standardWeight=height-110;
         int redundancyWeight=weight-standardWeight;
         return redundancyWeight;
