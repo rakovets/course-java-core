@@ -38,6 +38,6 @@ class Task04 {
        float millisecondsHour=1f/3600000f;
        float meterKilometer=1000f;
        float distance=(SOUND_SPEED*meterKilometer)*(milliseconds*millisecondsHour);
-        return distance;
+       return distance;
     }
 }
