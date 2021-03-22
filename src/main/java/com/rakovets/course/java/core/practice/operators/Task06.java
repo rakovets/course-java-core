@@ -11,11 +11,13 @@ class Task06 {
      *
      * @param args entry arguments
      */
+
+
     public static void main(String[] args) {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int playingTimeInSeconds = 4567;
+        int playingTimeInSeconds = 1;
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);
@@ -30,6 +32,16 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        final int SECONDS_IN_DAY = 86400;
+        final int SECONDS_IN_HOUR = 3600;
+        final int SECONDS_IN_MINUTE = 60;
+
+        int days = playingTimeInSeconds / SECONDS_IN_DAY;
+        int hours = (playingTimeInSeconds % SECONDS_IN_DAY)/ SECONDS_IN_HOUR;
+        int minutes = ((playingTimeInSeconds % SECONDS_IN_DAY) % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
+        int seconds = (((playingTimeInSeconds % SECONDS_IN_DAY) % SECONDS_IN_HOUR) % SECONDS_IN_MINUTE);
+
+        return days + " " + hours + ":" + minutes + ":" + seconds;
     }
 }
