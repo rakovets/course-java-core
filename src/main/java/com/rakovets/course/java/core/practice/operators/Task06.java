@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import org.w3c.dom.ls.LSOutput;
+
 /**
  * Разработать программу для игрового движка.
  *
@@ -30,6 +32,12 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        long daysPlaying = playingTimeInSeconds / 86400;
+        long hoursPlaying = playingTimeInSeconds % 86400 / 3600;
+        long minutesPlaying = playingTimeInSeconds % 3600 / 60;
+        long secondsPlaying = playingTimeInSeconds % 60;
+
+        String timeInGame = daysPlaying + " " + hoursPlaying + ":" + minutesPlaying + ":" + secondsPlaying;
+        return timeInGame;
     }
 }
