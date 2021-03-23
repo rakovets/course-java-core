@@ -18,8 +18,8 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 10;
-        int maxHealthPoint = 33;
+        int currentHealthPoint = 25;
+        int maxHealthPoint = 100;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
         System.out.printf("Result: %s", colorHealthPoint);
@@ -35,19 +35,16 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-        int percentOfHealthPoint = (maxHealthPoint / 100 * currentHealthPoint);
+        float percentOfHealthPoint = (float) currentHealthPoint / maxHealthPoint * 100f;
 
         if (0 < percentOfHealthPoint && percentOfHealthPoint < 25) {
-            return "Red";
-        }
-        if (25 < percentOfHealthPoint && percentOfHealthPoint < 50) {
-            return "Orange";
-        }
-        if (50 < percentOfHealthPoint && percentOfHealthPoint < 75) {
-            return "Yellow";
-        }
-        if (75 < percentOfHealthPoint && percentOfHealthPoint <= 100) {
-            return "Green";
+            return "RED";
+        } else if (25 <= percentOfHealthPoint && percentOfHealthPoint < 50) {
+            return "ORANGE";
+        } else if (50 <= percentOfHealthPoint && percentOfHealthPoint < 75) {
+            return "YELLOW";
+        } else if (75 <= percentOfHealthPoint && percentOfHealthPoint <= 100) {
+            return "GREEN";
         } else {
             return null;
         }
