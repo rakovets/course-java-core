@@ -21,7 +21,7 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 2020;
+        int year = 400;
 
         boolean isLeapYear = isLeapYear(year);
         System.out.printf("Result: %s", isLeapYear);
@@ -34,8 +34,10 @@ class Task07 {
      * @return <code>false</code>/<code>true</code>
      */
     static boolean isLeapYear(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        if (year % 4 == 0 && year % 100 != 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
