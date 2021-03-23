@@ -16,7 +16,7 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int hour = -1;
+        int hour = 2;
 
         String greeting = getGreetingByHour(hour);
         System.out.printf("Result: %s", greeting);
@@ -37,14 +37,11 @@ class Task02 {
     static String getGreetingByHour(int hour) {
         if (6 <= hour && hour <= 11) {
             return "Good morning";
-        }
-        if (12 <= hour && hour <= 17) {
+        } else if (12 <= hour && hour <= 17) {
             return "Good day";
-        }
-        if (18 <= hour && hour <= 23) {
+        } else if (18 <= hour && hour <= 23) {
             return "Good evening";
-        }
-        if (0 <= hour && hour <= 5) {
+        } else if (0 <= hour && hour <= 5) {
             return "Good night";
         } else {
             return null;
