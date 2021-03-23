@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
+import java.sql.SQLOutput;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -38,6 +40,10 @@ class Task01 {
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        if (sizeTop >= positionPlayerByDamage) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
