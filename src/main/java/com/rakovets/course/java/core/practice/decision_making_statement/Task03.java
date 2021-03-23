@@ -23,7 +23,7 @@ class Task03 {
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
         System.out.printf("Result: %s", colorHealthPoint);
-    }
+           }
 
     /**
      * Возвращает цвет для шкалы HP игрока, в зависимости от процентного соотношения максимального количества HP и
@@ -34,9 +34,22 @@ class Task03 {
      * @param maxHealthPoint     максимальное количество HP игрока
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
-    static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
+    static String getColorHealthPoint(float currentHealthPoint, float maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result =null;
+        if (currentHealthPoint/maxHealthPoint>0 && currentHealthPoint/maxHealthPoint<0.25) {
+            result="RED";
+        }
+        else if (currentHealthPoint/maxHealthPoint>=0.25 && currentHealthPoint/maxHealthPoint<0.5) {
+            result="ORANGE";
+        }
+        else if (currentHealthPoint/maxHealthPoint>=0.5 && currentHealthPoint/maxHealthPoint<0.75) {
+            result="YELLOW";
+        }
+        else if (currentHealthPoint/maxHealthPoint>=0.75 && currentHealthPoint/maxHealthPoint<=1) {
+            result="GREEN";
+        }
+        return result;
     }
 }
