@@ -15,9 +15,9 @@ class Task13 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberFloors = 9;
-        int numberApartmentsPerFloor = 4;
-        int apartmentNumber = 68;
+        int numberFloors = 18;
+        int numberApartmentsPerFloor = 10;
+        int apartmentNumber = 180;
 
         int floorNumber = getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", floorNumber);
@@ -34,6 +34,6 @@ class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return (apartmentNumber-1)%(numberApartmentsPerFloor*numberFloors)/numberApartmentsPerFloor+1;
     }
 }
