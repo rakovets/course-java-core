@@ -32,8 +32,11 @@ class Task09 {
      * @return номер подъезда
      */
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double numberEntrance;
+        numberEntrance = (double)apartmentNumber / numberApartmentsPerFloor / numberFloors;
+        if ((numberEntrance - (int)numberEntrance) > 0) {
+            numberEntrance++;
+        }
+        return (int)numberEntrance;
     }
 }
