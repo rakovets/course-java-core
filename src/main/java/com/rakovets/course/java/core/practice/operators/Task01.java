@@ -18,9 +18,10 @@ class Task01 {
         int cargo = 11;
         int carryingCapacity = 2;
 
-        int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
+        int numberFullTrucks = getNumberFullTrucks (cargo, carryingCapacity);
         System.out.printf("Result: %d", numberFullTrucks);
     }
+
 
     /**
      * Рассчитывает количество полностью загруженных грузовиков, необходимых для перевозки некоторого груза.
@@ -28,9 +29,10 @@ class Task01 {
      * @param cargo            вес всего груза
      * @param carryingCapacity грузоподъемность грузовиков
      */
-    static int getNumberFullTrucks(int cargo, int carryingCapacity) {
+    static int getNumberFullTrucks   (int cargo, int carryingCapacity)  {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return cargo / carryingCapacity;
     }
 }
+
