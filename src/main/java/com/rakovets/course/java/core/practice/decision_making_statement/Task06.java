@@ -25,7 +25,7 @@ class Task06 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int tanksKilledFirstPlayer = 2;
-        int tanksKilledSecondPlayer = 4;
+        int tanksKilledSecondPlayer = 1;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
@@ -39,8 +39,15 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int pointOfPlayer1 = 100 * tanksKilledFirstPlayer;
+        int pointOfPlayer2 = 100 * tanksKilledSecondPlayer;
+
+        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+            pointOfPlayer1 = pointOfPlayer1 + 500;
+        } else if (tanksKilledSecondPlayer > tanksKilledFirstPlayer) {
+            pointOfPlayer2 = pointOfPlayer2 + 500;
+        }
+
+        return "Player 1: " + pointOfPlayer1 + ". Player 2: " + pointOfPlayer2;
     }
 }
