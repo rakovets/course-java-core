@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
-import java.sql.SQLOutput;
-
 /**
  * Разработать программу для игрового движка.
  * <p>
