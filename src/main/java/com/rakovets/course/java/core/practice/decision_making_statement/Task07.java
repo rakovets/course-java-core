@@ -10,7 +10,6 @@ package com.rakovets.course.java.core.practice.decision_making_statement;
  * 400</li>
  * </ul>
  */
-
 class Task07 {
     /**
      * The entry point of the task
@@ -21,7 +20,7 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 2020;
+        int year = 24;
 
         boolean isLeapYear = isLeapYear(year);
         System.out.printf("Result: %s", isLeapYear);
@@ -34,8 +33,12 @@ class Task07 {
      * @return <code>false</code>/<code>true</code>
      */
     static boolean isLeapYear(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        boolean statusOfYear = false;
+
+        if ((year % 4 == 0 && year % 400 != 0)) {
+            statusOfYear = true;
+        }
+
+        return statusOfYear;
     }
 }
