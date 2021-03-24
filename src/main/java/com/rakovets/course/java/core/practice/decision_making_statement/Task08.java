@@ -21,8 +21,8 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int damage = 100;
-        String typeMob = "SAINT";
+        int damage = 2222;
+        String typeMob = "ANIMAL";
         boolean hasHolyAttribute = true;
 
         int totalDamage = getTotalDamage(damage, typeMob, hasHolyAttribute);
@@ -38,8 +38,14 @@ class Task08 {
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        if (hasHolyAttribute) {
+            if (typeMob.equals("UNDEAD") || typeMob.equals("ZOMBIE")) {
+                return (int) (damage * 1.5);
+            } else if (typeMob.equals("SAINT")) {
+                return damage / 2;
+            }
+        }
+        return damage;
+
     }
 }
