@@ -9,7 +9,7 @@ package com.rakovets.course.java.core.practice.decision_making_statement;
  * 2001 - `Snake`
  * 2002 - `Horse`
  * 2003 - `Ram`
- * 2004 - `Monkey`
+ * 2004 - 'Monkey'
  * 2005 - `Rooster`
  * 2006 - `Dog`
  * 2007 - `Pig`
@@ -46,8 +46,48 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int god = year % 12;
+        String nameOfYear = null;
+
+        switch (god) {
+            case 0:
+                nameOfYear = "Monkey";
+                break;
+            case 1:
+                nameOfYear = "Rooster";
+                break;
+            case 2:
+                nameOfYear = "Dog";
+                break;
+            case 3:
+                nameOfYear = "Pig";
+                break;
+            case 4:
+                nameOfYear = "Rat";
+                break;
+            case 5:
+                nameOfYear = "Ox";
+                break;
+            case 6:
+                nameOfYear = "Tiger";
+                break;
+            case 7:
+                nameOfYear = "Rabbit";
+                break;
+            case 8:
+                nameOfYear = "Dragon";
+                break;
+            case 9:
+                nameOfYear = "Snake";
+                break;
+            case 10:
+                nameOfYear = "Horse";
+                break;
+            case 11:
+                nameOfYear = "Ram";
+                break;
+        }
+
+        return nameOfYear;
     }
 }
