@@ -1,11 +1,5 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
-/**
- * Разработать программу для desktop приложения:
- * которая преобразует номер дня недели в его словесный аналог.
- *
- * @author Dmitry Rakovets
- */
 class Task04 {
     /**
      * The entry point of the task
@@ -29,8 +23,32 @@ class Task04 {
      * @return день недели на английском языке (UPPER CASE)
      */
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String dayOfWeek = null;
+
+        switch (dayOfWeekNumber) {
+            case 1:
+                dayOfWeek = "MONDAY";
+                break;
+            case 2:
+                dayOfWeek = "TUESDAY";
+                break;
+            case 3:
+                dayOfWeek = "WEDNESDAY";
+                break;
+            case 4:
+                dayOfWeek = "THURSDAY";
+                break;
+            case 5:
+                dayOfWeek = "FRIDAY";
+                break;
+            case 6:
+                dayOfWeek = "SATURDAY";
+                break;
+            case 7:
+                dayOfWeek = "SUNDAY";
+                break;
+        }
+
+        return dayOfWeek;
     }
 }
