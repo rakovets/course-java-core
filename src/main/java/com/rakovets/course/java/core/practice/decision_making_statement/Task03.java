@@ -35,8 +35,19 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String statusOfHealth = null;
+        int healthPercentages = 100 * currentHealthPoint / maxHealthPoint;
+
+        if (healthPercentages < 25 && currentHealthPoint != 0) {
+            statusOfHealth = "RED";
+        } else if (healthPercentages >= 25 && healthPercentages < 50) {
+            statusOfHealth = "ORANGE";
+        } else if (healthPercentages >= 50 && healthPercentages < 75) {
+            statusOfHealth = "YELLOW";
+        } else if (healthPercentages >= 75 && healthPercentages <= 100) {
+            statusOfHealth = "GREEN";
+        }
+
+        return statusOfHealth;
     }
 }
