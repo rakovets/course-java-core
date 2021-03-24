@@ -40,8 +40,6 @@ class Task10 {
         } else if (secondFuelReserves < firstFuelReserves && secondFuelReserves < thirdFuelReserves) {
             return 2;
         } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
-            //TODO
-            // Код, решающий задачу пишем ниже, при этом используя параметры метода
             return 3;
         }
         else if (firstFuelReserves == secondFuelReserves && firstFuelReserves != thirdFuelReserves) {

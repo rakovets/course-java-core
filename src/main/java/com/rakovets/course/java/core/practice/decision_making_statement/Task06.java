@@ -47,7 +47,5 @@ class Task06 {
         else {
             return "Player 1: " + (tanksKilledFirstPlayer * KILL_POINT) + ". Player 2: " + (tanksKilledSecondPlayer * KILL_POINT);
         }
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
     }
 }

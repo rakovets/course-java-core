@@ -54,7 +54,5 @@ class Task11 {
             return "cyrillic";
         }
         return "undefined";
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
     }
 }

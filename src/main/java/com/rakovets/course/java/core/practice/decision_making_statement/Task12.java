@@ -69,8 +69,6 @@ class Task12 {
             return "Water-bearer";
         } else {
             return "Fish";
-            //TODO
-            // Код, решающий задачу пишем ниже, при этом используя параметры метода
         }
     }
 }
