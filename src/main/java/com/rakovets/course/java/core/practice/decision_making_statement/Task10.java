@@ -1,10 +1,5 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
-/**
- * Разработать программу для сети АЗС.
- * <p>
- * Программа вычисляет на какую АЗС необходимо доставить топливо в первую очередь.
- */
 class Task10 {
     /**
      * The entry point of the task
@@ -16,8 +11,8 @@ class Task10 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int firstFuelReserves = 100;
-        int secondFuelReserves = 50;
-        int thirdFuelReserves = 70;
+        int secondFuelReserves = 100;
+        int thirdFuelReserves = 100;
 
         int numberStation = getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
         System.out.printf("Result: %s", numberStation);
@@ -35,8 +30,16 @@ class Task10 {
      * @return номер заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int azc = 0;
+
+        if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves) {
+            azc = 1;
+        } else if (secondFuelReserves <= firstFuelReserves && secondFuelReserves <= thirdFuelReserves) {
+            azc = 2;
+        } else if (thirdFuelReserves <= firstFuelReserves && thirdFuelReserves <= secondFuelReserves) {
+            azc = 3;
+        }
+
+        return azc;
     }
 }
