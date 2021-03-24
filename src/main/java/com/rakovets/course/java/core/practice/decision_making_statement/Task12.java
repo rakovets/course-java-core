@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 22;
+        int month = 4;
         int year = 1989;
 
         String zodiacSign = getZodiacSign(day, month, year);
@@ -45,8 +45,31 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (month == 3 && day >= 21 || month == 4 && day <= 20) {
+            return "Ram";
+        } else  if (month == 4 || month == 5 && day <= 20) {
+            return  "Bull";
+        } else  if (month == 5 || month == 6 && day <= 21) {
+            return  "Twins";
+        } else  if (month == 6 || month == 7 && day <= 22) {
+            return  "Crab";
+        } else  if (month == 7 || month == 8 && day <= 22) {
+            return  "Lion";
+        } else  if (month == 8 || month == 9 && day <= 21) {
+            return  "Maiden";
+        } else  if (month == 9 || month == 10 && day <= 22) {
+            return  "Scales";
+        } else  if (month == 10 || month == 11 && day <= 22) {
+            return  "Scorpion";
+        } else  if (month == 11 || month == 12 && day <= 21) {
+            return  "Archer";
+        } else  if (month == 12 || month == 1 && day <= 20) {
+            return  "Goat";
+        } else  if (month == 1 || month == 2 && day <= 19) {
+            return  "Water-bearer";
+        } else  if (month == 2 || month == 3) {
+            return  "Fish";
+        }
         return null;
     }
 }
