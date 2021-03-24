@@ -34,6 +34,6 @@ class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return (int) (((apartmentNumber - 1 ) % (numberFloors*numberApartmentsPerFloor)) / numberApartmentsPerFloor + 1);
     }
 }

@@ -34,6 +34,7 @@ class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return (int) (((apartmentNumber - 1) / (numberFloors * numberApartmentsPerFloor)) + 1);
+        // c -1 мне подсказали, потому что сам я не допер :(((
     }
 }
