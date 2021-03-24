@@ -45,8 +45,98 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String horoscopeSign = null;
+
+        switch (month) {
+
+            case 1:
+
+                if (day <= 20) {
+                    horoscopeSign = "Goat";
+                } else horoscopeSign = "Water-bearer";
+
+                break;
+
+            case 2:
+
+                if (day <= 19) {
+                    horoscopeSign = "Water-bearer";
+                } else horoscopeSign = "Fish";
+
+                break;
+
+            case 3:
+
+                if (day <= 20) {
+                    horoscopeSign = "Fish";
+                } else horoscopeSign = "Ram";
+
+                break;
+
+            case 4:
+
+                if (day <= 20) {
+                    horoscopeSign = "Ram";
+                } else horoscopeSign = "Bull";
+                break;
+
+            case 5:
+
+                if (day <= 20) {
+                    horoscopeSign = "Bull";
+                } else horoscopeSign = "Twins";
+                break;
+
+            case 6:
+
+                if (day <= 21) {
+                    horoscopeSign = "Twins";
+                } else horoscopeSign = "Crab";
+                break;
+
+            case 7:
+
+                if (day <= 22) {
+                    horoscopeSign = "Crab";
+                } else horoscopeSign = "Lion";
+                break;
+
+            case 8:
+
+                if (day <= 22) {
+                    horoscopeSign = "Lion";
+                } else horoscopeSign = "Maiden";
+                break;
+
+            case 9:
+
+                if (day <= 21) {
+                    horoscopeSign = "Maiden";
+                } else horoscopeSign = "Scales";
+                break;
+
+            case 10:
+
+                if (day <= 22) {
+                    horoscopeSign = "Scales";
+                } else horoscopeSign = "Scorpion";
+                break;
+
+            case 11:
+                if (day <= 22) {
+                    horoscopeSign = "Scorpion";
+                } else horoscopeSign = "Archer";
+                break;
+
+            case 12:
+                if (day <= 21) {
+                    horoscopeSign = "Archer";
+                } else horoscopeSign = "Goat";
+                break;
+        }
+
+
+        return horoscopeSign;
     }
 }
