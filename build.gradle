@@ -21,12 +21,12 @@ repositories {
 }
 
 compileJava {
-    options.release.set(10)
+    options.release.set(11)
     options.encoding("UTF-8")
 }
 
 compileTestJava {
-    options.release.set(10)
+    options.release.set(11)
     options.encoding("UTF-8")
 }
 
