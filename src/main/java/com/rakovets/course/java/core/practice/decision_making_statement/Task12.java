@@ -136,7 +136,6 @@ class Task12 {
                 break;
         }
 
-
         return horoscopeSign;
     }
 }
