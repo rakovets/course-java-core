@@ -29,8 +29,12 @@ class Task01 {
      * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String numbersColumn = "";
+        int i = 1;
+        for (; i < numberRows; i++) {
+             numbersColumn += i + "\n";
+        }
+        numbersColumn += i;
+        return numbersColumn;
     }
 }
