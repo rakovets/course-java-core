@@ -32,5 +32,5 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return cargo / carryingCapacity;
-           }
+    }
 }
