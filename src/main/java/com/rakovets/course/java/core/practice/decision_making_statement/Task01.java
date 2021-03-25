@@ -39,7 +39,7 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         boolean r=true;
-        if (sizeTop>=positionPlayerByDamage) {
+        if (sizeTop >= positionPlayerByDamage) {
             r = true;
         }
         else {

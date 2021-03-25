@@ -50,54 +50,54 @@ class Task14 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int currentYers;
         currentYers = year % 12;
-        String currentMonths=null;
+        String currentMonths = null;
         switch (currentYers) {
             case 0: {
-                currentMonths= "Monkey";
+                currentMonths = "Monkey";
                 break;
             }
             case 1: {
-                currentMonths= "Rooster";
+                currentMonths = "Rooster";
                 break;
             }
             case 2: {
-                currentMonths= "Dog";
+                currentMonths = "Dog";
                 break;
             }
             case 3: {
-                currentMonths= "Pig";
+                currentMonths = "Pig";
                 break;
             }
             case 4: {
-                currentMonths= "Rat";
+                currentMonths = "Rat";
                 break;
             }
             case 5: {
-                currentMonths= "Ox";
+                currentMonths = "Ox";
                 break;
             }
             case 6: {
-                currentMonths= "Tiger";
+                currentMonths = "Tiger";
                 break;
             }
             case 7: {
-                currentMonths= "Rabbit";
+                currentMonths = "Rabbit";
                 break;
             }
             case 8: {
-                currentMonths= "Dragon";
+                currentMonths = "Dragon";
                 break;
             }
             case 9: {
-                currentMonths= "Snake";
+                currentMonths = "Snake";
                 break;
             }
             case 10: {
-                currentMonths= "Horse";
+                currentMonths = "Horse";
                 break;
             }
             case 11: {
-                currentMonths= "Ram";
+                currentMonths = "Ram";
                 break;
             }
 

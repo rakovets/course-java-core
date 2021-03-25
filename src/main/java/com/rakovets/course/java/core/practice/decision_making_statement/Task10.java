@@ -38,25 +38,25 @@ class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int firstReserve;
-        if (firstFuelReserves>secondFuelReserves) {
-            if (secondFuelReserves>thirdFuelReserves)
-                firstReserve=3;
-            
+        if (firstFuelReserves > secondFuelReserves) {
+            if (secondFuelReserves > thirdFuelReserves)
+                firstReserve = 3;
+
             else {
-                firstReserve=2;
+                firstReserve = 2;
             }
         }
-        else if (firstFuelReserves==secondFuelReserves && firstFuelReserves==thirdFuelReserves) {
-            firstReserve=1;
+        else if (firstFuelReserves == secondFuelReserves && firstFuelReserves == thirdFuelReserves) {
+            firstReserve = 1;
         }
-        else if (firstFuelReserves==secondFuelReserves || firstFuelReserves==thirdFuelReserves) {
-            firstReserve=1;
+        else if (firstFuelReserves == secondFuelReserves || firstFuelReserves == thirdFuelReserves) {
+            firstReserve = 1;
         }
-        else if (secondFuelReserves==thirdFuelReserves) {
-            firstReserve=2;
+        else if (secondFuelReserves == thirdFuelReserves) {
+            firstReserve = 2;
         }
         else {
-            firstReserve=1;
+            firstReserve = 1;
         }
         return firstReserve;
     }

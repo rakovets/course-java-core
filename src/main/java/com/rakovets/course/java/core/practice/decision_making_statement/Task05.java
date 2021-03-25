@@ -34,65 +34,65 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String result = null;
-        switch (monthNumber){
+        switch (monthNumber) {
             case 1:
             {
-                result="JANUARY";
+                result = "JANUARY";
                 break;
             }
             case 2:
             {
-                result="FEBRUARY";
+                result = "FEBRUARY";
                 break;
             }
             case 3:
             {
-                result="MARCH";
+                result = "MARCH";
                 break;
             }
             case 4:
             {
-                result="APRIL";
+                result = "APRIL";
                 break;
             }
             case 5:
             {
-                result="MAY";
+                result = "MAY";
                 break;
             }
             case 6:
             {
-                result="JUNE";
+                result = "JUNE";
                 break;
             }
             case 7:
             {
-                result="JULY";
+                result = "JULY";
                 break;
             }
             case 8:
             {
-                result="AUGUST";
+                result = "AUGUST";
                 break;
             }
             case 9:
             {
-                result="SEPTEMBER";
+                result = "SEPTEMBER";
                 break;
             }
             case 10:
             {
-                result="OCTOBER";
+                result = "OCTOBER";
                 break;
             }
             case 11:
             {
-                result="NOVEMBER";
+                result = "NOVEMBER";
                 break;
             }
             case 12:
             {
-                result="DECEMBER";
+                result = "DECEMBER";
                 break;
             }
 

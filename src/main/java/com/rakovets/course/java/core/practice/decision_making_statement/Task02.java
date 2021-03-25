@@ -38,17 +38,17 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String result= null;
-        if (0<=hour && hour<=5) {
-            result="Good night";
+        if (0 <= hour && hour <= 5) {
+            result = "Good night";
         }
-        else if (6<=hour && hour<=11) {
-            result="Good morning";
+        else if (6 <= hour && hour <= 11) {
+            result = "Good morning";
         }
-        else if (12<=hour && hour<=17) {
-            result="Good day";
+        else if (12 <= hour && hour <= 17) {
+            result = "Good day";
         }
-        else if (18<=hour && hour<=23) {
-            result="Good evening";
+        else if (18 <= hour && hour <= 23) {
+            result = "Good evening";
         }
 
         return result;

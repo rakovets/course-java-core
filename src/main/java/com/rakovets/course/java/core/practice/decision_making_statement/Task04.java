@@ -35,37 +35,37 @@ class Task04 {
         switch (dayOfWeekNumber){
             case 1:
             {
-                result="MONDAY";
+                result = "MONDAY";
                 break;
             }
             case 2:
             {
-                result="TUESDAY";
+                result = "TUESDAY";
                 break;
             }
             case 3:
             {
-                result="WEDNESDAY";
+                result = "WEDNESDAY";
                 break;
             }
             case 4:
             {
-                result="THURSDAY";
+                result = "THURSDAY";
                 break;
             }
             case 5:
             {
-                result="FRIDAY";
+                result = "FRIDAY";
                 break;
             }
             case 6:
             {
-                result="SATURDAY";
+                result = "SATURDAY";
                 break;
             }
             case 7:
             {
-                result="SUNDAY";
+                result = "SUNDAY";
                 break;
             }
 

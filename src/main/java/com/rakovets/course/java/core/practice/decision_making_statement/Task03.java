@@ -38,17 +38,17 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String result =null;
-        if (currentHealthPoint/maxHealthPoint>0 && currentHealthPoint/maxHealthPoint<0.25) {
-            result="RED";
+        if (currentHealthPoint / maxHealthPoint > 0 && currentHealthPoint / maxHealthPoint < 0.25) {
+            result = "RED";
         }
-        else if (currentHealthPoint/maxHealthPoint>=0.25 && currentHealthPoint/maxHealthPoint<0.5) {
-            result="ORANGE";
+        else if (currentHealthPoint / maxHealthPoint >= 0.25 && currentHealthPoint / maxHealthPoint < 0.5) {
+            result = "ORANGE";
         }
-        else if (currentHealthPoint/maxHealthPoint>=0.5 && currentHealthPoint/maxHealthPoint<0.75) {
-            result="YELLOW";
+        else if (currentHealthPoint / maxHealthPoint >= 0.5 && currentHealthPoint / maxHealthPoint < 0.75) {
+            result = "YELLOW";
         }
-        else if (currentHealthPoint/maxHealthPoint>=0.75 && currentHealthPoint/maxHealthPoint<=1) {
-            result="GREEN";
+        else if (currentHealthPoint / maxHealthPoint >= 0.75 && currentHealthPoint / maxHealthPoint <= 1) {
+            result = "GREEN";
         }
         return result;
     }

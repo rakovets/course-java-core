@@ -34,14 +34,14 @@ class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-       int  numberEntrance;
+       int numberEntrance;
        int numberFloorsAp;
-        if (apartmentNumber>1) {
-            numberFloorsAp=(int)Math.ceil((double) apartmentNumber/numberApartmentsPerFloor);
-            numberEntrance=(int)Math.ceil((double) numberFloorsAp/numberFloors);
+        if (apartmentNumber > 1) {
+            numberFloorsAp = (int)Math.ceil((double)apartmentNumber / numberApartmentsPerFloor);
+            numberEntrance = (int)Math.ceil((double)numberFloorsAp / numberFloors);
         }
         else {
-            numberEntrance=1;
+            numberEntrance = 1;
         }
         return numberEntrance;
     }

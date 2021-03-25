@@ -47,113 +47,113 @@ class Task12 {
     static String getZodiacSign(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String result=null;
+        String result = null;
         switch (month) {
             case 1: {
-                if (day<21) {
-                    result="Goat";
+                if (day < 21) {
+                    result = "Goat";
                 }
                 else {
-                    result="Water-bearer";
+                    result = "Water-bearer";
                 }
                 break;
             }
             case 2: {
-                if (day<20) {
-                    result="Water-bearer";
+                if (day < 20) {
+                    result = "Water-bearer";
                 }
                 else {
-                    result="Fish";
+                    result = "Fish";
                 }
                 break;
             }
             case 3: {
-                if (day<21) {
-                    result="Fish";
+                if (day < 21) {
+                    result = "Fish";
                 }
                 else {
-                    result="Ram";
+                    result = "Ram";
                 }
                 break;
             }
             case 4: {
-                if (day<21) {
-                    result="Ram";
+                if (day < 21) {
+                    result = "Ram";
                 }
                 else {
-                    result="Bull";
+                    result = "Bull";
                 }
                 break;
             }
             case 5: {
-                if (day<21) {
-                    result="Bull";
+                if (day < 21) {
+                    result = "Bull";
                 }
                 else {
-                    result="Twins";
+                    result = "Twins";
                 }
                 break;
             }
             case 6: {
-                if (day<22) {
-                    result="Twins";
+                if (day < 22) {
+                    result = "Twins";
                 }
                 else {
-                    result="Crab";
+                    result = "Crab";
                 }
                 break;
             }
             case 7: {
-                if (day<23) {
-                    result="Crab";
+                if (day < 23) {
+                    result = "Crab";
                 }
                 else {
-                    result="Lion";
+                    result = "Lion";
                 }
                 break;
             }
             case 8: {
-                if (day<23) {
-                    result="Lion";
+                if (day < 23) {
+                    result = "Lion";
                 }
                 else {
-                    result="Maiden";
+                    result = "Maiden";
                 }
                 break;
             }
             case 9: {
-                if(day<22) {
-                    result="Maiden";
+                if(day < 22) {
+                    result = "Maiden";
                 }
                 else {
-                    result="Scales";
+                    result = "Scales";
                 }
                 break;
             }
             case 10: {
-                if(day<23) {
-                    result="Scales";
+                if(day < 23) {
+                    result = "Scales";
                 }
                 else {
-                    result="Scorpion";
+                    result = "Scorpion";
                 }
                 break;
             }
             case 11: {
-                if(day<23) {
-                    result="Scorpion";
+                if(day < 23) {
+                    result = "Scorpion";
                 }
                 else {
-                    result="Archer";
+                    result = "Archer";
                 }
                 break;
             }
             case 12: {
-                if (day<22) {
-                    result="Archer";
+                if (day < 22) {
+                    result = "Archer";
                 }
                 else {
-                    result="Goat";
+                    result = "Goat";
                 }
                 break;
             }
