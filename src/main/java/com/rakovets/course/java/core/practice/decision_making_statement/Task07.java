@@ -36,6 +36,17 @@ class Task07 {
     static boolean isLeapYear(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        boolean itog;
+        if (year%4==0) {
+            if (year % 400 == 0) {
+                itog = false;
+            } else {
+                itog = true;
+            }
+        }
+        else {
+            itog = false;
+        }
+        return itog;
     }
 }

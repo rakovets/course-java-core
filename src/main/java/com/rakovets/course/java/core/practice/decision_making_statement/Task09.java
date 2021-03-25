@@ -17,7 +17,7 @@ class Task09 {
         // аргументов. Типы данных изменять нельзя
         int numberFloors = 9;
         int numberApartmentsPerFloor = 4;
-        int apartmentNumber = 68;
+        int apartmentNumber = 36;
 
         int porchNumber = getPorchNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", porchNumber);
@@ -34,6 +34,15 @@ class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+       int  numberEntrance;
+       int numberFloorsAp;
+        if (apartmentNumber>1) {
+            numberFloorsAp=(int)Math.ceil((double) apartmentNumber/numberApartmentsPerFloor);
+            numberEntrance=(int)Math.ceil((double) numberFloorsAp/numberFloors);
+        }
+        else {
+            numberEntrance=1;
+        }
+        return numberEntrance;
     }
 }

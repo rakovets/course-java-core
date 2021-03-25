@@ -16,7 +16,7 @@ class Task10 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int firstFuelReserves = 100;
-        int secondFuelReserves = 50;
+        int secondFuelReserves = 70;
         int thirdFuelReserves = 70;
 
         int numberStation = getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
@@ -37,6 +37,27 @@ class Task10 {
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int firstReserve;
+        if (firstFuelReserves>secondFuelReserves) {
+            if (secondFuelReserves>thirdFuelReserves)
+                firstReserve=3;
+            
+            else {
+                firstReserve=2;
+            }
+        }
+        else if (firstFuelReserves==secondFuelReserves && firstFuelReserves==thirdFuelReserves) {
+            firstReserve=1;
+        }
+        else if (firstFuelReserves==secondFuelReserves || firstFuelReserves==thirdFuelReserves) {
+            firstReserve=1;
+        }
+        else if (secondFuelReserves==thirdFuelReserves) {
+            firstReserve=2;
+        }
+        else {
+            firstReserve=1;
+        }
+        return firstReserve;
     }
 }
