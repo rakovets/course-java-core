@@ -17,7 +17,7 @@ class Task10 {
         // аргументов. Типы данных изменять нельзя
         int firstFuelReserves = 100;
         int secondFuelReserves = 50;
-        int thirdFuelReserves = 70;
+        int thirdFuelReserves = 75;
 
         int numberStation = getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
         System.out.printf("Result: %s", numberStation);
@@ -35,8 +35,20 @@ class Task10 {
      * @return номер заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int petrolReserves;
+        if (firstFuelReserves <= secondFuelReserves) {
+            if (firstFuelReserves <= thirdFuelReserves) {
+                petrolReserves = 1;
+            } else {
+                petrolReserves = 3;
+            }
+        } else {
+            if (secondFuelReserves <= thirdFuelReserves) {
+                petrolReserves = 2;
+            } else {
+                petrolReserves = 3;
+            }
+        }
+        return petrolReserves;
     }
 }
