@@ -34,6 +34,7 @@ class Task03 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         return 0.0;
     }
 }
