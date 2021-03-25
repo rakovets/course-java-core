@@ -19,8 +19,8 @@ class Task03 {
         int depositYears = 5;
         int depositAnnualPercentage = 3;
 
-        float numberFullTrucks = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
-        System.out.printf("Result: %f", numberFullTrucks);
+        float totalDepositAmount = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
+        System.out.printf("Result: %f", totalDepositAmount);
     }
 
     /**
@@ -37,6 +37,6 @@ class Task03 {
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return (float)depositAmount+((float)depositAmount*(float)depositAnnualPercentage)/100*(float)depositYears;
+        return (float)depositAmount + depositYears * depositAmount * depositAnnualPercentage / 100f;
     }
 }
