@@ -36,7 +36,7 @@ class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         float distance=0;
-        distance= milliseconds * SOUND_SPEED / 3600;
+        distance = milliseconds * SOUND_SPEED / 3600;
 
         return distance;
     }
