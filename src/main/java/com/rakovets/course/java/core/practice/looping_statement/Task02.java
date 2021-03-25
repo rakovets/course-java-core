@@ -16,7 +16,7 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberRows = 10;
+        int numberRows = 13;
         boolean isEnableHeaderRow = true;
 
         String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
@@ -32,19 +32,23 @@ class Task02 {
      * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        String strings = "";
+        String lineNumber = "";
         for (int i = 1; i <= numberRows; i ++) {
             if (!isEnableHeaderRow) {
                 if (i != numberRows) {
-                    strings += i + "\n";
+                    lineNumber += i + "\n";
                 } else {
-                    strings += i;
+                    lineNumber += i;
                 }
-            if (isEnableHeaderRow) {
-
             }
+            if (isEnableHeaderRow) {
+                if (i == 1) {
+                    lineNumber += "\n" + i;
+                } else if (i < numberRows) {
+                    lineNumber += "\n" + i;
+                }
             }
         }
-        return null;
+        return  lineNumber;
     }
 }
