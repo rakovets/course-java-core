@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statement;
-
+import java.awt.font.FontRenderContext;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 /**
  * Разработать программу для банка.
  *
@@ -32,8 +34,10 @@ class Task03 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        for (int i = 0; i < depositTerm; i++) {
+            depositAmount *= (1 + 0.01 * annualDepositPercent);
+        }
+
+        return BigDecimal.valueOf(depositAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
