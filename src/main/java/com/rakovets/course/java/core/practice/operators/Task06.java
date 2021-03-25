@@ -28,14 +28,14 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int seconds_in_one_day = 86400;
-        int seconds_in_one_hour = 3600;
-        int seconds_in_one_minute = 60;
-        return (playingTimeInSeconds/seconds_in_one_day + " "
-                + playingTimeInSeconds%seconds_in_one_day/seconds_in_one_hour + ":"
-                + playingTimeInSeconds%seconds_in_one_day%seconds_in_one_hour/seconds_in_one_minute + ":"
-                + playingTimeInSeconds%seconds_in_one_day%seconds_in_one_hour%seconds_in_one_minute);
+        final int SECONDS_IN_ONE_DAY = 86400;
+        final int SECONDS_IN_ONE_HOUR = 3600;
+        final int SECONDS_IN_ONE_MINUTE = 60;
+
+        int daysInGame = playingTimeInSeconds / SECONDS_IN_ONE_DAY;
+        int hoursInGame = playingTimeInSeconds % SECONDS_IN_ONE_DAY / SECONDS_IN_ONE_HOUR;
+        int minutesInGame = playingTimeInSeconds % SECONDS_IN_ONE_DAY % SECONDS_IN_ONE_HOUR / SECONDS_IN_ONE_MINUTE;
+        int secondsInGame = playingTimeInSeconds % SECONDS_IN_ONE_DAY % SECONDS_IN_ONE_HOUR % SECONDS_IN_ONE_MINUTE;
+        return (daysInGame + " " + hoursInGame + ":" + minutesInGame + ":" + secondsInGame);
     }
 }
