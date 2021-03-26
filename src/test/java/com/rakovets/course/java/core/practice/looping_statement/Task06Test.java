@@ -12,24 +12,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-@DisplayName("Generator rows of table")
+@DisplayName("Smart running tracker")
 class Task06Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(13524624562456L, "13 524 624 562 456"),
-                Arguments.of(-92346234L, "-92 346 234"),
-                Arguments.of(123456453456L, "123 456 453 456"),
-                Arguments.of(-834563456234L, "-834 563 456 234"),
-                Arguments.of(0, "0"),
-                Arguments.of(123, "123"),
-                Arguments.of(-123, "-123")
+                Arguments.of(13, 20, 5, 150.51),
+                Arguments.of(2000, 4200, 4, 57556.16),
+                Arguments.of(50, 100, 10, 628.97),
+                Arguments.of(100, 2000, 1, 193780.77),
+                Arguments.of(0, 20, 5, 0.0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void test(long amount, String expected) {
-        String actual = Task06.convertToAccountingFormat(amount);
+    void test(int startDistance, int finishDistance, double dailyProgress, double expected) {
+        double actual = Task06.calculateTotalDistance(startDistance, finishDistance, dailyProgress);
 
         assertEquals(expected, actual);
     }

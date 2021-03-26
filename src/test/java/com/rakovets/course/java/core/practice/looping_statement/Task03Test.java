@@ -12,23 +12,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-@DisplayName("Deposit")
+@DisplayName("Raid Boss Monitoring")
 class Task03Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(10000.0, 18.0, 5, 22877.58),
-                Arguments.of(10000.0, 50.0, 9, 384433.59),
-                Arguments.of(10000.0, 7.0, 7, 16057.81),
-                Arguments.of(10000.0, 4.0, 8, 13685.69),
-                Arguments.of(10000.0, 1.0, 10, 11046.22),
-                Arguments.of(10000.0, 3.0, 15, 15579.67)
+                Arguments.of(100, 5.0, 10, 162),
+                Arguments.of(100, 0.0, 5, 100),
+                Arguments.of(100, -5.0, 0, 100),
+                Arguments.of(100, -4.0, 6, 78),
+                Arguments.of(100, 100.0, 0, 100),
+                Arguments.of(100, 25.0, 5, 305)
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void test(double depositAmount, double annualDepositPercent, int depositTerm, double expected) {
-        double actual = Task03.getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
+    void test(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn, int expected) {
+        int actual = Task03.calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
 
         assertEquals(expected, actual);
     }

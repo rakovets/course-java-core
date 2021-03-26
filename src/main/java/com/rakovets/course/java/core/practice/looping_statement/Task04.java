@@ -1,9 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
 /**
- * Разработать программу для игрового движка.
- * Спрогнозировать какое количество HP будет у RaidBoss (RB), который имеет неограниченное количество HP и регенерацию,
- * которая пропорционально зависит от его текущего количества HP.
+ * Разработать программу для игрового движка:
+ * Спрогнозировать через какое время party(team) игроков убьет RaidBoss и получит вознаграждение.
  *
  * @author Dmitry Rakovets
  */
@@ -18,22 +17,22 @@ class Task04 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 100;
-        int hoursAfterRespawn = 10;
+        double regenerationPercentFromCurrentHealth = 10.0;
+        int averageDamagePerHour = 200;
 
-        int featureHealthPoint = calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
-        System.out.printf("Result: %d", featureHealthPoint);
+        double raidTime = calculateRaidTime(healthPoints, regenerationPercentFromCurrentHealth, averageDamagePerHour);
+        System.out.printf("Result: %f", raidTime);
     }
 
     /**
-     * Высчитывает количество HP у RaidBoss после возрождения.
+     * Высчитывает через какое время команда игроков убьет RaidBoss.
      *
-     * @param healthPoints                         количество HP Raid Boss после появления (respawn)
-     * @param regenerationPercentFromCurrentHealth регенерация здоровья (процент / час)
-     * @param hoursAfterRespawn                    время прошедшее после появления Raid Boss
-     * @return количество HP
+     * @param healthPoints               количество HP RaidBoss
+     * @param regenerationPercentPerHour регенерация HP RaidBoss (%/hour)
+     * @param averageDamagePerHour       средний урон команды игроков по Raid Boss (HP/hour)
+     * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
      */
-    static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
+    static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return 0;

@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
 /**
- * Разработать программу для игрового движка:
- * Спрогнозировать через какое время party(team) игроков убьет RaidBoss и получит вознаграждение.
+ * Разработать программу для табличного процессора.
+ * Программа генерирует номера строк при создании таблицы.
  *
  * @author Dmitry Rakovets
  */
@@ -16,25 +16,24 @@ class Task05 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 10;
-        int averageDamagePerHour = 200;
+        int numberRows = 10;
+        boolean isEnableHeaderRow = true;
 
-        double raidTime = calculateRaidTime(healthPoints, regenerationPercentFromCurrentHealth, averageDamagePerHour);
-        System.out.printf("Result: %f", raidTime);
+        String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
+        System.out.printf("Result:\n%s", numbersColumn);
     }
 
     /**
-     * Высчитывает через какое время команда игроков убьет RaidBoss.
+     * Генерирует текст, который содержит столбец с номерами строк.
      *
-     * @param healthPoints               количество HP RaidBoss
-     * @param regenerationPercentPerHour регенерация HP RaidBoss (%/hour)
-     * @param averageDamagePerHour       средний урон команды игроков по Raid Boss (HP/hour)
-     * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
+     * @param numberRows        количество строк в таблице
+     * @param isEnableHeaderRow имеет ли таблица строку-заголовок <code>true</code>/<code>false</code>, если имеет, то
+     *                          для первой строки не нужно генерировать номер
+     * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
      */
-    static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
+    static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return null;
     }
 }

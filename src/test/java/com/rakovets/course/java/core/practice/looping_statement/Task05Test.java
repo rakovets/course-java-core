@@ -12,23 +12,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-@DisplayName("Raid Boss campaign")
+@DisplayName("Generator rows of table (improve)")
 class Task05Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(10000, 5.0, 500, -1),
-                Arguments.of(10000, 5.0, 917, 17),
-                Arguments.of(10000, 5.0, 700, -1),
-                Arguments.of(10000, 5.0, 740, 24),
-                Arguments.of(10000, -5.0, 1000, 8),
-                Arguments.of(10000, 5.0, 1550, 8)
+                Arguments.of(13, false, "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"),
+                Arguments.of(9, false, "1\n2\n3\n4\n5\n6\n7\n8\n9"),
+                Arguments.of(13, true, "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"),
+                Arguments.of(9, true, "\n1\n2\n3\n4\n5\n6\n7\n8")
         );
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Count rows: {0}. Is table header: {1}")
     @MethodSource("provideArguments")
-    void test(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour, int expected) {
-        int actual = Task05.calculateRaidTime(healthPoints, regenerationPercentPerHour, averageDamagePerHour);
+    void test(int numberRows, boolean isEnableHeaderRow, String expected) {
+        String actual = Task05.generateNumbersColumn(numberRows, isEnableHeaderRow);
 
         assertEquals(expected, actual);
     }

@@ -1,7 +1,9 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
 /**
- * Разработать программу для банка.
+ * Разработать программу для игрового движка.
+ * Спрогнозировать какое количество HP будет у RaidBoss (RB), который имеет неограниченное количество HP и регенерацию,
+ * которая пропорционально зависит от его текущего количества HP.
  *
  * @author Dmitry Rakovets
  */
@@ -15,25 +17,25 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        double depositAmount = 1500.0;
-        double annualDepositPercent = 7.0;
-        int depositTerm = 5;
+        int healthPoints = 1000;
+        double regenerationPercentFromCurrentHealth = 100.0;
+        int hoursAfterRespawn = 10;
 
-        double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
-        System.out.printf("Result: %f", totalDepositAmount);
+        int featureHealthPoint = calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
+        System.out.printf("Result: %d", featureHealthPoint);
     }
 
     /**
-     * Рассчитывает прибыль, которую получит клиент по вкладу с ежегодным перерасчетом (сложный процент).
+     * Высчитывает количество HP у RaidBoss после возрождения.
      *
-     * @param depositAmount        сумма вклада
-     * @param annualDepositPercent ежегодный процент вклада
-     * @param depositTerm          продолжительность вклада (в годах)
-     * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
+     * @param healthPoints                         количество HP Raid Boss после появления (respawn)
+     * @param regenerationPercentFromCurrentHealth регенерация здоровья (процент / час)
+     * @param hoursAfterRespawn                    время прошедшее после появления Raid Boss
+     * @return количество HP
      */
-    static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
+    static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        return 0;
     }
 }

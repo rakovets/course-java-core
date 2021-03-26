@@ -1,12 +1,10 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
- * Разработать программу для бухгалтерии.
- * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
- * пробелом.
- * <p>
- * Например:
- * 1234567890 -> "1 234 567 890"
+ * Разработать программу для фитнес браслета.
  *
  * @author Dmitry Rakovets
  */
@@ -20,22 +18,27 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500;
+        int startDistance = 1000;
+        int finishDistance = 40000;
+        double dailyProgress = 5.0;
 
-        String amountWithAccountingFormat = convertToAccountingFormat(amount);
-        System.out.printf("Result: %s", amountWithAccountingFormat);
+        double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
+        System.out.printf("Result: %f", totalDistance);
     }
 
     /**
-     * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
-     * пробелом.
+     * Рассчитывает пробег (т.е дистанцию, которую пробежал спортсмен за все тренировки), который совершит спортсмен
+     * при подготовке к марафону.
      *
-     * @param amount сумма
-     * @return сумма в бухгалтерском формате
+     * @param startDistance             дистанция которую пробегает спортсмен до начала тренировки
+     * @param finishDistance            дистанция которую желает пробежать спортсмен после окончания тренировок
+     * @param dailyProgressAsPercentage ежедневный прогресс в процентах по отношению к предыдущему забегу
+     * @return пробег (с точностью до 2 знаков после десятичного разделителя)
      */
-    static String convertToAccountingFormat(long amount) {
+    static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double totalDistance = 0;
+        return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

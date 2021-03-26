@@ -12,21 +12,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-@DisplayName("Generator rows of table (improve)")
+@DisplayName("Deposit")
 class Task02Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(13, false, "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"),
-                Arguments.of(9, false, "1\n2\n3\n4\n5\n6\n7\n8\n9"),
-                Arguments.of(13, true, "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12"),
-                Arguments.of(9, true, "\n1\n2\n3\n4\n5\n6\n7\n8")
+                Arguments.of(10000.0, 18.0, 5, 22877.58),
+                Arguments.of(10000.0, 50.0, 9, 384433.59),
+                Arguments.of(10000.0, 7.0, 7, 16057.81),
+                Arguments.of(10000.0, 4.0, 8, 13685.69),
+                Arguments.of(10000.0, 1.0, 10, 11046.22),
+                Arguments.of(10000.0, 3.0, 15, 15579.67)
         );
     }
 
-    @ParameterizedTest(name = "Count rows: {0}. Is table header: {1}")
+    @ParameterizedTest
     @MethodSource("provideArguments")
-    void test(int numberRows, boolean isEnableHeaderRow, String expected) {
-        String actual = Task02.generateNumbersColumn(numberRows, isEnableHeaderRow);
+    void test(double depositAmount, double annualDepositPercent, int depositTerm, double expected) {
+        double actual = Task02.getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
 
         assertEquals(expected, actual);
     }

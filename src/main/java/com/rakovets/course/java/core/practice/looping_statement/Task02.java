@@ -1,8 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
 /**
- * Разработать программу для табличного процессора.
- * Программа генерирует номера строк при создании таблицы.
+ * Разработать программу для банка.
  *
  * @author Dmitry Rakovets
  */
@@ -16,24 +15,25 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberRows = 10;
-        boolean isEnableHeaderRow = true;
+        double depositAmount = 1500.0;
+        double annualDepositPercent = 7.0;
+        int depositTerm = 5;
 
-        String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
-        System.out.printf("Result:\n%s", numbersColumn);
+        double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
+        System.out.printf("Result: %f", totalDepositAmount);
     }
 
     /**
-     * Генерирует текст, который содержит столбец с номерами строк.
+     * Рассчитывает прибыль, которую получит клиент по вкладу с ежегодным перерасчетом (сложный процент).
      *
-     * @param numberRows        количество строк в таблице
-     * @param isEnableHeaderRow имеет ли таблица строку-заголовок <code>true</code>/<code>false</code>, если имеет, то
-     *                          для первой строки не нужно генерировать номер
-     * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
+     * @param depositAmount        сумма вклада
+     * @param annualDepositPercent ежегодный процент вклада
+     * @param depositTerm          продолжительность вклада (в годах)
+     * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
-    static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
+    static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return 0.0;
     }
 }
