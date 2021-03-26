@@ -44,7 +44,6 @@ class Task04 {
                 return "SATURDAY";
             case 7:
                 return "SUNDAY";
-
         }
         return null;
     }
