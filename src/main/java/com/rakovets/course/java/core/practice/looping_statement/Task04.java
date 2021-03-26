@@ -39,8 +39,8 @@ class Task04 {
         int addCurrentHealthOfHour;
         double fullHealts;
         for (int i = 1; i <= hoursAfterRespawn; i++) {
-            addCurrentHealthOfHour =  (int)Math.round(healthPoints * (regenerationPercentFromCurrentHealth *0.01f));
-            healthPoints +=addCurrentHealthOfHour;
+            addCurrentHealthOfHour =  (int)Math.round(healthPoints * (regenerationPercentFromCurrentHealth * 0.01f));
+            healthPoints += addCurrentHealthOfHour;
         }
         return healthPoints;
     }
