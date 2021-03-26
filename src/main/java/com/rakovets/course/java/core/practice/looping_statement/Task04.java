@@ -17,9 +17,9 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 100;
-        int hoursAfterRespawn = 10;
+        int healthPoints = 100;
+        double regenerationPercentFromCurrentHealth = 25.0;
+        int hoursAfterRespawn = 5;
 
         int featureHealthPoint = calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
         System.out.printf("Result: %d", featureHealthPoint);
@@ -34,8 +34,10 @@ class Task04 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double totalHpAfterRespawn = healthPoints;
+        for (int i = 0; i < hoursAfterRespawn; i++) {
+            totalHpAfterRespawn += 0.01 * totalHpAfterRespawn * regenerationPercentFromCurrentHealth;
+        }
+        return (int) totalHpAfterRespawn;
     }
 }
