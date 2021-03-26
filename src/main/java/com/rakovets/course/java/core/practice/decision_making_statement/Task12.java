@@ -30,9 +30,8 @@ class Task12 {
         // аргументов. Типы данных изменять нельзя
         int day = 12;
         int month = 12;
-        int year = 1989;
 
-        String zodiacSign = getZodiacSign(day, month, year);
+        String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
     }
 
@@ -41,10 +40,9 @@ class Task12 {
      *
      * @param day   число дня рождения
      * @param month месяц дня рождения
-     * @param year  год дня рождения (больше 0 г. н.э.)
      * @return знак зодиака
      */
-    static String getZodiacSign(int day, int month, int year) {
+    static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return null;

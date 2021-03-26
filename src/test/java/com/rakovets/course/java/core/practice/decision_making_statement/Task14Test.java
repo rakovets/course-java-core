@@ -12,40 +12,40 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dmitry Rakovets
  */
-@DisplayName("Zodiac")
+@DisplayName("Zodiac: year name")
 class Task14Test {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(20, 1, 2001, "Snake"),
-                Arguments.of(19, 2, 2002, "Horse"),
-                Arguments.of(20, 3, 2003, "Ram"),
-                Arguments.of(20, 4, 2004, "Monkey"),
-                Arguments.of(20, 5, 2005, "Rooster"),
-                Arguments.of(21, 6, 2006, "Dog"),
-                Arguments.of(22, 7, 2007, "Pig"),
-                Arguments.of(22, 8, 2008, "Rat"),
-                Arguments.of(21, 9, 2009, "Ox"),
-                Arguments.of(22, 10, 2010, "Tiger"),
-                Arguments.of(22, 11, 2011, "Rabbit"),
-                Arguments.of(21, 12, 2012, "Dragon"),
-                Arguments.of(21, 1, 2013, "Snake"),
-                Arguments.of(20, 2, 2014, "Horse"),
-                Arguments.of(21, 3, 2015, "Ram"),
-                Arguments.of(21, 4, 2016, "Monkey"),
-                Arguments.of(21, 5, 2017, "Rooster"),
-                Arguments.of(22, 6, 2018, "Dog"),
-                Arguments.of(23, 7, 2019, "Pig"),
-                Arguments.of(23, 8, 2020, "Rat"),
-                Arguments.of(22, 9, 2021, "Ox"),
-                Arguments.of(23, 10, 2022, "Tiger"),
-                Arguments.of(23, 11, 2023, "Rabbit"),
-                Arguments.of(22, 12, 2024, "Dragon"));
+                Arguments.of(2001, "Snake"),
+                Arguments.of(2002, "Horse"),
+                Arguments.of(2003, "Ram"),
+                Arguments.of(2004, "Monkey"),
+                Arguments.of(2005, "Rooster"),
+                Arguments.of(2006, "Dog"),
+                Arguments.of(2007, "Pig"),
+                Arguments.of(2008, "Rat"),
+                Arguments.of(2009, "Ox"),
+                Arguments.of(2010, "Tiger"),
+                Arguments.of(2011, "Rabbit"),
+                Arguments.of(2012, "Dragon"),
+                Arguments.of(2013, "Snake"),
+                Arguments.of(2014, "Horse"),
+                Arguments.of(2015, "Ram"),
+                Arguments.of(2016, "Monkey"),
+                Arguments.of(2017, "Rooster"),
+                Arguments.of(2018, "Dog"),
+                Arguments.of(2019, "Pig"),
+                Arguments.of(2020, "Rat"),
+                Arguments.of(2021, "Ox"),
+                Arguments.of(2022, "Tiger"),
+                Arguments.of(2023, "Rabbit"),
+                Arguments.of(2024, "Dragon"));
     }
 
     @ParameterizedTest(name = "Birthday: {0}")
     @MethodSource("provideArguments")
-    void test(int day, int month, int year, String expected) {
-        String actual = Task14.getZodiacYearName(day, month, year);
+    void test(int year, String expected) {
+        String actual = Task14.getZodiacYearName(year);
 
         assertEquals(expected, actual);
     }

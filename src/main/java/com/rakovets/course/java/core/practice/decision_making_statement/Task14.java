@@ -29,23 +29,19 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
         int year = 1989;
 
-        String monthName = getZodiacYearName(day, month, year);
+        String monthName = getZodiacYearName(year);
         System.out.printf("Result: %s", monthName);
     }
 
     /**
      * Определяет названия года по китайскому календарю.
      *
-     * @param day   число дня рождения
-     * @param month месяц дня рождения
      * @param year  год дня рождения (больше 0 г. н.э.)
      * @return название года по китайскому календарю
      */
-    static String getZodiacYearName(int day, int month, int year) {
+    static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return null;
