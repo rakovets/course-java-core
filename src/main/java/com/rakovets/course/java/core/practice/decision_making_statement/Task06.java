@@ -39,8 +39,16 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int POINTSOFFIRSTPLAYER = 100 * tanksKilledFirstPlayer;
+        int POINTSOFSECONDPLAYER = 100 * tanksKilledSecondPlayer;
+
+        if( tanksKilledFirstPlayer > tanksKilledSecondPlayer ){
+            POINTSOFFIRSTPLAYER += 500;
+        }
+        if (tanksKilledSecondPlayer > tanksKilledFirstPlayer){
+            POINTSOFSECONDPLAYER += 500;
+        }
+        else return "Player 1: " + POINTSOFFIRSTPLAYER + ". Player 2: " + POINTSOFSECONDPLAYER;
+        return "Player 1: " + POINTSOFFIRSTPLAYER + ". Player 2: " + POINTSOFSECONDPLAYER;
     }
 }
