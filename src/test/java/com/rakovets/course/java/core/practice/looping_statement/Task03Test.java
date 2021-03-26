@@ -29,7 +29,6 @@ class Task03Test {
     @MethodSource("provideArguments")
     void test(double depositAmount, double annualDepositPercent, int depositTerm, double expected) {
         double actual = Task03.getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
-
         assertEquals(expected, actual);
     }
 }
