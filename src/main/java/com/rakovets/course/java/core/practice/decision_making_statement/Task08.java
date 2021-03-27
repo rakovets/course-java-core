@@ -38,7 +38,6 @@ class Task08 {
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
-
         int tottalDamage = damage;
 
         if (hasHolyAttribute == true) {
