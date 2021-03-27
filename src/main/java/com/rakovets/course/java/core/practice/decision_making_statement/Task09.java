@@ -33,10 +33,11 @@ class Task09 {
      */
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         int porch;
-        if (apartmentNumber % (numberFloors * numberApartmentsPerFloor) != 0) {
-            porch = apartmentNumber / (numberFloors * numberApartmentsPerFloor) + 1;
+        final int FLOORS_IN_PORCH = numberFloors * numberApartmentsPerFloor;
+        if (apartmentNumber % (FLOORS_IN_PORCH) != 0) {
+            porch = apartmentNumber / FLOORS_IN_PORCH + 1;
         } else {
-            porch = apartmentNumber / (numberFloors * numberApartmentsPerFloor);
+            porch = apartmentNumber / FLOORS_IN_PORCH;
         }
         return porch;
     }
