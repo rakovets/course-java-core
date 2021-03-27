@@ -52,7 +52,6 @@ class Task10 {
             }
             if (countOfDivider <= 2) {
                 counOfnumbers = counOfnumbers + 1;
-                countOfDivider = 1;
             }
             countOfDivider = 1;
         }
