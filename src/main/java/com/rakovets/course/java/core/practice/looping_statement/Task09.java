@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,8 +27,8 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
+        int startNumberItems = 5;
+        double startPriceAllItems = 10;
         int differentialNumberItems = 5;
         double differentialSell = 4;
         int sizeTotalPrice = 6;
@@ -49,8 +52,35 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String priceList = "";
+        double currentPriceAllItemsWithSell = startPriceAllItems;
+        double currentSell = differentialSell;
+        int currentNumberItems = startNumberItems;
+
+        for (int i = 1; i <= sizeTotalPrice; i++) {
+            currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue();
+            if (i < sizeTotalPrice) {
+                if (i == 1) {
+                    priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + " with sell "
+                            + "0.0" + "%\n";
+                    currentNumberItems += differentialNumberItems;
+                    currentPriceAllItemsWithSell = (currentNumberItems * startPriceAllItems / startNumberItems);
+                } else {
+                    priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + " with sell "
+                            + currentSell + "%\n";
+                    currentNumberItems += differentialNumberItems;
+                    currentPriceAllItemsWithSell = (currentNumberItems * startPriceAllItems / startNumberItems);
+                    currentSell += differentialSell;
+                }
+                currentPriceAllItemsWithSell -= currentPriceAllItemsWithSell * 0.01 * currentSell;
+            } else {
+                priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + " with sell "
+                        + currentSell + "%";
+                currentPriceAllItemsWithSell -= currentPriceAllItemsWithSell * 0.01 * currentSell;
+                currentSell += differentialSell;
+            }
+        }
+        return priceList;
     }
 }
