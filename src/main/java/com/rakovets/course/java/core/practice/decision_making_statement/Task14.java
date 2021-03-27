@@ -31,7 +31,7 @@ class Task14 {
         // аргументов. Типы данных изменять нельзя
         int day = 12;
         int month = 12;
-        int year = 1989;
+        int year = 2000;
 
         String monthName = getZodiacYearName(day, month, year);
         System.out.printf("Result: %s", monthName);
@@ -46,8 +46,42 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        int fullPeriod = 12;
+        int yearsExceptThousands = (year - (year / 1000 * 1000));
+        int yearsExeptFullPeriod = yearsExceptThousands - (yearsExceptThousands / fullPeriod * fullPeriod);
+        String zodiacNameYear;
+
+        if (yearsExceptThousands % fullPeriod != 0){
+
+            if (yearsExeptFullPeriod / 11 == 1){
+                zodiacNameYear = "Rabbit";
+            } else if (yearsExeptFullPeriod / 10 == 1) {
+                zodiacNameYear = "Tiger";
+            }else if (yearsExeptFullPeriod / 9 == 1) {
+                zodiacNameYear = "Ox";
+            }else if (yearsExeptFullPeriod / 8 == 1) {
+                zodiacNameYear = "Rat";
+            }else if (yearsExeptFullPeriod / 7 == 1) {
+                zodiacNameYear = "Pig";
+            }else if (yearsExeptFullPeriod / 6 == 1) {
+                zodiacNameYear = "Dog";
+            }else if (yearsExeptFullPeriod / 5 == 1) {
+                zodiacNameYear = "Rooster";
+            }else if (yearsExeptFullPeriod / 4 == 1) {
+                zodiacNameYear = "Monkey";
+            }else if (yearsExeptFullPeriod / 3 == 1) {
+                zodiacNameYear = "Ram";
+            }else if (yearsExeptFullPeriod / 2 == 1) {
+                zodiacNameYear = "Horse";
+            }else {
+                zodiacNameYear = "Snake";
+            }
+
+        } else {
+            zodiacNameYear = "Dragon";
+        }
+
+        return zodiacNameYear;
     }
 }
