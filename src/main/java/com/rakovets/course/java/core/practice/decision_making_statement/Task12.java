@@ -47,6 +47,95 @@ class Task12 {
     static String getZodiacSign(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiacSing = "";
+        if (year > 0){
+            switch (month){
+                case 1:
+                    if (day <= 20){
+                        zodiacSing = "Goat";
+                    } else {
+                        zodiacSing = "Water-bearer";
+                    }
+                    break;
+                case 2:
+                    if (day <= 19){
+                        zodiacSing = "Water-bearer";
+                    } else {
+                        zodiacSing = "Fish";
+                    }
+                    break;
+                case 3:
+                    if (day <= 20){
+                        zodiacSing = "Fish";
+                    } else {
+                        zodiacSing = "Ram";
+                    }
+                    break;
+                case 4:
+                    if (day <= 20){
+                        zodiacSing = "Ram";
+                    } else {
+                        zodiacSing = "Bull";
+                    }
+                    break;
+                case 5:
+                    if (day <= 20){
+                        zodiacSing = "Bull";
+                    } else {
+                        zodiacSing = "Twins";
+                    }
+                    break;
+                case 6:
+                    if (day <= 21){
+                        zodiacSing = "Twins";
+                    } else {
+                        zodiacSing = "Crab";
+                    }
+                    break;
+                case 7:
+                    if (day <= 22){
+                        zodiacSing = "Crab";
+                    } else {
+                        zodiacSing = "Lion";
+                    }
+                    break;
+                case 8:
+                    if (day <= 22){
+                        zodiacSing = "Lion";
+                    } else {
+                        zodiacSing = "Maiden";
+                    }
+                    break;
+                case 9:
+                    if (day <= 21){
+                        zodiacSing = "Maiden";
+                    } else {
+                        zodiacSing = "Scales";
+                    }
+                    break;
+                case 10:
+                    if (day <= 22){
+                        zodiacSing = "Scales";
+                    } else {
+                        zodiacSing = "Scorpion";
+                    }
+                    break;
+                case 11:
+                    if (day <= 22){
+                        zodiacSing = "Scorpion";
+                    } else {
+                        zodiacSing = "Archer";
+                    }
+                    break;
+                case 12:
+                    if (day <= 21){
+                        zodiacSing = "Archer";
+                    } else {
+                        zodiacSing = "Goat";
+                    }
+                    break;
+            }
+        }
+        return zodiacSing;
     }
 }

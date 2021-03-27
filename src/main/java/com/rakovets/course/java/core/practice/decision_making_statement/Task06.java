@@ -24,7 +24,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int tanksKilledFirstPlayer = 2;
+        int tanksKilledFirstPlayer = 4;
         int tanksKilledSecondPlayer = 4;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
