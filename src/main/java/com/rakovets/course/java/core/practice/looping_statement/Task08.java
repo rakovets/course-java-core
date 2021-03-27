@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,10 +27,10 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startPriceAllItems = 2;
-        int startNumberItems = 2;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        double startPriceAllItems = 1.3;
+        int startNumberItems = 100;
+        int differentialNumberItems = 1;
+        int sizeTotalPrice = 6;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -45,8 +48,24 @@ class Task08 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String priceList = "";
+        double currentPriceAllItemsWithSell = startPriceAllItems;
+        int currentNumberItems = startNumberItems;
+
+        for (int i = 1; i <= sizeTotalPrice; i++) {
+            if (i < sizeTotalPrice) {
+                priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + "\n";
+                currentNumberItems += differentialNumberItems;
+                currentPriceAllItemsWithSell = currentNumberItems * startPriceAllItems / startNumberItems;
+                currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
+                        .setScale(2, RoundingMode.HALF_UP).doubleValue();
+
+            } else {
+                priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell;
+                currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
+                        .setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
+        }
+        return priceList;
     }
 }
