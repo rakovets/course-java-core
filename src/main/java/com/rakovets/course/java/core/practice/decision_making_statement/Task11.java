@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
+import com.sun.jdi.request.BreakpointRequest;
+
 /**
  * Разработать программу для desktop приложения.
  * <p>
@@ -40,6 +42,14 @@ class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if ((symbol >= 65 && symbol <= 90) || (symbol >= 97 && symbol <= 122)) {
+            return "latin";
+        } else if (symbol >= 1040 && symbol <= 1103) {
+            return "cyrillic";
+        } else if (symbol >= 48 && symbol <= 57) {
+            return "digit";
+        } else {
+            return "undefined";
+        }
     }
 }
