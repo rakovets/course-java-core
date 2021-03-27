@@ -22,7 +22,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = -834563L;
+        long amount = 13524624562456L;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -35,12 +35,15 @@ class Task06 {
      * @param amount сумма
      * @return сумма в бухгалтерском формате
      */
-    static String convertToAccountingFormat(long amount) {
+/*
+        static String convertToAccountingFormat(long amount) {
         String slovo = "";
 
+
         String str = Long.toString(amount);
-        String[] array = str.split("");
         int lenth = str.length();
+        String[] array = str.split("");
+
 
         for (int i = 1; i <= str.length(); i++) {
             slovo = array[lenth - i] + slovo;
@@ -51,5 +54,34 @@ class Task06 {
         }
 
         return slovo;
+    }
+} */
+    static String convertToAccountingFormat(long amount) {
+        String word = "";
+        boolean negative = false;
+        int separationTime = 0;
+
+        if (amount < 0) {
+            amount = amount * -1;
+            negative = true;
+        }
+
+        String str = Long.toString(amount);
+
+        for (int i = 1; i <= str.length(); i++) {
+            word = amount % (long) Math.pow(10, i) / (long) Math.pow(10, i - 1) + word;
+            separationTime++;
+
+            if (separationTime == 3 && i != str.length()) {
+                word = " " + word;
+                separationTime = 0;
+            }
+        }
+
+        if (negative) {
+            word = "-" + word;
+        }
+
+        return word;
     }
 }
