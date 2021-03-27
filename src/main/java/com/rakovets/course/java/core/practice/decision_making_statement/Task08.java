@@ -58,6 +58,6 @@ class Task08 {
                     return damage;
             }
         }
-        return 0;
+        return damage;
     }
 }
