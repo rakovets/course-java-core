@@ -47,6 +47,5 @@ class Task11 {
             return "cyrillic";
 
         return "undefined";
-
     }
 }
