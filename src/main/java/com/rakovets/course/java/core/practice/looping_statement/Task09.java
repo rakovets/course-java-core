@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -49,8 +52,20 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String row = startNumberItems + " - " + startPriceAllItems + " with sell 0.0%";
+        Double currentPrice = 0.0;
+        Double startPriceAllItemsWithSell = 0.0;
+        Double nextDifferentialSell = differentialSell;
+
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            startPriceAllItems = startPriceAllItems * (startNumberItems + differentialNumberItems) / startNumberItems;
+            startPriceAllItemsWithSell = startPriceAllItems * (100 - nextDifferentialSell) / 100;
+            currentPrice = BigDecimal.valueOf(startPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            startNumberItems = startNumberItems + differentialNumberItems;
+            row = row + "\n" + startNumberItems + " - " + currentPrice + " with sell " + nextDifferentialSell + "%";
+            nextDifferentialSell = differentialSell + i;
+        }
+
+        return row;
     }
 }
