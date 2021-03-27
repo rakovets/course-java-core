@@ -27,7 +27,7 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        double startPriceAllItems = 1.3;
+        int startPriceAllItems = 18;
         int startNumberItems = 100;
         int differentialNumberItems = 1;
         int sizeTotalPrice = 6;
@@ -53,17 +53,15 @@ class Task08 {
         int currentNumberItems = startNumberItems;
 
         for (int i = 1; i <= sizeTotalPrice; i++) {
+            currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue();
             if (i < sizeTotalPrice) {
                 priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + "\n";
                 currentNumberItems += differentialNumberItems;
                 currentPriceAllItemsWithSell = currentNumberItems * startPriceAllItems / startNumberItems;
-                currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
-                        .setScale(2, RoundingMode.HALF_UP).doubleValue();
-
             } else {
                 priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell;
-                currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
-                        .setScale(2, RoundingMode.HALF_UP).doubleValue();
+
             }
         }
         return priceList;
