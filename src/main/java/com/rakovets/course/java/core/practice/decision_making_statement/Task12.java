@@ -45,8 +45,79 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (year > 0) {
+            if (day >= 21)
+                if (month == 3)
+                    return "Ram";
+                if (day <= 20)
+                    if (month == 4)
+                        return "Ram";
+            if (day >= 21)
+                if (month == 4)
+                    return "Bull";
+                if (day <= 20)
+                    if (month == 5)
+                        return "Bull";
+            if (day >= 21)
+                if (month == 5)
+                    return "Twins";
+                    if (day <= 21)
+                        if (month == 6)
+                            return "Twins";
+            if (day >= 22)
+                if (month ==6)
+                    return "Crab";
+                        if (day <= 22)
+                            if (month == 7)
+                                return "Crab";
+            if (day >= 23)
+                if (month == 7)
+                    return "Lion";
+                        if (day <= 22)
+                            if (month == 8)
+                                return "Lion";
+            if (day >= 23)
+                if (month == 8)
+                    return "Maiden";
+                        if (day <= 21)
+                            if (month == 9)
+                                return "Maiden";
+            if (day >= 22)
+                if (month == 9)
+                    return "Scales";
+                        if (day <= 22)
+                            if (month == 10)
+                                return "Scales";
+            if (day >= 23)
+                if (month == 10)
+                    return "Scorpion";
+                        if (day <= 22)
+                            if (month == 11)
+                                return "Scorpion";
+            if (day >= 23)
+                if (month == 11)
+                    return "Archer";
+                        if (day <= 21)
+                            if (month == 12)
+                                return "Archer";
+            if (day >= 22)
+                if (month == 12)
+                    return "Goat";
+                        if (day <= 20)
+                            if (month == 1)
+                                return "Goat";
+            if (day >= 21)
+                if (month == 1)
+                    return "Water-bearer";
+                        if (day <= 19)
+                            if (month == 2)
+                                return "Water-bearer";
+            if (day >= 20)
+                if (month == 2)
+                    return "Fish";
+                        if (day <= 20)
+                            if (month == 3)
+                                return "Fish";
+        }    return null;
     }
 }
