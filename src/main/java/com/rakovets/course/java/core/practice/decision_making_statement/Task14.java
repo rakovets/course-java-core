@@ -29,9 +29,9 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
+        int day = 23;
         int month = 12;
-        int year = 1989;
+        int year = 1985;
 
         String monthName = getZodiacYearName(day, month, year);
         System.out.printf("Result: %s", monthName);
@@ -46,8 +46,55 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiac = "";
+        int zodiacYear = year % 12;
+        if (day <= 0 || day > 31) {
+            zodiac = "Wrong day";
+        } else {
+            if (month <= 0 || month > 12) {
+                zodiac = "Wrong month";
+            }
+            else {
+                switch (zodiacYear) {
+                    case 0:
+                        zodiac = "Monkey";
+                        break;
+                    case 1:
+                        zodiac = "Rooster";
+                        break;
+                    case 2:
+                        zodiac = "Dog";
+                        break;
+                    case 3:
+                        zodiac = "Pig";
+                        break;
+                    case 4:
+                        zodiac = "Rat";
+                        break;
+                    case 5:
+                        zodiac = "Ox";
+                        break;
+                    case 6:
+                        zodiac = "Tiger";
+                        break;
+                    case 7:
+                        zodiac = "Rabbit";
+                        break;
+                    case 8:
+                        zodiac = "Dragon";
+                        break;
+                    case 9:
+                        zodiac = "Snake";
+                        break;
+                    case 10:
+                        zodiac = "Horse";
+                        break;
+                    case 11:
+                        zodiac = "Ram";
+                        break;
+                }
+            }
+        }
+        return zodiac;
     }
 }
