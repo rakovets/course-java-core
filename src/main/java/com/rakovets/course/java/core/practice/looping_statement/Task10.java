@@ -23,7 +23,7 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumber = 0;
+        int startNumber = 1;
         int finishNumber = 50;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
@@ -38,8 +38,19 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int amount = 0;
+        for (int i = startNumber; i <= finishNumber; i++) {
+            boolean mark = true;
+            for (var j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0 || i == 1) {
+                    mark = false;
+                    break;
+                }
+            }
+            if (mark && i != 1) {
+                amount++;
+            }
+        }
+        return amount;
     }
 }
