@@ -36,7 +36,7 @@ class Task02 {
         for (int i = 1; i <= numberRows; i ++) {
             if (!isEnableHeaderRow && i < numberRows) {
                 lineNumber += i + "\n";
-            } else if (!isEnableHeaderRow && i == numberRows){
+            } else if (!isEnableHeaderRow && i == numberRows) {
                 lineNumber += i;
             } else if (isEnableHeaderRow && i < numberRows) {
                 lineNumber += "\n" + i;
