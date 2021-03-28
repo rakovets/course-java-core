@@ -47,8 +47,8 @@ class Task12 {
     static String getZodiacSign(int day, int month, int year) {
         int numberDayInFebruary;
 
-        if (year%4 == 0) {
-            if (year%400 == 0) {
+        if (year %4 == 0) {
+            if (year % 400 == 0) {
                 numberDayInFebruary = 28;
             } else {
                 numberDayInFebruary = 29 ;
