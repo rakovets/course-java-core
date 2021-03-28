@@ -31,7 +31,7 @@ class Task14 {
         // аргументов. Типы данных изменять нельзя
         int day = 12;
         int month = 12;
-        int year = 1989;
+        int year = 2012;
 
         String monthName = getZodiacYearName(day, month, year);
         System.out.printf("Result: %s", monthName);
@@ -46,8 +46,32 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+      int numberOfTheCharter=(year%12);
+      System.out.println (numberOfTheCharter);
+      if (numberOfTheCharter == 9) {
+          return "Snake";
+      } else if (numberOfTheCharter == 10) {
+          return "Horse";
+      } else if (numberOfTheCharter == 11) {
+          return "Ram";
+      } else if (numberOfTheCharter == 0) {
+          return "Monkey";
+      } else if (numberOfTheCharter == 1) {
+          return "Rooster";
+      } else if (numberOfTheCharter == 2) {
+          return "Dog";
+      } else if (numberOfTheCharter == 3) {
+          return "Pig";
+      } else if (numberOfTheCharter == 4) {
+          return "Rat";
+      } else if (numberOfTheCharter == 5) {
+          return "Ox";
+      } else if (numberOfTheCharter == 6) {
+          return "Tiger";
+      } else if (numberOfTheCharter == 7) {
+          return "Rabbit";
+      } else {
+          return "Dragon";
+      }
     }
 }
