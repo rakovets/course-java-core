@@ -24,7 +24,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int tanksKilledFirstPlayer = 2;
+        int tanksKilledFirstPlayer =2 ;
         int tanksKilledSecondPlayer = 4;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
@@ -39,8 +39,21 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int finalScoreFirstPlayer = 1;
+        int finalScoreSecondPlayer = 1;
+
+        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer )  {
+             finalScoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT + BONUS_POINT;
+             finalScoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
+            return "Player 1: " + finalScoreFirstPlayer + ". Player 2: " + finalScoreSecondPlayer;
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer ) {
+            finalScoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
+            finalScoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT + BONUS_POINT;
+            return "Player 1: " + finalScoreFirstPlayer + ". Player 2: " + finalScoreSecondPlayer;
+        } else {
+            finalScoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
+            finalScoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
+            return "Player 1: " + finalScoreFirstPlayer + ". Player 2: " + finalScoreSecondPlayer;
+        }
     }
 }
