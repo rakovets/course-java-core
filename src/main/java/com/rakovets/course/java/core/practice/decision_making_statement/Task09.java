@@ -32,6 +32,6 @@ class Task09 {
      * @return номер подъезда
      */
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        return (apartmentNumber - 1) / (numberFloors * numberApartmentsPerFloor) + 1;
+        return apartmentNumber / (numberFloors * numberApartmentsPerFloor) + 1;
     }
 }
