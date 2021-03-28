@@ -35,9 +35,18 @@ class Task02 {
      * </ul>
      */
     static String getGreetingByHour(int hour) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
-        return null;
+        String greetingByHour;
+            if (hour >= 6 && hour <= 11) {
+                greetingByHour = "Good morning";
+            } else if (hour >= 12 && hour <= 17) {
+                greetingByHour = "Good day";
+            } else if (hour >= 18 && hour <= 23) {
+                greetingByHour = "Good evening";
+            } else if (hour >= 0 && hour <= 5) {
+                greetingByHour = "Good night";
+            } else {
+                greetingByHour = null;
+            }
+        return greetingByHour;
     }
 }
