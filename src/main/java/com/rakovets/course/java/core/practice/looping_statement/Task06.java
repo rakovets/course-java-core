@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.looping_statement;
+import java.text.DecimalFormat;
 
 /**
  * Разработать программу для бухгалтерии.
@@ -20,7 +21,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500;
+        long amount = 1518881;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -34,8 +35,7 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String number = (new DecimalFormat( "###,###" ).format(amount));
+        return number;
     }
 }
