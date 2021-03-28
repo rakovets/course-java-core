@@ -33,7 +33,7 @@ class Task01 {
         int i=1;
 
         for ( ; i < numberRows ; ++i ){
-            result +=i +"\n";
+            result += i + "\n";
         }
         result += i;
         return result;
