@@ -53,34 +53,24 @@ class Task09 {
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         String priceList = "";
-        double currentPriceAllItemsWithSell = startPriceAllItems; // текущее значение цены со скидкой.
-        double currentSell = differentialSell;  // текущая скидка.
-        int currentNumberItems = startNumberItems; // текущее кол-во товаров.
+        double currentSell = differentialSell;
+        double currentPriceAllItems = startPriceAllItems;
+        int currentNumberItems = startNumberItems;
+        int i = 0;
 
-        for (int i = 1; i <= sizeTotalPrice; i++) {
-            currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
+        for (; i < sizeTotalPrice - 1; i++) {
+            currentPriceAllItems = BigDecimal.valueOf(currentPriceAllItems)
                     .setScale(2, RoundingMode.HALF_UP).doubleValue();
-            if (i < sizeTotalPrice) {
-                if (i == 1) {
-                    priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + " with sell "
-                            + "0.0" + "%\n";
-                    currentNumberItems += differentialNumberItems;
-                    currentPriceAllItemsWithSell = (currentNumberItems * startPriceAllItems / startNumberItems);
-                } else {
-                    priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + " with sell "
-                            + currentSell + "%\n";
-                    currentNumberItems += differentialNumberItems;
-                    currentPriceAllItemsWithSell = (currentNumberItems * startPriceAllItems / startNumberItems);
-                    currentSell += differentialSell;
-                }
-                currentPriceAllItemsWithSell -= currentPriceAllItemsWithSell * 0.01 * currentSell;
-            } else {
-                priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + " with sell "
-                        + currentSell + "%";
-                currentPriceAllItemsWithSell -= currentPriceAllItemsWithSell * 0.01 * currentSell;
-                currentSell += differentialSell;
-            }
+            priceList += currentNumberItems + " - " + currentPriceAllItems + " with sell " + i
+                    * differentialSell + "%\n";
+            currentNumberItems += differentialNumberItems;
+            currentPriceAllItems = currentNumberItems * startPriceAllItems / startNumberItems;
+            currentPriceAllItems -= currentPriceAllItems * 0.01 * currentSell;
+            currentSell += differentialSell;
         }
+        currentPriceAllItems = BigDecimal.valueOf(currentPriceAllItems)
+                .setScale(2, RoundingMode.HALF_UP).doubleValue();
+        priceList += currentNumberItems + " - " + currentPriceAllItems + " with sell " + i * differentialSell + "%";
         return priceList;
     }
 }
