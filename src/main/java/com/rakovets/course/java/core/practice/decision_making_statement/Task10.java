@@ -44,7 +44,7 @@ class Task10 {
            } else {
                return 3;
            }
-       } else if (secondFuelReserves <=thirdFuelReserves) {
+       } else if (secondFuelReserves <= thirdFuelReserves) {
            return 2;
        } else {
            return 3;
