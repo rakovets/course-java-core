@@ -40,8 +40,7 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         if ((symbol >= 65 && symbol <= 90) || (symbol >= 97 && symbol <= 122)) {
             return "latin";
         } else if (symbol >= 1040 && symbol <= 1103) {
