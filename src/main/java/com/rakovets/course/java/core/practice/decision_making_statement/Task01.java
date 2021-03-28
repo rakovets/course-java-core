@@ -38,9 +38,9 @@ class Task01 {
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
 
         if (positionPlayerByDamage <= sizeTop) {
-        return true;
+            return true;
         } else {
-       return false;
+            return false;
         }
     }
 }
