@@ -49,21 +49,21 @@ class Task12 {
             if (day >= 21)
                 if (month == 3)
                     return "Ram";
-                if (day <= 20)
-                    if (month == 4)
-                        return "Ram";
+                        if (day <= 20)
+                            if (month == 4)
+                            return "Ram";
             if (day >= 21)
                 if (month == 4)
                     return "Bull";
-                if (day <= 20)
-                    if (month == 5)
-                        return "Bull";
+                        if (day <= 20)
+                            if (month == 5)
+                                return "Bull";
             if (day >= 21)
                 if (month == 5)
                     return "Twins";
-                    if (day <= 21)
-                        if (month == 6)
-                            return "Twins";
+                        if (day <= 21)
+                            if (month == 6)
+                                return "Twins";
             if (day >= 22)
                 if (month ==6)
                     return "Crab";
