@@ -53,9 +53,9 @@ class Task09 {
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         String priceList = "";
-        double currentPriceAllItemsWithSell = startPriceAllItems;
-        double currentSell = differentialSell;
-        int currentNumberItems = startNumberItems;
+        double currentPriceAllItemsWithSell = startPriceAllItems; // текущее значение цены со скидкой.
+        double currentSell = differentialSell;  // текущая скидка.
+        int currentNumberItems = startNumberItems; // текущее кол-во товаров.
 
         for (int i = 1; i <= sizeTotalPrice; i++) {
             currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
