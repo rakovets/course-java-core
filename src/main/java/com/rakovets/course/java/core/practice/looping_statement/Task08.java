@@ -49,18 +49,18 @@ class Task08 {
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         String priceList = "";
-        double currentPriceAllItemsWithSell = startPriceAllItems;
+        double currentPriceAll = startPriceAllItems;
         int currentNumberItems = startNumberItems;
 
         for (int i = 1; i <= sizeTotalPrice; i++) {
-            currentPriceAllItemsWithSell = BigDecimal.valueOf(currentPriceAllItemsWithSell)
+            currentPriceAll = BigDecimal.valueOf(currentPriceAll)
                     .setScale(2, RoundingMode.HALF_UP).doubleValue();
             if (i < sizeTotalPrice) {
-                priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell + "\n";
+                priceList += currentNumberItems + " - " + currentPriceAll + "\n";
                 currentNumberItems += differentialNumberItems;
-                currentPriceAllItemsWithSell = currentNumberItems * startPriceAllItems / startNumberItems;
+                currentPriceAll = currentNumberItems * startPriceAllItems / startNumberItems;
             } else {
-                priceList += currentNumberItems + " - " + currentPriceAllItemsWithSell;
+                priceList += currentNumberItems + " - " + currentPriceAll;
 
             }
         }
