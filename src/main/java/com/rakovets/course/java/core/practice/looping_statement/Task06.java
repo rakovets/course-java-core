@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 /**
  * Разработать программу для бухгалтерии.
@@ -35,29 +38,10 @@ class Task06 {
      * @param amount сумма
      * @return сумма в бухгалтерском формате
      */
-/*
-        static String convertToAccountingFormat(long amount) {
-        String slovo = "";
 
-
-        String str = Long.toString(amount);
-        int lenth = str.length();
-        String[] array = str.split("");
-
-
-        for (int i = 1; i <= str.length(); i++) {
-            slovo = array[lenth - i] + slovo;
-            if (i % 3 == 0 && (i != str.length() && !array[lenth - i - 1].equals("-"))) {
-                slovo = " " + slovo;
-            }
-
-        }
-
-        return slovo;
-    }
-} */
     static String convertToAccountingFormat(long amount) {
-        String word = "";
+
+       /* String word = "";
         boolean negative = false;
         int separationTime = 0;
 
@@ -82,6 +66,7 @@ class Task06 {
             word = "-" + word;
         }
 
-        return word;
+        return word; */
+        return new DecimalFormat("###,###").format(amount).replace("\u00a0"," ");
     }
 }
