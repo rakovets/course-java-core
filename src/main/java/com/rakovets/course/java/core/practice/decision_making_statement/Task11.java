@@ -38,8 +38,15 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (Character.isDigit(symbol)) {
+            return "digit";
+        } else if (Character.isAlphabetic(symbol)) {
+            if (Character.UnicodeBlock.of(symbol).equals(Character.UnicodeBlock.CYRILLIC)) {
+                return "cyrillic";
+            } else if (Character.UnicodeBlock.of(symbol).equals(Character.UnicodeBlock.BASIC_LATIN)){
+                return "latin";
+            }
+        }
+        return "undefined";
     }
 }
