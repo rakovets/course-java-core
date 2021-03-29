@@ -33,6 +33,7 @@ class Task02 {
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         String lineNumber = "";
+
         for (int i = 1; i <= numberRows; i ++) {
             if (!isEnableHeaderRow && i < numberRows) {
                 lineNumber += i + "\n";
