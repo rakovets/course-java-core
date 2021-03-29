@@ -30,6 +30,7 @@ class Task01 {
      */
     static String generateNumbersColumn(int numberRows) {
         String lineNumber = "";
+
         for (int i = 1; i <= numberRows; i++) {
             if (i != numberRows) {
                 lineNumber += i + "\n";
