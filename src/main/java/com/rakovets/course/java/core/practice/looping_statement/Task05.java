@@ -37,16 +37,13 @@ class Task05 {
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         int bossKillTime = 0;
 
-        while (healthPoints > 0){
+        while (healthPoints > 0) {
             healthPoints += healthPoints * 0.01 * regenerationPercentPerHour;
             healthPoints -= averageDamagePerHour;
             bossKillTime ++;
             if (bossKillTime > 24) {
-                break;
+                return -1;
             }
-        }
-        if (bossKillTime > 24) {
-            return -1;
         }
         return bossKillTime;
     }
