@@ -39,15 +39,17 @@ class Task10 {
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
         int amount = 0;
+        boolean chek;
+
         for (int i = startNumber; i <= finishNumber; i++) {
-            boolean mark = true;
+            chek = true;
             for (var j = 2; j <= Math.sqrt(i); j++) {
                 if (i % j == 0) {
-                    mark = false;
+                    chek = false;
                     break;
                 }
             }
-            if (mark && i != 1) {
+            if (chek && i != 1) {
                 amount++;
             }
         }
