@@ -32,6 +32,6 @@ class Task06 {
         int hours = playingTimeInSeconds % 86400 / 3600;
         int minutes = playingTimeInSeconds % 86400 % 3600 / 60;
         int seconds = playingTimeInSeconds % 86400 % 3600 % 60;
-        return (days+ " " + hours + ":" + minutes + ":" + seconds);
+        return (days + " " + hours + ":" + minutes + ":" + seconds);
     }
 }
