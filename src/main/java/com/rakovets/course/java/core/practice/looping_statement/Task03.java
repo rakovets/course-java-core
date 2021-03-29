@@ -15,7 +15,7 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        double depositAmount = 1500.0;
+        double depositAmount = 15000.0;
         double annualDepositPercent = 7.0;
         int depositTerm = 5;
 
@@ -32,8 +32,11 @@ class Task03 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double accountAmount = depositAmount;
+        for (int i = 1; i <= depositTerm; i++) {
+            accountAmount = accountAmount + accountAmount * annualDepositPercent / 100;
+        }
+        accountAmount = Math.rint(accountAmount * 100) / 100;
+        return accountAmount;
     }
 }
