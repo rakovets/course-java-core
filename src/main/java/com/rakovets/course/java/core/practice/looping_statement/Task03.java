@@ -39,7 +39,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double procPerYear;
-        for(int i=1; i <= depositTerm; i++) {
+        for(int i = 1; i <= depositTerm; i++) {
 
             procPerYear = (depositAmount * (annualDepositPercent / 100f));
             depositAmount += procPerYear;

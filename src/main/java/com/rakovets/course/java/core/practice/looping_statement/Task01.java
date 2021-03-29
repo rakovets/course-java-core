@@ -30,8 +30,8 @@ class Task01 {
      */
     static String generateNumbersColumn(int numberRows) {
         String result = "";
-        for (int i=1;i<=numberRows;i++) {
-            if (i==numberRows) {
+        for (int i = 1;i <= numberRows;i++) {
+            if (i == numberRows) {
                 result += i ;
             }
             else {

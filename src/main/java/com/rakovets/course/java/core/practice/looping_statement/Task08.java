@@ -50,18 +50,18 @@ class Task08 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String result = startNumberItems + " - " + startPriceAllItems + "\n";
+        String result = "";
         Double priceOneItem;
         int numberItems = startNumberItems;
         priceOneItem = startPriceAllItems / startNumberItems;
-        for (int i = 1;i<=(sizeTotalPrice - 1);i++) {
-            numberItems +=differentialNumberItems;
-            if(i == (sizeTotalPrice - 1)) {
+        for (int i = 1;i<=sizeTotalPrice;i++) {
+            if(i == sizeTotalPrice) {
                 result += numberItems + " - " + BigDecimal.valueOf(priceOneItem * numberItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
             }
             else {
                 result += numberItems + " - " + BigDecimal.valueOf(priceOneItem * numberItems).setScale(2, RoundingMode.HALF_UP).doubleValue() + "\n";
             }
+            numberItems += differentialNumberItems;
         }
         return result;
     }
