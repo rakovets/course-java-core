@@ -35,20 +35,16 @@ class Task10 {
      * @return номер заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-    int petrolStation1 = 1;
-    int petrolStation2 = 2;
-    int petrolStation3 = 3;
-    int sameFuelPetrolStations = 1;
+        int petrolStation1 = 1;
+        int petrolStation2 = 2;
+        int petrolStation3 = 3;
 
-    if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves) {
-        return petrolStation1;
-    } else if (secondFuelReserves <= firstFuelReserves && secondFuelReserves <= thirdFuelReserves) {
-        return petrolStation2;
-    } else if (thirdFuelReserves <= firstFuelReserves && thirdFuelReserves <= secondFuelReserves) {
-        return petrolStation3;
-    } else {
-        return sameFuelPetrolStations;
-    }
-
+        if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves) {
+            return petrolStation1;
+        } else if (secondFuelReserves <= firstFuelReserves && secondFuelReserves <= thirdFuelReserves) {
+            return petrolStation2;
+        } else {
+            return petrolStation3;
+        }
     }
 }

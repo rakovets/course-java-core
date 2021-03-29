@@ -45,8 +45,45 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int JANUARY = 1;
+        final int FEBRUARY = 2;
+        final int MARCH = 3;
+        final int APRIL = 4;
+        final int MAY = 5;
+        final int JUNE = 6;
+        final int JULY = 7;
+        final int AUGUST = 8;
+        final int SEPTEMBER = 9;
+        final int OCTOBER = 10;
+        final int NOVEMBER = 11;
+        final int DECEMBER = 12;
+
+        if (year > 0 && month == MARCH && 21 <= day || month == APRIL && day <= 20) {
+            return "Ram";
+        } else if (year > 0 && month == APRIL || month == MAY && day <= 20){
+            return "Bull";
+        } else if (year > 0 && month == MAY || month == JUNE && day <= 21) {
+            return "Twins";
+        } else if (year > 0 && month == JUNE || month == JULY && day <= 22) {
+            return "Crab";
+        } else if (year > 0 && month == JULY || month == AUGUST && day <= 22) {
+            return "Lion";
+        } else if (year > 0 && month == AUGUST || month == SEPTEMBER && day <= 21) {
+            return "Maiden";
+        } else if (year > 0 && month == SEPTEMBER || month == OCTOBER && day <= 22) {
+            return "Scales";
+        } else if (year > 0 && month == OCTOBER || month == NOVEMBER && day <= 22) {
+            return "Scorpion";
+        } else if (year > 0 && month == NOVEMBER || month == DECEMBER && day <= 21) {
+            return "Archer";
+        } else if (year > 0 && month == DECEMBER || month == JANUARY && day <= 20) {
+            return "Goat";
+        } else if (year > 0 && month == JANUARY || month == FEBRUARY && day <= 19) {
+            return "Water-bearer";
+        } else if (year > 0 && month == FEBRUARY || month == MARCH) {
+            return "Fish";
+        } else {
+            return null;
+        }
     }
 }
