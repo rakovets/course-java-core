@@ -42,7 +42,7 @@ class Task10 {
         for (int i = startNumber; i <= finishNumber; i++) {
             boolean mark = true;
             for (var j = 2; j <= Math.sqrt(i); j++) {
-                if (i % j == 0 || i == 1) {
+                if (i % j == 0) {
                     mark = false;
                     break;
                 }
