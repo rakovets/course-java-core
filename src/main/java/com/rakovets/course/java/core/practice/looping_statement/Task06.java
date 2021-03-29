@@ -39,8 +39,8 @@ class Task06 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        DecimalFormat fr=new DecimalFormat();
-        DecimalFormatSymbols symbols=DecimalFormatSymbols.getInstance();
+        DecimalFormat fr = new DecimalFormat();
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
         symbols.setGroupingSeparator(' ');
         fr.setDecimalFormatSymbols(symbols);
         return fr.format(amount).toString();
