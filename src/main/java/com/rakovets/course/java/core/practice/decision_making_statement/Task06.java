@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
+import java.util.SortedMap;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -39,8 +41,15 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int firstPlayerPoints = tanksKilledFirstPlayer * KILL_POINT;
+        int secondPlayerPoints = tanksKilledSecondPlayer * KILL_POINT;
+
+        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+            firstPlayerPoints += BONUS_POINT;
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer){
+            secondPlayerPoints += BONUS_POINT;
+        }
+            return "Player 1: " + firstPlayerPoints + ". Player 2: " + secondPlayerPoints;
+
     }
 }
