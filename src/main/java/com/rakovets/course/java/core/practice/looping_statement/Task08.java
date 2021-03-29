@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,10 +27,10 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startPriceAllItems = 2;
-        int startNumberItems = 2;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startPriceAllItems = 100;
+        int startNumberItems = 5;
+        int differentialNumberItems = 5;
+        int sizeTotalPrice = 20;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -45,8 +48,27 @@ class Task08 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String result = "";
+        int currentNumberItems = startNumberItems;
+        double currentPriceItems = startPriceAllItems;
+        double priceOneItem = currentPriceItems / currentNumberItems;
+        int i = 2;
+
+        result += startNumberItems + " - " + BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue() + "\n";
+
+        for ( ; i < sizeTotalPrice; i++) {
+            currentNumberItems += differentialNumberItems;
+            currentPriceItems += priceOneItem * differentialNumberItems;
+
+            result += currentNumberItems + " - " + BigDecimal.valueOf(currentPriceItems).setScale(2, RoundingMode.HALF_UP).doubleValue() + "\n";
+        }
+        currentNumberItems += differentialNumberItems;
+        currentPriceItems += priceOneItem * differentialNumberItems;
+
+        result += currentNumberItems + " - " + BigDecimal.valueOf(currentPriceItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
+
+
+        return result;
     }
 }
