@@ -35,6 +35,7 @@ class Task04 {
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
         double totalHpAfterRespawn = healthPoints;
+
         for (int i = 0; i < hoursAfterRespawn; i++) {
             totalHpAfterRespawn += 0.01 * totalHpAfterRespawn * regenerationPercentFromCurrentHealth;
         }
