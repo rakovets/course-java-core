@@ -38,7 +38,6 @@ class Task04 {
         for (int i = 1; i <= hoursAfterRespawn; i++) {
             AmountHp = AmountHp + AmountHp * regenerationPercentFromCurrentHealth / 100;
         }
-         int totalAmountHp = (int) AmountHp;
-        return totalAmountHp;
+        return (int) AmountHp;
     }
 }
