@@ -68,7 +68,6 @@ class Task08 {
 
         result += currentNumberItems + " - " + BigDecimal.valueOf(currentPriceItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
-
         return result;
     }
 }
