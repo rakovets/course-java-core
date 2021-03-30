@@ -56,7 +56,7 @@ class Task01 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
-
+1
         return 0;
     }
 }
