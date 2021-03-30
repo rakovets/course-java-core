@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 /**
@@ -33,9 +35,18 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double sum = 0 ;
+        double[] averageMarks = new double[marks.length];
+
+            for (int i = 0; i < marks.length; i++) {
+                sum=0;
+                for (int j = 0;j <marks[0].length; j++) {
+                    sum +=marks[i][j];
+                }
+                averageMarks[i]= BigDecimal.valueOf(sum / marks[0].length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            }
+
+        return averageMarks;
     }
 
     /**
@@ -45,9 +56,19 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int [] minMarks = new int [marks.length];
+        int minValue = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0;j <marks[0].length; j++) {
+                minValue = marks[i][j];
+                if (minValue > marks[i][j]) {
+                    minValue = marks[i][j];
+                }
+            }
+            minMarks[i]=minValue ;
+        }
+
+        return minMarks;
     }
 
     /**
