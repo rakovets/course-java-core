@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для банка.
  *
@@ -40,9 +43,6 @@ class Task03 {
             depositAmount = depositAmount + depositAmount * percentAmount;
         }
 
-        int clippingDepositAmount = (int) (depositAmount *100);
-        double roundedDepositAmount = clippingDepositAmount / 100.0;
-
-        return roundedDepositAmount;
+        return BigDecimal.valueOf(depositAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
