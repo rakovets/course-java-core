@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для банка.
  *
@@ -36,7 +39,6 @@ class Task03 {
         for (int i = 1; i <= depositTerm; i++) {
             accountAmount = accountAmount + accountAmount * annualDepositPercent / 100;
         }
-        accountAmount = Math.rint(accountAmount * 100) / 100;
-        return accountAmount;
+        return BigDecimal.valueOf(accountAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
