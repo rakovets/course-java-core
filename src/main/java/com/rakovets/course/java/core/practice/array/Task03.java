@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 /**
@@ -33,9 +35,17 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] a = new double[1];
+        double sum = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[0].length; j++) {
+                sum += marks[i][j];
+            }
+        }
+        BigDecimal.valueOf(sum /= marks.length * marks[0].length)
+                .setScale(2, RoundingMode.HALF_UP).doubleValue();
+        a[0] = sum;
+        return a;
     }
 
     /**
