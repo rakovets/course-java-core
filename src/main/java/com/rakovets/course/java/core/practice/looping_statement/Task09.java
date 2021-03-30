@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -49,8 +52,36 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String result = "";
+        double decrease, currentPriceItemsWithSell;
+        int currentNumberItems = startNumberItems;
+        double currentPriceItems = startPriceAllItems;
+        double priceOneItem = currentPriceItems / currentNumberItems;
+        int i = 2;
+        double currentSell = 0.0;
+
+
+        result += startNumberItems + " - " + BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell "+ 0.0 + "%" + "\n";
+
+        for ( ; i < sizeTotalPrice; i++) {
+            currentNumberItems += differentialNumberItems;
+            currentSell += differentialSell;
+            decrease = 1 - currentSell / 100.0;
+            currentPriceItems = currentPriceItems + priceOneItem * differentialNumberItems;
+            currentPriceItemsWithSell = currentPriceItems * decrease;
+
+            result += currentNumberItems + " - " + BigDecimal.valueOf(currentPriceItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell "+ currentSell + "%" + "\n";
+        }
+
+        currentNumberItems += differentialNumberItems;
+        currentSell += differentialSell;
+        decrease = 1 - currentSell / 100.0;
+        currentPriceItems = currentPriceItems + priceOneItem * differentialNumberItems;
+        currentPriceItemsWithSell = currentPriceItems * decrease;
+
+        result += currentNumberItems + " - " + BigDecimal.valueOf(currentPriceItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell "+ currentSell + "%";
+
+        return result;
     }
 }
