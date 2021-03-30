@@ -36,6 +36,7 @@ class Task01 {
         for ( ; i < numberRows; i++) {
             nubersRows += i + "\n";
         }
+        
         nubersRows += i;
 
         return nubersRows;
