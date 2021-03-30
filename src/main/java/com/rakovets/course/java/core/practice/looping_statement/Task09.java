@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +27,11 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
+        int startNumberItems = 5;
+        double startPriceAllItems = 100;
         int differentialNumberItems = 5;
-        double differentialSell = 4;
-        int sizeTotalPrice = 6;
+        double differentialSell = 1;
+        int sizeTotalPrice = 20;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -49,8 +52,39 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = "";
+        int i = 1;
+        double currentprice = startPriceAllItems/startNumberItems ;
+        double iNeedItToCalculateBecauseImDump = 0;
+        for (; i <= sizeTotalPrice; i++) {
+            if (i == 1){
+                differentialSell = 0;
+                startNumberItems += 0;
+                iNeedItToCalculateBecauseImDump = currentprice * startNumberItems;
+                result = result + startNumberItems + " - " + BigDecimal.valueOf(iNeedItToCalculateBecauseImDump).
+                        setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + BigDecimal.valueOf(differentialSell).
+                        setScale(2, RoundingMode.HALF_UP).doubleValue() + "%" + "\n";
+            }
+
+            else if (i != sizeTotalPrice){
+                differentialSell = i - 1;
+                startNumberItems += + differentialNumberItems;
+                iNeedItToCalculateBecauseImDump = currentprice * startNumberItems - currentprice * startNumberItems / 100 * differentialSell;
+                result = result + startNumberItems + " - " + BigDecimal.valueOf(iNeedItToCalculateBecauseImDump).
+                        setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + BigDecimal.valueOf(differentialSell).
+                        setScale(2, RoundingMode.HALF_UP).doubleValue() + "%" + "\n";
+
+            }
+            else {
+                differentialSell = i - 1;
+                startNumberItems += + differentialNumberItems;
+                iNeedItToCalculateBecauseImDump = currentprice * startNumberItems - currentprice * startNumberItems / 100 * differentialSell;
+                result = result + startNumberItems + " - " + BigDecimal.valueOf(iNeedItToCalculateBecauseImDump).
+                        setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + BigDecimal.valueOf(differentialSell).
+                        setScale(2, RoundingMode.HALF_UP).doubleValue() + "%";
+            }
+
+        }
+        return result;
     }
 }
