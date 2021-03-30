@@ -34,8 +34,20 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String convertation = "";
+        int divider = 1000;
+
+        if (amount > 0) {
+            for (; amount > divider; amount /= divider) {
+                String space = " ";
+                convertation = space + amount % divider + convertation;
+            }
+        } else {
+            for (; amount < -divider; amount /= divider) {
+                String space = " ";
+                convertation = space + Math.abs(amount % divider) + convertation;
+            }
+        }
+        return amount % divider + convertation;
     }
 }
