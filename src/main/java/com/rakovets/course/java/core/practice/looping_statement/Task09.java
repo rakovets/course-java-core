@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +27,11 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
+        int startNumberItems = 5;
+        double startPriceAllItems = 100.0;
         int differentialNumberItems = 5;
-        double differentialSell = 4;
-        int sizeTotalPrice = 6;
+        double differentialSell = 1;
+        int sizeTotalPrice = 20;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -48,9 +51,25 @@ class Task09 {
      * вещественного разделителя:
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
-    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+   static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
+
+        double currentPriceInList = startPriceAllItems;
+        double currentSell = 0.0;
+        double priceForOneItem = startPriceAllItems / startNumberItems;
+        double realPriceInList = startPriceAllItems;
+        int currentNumberInList = startNumberItems;
+        String totalPriceList = currentNumberInList + " - " + realPriceInList + " with sell " + currentSell + "%";
+
+        for ( int i = 1; i <= (sizeTotalPrice - 1) ; i++ ) {
+            currentSell += differentialSell;
+            currentNumberInList += differentialNumberItems;
+            currentPriceInList = priceForOneItem * currentNumberInList;
+            realPriceInList = currentPriceInList - currentPriceInList * (currentSell/100);
+            totalPriceList += "\n" + currentNumberInList + " - " + BigDecimal.valueOf(realPriceInList).setScale(2, RoundingMode.HALF_UP).doubleValue()  + " with sell " + currentSell + "%";
+
+        }
+        return totalPriceList;
     }
+
 }
