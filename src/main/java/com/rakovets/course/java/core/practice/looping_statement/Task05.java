@@ -40,7 +40,6 @@ class Task05 {
             hours++;
         }
         while (healthBossInHour > 0 && hours <= 24);
-        hours = hours;
         if (healthBossInHour > 0) {
             hours = -1;
         }
