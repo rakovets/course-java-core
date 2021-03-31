@@ -36,7 +36,6 @@ class Task01 {
      * </ul>
      */
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
-
         return sizeTop >= positionPlayerByDamage;
     }
 }
