@@ -46,57 +46,42 @@ class Task12 {
      */
     static String getZodiacSign(int day, int month, int year) {
         String zodiac = "";
-        double birthday = (double) month + (double) day / 100;
-        if (day <= 0 || day > 31) {
-            zodiac = "Wrong day";
-        } else {
-            if (month <= 0 || month > 12) {
-                zodiac = "Wrong month";
-            } else {
-                if (year < 0) {
-                    zodiac = "Wrong year";
-                } else {
-                    if (birthday >= 3.21 && birthday <= 4.20) {
-                        zodiac = "Ram";
-                    }
-                    if (birthday >= 4.21 && birthday <= 5.20) {
-                        zodiac = "Bull";
-                    }
-                    if (birthday >= 5.21 && birthday <= 6.21) {
-                        zodiac = "Twins";
-                    }
-                    if (birthday >= 6.22 && birthday <= 7.22) {
-                        zodiac = "Crab";
-                    }
-                    if (birthday >= 7.23 && birthday <= 8.22) {
-                        zodiac = "Lion";
-                    }
-                    if (birthday >= 8.23 && birthday <= 9.21) {
-                        zodiac = "Maiden";
-                    }
-                    if (birthday >= 9.22 && birthday <= 10.22) {
-                        zodiac = "Scales";
-                    }
-                    if (birthday >= 10.23 && birthday <= 11.22) {
-                        zodiac = "Scorpion";
-                    }
-                    if (birthday >= 11.23 && birthday <= 12.21) {
-                        zodiac = "Archer";
-                    }
-                    if (birthday >= 12.22 && birthday <= 12.31) {
-                        zodiac = "Goat";
-                    }
-                    if (birthday >= 1.01 && birthday <= 1.20) {
-                        zodiac = "Goat";
-                    }
-                    if (birthday >= 1.21 && birthday <= 2.19) {
-                        zodiac = "Water-bearer";
-                    }
-                    if (birthday >= 2.20 && birthday <= 3.20) {
-                        zodiac = "Fish";
-                    }
-                }
-            }
+
+        if (month == 3 && day >= 21 || month == 4 && day <= 20) {
+            zodiac = "Ram";
+        } else
+        if (month == 4 || month == 5 && day <= 20) {
+            zodiac = "Bull";
+        } else
+        if (month == 5 || month == 6 && day <= 21) {
+            zodiac = "Twins";
+        } else
+        if (month == 6 || month == 7 && day <= 22) {
+            zodiac = "Crab";
+        } else
+        if (month == 7 || month == 8 && day <= 22) {
+            zodiac = "Lion";
+        } else
+        if (month == 8 || month == 9 && day <= 21) {
+            zodiac = "Maiden";
+        } else
+        if (month == 9 || month == 10 && day <= 22) {
+            zodiac = "Scales";
+        } else
+        if (month == 10 || month == 11 && day <= 22) {
+            zodiac = "Scorpion";
+        } else
+        if (month == 11 || month == 12 && day <= 21) {
+            zodiac = "Archer";
+        } else
+        if (month == 12 || month == 1 && day <= 20) {
+            zodiac = "Goat";
+        } else
+        if (month == 1 || month == 2 && day <= 19) {
+            zodiac = "Water-bearer";
+        } else
+        if (month == 2 || month == 3) {
+            zodiac = "Fish";
         }
         return zodiac;
     }
