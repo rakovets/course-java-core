@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.text.DecimalFormat;
+
 /**
  * Разработать программу для бухгалтерии.
  * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
@@ -34,8 +36,37 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        boolean numbers;
+
+        if (amount < 0) {
+            amount *= -1;
+            numbers = false;
+        } else {
+            numbers = true;
+        }
+
+        String result = "";
+
+        int rank = 0;
+        long digit;
+        long accountigFormat = amount;
+
+        while (accountigFormat / 10 != 0) {
+            digit = accountigFormat % 10;
+            accountigFormat /= 10;
+            rank++;
+            if (rank % 3 == 0) {
+                result = " " + digit + result;
+            } else {
+                result = digit + result;
+            }
+        }
+        digit = accountigFormat % 10;
+        result = digit + result;
+
+        if (numbers == false) {
+            result = "-" + result;
+        }
+        return result;
     }
 }
