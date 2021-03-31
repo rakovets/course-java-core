@@ -31,14 +31,6 @@ class Task06 {
         System.out.printf("Result: %s", amountWithAccountingFormat);
     }
 
-    /**
-     * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
-     * пробелом.
-     *
-     * @param amount сумма
-     * @return сумма в бухгалтерском формате
-     */
-
     static String convertToAccountingFormat(long amount) {
         boolean negative = false;
         String word = "";
