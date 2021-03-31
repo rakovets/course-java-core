@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -27,7 +30,7 @@ class Task08 {
         int startPriceAllItems = 2;
         int startNumberItems = 2;
         int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -45,8 +48,23 @@ class Task08 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double priceForOneItem= startPriceAllItems / startNumberItems;
+        double costItems=priceForOneItem * startNumberItems ;
+        String result= "";
+
+        for (int i=1;i<=sizeTotalPrice;i++) {
+            if (i == sizeTotalPrice) {
+                result +=startNumberItems  +" - " + BigDecimal.valueOf(costItems).setScale(2, RoundingMode.HALF_DOWN).doubleValue();
+
+            } else {
+                result +=startNumberItems  +" - " + BigDecimal.valueOf(costItems).setScale(2, RoundingMode.HALF_DOWN).doubleValue()+ "\n";
+                startNumberItems+=+differentialNumberItems;
+                costItems=priceForOneItem * startNumberItems ;
+            }
+            System.out.println (result);
+
+
+        }
+        return result;
     }
 }
