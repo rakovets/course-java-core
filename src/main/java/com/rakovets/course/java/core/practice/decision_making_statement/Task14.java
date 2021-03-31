@@ -52,57 +52,43 @@ class Task14 {
         currentYers = year % 12;
         String currentMonths = null;
         switch (currentYers) {
-            case 0: {
+            case 0:
                 currentMonths = "Monkey";
                 break;
-            }
-            case 1: {
+            case 1:
                 currentMonths = "Rooster";
                 break;
-            }
-            case 2: {
+            case 2:
                 currentMonths = "Dog";
                 break;
-            }
-            case 3: {
+            case 3:
                 currentMonths = "Pig";
                 break;
-            }
-            case 4: {
+            case 4:
                 currentMonths = "Rat";
                 break;
-            }
-            case 5: {
+            case 5:
                 currentMonths = "Ox";
                 break;
-            }
-            case 6: {
+            case 6:
                 currentMonths = "Tiger";
                 break;
-            }
-            case 7: {
+            case 7:
                 currentMonths = "Rabbit";
                 break;
-            }
-            case 8: {
+            case 8:
                 currentMonths = "Dragon";
                 break;
-            }
-            case 9: {
+            case 9:
                 currentMonths = "Snake";
                 break;
-            }
-            case 10: {
+            case 10:
                 currentMonths = "Horse";
                 break;
-            }
-            case 11: {
+            case 11:
                 currentMonths = "Ram";
                 break;
-            }
-
         }
         return currentMonths;
-
     }
 }

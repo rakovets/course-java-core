@@ -49,7 +49,7 @@ class Task12 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String result = null;
         switch (month) {
-            case 1: {
+            case 1:
                 if (day < 21) {
                     result = "Goat";
                 }
@@ -57,8 +57,7 @@ class Task12 {
                     result = "Water-bearer";
                 }
                 break;
-            }
-            case 2: {
+            case 2:
                 if (day < 20) {
                     result = "Water-bearer";
                 }
@@ -66,8 +65,7 @@ class Task12 {
                     result = "Fish";
                 }
                 break;
-            }
-            case 3: {
+            case 3:
                 if (day < 21) {
                     result = "Fish";
                 }
@@ -75,8 +73,7 @@ class Task12 {
                     result = "Ram";
                 }
                 break;
-            }
-            case 4: {
+            case 4:
                 if (day < 21) {
                     result = "Ram";
                 }
@@ -84,8 +81,7 @@ class Task12 {
                     result = "Bull";
                 }
                 break;
-            }
-            case 5: {
+            case 5:
                 if (day < 21) {
                     result = "Bull";
                 }
@@ -93,8 +89,7 @@ class Task12 {
                     result = "Twins";
                 }
                 break;
-            }
-            case 6: {
+            case 6:
                 if (day < 22) {
                     result = "Twins";
                 }
@@ -102,8 +97,7 @@ class Task12 {
                     result = "Crab";
                 }
                 break;
-            }
-            case 7: {
+            case 7:
                 if (day < 23) {
                     result = "Crab";
                 }
@@ -111,8 +105,7 @@ class Task12 {
                     result = "Lion";
                 }
                 break;
-            }
-            case 8: {
+            case 8:
                 if (day < 23) {
                     result = "Lion";
                 }
@@ -120,8 +113,7 @@ class Task12 {
                     result = "Maiden";
                 }
                 break;
-            }
-            case 9: {
+            case 9:
                 if(day < 22) {
                     result = "Maiden";
                 }
@@ -129,8 +121,7 @@ class Task12 {
                     result = "Scales";
                 }
                 break;
-            }
-            case 10: {
+            case 10:
                 if(day < 23) {
                     result = "Scales";
                 }
@@ -138,8 +129,7 @@ class Task12 {
                     result = "Scorpion";
                 }
                 break;
-            }
-            case 11: {
+            case 11:
                 if(day < 23) {
                     result = "Scorpion";
                 }
@@ -147,8 +137,7 @@ class Task12 {
                     result = "Archer";
                 }
                 break;
-            }
-            case 12: {
+            case 12:
                 if (day < 22) {
                     result = "Archer";
                 }
@@ -157,7 +146,6 @@ class Task12 {
                 }
                 break;
             }
-        }
         return result;
     }
 }
