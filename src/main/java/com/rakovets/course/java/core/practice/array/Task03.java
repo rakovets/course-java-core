@@ -35,13 +35,13 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        double sum = 0 ;
+        double sum ;
         double[] averageMarks = new double[marks.length];
 
             for (int i = 0; i < marks.length; i++) {
                 sum=0;
-                for (int j = 0;j <marks[0].length; j++) {
-                    sum +=marks[i][j];
+                for (int j = 0;j < marks[0].length; j++) {
+                    sum += marks[i][j];
                 }
                 averageMarks[i]= BigDecimal.valueOf(sum / marks[0].length).setScale(2, RoundingMode.HALF_UP).doubleValue();
             }
@@ -57,15 +57,15 @@ class Task03 {
      */
     static int[] getMinMarks(int[][] marks) {
         int [] minMarks = new int [marks.length];
-        int minValue = 0;
+        int minValue;
         for (int i = 0; i < marks.length; i++) {
-            for (int j = 0;j <marks[0].length; j++) {
-                minValue = marks[i][j];
+            minValue = marks[i][0];
+            for (int j = 0;j < marks[0].length; j++) {
                 if (minValue > marks[i][j]) {
                     minValue = marks[i][j];
                 }
             }
-            minMarks[i]=minValue ;
+            minMarks[i] = minValue ;
         }
 
         return minMarks;
@@ -78,8 +78,18 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int [] maxMarks = new int [marks.length];
+        int maxValue;
+        for (int i = 0; i < marks.length; i++) {
+            maxValue = marks[i][0];
+            for (int j = 0;j < marks[0].length; j++) {
+                if (maxValue < marks[i][j]) {
+                    maxValue = marks[i][j];
+                }
+            }
+            maxMarks[i] = maxValue ;
+        }
+
+        return maxMarks;
     }
 }

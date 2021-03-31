@@ -50,7 +50,7 @@ class Task01 {
      */
     static int getMinMark(int[] marks) {
         int minValue = marks[0];
-        for (int i = 0;i<marks.length; i++) {
+        for (int i = 0;i < marks.length; i++) {
             if (minValue > marks[i]) {
                 minValue = marks[i];
             }
@@ -66,7 +66,7 @@ class Task01 {
      */
     static int getMaxMark(int[] marks) {
         int maxValue = marks[0];
-        for (int i = 0;i<marks.length; i++) {
+        for (int i = 0;i < marks.length; i++) {
             if (maxValue < marks[i]) {
                 maxValue = marks[i];
             }
