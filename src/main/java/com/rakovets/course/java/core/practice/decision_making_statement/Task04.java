@@ -30,22 +30,31 @@ class Task04 {
      */
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
         String weekDay;
-        if (dayOfWeekNumber < 1 || dayOfWeekNumber > 7) {
-            weekDay = null;
-        } else if (dayOfWeekNumber == 1) {
-            weekDay = "MONDAY";
-        } else if (dayOfWeekNumber == 2) {
-            weekDay = "TUESDAY";
-        } else if (dayOfWeekNumber == 3) {
-            weekDay = "WEDNESDAY";
-        } else if (dayOfWeekNumber == 4) {
-            weekDay = "THURSDAY";
-        } else if (dayOfWeekNumber == 5) {
-            weekDay = "FRIDAY";
-        } else if (dayOfWeekNumber == 6) {
-            weekDay = "SATURDAY";
-        } else {
-            weekDay = "SUNDAY";
+        switch (dayOfWeekNumber) {
+            case 1:
+                weekDay = "MONDAY";
+                break;
+            case 2:
+                weekDay = "TUESDAY";
+                break;
+            case 3:
+                weekDay = "WEDNESDAY";
+                break;
+            case 4:
+                weekDay = "THURSDAY";
+                break;
+            case 5:
+                weekDay = "FRIDAY";
+                break;
+            case 6:
+                weekDay = "SATURDAY";
+                break;
+            case 7:
+                weekDay = "SUNDAY";
+                break;
+            default:
+                weekDay = null;
+                break;
         }
         return weekDay;
     }
