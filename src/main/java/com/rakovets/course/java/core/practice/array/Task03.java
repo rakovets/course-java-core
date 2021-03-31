@@ -37,6 +37,7 @@ class Task03 {
      */
     static double[] getAverageMarks(int[][] marks) {
         double[] averageValueArray = new double[marks.length];
+
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[0].length; j++) {
                 averageValueArray[i] += marks[i][j];
@@ -55,6 +56,7 @@ class Task03 {
      */
     static int[] getMinMarks(int[][] marks) {
         int[] minValueArray = new int [marks.length];
+
         for (int i = 0; i < marks.length; i++) {
             minValueArray[i] = marks[i][0];
             for (int j = 0; j < marks[0].length; j++) {
@@ -75,6 +77,7 @@ class Task03 {
      */
     static int[] getMaxMarks(int[][] marks) {
         int[] maxValueArray = new int [marks.length];
+
         for (int i = 0; i < marks.length; i++) {
             maxValueArray[i] = marks[i][0];
             for (int j = 0; j < marks[0].length; j++) {
