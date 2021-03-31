@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -49,8 +52,32 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double priceForOneItem= startPriceAllItems / startNumberItems;
+        double costItems=priceForOneItem * startNumberItems ;
+        double discontPercent=differentialSell/100.0;
+        double discontLowerPrice=1.0;
+        String result= "";
+        double discont =0.0;
+        for (int i=1;i<=sizeTotalPrice;i++) {
+            if (i==1) {
+                result +=startNumberItems  +" - " + BigDecimal.valueOf(costItems * discontLowerPrice).setScale(2, RoundingMode.HALF_DOWN).doubleValue()+" with sell "+discont+"%"+"\n";
+                startNumberItems+=+differentialNumberItems;
+                costItems=priceForOneItem * startNumberItems;
+                discontLowerPrice+=-discontPercent;
+                discont+=differentialSell;
+            }
+            if (i == (sizeTotalPrice-1)) {
+                result +=startNumberItems  +" - " + BigDecimal.valueOf(costItems* discontLowerPrice).setScale(2, RoundingMode.HALF_DOWN).doubleValue() + " with sell " + discont + "%";
+                break;
+            } else {
+                result +=startNumberItems  +" - " + BigDecimal.valueOf(costItems* discontLowerPrice).setScale(2, RoundingMode.HALF_DOWN).doubleValue() + " with sell " + discont + "%"+ "\n";
+                startNumberItems+=+differentialNumberItems;
+                costItems=priceForOneItem * startNumberItems ;
+                discontLowerPrice+=-discontPercent;
+                discont+=differentialSell;
+            }
+            System.out.println (result);
+        }
+        return result;
     }
 }
