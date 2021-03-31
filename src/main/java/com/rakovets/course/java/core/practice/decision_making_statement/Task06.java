@@ -39,18 +39,13 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        int resultFirstPlayer;
-        int resultSecondPlayer;
-        if (tanksKilledFirstPlayer == tanksKilledSecondPlayer) {
-            resultFirstPlayer = 100 * tanksKilledFirstPlayer;
-            resultSecondPlayer = resultFirstPlayer;
-        } else if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
-            resultFirstPlayer = 100 * tanksKilledFirstPlayer + 500;
-            resultSecondPlayer = 100 * tanksKilledSecondPlayer;
-        } else {
-            resultFirstPlayer = 100 * tanksKilledFirstPlayer;
-            resultSecondPlayer = 100 * tanksKilledSecondPlayer + 500;
+        int pointFirstPlayer = 100 * tanksKilledFirstPlayer;
+        int pointSecondPlayer = 100 * tanksKilledSecondPlayer;
+        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+            pointFirstPlayer += 500;
+        } else if (tanksKilledSecondPlayer > tanksKilledFirstPlayer) {
+            pointSecondPlayer += 500;
         }
-        return "Player 1: " + resultFirstPlayer + ". Player 2: " + resultSecondPlayer;
+        return "Player 1: " + pointFirstPlayer + ". Player 2: " + pointSecondPlayer;
     }
 }
