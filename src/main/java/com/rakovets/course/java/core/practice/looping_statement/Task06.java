@@ -40,33 +40,31 @@ class Task06 {
      */
 
     static String convertToAccountingFormat(long amount) {
-
-       /* String word = "";
         boolean negative = false;
-        int separationTime = 0;
+        String word = "";
+
+        if (amount <= 999 && amount >= -999) {
+            word = Long.toString(amount);
+            return word;
+        }
 
         if (amount < 0) {
             amount = amount * -1;
             negative = true;
         }
 
-        String str = Long.toString(amount);
+        word = amount % 1000 + "";
+        amount = amount / 1000;
 
-        for (int i = 1; i <= str.length(); i++) {
-            word = amount % (long) Math.pow(10, i) / (long) Math.pow(10, i - 1) + word;
-            separationTime++;
-
-            if (separationTime == 3 && i != str.length()) {
-                word = " " + word;
-                separationTime = 0;
-            }
+        while (amount != 0) {
+            word = amount % 1000 + " " + word;
+            amount = amount / 1000;
         }
 
         if (negative) {
             word = "-" + word;
         }
 
-        return word; */
-        return new DecimalFormat("###,###").format(amount).replace("\u00a0"," ");
+        return word;
     }
 }
