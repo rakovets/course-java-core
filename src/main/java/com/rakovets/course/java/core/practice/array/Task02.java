@@ -35,6 +35,7 @@ class Task02 {
      */
     static double getAverageMark(int[][] marks) {
         double sum = 0;
+
         for (int[] mark : marks) {
             for (int j = 0; j < marks[0].length; j++) {
                 sum += mark[j];
@@ -52,6 +53,7 @@ class Task02 {
      */
     static int getMinMark(int[][] marks) {
         int minValue = marks[0][0];
+
         for (int[] mark : marks) {
             for (int j = 0; j < marks[0].length; j++) {
                 if (minValue > mark[j]) {
@@ -70,6 +72,7 @@ class Task02 {
      */
     static int getMaxMark(int[][] marks) {
         int maxValue = marks[0][0];
+
         for (int[] mark : marks) {
             for (int j = 0; j < marks[0].length; j++) {
                 if (maxValue < mark[j]) {
