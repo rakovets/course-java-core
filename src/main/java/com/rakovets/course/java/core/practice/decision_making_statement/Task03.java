@@ -36,7 +36,7 @@ class Task03 {
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         String messageHP;
-        double healthPoint = (double)currentHealthPoint / maxHealthPoint;
+        double healthPoint = (double) currentHealthPoint / maxHealthPoint;
         if (healthPoint <= 0) {
             messageHP = null;
         } else if (healthPoint < 0.25) {
