@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для игрового движка.
  * Спрогнозировать какое количество HP будет у RaidBoss (RB), который имеет неограниченное количество HP и регенерацию,
@@ -34,8 +37,10 @@ class Task04 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double finalhealthPoints = healthPoints;
+        for (int i = 1; i <= hoursAfterRespawn; i++) {
+            finalhealthPoints += 0.01 * finalhealthPoints * regenerationPercentFromCurrentHealth;
+        }
+        return (int) BigDecimal.valueOf(finalhealthPoints).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

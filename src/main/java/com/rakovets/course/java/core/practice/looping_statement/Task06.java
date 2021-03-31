@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
+import java.util.Locale;
+
 /**
  * Разработать программу для бухгалтерии.
  * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
@@ -34,8 +36,7 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        ;
         return null;
     }
 }
