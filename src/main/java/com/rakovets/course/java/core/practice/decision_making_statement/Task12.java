@@ -45,8 +45,6 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String result = "";
         switch (month) {
             case 1:
@@ -71,44 +69,19 @@ class Task12 {
                 result = day < 23 ? "Crab" : "Lion";
                 break;
             case 8:
-                if (day < 23) {
-                    result = "Lion";
-                }
-                else {
-                    result = "Maiden";
-                }
+                result = day < 23 ? "Lion" : "Maiden";
                 break;
             case 9:
-                if(day < 22) {
-                    result = "Maiden";
-                }
-                else {
-                    result = "Scales";
-                }
+                result = day < 22 ? "Maiden" : "Scales";
                 break;
             case 10:
-                if(day < 23) {
-                    result = "Scales";
-                }
-                else {
-                    result = "Scorpion";
-                }
+                result = day < 23 ? "Scales" : "Scorpion";
                 break;
             case 11:
-                if(day < 23) {
-                    result = "Scorpion";
-                }
-                else {
-                    result = "Archer";
-                }
+                result = day < 23 ? "Scorpion" : "Archer";
                 break;
             case 12:
-                if (day < 22) {
-                    result = "Archer";
-                }
-                else {
-                    result = "Goat";
-                }
+                result = day < 22 ? "Archer" : "Goat";
                 break;
             }
         return result;

@@ -33,19 +33,9 @@ class Task13 {
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         int numberEntrance;
-        int numberFloorsAp;
-        if (apartmentNumber > 1) {
-            numberFloorsAp = (int)Math.ceil((double) apartmentNumber / numberApartmentsPerFloor);
-            if (numberFloorsAp % numberFloors == 0) {
-                numberEntrance = numberFloors;
-            }
-            else {
-                numberEntrance = numberFloorsAp % numberFloors;
-            }
-        }
-        else {
-            numberEntrance = 1;
-        }
+        if ((apartmentNumber / numberApartmentsPerFloor) == numberFloors) {
+            numberEntrance = apartmentNumber / numberApartmentsPerFloor;
+        } else numberEntrance = ((apartmentNumber / numberApartmentsPerFloor) % numberFloors)+1;
         return numberEntrance;
     }
 }
