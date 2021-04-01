@@ -52,22 +52,15 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        final double PRICE_ONE_ITEM = startPriceAllItems / startNumberItems;
-        String totalPriceList = "";
-        double price;
-        double percent = 0;
-        int i = startNumberItems;
-        int finishNumber = startNumberItems + (sizeTotalPrice - 1) * differentialNumberItems;
+        final double priceOneItem = startPriceAllItems / startNumberItems;
+        String totalPriceList = startNumberItems + " - " + startPriceAllItems + " with sell " + "0.0%";
 
-        for (; i < finishNumber ; i += differentialNumberItems) {
-            price = i * PRICE_ONE_ITEM - i * PRICE_ONE_ITEM * percent / 100;
-            totalPriceList += i + " - " + BigDecimal.valueOf(price).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + percent + "%" + "\n";
-            percent += differentialSell;
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            startNumberItems += differentialNumberItems;
+            double percent = i * differentialSell;
+            startPriceAllItems = (1 - percent / 100) * startNumberItems * priceOneItem;
+            totalPriceList += "\n" + startNumberItems + " - " + BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + percent + "%";
         }
-
-        price = finishNumber * PRICE_ONE_ITEM - finishNumber * PRICE_ONE_ITEM * percent / 100;
-        totalPriceList += finishNumber + " - " + BigDecimal.valueOf(price).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + percent + "%";
-
         return totalPriceList;
     }
 }
