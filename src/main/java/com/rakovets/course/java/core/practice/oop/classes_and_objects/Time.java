@@ -11,6 +11,7 @@ public class Time {
        this.seconds = (totalSeconds% 3600) % 60;
     }
 
+
     public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
