@@ -32,8 +32,6 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int numberEntrance;
         int numberFloorsAp;
         if (apartmentNumber > 1) {

@@ -46,8 +46,6 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int currentYers;
         currentYers = year % 12;
         String currentMonths = null;

@@ -47,63 +47,28 @@ class Task12 {
     static String getZodiacSign(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String result = null;
+        String result = "";
         switch (month) {
             case 1:
-                if (day < 21) {
-                    result = "Goat";
-                }
-                else {
-                    result = "Water-bearer";
-                }
+                result = day < 21 ? "Goat" : "Water-bearer";
                 break;
             case 2:
-                if (day < 20) {
-                    result = "Water-bearer";
-                }
-                else {
-                    result = "Fish";
-                }
+                result = day < 20 ? "Water-bearer" : "Fish";
                 break;
             case 3:
-                if (day < 21) {
-                    result = "Fish";
-                }
-                else {
-                    result = "Ram";
-                }
+                result = day < 21 ? "Fish" : "Ram";
                 break;
             case 4:
-                if (day < 21) {
-                    result = "Ram";
-                }
-                else {
-                    result = "Bull";
-                }
+                result = day < 21 ? "Ram" : "Bull";
                 break;
             case 5:
-                if (day < 21) {
-                    result = "Bull";
-                }
-                else {
-                    result = "Twins";
-                }
+                result = day < 21 ? "Bull" : "Twins";
                 break;
             case 6:
-                if (day < 22) {
-                    result = "Twins";
-                }
-                else {
-                    result = "Crab";
-                }
+                result = day < 22 ? "Twins" : "Crab";
                 break;
             case 7:
-                if (day < 23) {
-                    result = "Crab";
-                }
-                else {
-                    result = "Lion";
-                }
+                result = day < 23 ? "Crab" : "Lion";
                 break;
             case 8:
                 if (day < 23) {
