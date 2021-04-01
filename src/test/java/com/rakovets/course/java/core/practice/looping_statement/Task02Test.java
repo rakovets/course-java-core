@@ -29,5 +29,6 @@ class Task02Test {
         String actual = Task02.generateNumbersColumn(numberRows, isEnableHeaderRow);
 
         assertEquals(expected, actual);
+
     }
 }

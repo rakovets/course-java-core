@@ -12,6 +12,7 @@ class Task01 {
      *
      * @param args entry arguments
      */
+
     public static void main(String[] args) {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
@@ -29,8 +30,14 @@ class Task01 {
      * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder result = new StringBuilder();
+        for (int i = 1; i <= numberRows; i++) {
+            if (i < numberRows) {
+                result.append(i).append("\n");
+            } else {
+                result.append(i);
+            }
+        }
+        return result.toString();
     }
 }
