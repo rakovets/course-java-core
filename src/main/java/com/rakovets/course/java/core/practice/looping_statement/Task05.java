@@ -38,8 +38,7 @@ class Task05 {
         do {
             healthBossInHour = healthBossInHour + healthBossInHour * regenerationPercentPerHour / 100 - averageDamagePerHour;
             hours++;
-        }
-        while (healthBossInHour > 0 && hours <= 24);
+        } while (healthBossInHour > 0 && hours <= 24);
         if (healthBossInHour > 0) {
             hours = -1;
         }
