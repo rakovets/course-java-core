@@ -40,13 +40,13 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         int primeNumbers = 0;
         for (int i = startNumber; i <= finishNumber; i++) {
-            boolean logik = true;
+            boolean isPrimeNumber = true;
             for (int j = 2; j <= Math.sqrt(i); j++) {
                     if (i % j == 0 || i == 1) {
-                        logik = false;
+                        isPrimeNumber = false;
                 }
             }
-            if (logik && i != 1) {
+            if (isPrimeNumber && i != 1) {
                 primeNumbers++;
             }
         }
