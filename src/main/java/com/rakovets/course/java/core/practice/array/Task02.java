@@ -44,7 +44,7 @@ class Task02 {
             }
         }
 
-        return BigDecimal.valueOf(sum / countOfMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return BigDecimal.valueOf(sum * 1.0 / countOfMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
