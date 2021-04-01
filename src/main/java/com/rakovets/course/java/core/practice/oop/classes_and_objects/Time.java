@@ -6,9 +6,9 @@ public class Time {
     int seconds;
 
     public Time(int totalSeconds) {
-       this.hours =  hours / 3600;
-       this.minutes = (hours % 3600) / 60;
-       this.seconds = (hours % 3600) % 60;
+       this.hours =  totalSeconds/ 3600;
+       this.minutes = (totalSeconds % 3600) / 60;
+       this.seconds = (totalSeconds% 3600) % 60;
     }
 
     public Time(int hours, int minutes, int seconds) {
