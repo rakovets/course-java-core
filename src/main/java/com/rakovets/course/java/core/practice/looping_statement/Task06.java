@@ -20,7 +20,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = -1234567;
+        long amount = 1234567;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -35,19 +35,18 @@ class Task06 {
      */
     static String convertToAccountingFormat(long amount) {
         String amountFormst = "";
+        boolean positiveNumber = true;
 
-        if (amount > 0) {
-            while (amount > 1000) {
-                amountFormst = " " + amount % 1000 + amountFormst;
-                amount = amount / 1000;
-            }
-        } else {
-            amount = -1 * amount;
-            while (amount > 1000) {
-                amountFormst = " " + amount % 1000 + amountFormst;
-                amount = amount / 1000;
-            }
-            amount = -1 * amount;
+        if (amount < 0) {
+            amount *= -1;
+            positiveNumber = false;
+        }
+        while (amount > 1000) {
+            amountFormst = " " + amount % 1000 + amountFormst;
+            amount = amount / 1000;
+        }
+        if (positiveNumber == false) {
+            amount *= -1;
         }
         return amount + amountFormst;
     }
