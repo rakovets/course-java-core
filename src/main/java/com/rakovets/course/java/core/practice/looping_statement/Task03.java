@@ -41,6 +41,6 @@ class Task03 {
             depositAmount += (depositAmount * annualDepositPercent) / 100;
         }
 
-        return BigDecimal.valueOf(depositAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return  BigDecimal.valueOf(depositAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
