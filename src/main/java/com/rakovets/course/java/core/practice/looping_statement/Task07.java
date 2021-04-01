@@ -36,9 +36,15 @@ class Task07 {
      * @return пробег (с точностью до 2 знаков после десятичного разделителя)
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
+        double everyDayDistance = startDistance;
+        if (startDistance == 0) {
+            return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+        while (everyDayDistance <= finishDistance) {
+            everyDayDistance *= (1 + 0.01 * dailyProgressAsPercentage);
+            totalDistance += everyDayDistance;
+        }
         return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
