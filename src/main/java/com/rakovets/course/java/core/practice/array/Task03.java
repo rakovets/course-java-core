@@ -15,9 +15,10 @@ class Task03 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
-                {1, 2, 4},
-                {1, 4, 7},
-                {10, 1, 7}
+                {6, 4, 7},
+                {0, 1, 2},
+                {1, 4, 4},
+                {4, 4, 5}
         };
 
         double[] averageMark = getAverageMarks(marks);
@@ -44,7 +45,7 @@ class Task03 {
                 sum = sum + mark;
                 countOfMarks++;
             }
-            arrayOfMarks[i] = BigDecimal.valueOf(sum / countOfMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            arrayOfMarks[i] = BigDecimal.valueOf(sum * 1.0 / countOfMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
             sum = 0;
             countOfMarks = 0;
         }
@@ -60,17 +61,17 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        int minMark = marks[0][0];
+
         int[] arrayOfMarks = new int[marks.length];
 
         for (int i = 0; i < marks.length; i++) {
+            int minMark = marks[i][0];
             for (int mark : marks[i]) {
                 if (minMark > mark) {
                     minMark = mark;
                 }
             }
             arrayOfMarks[i] = minMark;
-            minMark = marks[i][0];
         }
 
         return arrayOfMarks;
@@ -84,17 +85,16 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        int maxMark = marks[0][0];
         int[] arrayOfMarks = new int[marks.length];
 
         for (int i = 0; i < marks.length; i++) {
+            int maxMark = marks[i][0];
             for (int mark : marks[i]) {
                 if (maxMark < mark) {
                     maxMark = mark;
                 }
             }
             arrayOfMarks[i] = maxMark;
-            maxMark = marks[i][0];
         }
 
         return arrayOfMarks;
