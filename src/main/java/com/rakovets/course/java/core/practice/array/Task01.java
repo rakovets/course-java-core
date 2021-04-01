@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками только по одному предмету.
  *
@@ -38,7 +41,7 @@ class Task01 {
             sum = sum + mark;
         }
 
-        return sum / marks.length;
+        return BigDecimal.valueOf(sum * 1.0 / marks.length).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
