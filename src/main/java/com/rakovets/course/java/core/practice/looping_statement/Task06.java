@@ -33,7 +33,7 @@ class Task06 {
      * @param amount сумма
      * @return сумма в бухгалтерском формате
      */
-    static String convertToAccountingFormat(long amount) {
+    static String convertToAccountingFormat (long amount) {
         String seeConvertToAccountingFormat = "";
         int positiveOrNegativeNumber = 1;
 
