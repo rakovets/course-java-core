@@ -39,7 +39,7 @@ class Task01 {
         for (int i = 0; i < marks.length; i++) {
             result += marks[i];
         }
-        result = BigDecimal.valueOf(result / marks.length).setScale(2, RoundingMode.HALF_DOWN).doubleValue();
+        result =  BigDecimal.valueOf(result / marks.length).setScale(2, RoundingMode.HALF_DOWN).doubleValue();
         return result;
     }
 
@@ -51,10 +51,11 @@ class Task01 {
      */
     static int getMinMark(int[] marks) {
         int minMark = marks[0];
-        for (int i = 0; i < marks.length; i++)
+        for (int i = 0; i < marks.length; i++) {
             if (minMark > marks[i]) {
                 minMark = marks[i];
             }
+        }
         return minMark;
     }
 
@@ -65,12 +66,13 @@ class Task01 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
-        int minMark = marks[0];
-        for (int i = 0; i < marks.length; i++)
-            if (minMark < marks[i]) {
-                minMark = marks[i];
+        int maxMark = marks[0];
+        for (int i = 0; i < marks.length; i++) {
+            if (maxMark < marks[i]) {
+                maxMark = marks[i];
             }
-        return minMark;
+        }
+        return maxMark;
     }
 }
 
