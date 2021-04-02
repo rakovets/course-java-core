@@ -1,14 +1,14 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Time {
-    int hours;
-    int minutes;
-    int seconds;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
     public Time(int totalSeconds) {
-       this.hours =  totalSeconds/ 3600;
-       this.minutes = (totalSeconds % 3600) / 60;
-       this.seconds = (totalSeconds% 3600) % 60;
+        this.hours = totalSeconds / 3600;
+        this.minutes = (totalSeconds % 3600) / 60;
+        this.seconds = (totalSeconds % 3600) % 60;
     }
 
 
