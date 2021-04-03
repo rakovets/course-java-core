@@ -4,7 +4,7 @@ public class Rectangle {
     private Point firstPoint;
     private Point secondPoint;
 
-    public Rectangle (Point firstPoint, Point secondPoint) {
+    public Rectangle(Point firstPoint, Point secondPoint) {
         this.firstPoint = firstPoint;
         this.secondPoint = secondPoint;
     }
