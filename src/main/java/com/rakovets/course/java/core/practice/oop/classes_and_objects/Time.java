@@ -5,14 +5,14 @@ public class Time {
     private int minutes;
     private int seconds;
 
-    public Time (int totalSeconds) {
+    public Time(int totalSeconds) {
         final int SECONDS_IN_HOUR = 3600;
         final int SECONDS_IN_MINUTE = 60;
         hours = totalSeconds / SECONDS_IN_HOUR;
         minutes = (totalSeconds - hours * SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
         seconds = totalSeconds % SECONDS_IN_MINUTE;
     }
-    public Time (int hours, int minutes, int seconds) {
+    public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
