@@ -1,31 +1,31 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Point {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public int getDistance(Point point) {
-        return Math.abs(point.getX() - this.x) * Math.abs(point.getX() - this.x) + Math.abs(point.getY() - this.y) * Math.abs(point.getY() - this.y);
+    public double getDistance(Point point) {
+        return Math.sqrt(Math.pow(point.getX() - this.x,2) + Math.pow(point.getY() - this.y,2));
     }
 }
