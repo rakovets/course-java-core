@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками только по одному предмету.
  *
@@ -15,7 +18,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int[] marks = {1, 2, 3, 4, 5, 6};
+        int[] marks = {8, 2, 10, 4, 5, 6};
 
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
@@ -32,10 +35,14 @@ class Task01 {
      * @return средняя арифметическая отметка
      */
     static double getAverageMark(int[] marks) {
-        double averageMarks = 0;
+        double averageMarks = 0.0;
+        double totalAmountmarks = 0.0;
 
-        for (int i = 0; i < marks.length; i++);
-        return averageMarks = (marks [i] / marks.length ;
+        for (int i = 0; i < marks.length; i++) {
+            totalAmountmarks += marks[i];
+        }
+        averageMarks = BigDecimal.valueOf(totalAmountmarks / marks.length).setScale(2, RoundingMode.HALF_DOWN).doubleValue();
+        return averageMarks;
     }
 
     /**
@@ -45,9 +52,13 @@ class Task01 {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minMark = marks [0];
+        for (int i = 0; i < marks.length; i++) {
+            if (minMark > marks[i]) {
+                minMark = marks[i];
+            }
+        }
+        return minMark;
     }
 
     /**
@@ -59,9 +70,10 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         int maxMark = marks [0];
         for (int i = 0; i < marks.length; i++) {
-            if
-
+            if (maxMark < marks[i]) {
+                maxMark = marks[i];
+            }
         }
-        return 0;
+        return maxMark;
     }
 }
