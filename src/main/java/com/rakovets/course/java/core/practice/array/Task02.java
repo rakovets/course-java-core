@@ -56,10 +56,11 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         int isMinMark = marks [0][0];
 
-        for (int i= 0; i < marks.length; i++){
-            for (int j = 0; j < marks[0].length; j++)
-            if (isMinMark > marks[i][j]) {
-                isMinMark = marks[i][j];
+        for (int i= 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (isMinMark > marks[i][j]) {
+                    isMinMark = marks[i][j];
+                }
             }
         }
         return isMinMark;
@@ -74,11 +75,12 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         int isMaxMark = marks [0][0];
 
-        for (int i= 0; i < marks.length; i++){
-            for (int j = 0; j < marks[0].length; j++)
+        for (int i= 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[0].length; j++) {
                 if (isMaxMark < marks[i][j]) {
                     isMaxMark = marks[i][j];
                 }
+            }
         }
         return isMaxMark;
     }
