@@ -36,7 +36,6 @@ class Task05 {
         double realPercent = regenerationPercentPerHour / 100.00d;
         double bossHealthPoints = (double) healthPoints;
         int raidTime = 0;
-
         for (int i = 0; i <= 25; i++) {
             if (raidTime <= 24) {
                 if (bossHealthPoints > 0) {
