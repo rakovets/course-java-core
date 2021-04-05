@@ -34,16 +34,12 @@ class Task07 {
      * @return <code>false</code>/<code>true</code>
      */
     static boolean isLeapYear(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if (year%4 == 0) {
-            if (year%100 == 0){
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
                 return year % 400 == 0;
-            }
-            else
+            } else
                 return true;
-        }
-        else
+        } else
             return false;
     }
 }

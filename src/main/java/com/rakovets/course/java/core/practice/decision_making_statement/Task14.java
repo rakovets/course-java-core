@@ -46,9 +46,7 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        switch (year%12) {
+        switch (year % 12) {
             case 0:
                 return "Monkey";
             case 1:

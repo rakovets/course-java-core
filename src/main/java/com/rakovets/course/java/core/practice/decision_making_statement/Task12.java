@@ -45,56 +45,55 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month, int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if (month == 3 & day>=21)
+        if (month == 3 && day >= 21) {
             return "Ram";
-        if (month == 4 & day<=20)
+        } else if (month == 4 && day <= 20) {
             return "Ram";
-        if (month == 4 & day>=21)
+        } else if (month == 4) {
             return "Bull";
-        if (month == 5 & day<=20)
+        } else if (month == 5 && day <= 20) {
             return "Bull";
-        if (month == 5 & day>=21)
+        } else if (month == 5) {
             return "Twins";
-        if (month == 6 & day<=21)
+        } else if (month == 6 && day <= 21) {
             return "Twins";
-        if (month == 6 & day>=22)
+        } else if (month == 6) {
             return "Crab";
-        if (month == 7 & day<=22)
+        } else if (month == 7 && day <= 22) {
             return "Crab";
-        if (month == 7 & day>=23)
+        } else if (month == 7) {
             return "Lion";
-        if (month == 8 & day<=22)
+        } else if (month == 8 && day <= 22) {
             return "Lion";
-        if (month == 8 & day>=23)
+        } else if (month == 8) {
             return "Maiden";
-        if (month == 9 & day<=21)
+        } else if (month == 9 && day <= 21) {
             return "Maiden";
-        if (month == 9 & day>=22)
+        } else if (month == 9) {
             return "Scales";
-        if (month == 10 & day<=22)
+        } else if (month == 10 && day <= 22) {
             return "Scales";
-        if (month == 10 & day>=23)
+        } else if (month == 10) {
             return "Scorpion";
-        if (month == 11 & day<=22)
+        } else if (month == 11 && day <= 22) {
             return "Scorpion";
-        if (month == 11 & day>=23)
+        } else if (month == 11) {
             return "Archer";
-        if (month == 12 & day<=21)
+        } else if (month == 12 && day <= 21) {
             return "Archer";
-        if (month == 12 & day>=22)
+        } else if (month == 12) {
             return "Goat";
-        if (month == 1 & day<=20)
+        } else if (month == 1 && day <= 20) {
             return "Goat";
-        if (month == 1 & day>=21)
+        } else if (month == 1) {
             return "Water-bearer";
-        if (month == 2 & day<=19)
+        } else if (month == 2 && day <= 19) {
             return "Water-bearer";
-        if (month == 2 & day>=20)
+        } else if (month == 2) {
             return "Fish";
-        if (month == 3 & day<=20)
+        } else if (month == 3) {
             return "Fish";
+    }
         return null;
     }
 }

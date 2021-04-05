@@ -38,12 +38,13 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        if (symbol>='0' & symbol<='9')
+        if (symbol >= '0' && symbol <= '9') {
             return "digit";
-        else if (symbol>='A' & symbol<='Z' | symbol>='a' & symbol<='z')
+        } else if (symbol >= 'A' && symbol <= 'Z' || symbol >= 'a' && symbol <= 'z') {
             return "latin";
-        else if (symbol>='А' & symbol<='Я' | symbol>='а' & symbol<='я')
+        } else if (symbol >= 'А' && symbol <= 'Я' || symbol >= 'а' && symbol <= 'я') {
             return "cyrillic";
+        }
         return "undefined";
     }
 }
