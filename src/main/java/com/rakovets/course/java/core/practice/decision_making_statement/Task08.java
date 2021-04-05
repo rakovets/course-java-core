@@ -53,14 +53,6 @@ class Task08 {
                 case "ZOMBIE":
                     totalDamage *= 1.5;
                     break;
-                case "ANIMAL":
-                    break;
-                case "HUMANOID":
-                    break;
-                case "PLANT":
-                    break;
-                case "GHOST":
-                    break;
             }
 
         }
