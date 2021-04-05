@@ -29,7 +29,6 @@ class Task01 {
      * @param carryingCapacity грузоподъемность грузовиков
      */
     static int getNumberFullTrucks(int cargo, int carryingCapacity) {
-
-        return cargo/carryingCapacity;
+        return cargo / carryingCapacity;
     }
 }
