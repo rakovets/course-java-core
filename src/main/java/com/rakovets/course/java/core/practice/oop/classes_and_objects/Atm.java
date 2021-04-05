@@ -393,9 +393,9 @@ public class Atm {
 
     public String getCash(int option, int amount) {
        int[][] allCombinationBanknotes = this.getAllCombinationBanknotes(amount);
-       numberBanknotes100 = allCombinationBanknotes[0][option-1];
-       numberBanknotes50 = allCombinationBanknotes[1][option-1];
-       numberBanknotes20 = allCombinationBanknotes[2][option-1];
+       numberBanknotes100 -= allCombinationBanknotes[0][option-1];
+       numberBanknotes50 -= allCombinationBanknotes[1][option-1];
+       numberBanknotes20 -= allCombinationBanknotes[2][option-1];
         return "===== Shut up and take my money =====";
     }
 }
