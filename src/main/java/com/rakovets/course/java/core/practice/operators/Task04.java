@@ -34,6 +34,6 @@ class Task04 {
      */
     static float getDistance(float milliseconds) {
 
-        return SOUND_SPEED/(float)3.6 * milliseconds/1000;
+        return SOUND_SPEED / (float)3.6 * milliseconds / 1000;
     }
 }
