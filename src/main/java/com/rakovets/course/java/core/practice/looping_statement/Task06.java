@@ -34,52 +34,44 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-
         String rightFormat = "";
         int divider = 1000;
         long result = 0L;
 
-        if ( amount > 0) {
-
+        if(amount > 0) {
             for (long a = amount; a > 0 ; a /= divider) {
 
                 if (a == amount) {
-                     if (a % divider != 0) {
+                     if(a % divider != 0) {
                          result = a % divider;
                          rightFormat += result;
-                    } else {
+                    }else {
                         rightFormat = "000" + " " + rightFormat;
                     }
-
-                }else if (a % divider != 0) {
+                }else if(a % divider != 0) {
                     result = a % divider;
                     rightFormat = result + " " + rightFormat;
-                } else {
+                }else {
                     rightFormat = "000" + " " + rightFormat;
                 }
-
             }
-
-        } else if (amount < 0) {
+        } else if(amount < 0) {
             amount *= -1;
+            for(long a = amount; a > 0; a /= divider) {
 
-            for (long a = amount; a > 0; a /= divider) {
-
-                if (a == amount){
+                if(a == amount) {
                     result = a % divider;
                     rightFormat += result;
                 }else if (a % divider != 0) {
                     result = a % divider;
                     rightFormat = result + " " + rightFormat;
-                } else {
+                }else {
                     rightFormat = "000" + " " + rightFormat;
                 }
-
             }
-
             rightFormat = "-" + rightFormat;
 
-        } else {
+        }else {
             rightFormat += result;
         }
 

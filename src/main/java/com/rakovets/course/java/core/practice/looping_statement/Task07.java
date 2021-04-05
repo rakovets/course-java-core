@@ -36,20 +36,15 @@ class Task07 {
      * @return пробег (с точностью до 2 знаков после десятичного разделителя)
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-
         double progressIndex = 1 + dailyProgressAsPercentage / 100.00;
         double totalDistance = 0;
-
-        if ( startDistance >0) {
-
+        if (startDistance >0) {
             for (double a = startDistance; a < finishDistance; a *= progressIndex) {
-
                 totalDistance += a * progressIndex;
             }
         } else {
             totalDistance = 0;
         }
-
 
         return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }

@@ -42,7 +42,7 @@ class Task10 {
         for (int i = startNumber; i <= finishNumber; i++) {
             for (int j = 2; j <= i; j++) {
 
-                if(j != i && i % j == 0) {
+                if (j != i && i % j == 0) {
                     break;
                 } else if ( j == i && i % j == 0) {
                     count ++;

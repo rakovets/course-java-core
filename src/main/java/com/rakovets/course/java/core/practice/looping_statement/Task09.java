@@ -53,7 +53,6 @@ class Task09 {
      */
 
    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-
         double currentPriceInList = startPriceAllItems;
         double currentSell = 0.0;
         double priceForOneItem = startPriceAllItems / startNumberItems;
@@ -61,14 +60,14 @@ class Task09 {
         int currentNumberInList = startNumberItems;
         String totalPriceList = currentNumberInList + " - " + realPriceInList + " with sell " + currentSell + "%";
 
-        for ( int i = 1; i <= (sizeTotalPrice - 1) ; i++ ) {
+        for (int i = 1; i <= (sizeTotalPrice - 1) ; i++) {
             currentSell += differentialSell;
             currentNumberInList += differentialNumberItems;
             currentPriceInList = priceForOneItem * currentNumberInList;
-            realPriceInList = currentPriceInList - currentPriceInList * (currentSell/100);
+            realPriceInList = currentPriceInList - currentPriceInList * (currentSell / 100);
             totalPriceList += "\n" + currentNumberInList + " - " + BigDecimal.valueOf(realPriceInList).setScale(2, RoundingMode.HALF_UP).doubleValue()  + " with sell " + currentSell + "%";
-
         }
+
         return totalPriceList;
     }
 
