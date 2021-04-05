@@ -38,7 +38,7 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        int flag = 0;
+        int primeNumber = 0;
         int numberPrimes = 0;
 
 
@@ -49,13 +49,13 @@ class Task10 {
             for (int j = 2; j < i; j++) {
 
                 if (i % j == 0) {
-                    flag = 0;
+                    primeNumber = 0;
                     break;
                 } else {
-                    flag = 1;
+                    primeNumber = 1;
                 }
             }
-            if (flag == 1) {
+            if (primeNumber == 1) {
                 numberPrimes++;
             }
         }

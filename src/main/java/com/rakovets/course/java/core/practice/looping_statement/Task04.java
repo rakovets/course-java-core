@@ -37,13 +37,13 @@ class Task04 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        double HP;
+        double healthPoint;
 
         for (int i = 1; i <= hoursAfterRespawn; i++) {
-            HP = healthPoints;
-            HP += HP * regenerationPercentFromCurrentHealth * 0.01;
-            HP = BigDecimal.valueOf(HP).setScale(0, RoundingMode.HALF_DOWN).doubleValue();
-            healthPoints = (int) HP;
+            healthPoint = healthPoints;
+            healthPoint += healthPoint * regenerationPercentFromCurrentHealth * 0.01;
+            healthPoint = BigDecimal.valueOf(healthPoint).setScale(0, RoundingMode.HALF_DOWN).doubleValue();
+            healthPoints = (int) healthPoint;
         }
         return healthPoints;
     }

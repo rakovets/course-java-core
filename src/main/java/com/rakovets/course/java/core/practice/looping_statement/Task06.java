@@ -24,7 +24,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500;
+        long amount = 12345678;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -38,10 +38,26 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        DecimalFormat dF = (DecimalFormat) NumberFormat.getInstance();
-        DecimalFormatSymbols symbols = dF.getDecimalFormatSymbols();
-        symbols.setGroupingSeparator(' ');
-        dF.setDecimalFormatSymbols(symbols);
-        return dF.format(amount);
+        long total = Math.abs(amount);
+        long remainder;
+        String result = "";
+
+        if (amount == 0) {
+            result += amount;
+            return result;
+        }
+        for (int i = 0; total != 0; i++) {
+            remainder = total % 1000;
+            total = total / 1000;
+            if (i == 0) {
+                result = remainder + result;
+            } else {
+                result = remainder + " " + result;
+            }
+        }
+        if (amount < 0) {
+            result = "-" + result;
+        }
+        return result;
     }
 }
