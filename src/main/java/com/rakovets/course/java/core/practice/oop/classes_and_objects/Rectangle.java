@@ -28,12 +28,20 @@ public class Rectangle {
     public double getPerimeter() {
         double length = secondPoint.getX() - firstPoint.getX();
         double height = secondPoint.getY() - firstPoint.getY();
-        return 2 * (length + height);
+        double perimeter = 2 * (length + height);
+        if (perimeter < 0) {
+            perimeter *= -1;
+        }
+        return perimeter;
     }
 
     public double getArea() {
         double length = secondPoint.getX() - firstPoint.getX();
         double height = secondPoint.getY() - firstPoint.getY();
-        return length * height;
+        double area = length * height;
+        if (area < 0) {
+            area *= -1;
+        }
+        return area;
     }
 }
