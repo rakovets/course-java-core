@@ -32,12 +32,12 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        int numberOfFloors;
+        int floorNumber = apartmentNumber / numberApartmentsPerFloor;
 
-        if ((apartmentNumber / numberApartmentsPerFloor) == numberFloors) {
-            numberOfFloors = apartmentNumber / numberApartmentsPerFloor;
-        } else numberOfFloors = ((apartmentNumber / numberApartmentsPerFloor) % numberFloors) + 1;
+        if (floorNumber != numberFloors) {
+            floorNumber = (floorNumber % numberFloors) + 1;
+        }
 
-        return numberOfFloors;
+        return floorNumber;
     }
 }
