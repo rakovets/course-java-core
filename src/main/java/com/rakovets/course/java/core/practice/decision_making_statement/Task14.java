@@ -46,7 +46,6 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int day, int month, int year) {
-
         int fullPeriod = 12;
         int yearsExceptThousands = (year - (year / 1000 * 1000));
         int yearsExeptFullPeriod = yearsExceptThousands - (yearsExceptThousands / fullPeriod * fullPeriod);
@@ -58,23 +57,23 @@ class Task14 {
                 zodiacNameYear = "Rabbit";
             } else if (yearsExeptFullPeriod / 10 == 1) {
                 zodiacNameYear = "Tiger";
-            }else if (yearsExeptFullPeriod / 9 == 1) {
+            } else if (yearsExeptFullPeriod / 9 == 1) {
                 zodiacNameYear = "Ox";
-            }else if (yearsExeptFullPeriod / 8 == 1) {
+            } else if (yearsExeptFullPeriod / 8 == 1) {
                 zodiacNameYear = "Rat";
-            }else if (yearsExeptFullPeriod / 7 == 1) {
+            } else if (yearsExeptFullPeriod / 7 == 1) {
                 zodiacNameYear = "Pig";
-            }else if (yearsExeptFullPeriod / 6 == 1) {
+            } else if (yearsExeptFullPeriod / 6 == 1) {
                 zodiacNameYear = "Dog";
-            }else if (yearsExeptFullPeriod / 5 == 1) {
+            } else if (yearsExeptFullPeriod / 5 == 1) {
                 zodiacNameYear = "Rooster";
-            }else if (yearsExeptFullPeriod / 4 == 1) {
+            } else if (yearsExeptFullPeriod / 4 == 1) {
                 zodiacNameYear = "Monkey";
-            }else if (yearsExeptFullPeriod / 3 == 1) {
+            } else if (yearsExeptFullPeriod / 3 == 1) {
                 zodiacNameYear = "Ram";
-            }else if (yearsExeptFullPeriod / 2 == 1) {
+            } else if (yearsExeptFullPeriod / 2 == 1) {
                 zodiacNameYear = "Horse";
-            }else {
+            } else {
                 zodiacNameYear = "Snake";
             }
 
