@@ -1,5 +1,11 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
+/**
+ * Разработать программу для desktop приложения
+ * которая выведет приветствии для пользователя в зависимости от времени суток.
+ *
+ * @author Dmitry Rakovets
+ */
 class Task02 {
     /**
      * The entry point of the task
