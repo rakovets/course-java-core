@@ -1,5 +1,11 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
+/**
+ * Разработать программу для desktop приложения:
+ * которая преобразует номер дня недели в его словесный аналог.
+ *
+ * @author Dmitry Rakovets
+ */
 class Task04 {
     /**
      * The entry point of the task
