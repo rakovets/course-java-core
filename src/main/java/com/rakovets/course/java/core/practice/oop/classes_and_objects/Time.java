@@ -5,10 +5,24 @@ public class Time {
     private int minutes;
     private int seconds;
 
+    public Time (int totalSeconds) {
+        hours = totalSeconds / 3600;
+        minutes = (totalSeconds - hours * 3600) / 60;
+        seconds = totalSeconds % 60;
+    }
     public Time(int hours, int minutes, int seconds) {
-        System.out.println("Constructor");
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
     }
 }
+
+4. Создать *Methods*:
+
+        * `getHours()`
+        * `setHours(hours)`
+        * `getMinutes()`
+        * `setMinutes(minutes)`
+        * `getSeconds()`
+        * `setSeconds()`
+        * `getTotalSeconds()` - возвращает общее время в секундах
