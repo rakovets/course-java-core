@@ -30,10 +30,15 @@ class Task02 {
      * @param marks отметки
      * @return средняя арифметическая отметка
      */
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     static double getAverageMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        int sum = marks[0][0];
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
+                sum += mark[j];
+            }
+        }
+        return (double) Math.round (sum / (marks.length * marks[0].length) *100 / 100D);
     }
 
     /**
@@ -43,9 +48,15 @@ class Task02 {
      * @return минимальная отметка
      */
     static int getMinMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int min = marks[0][0];
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (min > mark[j]) {
+                    min = mark[j];
+                }
+            }
+        }
+        return min;
     }
 
     /**
@@ -55,8 +66,14 @@ class Task02 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int max = marks[0][0];
+        for (int[] mark : marks) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (max < mark[j]) {
+                    max = mark[j];
+                }
+            }
+        }
+        return max;
     }
 }
