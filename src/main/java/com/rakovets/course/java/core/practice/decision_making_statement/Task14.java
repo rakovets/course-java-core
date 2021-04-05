@@ -9,7 +9,7 @@ package com.rakovets.course.java.core.practice.decision_making_statement;
  * 2001 - `Snake`
  * 2002 - `Horse`
  * 2003 - `Ram`
- * 2004 - 'Monkey'
+ * 2004 - `Monkey`
  * 2005 - `Rooster`
  * 2006 - `Dog`
  * 2007 - `Pig`
