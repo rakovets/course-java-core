@@ -41,10 +41,16 @@ class Task08 {
         int tottalDamage = damage;
 
         if (hasHolyAttribute == true) {
-            if (typeMob == "UNDEAD" || typeMob == "ZOMBIE") {
-                tottalDamage = damage + damage / 2;
-            } else if (typeMob == "SAINT") {
-                tottalDamage = damage / 2;
+            switch (typeMob) {
+                case ("ZOMBIE"):
+                    tottalDamage = damage + damage / 2;
+                    break;
+                case ("UNDEAD"):
+                    tottalDamage = damage + damage / 2;
+                    break;
+                case ("SAINT"):
+                    tottalDamage = damage / 2;
+                    break;
             }
         }
 
