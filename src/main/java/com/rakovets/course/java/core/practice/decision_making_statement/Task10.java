@@ -43,7 +43,10 @@ class Task10 {
             numberStation = 2;
         } else if (thirdFuelReserves <= firstFuelReserves && thirdFuelReserves <= secondFuelReserves) {
             numberStation = 3;
+        }
 
         return numberStation;
     }
 }
+
+

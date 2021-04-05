@@ -52,53 +52,42 @@ class Task12 {
                 case 1:
                     zodiacSing = (day <= 20)?"Goat":"Water-bearer";
                     break;
-
                 case 2:
                     zodiacSing = (day <= 19)?"Water-bearer":"Fish";
                     break;
-
                 case 3:
                     zodiacSing = (day <= 20)?"Fish":"Ram";
                     break;
-
                 case 4:
                     zodiacSing = (day <= 20)?"Ram":"Bull";
                     break;
-
                 case 5:
-                    zodiacSing = (day <= 19)?"Bull":"Twins";
+                    zodiacSing = (day <= 20)?"Bull":"Twins";
                     break;
-
                 case 6:
                     zodiacSing =(day <= 21)?"Twins":"Crab";
                     break;
-                    
                 case 7:
                     zodiacSing =(day <= 22)?"Crab":"Lion";
                     break;
-                    
                 case 8:
                     zodiacSing =(day <= 22)?"Lion":"Maiden";
                     break;
-
                 case 9:
                     zodiacSing =(day <= 21)?"Maiden":"Scales";
                     break;
-
                 case 10:
                     zodiacSing =(day <= 22)?"Scales":"Scorpion";
                     break;
-
                 case 11:
                     zodiacSing =(day <= 22)?"Scorpion":"Archer";
                     break;
-
                 case 12:
                     zodiacSing =(day <= 21)?"Archer":"Goat";
                     break;
             }
         }
-        
+
         return zodiacSing;
     }
 }

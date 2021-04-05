@@ -80,8 +80,7 @@ class Task14 {
         } else {
             zodiacNameYear = "Dragon";
         }
-    }
-     
+
     return zodiacNameYear;
     }
 }
