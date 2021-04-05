@@ -35,27 +35,19 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-
         String colorHealthPoint;
+        int healthStatus = currentHealthPoint * 100 / maxHealthPoint;
 
-        if (currentHealthPoint > 0) {
-
-            if (currentHealthPoint < 0.25 * maxHealthPoint) {
-                colorHealthPoint = "RED";
-            } else if (currentHealthPoint < 0.5 * maxHealthPoint) {
-                colorHealthPoint = "ORANGE";
-            } else if (currentHealthPoint < 0.75 * maxHealthPoint) {
-                colorHealthPoint = "YELLOW";
-            } else if (currentHealthPoint <= maxHealthPoint) {
-                colorHealthPoint = "GREEN";
-            } else {
-                colorHealthPoint = null;
-            }
-
-        } else {
-            colorHealthPoint = null;
+        if (healthStatus < 25 && currentHealthPoint != 0) {
+            colorHealthPoint = "RED";
+        } else if (healthStatus >= 25 && healthStatus < 50) {
+            colorHealthPoint = "ORANGE";
+        } else if (healthStatus >= 50 && healthStatus < 75) {
+            colorHealthPoint = "YELLOW";
+        } else if (healthStatus >= 75 && healthStatus <= 100) {
+            colorHealthPoint = "GREEN";
         }
-
+        
         return colorHealthPoint;
     }
 }
