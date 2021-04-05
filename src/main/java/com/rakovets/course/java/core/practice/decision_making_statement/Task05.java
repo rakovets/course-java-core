@@ -1,5 +1,13 @@
 package com.rakovets.course.java.core.practice.decision_making_statement;
 
+/**
+ * Разработать программу для игрового движка.
+ * <p>
+ * Игрок при регистрации вводит свою дату рождения и она хранится в формате 'dd/MM/yyyy'. В профиле игрока необходимо
+ * месяц выводить не в числовом формате, а в текстовом. Определить название месяца в зависимости от номера.
+ *
+ * @author Dmitry Rakovets
+ */
 class Task05 {
     /**
      * The entry point of the task
