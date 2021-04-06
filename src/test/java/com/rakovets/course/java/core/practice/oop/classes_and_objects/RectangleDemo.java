@@ -13,7 +13,7 @@ public class RectangleDemo {
         System.out.printf("Area=%f\n", rectangle.getArea());
 
         Point thirdPoint = new Point(10, 10);
-        Point fourthPoint = new Point(100, 100);
+        Point fourthPoint = new Point(0, 0);
         rectangle.setFirstPoint(thirdPoint);
         rectangle.setSecondPoint(fourthPoint);
 
