@@ -34,14 +34,14 @@ class Task02 {
      * @return средняя арифметическая отметка
      */
     static double getAverageMark(int[][] marks) {
-        int marksAverage = 0;
-        int marksSum = 0;
+        double marksAverage = 0;
+        double marksSum = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[i].length; j++) {
-                marksSum += marks[i][j];
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                marksSum += i;
             }
-            marksAverage = marksSum/(marks.length * marks[0].length);
+            marksAverage = marksSum / (marks.length * marks[0].length);
         }
 
         return BigDecimal.valueOf(marksAverage).setScale(2, RoundingMode.HALF_UP).doubleValue();
