@@ -40,7 +40,7 @@ class Task02 {
                 summ += i;
             }
         }
-        return BigDecimal.valueOf(summ / marks.length * marks[0].length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return BigDecimal.valueOf(summ / (marks.length * marks[0].length)).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
