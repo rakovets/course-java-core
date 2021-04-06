@@ -12,8 +12,7 @@ public class AtmDemo {
         System.out.printf("Number banknotes100 = %d\n", atm.getNumberBanknotes100());
 
         atm.getOptionsCombinationBanknotes(220);
-        atm.showOptions();
-
         atm.getCash(2);
+        atm.isPossibleIssue(300);
     }
 }

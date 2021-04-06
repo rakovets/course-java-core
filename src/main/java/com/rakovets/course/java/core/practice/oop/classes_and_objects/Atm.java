@@ -68,9 +68,7 @@ public class Atm {
             } while (necessaryNumberBanknotes50 >= 0);
             necessaryNumberBanknotes100--;
         } while (necessaryNumberBanknotes100 >= 0);
-    }
 
-    public void showOptions() {
         System.out.println("");
         if (numberOptions == 0) {
             System.out.println("Sorry, but this ATM cannot dispense the required amount:(");
@@ -81,6 +79,7 @@ public class Atm {
             }
         }
     }
+
     public void getCash(int option) {
         System.out.println("");
         if (option > numberOptions) {
@@ -93,5 +92,43 @@ public class Atm {
         System.out.printf("Number banknotes20 = %d\n", numberBanknotes20);
         System.out.printf("Number banknotes50 = %d\n", numberBanknotes50);
         System.out.printf("Number banknotes100 = %d\n", numberBanknotes100);
+    }
+
+    public boolean isPossibleIssue (int amount) {
+        boolean possibleToCalculate = false;
+
+        int necessaryNumberBanknotes100 = amount / denominationThirdBanknotes;
+        if (necessaryNumberBanknotes100 > numberBanknotes100) {
+            necessaryNumberBanknotes100 = numberBanknotes100;
+        }
+        do {
+            int balanceAfterBanknotes100 = amount - necessaryNumberBanknotes100 * denominationThirdBanknotes;
+            int necessaryNumberBanknotes50 = balanceAfterBanknotes100 / denominationSecondBanknotes;
+            if (necessaryNumberBanknotes50 > numberBanknotes50) {
+                necessaryNumberBanknotes50 = numberBanknotes50;
+            }
+            do {
+                int balanceAfterBanknotes50 = balanceAfterBanknotes100 - necessaryNumberBanknotes50 * denominationSecondBanknotes;
+                int necessaryNumberBanknotes20 = balanceAfterBanknotes50 / denominationFirstBanknotes;
+                if (necessaryNumberBanknotes20 > numberBanknotes20) {
+                    break;
+                }
+                if (balanceAfterBanknotes50 % denominationFirstBanknotes == 0) {
+                   possibleToCalculate = true;
+                   break;
+                }
+                necessaryNumberBanknotes50--;
+            } while (necessaryNumberBanknotes50 >= 0);
+            necessaryNumberBanknotes100--;
+        } while (necessaryNumberBanknotes100 >= 0);
+
+        System.out.println("");
+        if (possibleToCalculate == false) {
+            System.out.println("It is not possible to make a calculation");
+        } else {
+            System.out.println("It is possible to make a calculation");
+        }
+
+        return possibleToCalculate;
     }
 }
