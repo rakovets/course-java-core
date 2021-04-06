@@ -5,7 +5,8 @@ public class RectangleDemo {
         Points onePoint = new Points(2,5);
         Points twoPoint =new Points(4,10);
         Rectangle rectangle = new Rectangle(onePoint,twoPoint);
-        System.out.printf("Current position \nX : %s\nX : %s\n",rectangle.getFirstPoint().getX(),rectangle.getSecondPoint().getX());
+        System.out.printf("Current position \nX : %d Y : %d\nX : %d Y : %d\n",rectangle.getFirstPoint().getX(),
+                           rectangle.getFirstPoint().getY(),rectangle.getSecondPoint().getX(),rectangle.getSecondPoint().getY());
         System.out.printf("Perimeter : %f\n",rectangle.getPerimeter());
         System.out.printf("Area :%f\n",rectangle.getArea());
         Points xPoints =new Points(40,50);
