@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.looping_statement;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import com.rakovets.course.java.core.util.NumberUtil;
 
 /**
  * Разработать программу для фитнес браслета.
@@ -33,12 +32,12 @@ class Task06 {
      * @param startDistance             дистанция которую пробегает спортсмен до начала тренировки
      * @param finishDistance            дистанция которую желает пробежать спортсмен после окончания тренировок
      * @param dailyProgressAsPercentage ежедневный прогресс в процентах по отношению к предыдущему забегу
-     * @return пробег (с точностью до 2 знаков после десятичного разделителя)
+     * @return пробег, с точностью до 2 знаков после десятичного разделителя:
+     * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double totalDistance = 0;
-        return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return 0.0;
     }
 }

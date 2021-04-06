@@ -46,7 +46,7 @@ class Task08 {
      * @return список цен, где формат вывода одной записи в списке цен:
      * '${numberItems} - ${cost} with sell ${totalSell}%'. Для ${cost} использовать точность до 2 знаков после
      * вещественного разделителя:
-     * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
+     * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
