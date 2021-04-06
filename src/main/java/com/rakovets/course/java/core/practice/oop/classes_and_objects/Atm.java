@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Atm {
     private int numberBanknotes20;
     private int numberBanknotes50;
@@ -58,6 +61,27 @@ public class Atm {
         }
         return check;
     }
-    public getOptionsCombinationBanknotes (int amount) {
+    public void getOptionsCombinationBanknotes (int amount, int maxValue, int count20, int count50, int count100, List<String> result) {
+        if (amount < 0) return;
+        if (amount == 0) {
+            StringBuilder sb = new StringBuilder();
+            if (count100 > 0) sb.append("100(x" + count100 + ") ");
+            if (count50 > 0) sb.append("50(x" + count50 + ") ");
+            if (count20 > 0) sb.append("20(x"+ count20 + ") ");
+            result.add(sb.toString());
+            return;
+        }
+                if ((maxValue >= 100) && (amount >= 100)) {
+                    getOptionsCombinationBanknotes(amount - 100, 100, count20, count50,
+                            count100 + 1, result);
+                }
+                if ((maxValue >= 50) && (amount >= 50)) {
+                    getOptionsCombinationBanknotes(amount - 50, 50, count20, count50 + 1,
+                            count100, result);
+                }
+                if (amount >= 20) {
+                    getOptionsCombinationBanknotes(amount - 20, 20, count20 + 1, count50,
+                            count100, result);
+                }
     }
 }
