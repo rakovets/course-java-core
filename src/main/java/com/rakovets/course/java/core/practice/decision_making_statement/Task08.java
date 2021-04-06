@@ -48,7 +48,7 @@ class Task08 {
                 break;
             case "UNDEAD":
             case "ZOMBIE":
-                ItogDamage = (int)(damage*1.5);
+                totalDamage = (int) (1.5 * damage);
                 break;
             case "SAINT":
                 ItogDamage = damage / 2;
