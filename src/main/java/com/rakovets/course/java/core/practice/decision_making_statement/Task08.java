@@ -34,7 +34,7 @@ class Task08 {
      *
      * @param damage           чистый урон оружия (без атрибута)
      * @param typeMob          тип моба
-     * @param hasHolyAttribute начичие у оружия атрибута святости
+     * @param hasHolyAttribute наличие у оружия атрибута святости
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
