@@ -41,4 +41,7 @@ public class Time {
         return this.seconds = seconds;
     }
 
+    public int getTotalSeconds() {
+        return this.hours * 3600 + this.minutes * 60 + this.minutes;
+    }
 }
