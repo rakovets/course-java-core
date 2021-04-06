@@ -38,12 +38,10 @@ class Task03 {
         double[] averageMarks = new double[marks.length];
         for (int i = 0; i < marks.length; i++) {
             double summ = 0.0;
-            int quantityMarks = 0;
             for (int j = 0; j < marks[i].length; j++) {
                 summ += marks[i][j];
-                quantityMarks ++;
             }
-            averageMarks[i] = BigDecimal.valueOf(summ / quantityMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            averageMarks[i] = BigDecimal.valueOf(summ / marks[i].length).setScale(2, RoundingMode.HALF_UP).doubleValue();
         }
         return averageMarks;
     }
