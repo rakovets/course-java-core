@@ -10,7 +10,6 @@ public class AtmDemo {
                 atm.addBanknotes50(20),
                 atm.addBanknotes100(30));
         System.out.printf("%b\n", atm.isPossibleIssue(1000));
-
         ArrayList<String> combinationList = new ArrayList<String>();
         atm.getOptionsCombinationBanknotes(300,100,0,0,0, combinationList);
         for (String list : combinationList) {

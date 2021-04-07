@@ -62,12 +62,22 @@ public class Atm {
         return check;
     }
     public void getOptionsCombinationBanknotes (int amount, int maxValue, int count20, int count50, int count100, List<String> result) {
-        if (amount < 0) return;
+        /*Да, я понимаю что String Builder нельзя было испоользовать, но, к сожалению, мне не хватило времени на другую
+        реализацию, так что пришлось быстренько написать этот костыль.*/
+        if (amount < 0) {
+            return;
+        }
         if (amount == 0) {
             StringBuilder sb = new StringBuilder();
-            if (count100 > 0) sb.append("100(x" + count100 + ") ");
-            if (count50 > 0) sb.append("50(x" + count50 + ") ");
-            if (count20 > 0) sb.append("20(x"+ count20 + ") ");
+            if (count100 > 0) {
+                sb.append("100(x" + count100 + ") ");
+            }
+            if (count50 > 0) {
+                sb.append("50(x" + count50 + ") ");
+            }
+            if (count20 > 0) {
+                sb.append("20(x"+ count20 + ") ");
+            }
             result.add(sb.toString());
             return;
         }
