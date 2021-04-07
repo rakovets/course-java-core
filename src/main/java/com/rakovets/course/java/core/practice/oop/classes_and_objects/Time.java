@@ -4,7 +4,6 @@ public class Time {
     private int hours;
     private int minutes;
     private int seconds;
-
     public Time(int totalSeconds) {
         hours = totalSeconds / 3600;
         minutes = (totalSeconds - hours * 3600) / 60;
