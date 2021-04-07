@@ -16,7 +16,7 @@ public class StringUtilTest {
        stringUtil = new StringUtil();
    }
 
-   static Stream<Arguments> provideArgumentsForGlue() {
+    static Stream<Arguments> provideArgumentsForGlue() {
        return Stream.of(
                 Arguments.of("", "", ""),
                 Arguments.of("", "123", "123"),
@@ -139,6 +139,7 @@ public class StringUtilTest {
     static Stream<Arguments> provideArgumentsForNumberOfEnglishVowelLetters() {
         return Stream.of(
                 Arguments.of("Montecarlo", 4),
+                Arguments.of("MOntEcarlo", 4),
                 Arguments.of("Mntcrl", 0)
 
         );
@@ -148,6 +149,56 @@ public class StringUtilTest {
     void numberOfEnglishVowelLettersTest (String text, int expected){
         // WHEN
         int actual = stringUtil.numberOfEnglishVowelLetters(text);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForNumberOfPunctuationMarks() {
+        return Stream.of(
+                Arguments.of("Montecarlo, alcantara!? to mutch...", 6),
+                Arguments.of("!asdwe!asdadqwed!/asdasd", 3),
+                Arguments.of("Mntcrl", 0)
+
+        );
+    }
+    @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForNumberOfPunctuationMarks")
+    void numberOfPunctuationMarksTest (String text, int expected){
+        // WHEN
+        int actual = stringUtil.numberOfPunktuationMarks(text);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForPalindromChekOut() {
+        return Stream.of(
+                Arguments.of("deed", true),
+                Arguments.of("Do geese see God",true),
+                Arguments.of("Mntcrl", false)
+
+        );
+    }
+    @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForPalindromChekOut")
+    void palindromChekOutTest (String text, boolean expected){
+        // WHEN
+        boolean actual = stringUtil.palindromChekOut(text);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForSplitText() {
+        return Stream.of(
+                Arguments.of("OneTwoThreeFourFiveSixSeven", 3, new String[]{"One", "Two", "Three", "Four", "Five", "Six", "Seven"}),
+                Arguments.of("123456",1, new String[]{"1", "2", "3", "4", "5", "6"}),
+                Arguments.of("12345", 2, new String[]{"12", "34", "5 "})
+        );
+    }
+    @ParameterizedTest(name = "Text - ''{0}'', NumberOfChars - ''{2}'', Expected: ''{2}''")
+    @MethodSource("provideArgumentsForSplitText")
+    void splitTextTest (String text, int numberSymbols, String[] expected){
+        // WHEN
+        String[] actual = stringUtil.splitText(text,numberSymbols);
         //THEN
         Assertions.assertEquals(expected, actual);
     }

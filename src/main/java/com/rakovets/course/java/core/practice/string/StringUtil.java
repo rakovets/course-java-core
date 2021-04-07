@@ -39,15 +39,48 @@ public class StringUtil {
         return text.startsWith(word) && text.endsWith(word) ;
     }
 
-    public int numberOfEnglishVowelLetters(String text){
+    public int numberOfEnglishVowelLetters(String text) {
         int countVowel=0;
-        Pattern pattern = Pattern.compile("[aeiou]");
+        Pattern pattern = Pattern.compile("[aAeEiIoOuU]");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()){
             countVowel++;
         }
 
         return countVowel;
+    }
+
+    public int numberOfPunktuationMarks(String text) {
+        int countOfPunctuationMarks=0;
+        Pattern pattern = Pattern.compile("[.,!?]");
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()){
+            countOfPunctuationMarks++;
+        }
+
+        return countOfPunctuationMarks;
+    }
+
+    public boolean palindromChekOut(String text) {
+
+        return text.toLowerCase().replace(" ","").equals(new StringBuilder(text.toLowerCase().replace(" ","")).reverse().toString());
+    }
+
+    public String[] splitText (String  text, int numberSymbols) {
+        String[] splitText = new String[text.length()/numberSymbols+1];
+        int i = 0;
+        int beginSplit = 0;
+        for(int k = numberSymbols; k <= text.length(); k += numberSymbols){
+            char[] containerChars = new char[numberSymbols];
+            text.getChars(beginSplit, k , containerChars, 0);
+            String container = new String(containerChars);
+            splitText[i] = container;
+            i++;
+            beginSplit +=numberSymbols;
+        }
+
+        return splitText;
+
     }
 
 
