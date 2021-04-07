@@ -47,4 +47,70 @@ public class StringUtilTest {
         // THAT
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    static Stream<Arguments> equalsValueTest() {
+        return Stream.of(
+                Arguments.of("true", "hello","hello"),
+                Arguments.of("false", "hello","Hello"),
+                Arguments.of("false", "HELLO", "hello"),
+                Arguments.of("false", "HELLO", ""),
+                Arguments.of("false", "", "hello")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("equalsValueTest")
+    void found(boolean expectedString, String str1,String str2) {
+        // GIVEN
+
+        // WHEN
+        boolean actualString = StringUtil.equalsValue(str1, str2);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
+    static Stream<Arguments> trimUpperCaseString() {
+        return Stream.of(
+                Arguments.of("HELLO", "hello     "),
+                Arguments.of("HELLO", "     hello"),
+                Arguments.of("HELLO", "HEllO       "),
+                Arguments.of("HELLO", " HELLO "),
+                Arguments.of("", "  ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("trimUpperCaseString")
+    void found(String expectedString, String str1) {
+        // GIVEN
+
+        // WHEN
+        String actualString = StringUtil.trimUpperCaseString(str1);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
+    static Stream<Arguments> SubstrString() {
+        return Stream.of(
+                Arguments.of("hell", "hello",0,4),
+                Arguments.of("hello", "hello",0,5),
+                Arguments.of("", "hello",5,5),
+                Arguments.of("ello", "hello",1,5),
+                Arguments.of("llo", "hello",2,5)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("SubstrString")
+    void found(String expectedString, String str1, int n, int m) {
+        // GIVEN
+
+        // WHEN
+        String actualString = StringUtil.SubstrString(str1,n,m);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
 }
