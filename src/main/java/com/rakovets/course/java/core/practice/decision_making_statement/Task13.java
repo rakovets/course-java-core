@@ -35,7 +35,9 @@ class Task13 {
         int numberEntrance;
         if ((apartmentNumber / numberApartmentsPerFloor) == numberFloors) {
             numberEntrance = apartmentNumber / numberApartmentsPerFloor;
-        } else numberEntrance = ((apartmentNumber / numberApartmentsPerFloor) % numberFloors)+1;
+        } else {
+            numberEntrance = ((apartmentNumber / numberApartmentsPerFloor) % numberFloors)+1;
+        }
         return numberEntrance;
     }
 }

@@ -32,15 +32,6 @@ class Task09 {
      * @return номер подъезда
      */
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-       int numberEntrance;
-       int numberFloorsAp;
-        if (apartmentNumber > 1) {
-            numberFloorsAp = (int)Math.ceil((double)apartmentNumber / numberApartmentsPerFloor);
-            numberEntrance = (int)Math.ceil((double)numberFloorsAp / numberFloors);
-        }
-        else {
-            numberEntrance = 1;
-        }
-        return numberEntrance;
+        return (apartmentNumber - 1) / (numberFloors * numberApartmentsPerFloor) + 1;
     }
 }

@@ -36,16 +36,14 @@ class Task03 {
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         String result =null;
-        if ((float)currentHealthPoint / maxHealthPoint > 0 && (float)currentHealthPoint / maxHealthPoint < 0.25) {
+        int helthPercent = 100 * currentHealthPoint / maxHealthPoint;;
+        if (helthPercent < 25 && currentHealthPoint != 0) {
             result = "RED";
-        }
-        else if ((float)currentHealthPoint / maxHealthPoint >= 0.25 && (float)currentHealthPoint / maxHealthPoint < 0.5) {
+        } else if (helthPercent >= 25 && helthPercent < 50) {
             result = "ORANGE";
-        }
-        else if ((float)currentHealthPoint / maxHealthPoint >= 0.5 && (float)currentHealthPoint / maxHealthPoint < 0.75) {
+        } else if (helthPercent >= 50 && helthPercent < 75) {
             result = "YELLOW";
-        }
-        else if ((float)currentHealthPoint / maxHealthPoint >= 0.75 && (float)currentHealthPoint / maxHealthPoint <= 1) {
+        } else if (helthPercent >= 75 && helthPercent <= 100) {
             result = "GREEN";
         }
         return result;

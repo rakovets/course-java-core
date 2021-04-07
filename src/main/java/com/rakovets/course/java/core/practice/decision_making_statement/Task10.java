@@ -38,11 +38,9 @@ class Task10 {
         int firstReserve = 0;
         if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves) {
             firstReserve = 1;
-        }
-        else if (firstFuelReserves >= secondFuelReserves && secondFuelReserves <= thirdFuelReserves) {
+        } else if (firstFuelReserves >= secondFuelReserves && secondFuelReserves <= thirdFuelReserves) {
             firstReserve = 2;
-        }
-        else if (firstFuelReserves >= thirdFuelReserves && secondFuelReserves >= thirdFuelReserves) {
+        } else if (firstFuelReserves >= thirdFuelReserves && secondFuelReserves >= thirdFuelReserves) {
             firstReserve = 3;
         }
         return firstReserve;
