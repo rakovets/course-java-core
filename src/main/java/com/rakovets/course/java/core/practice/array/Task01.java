@@ -38,7 +38,7 @@ class Task01 {
         int sum = 0;
 
         for (int mark : marks) {
-            sum = sum + mark;
+            sum += mark;
         }
 
         return BigDecimal.valueOf(sum * 1.0 / marks.length).setScale(2, RoundingMode.HALF_UP).doubleValue();
