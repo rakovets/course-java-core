@@ -54,8 +54,8 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         int minMark = marks[0][0];
 
-        for (int i = 0; i < marks.length; i++) {
-            for (int mark : marks[i]) {
+        for (int[] arrayOfMarks : marks) {
+            for (int mark : arrayOfMarks) {
                 if (minMark > mark) {
                     minMark = mark;
                 }
