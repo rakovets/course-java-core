@@ -35,16 +35,14 @@ class Task02 {
      */
     static double getAverageMark(int[][] marks) {
         int sum = 0;
-        int countOfMarks = 0;
 
         for (int i = 0; i < marks.length; i++) {
             for (int mark : marks[i]) {
                 sum = sum + mark;
-                countOfMarks++;
             }
         }
 
-        return BigDecimal.valueOf(sum * 1.0 / countOfMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return BigDecimal.valueOf(sum * 1.0 / (marks.length * marks[0].length)).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
