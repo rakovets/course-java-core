@@ -2,13 +2,18 @@ package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class PointDemo {
     public static void main(String[] args) {
-        Point pointOne = new Point(12, 13);
-        Point pointTwo = new Point(22, 46);
-        System.out.printf("X1 = %f, Y1 = %f\n", pointOne.getX(), pointOne.getY());
-        System.out.printf("Distance: %f\n", pointOne.getDistance(pointTwo));
-        pointTwo.setX(44);
-        pointTwo.setY(88);
-        System.out.printf("X2 = %f, Y2 = %f\n", pointTwo.getX(), pointTwo.getY());
+        Point pointOne = new Point(10, 50);
+        Point pointTwo = new Point(20, 100);
+        System.out.printf("Point One: %f,%f\n", pointOne.getX(), pointOne.getY());
+        System.out.printf("Point Two: %f,%f\n", pointTwo.getX(), pointTwo.getY());
+        System.out.printf("Distance: %f\n\n", pointOne.getDistance(pointTwo));
+
+        pointOne.setX(33);
+        pointOne.setY(55);
+        pointTwo.setX(10);
+        pointTwo.setY(500);
+        System.out.printf("Point One: %f,%f\n", pointOne.getX(), pointOne.getY());
+        System.out.printf("Point Two: %f,%f\n", pointTwo.getX(), pointTwo.getY());
         System.out.printf("Distance: %f\n", pointOne.getDistance(pointTwo));
     }
 }
