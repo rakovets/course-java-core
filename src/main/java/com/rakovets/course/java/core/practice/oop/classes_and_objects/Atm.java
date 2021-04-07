@@ -1,29 +1,31 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Atm {
+    private int numberBanknotes20;
+    private int numberBanknotes50;
+    private int numberBanknotes100;
+
+    public Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
+        this.numberBanknotes20 = numberBanknotes20;
+        this.numberBanknotes50 = numberBanknotes50;
+        this.numberBanknotes100 = numberBanknotes100;
+    }
+    public int addBanknotes20(int quantity) {
+        return numberBanknotes20 += quantity;
+    }
+    public int addBanknotes50(int quantity) {
+        return numberBanknotes50 += quantity;
+    }
+    public int addBanknotes100(int quantity) {
+        return numberBanknotes100 += quantity;
+    }
+    public int getNumberBanknotes20() {
+        return numberBanknotes20;
+    }
+    public int getNumberBanknotes50() {
+        return numberBanknotes50;
+    }
+    public int getNumberBanknotes100() {
+        return numberBanknotes100;
+    }
 }
-== Specification of task 4
-
-        1. Создать class `Atm` описывающий банкомат.
-
-        2. Создать *Fields*:
-
-        * `numberBanknotes20`
-        * `numberBanknotes50`
-        * `numberBanknotes100`
-
-        3. Создать *Constructors*:
-
-        * `Atm(numberBanknotes20, numberBanknotes50, numberBanknotes100)`
-
-        4. Создать *Methods*:
-
-        * `addBanknotes20(number)`
-        * `addBanknotes50(number)`
-        * `addBanknotes100(number)`
-
-        5. * Создать *Methods*:
-
-        * `isPossibleIssue(amount)` - проверяет, возможно ли выдать сумму, которую запросил клиент
-        * `getOptionsCombinationBanknotes(amount)` - возвращает все возможные варианты для суммы выдаваемых купюр
-        * `getCash(option)` - выдает деньги клиенту, для выбранного им варианта
