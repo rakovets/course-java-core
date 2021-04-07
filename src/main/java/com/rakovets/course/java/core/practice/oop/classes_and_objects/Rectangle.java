@@ -1,49 +1,28 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Rectangle {
-    private double firstPoint;
-    private double secondPoint;
-
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
+    private Point firstPoint;
+    private Point secondPoint;
+    public Rectangle(Point firstPoint, Point secondPoint) {
+        this.firstPoint = firstPoint;
+        this.secondPoint = secondPoint;
     }
-    public double getX() {
-        return x;
+    public Point getFirstPoint() {
+        return firstPoint;
     }
-    public void setX(double x) {
-        this.x = x;
+    public void setFirstPoint(Point firstPoint) {
+        this.firstPoint = firstPoint;
     }
-    public double getY() {
-        return y;
+    public Point getSecondPoint() {
+        return secondPoint;
     }
-    public void setY(double y) {
-        this.y = y;
+    public void setSecondPoint(Point secondPoint) {
+        this.secondPoint = secondPoint;
     }
-    public double getDistance(Point point) {
-        double distancePoints;
-        distancePoints =
-        return distancePoints;
+    public double getPerimeter() {
+        return (Math.abs(firstPoint.getX() - secondPoint.getX()) + Math.abs(firstPoint.getY() - secondPoint.getY())) * 2;
+    }
+    public double getArea() {
+        return Math.abs(firstPoint.getX() - secondPoint.getX()) * Math.abs(firstPoint.getY() - secondPoint.getY());
     }
 }
-== Specification of task 3
-
-        1. Создать class `Rectangle`.
-
-        2. Создать *Fields*:
-
-        * `firstPoint` - первая точка
-        * `secondPoint` – вторая точка
-
-        3. Создать *Constructors*:
-
-        * `Rectangle(firstPoint, secondPoint)` – принимает два объекта типа `Point`
-
-        4. Создать *Methods*:
-
-        * `getFirstPoint()`
-        * `setFirstPoint()`
-        * `getSecondPoint()`
-        * `setSecondPoint()`
-        * `getPerimeter()` – возвращает периметр прямоугольника
-        * `getArea()` – возвращает площадь прямоугольника
