@@ -6,6 +6,7 @@ public class TimeDemo {
         System.out.printf("%d:%d:%d\n", time.getHours(), time.getMinutes(), time.getSeconds());
         Time totalSeconds = new Time(33333);
         System.out.printf("%d\n", time.getTotalSeconds());
+
         time.setHours(11);
         time.setMinutes(44);
         time.setSeconds(51);
