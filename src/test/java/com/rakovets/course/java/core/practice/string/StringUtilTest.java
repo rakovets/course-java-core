@@ -113,4 +113,26 @@ public class StringUtilTest {
         // THAT
         Assertions.assertEquals(expectedString, actualString);
     }
+
+    static Stream<Arguments> replaceSmile() {
+        return Stream.of(
+                Arguments.of("hello :)", "hello :("),
+                Arguments.of("hel:)lo", "hel:(lo"),
+                Arguments.of(":)hello", ":(hello"),
+                Arguments.of(":) hello", ":( hello"),
+                Arguments.of("hello:)", "hello:(")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("replaceSmile")
+    void found1(String expectedString, String str1) {
+        // GIVEN
+
+        // WHEN
+        String actualString = StringUtil.replaceSmile(str1);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
 }

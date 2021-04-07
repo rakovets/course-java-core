@@ -24,5 +24,7 @@ public class StringUtil {
         return str1.substring(n,m);
     }
 
-
+    static String replaceSmile(String str1) {
+        return str1.replace(":(",":)");
+    }
 }
