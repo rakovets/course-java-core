@@ -42,7 +42,7 @@ class Task03 {
 
         for (int i = 0; i < marks.length; i++) {
             for (int mark : marks[i]) {
-                sum = sum + mark;
+                sum += mark;
                 countOfMarks++;
             }
             arrayOfMarks[i] = BigDecimal.valueOf(sum * 1.0 / countOfMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
