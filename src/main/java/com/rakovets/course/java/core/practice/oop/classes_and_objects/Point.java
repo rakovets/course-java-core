@@ -26,6 +26,6 @@ public class Point {
     }
 
     public double getDistance(Point point) {
-        return Math.sqrt(Math.pow(point.getX() - this.x,2) + Math.pow(point.getY() - this.y,2));
+        return Math.sqrt(Math.pow(point.getX() - this.x, 2) + Math.pow(point.getY() - this.y, 2));
     }
 }
