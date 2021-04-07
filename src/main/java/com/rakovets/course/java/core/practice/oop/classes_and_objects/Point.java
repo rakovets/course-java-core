@@ -21,10 +21,6 @@ public class Point {
         this.y = y;
     }
     public double getDistance(Point point) {
-        double distancePoints;
-        distancePoints =
-        return distancePoints;
+        return Math.sqrt(Math.pow(x - point.x, 2) + Math.pow(y - point.y, 2));
     }
 }
-
-        /* `getDistance(point)` – принимает объект типа `Point`, возвращает расстояние от текущей точки (экземпляра, для которого был вызван), до принимаемой точки
