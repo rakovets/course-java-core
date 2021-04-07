@@ -37,12 +37,32 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        DecimalFormat fr = new DecimalFormat();
-        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
-        symbols.setGroupingSeparator(' ');
-        fr.setDecimalFormatSymbols(symbols);
-        return fr.format(amount).toString();
+        boolean negativeValue;
+        if (amount < 0) {
+            amount *= -1;
+            negativeValue = false;
+        } else {
+            negativeValue = true;
+        }
+        String result = "";
+        int rank = 0;
+        long digit;
+        while (amount / 10 != 0) {
+            digit = amount % 10;
+            amount /= 10;
+            rank++;
+            if (rank % 3 == 0) {
+                result = " " + digit + result;
+            } else {
+                result = digit + result;
+            }
+        }
+        digit = amount % 10;
+        result = digit + result;
+
+        if (negativeValue == false) {
+            result = "-" + result;
+        }
+        return result;
     }
 }

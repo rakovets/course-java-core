@@ -52,14 +52,12 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double currentSell = 0;
         String result = "";
         Double priceOneItem;
         int numberItems = startNumberItems;
         priceOneItem = startPriceAllItems / startNumberItems;
-        for (int i = 1;i <= sizeTotalPrice;i++) {
+        for (int i = 1; i <= sizeTotalPrice; i++) {
             if (i == 1) {
                 currentSell=0;
             }
@@ -69,11 +67,11 @@ class Task09 {
             else {
                 currentSell += differentialSell;
             }
+            result += numberItems + " - " + BigDecimal.valueOf(priceOneItem * (numberItems-0.01 * numberItems*currentSell)).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + currentSell + "%";
             if(i == sizeTotalPrice) {
-                result += numberItems + " - " + BigDecimal.valueOf(priceOneItem * (numberItems-0.01 * numberItems*currentSell)).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + currentSell + "%";
             }
             else {
-                result += numberItems + " - " + BigDecimal.valueOf(priceOneItem * (numberItems-0.01 * numberItems*currentSell)).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + currentSell + "%" + "\n";
+                result += "\n";
             }
             numberItems += differentialNumberItems;
         }

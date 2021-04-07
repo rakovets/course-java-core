@@ -34,10 +34,7 @@ class Task04 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int addCurrentHealthOfHour;
-        double fullHealts;
         for (int i = 1; i <= hoursAfterRespawn; i++) {
             addCurrentHealthOfHour =  (int)Math.round(healthPoints * (regenerationPercentFromCurrentHealth * 0.01f));
             healthPoints += addCurrentHealthOfHour;

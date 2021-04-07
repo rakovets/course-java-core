@@ -36,15 +36,11 @@ class Task03 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double procPerYear;
         for(int i = 1; i <= depositTerm; i++) {
-
             procPerYear = (depositAmount * (annualDepositPercent / 100f));
             depositAmount += procPerYear;
-
         }
-        return depositAmount=BigDecimal.valueOf(depositAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return depositAmount = BigDecimal.valueOf(depositAmount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
