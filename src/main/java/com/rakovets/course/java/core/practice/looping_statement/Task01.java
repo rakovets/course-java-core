@@ -33,8 +33,7 @@ class Task01 {
         for (int i = 1;i <= numberRows;i++) {
             if (i == numberRows) {
                 result += i ;
-            }
-            else {
+            } else {
                 result += i + "\n";
             }
 
