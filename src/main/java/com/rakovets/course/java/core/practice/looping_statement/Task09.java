@@ -60,17 +60,14 @@ class Task09 {
         for (int i = 1; i <= sizeTotalPrice; i++) {
             if (i == 1) {
                 currentSell=0;
-            }
-            else if (i == 2) {
+            } else if (i == 2) {
                 currentSell = differentialSell;
-            }
-            else {
+            } else {
                 currentSell += differentialSell;
             }
             result += numberItems + " - " + BigDecimal.valueOf(priceOneItem * (numberItems-0.01 * numberItems*currentSell)).setScale(2, RoundingMode.HALF_UP).doubleValue() + " with sell " + currentSell + "%";
             if(i == sizeTotalPrice) {
-            }
-            else {
+            } else {
                 result += "\n";
             }
             numberItems += differentialNumberItems;
