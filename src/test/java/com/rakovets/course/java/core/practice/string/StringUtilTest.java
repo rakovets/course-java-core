@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class StringUtilTest {
@@ -189,16 +190,82 @@ public class StringUtilTest {
 
     static Stream<Arguments> provideArgumentsForSplitText() {
         return Stream.of(
-                Arguments.of("OneTwoThreeFourFiveSixSeven", 3, new String[]{"One", "Two", "Three", "Four", "Five", "Six", "Seven"}),
                 Arguments.of("123456",1, new String[]{"1", "2", "3", "4", "5", "6"}),
-                Arguments.of("12345", 2, new String[]{"12", "34", "5 "})
+                Arguments.of("1111 2222 3333 4444 5555 6666",5, new String[]{"1111 ", "2222 ", "3333 ", "4444 ", "5555 ", "6666"}),
+                Arguments.of("12345", 2, new String[]{"12", "34", "5"})
         );
     }
-    @ParameterizedTest(name = "Text - ''{0}'', NumberOfChars - ''{2}'', Expected: ''{2}''")
+    @ParameterizedTest(name = "Text - ''{0}'', NumberOfChars - ''{1}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForSplitText")
     void splitTextTest (String text, int numberSymbols, String[] expected){
         // WHEN
         String[] actual = stringUtil.splitText(text,numberSymbols);
+        //THEN
+        Assertions.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+    }
+
+    static Stream<Arguments> provideArgumentsForNumberOfWords() {
+        return Stream.of(
+                Arguments.of("She sells sea shells on the sea shore", 8),
+                Arguments.of("1111 2222 3333 4444 5555 6666", 0),
+                Arguments.of("I am", 2),
+                Arguments.of("My present 4 you", 3)
+        );
+    }
+    @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForNumberOfWords")
+    void numberOfWordsTest (String text, int expected){
+        // WHEN
+        int actual = stringUtil.numberOfWords(text);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForGetFirstLetters() {
+        return Stream.of(
+                Arguments.of("Bozhen Davydov", "BD"),
+                Arguments.of("bozhen Davydov", "BD"),
+                Arguments.of("Bozhen davydov", "BD"),
+                Arguments.of("bozhen davydov", "BD")
+        );
+    }
+    @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForGetFirstLetters")
+    void getFirstLettersTest (String text, String expected){
+        // WHEN
+        String actual = stringUtil.getFirstLetters(text);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForGetAllNumbers() {
+        return Stream.of(
+                Arguments.of("Bozhen12 Davy4dov5", "1245"),
+                Arguments.of("12 bozhen3 Dav4ydo5v6", "123456"),
+                Arguments.of("12 34 56 78", "12345678")
+        );
+    }
+    @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForGetAllNumbers")
+    void getAllNumbersTest (String text, String expected){
+        // WHEN
+        String actual = stringUtil.getAllNumbers(text);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForGetUniqueSymbols() {
+        return Stream.of(
+                Arguments.of("radio", "video", "rave"),
+                Arguments.of("RADIO", "radio", "RADIOradio"),
+                Arguments.of("information", "motivation", "frnvt")
+        );
+    }
+    @ParameterizedTest(name = "FirsWord - ''{0}'', SecondWord - ''{1}'', Expected: ''{2}''")
+    @MethodSource("provideArgumentsForGetUniqueSymbols")
+    void getUniqueSymbolsTest(String firstWord, String secondWord, String expected) {
+        // WHEN
+        String actual = stringUtil.getUniqueSymbols(firstWord, secondWord);
         //THEN
         Assertions.assertEquals(expected, actual);
     }

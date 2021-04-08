@@ -63,26 +63,87 @@ public class StringUtil {
 
     public boolean palindromChekOut(String text) {
 
-        return text.toLowerCase().replace(" ","").equals(new StringBuilder(text.toLowerCase().replace(" ","")).reverse().toString());
+        return text.toLowerCase().replaceAll("[\\pP\\s]","").equals(new StringBuilder(text.toLowerCase().replaceAll("[\\pP\\s]","")).reverse().toString());
     }
 
-    public String[] splitText (String  text, int numberSymbols) {
-        String[] splitText = new String[text.length()/numberSymbols+1];
-        int i = 0;
-        int beginSplit = 0;
-        for(int k = numberSymbols; k <= text.length(); k += numberSymbols){
-            char[] containerChars = new char[numberSymbols];
-            text.getChars(beginSplit, k , containerChars, 0);
-            String container = new String(containerChars);
-            splitText[i] = container;
-            i++;
-            beginSplit +=numberSymbols;
+    public String[] splitText(String  text, int numberSymbols) {
+        String[] splitText;
+        int j = 0;
+        if(text.length() % numberSymbols != 0){
+            splitText = new String[text.length()/numberSymbols+1];
+        } else{
+            splitText = new String[text.length()/numberSymbols];
+        }
+
+        for(int i = 0; i < text.length() ; i += numberSymbols){
+            if(text.length()-i < numberSymbols) {
+                splitText[j] = text.substring(i);
+            } else {
+                splitText[j] = text.substring(i, i + numberSymbols);
+            }
+            j++;
         }
 
         return splitText;
-
     }
 
+    public int numberOfWords(String text) {
+        int countWords=0;
+        Pattern pattern = Pattern.compile("[a-zA-Zа-яА-Я]+");
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            countWords++;
+        }
+
+        return  countWords;
+    }
+
+    public String getFirstLetters(String firstLastName) {
+        String firstLetters = "";
+        String[] container = firstLastName.split("\\s*(\\s)\\s*");
+        for(int i = 0; i < container.length; i ++) {
+            firstLetters += container[i].toUpperCase().charAt(0);
+        }
+
+        return  firstLetters;
+    }
+
+    public String getAllNumbers(String text){
+        String allNumbers = "";
+        Pattern pattern = Pattern.compile("\\d");
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()){
+            allNumbers += matcher.group();
+        }
+
+        return allNumbers;
+    }
+
+    public String getUniqueSymbols(String firsWord, String secondWord) {
+        String result = "";
+        char[] firstWordChars = firsWord.toCharArray();
+        char[] secondWordChars = secondWord.toCharArray();
+
+        for (char firstWordChar : firstWordChars){
+            int count = 0;
+            for (int i = 0; i < secondWordChars.length; i++){
+                if(firstWordChar == secondWordChars[i]){
+                    count ++;
+                    secondWordChars[i] = ' ';
+                    break;
+                }
+            }
+            if(count == 0){
+                result += firstWordChar;
+            }
+        }
+        for(int i = 0; i < secondWordChars.length; i ++ ) {
+            if (secondWordChars[i] != ' ') {
+                result += secondWordChars[i];
+            }
+        }
+        return  result;
+    }
 
 
 
