@@ -26,7 +26,7 @@ It contains for each theme of this course:
 |Array.|link:src/main/java/com/rakovets/course/java/core/practice/array[package: array]
 |OOP. Classes and Objects.|link:src/main/resources/practice/oop-classes-and-objects.adoc[oop-classes-and-objects.adoc]
 |String.|link:src/main/resources/practice/string.adoc[string.adoc], link:src/main/java/com/rakovets/course/java/core/practice/string[package: string]
-|Regular Expressions.|link:src/main/resources/practice/regular-expressions.adoc[regular-expressions.adoc]
+|Regex.|link:src/main/resources/practice/regex.adoc[regex.adoc]
 |OOP. Principles.|link:src/main/resources/practice/oop-principles.adoc[oop-principles.adoc]
 |Enum Types.|link:src/main/resources/practice/enum-types.adoc[enum-types.adoc]
 |Exception Handling.|link:src/main/resources/practice/exception-handling.adoc[exception-handling.adoc]
