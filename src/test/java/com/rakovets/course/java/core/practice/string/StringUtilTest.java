@@ -38,7 +38,7 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("foundXTest")
-    void found(int expectedString, String str1) {
+    void found1(int expectedString, String str1) {
         // GIVEN
 
         // WHEN
@@ -60,7 +60,7 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("equalsValueTest")
-    void found(boolean expectedString, String str1,String str2) {
+    void found2(boolean expectedString, String str1,String str2) {
         // GIVEN
 
         // WHEN
@@ -82,7 +82,7 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("trimUpperCaseString")
-    void found(String expectedString, String str1) {
+    void found3(String expectedString, String str1) {
         // GIVEN
 
         // WHEN
@@ -104,7 +104,7 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("SubstrString")
-    void found(String expectedString, String str1, int n, int m) {
+    void found4(String expectedString, String str1, int n, int m) {
         // GIVEN
 
         // WHEN
@@ -126,11 +126,53 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("replaceSmile")
-    void found1(String expectedString, String str1) {
+    void found5(String expectedString, String str1) {
         // GIVEN
 
         // WHEN
         String actualString = StringUtil.replaceSmile(str1);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
+    static Stream<Arguments> containsTwoWords() {
+        return Stream.of(
+                Arguments.of("true", "hello my hello", "hello"),
+                Arguments.of("true", "my opinion. opinion my","my"),
+                Arguments.of("false", " hello my hello", "hello"),
+                Arguments.of("false", "hello my hello ", "hello")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("containsTwoWords")
+    void found6(boolean expectedString, String str1, String word) {
+        // GIVEN
+
+        // WHEN
+        boolean actualString = StringUtil.containsTwoWords(str1,word);
+
+        // THAT
+        Assertions.assertEquals(expectedString, actualString);
+    }
+
+    static Stream<Arguments> existsVowels() {
+        return Stream.of(
+                Arguments.of(4, "Meet my family"),
+                Arguments.of(10, "my opinion. opinion my"),
+                Arguments.of(5, " hello my hello"),
+                Arguments.of(5, "hello my hello ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("containsTwoWords")
+    void found7(int expectedString, String str1) {
+        // GIVEN
+
+        // WHEN
+        int actualString = StringUtil.existsVowels(str1);
 
         // THAT
         Assertions.assertEquals(expectedString, actualString);
