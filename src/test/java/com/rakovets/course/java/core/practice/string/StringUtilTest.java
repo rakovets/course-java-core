@@ -190,12 +190,12 @@ public class StringUtilTest {
 
     static Stream<Arguments> provideArgumentsForSplitText() {
         return Stream.of(
+                Arguments.of("OneTwoThreeFourFiveSixSeven", 3, new String[]{"One", "Two", "Three", "Four", "Five", "Six", "Seven"}),
                 Arguments.of("123456",1, new String[]{"1", "2", "3", "4", "5", "6"}),
-                Arguments.of("1111 2222 3333 4444 5555 6666",5, new String[]{"1111 ", "2222 ", "3333 ", "4444 ", "5555 ", "6666"}),
-                Arguments.of("12345", 2, new String[]{"12", "34", "5"})
+                Arguments.of("12345", 2, new String[]{"12", "34", "5 "})
         );
     }
-    @ParameterizedTest(name = "Text - ''{0}'', NumberOfChars - ''{1}'', Expected: ''{2}''")
+    @ParameterizedTest(name = "Text - ''{0}'', NumberOfChars - ''{2}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForSplitText")
     void splitTextTest (String text, int numberSymbols, String[] expected){
         // WHEN
@@ -266,6 +266,39 @@ public class StringUtilTest {
     void getUniqueSymbolsTest(String firstWord, String secondWord, String expected) {
         // WHEN
         String actual = stringUtil.getUniqueSymbols(firstWord, secondWord);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForIsSameArrays() {
+        return Stream.of(
+                Arguments.of(new String[]{"1", "2", "3", "4"}, new String[]{"1", "2", "3", "4"}, true),
+                Arguments.of(new String[]{"1", "3", "2", "4"}, new String[]{"1", "2", "3", "4"}, true),
+                Arguments.of(new String[]{"1", "2", "4", "4"}, new String[]{"1", "4", "2", "4"}, true),
+                Arguments.of(new String[]{"1", "2", "3", "4"}, new String[]{"1", "2", "3", "5"}, false)
+        );
+    }
+    @ParameterizedTest(name = "FirsArray - ''{0}'', SecondArray - ''{1}'', Expected: ''{2}''")
+    @MethodSource("provideArgumentsForIsSameArrays")
+    void isSameArraysTest(String[] arrOnes, String[] arrTwos, boolean expected) {
+        // WHEN
+        boolean actual = stringUtil.isSameArrays(arrOnes, arrTwos);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForReplaceSameSymbols() {
+        return Stream.of(
+                Arguments.of("Jaaaavvaaaaaaa", "Java"),
+                Arguments.of("AAAbbbsssstttttrrraaccccccttionnnn", "Abstraction"),
+                Arguments.of("11111122222333333444444455555", "12345")
+        );
+    }
+    @ParameterizedTest(name = "Str - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForReplaceSameSymbols")
+    void replaceSameSymbolsTest(String str, String expected) {
+        // WHEN
+        String actual = stringUtil.replaceSameSymbols(str);
         //THEN
         Assertions.assertEquals(expected, actual);
     }

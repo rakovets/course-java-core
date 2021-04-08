@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.string;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -143,6 +145,40 @@ public class StringUtil {
             }
         }
         return  result;
+    }
+
+    public boolean isSameArrays(String[] arrOnes, String[] arrTwos){
+
+        for(int i = 1; i < arrOnes.length; i++){
+            for(int j = 1; j < arrTwos.length; j++){
+                if(arrOnes[i].equals(arrTwos[j])){
+                    arrOnes[i]="";
+                    arrTwos[j]="";
+                }
+            }
+        }
+
+       return Arrays.toString(arrOnes).equals(Arrays.toString(arrTwos));
+    }
+
+    public String replaceSameSymbols(String str){
+        String sameSymbols = "";
+        String result = str;
+        Pattern pattern = Pattern.compile("(\\w)\\1+");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()){
+            sameSymbols +=matcher.group() + " ";
+        }
+        String[] sameSymbolsArray = sameSymbols.split("\\s");
+
+        for(int i = 0; i < sameSymbolsArray.length; i++){
+            String temp2 = "";
+            char[] same =  sameSymbolsArray[i].toCharArray();
+            temp2 +=  same[0];
+            result = result.replaceFirst("(\\w)\\1+",temp2);
+        }
+
+        return result;
     }
 
 
