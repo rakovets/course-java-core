@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.string;
 
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringUtil {
     static String glue(String str1, String str2) {
@@ -38,12 +40,48 @@ public class StringUtil {
         for (int i = 0; i<str1.length();i++)
         {
             char currentLetter = str1.charAt(i);
-            if (currentLetter == 'a' || currentLetter == 'e' || currentLetter == 'i' || currentLetter == 'o' || currentLetter == 'u'
-                    || currentLetter == 'A'|| currentLetter == 'E' || currentLetter == 'I' || currentLetter == 'O' || currentLetter == 'U')
+            if (currentLetter == 'a' || currentLetter == 'e' || currentLetter == 'i' || currentLetter == 'o' || currentLetter == 'u' || currentLetter == 'y'
+                    || currentLetter == 'A'|| currentLetter == 'E' || currentLetter == 'I' || currentLetter == 'O' || currentLetter == 'U' || currentLetter == 'Y')
             {
                 quantityOfVowels++;
             }
             }
        return  quantityOfVowels;
+    }
+
+    static int quantityPunctuation(String str1) {
+        return str1.length() - str1.replaceAll("[,.!?]", "").length();
+    }
+
+    static boolean textPoliandrom(String str1) {
+        String reverseStr1 = new StringBuilder(str1).reverse().toString();
+        reverseStr1 = reverseStr1.replaceAll("[,.!?\\s]", "");
+        return str1.replaceAll("[,.!?\\s]", "").equalsIgnoreCase(reverseStr1);
+    }
+
+    static  String[] splitString(String str1, int split) {
+        String[] currentSplit = new String[(int)Math.ceil((double)str1.length() / split)];
+        for (int i = 0; i < currentSplit.length; i++)
+            currentSplit[i] = str1.substring(i * split, Math.min(str1.length(), (i+1)*split));
+        return currentSplit;
+    }
+
+    static  int countWorld(String str1) {
+        return str1.split(" +").length;
+    }
+
+    static String abbreviatedName(String str1) {
+        String pattern = "(\\S{1})\\S+\\s(\\S{1})\\S+";
+        return str1.replaceAll(pattern, "$1$2").toUpperCase();
+    }
+
+    static String searchDigital(String str1) {
+        String currentDigital = "";
+        Pattern pattern = Pattern.compile("\\d");
+        Matcher matcher = pattern.matcher(str1);
+        while (matcher.find()) {
+            currentDigital += str1.substring(matcher.start(), matcher.end());
+        }
+        return currentDigital;
     }
 }
