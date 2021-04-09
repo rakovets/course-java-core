@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -182,24 +183,24 @@ public class StringUtil {
     }
 
     public boolean compareSpeed(String str){
-        long start = 0;
-        long finish = 0;
+        String result1 = "";
+        String result2 = "";
         long timeForString = 0;
         long timeForStringBuilder = 0;
 
-        start = System.currentTimeMillis();
-        for(int i = 0; i <= 1000; i++){
-            str += str;
+        Date startString = new Date(System.currentTimeMillis());
+        for(int i = 0; i <= 50; i++){
+            result1 += str;
         }
-        finish = System.currentTimeMillis();
-        timeForString = finish - start;
-        start = System.currentTimeMillis();
-        StringBuilder bl = new StringBuilder(str);
-        for (int i = 1; i <=1000; i++){
+        Date finishString = new Date(System.currentTimeMillis());
+        timeForString = finishString.getTime() - startString.getTime();
+        Date startStringBuilder  = new Date(System.currentTimeMillis());
+        StringBuilder bl = new StringBuilder(result2);
+        for (int i = 1; i <=50; i++){
             bl.append(str);
         }
-        finish = System.currentTimeMillis();
-        timeForStringBuilder = finish - start;
+        Date finishStringBuilder = new Date(System.currentTimeMillis());
+        timeForStringBuilder = finishStringBuilder.getTime() - startStringBuilder.getTime();
 
         return timeForStringBuilder < timeForString;
     }

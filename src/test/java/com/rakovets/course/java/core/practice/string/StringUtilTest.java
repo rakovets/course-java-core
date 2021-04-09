@@ -302,5 +302,20 @@ public class StringUtilTest {
         //THEN
         Assertions.assertEquals(expected, actual);
     }
+
+    static Stream<Arguments> provideArgumentsForCompareSpeed() {
+        return Stream.of(
+                Arguments.of("ax", true),
+                Arguments.of("123", true)
+        );
+    }
+    @ParameterizedTest(name = "Str - ''{0}'', Expected: ''{1}''")
+    @MethodSource("provideArgumentsForCompareSpeed")
+    void compareSpeedTest(String str, boolean expected) {
+        // WHEN
+        boolean actual = stringUtil.compareSpeed(str);
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
 }
 
