@@ -35,16 +35,15 @@ class Task02 {
      */
     static double getAverageMark(int[][] marks) {
         double averageMark = 0.0;
-        double sumMark = 0;
-        int totallength = 0;
+        double sumMark = 0.0;
+        int totalLength = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[i].length; j++) {
-                sumMark += marks[i][j];
-                totallength++;
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                sumMark += i;
             }
         }
-        averageMark = (double) (sumMark / totallength);
+        averageMark = (double) (sumMark / marks.length / marks[0].length);
         averageMark = BigDecimal.valueOf(averageMark).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
         return averageMark;
@@ -59,10 +58,10 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         int minMark = marks[0][0];
 
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[0].length; j++) {
-                if (minMark > marks[i][j]) {
-                    minMark = marks[i][j];
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                if (minMark > i) {
+                    minMark = i;
                 }
             }
         }
@@ -78,10 +77,10 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         int maxMark = marks[0][0];
 
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[0].length; j++) {
-                if (maxMark < marks[i][j]) {
-                    maxMark = marks[i][j];
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                if (maxMark < i) {
+                    maxMark = i;
                 }
             }
         }
