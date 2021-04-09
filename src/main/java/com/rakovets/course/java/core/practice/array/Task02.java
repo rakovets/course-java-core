@@ -36,7 +36,6 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         double averageMark = 0.0;
         double sumMark = 0.0;
-        int totalLength = 0;
 
         for (int[] mark : marks) {
             for (int i : mark) {
