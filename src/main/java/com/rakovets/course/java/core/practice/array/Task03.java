@@ -36,15 +36,14 @@ class Task03 {
      */
     static double[] getAverageMarks(int[][] marks) {
         double[] averageMarks = new double [marks.length];
+        double sumMark = 0.0;
 
         for (int i = 0; i < marks.length; i++) {
-            double sumMark = 0.0;
-            int totalMarks = 0;
-            for (int j = 0; j < marks[i].length; j++) {
-                sumMark += marks[i][j];
-                totalMarks++;
+            for (int j : marks[i]) {
+                sumMark += j;
             }
-            averageMarks[i] = BigDecimal.valueOf(sumMark / totalMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            averageMarks[i] = BigDecimal.valueOf(sumMark / marks[i].length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            sumMark = 0.0;
         }
         return averageMarks;
     }
@@ -56,13 +55,14 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        int [] minMarks = new int [marks.length];
+        int[] minMarks = new int [marks.length];
+        int minMark;
 
         for (int i = 0; i < marks.length; i++) {
-            int minMark = marks[i][0];
-            for (int j = 0; j < marks[0].length; j++) {
-                if (minMark > marks[i][j]) {
-                    minMark = marks[i][j];
+            minMark = marks[i][0];
+            for (int j : marks[i]) {
+                if (minMark > j) {
+                    minMark = j;
                 }
                 minMarks[i] = minMark;
             }
@@ -77,13 +77,14 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        int [] maxMarks = new int [marks.length];
+        int[] maxMarks = new int [marks.length];
+        int maxMark;
 
         for (int i = 0; i < marks.length; i++) {
-            int maxMark = marks[i][0];
-            for (int j = 0; j < marks[0].length; j++) {
-                if (maxMark < marks[i][j]) {
-                    maxMark = marks[i][j];
+            maxMark = marks[i][0];
+            for (int j : marks[i]) {
+                if (maxMark < j) {
+                    maxMark = j;
                 }
                 maxMarks[i] = maxMark;
             }
