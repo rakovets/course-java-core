@@ -25,9 +25,6 @@ public class StringUtilTest {
        );
    }
 
-   @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
-   @MethodSource("provideArgumentsForUnion")
-
    static Stream<Arguments> provideArgumentsForIndexSearch () {
        return Stream.of(
                Arguments.of("Welcome", 'e', "1"),
@@ -37,16 +34,18 @@ public class StringUtilTest {
        );
    }
 
-    @ParameterizedTest(name = "Str1 - {0}, char - {1}, Expected: {2}")
-    @MethodSource("provideArgumentsForIndexSearch")
-
+    @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
+    @MethodSource("provideArgumentsForUnion")
     void union(String str1, String str2, String expected) {
         String actual = stringUtil.union(str1, str2);
         Assertions.assertEquals(expected, actual);
+    }
 
-    void indexSearch(String str3, char symbol, int expected) {
-        int actual2 = stringUtil.indexSearch(str3, symbol);
-        Assertions.assertEquals(expected, actual2);
+    @ParameterizedTest(name = "Str1 - {0}, char - {1}, Expected: {2}")
+    @MethodSource("provideArgumentsForIndexSearch")
+    void indexSearch(String str1, char symbol, int expected) {
+        int actual = stringUtil.indexSearch(str1, symbol);
+        Assertions.assertEquals(expected, actual);
     }
 
 
