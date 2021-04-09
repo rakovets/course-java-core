@@ -1,47 +1,48 @@
 package com.rakovets.course.java.core.practice.string;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringUtil {
 
-    public String glue(String str1, String str2) {
-        return str1.concat(str2);
+    public String glue(String firstText, String secondText) {
+        return firstText.concat(secondText);
     }
 
     public int symbolIndex(String x, String text) {
         return text.indexOf(x);
     }
 
-    public boolean stringEquals(String str1, String str2) {
-        return str1.equals(str2);
+    public boolean stringEquals(String firstText, String secondText) {
+        return firstText.equals(secondText);
     }
 
-    public String stringTrim(String str) {
-        return str.trim();
+    public String stringTrim(String text) {
+        return text.trim();
     }
 
-    public String subString(String str, int beginIndex, int endIndex) {
-        return str.substring(beginIndex, endIndex);
+    public String subString(String text, int beginIndex, int endIndex) {
+        return text.substring(beginIndex, endIndex);
     }
 
-    public String replaceSymbol(String str, String oldSymbol, String newSymbol) {
-        return str.replace(oldSymbol, newSymbol);
+    public String replaceSymbol(String text, String oldSymbol, String newSymbol) {
+        return text.replace(oldSymbol, newSymbol);
     }
 
-    public boolean startEndWord(String str, String word) {
-        boolean startWord = str.startsWith(word);
-        boolean endWord = str.endsWith(word);
+    public boolean startEndWord(String text, String word) {
+        boolean startWord = text.startsWith(word);
+        boolean endWord = text.endsWith(word);
 
         return startWord && endWord;
     }
 
-    public int vowel(String str) {
+    public int vowel(String text) {
         String vowels = "[AaEeIiOoUu]+";
         int amountVowels = 0;
 
         Pattern pattern = Pattern.compile(vowels, Pattern.MULTILINE);
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
             amountVowels++;
@@ -49,12 +50,12 @@ public class StringUtil {
         return amountVowels;
     }
 
-    public int punctuationMark(String str) {
+    public int punctuationMark(String text) {
         String punctuationMarks = "[,.!?]+";
         int amountPunctuationMarks = 0;
 
         Pattern pattern = Pattern.compile(punctuationMarks, Pattern.MULTILINE);
-        Matcher matcher = pattern.matcher(str);
+        Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
             amountPunctuationMarks++;
@@ -62,11 +63,35 @@ public class StringUtil {
         return amountPunctuationMarks;
     }
 
-    public boolean palindrome(String str) {
-        String deleteSpaces = str.replaceAll("\\s", "");
-        StringBuilder sb = new StringBuilder(str.replaceAll("\\s", ""));
+    public boolean palindrome(String text) {
+        String deleteSpaces = text.replaceAll("\\s", "");
+        StringBuilder sb = new StringBuilder(text.replaceAll("\\s", ""));
         sb.reverse();
+
         return deleteSpaces.equalsIgnoreCase(String.valueOf(sb));
+    }
+
+    public ArrayList<String> substringArray(String text, int n) {
+        ArrayList<String> substringList = new ArrayList<String>();
+        int symbolRange = n;
+
+        if (n <= 0) {
+            return substringList;
+        }
+        for (int i = 0; symbolRange <= text.length(); i++) {
+            if (i == 0) {
+                substringList.add(text.substring(0, n));
+            } else if (symbolRange + n <= text.length()){
+                substringList.add(text.substring(symbolRange, symbolRange + n));
+                symbolRange += n;
+            } else if (substringList.size() != text.length()) {
+                substringList.add(text.substring(symbolRange, symbolRange + (text.length() - symbolRange)));
+                symbolRange += n;
+            } else {
+                return substringList;
+            }
+        }
+        return substringList;
     }
 
 }

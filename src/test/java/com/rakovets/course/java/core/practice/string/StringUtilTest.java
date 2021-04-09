@@ -4,6 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -78,7 +79,7 @@ public class StringUtilTest {
             );
         }
 
-        static Stream<Arguments> provideArgumentsForVowel() {
+        static Stream<Arguments> provideArgumentsForVowel() { // !!! need fix !!!
             return Stream.of(
                     Arguments.of("Helloo world", 3),
                     Arguments.of("HEllO wOrld", 3),
@@ -88,7 +89,7 @@ public class StringUtilTest {
             );
         }
 
-        static Stream<Arguments> provideArgumentsForPunctuationMark() {
+        static Stream<Arguments> provideArgumentsForPunctuationMark() { // !!! need fix !!!
             return Stream.of(
                     Arguments.of(",.!?", 1),
                     Arguments.of("What`s up?", 1),
@@ -108,11 +109,23 @@ public class StringUtilTest {
             );
         }
 
+        static Stream<Arguments> provideArgumentsForSubstringArray() {
+            return Stream.of(
+                    Arguments.of("Hello World", 0, "[]"),
+                    Arguments.of("Hello World", 1, "[H, e, l, l, o,  , W, o, r, l, d]"),
+                    Arguments.of("Hello World", 2, "[He, ll, o , Wo, rl, d]"),
+                    Arguments.of("Hello World", 3, "[Hel, lo , Wor, ld]"),
+                    Arguments.of("Hello World", 4, "[Hell, o Wo, rld]"),
+                    Arguments.of("Hello World", 5, "[Hello,  Worl, d]"),
+                    Arguments.of("Hello World", -1, "[]")
+            );
+        }
+
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForGlue")
-        void glueTest(String str1, String str2, String expected) {
+        void glueTest(String firstText, String secondText, String expected) {
             StringUtil string = new StringUtil();
-            String actual = string.glue(str1, str2);
+            String actual = string.glue(firstText, secondText);
 
             assertEquals(expected, actual);
         }
@@ -128,72 +141,81 @@ public class StringUtilTest {
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForStringEquals")
-        void stringEqualsTest(String str1, String str2, boolean expected) {
+        void stringEqualsTest(String firstText, String secondText, boolean expected) {
             StringUtil string = new StringUtil();
-            boolean actual = string.stringEquals(str1, str2);
+            boolean actual = string.stringEquals(firstText, secondText);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForStringTrim")
-        void stringTrimTest(String str, String expected) {
+        void stringTrimTest(String text, String expected) {
             StringUtil string = new StringUtil();
-            String actual = string.stringTrim(str);
+            String actual = string.stringTrim(text);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsSubString")
-        void subStringTest(String str, int beginIndex, int endIndex, String expected) {
+        void subStringTest(String text, int beginIndex, int endIndex, String expected) {
             StringUtil string = new StringUtil();
-            String actual = string.subString(str, beginIndex, endIndex);
+            String actual = string.subString(text, beginIndex, endIndex);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForReplaceSymbol")
-        void replaceSymbolTest(String str, String oldSymbol, String newSymbol, String expected) {
+        void replaceSymbolTest(String text, String oldSymbol, String newSymbol, String expected) {
             StringUtil string = new StringUtil();
-            String actual = string.replaceSymbol(str, oldSymbol, newSymbol);
+            String actual = string.replaceSymbol(text, oldSymbol, newSymbol);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForStartEndWord")
-        void startEndWordTest(String str, String word, boolean expected) {
+        void startEndWordTest(String text, String word, boolean expected) {
             StringUtil string = new StringUtil();
-            boolean actual = string.startEndWord(str, word);
+            boolean actual = string.startEndWord(text, word);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForVowel")
-        void vowelTest(String str, int expected) {
+        void vowelTest(String text, int expected) {
             StringUtil string = new StringUtil();
-            int actual = string.vowel(str);
+            int actual = string.vowel(text);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForPunctuationMark")
-        void punctuationMarkTest(String str, int expected) {
+        void punctuationMarkTest(String text, int expected) {
             StringUtil string = new StringUtil();
-            int actual = string.punctuationMark(str);
+            int actual = string.punctuationMark(text);
 
             assertEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForPalindrome")
-        void palindromeTest(String str, boolean expected) {
+        void palindromeTest(String text, boolean expected) {
             StringUtil string = new StringUtil();
-            boolean actual = string.palindrome(str);
+            boolean actual = string.palindrome(text);
+
+            assertEquals(expected, actual);
+        }
+
+        @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
+        @MethodSource("provideArgumentsForSubstringArray")
+        void substringArrayTest(String text, int n, ArrayList<String> expected) {
+            StringUtil string = new StringUtil();
+            ArrayList<String> actual = string.substringArray(text, n);
 
             assertEquals(expected, actual);
         }
