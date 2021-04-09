@@ -19,8 +19,8 @@ public class StringUtilTest {
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("glue")
         void glueTest(String str1, String str2, String expected) {
-            StringUtil stringUtil = new StringUtil();
-            stringUtil.glue(str1, str2);
+            StringUtil string = new StringUtil();
+            string.glue(str1, str2);
         }
 
 }
