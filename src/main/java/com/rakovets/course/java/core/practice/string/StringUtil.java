@@ -5,4 +5,7 @@ public class StringUtil {
         return str1.concat(str2);
     }
 
+    public int indexSearch (String str1, char symbol) {
+        return str1.indexOf(symbol);
+    }
 }
