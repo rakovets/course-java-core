@@ -161,24 +161,47 @@ public class StringUtil {
        return Arrays.toString(arrOnes).equals(Arrays.toString(arrTwos));
     }
 
-    public String replaceSameSymbols(String str){
+    public String replaceSameSymbols(String str) {
         String sameSymbols = "";
         String result = str;
         Pattern pattern = Pattern.compile("(\\w)\\1+");
         Matcher matcher = pattern.matcher(str);
-        while (matcher.find()){
-            sameSymbols +=matcher.group() + " ";
+        while(matcher.find()) {
+            sameSymbols += matcher.group() + " ";
         }
         String[] sameSymbolsArray = sameSymbols.split("\\s");
 
-        for(int i = 0; i < sameSymbolsArray.length; i++){
+        for (String s : sameSymbolsArray) {
             String temp2 = "";
-            char[] same =  sameSymbolsArray[i].toCharArray();
-            temp2 +=  same[0];
-            result = result.replaceFirst("(\\w)\\1+",temp2);
+            char[] same = s.toCharArray();
+            temp2 += same[0];
+            result = result.replaceFirst("(\\w)\\1+", temp2);
         }
 
         return result;
+    }
+
+    public boolean compareSpeed(String str){
+        long start = 0;
+        long finish = 0;
+        long timeForString = 0;
+        long timeForStringBuilder = 0;
+
+        start = System.currentTimeMillis();
+        for(int i = 0; i <= 1000; i++){
+            str += str;
+        }
+        finish = System.currentTimeMillis();
+        timeForString = finish - start;
+        start = System.currentTimeMillis();
+        StringBuilder bl = new StringBuilder(str);
+        for (int i = 1; i <=1000; i++){
+            bl.append(str);
+        }
+        finish = System.currentTimeMillis();
+        timeForStringBuilder = finish - start;
+
+        return timeForStringBuilder < timeForString;
     }
 
 
