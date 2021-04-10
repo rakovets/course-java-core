@@ -316,5 +316,4 @@ public class StringUtilTest {
 
             assertEquals(expected, actual);
         }
-
 }
