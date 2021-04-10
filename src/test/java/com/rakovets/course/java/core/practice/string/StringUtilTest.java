@@ -111,8 +111,8 @@ public class StringUtilTest {
 
         static Stream<Arguments> provideArgumentsForSubstringArray() {
             return Stream.of(
-                    Arguments.of("Hello World", 0, "[]"),
-                    Arguments.of("Hello World", 1, "[H, e, l, l, o,  , W, o, r, l, d]"),
+                    Arguments.of("Hello World", 0, new ArrayList[]{""}),
+                    Arguments.of("Hello World", 1, new String[]{"H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d"}),
                     Arguments.of("Hello World", 2, "[He, ll, o , Wo, rl, d]"),
                     Arguments.of("Hello World", 3, "[Hel, lo , Wor, ld]"),
                     Arguments.of("Hello World", 4, "[Hell, o Wo, rld]"),
