@@ -3,8 +3,9 @@ package com.rakovets.course.java.core.practice.string;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import java.util.Arrays;
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringUtilTest {
@@ -265,11 +266,7 @@ public class StringUtilTest {
             StringUtil string = new StringUtil();
             String[] actual = string.substringArray(text, n);
 
-            if (Arrays.equals(actual, expected)) {
-                expected = actual;
-            }
-
-            assertEquals(expected, actual);
+            assertArrayEquals(expected, actual);
         }
 
         @ParameterizedTest(name = "(AmountWords) Text: {0}")
