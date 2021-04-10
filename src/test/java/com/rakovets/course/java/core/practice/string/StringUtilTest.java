@@ -124,6 +124,16 @@ public class StringUtilTest {
        );
    }
 
+   static Stream<Arguments> provideArgumentsPatternInitials() {
+       return Stream.of(
+               Arguments.of("Andrew Volkov", "AV"),
+               Arguments.of("donald tramp", "DT"),
+               Arguments.of(" fIlIp kirkOROv ", "FK"),
+               Arguments.of(" Sergej99 noVik", "SN")
+       );
+   }
+
+
 
     @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
     @MethodSource("provideArgumentsForUnion")
@@ -209,6 +219,11 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
+    @ParameterizedTest(name = "Str1 - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsPatternInitials")
+    void patternInitialsTest(String str1, String expected) {
+        String actual = stringUtil.patternInitials(str1);
+        Assertions.assertEquals(expected, actual);
+    }
 
 }

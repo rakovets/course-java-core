@@ -82,4 +82,16 @@ public class StringUtil {
         }
         return numberWords;
     }
+
+    public String patternInitials(String str1) {
+        str1 = str1.trim();
+        String[] array = str1.split(" ");
+        String str2 = array[0];
+        String str3 = array[1];
+        str3 = str3.trim();
+        char a = str2.charAt(0);
+        char b = str3.charAt(0);
+        String str4 = "" + a + b;
+        return str4.toUpperCase();
+    }
 }
