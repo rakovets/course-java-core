@@ -97,6 +97,14 @@ public class StringUtilTest {
        );
    }
 
+   static Stream<Arguments> provideArgumentsToCheckPalindrome() {
+       return Stream.of(
+               Arguments.of("deed!", true),
+               Arguments.of("1991", true),
+               Arguments.of("Do geese see God?", true),
+               Arguments.of("Hello world", false)
+       );
+   }
 
     @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
     @MethodSource("provideArgumentsForUnion")
@@ -158,6 +166,13 @@ public class StringUtilTest {
     @MethodSource("provideArgumentsNumberOfPunctuationMarks")
     void numberOfPunctuationMarksTest(String str1, int expected) {
         int actual = stringUtil.numberOfPunctuationMarks(str1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Str1 - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsToCheckPalindrome")
+    void toCheckPalindromeTest(String str1, boolean expected) {
+        boolean actual = stringUtil.toCheckPalindrome(str1);
         Assertions.assertEquals(expected, actual);
     }
 
