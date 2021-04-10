@@ -64,7 +64,13 @@ public class StringUtil {
         return str1.equals(str2);
     }
 
-
-
+    public String[] stringInArray(String str1, int n) {
+        int numberOfParts = str1.length() / n;
+        String[] array = new String[numberOfParts];
+        for (int i = 0; i < numberOfParts ; i++) {
+            array[i] = str1.substring(i * n,(i + 1) * n);
+        }
+        return array;
+    }
 
 }

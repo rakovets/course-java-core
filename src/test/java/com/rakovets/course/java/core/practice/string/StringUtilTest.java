@@ -106,6 +106,16 @@ public class StringUtilTest {
        );
    }
 
+   static Stream<Arguments> provideArgumentsStringInArray() {
+       return Stream.of(
+               Arguments.of("Java Some Minsk", 5, new String[]{"Java ", "Some ", "Minsk"}),
+               Arguments.of("1991", 1, new String[] {"1", "9", "9", "1"}),
+               Arguments.of("1  !2  !3  !", 4, new String[] {"1  !", "2  !", "3  !"}),
+               Arguments.of("Hello Java", 2, new String[] {"He", "ll", "o ", "Ja", "va"})
+       );
+   }
+
+
     @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
     @MethodSource("provideArgumentsForUnion")
     void unionTest(String str1, String str2, String expected) {
@@ -175,5 +185,14 @@ public class StringUtilTest {
         boolean actual = stringUtil.toCheckPalindrome(str1);
         Assertions.assertEquals(expected, actual);
     }
+
+    @ParameterizedTest(name = "Str1 - {0}, n = {1}, Expected: {2}")
+    @MethodSource("provideArgumentsStringInArray")
+    void stringInArrayTest(String str1, int n, String[] expected) {
+        String[] actual = stringUtil.stringInArray(str1, n);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
 
 }
