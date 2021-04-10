@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.string;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,10 +38,9 @@ public class StringUtil {
     }
 
     public int vowel(String text) {
-        String vowels = "[AaEeIiOoUu]+";
         int amountVowels = 0;
 
-        Pattern pattern = Pattern.compile(vowels, Pattern.MULTILINE);
+        Pattern pattern = Pattern.compile("[AaEeIiOoUu]");
         Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
@@ -51,10 +50,9 @@ public class StringUtil {
     }
 
     public int punctuationMark(String text) {
-        String punctuationMarks = "[,.!?]+";
         int amountPunctuationMarks = 0;
 
-        Pattern pattern = Pattern.compile(punctuationMarks, Pattern.MULTILINE);
+        Pattern pattern = Pattern.compile("[,.!?]");
         Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {
@@ -72,17 +70,47 @@ public class StringUtil {
     }
 
     public String[] substringArray(String text, int n) {
-        return text.split("(?<=\\G.{" + Integer.toString(n) + "})");
+        return text.split("(?<=\\G.{" + n + "})");
     }
 
     public int amountWords(String text) {
-        String[] words = text.split("\\s\\w+");
+        String[] words = text.split("\\s+");
+
         if (text.equals("")) {
             return 0;
         }
         return words.length;
     }
 
-    /*public String initials(String text) {
-    }*/
+    public String initials(String text) {
+        StringBuilder initials = new StringBuilder();
+        String[] substringText = text.split("\\s");
+
+        for (String s : substringText) {
+            initials.append(s.substring(0, 1).toUpperCase());
+        }
+        return initials.toString();
+    }
+
+    public int amountDigits(String text) {
+        int amountDigits = 0;
+
+        Pattern pattern = Pattern.compile("\\d");
+        Matcher matcher = pattern.matcher(text);
+
+        while (matcher.find()) {
+            amountDigits++;
+        }
+        return amountDigits;
+    }
+
+    public boolean equalArrays (String[] array1, String[] array2) {
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+        return Arrays.equals(array1, array2);
+    }
+
+    public String deleteExcessSymbols(String text) {
+        return text.replaceAll("(.)(?=(.*))(?<=(?=\\1.*?\\1\\2$).+)", "");
+    }
 }
