@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.string;
 
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class StringUtil {
@@ -8,8 +9,7 @@ public class StringUtil {
         return text1.concat(text2);
     }
 
-    public int characterIndex(String symbol) {
-        String text = "abcdefghijklmnopqrstuvwxyz";
+    public int characterIndex(String text, String symbol) {
         return text.indexOf(symbol);
     }
 
@@ -25,8 +25,8 @@ public class StringUtil {
         return text1.substring(indexOne, indexTwo);
     }
 
-    public String task6(String text1) {
-        return text1.replace(":(", ":)");
+    public String task6(String text, String text1, String text2) {
+        return text.replace(text1, text2);
     }
 
     public boolean task7(String text1, String word) {
@@ -90,5 +90,85 @@ public class StringUtil {
         }
 
         return array;
+    }
+
+    public int task12(String text) {
+        String[] array = text.trim().split(" ");
+        int count = 0;
+
+        for (String word : array) {
+            if (!word.equals("")) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public String task13(String text) {
+        String[] array = text.toUpperCase().split(" ");
+
+
+        return array[0].substring(0, 1) + array[1].substring(0, 1);
+    }
+
+
+    public String task14(String text) {
+        return text.replaceAll("[^0-9]", "");
+    }
+
+    public String task15(String text, String text2) {
+        String[] array = text.split("");
+        String[] array2 = text2.split("");
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < array.length; i++) {
+
+            for (int j = 0; j < array2.length; j++) {
+                if (array[i].equals(array2[j])) {
+                    array[i] = "";
+                    array2[j] = "";
+                    break;
+                }
+            }
+        }
+
+        for (String word : array) {
+            result = result.append(word);
+        }
+        for (String word2 : array2) {
+            result = result.append(word2);
+        }
+        return result.toString();
+
+    }
+
+    public boolean task16(String[] array, String[] array2) {
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array[i].equals(array2[j])) {
+                    array[i] = "";
+                    array2[j] = "";
+                    break;
+                }
+            }
+        }
+        for (String word : array) {
+            result = result.append(word);
+        }
+        for (String word2 : array2) {
+            result = result.append(word2);
+        }
+
+        return result.length() == 0;
+
+    }
+
+    public String task18(String text) {
+        return text.replaceAll("(.)\\1+", "$1");
+    }
 }
-}
+
