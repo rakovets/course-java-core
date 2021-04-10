@@ -28,4 +28,7 @@ public class StringUtil {
         return str1.replace(":(",":)");
     }
 
+    public boolean startAndFinishWithWord(String text, String word) {
+        return text.startsWith(word) && text.endsWith(word);
+    }
 }

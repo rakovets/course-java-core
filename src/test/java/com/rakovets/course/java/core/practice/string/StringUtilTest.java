@@ -61,12 +61,21 @@ public class StringUtilTest {
        );
    }
 
-   static Stream<Arguments> provideArgumentsReplaceEmoji(){
+   static Stream<Arguments> provideArgumentsReplaceEmoji() {
        return Stream.of(
                Arguments.of("Welcome:(", "Welcome:)"),
                Arguments.of(":( Hello", ":) Hello"),
                Arguments.of("Minsk :)","Minsk :)"),
                Arguments.of(":(", ":)")
+       );
+   }
+
+   static Stream<Arguments> provideArgumentsStartAndFinishWithWord() {
+       return Stream.of(
+               Arguments.of("good home - good", "good", true),
+               Arguments.of(" Java ", " ", true),
+               Arguments.of("my world", "my", false),
+               Arguments.of("Home home", "home", false)
        );
    }
 
@@ -109,6 +118,13 @@ public class StringUtilTest {
     @MethodSource("provideArgumentsReplaceEmoji")
     void replaceEmojiTest(String str1, String expected){
         String actual = stringUtil.replaceEmoji(str1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Text - {0}, word - {1}, Expected: {2}")
+    @MethodSource("provideArgumentsStartAndFinishWithWord")
+    void startAndFinishWithWordTest (String text, String word, Boolean expected) {
+        Boolean actual = stringUtil.startAndFinishWithWord(text, word);
         Assertions.assertEquals(expected, actual);
     }
 
