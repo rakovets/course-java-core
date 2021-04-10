@@ -94,4 +94,14 @@ public class StringUtil {
         String str4 = "" + a + b;
         return str4.toUpperCase();
     }
+
+    public String stringWithDigits(String str1) {
+        String str2 = new String();
+        Pattern pattern = Pattern.compile("[0-9]");
+        Matcher matcher = pattern.matcher(str1);
+        while (matcher.find()) {
+            str2 += matcher.group();
+        }
+        return str2;
+    }
 }

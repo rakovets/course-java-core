@@ -133,6 +133,15 @@ public class StringUtilTest {
        );
    }
 
+   static Stream<Arguments> provideArgumentsStringWithDigits() {
+       return Stream.of(
+               Arguments.of("Minsk 2021", "2021"),
+               Arguments.of("+375 29 123", "37529123"),
+               Arguments.of("q1w2e3r4", "1234"),
+               Arguments.of("O0o0-l1l1", "0011")
+       );
+   }
+
 
 
     @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
@@ -223,6 +232,13 @@ public class StringUtilTest {
     @MethodSource("provideArgumentsPatternInitials")
     void patternInitialsTest(String str1, String expected) {
         String actual = stringUtil.patternInitials(str1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Str1 - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsStringWithDigits")
+    void stringWithDigitsTest(String str1, String expected) {
+        String actual = stringUtil.stringWithDigits(str1);
         Assertions.assertEquals(expected, actual);
     }
 
