@@ -79,6 +79,25 @@ public class StringUtilTest {
        );
    }
 
+   static Stream<Arguments> provideArgumentsFindingNumberOfEnglishVowels() {
+       return Stream.of(
+               Arguments.of("Welcome Java", 5),
+               Arguments.of("Upper AXE", 4),
+               Arguments.of("JDK 2021", 0),
+               Arguments.of("aEuIoY", 6)
+       );
+   }
+
+   static Stream<Arguments> provideArgumentsNumberOfPunctuationMarks() {
+       return Stream.of(
+               Arguments.of("Welcome Java!", 1),
+               Arguments.of("Minsk, Moscow!", 2),
+               Arguments.of("!JDK11.02!", 3),
+               Arguments.of("Hello world", 0)
+       );
+   }
+
+
     @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
     @MethodSource("provideArgumentsForUnion")
     void unionTest(String str1, String str2, String expected) {
@@ -124,7 +143,21 @@ public class StringUtilTest {
     @ParameterizedTest(name = "Text - {0}, word - {1}, Expected: {2}")
     @MethodSource("provideArgumentsStartAndFinishWithWord")
     void startAndFinishWithWordTest (String text, String word, Boolean expected) {
-        Boolean actual = stringUtil.startAndFinishWithWord(text, word);
+        boolean actual = stringUtil.startAndFinishWithWord(text, word);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Str1 - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsFindingNumberOfEnglishVowels")
+    void findingNumberOfEnglishVowelsTest(String str1, int expected) {
+        int actual = stringUtil.findingNumberOfEnglishVowels(str1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Str1 - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsNumberOfPunctuationMarks")
+    void numberOfPunctuationMarksTest(String str1, int expected) {
+        int actual = stringUtil.numberOfPunctuationMarks(str1);
         Assertions.assertEquals(expected, actual);
     }
 

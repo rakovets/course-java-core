@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.string;
 
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringUtil {
     public String union(String str1, String str2){
@@ -31,4 +33,26 @@ public class StringUtil {
     public boolean startAndFinishWithWord(String text, String word) {
         return text.startsWith(word) && text.endsWith(word);
     }
+
+    public int findingNumberOfEnglishVowels(String  str1) {
+        int numberOfMatches = 0;
+        Pattern pattern = Pattern.compile("[AaEeIiOoUuYy]");
+        Matcher matcher = pattern.matcher(str1);
+        while (matcher.find()) {
+            numberOfMatches++;
+        }
+        return numberOfMatches;
+    }
+
+    public int numberOfPunctuationMarks (String str1) {
+        int numberOfMarks = 0;
+        Pattern pattern = Pattern.compile("[.,!?]");
+        Matcher matcher = pattern.matcher(str1);
+        while (matcher.find()) {
+            numberOfMarks++;
+        }
+        return numberOfMarks;
+    }
+
+
 }
