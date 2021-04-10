@@ -73,4 +73,13 @@ public class StringUtil {
         return array;
     }
 
+    public int numberWordsInString(String str1) {
+        int numberWords = 0;
+        Pattern pattern = Pattern.compile("(\\s*)(\\w+)(\\s*)");
+        Matcher matcher = pattern.matcher(str1);
+        while (matcher.find()) {
+            numberWords++;
+        }
+        return numberWords;
+    }
 }

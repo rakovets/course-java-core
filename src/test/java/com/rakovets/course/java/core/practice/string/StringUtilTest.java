@@ -115,6 +115,15 @@ public class StringUtilTest {
        );
    }
 
+   static Stream<Arguments> provideArgumentsNumberWordsInString() {
+       return Stream.of(
+               Arguments.of("Hello Java", 2),
+               Arguments.of(" Minsk  city ", 2),
+               Arguments.of("2021 the  best", 3),
+               Arguments.of("  !!!  ", 0)
+       );
+   }
+
 
     @ParameterizedTest(name = "Str1 - {0}, Str2 - {1}, Expected: {2}")
     @MethodSource("provideArgumentsForUnion")
@@ -191,6 +200,13 @@ public class StringUtilTest {
     void stringInArrayTest(String str1, int n, String[] expected) {
         String[] actual = stringUtil.stringInArray(str1, n);
         Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Str1 - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsNumberWordsInString")
+    void numberWordsInStringTest(String str1, int expected) {
+        int actual = stringUtil.numberWordsInString(str1);
+        Assertions.assertEquals(expected, actual);
     }
 
 
