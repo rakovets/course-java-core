@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -111,15 +112,24 @@ public class StringUtilTest {
 
         static Stream<Arguments> provideArgumentsForSubstringArray() {
             return Stream.of(
-                    Arguments.of("Hello World", 0, new ArrayList[]{""}),
+                    Arguments.of("Hello World", 0, new String[]{"Hello World"}),
                     Arguments.of("Hello World", 1, new String[]{"H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d"}),
-                    Arguments.of("Hello World", 2, "[He, ll, o , Wo, rl, d]"),
-                    Arguments.of("Hello World", 3, "[Hel, lo , Wor, ld]"),
-                    Arguments.of("Hello World", 4, "[Hell, o Wo, rld]"),
-                    Arguments.of("Hello World", 5, "[Hello,  Worl, d]"),
-                    Arguments.of("Hello World", -1, "[]")
+                    Arguments.of("Hello World", 2, new String[]{"He", "ll", "o" , "Wo", "rl", "d"}),
+                    Arguments.of("Hello World", 3, new String[]{"Hel", "lo" , "Wor", "ld"}),
+                    Arguments.of("Hello World", 4, new String[]{"Hell", "o Wo", "rld"}),
+                    Arguments.of("Hello World", 5, new String[]{"Hello",  "Worl", "d"})
             );
         }
+
+        /*static Stream<Arguments> provideArgumentsForAmountWords() {
+            return Stream.of(
+                    Arguments.of("", 0),
+                    Arguments.of(" ", 0),
+                    Arguments.of("Hello", 1),
+                    Arguments.of("Hello world", 2),
+                    Arguments.of("Where  are    you    from?", 4)
+            );
+        }*/
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForGlue")
@@ -213,9 +223,18 @@ public class StringUtilTest {
 
         @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
         @MethodSource("provideArgumentsForSubstringArray")
-        void substringArrayTest(String text, int n, ArrayList<String> expected) {
+        void substringArrayTest(String text, int n, String[] expected) {
             StringUtil string = new StringUtil();
-            ArrayList<String> actual = string.substringArray(text, n);
+            String[] actual = string.substringArray(text, n);
+
+            assertEquals(expected, actual);
+        }
+
+        @ParameterizedTest(name = "Str1 {0}. Position player bu damage: {1}")
+        @MethodSource("provideArgumentsForAmountWords")
+        void palindromeTest(String text, int expected) {
+            StringUtil string = new StringUtil();
+            int actual = string.amountWords(text);
 
             assertEquals(expected, actual);
         }

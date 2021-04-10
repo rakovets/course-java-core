@@ -71,27 +71,18 @@ public class StringUtil {
         return deleteSpaces.equalsIgnoreCase(String.valueOf(sb));
     }
 
-    public ArrayList<String> substringArray(String text, int n) {
-        ArrayList<String> substringList = new ArrayList<String>();
-        int symbolRange = n;
-
-        if (n <= 0) {
-            return substringList;
-        }
-        for (int i = 0; symbolRange <= text.length(); i++) {
-            if (i == 0) {
-                substringList.add(text.substring(0, n));
-            } else if (symbolRange + n <= text.length()){
-                substringList.add(text.substring(symbolRange, symbolRange + n));
-                symbolRange += n;
-            } else if (substringList.size() != text.length()) {
-                substringList.add(text.substring(symbolRange, symbolRange + (text.length() - symbolRange)));
-                symbolRange += n;
-            } else {
-                return substringList;
-            }
-        }
-        return substringList;
+    public String[] substringArray(String text, int n) {
+        return text.split("(?<=\\G.{" + Integer.toString(n) + "})");
     }
 
+    public int amountWords(String text) {
+        String[] words = text.split("\\s\\w+");
+        if (text.equals("")) {
+            return 0;
+        }
+        return words.length;
+    }
+
+    /*public String initials(String text) {
+    }*/
 }
