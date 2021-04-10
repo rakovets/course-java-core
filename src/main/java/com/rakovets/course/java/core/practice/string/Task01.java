@@ -54,7 +54,7 @@ class Task01 {
      * Возвращает полное имя сотрудника в обратном формате.
      *
      * @param fullName полное имя сотрудника согласно паттерну '${name} ${surname}'
-     * @return полное имя сотрудника в обратном формате
+     * @return полное имя сотрудника в обратном формате, т.е. '${surname} ${name}'
      */
     static String reverseFullName(String fullName) {
         //TODO

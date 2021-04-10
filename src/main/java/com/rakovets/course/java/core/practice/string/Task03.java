@@ -34,7 +34,7 @@ class Task03 extends StandardInputTask {
      * Возвращает массив имен персонала.
      *
      * @param informationAboutStuff строка, которая содержит всю информацию
-     * @return массив имен персонала, где каждый элемент ~ имя одного сотрудника
+     * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
         //TODO
@@ -46,7 +46,7 @@ class Task03 extends StandardInputTask {
      * Возвращает массив фамилий персонала.
      *
      * @param informationAboutStuff строка, которая содержит всю информацию
-     * @return массив фамилий персонала, где каждый элемент ~ фамилия одного сотрудника
+     * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
         //TODO
@@ -58,7 +58,7 @@ class Task03 extends StandardInputTask {
      * Возвращает массив зарплат персонала.
      *
      * @param informationAboutStuff строка, которая содержит всю информацию
-     * @return массив зарплат персонала, где каждый элемент ~ зарплата одного сотрудника
+     * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
         //TODO
