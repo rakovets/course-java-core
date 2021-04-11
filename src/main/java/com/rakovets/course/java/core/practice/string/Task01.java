@@ -57,6 +57,6 @@ class Task01 {
     static String reverseFullName(String fullName) {
         String[] surname = fullName.split(" ");
 
-        return surname[1]+" "+surname[0];
+        return surname[1] + " " + surname[0];
     }
 }
