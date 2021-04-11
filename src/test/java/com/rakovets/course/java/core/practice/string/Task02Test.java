@@ -32,7 +32,6 @@ class Task02Test {
         );
     }
 
-
     @ParameterizedTest(name = "Get list for money: {1}")
     @MethodSource("provideArguments")
     void getArrayMoneyFromReportTest(String report, double[] arrayMoney, double sumMoney) {
