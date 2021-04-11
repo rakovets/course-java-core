@@ -34,7 +34,7 @@ class Task03 extends StandardInputTask {
      * @param informationAboutStuff строка, которая содержит всю информацию
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
-    static String[][] informationAboutPeople(String informationAboutStuff){
+    static String[][] informationAboutPeople(String informationAboutStuff) {
         String[] info = informationAboutStuff.trim().replaceAll("( )\\1+", "$1").split(";");
         String[][] infoAfterSeparation = new String[info.length][3];
         for (int i = 0; i < info.length; i++) {
@@ -44,7 +44,7 @@ class Task03 extends StandardInputTask {
     }
 
     static String[] parseToArrayName(String informationAboutStuff) {
-        String [][]info = informationAboutPeople(informationAboutStuff);
+        String[][] info = informationAboutPeople(informationAboutStuff);
         String[] names = new String[info.length];
 
         for (int j = 0; j < info.length; j++) {
@@ -62,7 +62,7 @@ class Task03 extends StandardInputTask {
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
 
-        String [][]info = informationAboutPeople(informationAboutStuff);
+        String[][] info = informationAboutPeople(informationAboutStuff);
         String[] surnames = new String[info.length];
 
         for (int j = 0; j < info.length; j++) {
@@ -79,7 +79,7 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        String [][]info = informationAboutPeople(informationAboutStuff);
+        String[][] info = informationAboutPeople(informationAboutStuff);
         int[] salaries = new int[info.length];
 
         for (int j = 0; j < info.length; j++) {
