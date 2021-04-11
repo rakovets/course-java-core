@@ -34,9 +34,24 @@ class Task03 extends StandardInputTask {
      * @param informationAboutStuff строка, которая содержит всю информацию
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
+    static String[][] informationAboutPeople(String informationAboutStuff){
+        String[] info = informationAboutStuff.trim().replaceAll("( )\\1+", "$1").split(";");
+        String[][] infoAfterSeparation = new String[info.length][3];
+        for (int i = 0; i < info.length; i++) {
+            infoAfterSeparation[i] = info[i].split(" ");
+        }
+        return infoAfterSeparation;
+    }
+
     static String[] parseToArrayName(String informationAboutStuff) {
-        System.out.println("Use");
-        return null;
+        String [][]info = informationAboutPeople(informationAboutStuff);
+        String[] names = new String[info.length];
+
+        for (int j = 0; j < info.length; j++) {
+            names[j] = info[j][0];
+        }
+
+        return names;
     }
 
     /**
@@ -46,9 +61,15 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String [][]info = informationAboutPeople(informationAboutStuff);
+        String[] surnames = new String[info.length];
+
+        for (int j = 0; j < info.length; j++) {
+            surnames[j] = info[j][1];
+        }
+
+        return surnames;
     }
 
     /**
@@ -58,8 +79,13 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String [][]info = informationAboutPeople(informationAboutStuff);
+        int[] salaries = new int[info.length];
+
+        for (int j = 0; j < info.length; j++) {
+            salaries[j] = Integer.parseInt(info[j][2]);
+        }
+
+        return salaries;
     }
 }
