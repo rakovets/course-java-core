@@ -241,5 +241,4 @@ public class StringUtilTest {
         String actual = stringUtil.stringWithDigits(str1);
         Assertions.assertEquals(expected, actual);
     }
-
 }
