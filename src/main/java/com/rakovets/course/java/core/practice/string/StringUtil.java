@@ -33,12 +33,20 @@ public class StringUtil {
     }
 
     public boolean task7(String text1, String word) {
+        if (text1 == null || word == null) {
+            return false;
+        }
         return text1.startsWith(word) && text1.endsWith(word);
     }
 
     public int task8(String text) {
         String[] vowel = new String[]{"a", "e", "i", "o", "y", "u"};
         int count = 0;
+
+        if (text == null) {
+            return -1;
+        }
+
         String[] arrayFromText = text.toLowerCase().split("");
 
         for (String letter : vowel) {
@@ -52,6 +60,9 @@ public class StringUtil {
     }
 
     public int task9(String text) {
+        if (text == null) {
+            return -1;
+        }
         int count = 0;
         String[] arrayFromText = text.split("");
 
@@ -65,6 +76,9 @@ public class StringUtil {
     }
 
     public boolean task10(String text) {
+        if (text == null) {
+            return false;
+        }
         String textAfterReplace = text.replaceAll("[.!,?\\s]", "").toLowerCase();
         StringBuilder stringBuilder = new StringBuilder(textAfterReplace).reverse();
 
@@ -111,7 +125,6 @@ public class StringUtil {
     public String task13(String text) {
         String[] array = text.toUpperCase().split(" ");
 
-
         return array[0].substring(0, 1) + array[1].substring(0, 1);
     }
 
@@ -147,7 +160,6 @@ public class StringUtil {
     }
 
     public boolean task16(String[] array, String[] array2) {
-
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < array.length; i++) {
@@ -167,7 +179,6 @@ public class StringUtil {
         }
 
         return result.length() == 0;
-
     }
 
     public boolean task17(String[] array) {
@@ -198,6 +209,9 @@ public class StringUtil {
 
 
     public String task18(String text) {
+        if (text == null) {
+            return null;
+        }
         return text.replaceAll("(.)\\1+", "$1");
     }
 

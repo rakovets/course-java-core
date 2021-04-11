@@ -55,12 +55,8 @@ class Task01 {
      * @return полное имя сотрудника в обратном формате
      */
     static String reverseFullName(String fullName) {
-        String fullNameReverse = "";
+        String[] surname = fullName.split(" ");
 
-        for (int i = fullName.length() - 1; i >= 0; i--) {
-            fullNameReverse = fullNameReverse + fullName.charAt(i);
-        }
-
-        return fullNameReverse;
+        return surname[1]+" "+surname[0];
     }
 }

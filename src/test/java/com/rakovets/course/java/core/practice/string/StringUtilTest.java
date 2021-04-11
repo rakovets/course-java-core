@@ -146,6 +146,7 @@ public class StringUtilTest {
         return Stream.of(
                 Arguments.of("Do geese see God?", true),
                 Arguments.of("DD geese see God?", false),
+                Arguments.of(null, false),
                 Arguments.of(" 1991 ", true));
     }
 
@@ -253,6 +254,7 @@ public class StringUtilTest {
     static Stream<Arguments> provideArgumentsForTask18() {
         return Stream.of(
                 Arguments.of("11", "1"),
+                Arguments.of(null, null),
                 Arguments.of("HHi222", "Hi2"));
     }
 
