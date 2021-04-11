@@ -1,39 +1,35 @@
 package com.rakovets.course.java.core.practice.string;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class StringUtil {
 
-    public String glue(String text1, String text2) {
-        return text1.concat(text2);
+    public String glue(String firstText, String secondText) {
+        return firstText.concat(secondText);
     }
 
     public int characterIndex(String text, String symbol) {
         return text.indexOf(symbol);
     }
 
-    public boolean stringСomparison(String text1, String text2) {
-        return text1.equals(text2);
+    public boolean stringСomparison(String firstText, String secondText) {
+        return firstText.equals(secondText);
     }
 
-    public String removeSpace(String text1) {
-        return text1.trim().toUpperCase();
+    public String removeSpace(String text) {
+        return text.trim().toUpperCase();
     }
 
-    public String cut(String text1, int indexOne, int indexTwo) {
-        return text1.substring(indexOne, indexTwo);
+    public String cut(String text, int indexOne, int indexTwo) {
+        return text.substring(indexOne, indexTwo);
     }
 
-    public String replaceSmile(String text, String text1, String text2) {
-        return text.replace(text1, text2);
+    public String replaceSmile(String text, String replaceable, String substitute) {
+        return text.replace(replaceable, substitute);
     }
 
-    public boolean startsEndsWith(String text1, String word) {
-        return text1.startsWith(word) && text1.endsWith(word);
+    public boolean startsEndsWith(String text, String word) {
+        return text.startsWith(word) && text.endsWith(word);
     }
 
     public int vowelsCounter(String text) {
@@ -120,9 +116,9 @@ public class StringUtil {
         return text.replaceAll("[^0-9]", "");
     }
 
-    public String getIndividualSymbol(String text, String text2) {
-        String[] array = text.split("");
-        String[] array2 = text2.split("");
+    public String getIndividualSymbol(String firstText, String secondText) {
+        String[] array = firstText.split("");
+        String[] array2 = secondText.split("");
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < array.length; i++) {
@@ -146,22 +142,22 @@ public class StringUtil {
 
     }
 
-    public boolean arrayComparator(String[] array, String[] array2) {
+    public boolean arrayComparator(String[] firstArray, String[] secondArray) {
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array2.length; j++) {
-                if (array[i].equals(array2[j])) {
-                    array[i] = "";
-                    array2[j] = "";
+        for (int i = 0; i < firstArray.length; i++) {
+            for (int j = 0; j < secondArray.length; j++) {
+                if (firstArray[i].equals(secondArray[j])) {
+                    firstArray[i] = "";
+                    secondArray[j] = "";
                     break;
                 }
             }
         }
-        for (String word : array) {
+        for (String word : firstArray) {
             result = result.append(word);
         }
-        for (String word2 : array2) {
+        for (String word2 : secondArray) {
             result = result.append(word2);
         }
 
@@ -198,7 +194,6 @@ public class StringUtil {
     public String repeatRemover(String text) {
         return text.replaceAll("(.)\\1+", "$1");
     }
-
 
     public int fromRomeNumberInArabic(String Number) {
         if (Number == null) {
