@@ -8,12 +8,20 @@ public class Enemy implements Mortal {
     }
 
     public void takeDamage(int damage) {
-        health =- damage;
+        health -= damage;
     }
 
     public void attackHero(Hero hero) {
-        System.out.println("Враг атакует героя в ответ\n");
+        attackTemplate();
         hero.takeDamage(20);
+    }
+
+    public void attackTemplate() {
+        System.out.println("---Враг атакует героя---");
+    }
+
+    public void death() {
+        System.out.println("Враг повержен\nGAME WIN");
     }
 
     @Override
