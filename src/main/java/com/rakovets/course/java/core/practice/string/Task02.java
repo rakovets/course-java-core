@@ -33,20 +33,23 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        String[] numbersInArray = report.replaceAll("[^0-9$]", " ").split(" ");
+        String[] textInArray = report.split(" ");
         StringBuilder numbersInRow = new StringBuilder();
 
-        for (String word : numbersInArray) {
-            if (word.endsWith("$")) {
+        for (String word : textInArray) {
+            if (word.endsWith("$") && !word.replaceAll("[^-0-9$]", " ").startsWith(" ")) {
                 numbersInRow.append(word);
             }
         }
 
-        String[] numbersInArray2 = numbersInRow.toString().split("[$]");
-        double[] doubleNumbers = new double[numbersInArray2.length];
-        int index = 0;
+        String[] numbersInArray = numbersInRow.toString().split("[$]");
+        double[] doubleNumbers;
+        if (!numbersInArray[0].isEmpty()) {
+            doubleNumbers = new double[numbersInArray.length];
+        } else return new double[0];
 
-        for (String ss : numbersInArray2) {
+        int index = 0;
+        for (String ss : numbersInArray) {
             doubleNumbers[index] = Double.parseDouble(ss);
             index++;
         }

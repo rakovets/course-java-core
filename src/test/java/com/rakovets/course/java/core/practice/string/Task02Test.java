@@ -37,7 +37,6 @@ class Task02Test {
     @MethodSource("provideArguments")
     void getArrayMoneyFromReportTest(String report, double[] arrayMoney, double sumMoney) {
         double[] actual = Task02.getArrayMoneyFromReport(report);
-
         assertArrayEquals(actual, arrayMoney);
     }
 
