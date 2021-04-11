@@ -41,8 +41,8 @@ public class StringUtilTest {
 
         static Stream<Arguments> provideArgumentsForStringTrim() {
             return Stream.of(
-                    Arguments.of("  Hello World  ", "Hello World"),
-                    Arguments.of("  Hello  World  ", "Hello  World"),
+                    Arguments.of("  Hello World  ", "hello world"),
+                    Arguments.of("  Hello  World  ", "hello  world"),
                     Arguments.of("   ", "")
             );
         }

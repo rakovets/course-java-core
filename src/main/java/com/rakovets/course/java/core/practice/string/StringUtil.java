@@ -19,7 +19,7 @@ public class StringUtil {
     }
 
     public String stringTrim(String text) {
-        return text.trim();
+        return text.trim().toLowerCase();
     }
 
     public String subString(String text, int beginIndex, int endIndex) {
