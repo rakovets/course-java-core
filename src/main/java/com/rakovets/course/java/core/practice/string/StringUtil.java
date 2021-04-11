@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.string;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -167,8 +170,83 @@ public class StringUtil {
 
     }
 
+    public boolean task17(String[] array) {
+        String result = "";
+        long timeBefore = System.currentTimeMillis();
+
+        for (int i = 0; i < 5000; i++) {
+            for (String word : array) {
+                result = result + word;
+            }
+        }
+
+        long timeAfter = System.currentTimeMillis();
+
+        StringBuilder stringBuilderResult = new StringBuilder();
+        long timeBeforeSB = System.currentTimeMillis();
+
+        for (int j = 0; j < 5000; j++) {
+            for (String word : array) {
+                stringBuilderResult.append(word);
+            }
+        }
+
+        long timeAfterSB = System.currentTimeMillis();
+
+        return (timeAfter - timeBefore) > (timeAfterSB - timeBeforeSB);
+    }
+
+
     public String task18(String text) {
         return text.replaceAll("(.)\\1+", "$1");
     }
-}
 
+
+    public int task19(String Number) {
+
+        if (Number == null) {
+            return -1;
+        }
+
+        int[] array = new int[Number.length()];
+        int result = 0;
+
+        for (int i = 0; i < Number.length(); i++) {
+            switch (Number.charAt(i)) {
+                case 'M':
+                    array[i] = 1000;
+                    break;
+                case 'D':
+                    array[i] = 500;
+                    break;
+                case 'C':
+                    array[i] = 100;
+                    break;
+                case 'L':
+                    array[i] = 50;
+                    break;
+                case 'X':
+                    array[i] = 10;
+                    break;
+                case 'V':
+                    array[i] = 5;
+                    break;
+                case 'I':
+                    array[i] = 1;
+                    break;
+                default:
+                    return -1;
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            if (i == array.length - 1) {
+                result += array[i];
+            } else if (array[i] < array[i + 1]) {
+                result = result + (array[i + 1] - array[i]);
+                i += 1;
+            } else result += array[i];
+        }
+        return result;
+    }
+}

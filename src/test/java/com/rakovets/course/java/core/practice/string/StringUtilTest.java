@@ -88,8 +88,8 @@ public class StringUtilTest {
 
     static Stream<Arguments> provideArgumentsForTask6() {
         return Stream.of(
-                Arguments.of(":(",":(", ":)",":)"),
-                Arguments.of("JavaOrNothing :(",":(", ":)", "JavaOrNothing :)"));
+                Arguments.of(":(", ":(", ":)", ":)"),
+                Arguments.of("JavaOrNothing :(", ":(", ":)", "JavaOrNothing :)"));
     }
 
     @ParameterizedTest()
@@ -225,34 +225,60 @@ public class StringUtilTest {
 
     static Stream<Arguments> provideArgumentsForTask16() {
         return Stream.of(
-                Arguments.of(new String[]{"Java","Or","Nothing"}, new String[]{"Or","Java","Nothing"},true),
-                Arguments.of(new String[]{"Java","Or","Nothing"}, new String[]{"Or","Java","Nothing","Java"},false),
-                Arguments.of(new String[]{"Java","Or","Nothing","?"}, new String[]{"Or","Java","Nothing"},false));
+                Arguments.of(new String[]{"Java", "Or", "Nothing"}, new String[]{"Or", "Java", "Nothing"}, true),
+                Arguments.of(new String[]{"Java", "Or", "Nothing"}, new String[]{"Or", "Java", "Nothing", "Java"}, false),
+                Arguments.of(new String[]{"Java", "Or", "Nothing", "?"}, new String[]{"Or", "Java", "Nothing"}, false));
     }
 
     @ParameterizedTest()
     @MethodSource("provideArgumentsForTask16")
-    void task16(String []array, String []array2, boolean expected) {
+    void task16(String[] array, String[] array2, boolean expected) {
         boolean actual = stringUtil.task16(array, array2);
         Assertions.assertEquals(expected, actual);
     }
 
 
+    static Stream<Arguments> provideArgumentsForTask17() {
+        return Stream.of(
+                Arguments.of(new String[]{"Java"}, true));
+    }
 
-
+    @ParameterizedTest()
+    @MethodSource("provideArgumentsForTask17")
+    void task17(String[] array, boolean expected) {
+        boolean actual = stringUtil.task17(array);
+        Assertions.assertEquals(expected, actual);
+    }
 
     static Stream<Arguments> provideArgumentsForTask18() {
         return Stream.of(
-                Arguments.of("11","1" ),
-                Arguments.of("HHi222","Hi2"));
+                Arguments.of("11", "1"),
+                Arguments.of("HHi222", "Hi2"));
     }
 
     @ParameterizedTest()
     @MethodSource("provideArgumentsForTask18")
-    void task18(String text,String expected) {
+    void task18(String text, String expected) {
         String actual = stringUtil.task18(text);
         Assertions.assertEquals(expected, actual);
     }
 
+    static Stream<Arguments> provideArgumentsForTask19() {
+        return Stream.of(
+                Arguments.of("MCMLXIV", 1964),
+                Arguments.of("DCCC", 800),
+                Arguments.of("CM", 900),
+                Arguments.of("I", 1),
+                Arguments.of("MMMCMXCIX", 3999),
+                Arguments.of(null, -1),
+                Arguments.of("HI", -1));
+    }
+
+    @ParameterizedTest()
+    @MethodSource("provideArgumentsForTask19")
+    void task19(String text, int expected) {
+        int actual = stringUtil.task19(text);
+        Assertions.assertEquals(expected, actual);
+    }
 
 }
