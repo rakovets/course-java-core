@@ -16,36 +16,29 @@ public class StringUtil {
         return text.indexOf(symbol);
     }
 
-    public int compare(String text1, String text2) {
-        return text1.compareTo(text2);
+    public boolean stringСomparison(String text1, String text2) {
+        return text1.equals(text2);
     }
 
     public String removeSpace(String text1) {
         return text1.trim().toUpperCase();
     }
 
-    public String task5(String text1, int indexOne, int indexTwo) {
+    public String cut(String text1, int indexOne, int indexTwo) {
         return text1.substring(indexOne, indexTwo);
     }
 
-    public String task6(String text, String text1, String text2) {
+    public String replaceSmile(String text, String text1, String text2) {
         return text.replace(text1, text2);
     }
 
-    public boolean task7(String text1, String word) {
-        if (text1 == null || word == null) {
-            return false;
-        }
+    public boolean startsEndsWith(String text1, String word) {
         return text1.startsWith(word) && text1.endsWith(word);
     }
 
-    public int task8(String text) {
+    public int vowelsCounter(String text) {
         String[] vowel = new String[]{"a", "e", "i", "o", "y", "u"};
         int count = 0;
-
-        if (text == null) {
-            return -1;
-        }
 
         String[] arrayFromText = text.toLowerCase().split("");
 
@@ -59,10 +52,7 @@ public class StringUtil {
         return count;
     }
 
-    public int task9(String text) {
-        if (text == null) {
-            return -1;
-        }
+    public int PunctuationCounter(String text) {
         int count = 0;
         String[] arrayFromText = text.split("");
 
@@ -75,10 +65,7 @@ public class StringUtil {
         return count;
     }
 
-    public boolean task10(String text) {
-        if (text == null) {
-            return false;
-        }
+    public boolean palindrome(String text) {
         String textAfterReplace = text.replaceAll("[.!,?\\s]", "").toLowerCase();
         StringBuilder stringBuilder = new StringBuilder(textAfterReplace).reverse();
 
@@ -86,7 +73,7 @@ public class StringUtil {
     }
 
 
-    public String[] task11(String text, int length) {
+    public String[] lineSeparator(String text, int length) {
         String[] array;
 
         if (text.length() % length == 0) {
@@ -109,7 +96,7 @@ public class StringUtil {
         return array;
     }
 
-    public int task12(String text) {
+    public int wordCounter(String text) {
         String[] array = text.trim().split(" ");
         int count = 0;
 
@@ -122,18 +109,18 @@ public class StringUtil {
         return count;
     }
 
-    public String task13(String text) {
+    public String initialsOfTheName(String text) {
         String[] array = text.toUpperCase().split(" ");
 
         return array[0].substring(0, 1) + array[1].substring(0, 1);
     }
 
 
-    public String task14(String text) {
+    public String getAllDigits(String text) {
         return text.replaceAll("[^0-9]", "");
     }
 
-    public String task15(String text, String text2) {
+    public String getIndividualSymbol(String text, String text2) {
         String[] array = text.split("");
         String[] array2 = text2.split("");
         StringBuilder result = new StringBuilder();
@@ -159,7 +146,7 @@ public class StringUtil {
 
     }
 
-    public boolean task16(String[] array, String[] array2) {
+    public boolean arrayComparator(String[] array, String[] array2) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < array.length; i++) {
@@ -181,7 +168,7 @@ public class StringUtil {
         return result.length() == 0;
     }
 
-    public boolean task17(String[] array) {
+    public boolean speedComparator(String[] array) {
         String result = "";
         long timeBefore = System.currentTimeMillis();
 
@@ -208,16 +195,12 @@ public class StringUtil {
     }
 
 
-    public String task18(String text) {
-        if (text == null) {
-            return null;
-        }
+    public String repeatRemover(String text) {
         return text.replaceAll("(.)\\1+", "$1");
     }
 
 
-    public int task19(String Number) {
-
+    public int fromRomeNumberInArabic(String Number) {
         if (Number == null) {
             return -1;
         }

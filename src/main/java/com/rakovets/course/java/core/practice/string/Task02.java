@@ -18,7 +18,7 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        String bankReport = "Remaining 10$  12$ essentially 13$ uncha12nged900$.       100$";
+        String bankReport = "typetypesetting 100$ -12$remaining the 1960s with -12$ the release -36$ of Letraset Lorem";
 
         double[] moneyFromReport = getArrayMoneyFromReport(bankReport);
         System.out.printf("Money from the report: %s\n", Arrays.toString(moneyFromReport));

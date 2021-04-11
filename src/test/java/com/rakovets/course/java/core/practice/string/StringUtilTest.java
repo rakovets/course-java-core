@@ -26,8 +26,8 @@ public class StringUtilTest {
 
     @ParameterizedTest()
     @MethodSource("provideArgumentsForGlue")
-    void glueText(String str1, String str2, String expected) {
-        String actual = stringUtil.glue(str1, str2);
+    void glueTest(String firstText, String secondText, String expected) {
+        String actual = stringUtil.glue(firstText, secondText);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -40,24 +40,25 @@ public class StringUtilTest {
 
     @ParameterizedTest()
     @MethodSource("provideArgumentsForCharacterIndex")
-    void characterIndex(String str1, String str2, int expected) {
-        int actual = stringUtil.characterIndex(str1, str2);
+    void characterIndexTest(String text, String letter, int expected) {
+        int actual = stringUtil.characterIndex(text, letter);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForCompare() {
+    static Stream<Arguments> provideArgumentsForStringСomparison() {
         return Stream.of(
-                Arguments.of("a", "a", 0),
-                Arguments.of("a", "aaaa", -3),
-                Arguments.of("aa", "a", 1));
+                Arguments.of("a", "a", true),
+                Arguments.of("a", "aaaa", false),
+                Arguments.of("a", "A", false));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForCompare")
-    void compare(String str1, String str2, int expected) {
-        int actual = stringUtil.compare(str1, str2);
+    @MethodSource("provideArgumentsForStringСomparison")
+    void stringСomparisonTest(String firstText, String secondText, boolean expected) {
+        boolean actual = stringUtil.stringСomparison(firstText, secondText);
         Assertions.assertEquals(expected, actual);
     }
+
 
     static Stream<Arguments> provideArgumentsForRemoveSpace() {
         return Stream.of(
@@ -68,52 +69,52 @@ public class StringUtilTest {
 
     @ParameterizedTest()
     @MethodSource("provideArgumentsForRemoveSpace")
-    void remove(String str1, String expected) {
-        String actual = stringUtil.removeSpace(str1);
+    void removeSpaceTest(String text, String expected) {
+        String actual = stringUtil.removeSpace(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask5() {
+    static Stream<Arguments> provideArgumentsForCut() {
         return Stream.of(
                 Arguments.of("JavaOrNothing", 0, 4, "Java"),
                 Arguments.of("JavaOrNothing", 4, 6, "Or"));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask5")
-    void task5(String str1, int indexOne, int indexTwo, String expected) {
-        String actual = stringUtil.task5(str1, indexOne, indexTwo);
+    @MethodSource("provideArgumentsForCut")
+    void cutTest(String text, int indexOne, int indexTwo, String expected) {
+        String actual = stringUtil.cut(text, indexOne, indexTwo);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask6() {
+    static Stream<Arguments> provideArgumentsForReplaceSmile() {
         return Stream.of(
                 Arguments.of(":(", ":(", ":)", ":)"),
                 Arguments.of("JavaOrNothing :(", ":(", ":)", "JavaOrNothing :)"));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask6")
-    void task6(String text, String str1, String str2, String expected) {
-        String actual = stringUtil.task6(text, str1, str2);
+    @MethodSource("provideArgumentsForReplaceSmile")
+    void replaceSmileTest(String text, String firstLetter, String secondLetter, String expected) {
+        String actual = stringUtil.replaceSmile(text, firstLetter, secondLetter);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask7() {
+    static Stream<Arguments> provideArgumentsForStartsEndsWith() {
         return Stream.of(
                 Arguments.of("JavaOrNothing", "Java", false),
                 Arguments.of("JavaOrNothingJava", "Java", true));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask7")
-    void task7(String str1, String word, boolean expected) {
-        boolean actual = stringUtil.task7(str1, word);
+    @MethodSource("provideArgumentsForStartsEndsWith")
+    void startsEndsWithTest(String text, String word, boolean expected) {
+        boolean actual = stringUtil.startsEndsWith(text, word);
         Assertions.assertEquals(expected, actual);
     }
 
 
-    static Stream<Arguments> provideArgumentsForTask8() {
+    static Stream<Arguments> provideArgumentsForVowelsCounter() {
         return Stream.of(
                 Arguments.of("JavaOrNothing", 5),
                 Arguments.of("aeyuio", 6),
@@ -122,13 +123,13 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask8")
-    void task8(String str, int expected) {
-        int actual = stringUtil.task8(str);
+    @MethodSource("provideArgumentsForVowelsCounter")
+    void vowelsCounterTest(String text, int expected) {
+        int actual = stringUtil.vowelsCounter(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask9() {
+    static Stream<Arguments> provideArgumentsForPunctuationCounter() {
         return Stream.of(
                 Arguments.of("Java!OrNothing?", 2),
                 Arguments.of(",!?", 3),
@@ -136,40 +137,41 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask9")
-    void task9(String str, int expected) {
-        int actual = stringUtil.task9(str);
+    @MethodSource("provideArgumentsForPunctuationCounter")
+    void PunctuationCounterTest(String text, int expected) {
+        int actual = stringUtil.PunctuationCounter(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask10() {
+    static Stream<Arguments> provideArgumentsForPalindrome() {
         return Stream.of(
                 Arguments.of("Do geese see God?", true),
                 Arguments.of("DD geese see God?", false),
-                Arguments.of(null, false),
                 Arguments.of(" 1991 ", true));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask10")
-    void task10(String str, boolean expected) {
-        boolean actual = stringUtil.task10(str);
+    @MethodSource("provideArgumentsForPalindrome")
+    void palindromeTest(String text, boolean expected) {
+        boolean actual = stringUtil.palindrome(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask11() {
+    static Stream<Arguments> provideArgumentsForLineSeparator() {
         return Stream.of(
-                Arguments.of("123456789", 3, new String[]{"123", "456", "789"}));
+                Arguments.of("123456789", 3, new String[]{"123", "456", "789"}),
+                Arguments.of("12345", 1, new String[]{"1", "2", "3", "4", "5"}),
+                Arguments.of("123456789", 10, new String[]{"123456789"}));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask11")
-    void task11(String text, int length, String[] expected) {
-        String[] actual = stringUtil.task11(text, length);
-        Assertions.assertEquals(expected, actual);
+    @MethodSource("provideArgumentsForLineSeparator")
+    void lineSeparatorTest(String text, int length, String[] expected) {
+        String[] actual = stringUtil.lineSeparator(text, length);
+        Assertions.assertArrayEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask12() {
+    static Stream<Arguments> provideArgumentsForWordCounter() {
         return Stream.of(
                 Arguments.of("123 456 789", 3),
                 Arguments.of("123  456  789", 3),
@@ -178,53 +180,53 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask12")
-    void task12(String text, int expected) {
-        int actual = stringUtil.task12(text);
+    @MethodSource("provideArgumentsForWordCounter")
+    void wordCounterTest(String text, int expected) {
+        int actual = stringUtil.wordCounter(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask13() {
+    static Stream<Arguments> provideArgumentsForInitialsOfTheName() {
         return Stream.of(
                 Arguments.of("DmitRY RakOVets", "DR"),
                 Arguments.of("evgeni ermakov", "EE"));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask13")
-    void task13(String text, String expected) {
-        String actual = stringUtil.task13(text);
+    @MethodSource("provideArgumentsForInitialsOfTheName")
+    void initialsOfTheNameTest(String text, String expected) {
+        String actual = stringUtil.initialsOfTheName(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask14() {
+    static Stream<Arguments> provideArgumentsForGetAllDigits() {
         return Stream.of(
                 Arguments.of("900Java8orJava11", "900811"),
                 Arguments.of("900$ or 4$", "9004"));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask14")
-    void task14(String text, String expected) {
-        String actual = stringUtil.task14(text);
+    @MethodSource("provideArgumentsForGetAllDigits")
+    void getAllDigitsTest(String text, String expected) {
+        String actual = stringUtil.getAllDigits(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask15() {
+    static Stream<Arguments> provideArgumentsForGetIndividualSymbolTest() {
         return Stream.of(
                 Arguments.of("12345678vet", "1234567889privet", "89pri"),
                 Arguments.of("Java", "JavaOrNothing", "OrNothing"));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask15")
-    void task15(String text, String text2, String expected) {
-        String actual = stringUtil.task15(text, text2);
+    @MethodSource("provideArgumentsForGetIndividualSymbolTest")
+    void getIndividualSymbolTest(String firstText, String secondText, String expected) {
+        String actual = stringUtil.getIndividualSymbol(firstText, secondText);
         Assertions.assertEquals(expected, actual);
     }
 
 
-    static Stream<Arguments> provideArgumentsForTask16() {
+    static Stream<Arguments> provideArgumentsForArrayComparator() {
         return Stream.of(
                 Arguments.of(new String[]{"Java", "Or", "Nothing"}, new String[]{"Or", "Java", "Nothing"}, true),
                 Arguments.of(new String[]{"Java", "Or", "Nothing"}, new String[]{"Or", "Java", "Nothing", "Java"}, false),
@@ -232,40 +234,39 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask16")
-    void task16(String[] array, String[] array2, boolean expected) {
-        boolean actual = stringUtil.task16(array, array2);
+    @MethodSource("provideArgumentsForArrayComparator")
+    void arrayComparatorTest(String[] firstArray, String[] secondArray, boolean expected) {
+        boolean actual = stringUtil.arrayComparator(firstArray, secondArray);
         Assertions.assertEquals(expected, actual);
     }
 
 
-    static Stream<Arguments> provideArgumentsForTask17() {
+    static Stream<Arguments> provideArgumentsForSpeedComparator() {
         return Stream.of(
                 Arguments.of(new String[]{"Java"}, true));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask17")
-    void task17(String[] array, boolean expected) {
-        boolean actual = stringUtil.task17(array);
+    @MethodSource("provideArgumentsForSpeedComparator")
+    void speedComparatorTest(String[] array, boolean expected) {
+        boolean actual = stringUtil.speedComparator(array);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask18() {
+    static Stream<Arguments> provideArgumentsForRepeatRemover() {
         return Stream.of(
                 Arguments.of("11", "1"),
-                Arguments.of(null, null),
                 Arguments.of("HHi222", "Hi2"));
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask18")
-    void task18(String text, String expected) {
-        String actual = stringUtil.task18(text);
+    @MethodSource("provideArgumentsForRepeatRemover")
+    void repeatRemoverTest(String text, String expected) {
+        String actual = stringUtil.repeatRemover(text);
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForTask19() {
+    static Stream<Arguments> provideArgumentsForFromRomeNumberInArabic() {
         return Stream.of(
                 Arguments.of("MCMLXIV", 1964),
                 Arguments.of("DCCC", 800),
@@ -277,10 +278,9 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest()
-    @MethodSource("provideArgumentsForTask19")
-    void task19(String text, int expected) {
-        int actual = stringUtil.task19(text);
+    @MethodSource("provideArgumentsForFromRomeNumberInArabic")
+    void fromRomeNumberInArabicTest(String text, int expected) {
+        int actual = stringUtil.fromRomeNumberInArabic(text);
         Assertions.assertEquals(expected, actual);
     }
-
 }
