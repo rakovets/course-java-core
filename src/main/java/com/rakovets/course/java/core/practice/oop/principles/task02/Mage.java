@@ -10,10 +10,10 @@ public class Mage extends Hero {
     public void attackEnemy(Enemy enemy,int damage) {
         System.out.println("Your soul shall be mine!");
         enemy.getDamage(damage);
-        setHealth(getHealth()-takeDamegeFromEnemy(enemy));
+        setHealth(getHealth()-takeDamageFromEnemy(enemy));
     }
 
-    public int takeDamegeFromEnemy(Enemy enemy) {
+    public int takeDamageFromEnemy(Enemy enemy) {
 
         return enemy.attackBack();
     }

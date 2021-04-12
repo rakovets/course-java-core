@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.oop.principles.task02;
 public abstract class Hero implements Mortal {
     private String name;
     private int health;
+    private int poisonTouch;
 
     public Hero(String name, int health) {
         this.name = name;
@@ -11,7 +12,7 @@ public abstract class Hero implements Mortal {
 
     public abstract void attackEnemy(Enemy enemy, int damage);
 
-    public abstract int takeDamegeFromEnemy (Enemy enemy);
+    public abstract int takeDamageFromEnemy (Enemy enemy);
 
     public String getName() {
         return name;

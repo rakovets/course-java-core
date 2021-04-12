@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop.principles.task02;
 
-public class Enemy implements Mortal {
+public class Enemy implements Mortal,PoisonTouch {
     private int health;
     private int attack;
 
@@ -21,6 +21,10 @@ public class Enemy implements Mortal {
 
         return attack;
     }
+    @Override
+    public void poison(int poisonTouch) {
+
+    }
 
     public int getHealth() {
         return health;
@@ -37,4 +41,6 @@ public class Enemy implements Mortal {
     public void setAttack(int attack) {
         this.attack = attack;
     }
+
+
 }

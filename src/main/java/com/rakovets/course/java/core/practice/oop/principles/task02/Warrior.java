@@ -10,12 +10,12 @@ public class Warrior extends Hero {
     public void attackEnemy(Enemy enemy, int damage) {
         System.out.println("I will fight with honor!");
         enemy.getDamage(damage);
-        setHealth(getHealth()-takeDamegeFromEnemy(enemy));
+        setHealth(getHealth()-takeDamageFromEnemy(enemy));
 
     }
 
     @Override
-    public int takeDamegeFromEnemy(Enemy enemy) {
+    public int takeDamageFromEnemy(Enemy enemy) {
 
         return enemy.attackBack();
     }

@@ -10,10 +10,10 @@ public class Archer extends Hero {
     public void attackEnemy(Enemy enemy, int damage) {
         System.out.println("I will hunt you down!");
         enemy.getDamage(damage);
-        setHealth(getHealth()-takeDamegeFromEnemy(enemy));
+        setHealth(getHealth()-takeDamageFromEnemy(enemy));
     }
 
-    public int takeDamegeFromEnemy(Enemy enemy) {
+    public int takeDamageFromEnemy(Enemy enemy) {
 
         return enemy.attackBack();
     }
