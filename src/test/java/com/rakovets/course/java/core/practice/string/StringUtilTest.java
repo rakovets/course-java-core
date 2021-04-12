@@ -13,7 +13,7 @@ public class StringUtilTest {
    static  StringUtil stringUtil;
 
    @BeforeEach
-    void beforeEach (){
+    void beforeEach() {
        stringUtil = new StringUtil();
    }
 
@@ -27,7 +27,7 @@ public class StringUtilTest {
         }
     @ParameterizedTest(name = "Str1 - ''{0}'', Str2 ''{1}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForGlue")
-    void glueTest (String str1, String str2, String expected){
+    void glueTest(String str1, String str2, String expected) {
         // WHEN
         String actual = stringUtil.glue(str1,str2);
         //THEN
@@ -44,7 +44,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Char - ''{0}'', Str - ''{1}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForFindIndexOfSymbol")
-    void findIndexOfSymbolTest (char ch, String str2, int expected){
+    void findIndexOfSymbolTest(char ch, String str2, int expected) {
         // WHEN
         int actual = stringUtil.findIndexOfSymbol(ch,str2);
         //THEN
@@ -61,7 +61,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Str1 - ''{0}'', Str - ''{1}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForCompareLines")
-    void compareLinesTest (String str1, String str2, boolean expected){
+    void compareLinesTest(String str1, String str2, boolean expected) {
         // WHEN
         boolean actual = stringUtil.compareLines(str1,str2);
         //THEN
@@ -81,7 +81,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Str - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForCutAndLowerCase")
-    void cutAndLowerCaseTest (String str, String expected){
+    void cutAndLowerCaseTest(String str, String expected) {
         // WHEN
         String  actual = stringUtil.cutAndLowerCase(str);
         //THEN
@@ -97,7 +97,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Str - ''{0}'', IndexBegin - ''{1}'', IndexEnd - ''{2}'', IndexEnd - ''{3}'',  Expected: ''{4}''")
     @MethodSource("provideArgumentsForPieceExtraction")
-    void pieceExtractionTest (String str, int indexBegin, int indexEnd, String expected){
+    void pieceExtractionTest(String str, int indexBegin, int indexEnd, String expected) {
         // WHEN
         String  actual = stringUtil.pieceExtraction(str,indexBegin,indexEnd);
         //THEN
@@ -113,7 +113,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Str - ''{0}'', Str2 - ''{1}'', Str3 - ''{2}'',  Expected: ''{3}''")
     @MethodSource("provideArgumentsForReplaceEmoji")
-    void pieceExtractionTest (String str1, String str2, String str3, String expected){
+    void pieceExtractionTest(String str1, String str2, String str3, String expected) {
         // WHEN
         String  actual = stringUtil.replaceEmoji(str1,str2, str3);
         //THEN
@@ -130,7 +130,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Word - ''{1}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForCorrectBegin")
-    void correctBeginTest (String text, String word, boolean expected){
+    void correctBeginTest(String text, String word, boolean expected) {
         // WHEN
         boolean actual = stringUtil.correctBegin(text, word);
         //THEN
@@ -147,7 +147,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForNumberOfEnglishVowelLetters")
-    void numberOfEnglishVowelLettersTest (String text, int expected){
+    void numberOfEnglishVowelLettersTest(String text, int expected) {
         // WHEN
         int actual = stringUtil.numberOfEnglishVowelLetters(text);
         //THEN
@@ -164,7 +164,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForNumberOfPunctuationMarks")
-    void numberOfPunctuationMarksTest (String text, int expected){
+    void numberOfPunctuationMarksTest(String text, int expected) {
         // WHEN
         int actual = stringUtil.numberOfPunktuationMarks(text);
         //THEN
@@ -181,7 +181,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForPalindromChekOut")
-    void palindromChekOutTest (String text, boolean expected){
+    void palindromChekOutTest(String text, boolean expected) {
         // WHEN
         boolean actual = stringUtil.palindromChekOut(text);
         //THEN
@@ -190,14 +190,14 @@ public class StringUtilTest {
 
     static Stream<Arguments> provideArgumentsForSplitText() {
         return Stream.of(
-                Arguments.of("OneTwoThreeFourFiveSixSeven", 3, new String[]{"One", "Two", "Three", "Four", "Five", "Six", "Seven"}),
+                Arguments.of("OneTwoSix", 3, new String[]{"One", "Two", "Six"}),
                 Arguments.of("123456",1, new String[]{"1", "2", "3", "4", "5", "6"}),
-                Arguments.of("12345", 2, new String[]{"12", "34", "5 "})
+                Arguments.of("12345", 2, new String[]{"12", "34", "5"})
         );
     }
     @ParameterizedTest(name = "Text - ''{0}'', NumberOfChars - ''{2}'', Expected: ''{2}''")
     @MethodSource("provideArgumentsForSplitText")
-    void splitTextTest (String text, int numberSymbols, String[] expected){
+    void splitTextTest(String text, int numberSymbols, String[] expected) {
         // WHEN
         String[] actual = stringUtil.splitText(text,numberSymbols);
         //THEN
@@ -214,7 +214,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForNumberOfWords")
-    void numberOfWordsTest (String text, int expected){
+    void numberOfWordsTest(String text, int expected) {
         // WHEN
         int actual = stringUtil.numberOfWords(text);
         //THEN
@@ -231,7 +231,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForGetFirstLetters")
-    void getFirstLettersTest (String text, String expected){
+    void getFirstLettersTest(String text, String expected) {
         // WHEN
         String actual = stringUtil.getFirstLetters(text);
         //THEN
@@ -247,7 +247,7 @@ public class StringUtilTest {
     }
     @ParameterizedTest(name = "Text - ''{0}'', Expected: ''{1}''")
     @MethodSource("provideArgumentsForGetAllNumbers")
-    void getAllNumbersTest (String text, String expected){
+    void getAllNumbersTest(String text, String expected) {
         // WHEN
         String actual = stringUtil.getAllNumbers(text);
         //THEN
@@ -299,21 +299,6 @@ public class StringUtilTest {
     void replaceSameSymbolsTest(String str, String expected) {
         // WHEN
         String actual = stringUtil.replaceSameSymbols(str);
-        //THEN
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> provideArgumentsForCompareSpeed() {
-        return Stream.of(
-                Arguments.of("ax", true),
-                Arguments.of("123", true)
-        );
-    }
-    @ParameterizedTest(name = "Str - ''{0}'', Expected: ''{1}''")
-    @MethodSource("provideArgumentsForCompareSpeed")
-    void compareSpeedTest(String str, boolean expected) {
-        // WHEN
-        boolean actual = stringUtil.compareSpeed(str);
         //THEN
         Assertions.assertEquals(expected, actual);
     }

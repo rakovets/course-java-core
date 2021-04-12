@@ -34,19 +34,19 @@ public class StringUtil {
         return result;
     }
 
-    public String replaceEmoji(String str1, String str2, String str3){
+    public String replaceEmoji(String str1, String str2, String str3) {
         return  str1.replace(str2,str3);
     }
 
-    public boolean correctBegin( String text, String word){
+    public boolean correctBegin( String text, String word) {
         return text.startsWith(word) && text.endsWith(word) ;
     }
 
     public int numberOfEnglishVowelLetters(String text) {
-        int countVowel=0;
+        int countVowel = 0;
         Pattern pattern = Pattern.compile("[aAeEiIoOuU]");
         Matcher matcher = pattern.matcher(text);
-        while (matcher.find()){
+        while (matcher.find()) {
             countVowel++;
         }
 
@@ -54,10 +54,10 @@ public class StringUtil {
     }
 
     public int numberOfPunktuationMarks(String text) {
-        int countOfPunctuationMarks=0;
+        int countOfPunctuationMarks = 0;
         Pattern pattern = Pattern.compile("[.,!?]");
         Matcher matcher = pattern.matcher(text);
-        while (matcher.find()){
+        while (matcher.find()) {
             countOfPunctuationMarks++;
         }
 
@@ -72,14 +72,14 @@ public class StringUtil {
     public String[] splitText(String  text, int numberSymbols) {
         String[] splitText;
         int j = 0;
-        if(text.length() % numberSymbols != 0){
-            splitText = new String[text.length()/numberSymbols+1];
-        } else{
-            splitText = new String[text.length()/numberSymbols];
+        if(text.length() % numberSymbols != 0) {
+            splitText = new String[text.length() / numberSymbols+1];
+        } else {
+            splitText = new String[text.length() / numberSymbols];
         }
 
-        for(int i = 0; i < text.length() ; i += numberSymbols){
-            if(text.length()-i < numberSymbols) {
+        for(int i = 0; i < text.length() ; i += numberSymbols) {
+            if(text.length() - i < numberSymbols) {
                 splitText[j] = text.substring(i);
             } else {
                 splitText[j] = text.substring(i, i + numberSymbols);
@@ -91,7 +91,7 @@ public class StringUtil {
     }
 
     public int numberOfWords(String text) {
-        int countWords=0;
+        int countWords = 0;
         Pattern pattern = Pattern.compile("[a-zA-Zа-яА-Я]+");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
@@ -111,11 +111,11 @@ public class StringUtil {
         return  firstLetters;
     }
 
-    public String getAllNumbers(String text){
+    public String getAllNumbers(String text) {
         String allNumbers = "";
         Pattern pattern = Pattern.compile("\\d");
         Matcher matcher = pattern.matcher(text);
-        while (matcher.find()){
+        while (matcher.find()) {
             allNumbers += matcher.group();
         }
 
@@ -127,10 +127,10 @@ public class StringUtil {
         char[] firstWordChars = firsWord.toCharArray();
         char[] secondWordChars = secondWord.toCharArray();
 
-        for (char firstWordChar : firstWordChars){
+        for(char firstWordChar : firstWordChars) {
             int count = 0;
-            for (int i = 0; i < secondWordChars.length; i++){
-                if(firstWordChar == secondWordChars[i]){
+            for (int i = 0; i < secondWordChars.length; i++) {
+                if(firstWordChar == secondWordChars[i]) {
                     count ++;
                     secondWordChars[i] = ' ';
                     break;
@@ -145,16 +145,17 @@ public class StringUtil {
                 result += secondWordChars[i];
             }
         }
+
         return  result;
     }
 
     public boolean isSameArrays(String[] arrOnes, String[] arrTwos){
 
-        for(int i = 1; i < arrOnes.length; i++){
-            for(int j = 1; j < arrTwos.length; j++){
-                if(arrOnes[i].equals(arrTwos[j])){
-                    arrOnes[i]="";
-                    arrTwos[j]="";
+        for(int i = 1; i < arrOnes.length; i++) {
+            for(int j = 1; j < arrTwos.length; j++) {
+                if(arrOnes[i].equals(arrTwos[j])) {
+                    arrOnes[i] = "";
+                    arrTwos[j] = "";
                 }
             }
         }
@@ -172,7 +173,7 @@ public class StringUtil {
         }
         String[] sameSymbolsArray = sameSymbols.split("\\s");
 
-        for (String s : sameSymbolsArray) {
+        for(String s : sameSymbolsArray) {
             String temp2 = "";
             char[] same = s.toCharArray();
             temp2 += same[0];
@@ -182,27 +183,31 @@ public class StringUtil {
         return result;
     }
 
-    public boolean compareSpeed(String str){
+    public long[] compareSpeed(String str) {
         String result1 = "";
         String result2 = "";
         long timeForString = 0;
         long timeForStringBuilder = 0;
 
         Date startString = new Date(System.currentTimeMillis());
-        for(int i = 0; i <= 50; i++){
+        for(int i = 0; i <= 50; i++) {
             result1 += str;
         }
         Date finishString = new Date(System.currentTimeMillis());
         timeForString = finishString.getTime() - startString.getTime();
         Date startStringBuilder  = new Date(System.currentTimeMillis());
         StringBuilder bl = new StringBuilder(result2);
-        for (int i = 1; i <=50; i++){
+        for(int i = 1; i <= 50; i++) {
             bl.append(str);
         }
         Date finishStringBuilder = new Date(System.currentTimeMillis());
         timeForStringBuilder = finishStringBuilder.getTime() - startStringBuilder.getTime();
 
-        return timeForStringBuilder < timeForString;
+        long[] results = new long[2];
+        results[0] = timeForString;
+        results[1]= timeForStringBuilder;
+
+        return results;
     }
 
 
