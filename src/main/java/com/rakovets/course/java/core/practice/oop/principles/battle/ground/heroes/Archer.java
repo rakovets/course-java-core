@@ -1,4 +1,6 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop.principles.battle.ground.heroes;
+
+import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Enemy;
 
 public class Archer extends Hero {
 
@@ -56,10 +58,10 @@ public class Archer extends Hero {
 
     public void attackTemplate(int numberOfTemplate) {
         String[] templateList = new String[4];
-        templateList[0] = "---Герой атакует врага и наносит 10 урона---";
-        templateList[1] = "---Герой выпускает шальной выстрел и наносит---";
-        templateList[2] = "---Герой стреляет в голову и наносит 30 урона---";
-        templateList[3] = "---Герой становится в защиту---";
+        templateList[0] = "---" + getName() + " атакует врага и наносит 10 урона---";
+        templateList[1] = "---" + getName() + " выпускает шальной выстрел и наносит---";
+        templateList[2] = "---" + getName() + " стреляет в голову и наносит 30 урона---";
+        templateList[3] = "---" + getName() + " становится в защиту---";
         System.out.println(templateList[numberOfTemplate]);
     }
 }

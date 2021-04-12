@@ -1,4 +1,6 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop.principles.battle.ground.heroes;
+
+import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Enemy;
 
 public abstract class Hero {
     private final String name;

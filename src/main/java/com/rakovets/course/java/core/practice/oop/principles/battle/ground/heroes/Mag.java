@@ -1,4 +1,6 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop.principles.battle.ground.heroes;
+
+import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Enemy;
 
 public class Mag extends Hero {
 
@@ -28,7 +30,7 @@ public class Mag extends Hero {
         System.out.println("Атака - герой атакует врага обычной атакой.\n" +
                 "Дыхание дракона - используя посох, герой выпускает большой сгусток огня (Урон 50).\n" +
                 "Ядовитый туман - герой вызвает ядовитое облако, которое наносит урон каждый ход (2 урона за ход).\n" +
-                "Защита - герой становится в защитную позу и с шансом 50% может уклонится от атаки\n");
+                "Защита - герой становится в защитную позу и с шансом 50% может уклониться от атаки.\n");
     }
 
     @Override
@@ -55,10 +57,10 @@ public class Mag extends Hero {
 
     public void attackTemplate(int numberOfTemplate) {
         String[] templateList = new String[4];
-        templateList[0] = "---Герой атакует врага и наносит 10 урона---";
-        templateList[1] = "---Герой герой выпускает большой сгусток огня и наносит 50 урона---";
-        templateList[2] = "---Герой вызвал ядовитый туман и нанёс 20 урона---";
-        templateList[3] = "---Герой становится в защиту---";
+        templateList[0] = "---" + getName() + " атакует врага и наносит 10 урона---";
+        templateList[1] = "---" + getName() + " выпускает большой сгусток огня и наносит 50 урона---";
+        templateList[2] = "---" + getName() + " вызвал ядовитый туман и нанёс 20 урона---";
+        templateList[3] = "---" + getName() + " становится в защиту---";
         System.out.println(templateList[numberOfTemplate]);
     }
 }
