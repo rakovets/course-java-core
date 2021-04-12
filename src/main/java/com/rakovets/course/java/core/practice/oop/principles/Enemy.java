@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
-public class Enemy implements Mortal {
+public abstract class Enemy implements Mortal {
     private int health;
 
     public Enemy(int health) {
@@ -16,8 +16,10 @@ public class Enemy implements Mortal {
     }
 
     public void takeDamage(int damage) {
-        this.health = this.health - damage;
+        this.health = this.health + damage;
     }
+
+    public abstract void attackEnemy(Hero hero);
 
     @Override
     public boolean isAlive() {
