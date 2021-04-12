@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.cats.home;
 
 public class Siamese extends Cat {
+
     public Siamese(String name) {
         super(name);
     }

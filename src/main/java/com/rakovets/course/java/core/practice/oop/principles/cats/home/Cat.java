@@ -15,7 +15,7 @@ public class Cat {
         person.changeHappiness(-20);
     }
 
-    public String purr() { ;
+    public String purr() {
         return "purr";
     }
 

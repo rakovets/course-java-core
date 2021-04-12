@@ -1,13 +1,14 @@
 package com.rakovets.course.java.core.practice.oop.principles.cats.home;
 
 public class Sphinx extends Cat {
+
     public Sphinx(String name) {
         super(name);
     }
 
     @Override
     public String mew() {
-        return "aboba";
+        return "bababoi";
     }
 
     @Override
