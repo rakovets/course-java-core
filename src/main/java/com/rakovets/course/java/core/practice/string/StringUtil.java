@@ -12,31 +12,37 @@ public class StringUtil {
 
     //task2
     public int indexSearch(String str, char symbol) {
+
         return str.indexOf(symbol);
     }
 
     //task3
     public boolean comparingString(String str1, String str2) {
+
         return str1.equals(str2);
     }
 
     //task4
     public String modificationString(String str) {
+
         return str.trim().toUpperCase();
     }
 
     //task5
     public String getSubstring(String str, int begin, int end) {
+
         return str.substring(begin, end);
     }
 
     //task6
     public String replaceEmoji(String str, String symbol1, String symbol2) {
+
         return str.replace(symbol1, symbol2);
     }
 
     //task7
     public boolean startEndWith(String text, String word) {
+
         return text.startsWith(word) && text.endsWith(word);
     }
 
@@ -69,5 +75,35 @@ public class StringUtil {
         str = str.toLowerCase();
         str = str.replaceAll("[.,!?;:\\s]","");
         return str.equals((new StringBuilder(str)).reverse().toString());
+    }
+
+    //task11
+    public String[] arrayOfSubstrings(String str, int n) {
+        return str.split("(?<=\\G.{" + n + "})");
+    }
+
+    //task12
+    public int countWords(String str){
+        String[] countWords = str.split("\\s+");
+        return countWords.length;
+    }
+
+    //task13
+    public String initials(String str) {
+        String[] words = str.toUpperCase().split(" ");
+
+        return "" + words[0].charAt(0) + words[1].charAt(0);
+    }
+
+    //task14
+    public String digitsInString(String str) {
+        String digitsInString = "";
+
+        Pattern pattern = Pattern.compile("[0-9]");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+            digitsInString += matcher.group();
+        }
+        return digitsInString;
     }
 }
