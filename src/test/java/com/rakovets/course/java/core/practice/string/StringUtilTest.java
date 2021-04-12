@@ -226,4 +226,87 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    //task11
+    static Stream<Arguments> provideArgumentsForArrayOfSubstrings() {
+        return Stream.of(
+                Arguments.of("My and only my", 2, new String[]{"My", " a", "nd", " o", "nl", "y ", "my"}),
+                Arguments.of("Do geese see God", 4, new String[]{"Do g", "eese", " see", " God"}),
+                Arguments.of("1991", 1, new String[]{"1", "9", "9", "1"}),
+                Arguments.of("deed", 0, new String[]{"deed"})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForArrayOfSubstrings")
+    void arrayOfSubstringsTest(String str, int n, String[] expected) {
+        //GIVEN
+        //WHEN
+        String[] actual = stringUtil.arrayOfSubstrings(str, n);
+
+        //THEN
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //task12
+    static Stream<Arguments> provideArgumentsForCountWords() {
+        return Stream.of(
+                Arguments.of("My and only my", 4),
+                Arguments.of("Do geese   see God", 4),
+                Arguments.of("1991  ", 1),
+                Arguments.of("deed", 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForCountWords")
+    void countWordsTest(String str, int expected) {
+        //GIVEN
+        //WHEN
+        int actual = stringUtil.countWords(str);
+
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task13
+    static Stream<Arguments> provideArgumentsForInitials() {
+        return Stream.of(
+                Arguments.of("TatSiANA PUchkouskaYa", "TP"),
+                Arguments.of("DmitRY RakOVets", "DR"),
+                Arguments.of("irina moroz", "IM"),
+                Arguments.of("PiOTr belY", "PB")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForInitials")
+    void initialsTest(String str, String expected) {
+        //GIVEN
+        //WHEN
+        String actual = stringUtil.initials(str);
+
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //task14
+    static Stream<Arguments> provideArgumentsForDigitsInString() {
+        return Stream.of(
+                Arguments.of("TatSiANA123 PUchkouskaYa568", "123568"),
+                Arguments.of("08 juli 1987", "081987"),
+                Arguments.of("irina moroz", ""),
+                Arguments.of("12.02,2021", "12022021")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForDigitsInString")
+    void digitsInStringTest(String str, String expected) {
+        //GIVEN
+        //WHEN
+        String actual = stringUtil.digitsInString(str);
+
+        //THEN
+        Assertions.assertEquals(expected, actual);
+    }
 }
