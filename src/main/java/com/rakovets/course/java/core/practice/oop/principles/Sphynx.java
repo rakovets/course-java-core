@@ -7,21 +7,21 @@ public class Sphynx extends Cat {
 
     @Override
     public String mew() {
-        return "Убей меня!";
+        return "Kill me!";
     }
 
     @Override
     public String purr() {
-        return "Причини мне боль!";
+        return "Make me die!";
     }
 
     @Override
     public void mew(Person person) {
-        person.changeHappiness(-7);
+        person.changeHappiness(-10);
     }
 
     @Override
     public void purr(Person person) {
-        person.changeHappiness(+8);
+        person.changeHappiness(+1);
     }
 }

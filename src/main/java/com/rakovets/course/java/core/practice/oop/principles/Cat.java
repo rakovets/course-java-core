@@ -8,19 +8,19 @@ public class Cat {
     }
 
     public  String mew(){
-        return "Мяу";
+        return "May";
     }
 
     public void mew(Person person){
-        person.changeHappiness(-10);
+        person.changeHappiness(-15);
     }
 
     public String purr(){
-        return "Мур";
+        return "Myp";
     }
 
     public void purr(Person person){
-        person.changeHappiness(+10);
+        person.changeHappiness(+15);
     }
 
     public String getName() {

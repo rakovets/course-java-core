@@ -16,6 +16,6 @@ public class Person {
     }
 
     public int getHappiness() {
-        return happiness;
+        return this.happiness;
     }
 }
