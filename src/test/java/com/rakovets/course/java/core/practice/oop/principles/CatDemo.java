@@ -38,7 +38,6 @@ public class CatDemo {
         System.out.printf("Person happiness: %s\n", person.getHappiness());
         sphinx.mew(person);
         System.out.printf("Person happiness: %s\n", person.getHappiness());
-        System.out.printf("Person happiness: %s\n", person.getHappiness());
         cat.purr(person);
         System.out.printf("Person happiness: %s\n", person.getHappiness());
         persian.purr(person);
