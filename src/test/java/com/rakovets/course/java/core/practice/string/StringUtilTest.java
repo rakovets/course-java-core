@@ -128,5 +128,88 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actualString);
     }
 
+    static Stream<Arguments> numberEnglishVowelsProvideArguments() {
+        return Stream.of(
+                Arguments.of("Java", 2),
+                Arguments.of(" is The best", 3),
+                Arguments.of("programmiiiing", 6),
+                Arguments.of("   ", 0),
+                Arguments.of("iii iii iii", 9)
+        );
+    }
 
+    @ParameterizedTest
+    @MethodSource("numberEnglishVowelsProvideArguments")
+    void numberEnglishVowelsTest(String string, int expected) {
+        int actual = StringUtil.numberEnglishVowels(string);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> numberPunctuationMarksProvideArguments() {
+        return Stream.of(
+                Arguments.of("Java..", 2),
+                Arguments.of(" is. The, best !!", 4),
+                Arguments.of("programmiiiing", 0),
+                Arguments.of(" ,,,...!!!???  ", 12),
+                Arguments.of(".", 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("numberPunctuationMarksProvideArguments")
+    void numberPunctuationMarksTest(String string, int expected) {
+        int actual = StringUtil.numberPunctuationMarks(string);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> checkEnteredPalindromeProvideArguments() {
+        return Stream.of(
+                Arguments.of("Java", false),
+                Arguments.of("prog gorp", true),
+                Arguments.of("1234554321", true),
+                Arguments.of("1 1", true),
+                Arguments.of("babBa b", true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("checkEnteredPalindromeProvideArguments")
+    void checkEnteredPalindromeTest(String string, boolean expected) {
+        boolean actual = StringUtil.checkEnteredPalindrome(string);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> splitTextEqualPartsStoreArrayProvideArguments() {
+        return Stream.of(
+                Arguments.of("Java", 2, "[Ja, va]"),
+                Arguments.of("is The best", 6, "[is The,  best]"),
+                Arguments.of("programming", 5, "[progr, ammin, g]"),
+                Arguments.of("123456789", 2, "[12, 34, 56, 78, 9]"),
+                Arguments.of("in the  universe", 15, "[in the  univers, e]")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("splitTextEqualPartsStoreArrayProvideArguments")
+    void splitTextEqualPartsStoreArrayTest(String text, int n, String expected) {
+        String actual = StringUtil.splitTextEqualPartsStoreArray(text, n);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> countNumberWordsProvideArguments() {
+        return Stream.of(
+                Arguments.of("Java", 1),
+                Arguments.of("is The best", 3),
+                Arguments.of("prog  ramming", 2),
+                Arguments.of("lan  gua  ge", 3),
+                Arguments.of("in the  universe 11", 4)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("countNumberWordsProvideArguments")
+    void countNumberWordsTest(String text, int expected) {
+        int actual = StringUtil.countNumberWords(text);
+        Assertions.assertEquals(expected, actual);
+    }
 }
