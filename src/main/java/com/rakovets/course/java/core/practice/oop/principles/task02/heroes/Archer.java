@@ -1,11 +1,12 @@
 package com.rakovets.course.java.core.practice.oop.principles.task02.heroes;
 
 import com.rakovets.course.java.core.practice.oop.principles.task02.enemies.Enemy;
+import com.rakovets.course.java.core.practice.oop.principles.task02.heroSkills.AtackSkills;
 
 public class Archer extends Hero {
 
-    public Archer(String name, int health,int attack){
-        super(name, health, attack);
+    public Archer(String name, int health, int attack, AtackSkills atackSkills){
+        super(name, health, attack, atackSkills);
     }
 
     @Override
@@ -16,6 +17,11 @@ public class Archer extends Hero {
 
     @Override
     public void getDamageFromEnemy(int damage) {
+        super.setHealth(getHealth()-damage);
+    }
+
+    public void attackBySkill(Enemy enemy) {
+        enemy.getDamage(super.getAtackSkills().useSkill(enemy));
 
     }
 
