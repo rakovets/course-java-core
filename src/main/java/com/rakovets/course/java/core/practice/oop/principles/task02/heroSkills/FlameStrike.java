@@ -10,13 +10,13 @@ public class FlameStrike extends AtackSkills {
 
     @Override
     public int useSkill(Enemy enemy) {
-        int damegeTOEnemy = DAMAGE;
+        int damegeToEnemy = DAMAGE;
         if (enemy instanceof Demon) {
-            damegeTOEnemy /= 2;
+            damegeToEnemy = damegeToEnemy / 2;
         } else if(enemy instanceof Elemental) {
-            damegeTOEnemy *= 0.1;
+            damegeToEnemy *= 0.1;
         }
 
-        return damegeTOEnemy;
+        return damegeToEnemy;
     }
 }

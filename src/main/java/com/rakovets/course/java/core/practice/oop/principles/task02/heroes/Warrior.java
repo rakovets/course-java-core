@@ -17,12 +17,12 @@ public class Warrior extends Hero {
 
     @Override
     public void getDamageFromEnemy(int damage) {
-        super.setHealth(getHealth()-damage);
+        setHealth(getHealth() - damage);
     }
 
     @Override
     public void attackBySkill(Enemy enemy) {
-       enemy.getDamage(super.getAtackSkills().useSkill(enemy));
+       enemy.getDamage(getAtackSkills().useSkill(enemy));
 
     }
 

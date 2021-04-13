@@ -1,15 +1,18 @@
 package com.rakovets.course.java.core.practice.oop.principles.task02.enemies;
 
 import com.rakovets.course.java.core.practice.oop.principles.task02.Mortal;
-import com.rakovets.course.java.core.practice.oop.principles.task02.PoisonTouch;
+import com.rakovets.course.java.core.practice.oop.principles.task02.enemies.enemySkills.EnemyAttakSkills;
 import com.rakovets.course.java.core.practice.oop.principles.task02.heroes.Hero;
 
-public abstract class Enemy implements Mortal, PoisonTouch {
+public abstract class Enemy implements Mortal {
     private int health;
     private int attack;
+    private EnemyAttakSkills enemyAttakSkills;
 
-    public Enemy(int health, int attack) {
+    public Enemy(int health, int attack, EnemyAttakSkills enemyAttakSkills) {
         this.health = health;
+        this.attack = attack;
+        this.enemyAttakSkills = enemyAttakSkills;
     }
 
     public abstract void getDamage(int damage);
@@ -18,11 +21,6 @@ public abstract class Enemy implements Mortal, PoisonTouch {
     public abstract boolean isAlive();
 
     public abstract void attack(Hero hero);
-
-    @Override
-    public void poison(int poisonTouch) {
-
-    }
 
     public int getHealth() {
         return health;
@@ -40,5 +38,11 @@ public abstract class Enemy implements Mortal, PoisonTouch {
         this.attack = attack;
     }
 
+    public EnemyAttakSkills getEnemyAttakSkills() {
+        return enemyAttakSkills;
+    }
 
+    public void setEnemyAttakSkills(EnemyAttakSkills enemyAttakSkills) {
+        this.enemyAttakSkills = enemyAttakSkills;
+    }
 }

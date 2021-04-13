@@ -3,9 +3,9 @@ package com.rakovets.course.java.core.practice.oop.principles.task01test;
 import com.rakovets.course.java.core.practice.oop.principles.task01.Cat;
 import com.rakovets.course.java.core.practice.oop.principles.task01.Person;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 public class CatTest {
     static Cat cat;
