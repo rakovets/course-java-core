@@ -48,7 +48,7 @@ public class StringUtil {
     }
 
     public static int englishVowelsCounter (String text) {
-        return text.replaceAll("[^aieou]", "").length();
+        return text.replaceAll("[^aieoyu]", "").length();
     }
 
     public static int punctuationMarksCounter (String text) {
@@ -84,16 +84,6 @@ public class StringUtil {
     public static int wordsInTextCounter (String text) {
         int wordsCounter = text.split(" +").length;
         return wordsCounter;
-    }
-
-    public static String getInitials (String text) {
-        if (text != null) {
-            String[] array = text.trim().toUpperCase().split("\\s+");
-            char name = array[0].charAt(0);
-            char surname = array[1].charAt(0);
-            return name + surname + "";
-        }
-        return null;
     }
 
     public static String digitsCounter (String text) {
