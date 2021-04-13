@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class StringUtilTest {
-
+//01
     static Stream<Arguments> gluingTwoStringsProviderArguments() {
         return Stream.of(
                 Arguments.of("Hello", "Java", "HelloJava"),
@@ -25,7 +25,7 @@ public class StringUtilTest {
         String actualString = StringUtil.gluingTwoStrings(string1, string2);
         Assertions.assertEquals(expectedString, actualString);
     }
-
+//02
     static Stream<Arguments> searchIndexCharacterProvideArguments() {
         return Stream.of(
                 Arguments.of("J", "Java", "0"),
@@ -42,7 +42,7 @@ public class StringUtilTest {
         int actualIndex = StringUtil.searchIndexCharacter(character, string);
         Assertions.assertEquals(expectedIndex, actualIndex);
     }
-
+//03
     static Stream<Arguments> caseSensitiveStringComparisonProvideArguments() {
         return Stream.of(
                 Arguments.of("language", "language", true),
@@ -59,7 +59,7 @@ public class StringUtilTest {
         boolean actual = StringUtil.caseSensitiveStringComparison(string1, string2);
         Assertions.assertEquals(expectedComparison, actual);
     }
-
+//04
     static Stream<Arguments> removeSpacesStringAndUppercaseLettersProvideArguments() {
         return Stream.of(
                 Arguments.of("  Java  ", "JAVA"),
@@ -76,7 +76,7 @@ public class StringUtilTest {
         String actualString = StringUtil.removeSpacesStringAndUppercaseLetters(string);
         Assertions.assertEquals(expected, actualString);
     }
-
+//05
     static Stream<Arguments> extractSubstringFromStringProvideArguments() {
         return Stream.of(
                 Arguments.of(1, 3, "Java", "av"),
@@ -93,7 +93,7 @@ public class StringUtilTest {
         String actualString = StringUtil.extractSubstringFromString(string, beginCharacter, endCharacter);
         Assertions.assertEquals(expected, actualString);
     }
-
+//06
     static Stream<Arguments> replaceSadEmojisWithFunnyOnesProvideArguments() {
         return Stream.of(
                 Arguments.of(":(", ":)", "Java :(", "Java :)"),
@@ -110,7 +110,7 @@ public class StringUtilTest {
         String actualString = StringUtil.replaceSadEmojisWithFunnyOnes(string, sadEmoji, funnyEmoji);
         Assertions.assertEquals(expected, actualString);
     }
-
+//07
     static Stream<Arguments> textStartsAndEndsWithWordProvideArguments() {
         return Stream.of(
                 Arguments.of("Java is The best Java", "Java", true),
@@ -127,7 +127,7 @@ public class StringUtilTest {
         boolean actualString = StringUtil.textStartsAndEndsWithWord(text, word);
         Assertions.assertEquals(expected, actualString);
     }
-
+//08
     static Stream<Arguments> numberEnglishVowelsProvideArguments() {
         return Stream.of(
                 Arguments.of("Java", 2),
@@ -144,7 +144,7 @@ public class StringUtilTest {
         int actual = StringUtil.numberEnglishVowels(string);
         Assertions.assertEquals(expected, actual);
     }
-
+//09
     static Stream<Arguments> numberPunctuationMarksProvideArguments() {
         return Stream.of(
                 Arguments.of("Java..", 2),
@@ -161,7 +161,7 @@ public class StringUtilTest {
         int actual = StringUtil.numberPunctuationMarks(string);
         Assertions.assertEquals(expected, actual);
     }
-
+//10
     static Stream<Arguments> checkEnteredPalindromeProvideArguments() {
         return Stream.of(
                 Arguments.of("Java", false),
@@ -178,7 +178,7 @@ public class StringUtilTest {
         boolean actual = StringUtil.checkEnteredPalindrome(string);
         Assertions.assertEquals(expected, actual);
     }
-
+//11
     static Stream<Arguments> splitTextEqualPartsStoreArrayProvideArguments() {
         return Stream.of(
                 Arguments.of("Java", 2, "[Ja, va]"),
@@ -195,7 +195,7 @@ public class StringUtilTest {
         String actual = StringUtil.splitTextEqualPartsStoreArray(text, n);
         Assertions.assertEquals(expected, actual);
     }
-
+//12
     static Stream<Arguments> countNumberWordsProvideArguments() {
         return Stream.of(
                 Arguments.of("Java", 1),
@@ -212,4 +212,38 @@ public class StringUtilTest {
         int actual = StringUtil.countNumberWords(text);
         Assertions.assertEquals(expected, actual);
     }
-}
+ //13
+    static Stream<Arguments> returnInitialsFromTextProvideArguments() {
+        return Stream.of(
+             Arguments.of("Vitali Yeliseyenka", "VY"),
+             Arguments.of("Vitali    Yeliseyenka", "VY"),
+             Arguments.of("Vitali Yeliseyenka  ", "VY"),
+             Arguments.of("VitALi Yelise-YEnka", "VY"),
+             Arguments.of("Vit-ali Yelis-eyenka", "VY")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("returnInitialsFromTextProvideArguments")
+    void returnInitialsFromTextTest(String text, String expected) {
+        String actual = StringUtil.returnInitialsFromText(text);
+        Assertions.assertEquals(expected, actual);
+    }
+ //14
+    static Stream<Arguments> returnsAllDigitsProvideArguments() {
+        return Stream.of(
+                Arguments.of("987 654 321", "987654321"),
+                Arguments.of("15Java15", "1515"),
+                Arguments.of("1is 2The 3best", "123"),
+                Arguments.of(" 54programming36  ", "5436"),
+                Arguments.of(" language ", "")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("returnsAllDigitsProvideArguments")
+    void returnsAllDigitsTest(String text, String expected) {
+        String actual = StringUtil.returnsAllDigits(text);
+        Assertions.assertEquals(expected, actual);
+    }
+ }
