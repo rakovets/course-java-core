@@ -82,8 +82,7 @@ public class StringUtil {
     }
 
     public static int wordsInTextCounter (String text) {
-        int wordsCounter = text.split(" +").length;
-        return wordsCounter;
+        return text.split(" +").length;
     }
 
     public static String digitsCounter (String text) {
