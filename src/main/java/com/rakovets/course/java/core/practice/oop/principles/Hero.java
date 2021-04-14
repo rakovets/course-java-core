@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
-public abstract class Hero implements Mortal{
+public abstract class Hero implements Mortal {
     private String name;
     private int health;
 
@@ -9,9 +9,19 @@ public abstract class Hero implements Mortal{
         this.health = health;
     }
 
+    public void takeDamage(int damage) {
+        this.health = this.health + damage;
+    }
+
+    public abstract void attackEnemy(Enemy enemy);
+
     @Override
     public boolean isAlive() {
         return getHealth() > 0;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setHealth(int health) {
@@ -21,14 +31,4 @@ public abstract class Hero implements Mortal{
     public int getHealth() {
         return health;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void takeDamage(int damage) {
-        this.health = this.health + damage;
-    }
-
-    public abstract void attackEnemy(Enemy enemy);
 }
