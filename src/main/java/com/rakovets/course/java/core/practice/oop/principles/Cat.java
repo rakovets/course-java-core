@@ -8,11 +8,11 @@ public class Cat {
     }
 
     public String mew() {
-        return "May";
+        return "Mew";
     }
 
     public String purr() {
-        return "Myp";
+        return "Purr";
     }
 
     public String mew(Person person) {

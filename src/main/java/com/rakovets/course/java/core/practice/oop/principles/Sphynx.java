@@ -9,12 +9,12 @@ public class Sphynx extends Cat {
 
     @Override
     public String mew() {
-        return "Kill me!";
+        return "Mew! Kill me!";
     }
 
     @Override
     public String purr() {
-        return "Make me die!";
+        return "Purr! Make me die!";
     }
 
     @Override

@@ -9,12 +9,12 @@ public class Siamese extends Cat {
 
     @Override
     public String mew() {
-        return "May-May";
+        return "Mew-Mew";
     }
 
     @Override
     public String purr() {
-        return "Myp-Myp";
+        return "Purr-Purr";
     }
 
     @Override

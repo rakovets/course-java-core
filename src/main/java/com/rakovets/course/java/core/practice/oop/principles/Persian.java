@@ -9,12 +9,12 @@ public class Persian extends Cat {
 
     @Override
     public String mew() {
-        return "Persian May!";
+        return "Persian Mew!";
     }
 
     @Override
     public String purr() {
-        return "Persian Myp!";
+        return "Persian Purr!";
     }
 
     @Override
