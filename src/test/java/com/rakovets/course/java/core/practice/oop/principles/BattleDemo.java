@@ -19,20 +19,20 @@ public class BattleDemo {
 
         System.out.println("---В этой игре нет баланса и продуманной боевой системы. " +
                 "Все реализованное здесь - всего лишь демка.---");
-        System.out.println("---Введите имя---");
+        System.out.println("---Введите имя---\n");
         name = cin.nextLine();
-        System.out.println("---Выберите класс героя---\n1.Воин 2.Лучник 3.Маг");
+        System.out.println("---Выберите класс героя---\n1.Воин 2.Лучник 3.Маг\n");
         choice = cin.nextInt();
         hero = selectHeroClass.selectClass(choice, name);
-        System.out.println("Куда отправимся\n ?");
+        System.out.println("Куда отправимся ?\n");
         dungeons.dungeonList();
         choice = cin.nextInt();
         enemy = dungeons.selectDungeon(choice);
-        battleDemo.battleProcess((Hero) hero, (Enemy) enemy, choice);
-
+        battleDemo.battleProcess((Hero) hero, (Enemy) enemy);
     }
 
-    public void battleProcess (Hero hero, Enemy enemy, int choice){
+    public void battleProcess (Hero hero, Enemy enemy){
+        int choice;
         Scanner cin = new Scanner(System.in);
         enemy.startBattleMessage();
         while (hero.getHealth() > 0 && enemy.getHealth() > 0) {
