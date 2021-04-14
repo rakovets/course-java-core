@@ -15,13 +15,13 @@ public abstract class Enemy implements Mortal {
         health -= damage;
     }
 
-    public abstract void attackHero(Hero hero);
-    public abstract void attackTemplate();
-    public abstract void startBattleMessage();
-
     public void death() {
         System.out.println("Враг повержен\nGAME WIN");
     }
+
+    public abstract void attackHero(Hero hero);
+    public abstract void attackTemplate();
+    public abstract void startBattleMessage();
 
     @Override
     public boolean isAlive() {

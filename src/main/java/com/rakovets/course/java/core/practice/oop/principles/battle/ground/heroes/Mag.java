@@ -40,17 +40,20 @@ public class Mag extends Hero {
         }
     }
 
-    public void dragonFire(Enemy enemy) {
+    @Override
+    public void firstSkill(Enemy enemy) {
         attackTemplate(1);
         enemy.takeDamage(50);
     }
 
-    public void poisonFog(Enemy enemy) {
+    @Override
+    public void secondSkill(Enemy enemy) {
         attackTemplate(2);
         enemy.takeDamage(20);
     }
 
-    public boolean defend(Enemy enemy) {
+    @Override
+    public boolean defendSkill(Enemy enemy) {
         attackTemplate(3);
         return random(1, 2) == 1;
     }

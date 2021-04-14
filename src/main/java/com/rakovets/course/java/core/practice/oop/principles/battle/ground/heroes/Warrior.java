@@ -40,17 +40,17 @@ public class Warrior extends Hero {
         }
     }
 
-    public void warriorShield(Enemy enemy) {
+    public void firstSkill(Enemy enemy) {
         attackTemplate(1);
         enemy.takeDamage(20);
     }
 
-    public void cleavingBlow(Enemy enemy) {
+    public void secondSkill(Enemy enemy) {
         attackTemplate(2);
         enemy.takeDamage(15);
     }
 
-    public boolean defend(Enemy enemy) {
+    public boolean defendSkill(Enemy enemy) {
         attackTemplate(3);
         return random(1, 2) == 1;
     }

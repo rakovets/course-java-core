@@ -15,11 +15,6 @@ public abstract class Hero {
         health -= damage;
     }
 
-    public abstract void attackEnemy(Enemy enemy);
-    public abstract String skills(int skill);
-    public abstract void skillList();
-    public abstract void skillDescription();
-
     public void death() {
         if (health <= 0) {
             System.out.println("Герой погиб\nGAME OVER");
@@ -28,10 +23,29 @@ public abstract class Hero {
         }
     }
 
+    public Object selectClass(int choice, String name) {
+        if (choice == 1) {
+            return new Warrior(name, 100);
+        } else if (choice == 2) {
+            return new Archer(name, 100);
+        } else if (choice == 3) {
+            return new Mag(name, 100);
+        }
+        return "Неверно выбран класс";
+    }
+
     public int random(int min, int max) {
         max -= min;
         return (int) (Math.random() * ++max) + min;
     }
+
+    public abstract String skills(int skill);
+    public abstract void attackEnemy(Enemy enemy);
+    public abstract void skillList();
+    public abstract void skillDescription();
+    public abstract void firstSkill(Enemy enemy);
+    public abstract void secondSkill(Enemy enemy);
+    public abstract boolean defendSkill(Enemy enemy);
 
     public String getName() {
         return name;
