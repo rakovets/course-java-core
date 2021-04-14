@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class ZombieTest {
     static Hero hero = new Hero("Hero", 100) {
         @Override

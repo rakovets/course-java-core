@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
