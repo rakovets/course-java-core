@@ -7,27 +7,29 @@ public class Cat {
         this.name = name;
     }
 
-    public  String mew(){
+    public String mew() {
         return "May";
     }
 
-    public void mew(Person person){
-        person.changeHappiness(-15);
-    }
-
-    public String purr(){
+    public String purr() {
         return "Myp";
     }
 
-    public void purr(Person person){
+    public String mew(Person person) {
+        person.changeHappiness(-15);
+        return mew();
+    }
+
+    public String purr(Person person) {
         person.changeHappiness(+15);
+        return purr();
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 

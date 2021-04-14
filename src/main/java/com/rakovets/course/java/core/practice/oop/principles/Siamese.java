@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop.principles;
 public class Siamese extends Cat {
 
 
-    Siamese(String name) {
+    public Siamese(String name) {
         super(name);
     }
 
@@ -18,12 +18,14 @@ public class Siamese extends Cat {
     }
 
     @Override
-    public void mew(Person person) {
+    public String mew(Person person) {
         person.changeHappiness(-5);
+        return mew();
     }
 
     @Override
-    public void purr(Person person) {
+    public String purr(Person person) {
         person.changeHappiness(+5);
+        return purr();
     }
 }

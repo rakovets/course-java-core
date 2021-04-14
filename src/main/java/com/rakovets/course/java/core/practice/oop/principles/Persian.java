@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Persian extends Cat {
-    Persian(String name) {
+    public Persian(String name) {
         super(name);
     }
 
@@ -16,12 +16,14 @@ public class Persian extends Cat {
     }
 
     @Override
-    public void mew(Person person) {
+    public String mew(Person person) {
         person.changeHappiness(-1);
+        return mew();
     }
 
     @Override
-    public void purr(Person person) {
+    public String purr(Person person) {
         person.changeHappiness(+1);
+        return purr();
     }
 }

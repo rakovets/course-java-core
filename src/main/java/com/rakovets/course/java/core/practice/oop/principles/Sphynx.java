@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Sphynx extends Cat {
-    Sphynx(String name) {
+    public Sphynx(String name) {
         super(name);
     }
 
@@ -16,12 +16,14 @@ public class Sphynx extends Cat {
     }
 
     @Override
-    public void mew(Person person) {
+    public String mew(Person person) {
         person.changeHappiness(-10);
+        return mew();
     }
 
     @Override
-    public void purr(Person person) {
+    public String purr(Person person) {
         person.changeHappiness(+1);
+        return purr();
     }
 }
