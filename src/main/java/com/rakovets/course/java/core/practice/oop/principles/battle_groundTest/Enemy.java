@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battleground;
+package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
 
 public abstract class Enemy implements Mortal {
     private int health;

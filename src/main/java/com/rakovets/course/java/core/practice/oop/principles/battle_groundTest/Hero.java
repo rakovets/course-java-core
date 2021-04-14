@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battleground;
+package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
 
 public abstract class Hero implements Mortal {
     private String name;
@@ -10,7 +10,7 @@ public abstract class Hero implements Mortal {
     }
 
     public void takeDamage(int damage) {
-        this.health = this.health + damage;
+        this.health = this.health - damage;
     }
 
     public abstract void attackEnemy(Enemy enemy);
