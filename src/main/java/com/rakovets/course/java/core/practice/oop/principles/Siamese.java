@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Siamese extends Cat {
-
+    private final int HAPPINESS_MEW = 25;
 
     public Siamese(String name) {
         super(name);
@@ -19,13 +19,13 @@ public class Siamese extends Cat {
 
     @Override
     public String mew(Person person) {
-        person.changeHappiness(-5);
+        person.changeHappiness(-HAPPINESS_MEW);
         return mew();
     }
 
     @Override
     public String purr(Person person) {
-        person.changeHappiness(+5);
+        person.changeHappiness(HAPPINESS_MEW);
         return purr();
     }
 }
