@@ -1,5 +1,10 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
+import com.rakovets.course.java.core.practice.oop.principles.battleground.Archer;
+import com.rakovets.course.java.core.practice.oop.principles.battleground.Mag;
+import com.rakovets.course.java.core.practice.oop.principles.battleground.Warrior;
+import com.rakovets.course.java.core.practice.oop.principles.battleground.Zombie;
+
 public class BattleGroundDemo {
     public static void main(String[] args) {
         Zombie zombie = new Zombie(100);
