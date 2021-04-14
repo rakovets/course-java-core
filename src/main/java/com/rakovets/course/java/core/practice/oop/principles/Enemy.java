@@ -8,7 +8,7 @@ public abstract class Enemy implements Mortal {
     }
 
     public void takeDamage(int damage) {
-        this.health = this.health + damage;
+        this.health = this.health - damage;
     }
 
     public abstract void attackEnemy(Hero hero);

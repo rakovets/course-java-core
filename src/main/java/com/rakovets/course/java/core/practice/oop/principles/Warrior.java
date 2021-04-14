@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles;
 
 public class Warrior extends Hero {
+    private final int DAMAGE = 5;
 
     public Warrior(String name, int health) {
         super(name, health);
@@ -9,11 +10,11 @@ public class Warrior extends Hero {
     @Override
     public void attackEnemy(Enemy enemy) {
         System.out.println("Warrior attacks!");
-        enemy.takeDamage(-5);
+        enemy.takeDamage(DAMAGE);
     }
 
     public void doomPunch(Enemy enemy) {
-        enemy.takeDamage(-40);
+        enemy.takeDamage(30 + DAMAGE);
     }
 
 }
