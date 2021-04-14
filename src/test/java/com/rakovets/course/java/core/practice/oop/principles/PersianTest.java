@@ -18,6 +18,24 @@ public class PersianTest {
         );
     }
 
+    static Stream<Arguments> provideArgumentsPersianDoMewForPerson() {
+        return Stream.of(
+                Arguments.of("Aleksey", 10.0, 100.0, "Aleksey has 89.0 percent happiness"),
+                Arguments.of("Nikolay", -20.0, 80.0, "Nikolay has 58.0 percent happiness"),
+                Arguments.of("Svetlana", -100, 150.0, "Svetlana has 40.0 percent happiness"),
+                Arguments.of("Liza", 0.0, 100.0, "Liza has 100.0 percent happiness")
+        );
+    }
+
+    static Stream<Arguments> provideArgumentsPersianDoPurrForPerson() {
+        return Stream.of(
+                Arguments.of("Aleksey", 10.0, 100.0, "Aleksey has 115.0 percent happiness"),
+                Arguments.of("Nikolay", -20.0, 80.0, "Nikolay has 110.0 percent happiness"),
+                Arguments.of("Svetlana", -100, 150.0, "Svetlana has 300.0 percent happiness"),
+                Arguments.of("Liza", 0.0, 100.0, "Liza has 100.0 percent happiness")
+        );
+    }
+
     @ParameterizedTest(name = "Name - {0}, Expected1: {1}, Expected2: {2}")
     @MethodSource("provideArgumentsPersian")
     void persianTest(String str1, String expected1, String expected2) {
@@ -26,5 +44,25 @@ public class PersianTest {
         String actual2 = cat.getName() + " can do " + cat.purr();
         Assertions.assertEquals(expected1, actual1);
         Assertions.assertEquals(expected2, actual2);
+    }
+
+    @ParameterizedTest(name = "Person - {0}, percent = {1}, happiness = {2}, Expected: {3}")
+    @MethodSource("provideArgumentsPersianDoMewForPerson")
+    void mewPersianTest(String str1, double percent, double happiness, String expected) {
+        Persian persian = new Persian();
+        Person person = new Person(str1, happiness);
+        person.setPercentHappiness((-1) * Math.abs(percent));
+        String actual = person.getNamePerson() + " has " + persian.mew(person) + " percent happiness";
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Person - {0}, percent = {1}, happiness = {2}, Expected: {3}")
+    @MethodSource("provideArgumentsPersianDoPurrForPerson")
+    void purrPersianTest(String str1, double percent, double happiness, String expected) {
+        Persian persian = new Persian();
+        Person person = new Person(str1, happiness);
+        person.setPercentHappiness(Math.abs(percent));
+        String actual = person.getNamePerson() + " has " + persian.purr(person) + " percent happiness";
+        Assertions.assertEquals(expected, actual);
     }
 }

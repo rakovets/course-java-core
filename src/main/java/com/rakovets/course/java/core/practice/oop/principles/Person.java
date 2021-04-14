@@ -14,12 +14,12 @@ public class Person {
        return happiness += percentHappiness;
     }
 
-    public double getHappiness() {
-        return happiness;
-    }
-
     public String getNamePerson() {
         return namePerson;
+    }
+
+    public double getPercentHappiness() {
+        return percentHappiness;
     }
 
     public void setPercentHappiness(double percentHappiness) {
