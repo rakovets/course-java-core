@@ -27,6 +27,15 @@ public class CatTest {
         );
     }
 
+    static Stream<Arguments> provideArgumentsCatDoPurrForPerson() {
+        return Stream.of(
+                Arguments.of("Aleksey", 15.5, 100.0, "Aleksey has 115.5 percent happiness"),
+                Arguments.of("Nikolay", -12.3, 20.0, "Nikolay has 32.3 percent happiness"),
+                Arguments.of("Svetlana", -20.0, 0.0, "Svetlana has 20.0 percent happiness"),
+                Arguments.of("Liza", 0.0, 100.0, "Liza has 100.0 percent happiness")
+        );
+    }
+
     @ParameterizedTest(name = "Name - {0}, Expected1: {1}, Expected2: {2}")
     @MethodSource("provideArgumentsCat")
     void catTest(String str1, String expected1, String expected2) {
@@ -39,11 +48,21 @@ public class CatTest {
 
     @ParameterizedTest(name = "Person - {0}, percent = {1}, happiness = {2}, Expected: {3}")
     @MethodSource("provideArgumentsCatDoMewForPerson")
-    void catTest(String str1, double percent, double happiness, String expected) {
+    void mewTest(String str1, double percent, double happiness, String expected) {
         Cat cat = new Cat();
         Person person = new Person(str1, happiness);
         person.setPercentHappiness((-1) * Math.abs(percent));
         String actual = person.getNamePerson() + " has " + cat.mew(person) + " percent happiness";
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest(name = "Person - {0}, percent = {1}, happiness = {2}, Expected: {3}")
+    @MethodSource("provideArgumentsCatDoPurrForPerson")
+    void purrTest(String str1, double percent, double happiness, String expected) {
+        Cat cat = new Cat();
+        Person person = new Person(str1, happiness);
+        person.setPercentHappiness(Math.abs(percent));
+        String actual = person.getNamePerson() + " has " + cat.purr(person) + " percent happiness";
         Assertions.assertEquals(expected, actual);
     }
 }
