@@ -1,20 +1,20 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.cat;
 
-public class Siamese extends Cat {
+public class Sphynx extends Cat {
     private final int HAPPINESS_MEW = 25;
 
-    public Siamese(String name) {
+    public Sphynx(String name) {
         super(name);
     }
 
     @Override
     public String mew() {
-        return "Mew-Mew";
+        return "Mew! Kill me!";
     }
 
     @Override
     public String purr() {
-        return "Purr-Purr";
+        return "Purr! Make me die!";
     }
 
     @Override
