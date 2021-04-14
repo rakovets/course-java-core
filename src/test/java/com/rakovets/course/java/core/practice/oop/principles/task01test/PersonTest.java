@@ -10,12 +10,12 @@ public class PersonTest {
     static double happiness;
 
     @BeforeEach
-    void beforeEach(){
+    void beforeEach() {
         happiness = 30.00;
         person = new Person(happiness);
     }
     @Test
-    void changeHappinessTest (){
+    void changeHappinessTest () {
         double percentOfHappiness = 15.00;
         person.changeHappiness(percentOfHappiness);
         double actual = person.getHappiness();
@@ -23,7 +23,7 @@ public class PersonTest {
     }
 
     @Test
-    void setHappinessTest(){
+    void setHappinessTest() {
         person.setHappiness(55.00);
         double actual = person.getHappiness();
         Assertions.assertEquals(55.00, actual);

@@ -13,7 +13,7 @@ public class SphynxTest {
     static double happiness;
 
     @BeforeEach
-    void beforeAll(){
+    void beforeAll() {
         name = "Vasya";
         sph = new Sphynx(name);
         happiness = 50.00;

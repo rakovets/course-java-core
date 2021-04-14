@@ -13,7 +13,7 @@ public class SiamesTest {
     static double happiness;
 
     @BeforeEach
-    void beforeAll(){
+    void beforeAll() {
         name = "Vasya";
         sia = new Siames(name);
         happiness = 50.00;

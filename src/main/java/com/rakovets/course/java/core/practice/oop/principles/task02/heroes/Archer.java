@@ -17,7 +17,7 @@ public class Archer extends Hero {
 
     @Override
     public void getDamageFromEnemy(int damage) {
-        super.setHealth(getHealth()-damage);
+        super.setHealth(getHealth() - damage);
     }
 
     public void attackBySkill(Enemy enemy) {

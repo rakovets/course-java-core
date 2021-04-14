@@ -13,7 +13,7 @@ public class BowFury extends AtackSkills{
         if (enemy instanceof Demon) {
             damegeTOEnemy *= 0.9;
         } else if(enemy instanceof Elemental) {
-            damegeTOEnemy *= 0.8;
+            damegeTOEnemy *= 0.5;
         }
         return damegeTOEnemy;
     }

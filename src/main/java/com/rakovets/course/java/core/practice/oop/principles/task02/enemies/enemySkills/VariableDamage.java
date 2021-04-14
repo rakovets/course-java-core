@@ -2,6 +2,6 @@ package com.rakovets.course.java.core.practice.oop.principles.task02.enemies.ene
 
 import com.rakovets.course.java.core.practice.oop.principles.task02.heroes.Hero;
 
-public abstract class EnemyAttakSkills {
-    public abstract int useSkill(Hero hero);
+public interface VariableDamage {
+     int varifyDamage(Hero hero);
 }

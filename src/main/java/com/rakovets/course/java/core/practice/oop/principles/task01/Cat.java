@@ -19,7 +19,7 @@ public class Cat {
         return "prr";
     }
 
-    public void purr(Person person){
+    public void purr(Person person) {
         person.changeHappiness(15.05);
     }
 

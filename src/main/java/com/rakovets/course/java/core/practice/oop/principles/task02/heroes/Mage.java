@@ -17,7 +17,7 @@ public class Mage extends Hero {
 
     @Override
     public void getDamageFromEnemy(int damage) {
-        super.setHealth(getHealth()-damage);
+        super.setHealth(getHealth() - damage);
 
     }
 

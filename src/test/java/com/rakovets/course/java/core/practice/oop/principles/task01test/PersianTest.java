@@ -13,7 +13,7 @@ public class PersianTest {
     static double happiness;
 
     @BeforeEach
-    void beforeAll(){
+    void beforeAll() {
         name = "Vasya";
         pers = new Persian(name);
         happiness = 50.00;

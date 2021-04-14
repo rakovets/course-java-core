@@ -14,7 +14,7 @@ public class CatTest {
     static double happiness;
 
     @BeforeEach
-    void beforeAll(){
+    void beforeEach() {
         name = "Vasya";
         cat = new Cat(name);
         happiness = 50.00;

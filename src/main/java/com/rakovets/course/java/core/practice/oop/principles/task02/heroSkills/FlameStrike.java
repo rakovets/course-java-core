@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.task02.heroSkills;
 
-import com.rakovets.course.java.core.practice.oop.principles.task02.enemies.Beats;
 import com.rakovets.course.java.core.practice.oop.principles.task02.enemies.Demon;
 import com.rakovets.course.java.core.practice.oop.principles.task02.enemies.Elemental;
 import com.rakovets.course.java.core.practice.oop.principles.task02.enemies.Enemy;
