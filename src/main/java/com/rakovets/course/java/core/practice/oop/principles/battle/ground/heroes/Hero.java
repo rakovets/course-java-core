@@ -23,17 +23,6 @@ public abstract class Hero {
         }
     }
 
-    public Object selectClass(int choice, String name) {
-        if (choice == 1) {
-            return new Warrior(name, 100);
-        } else if (choice == 2) {
-            return new Archer(name, 100);
-        } else if (choice == 3) {
-            return new Mag(name, 100);
-        }
-        return "Неверно выбран класс";
-    }
-
     public int random(int min, int max) {
         max -= min;
         return (int) (Math.random() * ++max) + min;
