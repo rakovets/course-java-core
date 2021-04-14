@@ -7,12 +7,22 @@ public class Cat {
         this.name = name;
     }
 
+    public Cat() {}
+
     public String mew() {
        return "mew-mew";
     }
 
+    public double mew(Person person) {
+        return person.changeHappiness();
+    }
+
     public String purr() {
        return "purr-purr-purr";
+    }
+
+    public double purr(Person person){
+        return person.changeHappiness();
     }
 
     public String getName() {

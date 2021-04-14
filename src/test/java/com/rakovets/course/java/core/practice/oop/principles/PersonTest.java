@@ -5,6 +5,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.stream.Stream;
 
 public class PersonTest {
@@ -17,11 +19,12 @@ public class PersonTest {
         );
     }
 
-    @ParameterizedTest(name = "Name - {0}, happiness - {1}, percent - {2}, Expected: {3}")
+    @ParameterizedTest(name = "Name - {0}, happiness = {1}, percent = {2}, Expected: {3}")
     @MethodSource("provideArgumentsPerson")
     void personTest(String str1, double happiness, double percent, double expected) {
         Person person = new Person(str1, happiness);
-        double actual = person.changeHappiness(percent);
+        person.setPercentHappiness(percent);
+        double actual = BigDecimal.valueOf(person.changeHappiness()).setScale(1, RoundingMode.HALF_UP).doubleValue();
         Assertions.assertEquals(expected, actual);
     }
 }

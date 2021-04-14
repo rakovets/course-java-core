@@ -18,6 +18,15 @@ public class CatTest {
         );
     }
 
+    static Stream<Arguments> provideArgumentsCatDoMewForPerson() {
+        return Stream.of(
+                Arguments.of("Aleksey", 20.0, 80.0, "Aleksey has 60.0 percent happiness"),
+                Arguments.of("Nikolay", 30.0, 90.5, "Nikolay has 60.5 percent happiness"),
+                Arguments.of("Svetlana", -10.5, 20, "Svetlana has 9.5 percent happiness"),
+                Arguments.of("Liza", 0.0, 100.0, "Liza has 100.0 percent happiness")
+        );
+    }
+
     @ParameterizedTest(name = "Name - {0}, Expected1: {1}, Expected2: {2}")
     @MethodSource("provideArgumentsCat")
     void catTest(String str1, String expected1, String expected2) {
@@ -27,4 +36,15 @@ public class CatTest {
         Assertions.assertEquals(expected1, actual1);
         Assertions.assertEquals(expected2, actual2);
     }
+
+    @ParameterizedTest(name = "Person - {0}, percent = {1}, happiness = {2}, Expected: {3}")
+    @MethodSource("provideArgumentsCatDoMewForPerson")
+    void catTest(String str1, double percent, double happiness, String expected) {
+        Cat cat = new Cat();
+        Person person = new Person(str1, happiness);
+        person.setPercentHappiness((-1) * Math.abs(percent));
+        String actual = person.getNamePerson() + " has " + cat.mew(person) + " percent happiness";
+        Assertions.assertEquals(expected, actual);
+    }
 }
+
