@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
+package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.Stream;
 
-class MagTest {
+class ArcherTest {
     static Enemy enemy = new Enemy(100) {
         @Override
         public void attackEnemy(Hero hero) {
@@ -18,29 +18,29 @@ class MagTest {
 
     static Stream<Arguments> attackEnemyTest() {
         return Stream.of(
-                Arguments.of(90, enemy));
+                Arguments.of(85, enemy));
     }
 
     @ParameterizedTest
     @MethodSource("attackEnemyTest")
     void attackEnemyTest(int expected, Enemy enemy) {
         enemy.setHealth(100);
-        Mag mag = new Mag("Mag", 100);
-        mag.attackEnemy(enemy);
+        Archer archer = new Archer("Archer", 100);
+        archer.attackEnemy(enemy);
         assertEquals(expected, enemy.getHealth());
     }
 
-    static Stream<Arguments> blizzardTest() {
+    static Stream<Arguments> rainOfArrowsTest() {
         return Stream.of(
-                Arguments.of(80, enemy));
+                Arguments.of(55, enemy));
     }
 
     @ParameterizedTest
-    @MethodSource("blizzardTest")
-    void blizzardTest(int expected, Enemy enemy) {
-        Mag mag = new Mag("Mag", 100);
+    @MethodSource("rainOfArrowsTest")
+    void rainOfArrowsTest(int expected, Enemy enemy) {
+        Archer archer = new Archer("Archer", 100);
         enemy.setHealth(100);
-        mag.blizzard(enemy);
+        archer.rainOfArrows(enemy);
         assertEquals(expected, enemy.getHealth());
     }
 }

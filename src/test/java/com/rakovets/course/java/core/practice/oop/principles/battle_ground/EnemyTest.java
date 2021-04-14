@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
+package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
 import org.junit.jupiter.api.Test;
 
