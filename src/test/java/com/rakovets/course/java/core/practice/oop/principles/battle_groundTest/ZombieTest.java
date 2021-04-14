@@ -1,5 +1,8 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
+package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
 
+import com.rakovets.course.java.core.practice.oop.principles.battle_ground.Enemy;
+import com.rakovets.course.java.core.practice.oop.principles.battle_ground.Hero;
+import com.rakovets.course.java.core.practice.oop.principles.battle_ground.Zombie;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

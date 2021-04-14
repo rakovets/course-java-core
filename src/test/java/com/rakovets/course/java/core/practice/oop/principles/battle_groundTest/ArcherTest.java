@@ -1,5 +1,8 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
+package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
 
+import com.rakovets.course.java.core.practice.oop.principles.battle_ground.Archer;
+import com.rakovets.course.java.core.practice.oop.principles.battle_ground.Enemy;
+import com.rakovets.course.java.core.practice.oop.principles.battle_ground.Hero;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.Stream;
 
-class WarriorTest {
+class ArcherTest {
     static Enemy enemy = new Enemy(100) {
         @Override
         public void attackEnemy(Hero hero) {
@@ -18,29 +21,29 @@ class WarriorTest {
 
     static Stream<Arguments> attackEnemyTest() {
         return Stream.of(
-                Arguments.of(95, enemy));
+                Arguments.of(85, enemy));
     }
 
     @ParameterizedTest
     @MethodSource("attackEnemyTest")
     void attackEnemyTest(int expected, Enemy enemy) {
-        Warrior warrior = new Warrior("Warrior", 50);
-        warrior.attackEnemy(enemy);
+        enemy.setHealth(100);
+        Archer archer = new Archer("Archer", 100);
+        archer.attackEnemy(enemy);
         assertEquals(expected, enemy.getHealth());
     }
 
-    static Stream<Arguments> doomPunchTest() {
+    static Stream<Arguments> rainOfArrowsTest() {
         return Stream.of(
-                Arguments.of(65, enemy));
+                Arguments.of(55, enemy));
     }
 
     @ParameterizedTest
-    @MethodSource("doomPunchTest")
-    void doomPunchTest(int expected, Enemy enemy) {
-        Warrior warrior = new Warrior("Warrior", 50);
+    @MethodSource("rainOfArrowsTest")
+    void rainOfArrowsTest(int expected, Enemy enemy) {
+        Archer archer = new Archer("Archer", 100);
         enemy.setHealth(100);
-        warrior.doomPunch(enemy);
+        archer.rainOfArrows(enemy);
         assertEquals(expected, enemy.getHealth());
     }
-
 }
