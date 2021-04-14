@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles.battle_groundTest;
+package com.rakovets.course.java.core.practice.oop.principles.battle_ground;
 
 public class Archer extends Hero {
     private final int DAMAGE = 15;
