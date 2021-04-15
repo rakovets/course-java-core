@@ -19,6 +19,12 @@ public class Enemy  implements Mortal{
     public void takeDamage(int damаge) {
         health -=damаge;
     }
+    public int getHealth() {
+        return health;
+    }
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     public boolean isAlive() {
         return health > 0 ;
