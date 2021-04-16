@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_battle;
 
 public class Mag extends Hero {
     private final int DAMEGE_MAG = 20;
@@ -7,13 +7,17 @@ public class Mag extends Hero {
         super(name);
     }
 
+    public Mag() {}
+
     public int attackEnemy(Enemy enemy) {
        return enemy.takeDamage(DAMEGE_MAG);
     }
 
-    public void dead(Enemy enemy) {
+    public int dead(Enemy enemy) {
         if (enemy.getDAMAGE_ENEMY() > 35) {
             setIndicatorHealth(0);
+            return getIndicatorHealth();
         }
+        return getIndicatorHealth();
     }
 }

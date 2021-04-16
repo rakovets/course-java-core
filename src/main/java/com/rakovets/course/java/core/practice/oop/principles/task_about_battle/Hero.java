@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_battle;
 
 public abstract class Hero implements Moral {
     private String name;
@@ -7,6 +7,7 @@ public abstract class Hero implements Moral {
     public Hero(String name) {
         this.name = name;
     }
+    public Hero() {}
 
     public String getName() {
         return name;

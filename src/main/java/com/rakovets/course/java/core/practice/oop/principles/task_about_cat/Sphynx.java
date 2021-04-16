@@ -1,4 +1,7 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_cat;
+
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Cat;
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Person;
 
 public class Sphynx extends Cat {
     public Sphynx(String name) {

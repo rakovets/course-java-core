@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_battle;
 
 public class Warrior extends Hero {
     private final int DAMAGE_WARRIOR = 15;
@@ -6,6 +6,8 @@ public class Warrior extends Hero {
     public Warrior(String name) {
         super(name);
     }
+
+    public Warrior() {}
 
     public int attackEnemy(Enemy enemy) {
        return enemy.takeDamage(DAMAGE_WARRIOR);

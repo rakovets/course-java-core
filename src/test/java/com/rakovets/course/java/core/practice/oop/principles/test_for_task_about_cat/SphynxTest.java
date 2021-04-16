@@ -1,8 +1,8 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.test_for_task_about_cat;
 
-import com.rakovets.course.java.core.practice.oop.principles.Cat;
-import com.rakovets.course.java.core.practice.oop.principles.Person;
-import com.rakovets.course.java.core.practice.oop.principles.Sphynx;
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Cat;
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Person;
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Sphynx;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

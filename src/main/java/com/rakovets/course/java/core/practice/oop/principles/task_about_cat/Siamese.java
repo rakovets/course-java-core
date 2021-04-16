@@ -1,6 +1,9 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_cat;
 
-public class Siamese extends Cat{
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Cat;
+import com.rakovets.course.java.core.practice.oop.principles.task_about_cat.Person;
+
+public class Siamese extends Cat {
     public Siamese(String name) {
         super(name);
     }

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_battle;
 
 public class Enemy implements Moral {
     private int health;
@@ -38,6 +38,6 @@ public class Enemy implements Moral {
 
     public int attackHero(Hero hero) {
         return hero.takeDamageFromEnemy(DAMAGE_ENEMY);
-       }
+    }
 }
 

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop.principles;
+package com.rakovets.course.java.core.practice.oop.principles.task_about_battle;
 
 public class Necromancer extends Enemy {
     private final int DAMAGE_NECROMANCER = 40;
@@ -9,7 +9,7 @@ public class Necromancer extends Enemy {
 
     @Override
     public int attackHero(Hero hero) {
-        if (hero.getIndicatorHealth() <= 20) {
+        if (hero.getIndicatorHealth() >= 20) {
            return hero.takeDamageFromEnemy(DAMAGE_NECROMANCER);
         } else {
             return hero.takeDamageFromEnemy(getDAMAGE_ENEMY());
