@@ -17,7 +17,7 @@ public class Task06 extends Exception {
         return randValue;
     }
 
-    public static String getRandException() {
+    public static void getRandException() {
         int randValue = getRandom(1,3);
         if (randValue == 1) {
             throw new ArithmeticException("This is ArithmeticException");
