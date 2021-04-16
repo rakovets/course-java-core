@@ -6,5 +6,4 @@ public class Task01 {
         String str = null;
         str.length();
     }
-
 }
