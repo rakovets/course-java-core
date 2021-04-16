@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 public class Task01Test {
-
     @Test
-
     void throwException() {
         Executable actualExecutable = () -> Task01.throwException();
 
