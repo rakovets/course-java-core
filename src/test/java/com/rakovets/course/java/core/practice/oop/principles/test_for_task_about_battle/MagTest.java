@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class MagTest {
 
-    static Stream<Arguments> provideArgumentsForAttackEnemyOfMag() {
+    static Stream<Arguments> provideArgumentsForAttackEnemyWithMag() {
         return Stream.of(
                 Arguments.of(300, 280),
                 Arguments.of(250, 230),
@@ -30,7 +30,7 @@ public class MagTest {
     }
 
     @ParameterizedTest(name = "Health - {0}, Expected: {1}")
-    @MethodSource("provideArgumentsForAttackEnemyOfMag")
+    @MethodSource("provideArgumentsForAttackEnemyWithMag")
     void attackEnemyOfArcherTest(int health, int expected) {
         Enemy enemy = new Enemy(health);
         Mag archer = new Mag();
@@ -40,7 +40,7 @@ public class MagTest {
 
     @ParameterizedTest(name = "Health - {0}, Expected: {1}")
     @MethodSource("provideArgumentsForDead")
-    void attackRefuseHealthTest(int health, int indicatorHealth, int expected) {
+    void deadMagTest(int health, int indicatorHealth, int expected) {
         Enemy enemy = new Enemy(health);
          Mag mag = new Mag();
         mag.setIndicatorHealth(indicatorHealth);

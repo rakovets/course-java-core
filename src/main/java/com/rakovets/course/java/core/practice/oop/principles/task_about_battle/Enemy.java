@@ -30,10 +30,7 @@ public class Enemy implements Moral {
 
     @Override
     public boolean isAlive() {
-        if (getHealth() > 0) {
-            return true;
-        }
-        return false;
+        return getHealth() > 0;
     }
 
     public int attackHero(Hero hero) {

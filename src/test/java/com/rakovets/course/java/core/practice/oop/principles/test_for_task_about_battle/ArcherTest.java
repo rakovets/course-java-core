@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 public class ArcherTest {
 
-    static Stream<Arguments> provideArgumentsForAttackEnemyOfArcher() {
+    static Stream<Arguments> provideArgumentsForAttackEnemyWithArcher() {
         return Stream.of(
                 Arguments.of(300, 265),
                 Arguments.of(250, 215),
@@ -20,7 +20,7 @@ public class ArcherTest {
         );
     }
 
-    static Stream<Arguments> provideArgumentsForAttackRefuseHealth() {
+    static Stream<Arguments> provideArgumentsForAttackReduceHealth() {
         return Stream.of(
                 Arguments.of(300, 200, 180),
                 Arguments.of(250,400, 380),
@@ -30,8 +30,8 @@ public class ArcherTest {
     }
 
     @ParameterizedTest(name = "Health - {0}, Expected: {1}")
-    @MethodSource("provideArgumentsForAttackEnemyOfArcher")
-    void attackEnemyOfArcherTest(int health, int expected) {
+    @MethodSource("provideArgumentsForAttackEnemyWithArcher")
+    void attackEnemyWithArcherTest(int health, int expected) {
         Enemy enemy = new Enemy(health);
         Archer archer = new Archer();
         int actual = archer.attackEnemy(enemy);
@@ -39,12 +39,12 @@ public class ArcherTest {
     }
 
     @ParameterizedTest(name = "Health - {0}, Expected: {1}")
-    @MethodSource("provideArgumentsForAttackRefuseHealth")
-    void attackRefuseHealthTest(int health, int indicatorHealth, int expected) {
+    @MethodSource("provideArgumentsForAttackReduceHealth")
+    void attackReduceHealthTest(int health, int indicatorHealth, int expected) {
         Enemy enemy = new Enemy(health);
         Archer archer = new Archer();
         archer.setIndicatorHealth(indicatorHealth);
-        int actual = archer.refuseHealth(enemy);
+        int actual = archer.reduceOwnHealth(enemy);
         Assertions.assertEquals(expected, actual);
     }
 }

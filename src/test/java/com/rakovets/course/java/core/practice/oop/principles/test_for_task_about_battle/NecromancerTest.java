@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 public class NecromancerTest {
 
-    static Stream<Arguments> provideArgumentsForAttackHero() {
+    static Stream<Arguments> provideArgumentsForAttackHeroWithNecromancer() {
         return Stream.of(
                 Arguments.of(300, 150, 285),
                 Arguments.of(150, 300, 260),
@@ -21,9 +21,18 @@ public class NecromancerTest {
         );
     }
 
+    static Stream<Arguments> provideArgumentsForRevivalNecromancer() {
+        return Stream.of(
+                Arguments.of(300, 300),
+                Arguments.of(10, 100),
+                Arguments.of(5, 100),
+                Arguments.of(0, 0)
+        );
+    }
+
     @ParameterizedTest(name = "IndicatorHealth - {0}, health - {1}, Expected: {2}")
-    @MethodSource("provideArgumentsForAttackHero")
-    void attackEnemyOfArcherTest(int indicatorHealth, int health, int expected) {
+    @MethodSource("provideArgumentsForAttackHeroWithNecromancer")
+    void attackEnemyWithNecromancerTest(int indicatorHealth, int health, int expected) {
         Necromancer necromancer = new Necromancer(health);
         Hero hero = new Warrior();
         hero.setIndicatorHealth(indicatorHealth);
@@ -31,4 +40,11 @@ public class NecromancerTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @ParameterizedTest(name = "Health - {0}, Expected: {1}")
+    @MethodSource("provideArgumentsForRevivalNecromancer")
+    void revivalNecromancerTest(int health, int expected) {
+        Necromancer necromancer = new Necromancer(health);
+        int actual = necromancer.revivalNecromancer();
+        Assertions.assertEquals(expected, actual);
+    }
 }
