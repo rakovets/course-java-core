@@ -1,0 +1,22 @@
+package com.rakovets.course.java.core.practice.exception_handling;
+
+public class Task4 {
+    static class RotationFrequency {
+        public static double getRotationFrequency(double speed, double diameter) {
+            final double PI = 3.14;
+
+            if (diameter < 0) {
+                throw new Task4.IllegalRotationValueException("The diameter is less than 0!!!");
+            }
+            double result = (1000 * speed) / (PI * diameter);
+            return result;
+        }
+    }
+
+    static class IllegalRotationValueException extends RuntimeException {
+        public IllegalRotationValueException(String message) {
+            super(message);
+        }
+    }
+}
+
