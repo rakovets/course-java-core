@@ -23,11 +23,17 @@ public class Obscure<T> {
         return field != null ? field : value;
     }
 
-    public T orElseThrow(NullPointerException error) throws Exception {
+    public T orElseThrow() throws Exception {
         if (field == null) {
-            throw new Exception(error);
+            throw new NullPointerException("This is NullPointerException");
         } else {
             return field;
         }
     }
+
+    /*public static <S> Obscure of(S[] object) {
+        return Object<String>;
+    }*/
+
+
 }
