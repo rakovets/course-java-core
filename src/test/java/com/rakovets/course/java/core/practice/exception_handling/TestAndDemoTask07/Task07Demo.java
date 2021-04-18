@@ -8,6 +8,8 @@ public class Task07Demo {
             Task07.throwException(null);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Сheck completed");
         }
     }
 }
