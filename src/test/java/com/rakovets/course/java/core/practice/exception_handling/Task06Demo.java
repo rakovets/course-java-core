@@ -4,15 +4,13 @@ public class Task06Demo {
     public static void main(String[] args) {
         Task06 task06 = new Task06();
         try {
-            task06.randomException(null, new int[] {1, 2}, 0);
+            task06.randomException();
         } catch (NullPointerException e) {
-            e.getMessage();
-        } catch (IndexOutOfBoundsException e) {
-            e.getMessage();
+            System.err.println("Null pointer exception");
         } catch (ArithmeticException e) {
-            e.getMessage();
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Arithmetic exception");
+        } catch (RuntimeException e) {
+            System.err.println("Run time exception");
         }
     }
 }
