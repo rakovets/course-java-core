@@ -1,38 +1,6 @@
 package com.rakovets.course.java.core.practice.generic_types.custom_array_list;
 
-import java.sql.ClientInfoStatus;
 import java.util.Arrays;
-class main {
-    public static void main(String[] args) {
-        CustomArrayList<Integer> list = new CustomArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            list.pushBack(2);
-        }
-        for (int i = 0; i < 6; i++) {
-            list.pushFront(5);
-        }
-        list.popBack();
-        list.popFront();
-
-        System.out.println(list.getSize());
-        try {
-            list.insert(3, 15);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        list.remove(5);
-        list.removeAll(2);
-        try {
-            list.removeAt(7);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-        }
-        list.removeAt(1);
-        System.out.println(list);
-        list.clear();
-        System.out.println(list.toString());
-    }
-}
 public class CustomArrayList<T> {
     private T[] data;
     private int size;
@@ -143,6 +111,55 @@ public class CustomArrayList<T> {
             data[i] = null;
         }
         size = 0;
+    }
+
+    public void reverse() {
+        for (int i = size - 1; i > 0; i--) {
+            T temp = data[i];
+            data[i] = data[size - i - 1];
+            data[size - i - 1] = temp;
+        }
+    }
+
+    public void shuffle() {
+        for (int i = 0; i < size; i++) {
+            int randomIndexFirstElement = (int) (Math.random() * size);
+            int randomIndexSecondElement = (int) (Math.random() * size);
+            T temp = data[randomIndexFirstElement];
+            data[randomIndexFirstElement] = data[randomIndexSecondElement];
+            data[randomIndexSecondElement] = temp;
+        }
+    }
+
+    public boolean equals(CustomArrayList<T> object) {
+        if (this.getSize() == object.getSize()) {
+            int countContain = 0;
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (data[i].equals(data[j])) {
+                        countContain++;
+                        break;
+                    }
+                }
+            }
+            return countContain == size;
+        } else {
+            return false;
+        }
+    }
+
+    public T getElementAt(int index) {
+        checkIndex(index);
+        return data[index];
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        CustomArrayList<T> list = new CustomArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            list.pushBack(data[i]);
+        }
+        return list;
     }
 
     @Override
