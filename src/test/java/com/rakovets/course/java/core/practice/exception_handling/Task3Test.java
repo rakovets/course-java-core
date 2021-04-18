@@ -7,7 +7,7 @@ import org.junit.jupiter.api.function.Executable;
 public class Task3Test {
 
         @Test
-        void getYearOfBirth() {
+        void getYearOfBirthTest() {
             Executable actualExecutable = () -> Task3.YearOfBirth.getYearOfBirth(2021, -35);
             Assertions.assertThrows(Task3.AgeException.class, actualExecutable);
         }

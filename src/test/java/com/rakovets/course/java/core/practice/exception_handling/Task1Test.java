@@ -7,7 +7,7 @@ import org.junit.jupiter.api.function.Executable;
 class Task1Test {
 
     @Test
-    void emptyString() {
+    void emptyStringTest() {
         Executable actualExecutable = () -> Task1.emptyString();
         Assertions.assertThrows(NullPointerException.class, actualExecutable);
     }

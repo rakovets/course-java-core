@@ -7,7 +7,7 @@ import org.junit.jupiter.api.function.Executable;
 class Task2Test {
 
     @Test
-    void illegalArray() {
+    void illegalArrayTest() {
         Executable actualExecutable = () -> Task2.illegalArray();
         Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, actualExecutable);
     }
