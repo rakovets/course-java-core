@@ -5,8 +5,8 @@ public class Points {
     private int pointY;
 
     public Points (int pointX, int pointY) {
-        this.pointX=pointX;
-        this.pointY=pointY;
+        this.pointX = pointX;
+        this.pointY = pointY;
     }
 
     public int getX() {
