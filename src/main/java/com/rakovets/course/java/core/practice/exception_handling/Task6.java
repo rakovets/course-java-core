@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.exception_handling;
 
 public class Task6 {
     static class MakingException {
-        public static int throwingException(int result) throws MyFirstException, MySecondException, MyThirdException {
+        public static void throwingException(int result) throws MyFirstException, MySecondException, MyThirdException {
             if (result >= 0 && result < 33) {
                 throw new MyFirstException("The number from 0 to 33!");
             }
@@ -12,7 +12,6 @@ public class Task6 {
             if (result >= 66 && result <= 100) {
                 throw new MyThirdException("The number from 66 to 100!");
             }
-            return result;
         }
     }
 
