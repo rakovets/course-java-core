@@ -6,18 +6,18 @@ public class Atm {
     private int numberBanknotes100;
 
     public Atm(int numberBanknotes20,int numberBanknotes50,int numberBanknotes100) {
-        this.numberBanknotes20=numberBanknotes20;
-        this.numberBanknotes50=numberBanknotes50;
-        this.numberBanknotes100=numberBanknotes100;
+        this.numberBanknotes20 = numberBanknotes20;
+        this.numberBanknotes50 = numberBanknotes50;
+        this.numberBanknotes100 = numberBanknotes100;
     }
     public void addBanknotes20(int number) {
-       numberBanknotes20 = numberBanknotes20+number;
+       numberBanknotes20 = numberBanknotes20 + number;
     }
     public int addBanknotes50(int number) {
-       return   numberBanknotes50 = numberBanknotes50+number;
+       return   numberBanknotes50 = numberBanknotes50 + number;
     }
     public int addBanknotes100(int number) {
-      return  numberBanknotes100 = numberBanknotes100+number;
+      return  numberBanknotes100 = numberBanknotes100 + number;
     }
     public int getNumberBanknotes20() {
         return numberBanknotes20;
