@@ -6,7 +6,7 @@ public class Task04Demo {
     public static void main(String[] args) {
 
         try {
-            Task04.throwException("null");
+            Task04.throwException(null);
         } catch (Task04 e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
