@@ -31,9 +31,11 @@ public class Obscure<T> {
         }
     }
 
-    /*public static <S> Obscure of(S[] object) {
-        return Object<String>;
+    /*public static <S> S of(S[] object) {
+        return Obscure.of();
     }*/
 
-
+    /*public static <T> T empty() {
+        return Obscure;
+    }*/
 }
