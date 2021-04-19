@@ -1,13 +1,5 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-/* создать собственный класс-исключение - наследник класса `RuntimeException`
- * создать метод, выбрасывающий это исключение
- * вызвать этот метод
- * отловить это исключение
- * вывести `stack trace` в Standard Output
- * добавить в конструктор своего класса возможность указания сообщения*/
-
-
 import java.util.ArrayList;
 
 public class Task04 {
