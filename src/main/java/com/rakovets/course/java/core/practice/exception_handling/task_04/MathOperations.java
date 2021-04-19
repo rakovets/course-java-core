@@ -6,6 +6,7 @@ public class MathOperations {
         if(num2 == 3) {
             throw new WrongDividerException("Wrong number");
         }
+
         return  result;
     }
 }
