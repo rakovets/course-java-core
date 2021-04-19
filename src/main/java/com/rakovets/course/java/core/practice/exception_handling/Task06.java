@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Task06 {
     public static void randomException() {
-        Random b = new Random();
-        int a = b.nextInt(3);
-        switch (a) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(3);
+        switch (randomNumber) {
             case 0:
                 throw new NullPointerException();
             case 1:
