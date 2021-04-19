@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
-import java.util.Random;
-
 public abstract class Math<T> {
 
     public static <T> int findMaximum(int value1, int value2, int value3) {
