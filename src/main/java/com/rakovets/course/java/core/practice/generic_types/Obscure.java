@@ -27,7 +27,6 @@ public class Obscure<T> {
         }
     }
 
-
     public <T> Object orElseThrow(Exception exception) throws Exception {
         if (!isEmpty() && isPresent()) {
             return this.obT;
