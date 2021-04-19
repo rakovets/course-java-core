@@ -16,7 +16,7 @@ public class Obscure<T> {
     }
 
     public <T> boolean isEmpty() {
-        return !this.obT.toString().isEmpty();
+        return this.obT == null;
     }
 
     public T orElse(T defaultObj) {
@@ -29,16 +29,16 @@ public class Obscure<T> {
 
 
     public <T> Object orElseThrow(Exception exception) throws Exception {
-        if (isEmpty() && isPresent()) {
+        if (!isEmpty() && isPresent()) {
             return this.obT;
         } else throw new Exception(exception);
     }
 
-    public static <T> Obscure of(T obV) {
-        return new Obscure<>(obV);
+    public static <T> Obscure<T> of(T obT) {
+        return new Obscure<>(obT);
     }
 
-    public static <T> Obscure empty() {
+    public static <T> Obscure<T> empty() {
         return new Obscure<>(null);
     }
 
