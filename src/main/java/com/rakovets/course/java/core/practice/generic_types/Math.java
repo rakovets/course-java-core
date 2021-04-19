@@ -25,30 +25,30 @@ public class Math<T> {
         return minValue;
     }
 
-    public static <T> double averageValue(T[] array) {
+    public static <T extends Number> double averageValue(T[] array) {
         double sum = 0.0;
 
         for (T value : array) {
-            sum += (double) value;
+            sum += value.doubleValue();
         }
         return sum / array.length;
     }
 
-    public static <T> double maxInArray(T[] array) {
-        double maxValue = 0.0;
+    public static <T extends Number> T maxInArray(T[] array) {
+        T maxValue = array[0];
         for (int i = 0; i < array.length; i++) {
-            if (maxValue < (double) array[i]) {
-                maxValue = (double) array[i];
+            if (maxValue.doubleValue() < array[i].doubleValue()) {
+                maxValue = array[i];
             }
         }
         return maxValue;
     }
 
-    public static <T> double minInArray(T[] array) {
-        double minValue = 0.0;
+    public static <T extends Number> T minInArray(T[] array) {
+        T minValue = array[0];
         for (int i = 0; i < array.length; i++) {
-            if (minValue < (double) array[i]) {
-                minValue = (double) array[i];
+            if (minValue.doubleValue() < array[i].doubleValue()) {
+                minValue = array[i];
             }
         }
         return minValue;
@@ -59,7 +59,6 @@ public class Math<T> {
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j].compareTo(array[j + 1]) > 0) {
-                    System.out.println("Ya sravnivay "+ array[j]+ " and " + array[j+1]);
                     T tmp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = tmp;
@@ -69,25 +68,25 @@ public class Math<T> {
         return array;
     }
 
-    public static <T extends Comparable<T>> int binarySearch(T[] array, T key) {
+    public static <T extends Comparable<T>> int binarySearch(T[] inputArray, T key) {
         int low = 0;
-        int high = array.length;
-        int index = 0;
+        int high = inputArray.length;
+        int index;
+        T[] array = bubbleSort(inputArray);
 
-            while (low <= high) {
-                int mid = (low + high) / 2;
-                if (array[mid].compareTo(key) < 0) {
-                    low = mid + 1;
-                } else if (array[mid].compareTo(key) > 0) {
-                    high = mid - 1;
-                } else if (array[mid].compareTo(key) == 0) {
-                    index = mid;
-                    return index;
-                }
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (array[mid].compareTo(key) < 0) {
+                low = mid + 1;
+            } else if (array[mid].compareTo(key) > 0) {
+                high = mid - 1;
+            } else if (array[mid].compareTo(key) == 0) {
+                index = mid;
+                return index;
             }
+        }
 
         return -1;
     }
-
 
 }
