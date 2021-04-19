@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.exception_handling.task03;
+package com.rakovets.course.java.core.practice.exception_handling.task_03;
 
 public class Discount {
 

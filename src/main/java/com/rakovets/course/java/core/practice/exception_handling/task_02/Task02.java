@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.exception_handling.task02;
+package com.rakovets.course.java.core.practice.exception_handling.task_02;
 
 public class Task02 {
 

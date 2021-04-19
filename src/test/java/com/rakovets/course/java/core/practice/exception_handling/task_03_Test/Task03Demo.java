@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.exception_handling.task03Test;
+package com.rakovets.course.java.core.practice.exception_handling.task_03_Test;
 
-import com.rakovets.course.java.core.practice.exception_handling.task03.Discount;
-import com.rakovets.course.java.core.practice.exception_handling.task03.WrongSumException;
+import com.rakovets.course.java.core.practice.exception_handling.task_03.Discount;
 
 import java.util.Arrays;
 

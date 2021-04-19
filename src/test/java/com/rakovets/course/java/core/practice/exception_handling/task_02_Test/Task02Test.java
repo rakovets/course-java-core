@@ -1,6 +1,6 @@
-package com.rakovets.course.java.core.practice.exception_handling.task02Test;
+package com.rakovets.course.java.core.practice.exception_handling.task_02_Test;
 
-import com.rakovets.course.java.core.practice.exception_handling.task02.Task02;
+import com.rakovets.course.java.core.practice.exception_handling.task_02.Task02;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
