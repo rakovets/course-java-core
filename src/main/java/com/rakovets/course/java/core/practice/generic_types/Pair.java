@@ -9,12 +9,13 @@ public class Pair<K, V> {
         this.field2 = field2;
     }
 
-    /*public static <K,V> void swap(K field1, V field2) {
-        replace = field1;
-        field1 = field2;
-        field2 = replace;
+    public static <K,V> Pair<K,V> swap(Pair<K,V> swap) {
+        return new Pair(swap.getField2(), swap.getField1());
+    }
 
-     }*/
+    public String getSwapped() {
+        return getField1().toString() + " " + getField2().toString();
+    }
 
     public K getField1() {
         return field1;
