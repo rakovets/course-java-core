@@ -11,6 +11,7 @@ public class Task03_Demo {
            dog.walk();
         } catch (DogIsNotReadyException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
