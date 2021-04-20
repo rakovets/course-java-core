@@ -131,7 +131,7 @@ public class CustomArrayList<T> {
     public void trimToSize() {
         if (capacity > size) {
             Object[] clone = new Object[size];
-            for (int i = 0; i < clone.length; i++) {   //problem
+            for (int i = 0; i < clone.length; i++) {
                 clone[i] = data[i];
             }
             data = clone;
@@ -180,9 +180,9 @@ public class CustomArrayList<T> {
 
     public void shuffle() {
         Random rnd = new Random();
-        for (int i = 0; i < data.length; i++) {              ///////?
+        for (int i = 0; i < data.length; i++) {
             int index = rnd.nextInt(i + 1);
-            int a = (int)data[index];
+            String a = (String) data[index];
             data[index] = data[i];
             data[i] = a;
         }

@@ -34,5 +34,7 @@ public class CustomArrayListDemo {
         list.removeAt(4);
         System.out.println(list.toString());
         System.out.println(list.getSize());
+        list.shuffle();
+        System.out.println(list.toString());
     }
 }
