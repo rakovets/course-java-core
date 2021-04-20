@@ -21,57 +21,76 @@ public class CustomArrayList<T> {
     }
 
     private void ensureCapacity() {
-            Object[] clone = new Object[data.length + 1];
-            System.arraycopy(data, 0, clone, 0, data.length);
-            data = clone;
+        Object[] clone = new Object[data.length + 1];
+        System.arraycopy(data, 0, clone, 0, data.length);
+        data = clone;
+        capacity++;
     }
 
     public void pushBack(T value) {
-        if (data[data.length -1] == "null") {
-            size++;
-        }
-        data[data.length - 1] = value;
+        size++;
+        Object[] clone = new Object[data.length + 1];
+        System.arraycopy(data, 0, clone, 0, data.length);
+        clone[data.length] = value;
+        data = clone;
     }
 
     public void popFront() {
-        if(data[0] != "null") {
-            size--;
+        size--;
+        Object[] clone = new Object[data.length - 1];
+        for (int i = 0; i + 1 < data.length; i++) {
+            data[i] = data[i + 1];
         }
-        data[0] = "null";
+        System.arraycopy(data, 0, clone, 0, data.length -1);
+        data = clone;
     }
 
     public void pushFront(T value) {
-        if (data[0] == "null") {
-            size++;
-        }
-        data[0] = value;
+        size++;
+        Object[] clone = new Object[data.length + 1];
+        clone[0] = value;
+        System.arraycopy(data, 0, clone, 1, data.length);
+        data = clone;
     }
 
     public void insert(int index, T value) {
+        size++;
         if (index > data.length - 1) {
             ensureCapacity();
-            capacity++;
-        }
-        if (data[index] == "null") {
-            size++;
+            data[data.length - 1] = value;
+        } else if (data[index] != null) {
+            ensureCapacity();
+            for (int i = data.length - 1; i > index; i--) {
+                data[i] = data[i - 1];
+            }
         }
         data[index] = value;
     }
 
     public void removeAt(int index) throws ArrayIndexOutOfBoundsException {
         if (index <= data.length - 1) {
-            data[index] = "null";
             size--;
+            Object[] clone = new Object[data.length - 1];
+            for (int i = index; i + 1 < data.length; i++) {
+                    data[i] = data[i + 1];
+            }
+            System.arraycopy(data, 0, clone, 0, data.length - 1);
+            data = clone;
         } else {
             throw new ArrayIndexOutOfBoundsException("Undefined index");
         }
     }
 
     public void remove(T element) {
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < data.length - 1; i++) {
             if (data[i].equals(element)) {
-                data[i] = "null";
                 size--;
+                Object[] clone = new Object[data.length - 1];
+                for (int j = i; j + 1 < data.length; j++) {
+                    data[j] = data[j + 1];
+                }
+                System.arraycopy(data, 0, clone, 0, data.length - 1);
+                data = clone;
                 break;
             }
         }
@@ -80,22 +99,27 @@ public class CustomArrayList<T> {
     public void removeAll(T element) {
         for (int i = 0; i < data.length; i++) {
             if (data[i].equals(element)) {
-                data[i] = "null";
                 size--;
+                Object[] clone = new Object[data.length - 1];
+                for (int j = i; j + 1 < data.length; j++) {
+                    data[j] = data[j + 1];
+                }
+                System.arraycopy(data, 0, clone, 0, data.length - 1);
+                data = clone;
             }
         }
     }
 
     public void popBack() {
-        if (data[data.length - 1] != "null") {
-            size--;
-        }
-        this.data[data.length - 1] = "null";
+        size--;
+        Object[] clone = new Object[data.length - 1];
+        System.arraycopy(data, 0, clone, 0, data.length - 1);
+        data = clone;
     }
 
     public void clear() {
         for (int i = 0; i < data.length; i++) {
-            data[i] = "null";
+            data[i] = null;
         }
         size = 0;
     }
@@ -124,15 +148,21 @@ public class CustomArrayList<T> {
 
     public int indexOf(T value) {
         for (int i = 0; i < data.length; i++) {
+            if (data[i] == null) {
+                continue;
+            }
             if (data[i].equals(value)) {
-                return i;
+                return i - 1;
             }
         }
         return -1;
     }
 
     public int lastIndexOf(T value) {
-        for (int i = data.length -1; i > 0; i--) {
+        for (int i = data.length - 1; i > 0; i--) {
+            if (data[i] == null) {
+                continue;
+            }
             if (data[i].equals(value)) {
                 return i;
             }
