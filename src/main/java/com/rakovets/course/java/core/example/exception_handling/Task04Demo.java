@@ -10,6 +10,7 @@ public class Task04Demo {
             object.outOfRangeRuntimeException();
         } catch (OutOfRangeRuntimeException exception){
             System.out.println(exception.getMessage());
+            System.out.println(exception.getStackTrace());
         }
     }
 }
