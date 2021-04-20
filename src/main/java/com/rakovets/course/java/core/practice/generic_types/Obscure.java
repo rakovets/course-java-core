@@ -23,7 +23,7 @@ public class Obscure<T> {
         return field != null ? field : value;
     }
 
-    public T orElseThrow() throws Exception {
+    public T orElseThrow() {
         if (field == null) {
             throw new NullPointerException("This is NullPointerException");
         } else {
@@ -31,11 +31,16 @@ public class Obscure<T> {
         }
     }
 
-    /*public static <S> S of(S[] object) {
-        return Obscure.of();
-    }*/
+    public static <S> Obscure <S> of(S object) {
+        return new Obscure<>(object);
+    }
 
-    /*public static <T> T empty() {
-        return Obscure;
-    }*/
+    public static <S> Obscure <S> empty() {
+        return new Obscure<>(null);
+    }
+
+    @Override
+    public String toString() {
+        return field + "";
+    }
 }
