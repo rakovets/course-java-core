@@ -36,12 +36,16 @@ class Task03 {
      */
     static double[] getAverageMarks(int[][] marks) {
         double[] marksAverage = new double[marks.length];
+        double marksSum = 0;
+        int newArrayCounter = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[0].length; j++) {
-                marksAverage[i] += marks[i][j];
+        for (int[] mark : marks) {
+            for (int markCounter : mark) {
+                marksSum += markCounter;
             }
-            marksAverage[i] = BigDecimal.valueOf(marksAverage[i] /= marks[0].length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            marksAverage[newArrayCounter] = BigDecimal.valueOf(marksSum / mark.length).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            newArrayCounter++;
+            marksSum = 0;
         }
         return  marksAverage;
     }
@@ -54,14 +58,17 @@ class Task03 {
      */
     static int[] getMinMarks(int[][] marks) {
         int[] minMark = new int [marks.length];
+        int newArrayCounter = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            minMark[i] = marks[i][0];
-            for (int j = 0; j < marks[0].length; j++) {
-                if (minMark[i] > marks[i][j]){
-                    minMark[i] = marks[i][j];
+        for (int[] mark : marks) {
+            int minNumber = mark[0];
+            for (int markCounter : mark) {
+                if (markCounter < minNumber) {
+                    minNumber = markCounter;
                 }
             }
+            minMark[newArrayCounter] = minNumber;
+            newArrayCounter++;
         }
         return minMark;
     }
@@ -74,14 +81,17 @@ class Task03 {
      */
     static int[] getMaxMarks(int[][] marks) {
         int[] maxMark = new int [marks.length];
+        int newArrayCounter = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            maxMark[i] = marks[i][0];
-            for (int j = 0; j < marks[0].length; j++) {
-                if (maxMark[i] < marks[i][j]){
-                    maxMark[i] = marks[i][j];
+        for (int[] mark : marks) {
+            int maxNumber = mark[0];
+            for (int markCounter : mark) {
+                if (markCounter > maxNumber) {
+                    maxNumber = markCounter;
                 }
             }
+            maxMark[newArrayCounter] = maxNumber;
+            newArrayCounter++;
         }
         return maxMark;
     }
