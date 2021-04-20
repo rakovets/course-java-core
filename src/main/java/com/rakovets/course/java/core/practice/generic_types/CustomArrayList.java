@@ -2,8 +2,9 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 import java.util.Arrays;
 import java.lang.Math;
+import java.util.Random;
 
-public class CustomArrayList {
+public class CustomArrayList<T> {
     private Object[] data = {};
     private int size = 0;
     private int capacity;
@@ -25,33 +26,33 @@ public class CustomArrayList {
             data = clone;
     }
 
-    public void pushBack(int value) {
-        if (data[data.length -1] == null) {
+    public void pushBack(T value) {
+        if (data[data.length -1] == "null") {
             size++;
         }
         data[data.length - 1] = value;
     }
 
     public void popFront() {
-        if(data[0] != null) {
+        if(data[0] != "null") {
             size--;
         }
-        data[0] = null;
+        data[0] = "null";
     }
 
-    public void pushFront(int value) {
-        if (data[0] == null) {
+    public void pushFront(T value) {
+        if (data[0] == "null") {
             size++;
         }
         data[0] = value;
     }
 
-    public void insert(int index, int value) {
+    public void insert(int index, T value) {
         if (index > data.length - 1) {
             ensureCapacity();
             capacity++;
         }
-        if (data[index] == null) {
+        if (data[index] == "null") {
             size++;
         }
         data[index] = value;
@@ -59,42 +60,42 @@ public class CustomArrayList {
 
     public void removeAt(int index) throws ArrayIndexOutOfBoundsException {
         if (index <= data.length - 1) {
-            data[index] = null;
+            data[index] = "null";
             size--;
         } else {
             throw new ArrayIndexOutOfBoundsException("Undefined index");
         }
     }
 
-    public void remove(int element) {
-        for (int i = 0; i < data.length; i++) {    //NullPointer
+    public void remove(T element) {
+        for (int i = 0; i < data.length; i++) {
             if (data[i].equals(element)) {
-                data[i] = null;
+                data[i] = "null";
                 size--;
                 break;
             }
         }
     }
 
-    public void removeAll(int element) {
-        for (int i = 0; i < data.length; i++) {       //NullPointer
+    public void removeAll(T element) {
+        for (int i = 0; i < data.length; i++) {
             if (data[i].equals(element)) {
-                data[i] = null;
+                data[i] = "null";
                 size--;
             }
         }
     }
 
     public void popBack() {
-        if (data[data.length - 1] != null) {
+        if (data[data.length - 1] != "null") {
             size--;
         }
-        this.data[data.length - 1] = null;
+        this.data[data.length - 1] = "null";
     }
 
     public void clear() {
         for (int i = 0; i < data.length; i++) {
-            data[i] = null;
+            data[i] = "null";
         }
         size = 0;
     }
@@ -121,8 +122,8 @@ public class CustomArrayList {
         size = data.length;
     }
 
-    public int indexOf(int value) {
-        for (int i = 0; i < data.length; i++) {  //NullPointer
+    public int indexOf(T value) {
+        for (int i = 0; i < data.length; i++) {
             if (data[i].equals(value)) {
                 return i;
             }
@@ -130,8 +131,8 @@ public class CustomArrayList {
         return -1;
     }
 
-    public int lastIndexOf(int value) {
-        for (int i = data.length -1; i > 0; i--) {  //NullPointer
+    public int lastIndexOf(T value) {
+        for (int i = data.length -1; i > 0; i--) {
             if (data[i].equals(value)) {
                 return i;
             }
@@ -147,19 +148,29 @@ public class CustomArrayList {
         data = reverse;
     }
 
+    public void shuffle() {
+        Random rnd = new Random();
+        for (int i = 0; i < data.length; i++) {              ///////?
+            int index = rnd.nextInt(i + 1);
+            int a = (int)data[index];
+            data[index] = data[i];
+            data[i] = a;
+        }
+    }
+
     public boolean equals(Object[] object) {
         return Arrays.equals(data, object);
     }
 
-    public int getElementAt(int index) throws ArrayIndexOutOfBoundsException {
+    public String getElementAt(int index) throws ArrayIndexOutOfBoundsException {
         if (index > data.length - 1) {
             throw new ArrayIndexOutOfBoundsException("Undefined index");
         } else {
-            return (int) data[index];
+            return (String) data[index];
         }
     }
 
-    public Object[] clone() {                  ///?
+    public Object[] clone() {
         return data.clone();
     }
 
