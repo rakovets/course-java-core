@@ -27,15 +27,18 @@ public class Obscure<T> {
         }
     }
 
-    public T orElseThrow() throws Exception {
-        try {
+    public T orElseThrow() throws NullPointerException {
             if (parameterObscure == null) {
-                throw new Exception("NullPointerException");
+                throw new NullPointerException("Field is empty!");
+            } else {
+                return parameterObscure;
             }
-        }
-            catch (Exception e){
-                System.out.println(e.getMessage());
-        }
-        return parameterObscure;
+    }
+    public static <S> Obscure<S> of(S obj) {
+        return new Obscure<>(obj);
+    }
+
+    public static <S> Obscure<S> empty() {
+        return new Obscure<>(null);
     }
 }
