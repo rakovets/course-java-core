@@ -35,6 +35,10 @@ public class Obscure<T> {
         return new Obscure<S>(object);
     }
 
+    public static <S> Obscure<S> empty(){
+        return new Obscure<>(null);
+    }
+
     public void setValue(T value) {
         this.value = value;
     }
