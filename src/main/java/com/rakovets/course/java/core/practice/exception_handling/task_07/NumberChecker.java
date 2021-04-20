@@ -4,10 +4,9 @@ public class NumberChecker {
     public static int isEvenNumber(int number) throws NotEvenNumberException {
         if(number % 2 == 0) {
             System.out.print("Number is Even");
-            } else {
-                throw new NotEvenNumberException();
-            }
-
+        } else {
+            throw new NotEvenNumberException();
+        }
         return number;
     }
 }

@@ -9,7 +9,5 @@ public class Task01Demo {
         } catch (NullPointerException e) {
             System.out.println("Field str of Object tsk1 is null!!!" );
         }
-
-
     }
 }
