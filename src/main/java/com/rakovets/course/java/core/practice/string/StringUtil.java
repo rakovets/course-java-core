@@ -1,9 +1,7 @@
 package com.rakovets.course.java.core.practice.string;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,16 +28,15 @@ public class StringUtil {
         char[] container = new char[indexEnd - indexBegin];
         str.getChars(indexBegin, indexEnd, container, 0);
         result = new String(container);
-
         return result;
     }
 
     public String replaceEmoji(String str1, String str2, String str3) {
-        return  str1.replace(str2,str3);
+        return  str1.replace(str2, str3);
     }
 
     public boolean correctBegin( String text, String word) {
-        return text.startsWith(word) && text.endsWith(word) ;
+        return text.startsWith(word) && text.endsWith(word);
     }
 
     public int numberOfEnglishVowelLetters(String text) {
@@ -49,7 +46,6 @@ public class StringUtil {
         while (matcher.find()) {
             countVowel++;
         }
-
         return countVowel;
     }
 
@@ -60,13 +56,11 @@ public class StringUtil {
         while (matcher.find()) {
             countOfPunctuationMarks++;
         }
-
         return countOfPunctuationMarks;
     }
 
     public boolean palindromChekOut(String text) {
-
-        return text.toLowerCase().replaceAll("[\\pP\\s]","").equals(new StringBuilder(text.toLowerCase().replaceAll("[\\pP\\s]","")).reverse().toString());
+        return text.toLowerCase().replaceAll("[\\pP\\s]", "").equals(new StringBuilder(text.toLowerCase().replaceAll("[\\pP\\s]", "")).reverse().toString());
     }
 
     public String[] splitText(String  text, int numberSymbols) {
@@ -150,7 +144,6 @@ public class StringUtil {
     }
 
     public boolean isSameArrays(String[] arrOnes, String[] arrTwos){
-
         for(int i = 1; i < arrOnes.length; i++) {
             for(int j = 1; j < arrTwos.length; j++) {
                 if(arrOnes[i].equals(arrTwos[j])) {
