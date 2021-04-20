@@ -16,15 +16,10 @@ public class CustomArrayList<T> {
         }
     }
 
-    public CustomArrayList() {
-        data = new Object[capacity];
-    }
-
     private void ensureCapacity() {
         Object[] clone = new Object[data.length + 1];
         System.arraycopy(data, 0, clone, 0, data.length);
         data = clone;
-        capacity++;
     }
 
     public void pushBack(T value) {
@@ -67,7 +62,7 @@ public class CustomArrayList<T> {
         data[index] = value;
     }
 
-    public void removeAt(int index) throws ArrayIndexOutOfBoundsException {
+    public void removeAt(int index) {
         if (index <= data.length - 1) {
             size--;
             Object[] clone = new Object[data.length - 1];
@@ -192,7 +187,7 @@ public class CustomArrayList<T> {
         return Arrays.equals(data, object);
     }
 
-    public String getElementAt(int index) throws ArrayIndexOutOfBoundsException {
+    public String getElementAt(int index) {
         if (index > data.length - 1) {
             throw new ArrayIndexOutOfBoundsException("Undefined index");
         } else {
@@ -204,13 +199,8 @@ public class CustomArrayList<T> {
         return data.clone();
     }
 
-
     public String toString() {
        return Arrays.toString(data);
-    }
-
-    public int getCapacity() {
-        return capacity;
     }
 
     public int getSize() {

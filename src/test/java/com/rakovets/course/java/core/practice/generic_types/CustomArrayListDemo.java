@@ -4,7 +4,7 @@ public class CustomArrayListDemo {
     public static void main(String[] args) {
         CustomArrayList <String> list = new CustomArrayList<>(10);
         list.insert(0,"5");
-        list.insert(1,"12");
+        list.insert(1,"Hello");
         list.insert(2,"24");
         list.insert(3,"87");
         list.insert(4,"21");
@@ -36,5 +36,6 @@ public class CustomArrayListDemo {
         System.out.println(list.getSize());
         list.shuffle();
         System.out.println(list.toString());
+        System.out.println(list.getSize());
     }
 }
