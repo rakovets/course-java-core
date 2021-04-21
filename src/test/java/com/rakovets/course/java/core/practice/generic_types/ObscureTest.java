@@ -9,26 +9,26 @@ import java.util.stream.Stream;
 
 class ObscureTest<T> {
 
-    static Stream<Arguments> getObjProviderArguments() {
+    static Stream<Arguments> getObjectTProviderArguments() {
         return Stream.of(
                 Arguments.of(null, null),
-                Arguments.of("Zhenya", "Zhenya"),
+                Arguments.of("Evgeni", "Evgeni"),
                 Arguments.of(10, 10));
     }
 
     @ParameterizedTest
-    @MethodSource("getObjProviderArguments")
-    void getObjTest(T expectedResult, T obj) {
+    @MethodSource("getObjectTProviderArguments")
+    void getObjectTest(T expectedResult, T obj) {
 
         Obscure<T> obscure = new Obscure<>(obj);
-        T actualResult = obscure.getObT();
+        T actualResult = obscure.getObjectT();
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
     static Stream<Arguments> isPresentProviderArguments() {
         return Stream.of(
                 Arguments.of(true, 10),
-                Arguments.of(true, "Zhenya"),
+                Arguments.of(true, "Evgeni"),
                 Arguments.of(false, null));
     }
 
@@ -43,7 +43,7 @@ class ObscureTest<T> {
     static Stream<Arguments> isEmptyProviderArguments() {
         return Stream.of(
                 Arguments.of(false, 10),
-                Arguments.of(false, "Zhenya"),
+                Arguments.of(false, "Evgeni"),
                 Arguments.of(true, null)
         );
     }
@@ -60,7 +60,7 @@ class ObscureTest<T> {
     static Stream<Arguments> orElseProviderArguments() {
         return Stream.of(
                 Arguments.of(null, null),
-                Arguments.of("Zhenya", "Zhenya"),
+                Arguments.of("Evgeni", "Evgeni"),
                 Arguments.of(10, 10));
     }
 
@@ -75,7 +75,7 @@ class ObscureTest<T> {
     //Task5
     static Stream<Arguments> orElseThrowProviderArguments() {
         return Stream.of(
-                Arguments.of("Zhenya", "Zhenya"),
+                Arguments.of("Evgeni", "Evgeni"),
                 Arguments.of("NullPointerException", null)
         );
     }
@@ -97,7 +97,7 @@ class ObscureTest<T> {
 
     static Stream<Arguments> ofProviderArguments() {
         return Stream.of(
-                Arguments.of("Zhenya", "Zhenya"),
+                Arguments.of("Evgeni", "Evgeni"),
                 Arguments.of(10, 10));
     }
 
@@ -106,7 +106,7 @@ class ObscureTest<T> {
     void ofTest(T expectedResult, T obj) {
         Obscure<T> obscure = (Obscure<T>) new Obscure<>(20);
         Obscure actualResult = obscure.of(obj);
-        Assertions.assertEquals(expectedResult, actualResult.getObT());
+        Assertions.assertEquals(expectedResult, actualResult.getObjectT());
     }
 
     static Stream<Arguments> emptyProviderArguments() {
@@ -120,7 +120,7 @@ class ObscureTest<T> {
     void emptyTest(T expectedResult, T obj) {
         Obscure<T> obscure = (Obscure<T>) new Obscure<>(20);
         Obscure actualResult = obscure.empty();
-        Assertions.assertEquals(expectedResult, actualResult.getObT() == obj);
+        Assertions.assertEquals(expectedResult, actualResult.getObjectT() == obj);
     }
 
 
