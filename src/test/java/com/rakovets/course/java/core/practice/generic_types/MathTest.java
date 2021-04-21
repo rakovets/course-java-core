@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 class MathTest<T> {
-    static Stream<Arguments> maxValueTestProviderArguments() {
+    static Stream<Arguments> getMaxValueTestProviderArguments() {
         return Stream.of(
                 Arguments.of(5, 4, 5, 2),
                 Arguments.of(9.9, -9.9, 9.9, 2.2),
@@ -17,9 +17,9 @@ class MathTest<T> {
     }
 
     @ParameterizedTest
-    @MethodSource("maxValueTestProviderArguments")
+    @MethodSource("getMaxValueTestProviderArguments")
     <T extends Comparable<T>> void maxValueTest(T expectedResult, T a, T b, T c) {
-        T actualResult = Math.maxValue(a, b, c);
+        T actualResult = Math.getMaxValue(a, b, c);
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
@@ -33,8 +33,8 @@ class MathTest<T> {
 
     @ParameterizedTest
     @MethodSource("minValueProviderArguments")
-    <T extends Comparable<T>> void getMinNumber(T expectedResult, T x, T y, T z, T k, T j) {
-        T actualResult = Math.minValue(x, y, z, k, j);
+    <T extends Comparable<T>> void getMinValueTest(T expectedResult, T x, T y, T z, T k, T j) {
+        T actualResult = Math.getMinValue(x, y, z, k, j);
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
@@ -48,8 +48,8 @@ class MathTest<T> {
 
     @ParameterizedTest
     @MethodSource("averageValueProviderArguments")
-    <T extends Number> void averageValueTest(double expectedResult, T[] array) {
-        double actualResult = Math.averageValue(array);
+    <T extends Number> void getAverageValueTest(double expectedResult, T[] array) {
+        double actualResult = Math.getAverageValue(array);
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
@@ -64,8 +64,8 @@ class MathTest<T> {
 
     @ParameterizedTest
     @MethodSource("maxInArrayProviderArguments")
-    <T extends Number> void maxInArrayTest(T expectedResult, T[] array) {
-        T actualResult = Math.maxInArray(array);
+    <T extends Number> void getMaxInArrayTest(T expectedResult, T[] array) {
+        T actualResult = Math.getMaxInArray(array);
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
@@ -81,7 +81,7 @@ class MathTest<T> {
     @ParameterizedTest
     @MethodSource("minInArrayProviderArguments")
     <T extends Number> void minInArrayTest(T expectedResult, T[] array) {
-        T actualResult = Math.minInArray(array);
+        T actualResult = Math.getMinInArray(array);
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
