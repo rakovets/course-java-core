@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 import java.util.ArrayList;
 
-public class CustomArraysList2Demo {
+public class CustomArraysListDemo {
     public static void main(String[] args) {
 
         CustomArrayList<Integer> array = new CustomArrayList(10);
@@ -12,6 +12,8 @@ public class CustomArraysList2Demo {
         array.pushFront(1);
         array.pushFront(6);
         array.trimToSize();
+        array.printCustomArray();
+        System.out.println(array.getElementAt(4));
         array.printCustomArray();
         array.reverse();
         System.out.print("AfterReverse = ");
