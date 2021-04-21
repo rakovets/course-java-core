@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.generic_types;
 public class Obscure<T> {
     private T value;
 
-    public Obscure (T value){
+    public Obscure (T value) {
         this.value = value;
     }
 
@@ -11,31 +11,31 @@ public class Obscure<T> {
         return value;
     }
 
-    public boolean isPresent(){
+    public boolean isPresent() {
         return value != null;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return value == null;
     }
 
-    public T orElse(T defaultValue) {
+    public T orElse(T defaultValue)  {
         return isPresent() ? value : defaultValue;
     }
 
     public T orElseThrow(Exception exception) throws Exception {
-        if(isPresent()){
+        if(isPresent()) {
             return value;
         } else {
             throw exception;
         }
     }
 
-    public  static <S> Obscure<S> of(S object){
+    public  static <S> Obscure<S> of(S object) {
         return new Obscure<S>(object);
     }
 
-    public static <S> Obscure<S> empty(){
+    public static <S> Obscure<S> empty() {
         return new Obscure<>(null);
     }
 

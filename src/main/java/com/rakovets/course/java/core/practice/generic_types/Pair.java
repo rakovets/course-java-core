@@ -4,7 +4,7 @@ public class Pair <K, V> {
     private K key;
     private V value;
 
-    public Pair(K key, V value){
+    public Pair(K key, V value) {
         this.key = key;
         this.value = value;
     }
@@ -13,7 +13,7 @@ public class Pair <K, V> {
         return new Pair(pair.getValue(), pair.getKey());
     }
 
-    public Pair<V,K> getSwapped(){
+    public Pair<V,K> getSwapped() {
         return new Pair(this.value, this.key);
 
 

@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class MathDemo {
     public static void main(String[] args) {
-        Math<Integer> math = new Math<Integer>();
+        Math<Integer> math = new Math();
 
-        int dem =  Math.getMaxOfThree(3,5,6);
+        int dem =  Math.getMaxOfThree(3, 5, 6);
         System.out.println(dem);
 
         dem = Math.getMinOfFive(3, 4, 5, 1, 2);
