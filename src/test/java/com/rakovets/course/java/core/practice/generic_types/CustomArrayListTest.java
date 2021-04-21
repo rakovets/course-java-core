@@ -7,9 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-
 class CustomArrayListTest<T> {
-
 
     static Stream<Arguments> pushBackTestProviderArguments() {
         return Stream.of(
@@ -30,8 +28,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
-
-    //
     static Stream<Arguments> pushFrontTestProviderArguments() {
         return Stream.of(
                 Arguments.of(3, new Integer[]{1, 2, 3}),
@@ -51,8 +47,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
-
-    //
     static Stream<Arguments> popFrontTestProviderArguments() {
         return Stream.of(
                 Arguments.of(2, new Integer[]{1, 2, 3}),
@@ -71,7 +65,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
-    //
     static Stream<Arguments> popBackFrontTestProviderArguments() {
         return Stream.of(
                 Arguments.of(2, new Integer[]{1, 2, 3}),
@@ -89,7 +82,6 @@ class CustomArrayListTest<T> {
         customArrayList.popBack();
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
-//
 
     static Stream<Arguments> insertTestProviderArguments() {
         return Stream.of(
@@ -110,7 +102,6 @@ class CustomArrayListTest<T> {
         customArrayList.insert(insertValue, 1);
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
-    //
 
     static Stream<Arguments> removeAtTestProviderArguments() {
         return Stream.of(
@@ -132,7 +123,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
-    //////////////
     static Stream<Arguments> removeTestProviderArguments() {
         return Stream.of(
                 Arguments.of(2, new Integer[]{1, 2, 2}, 2),
@@ -148,14 +138,10 @@ class CustomArrayListTest<T> {
         for (T value : array) {
             customArrayList.pushBack(value);
         }
-
         customArrayList.remove(valueToRemove);
-
-
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
-    ///////////////
     static Stream<Arguments> removeAllTestProviderArguments() {
         return Stream.of(
                 Arguments.of(1, new Integer[]{1, 2, 2}, 2),
@@ -175,7 +161,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
-    //////////////////
     static Stream<Arguments> isEmptyTestProviderArguments() {
         return Stream.of(
                 Arguments.of(true, new Integer[]{}),
@@ -194,7 +179,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.isEmpty());
     }
 
-    /////////////////
     static Stream<Arguments> indexOfTestProviderArguments() {
         return Stream.of(
                 Arguments.of(1, new Integer[]{1, 2, 2}, 2),
@@ -214,7 +198,6 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.indexOf(searchValue));
     }
 
-    ///////////////////
     static Stream<Arguments> lastIndexOfTestProviderArguments() {
         return Stream.of(
                 Arguments.of(2, new Integer[]{1, 2, 2, 8, 9}, 2),
@@ -233,7 +216,5 @@ class CustomArrayListTest<T> {
         }
         Assertions.assertEquals(expectedSize, customArrayList.lastIndexOf(searchValue));
     }
-
-    ///////////////////
 
 }
