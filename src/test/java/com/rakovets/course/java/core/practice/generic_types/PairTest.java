@@ -11,7 +11,6 @@ class PairTest {
         Pair<String, Integer> swap = Pair.swap(pair);
         Assertions.assertEquals("Java", swap.getObT());
         Assertions.assertEquals(100, swap.getObV());
-
     }
 
     @Test
