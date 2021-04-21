@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 public abstract class Math<T> {
 
-    public static <T extends Comparable<T>> T maxValue(T a, T b, T c) {
+    public static <T extends Comparable<T>> T getMaxValue(T a, T b, T c) {
         if (a.compareTo(b) > 0 && a.compareTo(c) > 0)
             return a;
         else if (b.compareTo(a) > 0 && b.compareTo(c) > 0) {
@@ -10,7 +10,7 @@ public abstract class Math<T> {
         } else return c;
     }
 
-    public static <T extends Comparable<T>> T minValue(T a, T b, T c, T d, T e) {
+    public static <T extends Comparable<T>> T getMinValue(T a, T b, T c, T d, T e) {
         T minValue = a;
 
         if (b.compareTo(minValue) < 0)
@@ -24,7 +24,7 @@ public abstract class Math<T> {
         return minValue;
     }
 
-    public static <T extends Number> double averageValue(T[] array) {
+    public static <T extends Number> double getAverageValue(T[] array) {
         double sum = 0.0;
 
         for (T value : array) {
@@ -33,7 +33,7 @@ public abstract class Math<T> {
         return sum / array.length;
     }
 
-    public static <T extends Number> T maxInArray(T[] array) {
+    public static <T extends Number> T getMaxInArray(T[] array) {
         T maxValue = array[0];
 
         for (int i = 0; i < array.length; i++) {
@@ -44,7 +44,7 @@ public abstract class Math<T> {
         return maxValue;
     }
 
-    public static <T extends Number> T minInArray(T[] array) {
+    public static <T extends Number> T getMinInArray(T[] array) {
         T minValue = array[0];
 
         for (int i = 0; i < array.length; i++) {
