@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+import java.util.Arrays;
 
 public abstract class Math {
     public static <T extends Number> T getMaxValueOfThreeNumbers(T n1, T n2, T n3) {
@@ -48,5 +49,48 @@ public abstract class Math {
             sum += index.doubleValue();
         }
         return sum / array.length;
+    }
+
+    public static <T extends Number> T getMaxValueFromArray(T[] array) {
+        Arrays.sort(array);
+        return array[array.length - 1];
+    }
+
+    public static <T extends Number> T getMinValueFromArray(T[] array) {
+        Arrays.sort(array);
+        return array[0];
+    }
+
+    public static <T extends Number> T[] bubbleSort(T[] array) {
+        boolean sorted = false;
+        while(!sorted) {
+            sorted = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i].doubleValue() > array[i + 1].doubleValue()) {
+                    T temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    sorted = false;
+                }
+            }
+        }
+        return array;
+    }
+
+    public static <T extends Number> int binarySearchArray(T[] array, T elementToSearch) {
+        int firstIndex = 0;
+        int lastIndex = array.length - 1;
+
+        while(firstIndex <= lastIndex) {
+            int middleIndex = (firstIndex + lastIndex) / 2;
+            if (array[middleIndex].equals(elementToSearch)) {
+                return middleIndex;
+            }
+            else if (array[middleIndex].doubleValue() < elementToSearch.doubleValue())
+                firstIndex = middleIndex + 1;
+            else if (array[middleIndex].doubleValue() > elementToSearch.doubleValue())
+                lastIndex = middleIndex - 1;
+        }
+        return -1;
     }
 }

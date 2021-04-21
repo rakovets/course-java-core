@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
 import java.util.stream.Stream;
@@ -66,7 +67,85 @@ public class MathTest {
 
         //THEN
         Assertions.assertEquals(expectedDouble, actualDouble);
-
     }
 
+    static Stream<Arguments> provideArgumentsForGetMaxValueFromArray() {
+        return Stream.of(
+                Arguments.of(4, new Integer[] {1, 2, 3, 4}),
+                Arguments.of(11.3, new Double[] {1.3, 2.7, 7.0, 11.3})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForGetMaxValueFromArray")
+    <T extends Number> void getMaxFromArray(T expectedNumber, T[] array) {
+        // GIVEN
+
+        // WHEN
+        T actualNumber = Math.getMaxValueFromArray(array);
+
+        // THEN
+        Assertions.assertEquals(expectedNumber, actualNumber);
+    }
+
+    static Stream<Arguments> provideArgumentsForGetMinValueFromArray() {
+        return Stream.of(
+                Arguments.of(1, new Integer[] {1, 2, 3, 4}),
+                Arguments.of(1.3, new Double[] {1.3, 2.7, 7.0, 11.3})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForGetMinValueFromArray")
+    <T extends Number> void getMinFromArray(T expectedNumber, T[] array) {
+        // GIVEN
+
+        // WHEN
+        T actualNumber = Math.getMinValueFromArray(array);
+
+        // THEN
+        Assertions.assertEquals(expectedNumber, actualNumber);
+    }
+
+    static Stream<Arguments> provideArgumentsForBubbleSort() {
+        return Stream.of(
+                Arguments.of(new Integer[] {-1, 1, 2, 3, 4}, new Integer[] {1, 2, 3, 4, -1}),
+                Arguments.of(new Double[] {-1.2, 1.0, 1.3, 1.5, 10.7, 11.0}, new Double[] {1.5, 10.7, 1.0, 1.3, 11.0, -1.2})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForBubbleSort")
+    <T extends Number> void bubbleSort(T[] expectedArray, T[] array) {
+        // GIVEN
+
+        // WHEN
+        T[] actualArray = Math.bubbleSort(array);
+
+        // THEN
+        assertArrayEquals(expectedArray, actualArray);
+    }
+
+    static Stream<Arguments> provideArgumentsForBinarySearchArray() {
+        return Stream.of(
+                Arguments.of(4, 4, new Integer[] {-2, 1, 2, 3, 4}),
+                Arguments.of(0, -9.8, new Double[] {-9.8, 1.3, 3.5, 4.7, 7.0, 10.0}),
+                Arguments.of(2, 78L, new Long[] {-9L, 6L, 78L, 567L, 79587L, }),
+                Arguments.of(-1, 0.0, new Double[] {-9.8, 1.3, 3.5, 4.7, 7.0, 10.0}),
+                Arguments.of(-1, -5, new Integer[] {-2, 1, 2, 3, 4}),
+                Arguments.of(-1, 987L, new Long[] {6L, 78L, 567L})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForBinarySearchArray")
+    <T extends Number> void binarySearchArray(int expectedNumber, T elementToSearch, T[] array) {
+        // GIVEN
+
+        // WHEN
+        int actualNumber = Math.binarySearchArray(array, elementToSearch);
+
+        // THEN
+        Assertions.assertEquals(expectedNumber, actualNumber);
+    }
 }
