@@ -23,7 +23,6 @@ class MathTest<T> {
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
-
     static Stream<Arguments> minValueProviderArguments() {
         return Stream.of(
                 Arguments.of(-2, 4, 5, 2, -2, 99),
@@ -38,7 +37,6 @@ class MathTest<T> {
         T actualResult = Math.minValue(x, y, z, k, j);
         Assertions.assertEquals(expectedResult, actualResult);
     }
-
 
     static Stream<Arguments> averageValueProviderArguments() {
         return Stream.of(
@@ -102,7 +100,6 @@ class MathTest<T> {
         Assertions.assertArrayEquals(expectedResult, actualResult);
     }
 
-    //Task7
     static Stream<Arguments> binarySearchProviderArguments() {
         return Stream.of(
                 Arguments.of(0, new Integer[]{-100, 10, 20, 35, 90}, -100),
