@@ -9,11 +9,11 @@ public class Pair <K, V> {
         this.value = value;
     }
 
-    public static <K, V> Pair<K, V> swap(K key, V value) {
-        return new Pair(value, key);
+    public static <K, V> Pair<V,K> swap(Pair<K,V> pair) {
+        return new Pair(pair.getValue(), pair.getKey());
     }
 
-    public Pair<K,V> getSwapped(){
+    public Pair<V,K> getSwapped(){
         return new Pair(this.value, this.key);
 
 
