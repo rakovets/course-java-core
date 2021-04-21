@@ -13,6 +13,11 @@ public class Actor {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + " " + fee + " " + age;
+    }
+
     public String getFirstName() {
         return firstName;
     }
