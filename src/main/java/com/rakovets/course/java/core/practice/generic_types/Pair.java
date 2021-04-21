@@ -25,11 +25,11 @@ public class Pair<T, V> {
         this.obV = obV;
     }
 
-    public <T, V> Pair swap(T obT, V obV) {
-        return new Pair(obV, obT);
+    public static <T, V> Pair swap(Pair<T, V> pair) {
+        return new Pair(pair.getObV(), pair.getObT());
     }
 
-    public <T, V> Pair  getSwapped(){
-        return new Pair(getObV(),getObT());
+    public <T, V> Pair getSwapped() {
+        return new Pair(getObV(), getObT());
     }
 }
