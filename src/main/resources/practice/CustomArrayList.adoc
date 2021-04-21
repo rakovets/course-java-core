@@ -1,0 +1,38 @@
+= Custom Array List
+== Methods
+
+* `getSize()` - Returns the size of massive.
+
+* `pushBack()` - Adding an element to the end of the array.
+
+* `popFront()` - Removing the first element from the array
+
+* `pushFront()` - Adding a new element to the beginning of the array
+
+* `insert()` - Inserting a new element at the specified index
+
+* `removeAt()` - Removing element at the specified index
+
+* `remove()` - Removing element whose values match the value of the passed parameter.
+
+* `removeAll()` - Removing elements whose values match the value of the passed parameter
+
+* `popBack()` - Removing the last element from the array
+
+* `clear()` - Emptying the array.
+
+* `isEmpty()` - Returns true if size = 0, and false otherwise
+
+* `trimToSize()` - Adjusts the capacity value to size
+
+* `indexOf()` - Searching first occurrence in array of the specified value.
+
+* `lastIndexOf()` - Searching last occurrence in array of the specified value
+
+* `reverse()` - Changing the order of elements in an array to the opposite
+
+* `shuffle()` - Random shuffling of array elements
+
+* `equals()` - Comparing arrays.
+
+* `getElementAt()` - Retrieves the value by index
