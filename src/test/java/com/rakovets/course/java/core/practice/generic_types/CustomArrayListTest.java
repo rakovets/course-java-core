@@ -9,6 +9,8 @@ import java.util.stream.Stream;
 
 
 class CustomArrayListTest<T> {
+
+
     static Stream<Arguments> pushBackTestProviderArguments() {
         return Stream.of(
                 Arguments.of(3, new Integer[]{1, 2, 3}),
@@ -152,14 +154,15 @@ class CustomArrayListTest<T> {
 
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
-///////////////
-static Stream<Arguments> removeAllTestProviderArguments() {
-    return Stream.of(
-            Arguments.of(1, new Integer[]{1, 2, 2},2),
-            Arguments.of(1, new String[]{"one", "two", "two", "two"}, "two"),
-            Arguments.of(7, new Integer[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8)
-    );
-}
+
+    ///////////////
+    static Stream<Arguments> removeAllTestProviderArguments() {
+        return Stream.of(
+                Arguments.of(1, new Integer[]{1, 2, 2}, 2),
+                Arguments.of(1, new String[]{"one", "two", "two", "two"}, "two"),
+                Arguments.of(7, new Integer[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8)
+        );
+    }
 
     @ParameterizedTest
     @MethodSource("removeAllTestProviderArguments")
@@ -171,6 +174,7 @@ static Stream<Arguments> removeAllTestProviderArguments() {
         customArrayList.removeAll(valueToRemove);
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
+
     //////////////////
     static Stream<Arguments> isEmptyTestProviderArguments() {
         return Stream.of(
@@ -189,5 +193,47 @@ static Stream<Arguments> removeAllTestProviderArguments() {
         }
         Assertions.assertEquals(expectedSize, customArrayList.isEmpty());
     }
+
+    /////////////////
+    static Stream<Arguments> indexOfTestProviderArguments() {
+        return Stream.of(
+                Arguments.of(1, new Integer[]{1, 2, 2}, 2),
+                Arguments.of(1, new String[]{"one", "two", "two", "two"}, "two"),
+                Arguments.of(-1, new String[]{"one", "two", "two", "two"}, "eight"),
+                Arguments.of(3, new Integer[]{1, 0, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("indexOfTestProviderArguments")
+    public void indexOfTest(int expectedSize, T[] array, T searchValue) {
+        CustomArrayList<T> customArrayList = new CustomArrayList(10);
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+        Assertions.assertEquals(expectedSize, customArrayList.indexOf(searchValue));
+    }
+
+    ///////////////////
+    static Stream<Arguments> lastIndexOfTestProviderArguments() {
+        return Stream.of(
+                Arguments.of(2, new Integer[]{1, 2, 2, 8, 9}, 2),
+                Arguments.of(0, new String[]{"two", "one", "zero", "eight"}, "two"),
+                Arguments.of(-1, new String[]{"one", "two", "two", "two"}, "eight"),
+                Arguments.of(7, new Integer[]{1, 0, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("lastIndexOfTestProviderArguments")
+    public void lastIndexOfTest(int expectedSize, T[] array, T searchValue) {
+        CustomArrayList<T> customArrayList = new CustomArrayList(10);
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+        Assertions.assertEquals(expectedSize, customArrayList.lastIndexOf(searchValue));
+    }
+
+    ///////////////////
 
 }
