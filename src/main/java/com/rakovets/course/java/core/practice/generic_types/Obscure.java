@@ -1,27 +1,27 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
 public class Obscure<T> {
-    private T obT;
+    private T objectT;
 
     public Obscure(T obT) {
-        this.obT = obT;
+        this.objectT = obT;
     }
 
-    public T getObT() {
-        return this.obT;
+    public T getObjectT() {
+        return objectT;
     }
 
     public <T> boolean isPresent() {
-        return this.obT != null;
+        return this.objectT != null;
     }
 
     public <T> boolean isEmpty() {
-        return this.obT == null;
+        return this.objectT == null;
     }
 
     public T orElse(T defaultObj) {
         if (isPresent()) {
-            return this.obT;
+            return this.objectT;
         } else {
             return defaultObj;
         }
@@ -29,12 +29,12 @@ public class Obscure<T> {
 
     public <T> Object orElseThrow(Exception exception) throws Exception {
         if (!isEmpty() && isPresent()) {
-            return this.obT;
+            return this.objectT;
         } else throw new Exception(exception);
     }
 
-    public static <T> Obscure<T> of(T obT) {
-        return new Obscure<>(obT);
+    public static <T> Obscure<T> of(T objectT) {
+        return new Obscure<>(objectT);
     }
 
     public static <T> Obscure<T> empty() {
