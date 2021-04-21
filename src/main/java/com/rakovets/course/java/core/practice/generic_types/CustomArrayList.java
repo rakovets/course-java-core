@@ -3,15 +3,10 @@ package com.rakovets.course.java.core.practice.generic_types;
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * ArrayList
- * @author Evgeni Ermakov
- * @version 1.0
- */
 public class CustomArrayList<T> {
     private T[] data;
     private int size = 0;
-    private int capacity = 10;
+    private int capacity;
 
     public CustomArrayList(int capacity) {
         data = (T[]) new Object[capacity];
@@ -19,6 +14,7 @@ public class CustomArrayList<T> {
     }
 
     public CustomArrayList() {
+        this(10);
     }
 
     public int getSize() {
@@ -42,18 +38,12 @@ public class CustomArrayList<T> {
         System.out.println(Arrays.toString(data));
     }
 
-    /**
-     * adding an element to the end of the array
-     */
     public void pushBack(T obT) {
         ensureCapacity();
         data[size] = obT;
         size++;
     }
 
-    /**
-     * removing the first element from the array
-     */
     public void popFront() {
         ensureCapacity();
         T[] newArray = (T[]) new Object[capacity];
@@ -64,9 +54,6 @@ public class CustomArrayList<T> {
         size--;
     }
 
-    /**
-     * adding a new element to the beginning of the array
-     */
     public void pushFront(T obT) {
         ensureCapacity();
         T[] newArray = (T[]) new Object[capacity];
@@ -78,9 +65,6 @@ public class CustomArrayList<T> {
         size++;
     }
 
-    /**
-     * inserting a new element at the specified index
-     */
     public void insert(T obT, int i) throws IndexOutOfBoundsException {
         ensureCapacity();
 
@@ -100,9 +84,6 @@ public class CustomArrayList<T> {
         size++;
     }
 
-    /**
-     * removing element at the specified index
-     */
     public void removeAt(int i) {
         ensureCapacity();
         T[] newArray = (T[]) new Object[capacity];
@@ -122,9 +103,6 @@ public class CustomArrayList<T> {
 
     }
 
-    /**
-     * removing element whose values match the value of the passed parameter
-     */
     public void remove(T obT) {
         int index = 0;
         T[] newArray = (T[]) new Object[capacity];
@@ -143,9 +121,6 @@ public class CustomArrayList<T> {
 
     }
 
-    /**
-     * removing elements whose values match the value of the passed parameter
-     */
     public void removeAll(T obT) {
         int index = 0;
         T[] newArray = (T[]) new Object[capacity];
@@ -159,9 +134,6 @@ public class CustomArrayList<T> {
         data = newArray;
     }
 
-    /**
-     * removing the last element from the array
-     */
     public void popBack() {
         T[] newArray = (T[]) new Object[capacity];
 
@@ -172,9 +144,6 @@ public class CustomArrayList<T> {
         data = newArray;
     }
 
-    /**
-     * emptying the array
-     */
     public void clear() {
         for (int i = 0; i < data.length; i++) {
             data[i] = null;
@@ -182,16 +151,10 @@ public class CustomArrayList<T> {
         size = 0;
     }
 
-    /**
-     * returns true if size = 0, and false otherwise
-     */
     public boolean isEmpty() {
         return size == 0;
     }
 
-    /**
-     * adjusts the capacity value to size
-     */
     public void trimToSize() {
         capacity = size;
         T[] newArray = (T[]) new Object[capacity];
@@ -202,9 +165,6 @@ public class CustomArrayList<T> {
         data = newArray;
     }
 
-    /**
-     * searching first occurrence in array of the specified value
-     */
     public int indexOf(T obT) {
         int index = -1;
 
@@ -217,9 +177,6 @@ public class CustomArrayList<T> {
         return index;
     }
 
-    /**
-     * searching last occurrence in array of the specified value
-     */
     public int lastIndexOf(T obT) {
         int index = -1;
 
@@ -232,9 +189,6 @@ public class CustomArrayList<T> {
         return index;
     }
 
-    /**
-     * changing the order of elements in an array to the opposite
-     */
     public void reverse() {
         T[] newArray = (T[]) new Object[capacity];
 
@@ -244,9 +198,6 @@ public class CustomArrayList<T> {
         data = newArray;
     }
 
-    /**
-     * random shuffling of array elements
-     */
     public void shuffle() {
         T[] newArray = (T[]) new Object[capacity];
         int[] index = new int[size];
@@ -273,17 +224,11 @@ public class CustomArrayList<T> {
         data = newArray;
     }
 
-    /**
-     * comparing arrays
-     */
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    /**
-     * retrieves the value by index
-     */
     public T getElementAt(int j) {
         if (j < 0 && j > data.length) {
             throw new IndexOutOfBoundsException();
@@ -291,9 +236,6 @@ public class CustomArrayList<T> {
         return data[j];
     }
 
-    /**
-     * creates an exact copy of the CustomArrayList
-     */
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
