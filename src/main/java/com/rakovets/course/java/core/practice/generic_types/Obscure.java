@@ -24,6 +24,28 @@ public class Obscure <T> {
 
     }
 
+    public T orElseThrow(){
+        if (field == null){
+            throw new NullPointerException("object cannot be null");
+        }
+        else
+            return field;
+    }
 
+    public static <S> Obscure <S> of(S Str){
+        return new Obscure<>(Str);
+    }
+
+    public static <S> Obscure <S> empty(){
+        return new Obscure<>(null);
+    }
+
+    @Override
+    public String toString() {
+        return field + "";
     }
 }
+
+
+
+
