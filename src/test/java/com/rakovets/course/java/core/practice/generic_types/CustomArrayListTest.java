@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 class CustomArrayListTest<T> {
-
     static Stream<Arguments> pushBackTestProviderArguments() {
         return Stream.of(
                 Arguments.of(3, new Integer[]{1, 2, 3}),
@@ -161,6 +160,25 @@ class CustomArrayListTest<T> {
         Assertions.assertEquals(expectedSize, customArrayList.getSize());
     }
 
+    static Stream<Arguments> clearTestProviderArguments() {
+        return Stream.of(
+                Arguments.of(0, new Integer[]{}),
+                Arguments.of(0, new String[]{"one", "two", "two", "two"}),
+                Arguments.of(0, new Integer[]{})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("clearTestProviderArguments")
+    public void clearTest(int expectedSize, T[] array) {
+        CustomArrayList<T> customArrayList = new CustomArrayList(10);
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+        customArrayList.clear();
+        Assertions.assertEquals(expectedSize, customArrayList.getSize());
+    }
+
     static Stream<Arguments> isEmptyTestProviderArguments() {
         return Stream.of(
                 Arguments.of(true, new Integer[]{}),
@@ -215,6 +233,24 @@ class CustomArrayListTest<T> {
             customArrayList.pushBack(value);
         }
         Assertions.assertEquals(expectedSize, customArrayList.lastIndexOf(searchValue));
+    }
+
+    static Stream<Arguments> getElementAtTestProviderArguments() {
+        return Stream.of(
+                Arguments.of(8, new Integer[]{1, 2, 2, 8, 9}, 3),
+                Arguments.of("one", new String[]{"two", "one", "zero", "eight"}, 1),
+                Arguments.of(11, new Integer[]{1, 0, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 10)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getElementAtTestProviderArguments")
+    public void getElementAtTest(T expectedSize, T[] array, int index) {
+        CustomArrayList<T> customArrayList = new CustomArrayList(10);
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+        Assertions.assertEquals(expectedSize, customArrayList.getElementAt(index));
     }
 
 }
