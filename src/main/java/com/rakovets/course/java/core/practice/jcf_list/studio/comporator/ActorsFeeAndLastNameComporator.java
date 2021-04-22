@@ -1,7 +1,7 @@
-package com.rakovets.course.java.core.practice.jcf_list.comporator;
+package com.rakovets.course.java.core.practice.jcf_list.studio.comporator;
 
-import com.rakovets.course.java.core.practice.jcf_list.model.Actor;
 
+import com.rakovets.course.java.core.practice.jcf_list.studio.model.Actor;
 import java.util.Comparator;
 
 public class ActorsFeeAndLastNameComporator implements Comparator<Actor> {

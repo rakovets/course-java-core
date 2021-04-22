@@ -1,8 +1,8 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list.studioTest;
 
-import com.rakovets.course.java.core.practice.jcf_list.comporator.*;
-import com.rakovets.course.java.core.practice.jcf_list.model.Actor;
-import com.rakovets.course.java.core.practice.jcf_list.model.Studio;
+import com.rakovets.course.java.core.practice.jcf_list.studio.comporator.*;
+import com.rakovets.course.java.core.practice.jcf_list.studio.model.Actor;
+import com.rakovets.course.java.core.practice.jcf_list.studio.model.Studio;
 
 import java.util.ArrayList;
 import java.util.List;
