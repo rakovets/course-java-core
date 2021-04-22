@@ -4,9 +4,9 @@ import com.rakovets.course.java.core.practice.exception_handling.task_02.Task02;
 
 public class Task02Demo {
     public static void main(String[] args) {
-        try{
+        try {
             Task02.throwArrayExeption();
-        } catch (IndexOutOfBoundsException ex){
+        } catch (IndexOutOfBoundsException ex) {
             System.out.println("Index is out of bound");
         }
     }

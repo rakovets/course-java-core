@@ -12,6 +12,9 @@ java {
 }
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.testng:testng:7.1.0'
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.3")
 }
 

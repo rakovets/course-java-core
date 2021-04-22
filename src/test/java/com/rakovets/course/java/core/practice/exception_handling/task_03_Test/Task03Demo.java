@@ -9,7 +9,7 @@ public class Task03Demo {
         int sum = 0;
         try {
             Discount.provideDiscount(sum);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println(Arrays.toString(e.getStackTrace()));
         }
