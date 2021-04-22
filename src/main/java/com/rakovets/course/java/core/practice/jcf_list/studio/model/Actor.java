@@ -56,4 +56,14 @@ public class Actor implements Comparable{
     public int compareTo(Object o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", fee=" + fee +
+                ", age=" + age +
+                '}';
+    }
 }
