@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 import static java.util.Arrays.sort;
 
+
+
 public abstract class Math {
     public static Number getMaxValueOfThree(Number a, Number b, Number c) {
         double da = a.doubleValue();
@@ -50,3 +52,5 @@ public abstract class Math {
         return result;
     }
 }
+
+

@@ -5,7 +5,7 @@ public class MathDemo {
         Number max = Math.getMaxValueOfThree(0, 12, -12);
         System.out.println("Max value is " + max);
 
-        Number min = Math.getMinValueOfFive(1.2, 0, -5, -5.1, 12);
+        Number min = Math.getMinValueOfFive(1.2, 0.0, -5.0, -5.1, 12.0);
         System.out.println("Min value is " + min);
 
         Number average = Math.getArithmeticMeanInArray(new Number[] {0.0, -1.0, 22.0, 1.1});
