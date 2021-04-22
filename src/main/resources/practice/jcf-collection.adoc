@@ -1,4 +1,4 @@
-= JCF: Collection.
+[.line-through]#= JCF: Collection.#
 
 == Project `StringCollectionUtil`
 
