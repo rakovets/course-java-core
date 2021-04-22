@@ -2,11 +2,12 @@ package com.rakovets.course.java.core.practice.jcf_list;
 
 import com.rakovets.course.java.core.practice.jcf_list.comporator.*;
 import com.rakovets.course.java.core.practice.jcf_list.model.Actor;
+import com.rakovets.course.java.core.practice.jcf_list.model.Studio;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Studio {
+public class StudioDemo {
     public static void main(String[] args) {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Slava", "Marlow", 100, 25));
@@ -14,6 +15,10 @@ public class Studio {
         actors.add(new Actor("Nikolai", "Baskov", 120, 27));
         actors.add(new Actor("Tom", "Kirkorov", 130, 28));
         actors.add(new Actor("Jasom", "Statham", 100, 29));
+
+        Studio studio = new Studio(actors);
+
+        printActrors(studio.fire(actors));
 
         actors.sort(new ActorsLastNameComporator());
 

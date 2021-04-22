@@ -15,7 +15,7 @@
 
 === Specification of task 2
 
-Создать класс `Studio`.
+Создать класс `StudioDemo`.
 
 Поля:
 
