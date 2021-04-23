@@ -6,7 +6,7 @@ public class Student {
     private int age;
     private double averageAnnualMark;
 
-    public Student(String name, String surname, int age, double averageAnnualMark){
+    public Student(String name, String surname, int age, double averageAnnualMark) {
         this.name = name;
         this.surname = surname;
         this.age = age;

@@ -1,4 +1,4 @@
-= JCF: Collection.
+https://xxx[= JCF: Collection.]
 
 == Project `StringCollectionUtil`
 

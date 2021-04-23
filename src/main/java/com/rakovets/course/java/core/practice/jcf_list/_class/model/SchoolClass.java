@@ -12,8 +12,8 @@ public class SchoolClass {
     public Student getBestStudent(List<Student> students) {
         double bestEverageMark = 0;
         int tempIndex = 0;
-        for (int i = 0; i < students.size(); i++){
-            if(bestEverageMark < students.get(i).getAverageAnnualMark()){
+        for (int i = 0; i < students.size(); i++) {
+            if (bestEverageMark < students.get(i).getAverageAnnualMark()) {
                 bestEverageMark = students.get(i).getAverageAnnualMark();
                 tempIndex = i;
             }
