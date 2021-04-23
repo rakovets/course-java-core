@@ -19,12 +19,10 @@ public class PartyDemo {
                 new Student("Jon", 200),
                 new Student("Jon", 100));
 
-        LinkedList<Student> partyLinkedList = new LinkedList<>();
         PriorityQueue<Student> partyPriorityQueue = new PriorityQueue<>(party);
         ArrayDeque<Student> partyArrayQueue = new ArrayDeque<>();
 
-
-        partyLinkedList.addAll(party);
+        LinkedList<Student> partyLinkedList = new LinkedList<>(party);
         printQueue(partyLinkedList);
 
         System.out.println("The owner here!");
@@ -56,20 +54,16 @@ public class PartyDemo {
         partyLinkedList.remove(1);
         printQueue(partyLinkedList);
 
-
         //PriorityQueue
         partyPriorityQueue.add(new Student("Jon", 200));
         partyPriorityQueue.add(new Student("Jon", 100));
         printQueue(partyPriorityQueue);
-
     }
 
-
-    static void printQueue(Queue queue) {
+    static <T> void printQueue(Queue<T> queue) {
         System.out.println("Queue -> ");
-        Iterator iterator = queue.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+        for (T t : queue) {
+            System.out.println(t);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.jsf_set.model;
+package com.rakovets.course.java.core.example.jcf_set.model;
 
 public class Dog {
     private final String name;

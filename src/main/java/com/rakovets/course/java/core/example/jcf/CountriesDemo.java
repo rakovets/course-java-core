@@ -1,11 +1,12 @@
 package com.rakovets.course.java.core.example.jcf;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ListIterator;
 
 public class CountriesDemo {
     public static void main(String[] args) {
-        ArrayList<String> states = new ArrayList<>();
+        List<String> states = new ArrayList<>();
         states.add("Germany");
         states.add("France");
         states.add("Italy");

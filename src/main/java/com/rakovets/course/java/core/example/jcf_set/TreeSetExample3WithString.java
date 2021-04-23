@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.jsf_set;
+package com.rakovets.course.java.core.example.jcf_set;
 
 import java.util.Set;
 import java.util.TreeSet;

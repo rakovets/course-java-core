@@ -23,9 +23,9 @@ public class UniversityDemo {
         // Hashtable
         Hashtable<Integer, Student> hashtableStudent = new Hashtable<>();
         hashtableStudent.put(1, new Student("Student1"));
-        hashtableStudent.put(1, new Student("Student4"));
-        hashtableStudent.put(1, new Student("Student2"));
-        hashtableStudent.put(1, new Student("Student3"));
+        hashtableStudent.put(4, new Student("Student4"));
+        hashtableStudent.put(2, new Student("Student2"));
+        hashtableStudent.put(3, new Student("Student3"));
 
         System.out.println(hashtableStudent.get(1).getName());
         System.out.println(hashtableStudent.size());
