@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StudentTest {
+public class ClassTest {
     private ArrayList<Student> students = new ArrayList<>();
 
     @BeforeEach
