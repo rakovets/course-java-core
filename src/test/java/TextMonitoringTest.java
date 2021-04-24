@@ -2,11 +2,13 @@
 
 import com.rakovets.course.java.core.practice.TextMonitoring;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -15,6 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TextMonitoringTest {
+    TextMonitoring textMonitoring = new TextMonitoring();
+
+    @BeforeEach
+    public void init() {
+        textMonitoring.researchText("Java C++ Java, JAVA, Python, Java");
+    }
+
     @Test
     static Stream<Arguments> researchTextTestProviderArguments() {
         return Stream.of(
@@ -28,8 +37,6 @@ public class TextMonitoringTest {
     @ParameterizedTest
     @MethodSource("researchTextTestProviderArguments")
     public void researchTextTest(int expectedValue, String key) {
-        TextMonitoring textMonitoring = new TextMonitoring();
-        textMonitoring.researchText("Java C++ Java, JAVA, Python, Java");
         Assertions.assertEquals(expectedValue, textMonitoring.getMap().get(key));
     }
 
@@ -46,7 +53,6 @@ public class TextMonitoringTest {
     @ParameterizedTest
     @MethodSource("getCountUniqueWordsTestProviderArguments")
     public void getCountUniqueWordsTest(int expectedValue, String text) {
-        TextMonitoring textMonitoring = new TextMonitoring();
         textMonitoring.researchText(text);
         Assertions.assertEquals(expectedValue, textMonitoring.getCountUniqueWords());
     }
@@ -64,8 +70,6 @@ public class TextMonitoringTest {
     @ParameterizedTest
     @MethodSource("getFrequencyWordTestProviderArguments")
     public void getFrequencyWordTest(int expectedValue, String text) {
-        TextMonitoring textMonitoring = new TextMonitoring();
-        textMonitoring.researchText("Java C++ Java, JAVA, Python, Java");
         Assertions.assertEquals(expectedValue, textMonitoring.getFrequencyWord(text));
     }
 
@@ -81,8 +85,6 @@ public class TextMonitoringTest {
     @ParameterizedTest
     @MethodSource("getFrequencyWordsTestProviderArguments")
     public void getFrequencyWordsTest(String expectedValue, boolean status) {
-        TextMonitoring textMonitoring = new TextMonitoring();
-        textMonitoring.researchText("Java C++ Java, JAVA, Python, Java");
         Map<String, Integer> map = textMonitoring.getFrequencyWords(status);
         Assertions.assertEquals(expectedValue, map.entrySet().toString());
     }
@@ -98,9 +100,8 @@ public class TextMonitoringTest {
     @ParameterizedTest
     @MethodSource("getUniqueWordsTestProviderArguments")
     public void getUniqueWordsTest(String expectedValue) {
-        TextMonitoring textMonitoring = new TextMonitoring();
-        textMonitoring.researchText("Java C++ Java, JAVA, Python, Java");
         Set<String> setWords = textMonitoring.getUniqueWords();
         Assertions.assertEquals(expectedValue, setWords.toString());
     }
+
 }
