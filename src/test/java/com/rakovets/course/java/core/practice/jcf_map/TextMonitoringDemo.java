@@ -6,7 +6,7 @@ public class TextMonitoringDemo {
         System.out.println(TextMonitoring.researchText(str));
         System.out.println(TextMonitoring.getCountUniqueWords(str));
         System.out.println(TextMonitoring.getUniqueWords(str));
-        System.out.println(TextMonitoring.getFrequencyWord(str,"family"));
+        System.out.println(TextMonitoring.getFrequencyWord(str,"My"));
         System.out.println(TextMonitoring.getFrequencyWords(str,false));
         System.out.println(TextMonitoring.getFrequencyWords(str,true));
     }

@@ -11,8 +11,8 @@ public class TextMonitoring {
         return map;
     }
 
-    public static int getCountUniqueWords(String string) {
-        return researchText(string).size();
+    public static int getCountUniqueWords(String str) {
+        return researchText(str).size();
     }
 
     public static Collection<String> getUniqueWords(String str) {
@@ -31,7 +31,10 @@ public class TextMonitoring {
             public int compare(Map.Entry<String, Integer> o1,
                                Map.Entry<String, Integer> o2) {
                 if (isAscendingFrequency) {
-                    return o1.getValue().compareTo(o2.getValue());
+                    var result =  Double.compare(o1.getValue(),o2.getValue());
+                    if(result == 0) {
+                        return o1.getKey().compareTo(o1.getKey());
+                    } else return result;
                 } else {
                     return o2.getValue().compareTo(o1.getValue());
                 }
