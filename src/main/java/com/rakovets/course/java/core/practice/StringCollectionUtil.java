@@ -9,7 +9,7 @@ public class StringCollectionUtil {
         ArrayList<String> arrayList = new ArrayList<>(collection);
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i).length() == lenght) {
-                arrayList.set(i,"*");
+                arrayList.set(i, "*");
             }
         }
         return arrayList;
@@ -17,11 +17,7 @@ public class StringCollectionUtil {
 
     public ArrayList<String> removeWordsByLength(List<String> list, int length) {
         ArrayList<String> arrayList = new ArrayList<>(list);
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i).length() == length) {
-                arrayList.remove(i);
-            }
-        }
+        arrayList.removeIf(word -> word.length() == length);
         return arrayList;
     }
 }
