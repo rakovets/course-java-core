@@ -23,9 +23,9 @@ public class DataStorage {
 
     public static void checkIfUserExists() {
        if (usersDataList.containsKey(ClientController.inputUserForCheck())) {
-           System.out.println("This user exists");
+           ClientController.printUserExists();
        } else {
-           System.out.println("This user not exists");
+           ClientController.printUserNotExists();
        }
     }
 
@@ -33,6 +33,8 @@ public class DataStorage {
         String oldKey = ClientController.inputForChangeLogin();
         if (usersDataList.containsKey(oldKey)) {
             usersDataList.put(ClientController.inputLogin(), usersDataList.remove(oldKey));
+        } else {
+            ClientController.printUserNotExists();
         }
     }
 
@@ -40,6 +42,8 @@ public class DataStorage {
         String oldValue = ClientController.inputForChangePassword();
         if (usersDataList.containsKey(oldValue)) {
             usersDataList.put(oldValue, ClientController.inputPassword());
+        } else {
+            ClientController.printUserNotExists();
         }
     }
 }

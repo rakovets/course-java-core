@@ -42,4 +42,12 @@ public class ClientController {
         System.out.println("Enter username for change password");
         return cin.nextLine();
     }
+
+    public static void printUserExists() {
+        System.out.println("This user exists");
+    }
+
+    public static void printUserNotExists() {
+        System.out.println("This user not exists");
+    }
 }
