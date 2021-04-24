@@ -1,6 +1,7 @@
 
 import com.rakovets.course.java.core.example.jcf.comparator.*;
 import com.rakovets.course.java.core.practice.Actor;
+import com.rakovets.course.java.core.practice.Studio;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ActorTest {
 
     @Test
-    void actorsLastNameComparator() {
+    void actorsLastNameComparatorTest() {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
         actors.add(new Actor("Roman", "Romanich", 5300, 22));
@@ -21,7 +22,7 @@ public class ActorTest {
     }
 
     @Test
-    void actorsAgeComparator() {
+    void actorsAgeComparatorTest() {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
         actors.add(new Actor("Roman", "Romanich", 5300, 22));
@@ -31,7 +32,7 @@ public class ActorTest {
     }
 
     @Test
-    void actorsFeeComparator() {
+    void actorsFeeComparatorTest() {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
         actors.add(new Actor("Roman", "Romanich", 5300, 22));
@@ -41,7 +42,7 @@ public class ActorTest {
     }
 
     @Test
-    void actorsLastNameAndAgeComparator() {
+    void actorsLastNameAndAgeComparatorTest() {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
         actors.add(new Actor("Roman", "Ermakov", 5300, 22));
@@ -52,7 +53,7 @@ public class ActorTest {
     }
 
     @Test
-    void actorsFeeAndLastNameComparator() {
+    void actorsFeeAndLastNameComparatorTest() {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
         actors.add(new Actor("Roman", "Albertikov", 5400, 22));
@@ -61,4 +62,19 @@ public class ActorTest {
         assertEquals(5400, actors.get(0).getFee());
         assertEquals("Albertikov", actors.get(0).getLastName());
     }
+
+    @Test
+    void fireTest() {
+
+        List<Actor> actors = new ArrayList<>();
+        actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
+        actors.add(new Actor("Roman", "Albertikov", 5200, 22));
+        actors.add(new Actor("Uri", "Urevich", 5300, 23));
+        Studio studio = new Studio(actors);
+        studio.fire();
+        actors.sort(new ActorsFeeComparator());
+        assertEquals(2, studio.getActors().size());
+        assertEquals(5300, actors.get(1).getFee());
+    }
+
 }
