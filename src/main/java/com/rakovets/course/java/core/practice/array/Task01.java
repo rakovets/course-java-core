@@ -38,10 +38,10 @@ class Task01 {
         int sum = 0;
         int i = 0;
 
-        for ( ; i < marks.length; i++) {
-            sum = sum + marks[i];
+        for (int mark : marks) {
+            sum += mark;
         }
-            double isAverageMark = 1.0 * sum / i;
+        double isAverageMark = 1.0 * sum / marks.length;
         return BigDecimal.valueOf(isAverageMark).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
@@ -52,11 +52,11 @@ class Task01 {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
-        int isMinMark = marks [0];
+        int isMinMark = marks[0];
 
-        for ( int i = 1; i < marks.length; i++){
-            if (isMinMark > marks[i]) {
-                isMinMark = marks[i];
+        for (int mark : marks) {
+            if (isMinMark > mark) {
+                isMinMark = mark;
             }
         }
         return isMinMark;
@@ -69,11 +69,11 @@ class Task01 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
-        int isMaxMark = marks [0];
+        int isMaxMark = marks[0];
 
-        for ( int i = 1; i < marks.length; i++){
-            if (isMaxMark < marks[i]) {
-                isMaxMark = marks[i];
+        for (int mark : marks){
+            if (isMaxMark < mark) {
+                isMaxMark = mark;
             }
         }
         return isMaxMark;

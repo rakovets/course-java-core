@@ -39,13 +39,14 @@ class Task03 {
         int sum = 0;
         int i = 0;
 
-        for ( ; i < marks.length; i++) {
-            for (int j = 0; j < marks[0].length; j++) {
-                sum = sum + marks[i][j];
+        for (int[] subject : marks) {
+            for (int mark : subject) {
+                sum += mark;
             }
-            double isAverageMark = 1.0 * sum / marks.length;
+            double isAverageMark = 1.0 * sum / marks[i].length;
             sum = 0;
             averageMarksInSubjects[i] = BigDecimal.valueOf(isAverageMark).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            i++;
         }
         return averageMarksInSubjects;
     }
@@ -59,18 +60,17 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         int[] minMarketInSubject = new int[marks.length];
         int isMinMark;
-        int j = 0;
+        int i = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            isMinMark = marks[i][0];
-            for ( ; j < marks[0].length; j++) {
-                if (isMinMark > marks[i][j]) {
-                    isMinMark = marks[i][j];
+        for (int[] subject : marks) {
+            isMinMark = subject [0];
+            for (int mark : subject) {
+                if (isMinMark > mark) {
+                    isMinMark = mark;
                 }
             }
             minMarketInSubject[i] = isMinMark;
-            isMinMark = 0;
-            j = 0;
+            i++;
         }
         return minMarketInSubject;
     }
@@ -84,18 +84,17 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         int[] maxMarketInSubject = new int[marks.length];
         int isMaxMark;
-        int j = 0;
+        int i = 0;
 
-        for (int i = 0; i < marks.length; i++) {
-            isMaxMark = marks[i][0];
-            for ( ; j < marks[0].length; j++) {
-                if (isMaxMark < marks[i][j]) {
-                    isMaxMark = marks[i][j];
+        for (int[] subject : marks) {
+            isMaxMark = subject [0];
+            for (int mark : subject) {
+                if (isMaxMark < mark) {
+                    isMaxMark = mark;
                 }
             }
             maxMarketInSubject[i] = isMaxMark;
-            isMaxMark = 0;
-            j = 0;
+            i++;
         }
         return maxMarketInSubject;
     }

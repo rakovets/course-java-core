@@ -37,9 +37,9 @@ class Task02 {
         int sum = 0;
         int numberMarks = 0;
 
-        for (int i = 0 ; i < marks.length; i++) {
-            for (int j = 0; j< marks[0].length; j++) {
-                sum = sum + marks[i][j];
+        for (int[] subject : marks) {
+            for (int mark : subject) {
+                sum += mark;
                 numberMarks++;
             }
         }
@@ -56,10 +56,10 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         int isMinMark = marks [0][0];
 
-        for (int i= 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[0].length; j++) {
-                if (isMinMark > marks[i][j]) {
-                    isMinMark = marks[i][j];
+        for (int[] subject : marks) {
+            for (int mark : subject) {
+                if (isMinMark > mark) {
+                    isMinMark = mark;
                 }
             }
         }
@@ -75,10 +75,10 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         int isMaxMark = marks [0][0];
 
-        for (int i= 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[0].length; j++) {
-                if (isMaxMark < marks[i][j]) {
-                    isMaxMark = marks[i][j];
+        for (int[] subject : marks) {
+            for (int mark : subject) {
+                if (isMaxMark < mark) {
+                    isMaxMark = mark;
                 }
             }
         }
