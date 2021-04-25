@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.List;
 
 public class StringCollectionUtil {
-    public ArrayList<String> resetWordsByLength(Collection<String> collection, int lenght) {
+    public ArrayList<String> resetWordsByLength(Collection<String> collection, int length) {
         ArrayList<String> arrayList = new ArrayList<>(collection);
         for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i).length() == lenght) {
+            if (arrayList.get(i).length() == length) {
                 arrayList.set(i, "*");
             }
         }
@@ -17,7 +17,12 @@ public class StringCollectionUtil {
 
     public ArrayList<String> removeWordsByLength(List<String> list, int length) {
         ArrayList<String> arrayList = new ArrayList<>(list);
-        arrayList.removeIf(word -> word.length() == length);
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i).length() == length) {
+                arrayList.remove(i);
+                i--;
+            }
+        }
         return arrayList;
     }
 }
