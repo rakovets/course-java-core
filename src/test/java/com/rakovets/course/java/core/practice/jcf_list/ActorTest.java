@@ -1,7 +1,7 @@
+package com.rakovets.course.java.core.practice.jcf_list;
 
 import com.rakovets.course.java.core.example.jcf.comparator.*;
-import com.rakovets.course.java.core.practice.Actor;
-import com.rakovets.course.java.core.practice.Studio;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
