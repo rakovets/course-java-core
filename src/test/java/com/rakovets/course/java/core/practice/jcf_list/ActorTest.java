@@ -71,13 +71,12 @@ public class ActorTest {
 
     @Test
     void fireTest() {
-
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Evgeni", "Ermakov", 5500, 20));
         actors.add(new Actor("Roman", "Albertikov", 5200, 22));
         actors.add(new Actor("Uri", "Urevich", 5300, 23));
         Studio studio = new Studio(actors);
-        studio.fire();
+        studio.fire(actors);
         actors.sort(new ActorsFeeComparator());
         assertEquals(2, studio.getActors().size());
         assertEquals(5300, actors.get(1).getFee());
