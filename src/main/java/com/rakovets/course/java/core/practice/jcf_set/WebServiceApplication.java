@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core;
+package com.rakovets.course.java.core.practice.jcf_set;
 
 import java.io.BufferedReader;
 import java.io.IOException;

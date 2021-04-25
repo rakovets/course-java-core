@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core;
+package com.rakovets.course.java.core.practice.jcf_set;
 
 import jdk.jfr.Event;
 
@@ -13,7 +13,7 @@ public class Client {
     private String login;
     private String password;
     private Map<Event, Long> eventDateMap = new HashMap<>();
-    private LinkedList<Event> requests = new LinkedList();
+    private LinkedList<Event> currentRequests = new LinkedList();
 
     {
         Random random = new Random();
@@ -26,8 +26,8 @@ public class Client {
         this.password = password;
     }
 
-    public LinkedList getRequests() {
-        return requests;
+    public LinkedList getCurrentRequests() {
+        return currentRequests;
     }
 
     public int getPriority() {

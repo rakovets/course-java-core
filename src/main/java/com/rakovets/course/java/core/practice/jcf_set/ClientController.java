@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core;
+package com.rakovets.course.java.core.practice.jcf_set;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,13 +34,6 @@ public class ClientController {
                 case 6:
                     status = false;
                     System.out.println("Finish.");
-                    System.out.println(Server.queue.size());
-
-                    for (int i = 0; i < Server.queue.size(); i = 0) {
-                        Client c = Server.queue.poll();
-                        System.out.println(c.getLogin() + " " + c.getPriority());
-                    }
-
                     break;
             }
         }
