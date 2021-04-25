@@ -34,6 +34,13 @@ public class ClientController {
                 case 6:
                     status = false;
                     System.out.println("Finish.");
+                    System.out.println(Server.queue.size());
+
+                    for (int i = 0; i < Server.queue.size(); i = 0) {
+                        Client c = Server.queue.poll();
+                        System.out.println(c.getLogin() + " " + c.getPriority());
+                    }
+
                     break;
             }
         }
@@ -64,6 +71,9 @@ public class ClientController {
                 break;
             case 8:
                 System.out.println("The client was deleted.");
+                break;
+            case 9:
+                System.out.println("The password was deleted.");
                 break;
             default:
                 break;

@@ -16,21 +16,21 @@ public class WebServiceApplication {
         return reader.readLine();
     }
 
-    public static int enterPassword() throws IOException {
+    public static String enterPassword() throws IOException {
         ClientController.message(2);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        return Integer.parseInt(reader.readLine());
+        return reader.readLine();
     }
 
     public static boolean checkClient(String login) throws IOException {
         return map.containsKey(login) ? true : false;
     }
 
-    public static boolean checkPassword(String login, int password) throws IOException {
+    public static boolean checkPassword(String login, String password) throws IOException {
         boolean status;
 
         if (checkClient(login)) {
-            status = map.get(login).getPassword() == password ? true : false;
+            status = map.get(login).getPassword().equals(password) ? true : false;
         } else {
             ClientController.message(5);
             status = false;
@@ -39,7 +39,7 @@ public class WebServiceApplication {
     }
 
     public static void addNewClient() throws IOException {
-        int password;
+        String password;
         String login = enterLogin();
 
         if (!checkClient(login)) {
@@ -54,7 +54,7 @@ public class WebServiceApplication {
         String login = enterLogin();
 
         if (checkClient(login)) {
-            int password = enterPassword();
+            String password = enterPassword();
 
             if (checkPassword(login, password)) {
                 map.remove(login);
@@ -79,7 +79,7 @@ public class WebServiceApplication {
     public static void changeLogin() throws IOException {
         String newLogin;
         String login = enterLogin();
-        int password = enterPassword();
+        String password = enterPassword();
 
         if (checkPassword(login, password)) {
             ClientController.message(6);
@@ -98,14 +98,15 @@ public class WebServiceApplication {
     }
 
     public static void changePassword() throws IOException {
-        int newPassword;
-        int password = enterPassword();
+        String newPassword;
         String login = enterLogin();
+        String password = enterPassword();
 
         if (checkPassword(login, password)) {
             ClientController.message(7);
             newPassword = enterPassword();
             map.get(login).setPassword(newPassword);
+            ClientController.message(9);
         } else {
             ClientController.message(4);
         }
