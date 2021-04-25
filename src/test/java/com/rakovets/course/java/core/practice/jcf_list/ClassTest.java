@@ -3,8 +3,6 @@ package com.rakovets.course.java.core.practice.jcf_list;
 import com.rakovets.course.java.core.example.jcf.comparator.StudentAgeComparator;
 import com.rakovets.course.java.core.example.jcf.comparator.StudentAverageAnnualMarkComparator;
 import com.rakovets.course.java.core.example.jcf.comparator.StudentNameAndSurnameComparator;
-import com.rakovets.course.java.core.practice.jcf_list.SchoolClass;
-import com.rakovets.course.java.core.practice.jcf_list.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -49,7 +47,7 @@ public class ClassTest {
     @Test
     void getBestStudentTest() {
         SchoolClass schoolClass = new SchoolClass(students);
-        assertEquals("Evgeni", schoolClass.getBestStudent().getName());
+        assertEquals("Evgeni", schoolClass.getBestStudent(students).getName());
     }
 }
 
