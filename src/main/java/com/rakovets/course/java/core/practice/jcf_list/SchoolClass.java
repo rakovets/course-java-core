@@ -1,10 +1,6 @@
-package jcf_list;
-
-import com.rakovets.course.java.core.practice.Actor;
-import jcf_list.Student;
+package com.rakovets.course.java.core.practice.jcf_list;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SchoolClass {
     private ArrayList<Student> student;

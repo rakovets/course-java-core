@@ -1,4 +1,4 @@
-package jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list;
 
 public class Student {
     private String name;
