@@ -13,7 +13,7 @@ public class Studio {
         return actors;
     }
 
-    public void fire() {
+    public List<Actor> fire(List<Actor> actors) {
         Actor maxFee = actors.get(0);
         for (Actor actor : actors) {
             if (actor.getFee() > maxFee.getFee()) {
@@ -21,7 +21,7 @@ public class Studio {
             }
         }
         actors.remove(maxFee);
+        return actors;
     }
-
 }
 
