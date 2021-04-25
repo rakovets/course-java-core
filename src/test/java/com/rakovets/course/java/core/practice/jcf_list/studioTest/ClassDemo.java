@@ -19,21 +19,16 @@ public class ClassDemo {
         studentLis.add(new Student("Mariya", "Sharapova", 17, 8.6));
 
         SchoolClass schoolClass = new SchoolClass(studentLis);
-
         System.out.println(schoolClass.getBestStudent(studentLis));
-
         studentLis.sort(new StudentFullNameComporator());
         printStudents(studentLis);
         System.out.println("\n");
-
         studentLis.sort(new StudentAgeComparator());
         printStudents(studentLis);
         System.out.println("\n");
-
         studentLis.sort(new StudentAverageAnnualMarkComparartor());
         printStudents(studentLis);
         System.out.println("\n");
-
     }
 
     public static void printStudents(List<Student> studentLis) {

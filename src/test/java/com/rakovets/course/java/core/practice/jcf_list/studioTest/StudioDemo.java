@@ -17,30 +17,17 @@ public class StudioDemo {
         actors.add(new Actor("Jasom", "Statham", 100, 29));
 
         Studio studio = new Studio(actors);
-
         printActrors(studio.fire(actors));
-
         actors.sort(new ActorsLastNameComporator());
-
         printActrors(actors);
-
         actors.sort(new ActorsAgeComporator());
-
         printActrors(actors);
-
         actors.sort(new ActorsFeeComporator());
-
         printActrors(actors);
-
         actors.sort(new ActorLastNameAndAgeComporator());
-
         printActrors(actors);
-
         actors.sort(new ActorsFeeAndLastNameComporator());
-
         printActrors(actors);
-
-
     }
 
     public static void printActrors(List<Actor> actors) {
