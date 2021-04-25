@@ -66,14 +66,14 @@ public class StringUtil {
     public String[] splitText(String  text, int numberSymbols) {
         String[] splitText;
         int j = 0;
-        if(text.length() % numberSymbols != 0) {
+        if (text.length() % numberSymbols != 0) {
             splitText = new String[text.length() / numberSymbols+1];
         } else {
             splitText = new String[text.length() / numberSymbols];
         }
 
         for(int i = 0; i < text.length() ; i += numberSymbols) {
-            if(text.length() - i < numberSymbols) {
+            if (text.length() - i < numberSymbols) {
                 splitText[j] = text.substring(i);
             } else {
                 splitText[j] = text.substring(i, i + numberSymbols);
@@ -98,7 +98,7 @@ public class StringUtil {
     public String getFirstLetters(String firstLastName) {
         String firstLetters = "";
         String[] container = firstLastName.split("\\s*(\\s)\\s*");
-        for(int i = 0; i < container.length; i ++) {
+        for (int i = 0; i < container.length; i ++) {
             firstLetters += container[i].toUpperCase().charAt(0);
         }
 
@@ -120,8 +120,7 @@ public class StringUtil {
         String result = "";
         char[] firstWordChars = firsWord.toCharArray();
         char[] secondWordChars = secondWord.toCharArray();
-
-        for(char firstWordChar : firstWordChars) {
+        for (char firstWordChar : firstWordChars) {
             int count = 0;
             for (int i = 0; i < secondWordChars.length; i++) {
                 if(firstWordChar == secondWordChars[i]) {
@@ -130,11 +129,11 @@ public class StringUtil {
                     break;
                 }
             }
-            if(count == 0){
+            if (count == 0){
                 result += firstWordChar;
             }
         }
-        for(int i = 0; i < secondWordChars.length; i ++ ) {
+        for (int i = 0; i < secondWordChars.length; i ++ ) {
             if (secondWordChars[i] != ' ') {
                 result += secondWordChars[i];
             }
@@ -144,9 +143,9 @@ public class StringUtil {
     }
 
     public boolean isSameArrays(String[] arrOnes, String[] arrTwos){
-        for(int i = 1; i < arrOnes.length; i++) {
-            for(int j = 1; j < arrTwos.length; j++) {
-                if(arrOnes[i].equals(arrTwos[j])) {
+        for (int i = 1; i < arrOnes.length; i++) {
+            for (int j = 1; j < arrTwos.length; j++) {
+                if (arrOnes[i].equals(arrTwos[j])) {
                     arrOnes[i] = "";
                     arrTwos[j] = "";
                 }
@@ -161,12 +160,12 @@ public class StringUtil {
         String result = str;
         Pattern pattern = Pattern.compile("(\\w)\\1+");
         Matcher matcher = pattern.matcher(str);
-        while(matcher.find()) {
+        while (matcher.find()) {
             sameSymbols += matcher.group() + " ";
         }
         String[] sameSymbolsArray = sameSymbols.split("\\s");
 
-        for(String s : sameSymbolsArray) {
+        for (String s : sameSymbolsArray) {
             String temp2 = "";
             char[] same = s.toCharArray();
             temp2 += same[0];
@@ -176,21 +175,21 @@ public class StringUtil {
         return result;
     }
 
-    public long[] compareSpeed(String str) {
+    public long[] compareSpeed (String str) {
         String result1 = "";
         String result2 = "";
         long timeForString = 0;
         long timeForStringBuilder = 0;
 
         Date startString = new Date(System.currentTimeMillis());
-        for(int i = 0; i <= 50; i++) {
+        for (int i = 0; i <= 50; i++) {
             result1 += str;
         }
         Date finishString = new Date(System.currentTimeMillis());
         timeForString = finishString.getTime() - startString.getTime();
         Date startStringBuilder  = new Date(System.currentTimeMillis());
         StringBuilder bl = new StringBuilder(result2);
-        for(int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= 50; i++) {
             bl.append(str);
         }
         Date finishStringBuilder = new Date(System.currentTimeMillis());
