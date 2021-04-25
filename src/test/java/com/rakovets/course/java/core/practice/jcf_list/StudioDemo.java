@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_list;
 
+import com.rakovets.course.java.core.practice.jcf_list.studio.*;
+
 import java.util.ArrayList;
 
 public class StudioDemo {
