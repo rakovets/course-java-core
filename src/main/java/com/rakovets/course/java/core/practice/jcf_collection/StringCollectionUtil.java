@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice;
+package com.rakovets.course.java.core.practice.jcf_collection;
 
 import java.util.ArrayList;
 import java.util.Collection;

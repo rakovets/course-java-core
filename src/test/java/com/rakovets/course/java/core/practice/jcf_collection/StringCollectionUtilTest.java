@@ -1,6 +1,5 @@
+package com.rakovets.course.java.core.practice.jcf_collection;
 
-
-import com.rakovets.course.java.core.practice.StringCollectionUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.stream.Stream;
-
 
 public class StringCollectionUtilTest {
     private ArrayList<String> arrayList = new ArrayList<>();
@@ -24,7 +22,6 @@ public class StringCollectionUtilTest {
         arrayList.add("Ruby");
         arrayList.add("Python");
     }
-
 
     @Test
     static Stream<Arguments> resetWordsByLengthTestProviderArguments() {
