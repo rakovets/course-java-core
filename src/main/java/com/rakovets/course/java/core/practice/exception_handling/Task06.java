@@ -5,7 +5,7 @@ public class Task06 extends Exception {
     public Task06() {
     }
 
-    public static int throwException(String text) throws Exception {
+    public static int throwException(String text) {
         if (text == null) {
             getRandException();
         }
