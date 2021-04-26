@@ -2,11 +2,11 @@
 
 == Project `StringCollectionUtil`
 
-Разработать класс `StringCollectionUtil` для работы с коллекцией строк.
+Разработать класс `StringCollectiongUtil` для работы с коллекцией строк.
 
 === Specification of task 1
 
-* В `StringCollectionUtil` добавить метод `resetWordsByLength()`, принимающий в качестве параметра список строк и размер слова.
+* В `StringCollectiongUtil` добавить метод `resetWordsByLength()`, принимающий в качестве параметра список строк и размер слова.
 * Метод заменяет оригинальную строку, длина которой равна размеру слова, на `*`.
 
 Например:
@@ -27,7 +27,7 @@
 
 === Specification of task 2
 
-* В `StringCollectionUtil` добавить метод `removeWordsByLength()`, который принимает коллекцию строк и размер слова.
+* В `StringCollectiongUtil` добавить метод `removeWordsByLength()`, который принимает коллекцию строк и размер слова.
 * Метод удаляет из списка строк все строки длиной равной размерности слова.
 
 == Other

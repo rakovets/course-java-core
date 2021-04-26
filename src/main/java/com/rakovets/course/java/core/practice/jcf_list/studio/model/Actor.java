@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_list.studio;
+package com.rakovets.course.java.core.practice.jcf_list.studio.model;
 
 public class Actor {
     private String firstname;
@@ -28,6 +28,11 @@ public class Actor {
 
     public String getLastname() {
         return lastname;
+    }
+
+    @Override
+    public String toString() {
+        return firstname + " " + lastname + " " + fee + " " + age;
     }
 }
 
