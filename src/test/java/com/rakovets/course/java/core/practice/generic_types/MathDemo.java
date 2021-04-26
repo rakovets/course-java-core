@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class MathDemo {
     public static void main(String[] args) {
-        int[] array = new int[] {2, 5, 6, 12, 4, 1, 0, 16, 13};
-        System.out.println(Math.findMaximum(1,8,3));
-        System.out.println(Math.findMinimum(12,8,5,7,2));
+        Integer[] array = new Integer[] {2, 5, 6, 12, 4, 1, 8, 16, 13};
+        System.out.println(Math.findMaximum(87, 12, 24, 5, 34));
+        System.out.println(Math.findMinimum(12,1,5,7,2));
         System.out.println(Math.findArrayArithmetical(array));
         System.out.println(Math.findArrayMaximum(array));
         System.out.println(Math.findArrayMinimum(array));
