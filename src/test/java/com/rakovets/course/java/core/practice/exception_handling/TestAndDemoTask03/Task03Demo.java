@@ -3,12 +3,12 @@ package com.rakovets.course.java.core.practice.exception_handling.TestAndDemoTas
 import com.rakovets.course.java.core.practice.exception_handling.Task03;
 
 public class Task03Demo {
-    public static void main(String[] args) throws Task03 {
+    public static void main(String[] args) {
 
         try {
-            Task03.throwException(0);
-        } catch (Task03 e) {
-            System.out.println("This is ArithmeticException");
+            System.out.println(Task03.throwException(0));
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
