@@ -15,7 +15,7 @@ public class Actor {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + " " + fee + " " + age;
+        return firstName + " " + lastName + ", Fee: " + fee + ", Age: " + age;
     }
 
     public String getFirstName() {
