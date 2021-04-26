@@ -5,7 +5,7 @@ import java.lang.Math;
 import java.util.Random;
 
 public class CustomArrayList<T> {
-    private Object[] data = {};
+    private static Object[] data = {};
     private int size = 0;
     private int capacity;
 
@@ -24,10 +24,14 @@ public class CustomArrayList<T> {
 
     public void pushBack(T value) {
         size++;
-        Object[] clone = new Object[data.length + 1];
-        System.arraycopy(data, 0, clone, 0, data.length);
-        clone[data.length] = value;
-        data = clone;
+        if (data[capacity - 1] == null) {
+            data[capacity - 1] = value;
+        } else {
+            Object[] clone = new Object[data.length + 1];
+            System.arraycopy(data, 0, clone, 0, data.length);
+            clone[data.length] = value;
+            data = clone;
+        }
     }
 
     public void popFront() {
@@ -42,10 +46,14 @@ public class CustomArrayList<T> {
 
     public void pushFront(T value) {
         size++;
-        Object[] clone = new Object[data.length + 1];
-        clone[0] = value;
-        System.arraycopy(data, 0, clone, 1, data.length);
-        data = clone;
+        if (data[0] == null) {
+            data[0] = value;
+        } else {
+            Object[] clone = new Object[data.length + 1];
+            clone[0] = value;
+            System.arraycopy(data, 0, clone, 1, data.length);
+            data = clone;
+        }
     }
 
     public void insert(int index, T value) {
@@ -199,8 +207,11 @@ public class CustomArrayList<T> {
         return data.clone();
     }
 
-    public String toString() {
-       return Arrays.toString(data);
+    public void printList() {
+       for (int i = 0; i < data.length - 1; i++) {
+           System.out.print(data[i] + " ");
+       }
+       System.out.println("\n");
     }
 
     public int getSize() {

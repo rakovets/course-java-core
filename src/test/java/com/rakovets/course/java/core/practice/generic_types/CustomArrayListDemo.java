@@ -3,13 +3,20 @@ package com.rakovets.course.java.core.practice.generic_types;
 public class CustomArrayListDemo {
     public static void main(String[] args) {
         CustomArrayList <String> list = new CustomArrayList<>(10);
-        list.insert(0,"5");
-        list.insert(1,"Hello");
+        //list.insert(0,"5");
+        //list.insert(1,"Hello");
         list.insert(2,"24");
         list.insert(3,"87");
         list.insert(4,"21");
         list.insert(5,"12");
-        System.out.println(list.toString());
+        list.printList();
+        list.pushFront("33");
+        list.printList();
+        list.insert(1, "13");
+        list.printList();
+        list.insert(1, "228");
+        list.printList();
+        /*System.out.println(list.toString());
         System.out.println(list.lastIndexOf("12"));
         list.trimToSize();
         System.out.println(list.toString());
@@ -36,6 +43,6 @@ public class CustomArrayListDemo {
         System.out.println(list.getSize());
         list.shuffle();
         System.out.println(list.toString());
-        System.out.println(list.getSize());
+        System.out.println(list.getSize());*/
     }
 }
