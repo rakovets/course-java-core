@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.exception_handling;
 
 public class Task07 {
 
-    public static int throwException(String text) throws Exception {
+    public static int throwException(String text) {
         if (text == null) {
             getRandException();
         }
