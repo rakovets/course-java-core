@@ -30,19 +30,19 @@ public class StringUtilTest {
 
     static Stream<Arguments> indexSymbol() {
         return Stream.of(
-                Arguments.of("l", "HelloJava"),
-                Arguments.of("v", "Java"),
-                Arguments.of("m", "Symbol")
+                Arguments.of(2, "HelloJava", "l"),
+                Arguments.of(2, "Java", "v"),
+                Arguments.of(1, "Symbol", "y")
         );
     }
 
     @ParameterizedTest
     @MethodSource("indexSymbol")
-    void Glue(String expectedSymbol, String str1) {
+    void IndexSymbol(int expectedSymbol, String str1, char symbol) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.indexSymbol(str1);
+        int actualString = StringUtil.indexSymbol(str1, symbol);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -58,31 +58,31 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("identicalStrings")
-    void identicalStrings(String expectedSymbol, String str1, String str2) {
+    void identicalStrings(boolean expectedSymbol, String str1, String str2) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.identicalStrings(str1, str2);
+        boolean actualString = StringUtil.identicalStrings(str1, str2);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments> removeSpacesAroundCastLowerCase() {
+    static Stream<Arguments> removeSpacesAroundCastUpperCase() {
         return Stream.of(
-                Arguments.of("hello", "Hello "),
-                Arguments.of("hello", " HeLlo"),
+                Arguments.of("HELLO", "Hello "),
+                Arguments.of("HELLO", " HeLlo"),
                 Arguments.of("", " ")
         );
     }
 
     @ParameterizedTest
-    @MethodSource("removeSpacesAroundCastLowerCase")
-    void removeSpacesAroundCastLowerCase(String expectedSymbol, String str1) {
+    @MethodSource("removeSpacesAroundCastUpperCase")
+    void removeSpacesAroundCastUpperCase(String expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.removeSpacesAroundCastLowerCase(str1);
+        String actualString = StringUtil.removeSpacesAroundCastUpperCase(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -90,19 +90,19 @@ public class StringUtilTest {
 
     static Stream<Arguments> extractionSubstring() {
         return Stream.of(
-                Arguments.of("ll", "Hello  "),
-                Arguments.of("l", " HeLlo"),
-                Arguments.of("lati", "Relationship")
+                Arguments.of("ll", "Hello  ", 2, 4),
+                Arguments.of("l", " HeLlo", 4, 5),
+                Arguments.of("lati", "Relationship", 2, 6)
         );
     }
 
     @ParameterizedTest
     @MethodSource("extractionSubstring")
-    void extractionSubstring(String expectedSymbol, String str1) {
+    void extractionSubstring(String expectedSymbol, String str1, int nSymbol, int mSymbol) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.extractionSubstring(str1);
+        String actualString = StringUtil.extractionSubstring(str1, nSymbol, mSymbol);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -110,39 +110,39 @@ public class StringUtilTest {
 
     static Stream<Arguments>happyEmoji() {
         return Stream.of(
-                Arguments.of("Hello:)  ", "Hello:(  "),
-                Arguments.of(" HeLlo)", " HeLlo("),
-                Arguments.of(":):):)", ":(:(:(")
+                Arguments.of("Hello:)  ", "Hello:(  ", "(", ")"),
+                Arguments.of(" HeLlo)", " HeLlo(", "(", ")"),
+                Arguments.of(":):):)", ":(:(:(", "(", ")")
         );
     }
 
     @ParameterizedTest
     @MethodSource("happyEmoji")
-    void happyEmoji(String expectedSymbol, String str1) {
+    void happyEmoji(String expectedSymbol, String str1, String previousSymbol, String modernSymbol) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.happyEmoji(str1);
+        String actualString = StringUtil.happyEmoji(str1, previousSymbol, modernSymbol);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>line() {
+    static Stream<Arguments>startEndWith() {
         return Stream.of(
-                Arguments.of("true", "Hi!", "Java"),
+                Arguments.of("true", "Hi", "Hi"),
                 Arguments.of("false", "hi !", " Java"),
                 Arguments.of("false", "!Hi", "java")
         );
     }
 
     @ParameterizedTest
-    @MethodSource("line")
-    void line(String expectedSymbol, String text, String word) {
+    @MethodSource("startEndWith")
+    void startEndWith(boolean expectedSymbol, String text, String word) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.line(text, word);
+        boolean actualString = StringUtil.startEndWith(text, word);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -150,19 +150,19 @@ public class StringUtilTest {
 
     static Stream<Arguments>vowels() {
         return Stream.of(
-                Arguments.of("2", "Hello!"),
+                Arguments.of("2", "HEllo!"),
                 Arguments.of("6", "qwertyuiop[]';lkjhgfdsazxcvbnm,./"),
-                Arguments.of("5", "ololooo")
+                Arguments.of("5", "ololoOo")
         );
     }
 
     @ParameterizedTest
     @MethodSource("vowels")
-    void vowels(String expectedSymbol, String str1) {
+    void vowels(int expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.vowels(str1);
+        int actualString = StringUtil.vowels(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -178,11 +178,11 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("punctuations")
-    void punctuations(String expectedSymbol, String str1) {
+    void punctuations(int expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.punctuations(str1);
+        int actualString = StringUtil.punctuations(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -198,11 +198,11 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("palindrome")
-    void palindrome(String expectedSymbol, String str1) {
+    void palindrome(boolean expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.palindrome(str1);
+        boolean actualString = StringUtil.palindrome(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -237,11 +237,11 @@ public class StringUtilTest {
 
     @ParameterizedTest
     @MethodSource("wordCount")
-    void wordCount(String expectedSymbol, String str1) {
+    void wordCount(int expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.wordCount(str1);
+        int actualString = StringUtil.wordCount(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);

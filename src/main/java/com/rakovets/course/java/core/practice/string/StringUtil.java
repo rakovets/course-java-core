@@ -1,84 +1,71 @@
 package com.rakovets.course.java.core.practice.string;
 
-import java.lang.reflect.Array;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Locale;
 
 public class StringUtil {
     static String glue(String str1, String str2) {
         return str1.concat(str2);
     }
 
-    static String indexSymbol(String str1) {
-        char c = str1.charAt(2);
-        return String.valueOf(c);
+    static int indexSymbol(String str1, char symbol) {
+        return str1.indexOf(symbol);
     }
 
-    static String identicalStrings(String str1, String str2) {
-        return String.valueOf(str1.equals(str2));
+    static boolean identicalStrings(String str1, String str2) {
+        return str1.equals(str2);
     }
 
-    static String removeSpacesAroundCastLowerCase(String str1) {
-        return str1.trim().toLowerCase();
+    static String removeSpacesAroundCastUpperCase(String str1) {
+        return str1.trim().toUpperCase();
     }
 
-    static String extractionSubstring(String str1) {
-        return str1.substring(str1.indexOf('l'), str1.lastIndexOf('o'));
+    static String extractionSubstring(String str1, int nSymbol, int mSymbol) {
+        return str1.substring(nSymbol, mSymbol);
     }
 
-    static String happyEmoji(String str1) {
-        return str1.replace('(', ')');
+    static String happyEmoji(String str1, String previousSymbol, String modernSymbol) {
+        return str1.replace(previousSymbol, modernSymbol);
     }
 
-    static String line(String text, String word) {
-        if (text.startsWith("Hi") && text.endsWith("!") && word.startsWith("J") && word.endsWith("a")) {
-            return "true";
-        } else {
-            return "false";
-        }
+    static boolean startEndWith(String text, String word) {
+        return text.startsWith(word) && text.endsWith(word);
     }
 
-    static String vowels(String str1) {
-        Pattern pattern = Pattern.compile("[aeyuio]");
+    static int vowels(String str1) {
+        Pattern pattern = Pattern.compile("[aAeEyYuUiIoO]");
         Matcher matcher = pattern.matcher(str1);
-        int count = 0;
+        int countVowels = 0;
         while (matcher.find()) {
-            count++;
+            countVowels++;
         }
-        return String.valueOf(count);
+        return countVowels;
     }
 
-    static String punctuations(String str1) {
+    static int punctuations(String str1) {
         Pattern pattern = Pattern.compile("[.,?!]");
         Matcher matcher = pattern.matcher(str1);
-        int count = 0;
+        int countPunctuations = 0;
         while (matcher.find()) {
-            count++;
+            countPunctuations++;
         }
-        return String.valueOf(count);
+        return countPunctuations;
     }
 
-    static String palindrome(String str1) {
-        String reversedString = new StringBuilder(str1).reverse().toString();
-        if (str1.equals(reversedString)) {
-            return "true";
-        } else {
-            return "false";
-        }
+    static boolean palindrome(String str1) {
+        str1.replaceAll("[.,!?;'\":\\s]", "");
+        str1.toLowerCase();
+        return str1.equals(new StringBuilder(str1).reverse().toString());
     }
 
     static String[] samePartsString(String str1, int i) {
         return str1.split("(?<=\\G.{" + i + "})");
     }
 
-    static String wordCount(String str1) {
-        int count = 0;
-        String[] words = str1.split("\\s*(\\s|,|\\.|!|\\?)\\s*");
-        for (String word : words) {
-            count++;
-        }
-        return String.valueOf(count);
+    static int wordCount(String str1) {
+        String[] wordCount = str1.split("\\s*(\\s|,|\\.|!|\\?)\\s*");
+        return wordCount.length;
     }
 
     static String initialsFullName(String str1) {
