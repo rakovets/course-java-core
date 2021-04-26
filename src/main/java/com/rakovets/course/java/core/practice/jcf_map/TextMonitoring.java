@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_map;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,4 +33,15 @@ public class TextMonitoring {
         }
     }
 
+    public int getCountUniqueWords() {
+        return researchedText.size();
+    }
+
+    public Set<String> getUniqueWords() {
+        return researchedText.keySet();
+    }
+
+    public int getFrequencyWord(String word) {
+        return researchedText.get(word);
+    }
 }
