@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_list.studio.comporator;
+package com.rakovets.course.java.core.practice.jcf_list.studio.comparator;
 
 import com.rakovets.course.java.core.practice.jcf_list.studio.Actor;
 
