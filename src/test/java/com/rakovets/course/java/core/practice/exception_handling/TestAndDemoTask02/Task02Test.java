@@ -10,6 +10,6 @@ public class Task02Test {
     void throwException() {
         Executable actualExecutable = () -> Task02.throwException();
 
-        Assertions.assertThrows(Exception.class, actualExecutable);
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, actualExecutable);
     }
 }
