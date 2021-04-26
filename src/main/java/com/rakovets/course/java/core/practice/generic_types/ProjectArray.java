@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ProjectArray<T> {
-    private Object[] array = {};
+    private static Number[] array = {};
 
     public ProjectArray(int setLength) {
-        array = new Object[setLength];
+        array = new Number[setLength];
     }
 
     public void inputValuesArray() {
@@ -21,8 +21,8 @@ public class ProjectArray<T> {
         cin.close();
     }
 
-    public Object[] replaceValue(int index, int value) {
-        array[index] = value;
+    public Number[] replaceValue(int index, T value) {
+        array[index] = (Number)value;
         return array;
     }
 
@@ -32,42 +32,42 @@ public class ProjectArray<T> {
         }
     }
 
-    public int findArrayMaximum() {
-        int max = (int)array[0];
-        for (Object i : array) {
-            if (max < (int)i) {
-                max = (int)i;
+    public static <T extends Number> Number findArrayMaximum() {
+        double max = array[0].doubleValue();
+        for (Number i : array) {
+            if (max > i.doubleValue()) {
+                max = i.doubleValue();
             }
         }
         return max;
     }
 
-    public int findArrayMinimum() {
-        int min = (int)array[0];
-        for (Object i : array) {
-            if (min > (int)i) {
-                min = (int)i;
+    public static <T extends Number> Number findArrayMinimum() {
+        double max = array[0].doubleValue();
+        for (Number i : array) {
+            if (max < i.doubleValue()) {
+                max = i.doubleValue();
             }
         }
-        return min;
+        return max;
     }
 
-    public double findArrayArithmetical() {
+    public static <T extends Number> Number findArrayArithmetical() {
         double sum = 0;
-        for (Object i : array) {
-            sum += (int)i;
+        for (Number i : array) {
+            sum += i.doubleValue();
         }
         return sum / array.length;
     }
 
-    public Object[] sortArrayAscending() {
+    public static <T extends Number> Number[] sortArrayAscending() {
         boolean check = false;
-        int value;
+        Number value;
         while(!check) {
             check = true;
             for (int i = 0; i < array.length - 1; i++) {
-                if ((int)array[i] > (int)array[i + 1]) {
-                    value = (int)array[i];
+                if (array[i].doubleValue() > array[i + 1].doubleValue()) {
+                    value = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = value;
                     check = false;
@@ -77,14 +77,14 @@ public class ProjectArray<T> {
         return array;
     }
 
-    public Object[] sortArrayDescending() {
+    public static <T extends Number> Number[] sortArrayDescending() {
         boolean check = false;
-        int value;
+        Number value;
         while(!check) {
             check = true;
             for (int i = 0; i < array.length - 1; i++) {
-                if ((int)array[i] < (int)array[i + 1]) {
-                    value = (int)array[i];
+                if (array[i].doubleValue() < array[i + 1].doubleValue()) {
+                    value = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = value;
                     check = false;
