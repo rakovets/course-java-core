@@ -10,6 +10,6 @@ public class Task4Test {
     void throwException() {
         Executable actualExecutable = () -> Task04.throwException(null);
 
-        Assertions.assertThrows(Exception.class, actualExecutable);
+        Assertions.assertThrows(Task04.class, actualExecutable);
     }
 }
