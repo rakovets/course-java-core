@@ -4,18 +4,12 @@ import com.rakovets.course.java.core.practice.exception_handling.CustomException
 import com.rakovets.course.java.core.practice.exception_handling.Task05;
 
 public class Task05Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CustomException {
 
-        try{
-            Task05.divideValues(0,5);
+        try {
+            System.out.println(Task05.divideValues(0,5));
         } catch (NullPointerException e) {
-            if (e.getMessage() != null) {
-                try {
-                    Task05.throwException();
-                } catch (CustomException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
+            Task05.throwException();
         }
     }
 }
