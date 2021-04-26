@@ -15,7 +15,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return name + " " + surname + " " + age + " " + averageAnnualMark;
+        return name + " " + surname + ", Age: " + age + ", Average annual mark: " + averageAnnualMark;
     }
 
     public String getName() {
