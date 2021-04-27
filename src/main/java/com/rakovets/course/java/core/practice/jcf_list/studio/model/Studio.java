@@ -9,10 +9,6 @@ public class Studio {
         this.actors = actors;
     }
 
-    public Studio() {
-
-    }
-
     public List<Actor> fire(List<Actor> actors) {
         int maxFee = 0;
         int maxFeeIndex = 0;
