@@ -4,7 +4,7 @@ import java.lang.Math;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ProjectArray<T> {
+public class ProjectArray<T extends Number> {
     private static Number[] array = {};
 
     public ProjectArray(int setLength) {
@@ -32,7 +32,7 @@ public class ProjectArray<T> {
         }
     }
 
-    public static <T extends Number> Number findArrayMaximum() {
+    public static Number findArrayMaximum() {
         double max = array[0].doubleValue();
         for (Number i : array) {
             if (max > i.doubleValue()) {
@@ -42,7 +42,7 @@ public class ProjectArray<T> {
         return max;
     }
 
-    public static <T extends Number> Number findArrayMinimum() {
+    public static Number findArrayMinimum() {
         double max = array[0].doubleValue();
         for (Number i : array) {
             if (max < i.doubleValue()) {
@@ -52,7 +52,7 @@ public class ProjectArray<T> {
         return max;
     }
 
-    public static <T extends Number> Number findArrayArithmetical() {
+    public static Number findArrayArithmetical() {
         double sum = 0;
         for (Number i : array) {
             sum += i.doubleValue();
@@ -60,7 +60,7 @@ public class ProjectArray<T> {
         return sum / array.length;
     }
 
-    public static <T extends Number> Number[] sortArrayAscending() {
+    public static Number[] sortArrayAscending() {
         boolean check = false;
         Number value;
         while(!check) {
@@ -77,7 +77,7 @@ public class ProjectArray<T> {
         return array;
     }
 
-    public static <T extends Number> Number[] sortArrayDescending() {
+    public static Number[] sortArrayDescending() {
         boolean check = false;
         Number value;
         while(!check) {
