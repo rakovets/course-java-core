@@ -18,6 +18,15 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(Glue) Text1: {0}. Text2: {1}")
+        @MethodSource("provideArgumentsForGlue")
+        void glueTest(String firstText, String secondText, String expected) {
+            String actual = StringUtil.glue(firstText, secondText);
+
+            assertEquals(expected, actual);
+        }
+
+
         static Stream<Arguments> provideArgumentsForSymbolIndex() {
             return Stream.of(
                     Arguments.of("l", "Hello world", 2),
@@ -26,6 +35,14 @@ public class StringUtilTest {
                     Arguments.of("b", "Java", -1),
                     Arguments.of("V", "jaVa", 2)
             );
+        }
+
+        @ParameterizedTest(name = "(SymbolIndex) Symbol: {0}. Text {1}")
+        @MethodSource("provideArgumentsForSymbolIndex")
+        void symbolIndexTest(String x, String text, int expected) {
+            int actual = StringUtil.symbolIndex(x, text);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsForStringEquals() {
@@ -39,12 +56,28 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(Equals) Text1: {0}. Text2: {1}")
+        @MethodSource("provideArgumentsForStringEquals")
+        void stringEqualsTest(String firstText, String secondText, boolean expected) {
+            boolean actual = StringUtil.stringEquals(firstText, secondText);
+
+            assertEquals(expected, actual);
+        }
+
         static Stream<Arguments> provideArgumentsForStringTrim() {
             return Stream.of(
                     Arguments.of("  Hello World  ", "hello world"),
                     Arguments.of("  Hello  World  ", "hello  world"),
                     Arguments.of("   ", "")
             );
+        }
+
+        @ParameterizedTest(name = "(Trim) Text1: {0}")
+        @MethodSource("provideArgumentsForStringTrim")
+        void stringTrimTest(String text, String expected) {
+            String actual = StringUtil.stringTrim(text);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsSubString() {
@@ -58,6 +91,14 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(SubString) Text: {0}. BeginIndex: {1}. EndIndex: {2}")
+        @MethodSource("provideArgumentsSubString")
+        void subStringTest(String text, int beginIndex, int endIndex, String expected) {
+            String actual = StringUtil.subString(text, beginIndex, endIndex);
+
+            assertEquals(expected, actual);
+        }
+
         static Stream<Arguments> provideArgumentsForReplaceSymbol() {
             return Stream.of(
                     Arguments.of("Hello World", "l", "b", "Hebbo Worbd"),
@@ -65,6 +106,14 @@ public class StringUtilTest {
                     Arguments.of("Hello World", " ", "", "HelloWorld"),
                     Arguments.of(":( :( :( :(", "(", ")", ":) :) :) :)")
             );
+        }
+
+        @ParameterizedTest(name = "(ReplaceSymbol) Text: {0}. OldSymbol: {1}. NewSymbol: {2}")
+        @MethodSource("provideArgumentsForReplaceSymbol")
+        void replaceSymbolTest(String text, String oldSymbol, String newSymbol, String expected) {
+            String actual = StringUtil.replaceSymbol(text, oldSymbol, newSymbol);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsForStartEndWord() {
@@ -78,6 +127,14 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(startEndWord) Text: {0}. Word: {1}")
+        @MethodSource("provideArgumentsForStartEndWord")
+        void startEndWordTest(String text, String word, boolean expected) {
+            boolean actual = StringUtil.startEndWord(text, word);
+
+            assertEquals(expected, actual);
+        }
+
         static Stream<Arguments> provideArgumentsForVowel() {
             return Stream.of(
                     Arguments.of("HeElloo world", 5),
@@ -86,6 +143,14 @@ public class StringUtilTest {
                     Arguments.of("", 0),
                     Arguments.of("!%$", 0)
             );
+        }
+
+        @ParameterizedTest(name = "(Vowel) Text: {0}")
+        @MethodSource("provideArgumentsForVowel")
+        void vowelTest(String text, int expected) {
+            int actual = StringUtil.vowel(text);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsForPunctuationMark() {
@@ -98,6 +163,14 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(PunctuationMark) Text: {0}")
+        @MethodSource("provideArgumentsForPunctuationMark")
+        void punctuationMarkTest(String text, int expected) {
+            int actual = StringUtil.punctuationMark(text);
+
+            assertEquals(expected, actual);
+        }
+
         static Stream<Arguments> provideArgumentsForPalindrome() {
             return Stream.of(
                     Arguments.of("deed", true),
@@ -106,6 +179,14 @@ public class StringUtilTest {
                     Arguments.of("Hello world", false),
                     Arguments.of("Java", false)
             );
+        }
+
+        @ParameterizedTest(name = "(Palindrome) Text: {0}")
+        @MethodSource("provideArgumentsForPalindrome")
+        void palindromeTest(String text, boolean expected) {
+            boolean actual = StringUtil.palindrome(text);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsForSubstringArray() {
@@ -119,6 +200,14 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(SubstringArray) Text: {0}. N: {1}")
+        @MethodSource("provideArgumentsForSubstringArray")
+        void substringArrayTest(String text, int n, String[] expected) {
+            String[] actual = StringUtil.substringArray(text, n);
+
+            assertArrayEquals(expected, actual);
+        }
+
         static Stream<Arguments> provideArgumentsForAmountWords() {
             return Stream.of(
                     Arguments.of("", 0),
@@ -129,12 +218,28 @@ public class StringUtilTest {
             );
         }
 
+        @ParameterizedTest(name = "(AmountWords) Text: {0}")
+        @MethodSource("provideArgumentsForAmountWords")
+        void amountWordsTest(String text, int expected) {
+            int actual = StringUtil.amountWords(text);
+
+            assertEquals(expected, actual);
+        }
+
         static Stream<Arguments> provideArgumentsForInitials() {
             return Stream.of(
                     Arguments.of("Alekseev Aleksei Igorevich", "AAI"),
                     Arguments.of("alekseev aleksei", "AA"),
                     Arguments.of("alekseev", "A")
             );
+        }
+
+        @ParameterizedTest(name = "(initials) Text: {0}")
+        @MethodSource("provideArgumentsForInitials")
+        void initialsTest(String text, String expected) {
+            String actual = StringUtil.initials(text);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsForEqualArrays() {
@@ -152,13 +257,29 @@ public class StringUtilTest {
             );
         }
 
-        static Stream<Arguments> provideArgumentsForAmountDigits() {
+        @ParameterizedTest(name = "(EqualArrays) Array1: {0}. Array2: {1}")
+        @MethodSource("provideArgumentsForEqualArrays")
+        void equalArraysTest(String[] array1, String[] array2, boolean expected) {
+            boolean actual = StringUtil.equalArrays(array1, array2);
+
+            assertEquals(expected, actual);
+        }
+
+        static Stream<Arguments> provideArgumentsForGetAllDigits() {
             return Stream.of(
-                    Arguments.of("2021", 4),
-                    Arguments.of("1_000_000", 7),
-                    Arguments.of("", 0),
-                    Arguments.of(" ", 0)
+                    Arguments.of("2b0c2e1", "2021"),
+                    Arguments.of("1_000_000", "1000000"),
+                    Arguments.of("", ""),
+                    Arguments.of(" ", "")
             );
+        }
+
+        @ParameterizedTest(name = "(AmountDigits) Text: {0}")
+        @MethodSource("provideArgumentsForGetAllDigits")
+        void amountDigitsTest(String text, String expected) {
+            String actual = StringUtil.getAllDigits(text);
+
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> provideArgumentsForDeleteExcessSymbols() {
@@ -170,146 +291,10 @@ public class StringUtilTest {
             );
         }
 
-        @ParameterizedTest(name = "(Glue) Text1: {0}. Text2: {1}")
-        @MethodSource("provideArgumentsForGlue")
-        void glueTest(String firstText, String secondText, String expected) {
-            StringUtil string = new StringUtil();
-            String actual = string.glue(firstText, secondText);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(SymbolIndex) Symbol: {0}. Text {1}")
-        @MethodSource("provideArgumentsForSymbolIndex")
-        void symbolIndexTest(String x, String text, int expected) {
-            StringUtil string = new StringUtil();
-            int actual = string.symbolIndex(x, text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(Equals) Text1: {0}. Text2: {1}")
-        @MethodSource("provideArgumentsForStringEquals")
-        void stringEqualsTest(String firstText, String secondText, boolean expected) {
-            StringUtil string = new StringUtil();
-            boolean actual = string.stringEquals(firstText, secondText);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(Trim) Text1: {0}")
-        @MethodSource("provideArgumentsForStringTrim")
-        void stringTrimTest(String text, String expected) {
-            StringUtil string = new StringUtil();
-            String actual = string.stringTrim(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(SubString) Text: {0}. BeginIndex: {1}. EndIndex: {2}")
-        @MethodSource("provideArgumentsSubString")
-        void subStringTest(String text, int beginIndex, int endIndex, String expected) {
-            StringUtil string = new StringUtil();
-            String actual = string.subString(text, beginIndex, endIndex);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(ReplaceSymbol) Text: {0}. OldSymbol: {1}. NewSymbol: {2}")
-        @MethodSource("provideArgumentsForReplaceSymbol")
-        void replaceSymbolTest(String text, String oldSymbol, String newSymbol, String expected) {
-            StringUtil string = new StringUtil();
-            String actual = string.replaceSymbol(text, oldSymbol, newSymbol);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(startEndWord) Text: {0}. Word: {1}")
-        @MethodSource("provideArgumentsForStartEndWord")
-        void startEndWordTest(String text, String word, boolean expected) {
-            StringUtil string = new StringUtil();
-            boolean actual = string.startEndWord(text, word);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(Vowel) Text: {0}")
-        @MethodSource("provideArgumentsForVowel")
-        void vowelTest(String text, int expected) {
-            StringUtil string = new StringUtil();
-            int actual = string.vowel(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(PunctuationMark) Text: {0}")
-        @MethodSource("provideArgumentsForPunctuationMark")
-        void punctuationMarkTest(String text, int expected) {
-            StringUtil string = new StringUtil();
-            int actual = string.punctuationMark(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(Palindrome) Text: {0}")
-        @MethodSource("provideArgumentsForPalindrome")
-        void palindromeTest(String text, boolean expected) {
-            StringUtil string = new StringUtil();
-            boolean actual = string.palindrome(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(SubstringArray) Text: {0}. N: {1}")
-        @MethodSource("provideArgumentsForSubstringArray")
-        void substringArrayTest(String text, int n, String[] expected) {
-            StringUtil string = new StringUtil();
-            String[] actual = string.substringArray(text, n);
-
-            assertArrayEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(AmountWords) Text: {0}")
-        @MethodSource("provideArgumentsForAmountWords")
-        void amountWordsTest(String text, int expected) {
-            StringUtil string = new StringUtil();
-            int actual = string.amountWords(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(initials) Text: {0}")
-        @MethodSource("provideArgumentsForInitials")
-        void initialsTest(String text, String expected) {
-            StringUtil string = new StringUtil();
-            String actual = string.initials(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(AmountDigits) Text: {0}")
-        @MethodSource("provideArgumentsForAmountDigits")
-        void amountDigitsTest(String text, int expected) {
-            StringUtil string = new StringUtil();
-            int actual = string.amountDigits(text);
-
-            assertEquals(expected, actual);
-        }
-
-        @ParameterizedTest(name = "(EqualArrays) Array1: {0}. Array2: {1}")
-        @MethodSource("provideArgumentsForEqualArrays")
-        void equalArraysTest(String[] array1, String[] array2, boolean expected) {
-            StringUtil string = new StringUtil();
-            boolean actual = string.equalArrays(array1, array2);
-
-            assertEquals(expected, actual);
-        }
-
         @ParameterizedTest(name = "(DeleteExcessSymbols) Text: {0}")
         @MethodSource("provideArgumentsForDeleteExcessSymbols")
         void DeleteExcessSymbolsTest(String text, String expected) {
-            StringUtil string = new StringUtil();
-            String actual = string.deleteExcessSymbols(text);
+            String actual = StringUtil.deleteExcessSymbols(text);
 
             assertEquals(expected, actual);
         }
