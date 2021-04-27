@@ -23,15 +23,15 @@ public class CustomArrayList<T> {
     }
 
     public void pushBack(T value) {
-        size++;
-        if (data[capacity - 1] == null) {
-            data[capacity - 1] = value;
+        if (data.length > size) {
+            data[size] = value;
         } else {
             Object[] clone = new Object[data.length + 1];
             System.arraycopy(data, 0, clone, 0, data.length);
             clone[data.length] = value;
             data = clone;
         }
+        size++;
     }
 
     public void popFront() {
@@ -58,14 +58,9 @@ public class CustomArrayList<T> {
 
     public void insert(int index, T value) {
         size++;
-        if (index > data.length - 1) {
-            ensureCapacity();
-            data[data.length - 1] = value;
-        } else if (data[index] != null) {
-            ensureCapacity();
-            for (int i = data.length - 1; i > index; i--) {
-                data[i] = data[i - 1];
-            }
+        ensureCapacity();
+        for (int i = data.length - 1; i > index; i--) {
+            data[i] = data[i - 1];
         }
         data[index] = value;
     }
@@ -132,7 +127,7 @@ public class CustomArrayList<T> {
     }
 
     public void trimToSize() {
-        if (capacity > size) {
+        if (data.length > size) {
             Object[] clone = new Object[size];
             for (int i = 0; i < clone.length; i++) {
                 clone[i] = data[i];
@@ -208,7 +203,7 @@ public class CustomArrayList<T> {
     }
 
     public void printList() {
-       for (int i = 0; i < data.length - 1; i++) {
+       for (int i = 0; i <= data.length - 1; i++) {
            System.out.print(data[i] + " ");
        }
        System.out.println("\n");
