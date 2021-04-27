@@ -10,6 +10,7 @@ public class TextMonitoring {
     public TextMonitoring(){
         counterWords = new HashMap<>();
     }
+
     public void researchText(String text){
         List<String> words = new ArrayList<>();
         Pattern pattern = Pattern.compile("[a-zA-Zа-яА-Я0-9]+");
@@ -29,6 +30,18 @@ public class TextMonitoring {
             }
         }
 
+    }
+
+    public int getCountUniqueWords() {
+        return counterWords.size();
+    }
+
+    public Set<String> getUniqueWords() {
+        return counterWords.keySet();
+    }
+
+    public int getFrequencyWord(String word) {
+       return counterWords.get(word);
     }
 
     @Override
