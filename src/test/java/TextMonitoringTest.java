@@ -1,6 +1,4 @@
-
-
-import com.rakovets.course.java.core.practice.TextMonitoring;
+import com.rakovets.course.java.core.practice.jcf_map.TextMonitoring;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,13 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class TextMonitoringTest {
     TextMonitoring textMonitoring = new TextMonitoring();
@@ -72,36 +64,4 @@ public class TextMonitoringTest {
     public void getFrequencyWordTest(int expectedValue, String text) {
         Assertions.assertEquals(expectedValue, textMonitoring.getFrequencyWord(text));
     }
-
-    @Test
-    static Stream<Arguments> getFrequencyWordsTestProviderArguments() {
-        return Stream.of(
-                Arguments.of("[JAVA=1, C++=1, Python=1, Java=3]", true),
-                Arguments.of("[Java=3, Python=1, C++=1, JAVA=1]", false)
-
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getFrequencyWordsTestProviderArguments")
-    public void getFrequencyWordsTest(String expectedValue, boolean status) {
-        Map<String, Integer> map = textMonitoring.getFrequencyWords(status);
-        Assertions.assertEquals(expectedValue, map.entrySet().toString());
-    }
-
-    @Test
-    static Stream<Arguments> getUniqueWordsTestProviderArguments() {
-        return Stream.of(
-                Arguments.of("[JAVA, Java, C++, Python]")
-
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("getUniqueWordsTestProviderArguments")
-    public void getUniqueWordsTest(String expectedValue) {
-        Set<String> setWords = textMonitoring.getUniqueWords();
-        Assertions.assertEquals(expectedValue, setWords.toString());
-    }
-
 }

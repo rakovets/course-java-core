@@ -25,7 +25,7 @@ public class TextMonitoring {
         return map.size();
     }
 
-    public  Collection<String> getUniqueWords() {
+    public Collection<String> getUniqueWords() {
         return map.keySet();
     }
 
@@ -35,17 +35,18 @@ public class TextMonitoring {
 
     public Map<String, Integer> getFrequencyWords(boolean isAscendingFrequency) {
         List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        Map<String, Integer> resultArray = new LinkedHashMap<>();
+
         if (isAscendingFrequency)
             list.sort(Map.Entry.comparingByValue());
-        else
+        else {
             list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-        Map<String, Integer> result = new LinkedHashMap<>();
-        for (Map.Entry<String, Integer> entry : list) {
-            result.put(entry.getKey(), entry.getValue());
         }
-        return result;
+
+        for (Map.Entry<String, Integer> entry : list) {
+            resultArray.put(entry.getKey(), entry.getValue());
+        }
+        return resultArray;
     }
 }
-
-
 
