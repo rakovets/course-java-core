@@ -74,7 +74,6 @@ public class WebServiceApplication {
         }
     }
 
-
     public static void changeLogin() throws IOException {
         String newLogin;
         String login = enterLogin();
