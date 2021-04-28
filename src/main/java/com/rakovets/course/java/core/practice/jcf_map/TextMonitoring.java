@@ -49,7 +49,7 @@ public class TextMonitoring {
         if (isAscendingFrequency) {
             list.sort(new ComparatorAscendingFrequency());
         } else {
-            list.sort(new CompareDescendingFrequency());
+            list.sort(new ComparatorDescendingFrequency());
         }
         return list;
     }
