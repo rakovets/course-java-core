@@ -8,6 +8,16 @@ import java.util.Map;
 public class Garage {
     private final Map<String, List<Car>> garage = new HashMap<>();
 
+    public void park(Car car) {
+        String key = car.getBrand() + car.getModel();
+        List<Car> cars = new ArrayList<>();
+        if (garage.containsKey(key)) {
+            cars = garage.get(key);
+        }
+        cars.add(car);
+        garage.put(key, cars);
+    }
+
     public void leave(Car car) {
         String key = car.getBrand() + car.getModel();
         if (garage.containsKey(key)) {
@@ -20,13 +30,9 @@ public class Garage {
         }
     }
 
-    public void park(Car car) {
-        String key = car.getBrand() + car.getModel();
-        List<Car> cars = new ArrayList<>();
-        if (garage.containsKey(key))
-            cars = garage.get(key);
-        cars.add(car);
-        garage.put(key, cars);
+    public int getCount(String brand, String model) {
+        String key = brand + model;
+        return garage.get(key).size();
     }
 
     public boolean isExist(String registrationNumber) {
@@ -39,11 +45,6 @@ public class Garage {
 
         }
         return false;
-    }
-
-    public int getCount(String brand, String model) {
-        String key = brand + model;
-        return garage.get(key).size();
     }
 
     public boolean isExist(String brand, String model, String registrationNumber) {
