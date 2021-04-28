@@ -25,7 +25,7 @@ public class BattleDemo {
         choice = cin.nextInt();
         hero = selectHeroClass.selectClass(choice, name);
         System.out.println("Куда отправимся ?\n");
-        dungeons.dungeonList();
+        dungeons.showDungeonsList();
         choice = cin.nextInt();
         try {
             enemy = dungeons.selectDungeon(choice);

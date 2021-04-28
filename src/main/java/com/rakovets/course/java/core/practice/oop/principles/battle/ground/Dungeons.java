@@ -5,14 +5,14 @@ import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemi
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Wolf;
 
 public class Dungeons {
-    public String dungeonsList(int dungeonNumber) {
+    public String showDungeonsList(int dungeonNumber) {
         String[] list = new String[] {"Кладбище", "Лес", "Поляна"};
         return list[dungeonNumber];
     }
 
-    public void dungeonList() {
+    public void showDungeonsList() {
         for (int i = 1; i <= 3; i++) {
-            System.out.print(i + ".|" + dungeonsList(i-1) + "| ");
+            System.out.print(i + ".|" + showDungeonsList(i-1) + "| ");
         }
     }
 

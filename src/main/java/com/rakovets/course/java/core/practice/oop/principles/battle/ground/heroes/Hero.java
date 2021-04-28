@@ -29,11 +29,17 @@ public abstract class Hero {
     }
 
     public abstract String skills(int skill);
+
     public abstract void attackEnemy(Enemy enemy);
+
     public abstract void skillList();
+
     public abstract void skillDescription();
+
     public abstract void firstSkill(Enemy enemy);
+
     public abstract void secondSkill(Enemy enemy);
+
     public abstract boolean defendSkill(Enemy enemy);
 
     public String getName() {
