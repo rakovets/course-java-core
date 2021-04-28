@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.jcf_list;
 
 import com.rakovets.course.java.core.practice.jcf_set.web_service.ClientController;
 import com.rakovets.course.java.core.practice.jcf_set.web_service.DataStorage;
-import com.rakovets.course.java.core.practice.jcf_set.web_service.ServerRequestQueue;
 import com.rakovets.course.java.core.practice.jcf_set.web_service.VisualMenu;
 
 public class WebServiceDemo {
