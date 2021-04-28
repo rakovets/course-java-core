@@ -5,13 +5,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TextMonitoring {
-    Map<String, Integer> counterWords;
+    HashMap<String, Integer> counterWords;
 
-    public TextMonitoring(){
+    public TextMonitoring() {
         counterWords = new HashMap<>();
     }
 
-    public void researchText(String text){
+    public void researchText(String text) {
         List<String> words = new ArrayList<>();
         Pattern pattern = Pattern.compile("[a-zA-Zа-яА-Я0-9]+");
         Matcher matcher = pattern.matcher(text);
@@ -19,13 +19,12 @@ public class TextMonitoring {
             words.add(matcher.group());
         }
         System.out.println(words.toString());
-
         int tempValue = 0;
         for (String word : words) {
             if (counterWords.containsKey(word)) {
                 tempValue = counterWords.get(word) + 1;
                 counterWords.put(word, tempValue);
-            } else{
+            } else {
                 counterWords.put(word, 1);
             }
         }
@@ -42,6 +41,15 @@ public class TextMonitoring {
 
     public int getFrequencyWord(String word) {
        return counterWords.get(word);
+    }
+
+    public Collection<Map.Entry<String, Integer>> getFrequencyWords(boolean isAscendingFrequency) {
+        ArrayList<Map.Entry<String, Integer>> arr = new ArrayList<>(counterWords.entrySet());
+        arr.sort(new ValueseComporator());
+        if (!isAscendingFrequency) {
+            Collections.reverse(arr);
+        }
+        return  arr;
     }
 
     @Override
