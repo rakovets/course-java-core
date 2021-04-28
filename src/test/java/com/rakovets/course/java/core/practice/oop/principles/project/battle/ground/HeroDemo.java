@@ -42,7 +42,7 @@ public class HeroDemo {
 
         ghost.setHealth(100);
         zombie.setHealth(100);
-        mag.skill(ghost, zombie);
+        mag.skill(zombie, ghost);
         System.out.printf("\n%d %d", ghost.getHealth(), zombie.getHealth());
     }
 }

@@ -4,6 +4,8 @@ public class Siamese extends Cat {
     public Siamese(String name) {
         super(name);
     }
+    private final static int DECREASED_LEVEL_HAPPINESS = -10;
+    private final static int INCREASED_LEVEL_HAPPINESS = 10;
 
     @Override
     public String mew() {
@@ -17,11 +19,11 @@ public class Siamese extends Cat {
 
     @Override
     public int mew(Person person) {
-        return person.changeHappiness(-10);
+        return person.changeHappiness(DECREASED_LEVEL_HAPPINESS);
     }
 
     @Override
     public int purr(Person person) {
-        return person.changeHappiness(10);
+        return person.changeHappiness(INCREASED_LEVEL_HAPPINESS);
     }
 }

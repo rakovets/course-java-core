@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.project.battle.ground;
 
 public class Mag extends Hero {
-    private final int damage = 30;
+    private static final int DAMAGE = 30;
 
     public Mag(String name, int healthPoint) {
         super(name, healthPoint);
@@ -15,13 +15,11 @@ public class Mag extends Hero {
     @Override
     public void attackEnemy(Enemy enemy) {
         System.out.print("Mag " + getName() + " attack enemy!\n");
-        enemy.takeDamage(damage);
+        enemy.takeDamage(DAMAGE);
     }
 
     @Override
-    public void skill(Ghost ghost, Zombie zombie) {
-        System.out.println("Damage to everyone");
-        ghost.massiveDamage(damage);
-        zombie.massiveDamage(damage);
+    public void skill(Enemy... enemy) {
+        for (Enemy value : enemy) value.takeSkillDamage(DAMAGE);
     }
 }

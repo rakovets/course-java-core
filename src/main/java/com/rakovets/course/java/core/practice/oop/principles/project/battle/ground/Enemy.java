@@ -19,8 +19,7 @@ public abstract class Enemy implements Mortal {
         health -= damage;
     }
 
-    public void attackHero(Hero hero) {
-    }
+    public abstract void attackHero(Hero hero);
 
     @Override
     public boolean isAlive() {
@@ -31,7 +30,7 @@ public abstract class Enemy implements Mortal {
         return health;
     }
 
-    public int setHealth(int health) {
-        return this.health = health;
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

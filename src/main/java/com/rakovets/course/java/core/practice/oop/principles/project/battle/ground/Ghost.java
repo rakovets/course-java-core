@@ -1,7 +1,8 @@
 package com.rakovets.course.java.core.practice.oop.principles.project.battle.ground;
 
 public class Ghost extends Enemy {
-    protected final int armorRate = 15;
+    protected final static int ARMOR_RATE = 15;
+    private final static int DAMAGE = 25;
 
     public Ghost(int health) {
         super(health);
@@ -11,7 +12,7 @@ public class Ghost extends Enemy {
     public void takeDamage(int damage) {
         int i = (int) (Math.random() * 2);
         if (i == 1) {
-            health = health - (damage - armorRate);
+            health = health - (damage - ARMOR_RATE);
         } else {
             System.out.println("You miss!\n" + getHealth());
         }
@@ -29,6 +30,6 @@ public class Ghost extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamage(25);
+        hero.takeDamage(DAMAGE);
     }
 }

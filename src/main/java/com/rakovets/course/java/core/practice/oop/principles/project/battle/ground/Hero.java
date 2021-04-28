@@ -22,13 +22,7 @@ public abstract class Hero {
 
     public abstract void attackEnemy(Enemy enemy);
 
-    public void skill(Enemy enemy) {
-
-    }
-
-    public void skill(Ghost ghost, Zombie zombie) {
-
-    }
+    public abstract void skill(Enemy... enemy);
 
     public String getName() {
         return name;

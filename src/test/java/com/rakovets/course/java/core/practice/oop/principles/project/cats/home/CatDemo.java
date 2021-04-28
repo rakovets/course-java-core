@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.oop.principles.project.cats.home;
 
-import com.rakovets.course.java.core.practice.oop.principles.project.cats.home.*;
-
 public class CatDemo {
     public static void main(String[] args) {
         Cat cat = new Cat("Tom");
