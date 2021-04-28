@@ -20,7 +20,9 @@ public abstract class Enemy implements Mortal {
     }
 
     public abstract void attackHero(Hero hero);
+
     public abstract void attackTemplate();
+
     public abstract void startBattleMessage();
 
     @Override
@@ -39,5 +41,4 @@ public abstract class Enemy implements Mortal {
     public void setHealth(int health) {
         this.health = health;
     }
-
 }

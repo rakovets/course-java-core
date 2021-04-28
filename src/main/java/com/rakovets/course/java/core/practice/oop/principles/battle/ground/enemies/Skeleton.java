@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.oop.principles.battle.ground.enem
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.heroes.Hero;
 
 public class Skeleton extends Enemy {
-
     public Skeleton(String name, int health) {
         super(name, health);
     }

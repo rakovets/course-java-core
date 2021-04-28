@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.oop.principles.battle.ground.enem
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.heroes.Hero;
 
 public class Wolf extends Enemy{
-
     public Wolf(String name, int health) {
         super(name, health);
     }

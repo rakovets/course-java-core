@@ -1,17 +1,12 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle.ground;
 
-import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Enemy;
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Skeleton;
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Slug;
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Wolf;
 
 public class Dungeons {
-
     public String dungeonsList(int dungeonNumber) {
-        String[] list = new String[3];
-        list[0] = "Кладбище";
-        list[1] = "Лес";
-        list[2] = "Поляна";
+        String[] list = new String[] {"Кладбище", "Лес", "Поляна"};
         return list[dungeonNumber];
     }
 
@@ -21,7 +16,7 @@ public class Dungeons {
         }
     }
 
-    public Object selectDungeon(int choice) {
+    public Object selectDungeon(int choice) throws Exception {
         Object enemy;
         if (choice == 1) {
             enemy = new Skeleton("Скелет", 100);
@@ -32,8 +27,8 @@ public class Dungeons {
         } else if (choice == 3) {
             enemy = new Slug("Слизень", 100);
             return enemy;
+        } else {
+            throw new Exception("Неверный ввод");
         }
-        enemy = "Неверный ввод или локация недоступна";
-        return enemy;
     }
 }

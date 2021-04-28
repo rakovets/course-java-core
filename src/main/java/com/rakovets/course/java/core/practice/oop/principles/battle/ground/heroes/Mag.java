@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.oop.principles.battle.ground.hero
 import com.rakovets.course.java.core.practice.oop.principles.battle.ground.enemies.Enemy;
 
 public class Mag extends Hero {
-
     public Mag(String name, int health) {
         super(name, health);
     }

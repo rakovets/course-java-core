@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.oop.principles.battle.ground.heroes;
 
 public class SelectHeroClass {
-
     public Object selectClass(int choice, String name) {
         String text = "Неверный ввод или локация недоступна";
         Object hero;
@@ -17,5 +16,4 @@ public class SelectHeroClass {
         }
         return text;
     }
-
 }

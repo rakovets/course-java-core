@@ -27,8 +27,13 @@ public class BattleDemo {
         System.out.println("Куда отправимся ?\n");
         dungeons.dungeonList();
         choice = cin.nextInt();
-        enemy = dungeons.selectDungeon(choice);
-        battleDemo.battleProcess((Hero) hero, (Enemy) enemy);
+        try {
+            enemy = dungeons.selectDungeon(choice);
+            battleDemo.battleProcess((Hero) hero, (Enemy) enemy);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public void battleProcess (Hero hero, Enemy enemy){
