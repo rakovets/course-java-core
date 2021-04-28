@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.jcf_set;
 
 import com.rakovets.course.java.core.example.jcf.comparator.ClientPriorityComparator;
 import jdk.jfr.Event;
-
 import java.util.*;
 
 public class Server {
@@ -29,8 +28,6 @@ public class Server {
             for (Map.Entry<Event, Long> eventAndDate : whatClientHasDone.entrySet()) {
                 System.out.println("Client : " + client.getLogin() + "Event : " + eventAndDate.getValue() + "Date : " + eventAndDate.getKey());
             }
-
         }
     }
 }
-

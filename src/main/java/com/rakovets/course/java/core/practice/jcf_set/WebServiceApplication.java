@@ -63,7 +63,6 @@ public class WebServiceApplication {
                 ClientController.message(4);
             }
         }
-
     }
 
     public static void checkClient() throws IOException {
@@ -94,7 +93,6 @@ public class WebServiceApplication {
         } else {
             ClientController.message(4);
         }
-
     }
 
     public static void changePassword() throws IOException {
@@ -112,5 +110,3 @@ public class WebServiceApplication {
         }
     }
 }
-
-
