@@ -18,6 +18,4 @@ public class Person {
     public void setHappiness(int happiness) {
         this.happiness = happiness;
     }
-
-
 }
