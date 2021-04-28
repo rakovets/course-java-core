@@ -14,7 +14,15 @@ public abstract class Car {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != obj.getClass()) {
+            return false;
+        }
+        Car car = (Car) obj;
+        return yearManufacture == car.yearManufacture && brand.equals(car.brand) && model.equals(car.model)
+                && color.equals(car.color) && registrationNumber.equals(car.registrationNumber);
     }
 
     @Override
