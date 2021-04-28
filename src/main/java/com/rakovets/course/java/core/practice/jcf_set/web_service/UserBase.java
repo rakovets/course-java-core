@@ -33,7 +33,7 @@ public class UserBase {
     }
 
     public boolean isExist(String nickName) {
-        return users.containsValue(nickName);
+        return users.containsKey(nickName);
     }
 
     public void changeNickName(User user, String newNickName) {

@@ -26,19 +26,17 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("Введите имя");
-                    name = scanner.nextLine();
-                    userBase.isExist(name);
+                    name = inputData();
+                    System.out.println(userBase.isExist(name));
                     break;
                 case 4:
                     System.out.println("Введите новый логин");
-                    Scanner scanner1 = new Scanner(System.in);
-                    name = scanner1.nextLine();
+                    name = inputData();
                     userBase.changeNickName(inputDataForUser(), name);
                     break;
                 case 5:
                     System.out.println("Введите новый пароль");
-                    Scanner scanner2 = new Scanner(System.in);
-                    password = scanner2.nextLine();
+                    password = inputData();
                     userBase.changePassword(inputDataForUser(), password);
                     break;
                 default:
@@ -54,6 +52,11 @@ public class Menu {
         System.out.println("Введите пароль");
         String password = scanner.nextLine();
         return new User(nickName, password);
+    }
+
+    private String inputData() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 }
 
