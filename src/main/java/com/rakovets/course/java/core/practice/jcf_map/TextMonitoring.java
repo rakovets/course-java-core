@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice;
+package com.rakovets.course.java.core.practice.jcf_map;
 
 import java.util.*;
 
@@ -12,9 +12,7 @@ public class TextMonitoring {
     public void researchText(String text) {
         String textToArray = text.replaceAll("[,.&!@]", "");
         String[] textInArray = textToArray.split(" ");
-
         map = new HashMap<>();
-
         for (String word : textInArray) {
             if (map.containsKey(word))
                 map.put(word, map.get(word) + 1);
@@ -27,7 +25,7 @@ public class TextMonitoring {
         return map.size();
     }
 
-    public Set<String> getUniqueWords() {
+    public  Collection<String> getUniqueWords() {
         return map.keySet();
     }
 
@@ -36,20 +34,16 @@ public class TextMonitoring {
     }
 
     public Map<String, Integer> getFrequencyWords(boolean isAscendingFrequency) {
-        List<Map.Entry<String, Integer>> arrayList = new ArrayList(map.entrySet());
-        Map<String, Integer> resultMap = new LinkedHashMap<>();
-        arrayList.sort(Map.Entry.comparingByValue());
-
-        if (isAscendingFrequency) {
-            for (int i = 0; i < arrayList.size(); i++) {
-                resultMap.put(arrayList.get(i).getKey(), arrayList.get(i).getValue());
-            }
-        } else {
-            for (int i = arrayList.size() - 1; i >= 0; i--) {
-                resultMap.put(arrayList.get(i).getKey(), arrayList.get(i).getValue());
-            }
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+        if (isAscendingFrequency)
+            list.sort(Map.Entry.comparingByValue());
+        else
+            list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+        Map<String, Integer> result = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
         }
-        return resultMap;
+        return result;
     }
 }
 
