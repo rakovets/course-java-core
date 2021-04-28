@@ -19,7 +19,7 @@ public class Menu {
         WebService webService = new WebService(users);
 
         do {
-            System.out.println("What action do you want to take?");
+            System.out.println("\nWhat action do you want to take?");
             System.out.println("Enter the appropriate number for the required action:");
             System.out.print("1 - Add/2 - Delete/3 - Check/4 - change login/5 - change password: ");
 
@@ -95,7 +95,7 @@ public class Menu {
                 webService.changeUserPassword(login, newPassword);
                 printList(users);
             }
-        } while (i ==0);
+        } while (i == 0);
     }
 
     public static String enterLogin() {
