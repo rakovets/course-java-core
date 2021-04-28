@@ -33,13 +33,13 @@ public class TextMonitoring {
         return textList.get(word);
     }
 
-    public String getFrequencyWords(boolean isAscendingFrequency) {
+    public List<Map.Entry<String, Integer>> getFrequencyWords(boolean isAscendingFrequency) {
         List<Map.Entry<String, Integer>> copy = new ArrayList<>(textList.entrySet());
         copy.sort(compMapValues);
         if (!isAscendingFrequency) {
             Collections.reverse(copy);
         }
-        return copy.toString();
+        return copy;
     }
 
     public String getTextList() {
