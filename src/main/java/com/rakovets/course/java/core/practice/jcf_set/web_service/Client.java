@@ -1,6 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_set;
+package com.rakovets.course.java.core.practice.jcf_set.web_service;
 
-import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.Operation;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.operations.Operation;
 
 public class Client {
     private Server server;

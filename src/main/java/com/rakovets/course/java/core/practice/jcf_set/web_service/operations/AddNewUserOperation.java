@@ -1,7 +1,7 @@
-package com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.operations;
 
-import com.rakovets.course.java.core.practice.jcf_set.User;
-import com.rakovets.course.java.core.practice.jcf_set.UsersDataBase;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.User;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.UsersDataBase;
 
 public class AddNewUserOperation extends Operation {
     private User user;

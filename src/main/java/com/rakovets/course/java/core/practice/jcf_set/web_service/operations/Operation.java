@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.operations;
 
-import com.rakovets.course.java.core.practice.jcf_set.UsersDataBase;
-
+import com.rakovets.course.java.core.practice.jcf_set.web_service.UsersDataBase;
 import java.util.Random;
 
 public abstract class Operation {

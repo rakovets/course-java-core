@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_set.input_output_tools;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.input_output_tools;
 
-import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.WrongButtonNumberException;
-
+import com.rakovets.course.java.core.practice.jcf_set.web_service.exceptions.WrongButtonNumberException;
 import java.util.Scanner;
 
 public class MenuButtonInputTool {

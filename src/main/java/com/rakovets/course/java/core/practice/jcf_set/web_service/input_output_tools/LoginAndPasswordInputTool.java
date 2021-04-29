@@ -1,9 +1,8 @@
-package com.rakovets.course.java.core.practice.jcf_set.input_output_tools;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.input_output_tools;
 
-import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.LoginAlreadyExistsException;
-import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.LoginDoesNotExistException;
-import com.rakovets.course.java.core.practice.jcf_set.UsersDataBase;
-
+import com.rakovets.course.java.core.practice.jcf_set.web_service.UsersDataBase;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.exceptions.LoginAlreadyExistsException;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.exceptions.LoginDoesNotExistException;
 import java.util.Scanner;
 
 public class LoginAndPasswordInputTool {

@@ -1,12 +1,9 @@
-package com.rakovets.course.java.core.practice.jcf_set;
+package com.rakovets.course.java.core.practice.jcf_set.web_service;
 
-import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.Operation;
-import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.comaparator.OperationsComparator;
-
-
+import com.rakovets.course.java.core.practice.jcf_set.web_service.operations.Operation;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.operations.comaparator.OperationsComparator;
 import java.time.LocalTime;
 import java.util.*;
-
 
 public class Server {
 

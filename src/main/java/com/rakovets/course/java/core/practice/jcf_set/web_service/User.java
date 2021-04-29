@@ -1,6 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_set;
-
-import java.util.Map;
+package com.rakovets.course.java.core.practice.jcf_set.web_service;
 
 public class User {
     private String login;

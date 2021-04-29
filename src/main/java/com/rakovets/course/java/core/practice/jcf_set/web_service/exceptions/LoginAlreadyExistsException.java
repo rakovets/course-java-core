@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.exceptions;
 
 public class LoginAlreadyExistsException extends Exception {
     public LoginAlreadyExistsException(){

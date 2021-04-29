@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_set;
+package com.rakovets.course.java.core.practice.jcf_set.web_service;
 
 import java.util.HashMap;
 import java.util.Map;
