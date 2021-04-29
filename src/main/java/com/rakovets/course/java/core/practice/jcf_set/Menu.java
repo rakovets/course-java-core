@@ -34,7 +34,6 @@ public class Menu {
                 } while (isLoginExisted == true);
                 password = enterPassword();
                 webService.setNewUser(login, password);
-                printList(users);
 
             } else if (option == 2) {
                 boolean isLoginCorrect;
@@ -48,7 +47,6 @@ public class Menu {
                     isPasswordCorrect = checkPassword(users, login, password);
                 } while (isPasswordCorrect == false);
                 webService.deleteUser(login, password);
-                printList(users);
 
             } else if (option == 3) {
                 boolean isLoginCorrect;
@@ -77,7 +75,6 @@ public class Menu {
                     isLoginExisted = checkUniqueLogin(users, newLogin);
                 } while (isLoginExisted == true);
                 webService.changeUserLogin(login, newLogin);
-                printList(users);
 
             } else if (option == 5) {
                 String newPassword;
@@ -93,7 +90,6 @@ public class Menu {
                 } while (isPasswordCorrect == false);
                 newPassword = enterNewPassword();
                 webService.changeUserPassword(login, newPassword);
-                printList(users);
             }
         } while (i == 0);
     }
@@ -142,12 +138,6 @@ public class Menu {
         } else {
             System.out.println("This password is incorrect.");
             return false;
-        }
-    }
-
-    public static void printList(Map<String, String> users) {
-        for (Map.Entry<String, String> user : users.entrySet()) {
-            System.out.printf("%s - %s\n", user.getKey(), user.getValue());
         }
     }
 }
