@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WebServiceApplication {
-
     public static Map<String, Client> map = new HashMap<>();
 
     public static String enterLogin() throws IOException {
