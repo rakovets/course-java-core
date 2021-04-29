@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import com.rakovets.course.java.core.practice.jcf_set.operations.Operation;
-import com.rakovets.course.java.core.practice.jcf_set.operations.comaparator.OperationsComparator;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.Operation;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.comaparator.OperationsComparator;
 
 
 import java.time.LocalTime;

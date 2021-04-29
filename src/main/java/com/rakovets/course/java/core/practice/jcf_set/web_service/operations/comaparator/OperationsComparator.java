@@ -1,6 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_set.operations.comaparator;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.comaparator;
 
-import com.rakovets.course.java.core.practice.jcf_set.operations.Operation;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.Operation;
 
 import java.util.Comparator;
 

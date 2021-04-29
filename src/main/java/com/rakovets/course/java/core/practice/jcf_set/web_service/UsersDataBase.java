@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import com.rakovets.course.java.core.practice.jcf_set.Exceptions.WrongLoginException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +46,10 @@ public class UsersDataBase {
 
     public void showUsersDatabase() {
         System.out.println(this.toString());
+    }
+
+    public Map<String, String> getLoginAndPasswords() {
+        return loginAndPasswords;
     }
 
     @Override

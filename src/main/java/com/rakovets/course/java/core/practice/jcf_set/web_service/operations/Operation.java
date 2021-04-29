@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_set.operations;
+package com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations;
 
 import com.rakovets.course.java.core.practice.jcf_set.UsersDataBase;
 

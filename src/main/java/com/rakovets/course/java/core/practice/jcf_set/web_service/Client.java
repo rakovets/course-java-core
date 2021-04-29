@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import com.rakovets.course.java.core.practice.jcf_set.operations.Operation;
-
-import java.time.LocalTime;
+import com.rakovets.course.java.core.practice.jcf_set.web_service.Exceptions.operations.Operation;
 
 public class Client {
     private Server server;
