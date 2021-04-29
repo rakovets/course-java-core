@@ -1,8 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_map;
 
-import com.rakovets.course.java.core.practice.jcf_map.TextMonitoring;
-
-import java.sql.SQLOutput;
 import java.util.Collection;
 
 public class TextMonitoringDemo {
