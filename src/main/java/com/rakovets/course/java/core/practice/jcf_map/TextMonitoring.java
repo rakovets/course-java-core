@@ -46,4 +46,15 @@ public class TextMonitoring {
     public int getFrequencyWord(String word) {
         return researchedText.get(word);
     }
+
+    public List<Map.Entry<String, Integer>> getFrequencyWords(boolean isAscendingFrequency) {
+        List<Map.Entry<String, Integer>> list = new ArrayList(researchedText.entrySet());
+
+        if (isAscendingFrequency)
+            list.sort(new StringComparator());
+        else {
+            list.sort(new StringReverseOrderComparator());
+        }
+        return list;
+    }
 }

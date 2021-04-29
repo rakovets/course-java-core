@@ -27,8 +27,9 @@ public class TextMonitoringDemo {
         uniqueWord = "Minsk";
         System.out.printf("Frequency of use of the word %s = %d\n", uniqueWord, textMonitoring.getFrequencyWord(uniqueWord));
 
-
+        System.out.println("\nDirect sequence:");
+        System.out.println(textMonitoring.getFrequencyWords(true));
+        System.out.println("\nReverse sequence:");
+        System.out.println(textMonitoring.getFrequencyWords(false));
     }
-
-
 }
