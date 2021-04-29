@@ -1,8 +1,10 @@
 package com.rakovets.course.java.core.practice.date_and_time.data_wrapper;
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class DataUtilDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         LocalDate time = DataUtil.getDate(2020, 10, 11);
         System.out.println(time);
 
@@ -12,5 +14,13 @@ public class DataUtilDemo {
         System.out.println(DataUtil.isPatternDate("19/05/2009", "dd/MM/yyyy"));
 
         System.out.println(DataUtil.isTimeInterval(LocalDate.now(), LocalDate.now().plusMonths(3).plusYears(1)));
+        System.out.println(DataUtil.findNearFirstFebruary(LocalDate.of(2000, 7, 3)));
+
+        System.out.println(DataUtil.getDateJavaCalendar(2020, 10 ,11));
+        System.out.println(DataUtil.rewindMonth(new Date(), 15));
+        System.out.println(DataUtil.isPatternDate(new Date(), "dd/MM/yyyy"));
+
+        System.out.println(DataUtil.isPatternDateJavaCalendar("19/05/2009", "dd/MM/yyyy"));
+        System.out.println(DataUtil.isTimeInterval(new Date(), DataUtil.rewindMonth(new Date(), 15)));
     }
 }
