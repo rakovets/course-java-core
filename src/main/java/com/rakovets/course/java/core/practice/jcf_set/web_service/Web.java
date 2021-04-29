@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_set;
+package com.rakovets.course.java.core.practice.jcf_set.web_service;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -9,58 +9,60 @@ public class Web {
     Scanner scanner = new Scanner(System.in);
 
     public void createNewUser() {
-        System.out.println("Put User name");
+        System.out.println("Put Username");
         String name = scanner.nextLine();
         System.out.println("Put password");
         String password = scanner.nextLine();
         user.put(name, password);
     }
 
-    public String deleteUser() {
+    public void deleteUser() {
         System.out.println("User");
         String name = scanner.nextLine();
         if (user.containsKey(name)) {
             user.remove(name);
-            return "Done";
+            System.out.println("Done");
         } else {
-            return "There is no User";
+            System.out.println("There is no User");
         }
     }
 
-    public String checkUser() {
+    public void checkUser() {
         System.out.println("Check is Username is free");
         String name = scanner.nextLine();
         if (user.containsKey(name)) {
-            return "There is already a User with the same name";
+            System.out.println("There is already a User with the same name");
         } else {
-            return "There is no User with the same name";
+            System.out.println("There is no User with the same name");
         }
     }
 
-    public String changeLogin() {
-        System.out.println("Change login");
+    public void changeLogin() {
+        System.out.println("Write Username");
         String name = scanner.nextLine();
         if (user.containsKey(name)) {
             System.out.println("Create new username");
             String newName = scanner.nextLine();
             user.put(newName, user.get(name));
             user.remove(name);
-            return "Success";
+            System.out.println("Success");
         } else {
-            return "There is no User with the same name";
+            System.out.println("There is no User with the same name");
         }
     }
 
-    public String changePassword() {
-        System.out.println("Change password");
+    public void changePassword() {
+        System.out.println("Chose User");
         String name = scanner.nextLine();
-        if (user.containsKey(name)) {
+        System.out.println("Write your password");
+        String password = scanner.nextLine();
+        if (user.containsKey(name) && user.get(name).equals(password)) {
             System.out.println("Create new password");
-            String password = scanner.nextLine();
-            user.put(name, password);
-            return "Success";
+            String newPassword = scanner.nextLine();
+            user.put(name, newPassword);
+            System.out.println("Success");
         } else {
-            return "There is no User with the same name";
+            System.out.println("There is no User with the same name or incorrect User password");
         }
     }
 }

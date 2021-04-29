@@ -1,18 +1,14 @@
-package com.rakovets.course.java.core.practice.jcf_set;
+package com.rakovets.course.java.core.practice.jcf_set.web_service;
 
-import java.util.Map;
 import java.util.Scanner;
 
-public class Menu {
+public class Apk {
     Web web = new Web();
     Scanner scanner = new Scanner(System.in);
     int item;
 
     public void menu() {
-        System.out.println("Menu" + "\n1. Create new User" + "\n2. Delete existing User" + "\n3. Check if the User exist"
-                + "\n4. Change the login of an existing User" + "\n5. Change password of an existing User\n");
-
-        /*int item = scanner.nextInt();*/
+        printMenu();
         while (scanner.hasNextInt()) {
             item = scanner.nextInt();
             switch (item) {
@@ -20,20 +16,26 @@ public class Menu {
                     web.createNewUser();
                     break;
                 case 2:
-                    System.out.println(web.deleteUser());
+                    web.deleteUser();
                     break;
                 case 3:
-                    System.out.println(web.checkUser());
+                    web.checkUser();
                     break;
                 case 4:
-                    System.out.println(web.changeLogin());
+                    web.changeLogin();
                     break;
                 case 5:
-                    System.out.println(web.changePassword());
+                    web.changePassword();
                     break;
                 default:
                     System.out.println("Chose something");
             }
+            printMenu();
         }
+    }
+
+    public void printMenu() {
+        System.out.println("\nMenu" + "\n1. Create new User" + "\n2. Delete existing User" + "\n3. Check if the User exist"
+                + "\n4. Change the login of an existing User" + "\n5. Change password of an existing User\n");
     }
 }
