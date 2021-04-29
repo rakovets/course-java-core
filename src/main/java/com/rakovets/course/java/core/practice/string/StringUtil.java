@@ -36,17 +36,12 @@ public class StringUtil {
     }
 
     static int existsVowels(String str1) {
-        int quantityOfVowels = 0;
-        for (int i = 0; i<str1.length();i++)
-        {
-            char currentLetter = str1.charAt(i);
-            if (currentLetter == 'a' || currentLetter == 'e' || currentLetter == 'i' || currentLetter == 'o' || currentLetter == 'u' || currentLetter == 'y'
-                    || currentLetter == 'A'|| currentLetter == 'E' || currentLetter == 'I' || currentLetter == 'O' || currentLetter == 'U' || currentLetter == 'Y')
-            {
-                quantityOfVowels++;
-            }
-            }
-       return  quantityOfVowels;
+        if (str1 == null) {
+            return -1;
+        }
+        Pattern pattern = Pattern.compile("[eyuioaEYUIOA]");
+        Matcher matcher = pattern.matcher(str1);
+        return (int) matcher.results().count();
     }
 
     static int quantityPunctuation(String str1) {
@@ -62,7 +57,7 @@ public class StringUtil {
     static  String[] splitString(String str1, int split) {
         String[] currentSplit = new String[(int)Math.ceil((double)str1.length() / split)];
         for (int i = 0; i < currentSplit.length; i++)
-            currentSplit[i] = str1.substring(i * split, Math.min(str1.length(), (i+1)*split));
+            currentSplit[i] = str1.substring(i * split, Math.min(str1.length(), (i + 1) * split));
         return currentSplit;
     }
 
