@@ -49,7 +49,7 @@ public class Server {
 
     @Override
     public String toString() {
-        String result = "---Operations Log---";
+        String result = "---Operations Log---  \n";
         for(Map.Entry<Client, LocalTime> dataForOperation : operationsLoqQue) {
             result += dataForOperation.getKey().getOperation().getName() + dataForOperation.getValue() + "\n";
         }
