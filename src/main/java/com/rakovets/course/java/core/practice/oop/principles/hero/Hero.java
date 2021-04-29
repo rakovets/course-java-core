@@ -11,14 +11,17 @@ abstract class Hero {
     public String getHeroName() {
         return name;
     }
+
     public int getHealthHero() {
         return healthHero;
     }
+
     public  void setHealthHero(int healthHero) {
         this.healthHero = healthHero;
     }
+
     public abstract void attackEnemy(Enemy enemy);
-    public  void tookDamage(Enemy enemy) {};
+
     public boolean isAliveHero() {
         return healthHero>0;
     }

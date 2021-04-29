@@ -10,12 +10,12 @@ public class Person {
     public void changeHappiness(int percentHappiness) {
         happiness += happiness * percentHappiness * 0.01f;
     }
+
     public int getHappiness() {
         return happiness;
     }
+
     public  void setHappiness( int happiness) {
         this.happiness = happiness;
     }
-
-
 }
