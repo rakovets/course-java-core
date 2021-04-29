@@ -11,7 +11,7 @@ public class TextMonitoring {
     }
 
     public void researchText(String string) {
-        String textToArray = string.replaceAll("[,.&!@]", "");
+        String textToArray = string.replaceAll("[,.&!@?]", "");
         String[] textInArray = textToArray.split(" ");
         text = new HashMap<>();
         for (String word : textInArray) {
