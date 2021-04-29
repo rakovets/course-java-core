@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
+import com.rakovets.course.java.core.practice.jcf_set.Exceptions.WrongLoginException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,47 +15,47 @@ public class UsersDataBase {
         this.loginAndPasswords = loginAndPasswords;
     }
 
-    public boolean addNewUser(User user) {
-        if(!loginAndPasswords.containsKey(user.getLogin())) {
+    public void addNewUser(User user) {
+        if (!loginAndPasswords.containsKey(user.getLogin())) {
             loginAndPasswords.put(user.getLogin(), user.getPassword());
-            return true;
         }
-        return false;
+
     }
 
-    public boolean deleteUser(String login) {
-        if(loginAndPasswords.containsKey(login)) {
+    public void deleteUser(String login) {
+        if (loginAndPasswords.containsKey(login)) {
             loginAndPasswords.remove(login);
-            return true;
         }
-        return false;
+
     }
 
-    public boolean exists(User user) {
-        return loginAndPasswords.containsKey(user.getLogin());
+    public boolean exists(String login) {
+        return loginAndPasswords.containsKey(login);
     }
 
-    public boolean changeLogin(User user, String newLogin) {
-        if(!loginAndPasswords.containsKey(newLogin) || exists(user)) {
-            loginAndPasswords.put(newLogin, user.getPassword());
-            loginAndPasswords.remove(user.getLogin());
-            return true;
+    public void changeLogin(String login, String newLogin) {
+        if (!loginAndPasswords.containsKey(newLogin) || exists(login)) {
+            loginAndPasswords.put(newLogin, loginAndPasswords.get(login));
+            loginAndPasswords.remove(login);
         }
-        return false;
     }
 
-    public void changePassword(User user, String newPassword) {
-        if (exists(user)){
-            loginAndPasswords.replace(user.getLogin(), user.getPassword(), newPassword);
+    public void changePassword(String login, String newPassword) {
+        if (exists(login)) {
+            loginAndPasswords.replace(login, loginAndPasswords.get(login), newPassword);
         }
     }
 
     public void showUsersDatabase() {
-        System.out.println(loginAndPasswords.toString());
+        System.out.println(this.toString());
     }
 
     @Override
     public String toString() {
-        return "UsersDataBase[" + loginAndPasswords + ']';
+        String result = "---Users Data--- + \n";
+        for (Map.Entry<String, String> key : loginAndPasswords.entrySet()) {
+            result += key + "\n";
+        }
+        return result;
     }
 }

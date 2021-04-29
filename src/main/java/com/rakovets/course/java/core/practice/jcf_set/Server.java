@@ -1,14 +1,11 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
 import com.rakovets.course.java.core.practice.jcf_set.operations.Operation;
-import com.rakovets.course.java.core.practice.jcf_set.operations.OperationsComparator;
+import com.rakovets.course.java.core.practice.jcf_set.operations.comaparator.OperationsComparator;
 
 
 import java.time.LocalTime;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class Server {
@@ -23,12 +20,14 @@ public class Server {
         this.dataBase = dataBase;
         listOperations = new ArrayList<>();
         queOperations = new ArrayDeque<>();
+        operationsLogMap = new HashMap<>();
         operationsLoqQue = new ArrayDeque<>();
     }
 
-    public void addOperationToList(Operation operation, Client client){
+    public void addOperationToList(Operation operation, Client client) {
         listOperations.add(operation);
-        operationsLogMap.put(client,client.getLocalTime());
+        LocalTime timeOfTheRequest = LocalTime.now();
+        operationsLogMap.put(client,timeOfTheRequest);
     }
 
     public void addOperationsToQue() {
@@ -41,20 +40,22 @@ public class Server {
         }
     }
 
-    public void executeQue(){
-        for(Operation operation : queOperations){
+    public void executeQue() {
+        for(Operation operation : queOperations) {
             operation.execute(dataBase);
         }
     }
 
-    public void showOperationsLog(){
-        System.out.println(operationsLoqQue.toString());
+    public void showOperationsLog() {
+        System.out.println(this.toString());
     }
 
     @Override
     public String toString() {
-        return "OperationsLog" +
-                "{" + operationsLoqQue +
-                ']';
+        String result = "---Operations Log---";
+        for(Map.Entry<Client, LocalTime> dataForOperation : operationsLoqQue) {
+            result += dataForOperation.getKey().getOperation().getName() + dataForOperation.getValue() + "\n";
+        }
+        return result;
     }
 }

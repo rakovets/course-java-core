@@ -8,13 +8,16 @@ public class Client {
     private Server server;
     private Operation operation;
 
-    public Client(Server server, Operation operation){
+    public Client(Server server, Operation operation) {
         this.server = server;
         this.operation = operation;
     }
 
-    public void executeOperation(){
+    public void executeOperation() {
         server.addOperationToList(operation, this);
     }
 
+    public Operation getOperation() {
+        return operation;
+    }
 }

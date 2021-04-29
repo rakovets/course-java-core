@@ -3,13 +3,15 @@ package com.rakovets.course.java.core.practice.jcf_set.operations;
 import com.rakovets.course.java.core.practice.jcf_set.User;
 import com.rakovets.course.java.core.practice.jcf_set.UsersDataBase;
 
-public class AddNewUser extends Operation{
+public class AddNewUserOperation extends Operation {
     private User user;
-    public AddNewUser(User user){
+
+    public AddNewUserOperation(User user) {
+        super("Add New User");
         this.user = user;
     }
 
-    public void execute(UsersDataBase dataBase){
+    public void execute(UsersDataBase dataBase) {
         dataBase.addNewUser(user);
     }
 }

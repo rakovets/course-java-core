@@ -1,14 +1,16 @@
 package com.rakovets.course.java.core.practice.jcf_set.operations;
 
-import com.rakovets.course.java.core.practice.jcf_set.User;
 import com.rakovets.course.java.core.practice.jcf_set.UsersDataBase;
 
-public class DeleteUser extends Operation{
+public class DeleteUserOperation extends Operation {
     private String login;
-    public DeleteUser(String login){
+
+    public DeleteUserOperation(String login) {
+        super("Delete User");
         this.login = login;
     }
-    public void execute(UsersDataBase dataBase){
+    public void execute(UsersDataBase dataBase) {
         dataBase.deleteUser(login);
+
     }
 }
