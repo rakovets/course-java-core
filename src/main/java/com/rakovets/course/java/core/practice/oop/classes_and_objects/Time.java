@@ -21,7 +21,9 @@ public class Time {
         return this.hours;
     }
 
-    public void setHours(int hours) { this.hours = hours; }
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
 
     public int getMinutes() {
         return this.minutes;

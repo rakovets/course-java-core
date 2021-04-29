@@ -11,7 +11,7 @@ public class AtmDemo {
         atm.addBanknotes100(5);
         System.out.printf("Current state :\n20 - %d\n50 - %d\n100 - %d\n", atm.getNumberBanknotes20(), atm.getNumberBanknotes50(), atm.getNumberBanknotes100());
         System.out.printf("%s", atm.isPossibleIssue(291));
-        Atm atm2 = new Atm(25,25,20);
-        System.out.printf("%s", atm2.getCash(15,10,10));
+        Atm atm2 = new Atm(25, 25, 20);
+        System.out.printf("%s", atm2.getCash(15, 10, 10));
     }
 }

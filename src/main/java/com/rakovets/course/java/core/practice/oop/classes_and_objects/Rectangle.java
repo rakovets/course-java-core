@@ -1,24 +1,24 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Rectangle {
-    private Points firstPoint;
-    private Points secondPoint;
+    private Point firstPoint;
+    private Point secondPoint;
 
-    public Rectangle(Points firstPoint,Points secondPoint) {
-        this.firstPoint=firstPoint;
-        this.secondPoint=secondPoint;
+    public Rectangle(Point firstPoint,Point secondPoint) {
+        this.firstPoint = firstPoint;
+        this.secondPoint = secondPoint;
     }
 
-    public Points getFirstPoint() {
+    public Point getFirstPoint() {
         return  firstPoint;
     }
-    public void setFirstPoint(Points firstPoint) {
-       this.firstPoint=firstPoint;
+    public void setFirstPoint(Point firstPoint) {
+       this.firstPoint = firstPoint;
     }
-    public Points getSecondPoint() {
+    public Point getSecondPoint() {
         return  secondPoint;
     }
-    public void setSecondPoint(Points secondPoint) {
+    public void setSecondPoint(Point secondPoint) {
         this.secondPoint = secondPoint;
     }
     public double getPerimeter() {
