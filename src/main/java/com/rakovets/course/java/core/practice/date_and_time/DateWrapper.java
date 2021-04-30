@@ -52,7 +52,7 @@ public class DateWrapper implements TemporalAdjuster {
             }
         }
 
-        public static Temporal adjustInto(Temporal temporal, int n) {
-            return temporal.plus(n, ChronoUnit.DAYS);
+        public static Temporal adjustInto(Temporal temporal, int addDays) {
+            return temporal.plus(addDays, ChronoUnit.DAYS);
         }
     }
