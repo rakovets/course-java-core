@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoField;
+import java.time.temporal.*;
 
-public class DateWrapper {
+public class DateWrapper implements TemporalAdjuster {
 
     public static LocalDate getLocalDate(int year, int month, int day){
         return LocalDate.of(year, month, day);
@@ -26,8 +26,18 @@ public class DateWrapper {
         return localDate;
     }
 
-    //public static  int gapeBetweenDatas(LocalDate dateOne, LocalDate dateTwo){
+    public static  long gapeBetweenDatas(LocalDate dateOne, LocalDate dateTwo){
+        long difference;
+        if(dateOne.isAfter(dateTwo)) {
+            difference = ChronoUnit.DAYS.between(dateTwo, dateOne);
+        } else {
+            difference = ChronoUnit.DAYS.between(dateOne, dateTwo);
+        }
+        return difference;
+    }
 
-    //}
-
+    @Override
+    public Temporal adjustInto(Temporal temporal, int numberOfDays) {
+        temporal.with(, numberOfDays);
+    }
 }
