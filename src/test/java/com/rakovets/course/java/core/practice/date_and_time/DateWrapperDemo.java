@@ -14,5 +14,6 @@ public class DateWrapperDemo {
         System.out.println(DateWrapper.amountDaysBetweenDates(LocalDate.of(2001, 1, 1),
                                                               LocalDate.of(2002, 1, 1)));
         System.out.println(dateWrapper.adjustInto(LocalDate.of(2000, 7, 3)));
+        System.out.println(DateWrapper.adjustInto(LocalDate.now(), 100));
     }
 }
