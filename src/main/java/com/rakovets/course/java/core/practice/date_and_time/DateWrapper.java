@@ -43,7 +43,7 @@ public class DateWrapper implements TemporalAdjuster {
                         .with(ChronoField.YEAR, temporal.get(ChronoField.YEAR) + 1)
                         .with(ChronoField.MONTH_OF_YEAR, 1)
                         .with(ChronoField.DAY_OF_MONTH, 1);
-            } else if (periodDays == CENTER_OF_DEFAULT_YEAR || periodDays == CENTER_OF_LEAP_YEAR) {
+            } else if (leapYear && periodDays == CENTER_OF_LEAP_YEAR || !leapYear && periodDays == CENTER_OF_DEFAULT_YEAR) {
                 return temporal;
             } else {
                 return temporal
