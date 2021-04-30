@@ -38,7 +38,7 @@ public class DateWrapper implements TemporalAdjuster {
             int periodDays = (int)ChronoUnit.DAYS.between(temporal,
                     LocalDate.of(temporal.get(ChronoField.YEAR) + 1, 1, 1));
 
-            if (leapYear && periodDays <= CENTER_OF_LEAP_YEAR || !leapYear && periodDays <= CENTER_OF_DEFAULT_YEAR) {
+            if (leapYear && periodDays <= CENTER_OF_LEAP_YEAR || !leapYear && periodDays < CENTER_OF_DEFAULT_YEAR) {
                 temporal = temporal.with(ChronoField.YEAR, temporal.get(ChronoField.YEAR) + 1);
             }
             return temporal
