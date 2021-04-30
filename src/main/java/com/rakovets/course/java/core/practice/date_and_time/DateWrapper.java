@@ -13,19 +13,19 @@ public class DateWrapper implements TemporalAdjuster {
             return LocalDate.of(year, month, day);
         }
 
-        public static LocalDate dateAfterNMonth(LocalDate date, int amountMonth) {
+        public static LocalDate getDateAfterNMonth(LocalDate date, int amountMonth) {
             return date.plusMonths(amountMonth);
         }
 
-        public static String dateFormat(LocalDate date, String pattern) {
+        public static String getDateFormat(LocalDate date, String pattern) {
             return date.format(DateTimeFormatter.ofPattern(pattern, Locale.UK));
         }
 
-        public static LocalDate dateFormat(String time, String pattern) {
+        public static LocalDate getDateFormat(String time, String pattern) {
             return LocalDate.parse(time, DateTimeFormatter.ofPattern(pattern, Locale.UK));
         }
 
-        public static long amountDaysBetweenDates(LocalDate firstDate, LocalDate secondDate) {
+        public static long getAmountDaysBetweenDates(LocalDate firstDate, LocalDate secondDate) {
             return ChronoUnit.DAYS.between(firstDate, secondDate);
         }
 
