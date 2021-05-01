@@ -1,11 +1,14 @@
 package com.rakovets.course.java.core.practice.date_and_time.data_wrapper;
+
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -68,20 +71,11 @@ public class DataUtil {
         return Math.abs(date2.getTime() - date1.getTime()) / MILLISECONDS_IN_DAY;
     }
 
-    public static LocalDate plusDays(LocalDate date, int amountDays) {
-        if (amountDays == 0) {
-            return date;
-        } else {
-            return date.plusDays(amountDays);
-        }
-    }
-
-    public static LocalDate findNearFirstFebruary(LocalDate date) {
+    public static Temporal adjustInto(Temporal date) {
         final int JANUARY = 1;
-        final int JANUARY_DAY = 1;
-        int year = date.getYear();
-        LocalDate dateFirstJanuaryThisYear = LocalDate.of(year, JANUARY, JANUARY_DAY);
-        LocalDate dateFirstJanuaryNextYear = LocalDate.of(year + 1, JANUARY, JANUARY_DAY);
+        int year = date.get(ChronoField.YEAR);
+        LocalDate dateFirstJanuaryThisYear = LocalDate.of(year, JANUARY, JANUARY);
+        LocalDate dateFirstJanuaryNextYear = LocalDate.of(year + 1, JANUARY, JANUARY);
         if (Math.abs(ChronoUnit.DAYS.between(dateFirstJanuaryThisYear, date)) >
                 Math.abs(ChronoUnit.DAYS.between(dateFirstJanuaryNextYear, date))) {
             date = dateFirstJanuaryNextYear;
@@ -89,5 +83,9 @@ public class DataUtil {
             date = dateFirstJanuaryThisYear;
         }
         return date;
+    }
+
+    public static Temporal adjustInto(Temporal temporal, int addDays) {
+        return temporal.plus(addDays, ChronoUnit.DAYS);
     }
 }
