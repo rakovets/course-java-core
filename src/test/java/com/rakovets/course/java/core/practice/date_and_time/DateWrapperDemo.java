@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.date_and_time;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.Locale;
 
 public class DateWrapperDemo {
@@ -21,6 +22,12 @@ public class DateWrapperDemo {
         System.out.println(date3);
 
         int days = DateWrapper.getNumberDayBetweenTwoDates(date1, date3);
-        System.out.printf("Number days between two dates = %d", days);
+        System.out.printf("Number days between two dates = %d\n", days);
+
+        Temporal date4 = DateWrapper.adjustInto(date3, 21);
+        System.out.println(date4);
+
+        Temporal date5 = DateWrapper.adjustInto(LocalDate.of(2021, 5, 2));
+        System.out.println(date5);
     }
 }
