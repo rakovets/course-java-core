@@ -29,11 +29,11 @@ public class DateWrapper {
         return period.getDays();
     }
 
-    public static Temporal adjustInto(Temporal temporal, int days){
+    public static Temporal adjustInto(Temporal temporal, int days) {
         return temporal.plus(days, ChronoUnit.DAYS);
     }
 
-    public static Temporal adjustInto (Temporal date) {
+     public static Temporal adjustInto(Temporal date) {
         int year = date.get(ChronoField.YEAR);
         int day = date.get(ChronoField.DAY_OF_YEAR);
 
