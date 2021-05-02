@@ -1,13 +1,19 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.stream.Stream;
 
 public class DateWrapperTest {
 
@@ -49,11 +55,17 @@ public class DateWrapperTest {
     }
 
     @Test
-    void adjustIntoTest() {
-        LocalDate expected = LocalDate.of(1995, 01, 1);
-        Temporal actual = DateWrapper.adjustInto(LocalDate.of(1994, 07, 12));
+    static Stream<Arguments> adjustIntoTestArguments() {
+        return Stream.of(
+                Arguments.of(LocalDate.of(1995, 01, 1), LocalDate.of(1994, 07, 12)),
+                Arguments.of(LocalDate.of(1994, 01, 1), LocalDate.of(1994, 03, 12))
+        );
+    }
 
-        assertEquals(expected, actual);
+    @ParameterizedTest
+    @MethodSource("adjustIntoTestArguments")
+    public void adjustIntoTest(LocalDate expected, Temporal temporal) {
+        Assertions.assertEquals(expected, DateWrapper.adjustInto(temporal));
     }
 
     @Test
