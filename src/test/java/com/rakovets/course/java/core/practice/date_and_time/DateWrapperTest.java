@@ -96,4 +96,36 @@ public class DateWrapperTest {
         int actual = DateWrapper.getNumberDayBetweenTwoDates(date1, date2);
         Assertions.assertEquals(expected, actual);
     }
+
+    static Stream<Arguments> provideArgumentsForAdjustInto() {
+        return Stream.of(
+                Arguments.of(LocalDate.of(2021, 5, 1), 1, LocalDate.of(2021, 5, 2)),
+                Arguments.of(LocalDate.of(1997, 5, 11), 2, LocalDate.of(1997, 5, 13)),
+                Arguments.of(LocalDate.of(2025, 5, 1), 3, LocalDate.of(2025, 5, 4)),
+                Arguments.of(LocalDate.of(2010, 4, 30), 4, LocalDate.of(2010, 5, 4))
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForAdjustInto")
+    void getAdjustIntoTest(LocalDate date1, int days, LocalDate expected) {
+        Temporal actual = DateWrapper.adjustInto(date1, days);
+        Assertions.assertEquals(expected, (LocalDate) actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForAdjustIntoAboutLeapYear() {
+        return Stream.of(
+                Arguments.of(LocalDate.of(2021, 5, 1), LocalDate.of(2021, 1, 1)),
+                Arguments.of(LocalDate.of(2021, 10, 11), LocalDate.of(2022, 1, 1)),
+                Arguments.of(LocalDate.of(2020, 7, 2), LocalDate.of(2021, 1, 1)),
+                Arguments.of(LocalDate.of(2021, 7, 2), LocalDate.of(2021, 1, 1))
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForAdjustIntoAboutLeapYear")
+    void getAdjustIntoAboutLeapYearTest(LocalDate date1, LocalDate expected) {
+        Temporal actual = DateWrapper.adjustInto(date1);
+        Assertions.assertEquals(expected, (LocalDate) actual);
+    }
 }
