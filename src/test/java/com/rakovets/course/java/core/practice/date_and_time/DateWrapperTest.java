@@ -10,5 +10,7 @@ public class DateWrapperTest {
         System.out.println(DateWrapper.patternLocalDateString("19/05/2009", "dd/MM/yyyy"));
         System.out.println(DateWrapper.differenceLocalDate(DateWrapper.localDate(2014,12,26),
                 DateWrapper.localDate(2014,12,20)));
+        System.out.println(LocalDate.now().with(DateWrapper.plusDays(1)));
+        System.out.println(LocalDate.now().with(DateWrapper.nearNewYear()));
     }
 }
