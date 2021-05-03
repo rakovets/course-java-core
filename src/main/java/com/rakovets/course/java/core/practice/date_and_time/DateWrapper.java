@@ -7,11 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -49,58 +46,5 @@ public abstract class DateWrapper {
     public static Date getDate(int year, int month, int days) throws ParseException {
         String string = days + "." + month + "." + year;
         return new SimpleDateFormat("dd.MM.yyyy").parse(string);
-    }
-
-    public static Date getDateAfterMonth(Date date, int month) {
-        int monthDate = date.getMonth();
-        int yearDate = date.getYear();
-        int monthNumber = monthDate + month;
-
-        while (monthNumber > 12) {
-            monthNumber -= 12;
-            yearDate++;
-        }
-
-        date.setMonth(monthNumber);
-        date.setYear(yearDate);
-        return date;
-    }
-
-    public static String formatDateToString(Date date,  SimpleDateFormat formatter) {
-        return formatter.format(date);
-    }
-
-    public static Date parseStringToDateForDate(String string, SimpleDateFormat formatter) throws ParseException {
-        return formatter.parse(string);
-    }
-
-    public static long getDaysBetweenDates(Date first, Date second) {
-        long difference = Math.abs(first.getTime() - second.getTime());
-        return TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS);
-    }
-
-    public static Calendar getCalendar(int year, int month, int days) {
-        month = month - 1;
-        return new GregorianCalendar(year, month , days);
-    }
-
-    public static Calendar getDateAfterMonth(Calendar calendar, int month) {
-        calendar.add(Calendar.MONTH, month);
-        return calendar;
-    }
-
-    public static String formatDateToString(Calendar calendar,  SimpleDateFormat formatter) {
-        return formatter.format(calendar.getTime());
-    }
-
-    public static Calendar parseStringToDate(String string, SimpleDateFormat formatter) throws ParseException {
-        Calendar calendar = Calendar.getInstance(Locale.US);
-        calendar.setTime(formatter.parse(string));
-        return calendar;
-    }
-
-    public static long getDaysBetweenDates(Calendar first, Calendar second) {
-        long difference = Math.abs(first.getTime().getTime() - second.getTime().getTime());
-        return TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS);
     }
 }
