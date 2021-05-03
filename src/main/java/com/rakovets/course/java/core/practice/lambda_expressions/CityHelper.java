@@ -2,12 +2,11 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 
 public class CityHelper {
 
-    public static List<String> getUniqueCities(Collection<String> listOfCities){
+    public static List<String> getUniqueCities(Collection<String> listOfCities) {
         List<String> uniqueCities = new ArrayList<>();
         listOfCities.stream()
                 .distinct()
@@ -15,7 +14,7 @@ public class CityHelper {
         return uniqueCities;
     }
 
-    public static List<String> getCitiesWhitNameLength(Collection<String> listOfCities, int numberOfSymbols){
+    public static List<String> getCitiesWhitNameLength(Collection<String> listOfCities, int numberOfSymbols) {
         List<String> citiesWhitLength = new ArrayList<>();
         listOfCities.stream()
                 .filter(p -> p.length() == numberOfSymbols)
@@ -23,7 +22,7 @@ public class CityHelper {
         return citiesWhitLength;
     }
 
-    public static List<String> getCitiesBeginningWhitLetter(List<String> cityList, String letter){
+    public static List<String> getCitiesBeginningWhitLetter(List<String> cityList, String letter) {
         List<String> citiesBeginningWhitLetter = new ArrayList<>();
         cityList.stream()
                 .filter(p -> p.startsWith(letter))
@@ -31,7 +30,7 @@ public class CityHelper {
         return citiesBeginningWhitLetter;
     }
 
-    public static long getNumberOfCitiesUsage(List<String> cityList, String cityName){
+    public static long getNumberOfCitiesUsage(List<String> cityList, String cityName) {
         long numberOfUsage = cityList.stream()
                                     .filter(p -> p.equals(cityName))
                                     .count();
