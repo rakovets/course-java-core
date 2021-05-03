@@ -14,7 +14,7 @@ public class StringCollectionUtil {
         return str;
     }
 
-    public static List<String> removeWordsByLength(List<String> str, int lengthWorld) {
+    public static Collection<String> removeWordsByLength(Collection<String> str, int lengthWorld) {
         ListIterator<String> wordsList = str.listIterator();
         while (wordsList.hasNext()) {
             if (wordsList.next().length() == lengthWorld) {
