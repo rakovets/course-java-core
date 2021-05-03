@@ -16,7 +16,6 @@ import java.util.GregorianCalendar;
 import java.util.stream.Stream;
 
 public class DateWrapperTest {
-
     @Test
     void getDateTest() {
         LocalDate localDate1 = DateWrapper.getLocalDate(1994, 7, 12);
