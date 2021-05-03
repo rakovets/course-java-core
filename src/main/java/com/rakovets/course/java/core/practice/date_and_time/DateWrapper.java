@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DateWrapper {
-
     public static LocalDate getLocalDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
     }
@@ -69,5 +68,4 @@ public class DateWrapper {
     public static LocalDate addMonthsCalendar(Calendar calendar, int months) {
         return addMonths(calendarDate(calendar), months);
     }
-
 }
