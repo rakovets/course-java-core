@@ -45,7 +45,7 @@ public class DateWrapperTest {
     void daysBetweenTest() {
         LocalDate localDate1 = DateWrapper.getLocalDate(1994, 7, 12);
         LocalDate localDate2 = DateWrapper.getLocalDate(1995, 7, 13);
-        assertEquals(366, DateWrapper.daysBetween(localDate1, localDate2));
+        assertEquals(366, DateWrapper.daysBetweenLocalDates(localDate1, localDate2));
     }
 
     @Test

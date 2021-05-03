@@ -27,8 +27,8 @@ public class DateWrapper {
         return LocalDate.parse(localDate, DateTimeFormatter.ofPattern(pattern, Locale.ENGLISH));
     }
 
-    public static int daysBetween(LocalDate localDate1, LocalDate localDate2) {
-        return (int) ChronoUnit.DAYS.between(localDate1, localDate2);
+    public static int daysBetweenLocalDates(LocalDate localDateOne, LocalDate localDateTwo) {
+        return (int) ChronoUnit.DAYS.between(localDateOne, localDateTwo);
     }
 
     public static TemporalAdjuster addDays(int days) {
