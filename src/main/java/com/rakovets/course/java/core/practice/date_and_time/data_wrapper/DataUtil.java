@@ -42,7 +42,7 @@ public class DataUtil {
 
 
     public static String isPatternDate(LocalDate nowDate, String datePattern) {
-        return nowDate.format(DateTimeFormatter.ofPattern(datePattern, Locale.TRADITIONAL_CHINESE));
+        return nowDate.format(DateTimeFormatter.ofPattern(datePattern, Locale.ENGLISH));
     }
 
     public static LocalDate isPatternDate(String nowDate, String datePattern) {
