@@ -49,6 +49,11 @@ public class DateWrapper {
                 ZoneId.systemDefault());
     }
 
+    private static LocalDate calendarDate(Calendar calendar) {
+        return LocalDate.ofInstant(calendar.toInstant(),
+                ZoneId.systemDefault());
+    }
+
     public static LocalDate addMonthsDate(Date date, int months) {
         return addMonths(getDate(date), months);
     }
@@ -57,16 +62,12 @@ public class DateWrapper {
         return localDatePattern(getDate(date), pattern);
     }
 
-    private static LocalDate calendarDate(Calendar calendar) {
-        return LocalDate.ofInstant(calendar.toInstant(),
-                ZoneId.systemDefault());
+    public static String calendarDatePattern(Calendar calendar, String pattern) {
+        return localDatePattern(calendarDate(calendar), pattern);
     }
 
     public static LocalDate addMonthsCalendar(Calendar calendar, int months) {
         return addMonths(calendarDate(calendar), months);
     }
 
-    public static String calendarDatePattern(Calendar calendar, String pattern) {
-        return localDatePattern(calendarDate(calendar), pattern);
-    }
 }
