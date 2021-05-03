@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class StringCollectionUtil {
-    public static List<String> resetWordsByLength(List<String> str, int lengthWorld) {
+    public static Collection<String> resetWordsByLength(List<String> str, int lengthWorld) {
         ListIterator<String> wordsList = str.listIterator();
         while (wordsList.hasNext()) {
             if (wordsList.next().length() == lengthWorld) {
