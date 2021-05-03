@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
-import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

@@ -20,8 +20,7 @@ public class DateWrapper implements TemporalAdjuster {
     }
 
     public static LocalDate stringFormatToLocalDate(String date) {
-        LocalDate localDate = LocalDate.parse(date);
-        return localDate;
+        return LocalDate.parse(date);
     }
 
     public static  long gapeBetweenDatas(LocalDate dateOne, LocalDate dateTwo) {
@@ -38,7 +37,6 @@ public class DateWrapper implements TemporalAdjuster {
         return temporal.plus(numberOfDays, ChronoUnit.DAYS);
 
     }
-
 
     public Temporal adjustInto(Temporal temporal) {
         Temporal nearestFirstOFJanuary;
