@@ -1,16 +1,16 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.math_statistics;
 
-import java.util.ArrayList;
+import java.security.SecureRandom;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class MathUtil {
 
     public static Collection<Integer> generateRandomNumbers(int amount) {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
-            list.add((int) (Math.random() * 10));
-        }
-        return list;
+        return new SecureRandom()
+                .ints(amount, 1, 100)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     public static long findOddNumbers(Collection<Integer> numbers) {
