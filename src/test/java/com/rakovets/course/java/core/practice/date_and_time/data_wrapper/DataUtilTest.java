@@ -1,5 +1,4 @@
 package com.rakovets.course.java.core.practice.date_and_time.data_wrapper;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,7 +8,6 @@ import java.time.temporal.Temporal;
 import java.util.stream.Stream;
 
 class DataUtilTest {
-
     static Stream<Arguments> provideArgumentsForGetData() {
         return Stream.of(
                 Arguments.of(2021, 5, 7, LocalDate.of(2021, 5, 7)),
@@ -21,6 +19,7 @@ class DataUtilTest {
     @MethodSource("provideArgumentsForGetData")
     void getDataTest(int year, int month, int day, LocalDate expected) {
         LocalDate actual = DataUtil.getDate(year, month, day);
+
         Assertions.assertEquals(actual, expected);
     }
 
@@ -36,7 +35,8 @@ class DataUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForRewindMonth")
     void rewindMonthTest(int month, LocalDate userDate, LocalDate expected) {
-        LocalDate actual = DataUtil.rewindMonth(userDate, month);
+        LocalDate actual = DataUtil.plusMonths(userDate, month);
+
         Assertions.assertEquals(actual, expected);
     }
 
@@ -51,7 +51,8 @@ class DataUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForPatternDateReturnString")
     void isPatternDateTest(LocalDate userDate, String datePattern, String expected) {
-        String actual = DataUtil.isPatternDate(userDate, datePattern);
+        String actual = DataUtil.getFormatLocalDateByString(userDate, datePattern);
+
         Assertions.assertEquals(actual, expected);
     }
 
@@ -65,7 +66,8 @@ class DataUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForPatternDateReturnLocalDate")
     void isPatternDateTest(String userDate, String datePattern, LocalDate expected) {
-        LocalDate actual = DataUtil.isPatternDate(userDate, datePattern);
+        LocalDate actual = DataUtil.getFormatStringDateByLocalDate(userDate, datePattern);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -81,7 +83,8 @@ class DataUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForTimeInterval")
     void isTimeIntervalTest(LocalDate date1, LocalDate date2, long expected) {
-        long actualInterval = DataUtil.isTimeInterval(date1, date2);
+        long actualInterval = DataUtil.findTimeInDaysBetweenDates(date1, date2);
+
         Assertions.assertEquals(actualInterval, expected);
     }
 
@@ -97,7 +100,8 @@ class DataUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForAdjustIntoFirstJanuary")
     void AdjustIntoTest(Temporal date, LocalDate expected) {
-        Temporal actual = DataUtil.adjustInto(date);
+        Temporal actual = new DataUtil().adjustInto(date);
+
         Assertions.assertEquals(actual, expected);
     }
 
@@ -113,7 +117,8 @@ class DataUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForAdjustIntoDay")
     void AdjustIntoTest(Temporal date, int plusDay, LocalDate expected) {
-        Temporal actual = DataUtil.adjustInto(date, plusDay);
+        Temporal actual = new DataUtil().adjustInto(date, plusDay);
+
         Assertions.assertEquals(actual, expected);
     }
 }

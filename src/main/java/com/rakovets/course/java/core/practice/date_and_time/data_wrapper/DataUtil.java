@@ -1,5 +1,4 @@
 package com.rakovets.course.java.core.practice.date_and_time.data_wrapper;
-
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
@@ -9,12 +8,13 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.time.temporal.TemporalAdjuster;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-public class DataUtil {
+public class DataUtil implements TemporalAdjuster {
 
     public static LocalDate getDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
@@ -29,49 +29,48 @@ public class DataUtil {
         };
     }
 
-    public static LocalDate rewindMonth(LocalDate nowDate, int month) {
+    public static LocalDate plusMonths(LocalDate nowDate, int month) {
         return nowDate.plusMonths(month);
     }
 
-    public static Date rewindMonth(Date nowDate, int month) {
+    public static Date plusMonths(Date nowDate, int month) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(nowDate);
         calendar.add(Calendar.MONTH, month);
         return calendar.getTime();
     }
 
-
-    public static String isPatternDate(LocalDate nowDate, String datePattern) {
+    public static String getFormatLocalDateByString(LocalDate nowDate, String datePattern) {
         return nowDate.format(DateTimeFormatter.ofPattern(datePattern, Locale.ENGLISH));
     }
 
-    public static LocalDate isPatternDate(String nowDate, String datePattern) {
+    public static LocalDate getFormatStringDateByLocalDate(String nowDate, String datePattern) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(datePattern, Locale.ENGLISH);
         return LocalDate.parse(nowDate, dateTimeFormatter);
     }
 
-    public static String isPatternDate(Date nowDate, String datePattern) {
+    public static String getFormatDateByString(Date nowDate, String datePattern) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(nowDate);
         Format simpleDateFormat = new SimpleDateFormat(datePattern);
         return simpleDateFormat.format(calendar.getTime());
     }
 
-    public static Date isPatternDateJavaCalendar(String nowDate, String datePattern) throws ParseException {
+    public static Date getStringDateByDate(String nowDate, String datePattern) throws ParseException {
         DateFormat dateFormat = new SimpleDateFormat(datePattern, Locale.CANADA);
         return dateFormat.parse(nowDate);
     }
 
-    public static long isTimeInterval(LocalDate date1, LocalDate date2) {
+    public static long findTimeInDaysBetweenDates(LocalDate date1, LocalDate date2) {
         return Math.abs(ChronoUnit.DAYS.between(date2, date1));
     }
 
-    public static long isTimeInterval(Date date1, Date date2) {
+    public static long findTimeInDaysBetweenDates(Date date1, Date date2) {
         final int MILLISECONDS_IN_DAY = 86_400_000;
         return Math.abs(date2.getTime() - date1.getTime()) / MILLISECONDS_IN_DAY;
     }
 
-    public static Temporal adjustInto(Temporal date) {
+    public Temporal adjustInto(Temporal date) {
         final int JANUARY = 1;
         int year = date.get(ChronoField.YEAR);
         LocalDate dateFirstJanuaryThisYear = LocalDate.of(year, JANUARY, JANUARY);
@@ -85,7 +84,7 @@ public class DataUtil {
         return date;
     }
 
-    public static Temporal adjustInto(Temporal temporal, int addDays) {
+    public Temporal adjustInto(Temporal temporal, int addDays) {
         return temporal.plus(addDays, ChronoUnit.DAYS);
     }
 }
