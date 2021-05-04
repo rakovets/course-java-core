@@ -14,5 +14,6 @@ public class DateWrapperDemo {
         System.out.println(DateWrapper.getQuantityDaysBetweenDates(LocalDate.of(2010, 11, 11),
                 LocalDate.of(2020, 11, 1)));
         System.out.println(DateWrapper.addNDays(LocalDate.now(),3));
+        System.out.println(DateWrapper.changesDateFirstDayOfYear(LocalDate.of(2011,1,11)));
         }
 }
