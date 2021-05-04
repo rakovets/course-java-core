@@ -28,6 +28,10 @@ public class DateWrapper implements TemporalAdjuster {
         return ChronoUnit.DAYS.between(firstDate, secondDate);
     }
 
+    public static Temporal addNDays(Temporal temporal, int quantityDays){
+        return temporal.plus(quantityDays, ChronoUnit.DAYS);
+    }
+
     @Override
     public Temporal adjustInto(Temporal temporal) {
         return null;
