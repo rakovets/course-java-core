@@ -39,11 +39,10 @@ public class DateWrapper {
                 ChronoUnit.DAYS.between(
                         temporal.with(TemporalAdjusters.firstDayOfYear()),
                         temporal
-                ) > ChronoUnit.DAYS.between(
+                ) >= ChronoUnit.DAYS.between(
                         temporal,
                         temporal.with(TemporalAdjusters.firstDayOfNextYear())
                 ) ? temporal.with(TemporalAdjusters.firstDayOfNextYear()) :
                         temporal.with(TemporalAdjusters.firstDayOfYear());
-
     }
 }
