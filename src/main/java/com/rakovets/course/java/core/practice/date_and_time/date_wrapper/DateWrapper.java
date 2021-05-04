@@ -4,10 +4,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
-import java.time.temporal.TemporalAdjuster;
 import java.util.Locale;
 
-public class DateWrapper implements TemporalAdjuster {
+public class DateWrapper {
     public static LocalDate getLocalDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
     }
@@ -30,10 +29,5 @@ public class DateWrapper implements TemporalAdjuster {
 
     public static Temporal addNDays(Temporal temporal, int quantityDays){
         return temporal.plus(quantityDays, ChronoUnit.DAYS);
-    }
-
-    @Override
-    public Temporal adjustInto(Temporal temporal) {
-        return null;
     }
 }
