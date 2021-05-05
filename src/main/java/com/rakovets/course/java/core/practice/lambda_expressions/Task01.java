@@ -21,14 +21,6 @@ public class Task01 {
     }
 
     public static String[] convertMapToArray() {
-        /*String[] array = new String[map.size()];
-        String[] keys = map.keySet().toArray(new String[0]);
-        String[] values = map.values().toArray(new String[0]);
-
-        for (int i = 0; i < array.length; i++) {
-            array[i] = keys[i] + "=" + values[i];
-        }
-        return array;*/
         return map.entrySet()
                 .stream()
                 .map(e -> e.getKey() + "=" + e.getValue())
