@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class MultiplicationTable {
@@ -23,7 +22,7 @@ public class MultiplicationTable {
     }
 
     public static void oneColumn() {
-        IntStream.iterate(1, x -> x+1)
+        Stream.iterate(1, x -> x + 1)
                 .limit(10)
                 .forEach(x -> {
                     Stream.iterate(1, y -> y + 1)
@@ -34,19 +33,21 @@ public class MultiplicationTable {
     }
 
     public static void fiveColumn() {
-        IntStream.iterate(1, x -> x+1)
+        Stream.iterate(1, x -> x + 1)
                 .limit(10)
                 .forEach(x -> {
-                    getListOfNumbersFromOneToTen().stream()
+                    Stream.iterate(1, y -> y + 1)
                             .limit(5)
                             .forEach(y -> System.out.print(x + " x " + y + " = " + x * y + "\t\t\t"));
                     System.out.println();
+
                 });
         System.out.println();
-        getListOfNumbersFromOneToTen()
+        Stream.iterate(1, x -> x + 1)
+                .limit(10)
                 .forEach(x -> {
-                    getListOfNumbersFromOneToTen().stream()
-                            .skip(5)
+                    Stream.iterate(6, y -> y + 1)
+                            .limit(5)
                             .forEach(y -> System.out.print(x + " x " + y + " = " + x * y + "\t\t\t"));
                     System.out.println();
                 });
