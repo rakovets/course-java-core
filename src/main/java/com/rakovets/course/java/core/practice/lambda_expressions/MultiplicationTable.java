@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class MultiplicationTable {
 
-    public static List<Integer> getListOfNumbersFromOneToTen() {
+    private static List<Integer> getListOfNumbersFromOneToTen() {
         List<Integer> numbersFromOneToTen = new ArrayList<>();
         numbersFromOneToTen.add(1);
         numbersFromOneToTen.add(2);

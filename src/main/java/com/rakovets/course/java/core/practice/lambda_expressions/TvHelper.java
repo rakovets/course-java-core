@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class TvHelper {
 
-    public static List<Tv> getTvWithNeededScreenSize(List<Tv> tvs, double screenSize){
+    public static List<Tv> getTvWithNeededScreenSize(List<Tv> tvs, double screenSize) {
         return tvs.stream()
                 .filter(tv -> tv.getScreenSize() == screenSize)
                 .collect(Collectors.toList());
