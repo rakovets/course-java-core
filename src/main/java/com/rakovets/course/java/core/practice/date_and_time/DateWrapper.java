@@ -5,11 +5,12 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Locale;
 
-public class DateWrapper {
+public class DateWrapper implements TemporalAdjuster {
     public static LocalDate localDate(int year, int months, int day) {
         return LocalDate.of(year, months, day);
     }
@@ -30,13 +31,13 @@ public class DateWrapper {
         return Math.abs(ChronoUnit.DAYS.between(firstLocalDate, secondLocalDate));
     }
 
-    public static TemporalAdjuster plusDays(int day) {
-        return temporal -> temporal.plus(Period.ofDays(day));
+    public Temporal adjustInto(Temporal temporal, int addDays) {
+        return temporal.plus(addDays, ChronoUnit.DAYS);
     }
+    @Override
 
-    public static TemporalAdjuster nearNewYear() {
-        return temporal ->
-                ChronoUnit.DAYS.between(
+    public Temporal adjustInto(Temporal temporal) {
+        return ChronoUnit.DAYS.between(
                         temporal.with(TemporalAdjusters.firstDayOfYear()),
                         temporal
                 ) >= ChronoUnit.DAYS.between(
