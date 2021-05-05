@@ -23,7 +23,6 @@ public class TvTest {
             new TV("Panasonic", "4DD", 2020, 52, 1250.0),
             new TV("Philips", "2EE", 2021, 43, 700.0));
 
-
     @Test
     static Stream<Arguments> specificDiagonalTestProviderArguments() {
         return Stream.of(
@@ -54,7 +53,6 @@ public class TvTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
     @Test
     static Stream<Arguments> underSpecialYearProviderArguments() {
         return Stream.of(
@@ -69,7 +67,6 @@ public class TvTest {
         List<TV> actual = TvFilter.underSpecialYear(tv, year);
         Assertions.assertEquals(expected, actual);
     }
-
 
     @Test
     static Stream<Arguments> specificPriseProviderArguments() {
