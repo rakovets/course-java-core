@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MathStatistics {
-    static int[] randomArray = new Random().ints(new Random().nextInt(100),-20,20 ).toArray();
+    static int[] randomArray = new Random().ints(new Random().nextInt(100), -20, 20).toArray();
 
     public static int getEvenCount() {
         return (int) Arrays.stream(randomArray)
@@ -30,4 +30,3 @@ public class MathStatistics {
                 .count();
     }
 }
-
