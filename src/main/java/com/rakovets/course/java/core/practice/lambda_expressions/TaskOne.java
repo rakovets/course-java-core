@@ -6,10 +6,10 @@ import java.util.stream.Collectors;
 
 public class TaskOne {
     public Map<String, String> getMap(String[] array) {
-        String[] str = String.join("  ", array).replace(" -", "--")
-                .split(" -");
-        return Arrays.stream(str)
-                .collect(Collectors.toMap(x -> x.split(" ")[0], x -> x.replace("  "," ").split(" ")[1]));
+        String[] lineOftext = String.join("  ", array).replace(" -", "--").split(" -");
+        return Arrays.stream(lineOftext)
+                .collect(Collectors.toMap(x -> x.split(" ")[0], x -> x.replace("  ", " ")
+                        .split(" ")[1]));
     }
 
     public String[] getString(Map<String, String> map) {
