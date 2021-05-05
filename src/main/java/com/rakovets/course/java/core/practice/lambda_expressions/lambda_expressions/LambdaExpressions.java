@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.lambda_expressions;
+package com.rakovets.course.java.core.practice.lambda_expressions.lambda_expressions;
 
 import java.util.*;
 

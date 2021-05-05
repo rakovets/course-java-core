@@ -1,4 +1,6 @@
-package com.rakovets.course.java.core.practice.lambda_expressions;
+package com.rakovets.course.java.core.practice.lambda_expressions.lambda_expressions;
+
+import com.rakovets.course.java.core.practice.lambda_expressions.lambda_expressions.LambdaExpressions;
 
 import java.util.Arrays;
 import java.util.Map;
