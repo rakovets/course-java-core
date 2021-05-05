@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 import java.util.stream.Stream;
 
 public class multiplicationTable {
-
     public static void oneColumn() {
         Stream.iterate(1, x -> x + 1)
                 .limit(10)
