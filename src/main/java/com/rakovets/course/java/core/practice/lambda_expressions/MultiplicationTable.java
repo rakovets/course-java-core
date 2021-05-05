@@ -1,25 +1,8 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Stream;
 
 public class MultiplicationTable {
-
-    private static List<Integer> getListOfNumbersFromOneToTen() {
-        List<Integer> numbersFromOneToTen = new ArrayList<>();
-        numbersFromOneToTen.add(1);
-        numbersFromOneToTen.add(2);
-        numbersFromOneToTen.add(3);
-        numbersFromOneToTen.add(4);
-        numbersFromOneToTen.add(5);
-        numbersFromOneToTen.add(6);
-        numbersFromOneToTen.add(7);
-        numbersFromOneToTen.add(8);
-        numbersFromOneToTen.add(9);
-        numbersFromOneToTen.add(10);
-        return numbersFromOneToTen;
-    }
 
     public static void oneColumn() {
         Stream.iterate(1, x -> x + 1)
