@@ -24,7 +24,7 @@ public class MathStatistic {
                 .count();
     }
 
-    static long getNeededNumbers(int neededNumber) {
+    static long getNeededNumbersCount(int neededNumber) {
         return Arrays.stream(RANDOM_NUMBERS_ARRAY)
                 .filter(number -> number == neededNumber)
                 .count();

@@ -17,14 +17,10 @@ public class ArrayToMap {
     }
 
     public static String[] mapToArray(Map<String,String> map) {
-        Set<Map.Entry<String,String>> keysValues = map.entrySet();
-        List<String> listOfKeysValues = new ArrayList<>();
-        String[] arrayOfKeysValues = new String[keysValues.size()];
-        keysValues
-                .forEach(e -> listOfKeysValues.add(e.getKey() + "=" + e.getValue()));
-        listOfKeysValues
-                .forEach(e ->arrayOfKeysValues[listOfKeysValues.indexOf(e)] = e);
-        return arrayOfKeysValues;
+        return  map.entrySet()
+                .stream()
+                .map(e -> e.getKey() + "=" + e.getValue())
+                .toArray(String[]::new);
     }
 }
 

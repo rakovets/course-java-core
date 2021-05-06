@@ -1,39 +1,33 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CityHelper {
 
     public static List<String> getUniqueCities(Collection<String> listOfCities) {
-        List<String> uniqueCities = new ArrayList<>();
-        listOfCities.stream()
+        return listOfCities.stream()
                 .distinct()
-                .forEach(uniqueCities::add);
-        return uniqueCities;
+                .collect(Collectors.toList());
     }
 
     public static List<String> getCitiesWhitNameLength(Collection<String> listOfCities, int numberOfSymbols) {
-        List<String> citiesWhitLength = new ArrayList<>();
-        listOfCities.stream()
+        return listOfCities.stream()
                 .filter(p -> p.length() == numberOfSymbols)
-                .forEach(citiesWhitLength::add);
-        return citiesWhitLength;
+                .collect(Collectors.toList());
     }
 
     public static List<String> getCitiesBeginningWhitLetter(List<String> cityList, String letter) {
-        List<String> citiesBeginningWhitLetter = new ArrayList<>();
-        cityList.stream()
+       return cityList.stream()
                 .filter(p -> p.startsWith(letter))
-                .forEach(citiesBeginningWhitLetter::add);
-        return citiesBeginningWhitLetter;
+                .collect(Collectors.toList());
     }
 
     public static long getNumberOfCitiesUsage(List<String> cityList, String cityName) {
-        long numberOfUsage = cityList.stream()
-                                    .filter(p -> p.equals(cityName))
-                                    .count();
-        return numberOfUsage;
+       return cityList.stream()
+               .filter(p -> p.equals(cityName))
+               .count();
+
     }
 }

@@ -5,14 +5,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TvHelper {
-
     public static List<Tv> getTvWithNeededScreenSize(List<Tv> tvs, double screenSize) {
         return tvs.stream()
                 .filter(tv -> tv.getScreenSize() == screenSize)
                 .collect(Collectors.toList());
     }
 
-    public static List<Tv> getTvWithNeededBrand(List<Tv> tvs, String brand){
+    public static List<Tv> getTvWithNeededBrand(List<Tv> tvs, String brand) {
        return tvs.stream()
                 .filter(tv -> tv.getBrand().equals(brand))
                 .collect(Collectors.toList());
@@ -53,11 +52,4 @@ public class TvHelper {
                 .sorted(Comparator.comparingDouble(Tv::getScreenSize).reversed())
                 .collect(Collectors.toList());
     }
-
-
-
-
-
-
-
 }

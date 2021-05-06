@@ -5,6 +5,6 @@ public class MathStatisticDemo {
         System.out.println(MathStatistic.getEvenCount());
         System.out.println(MathStatistic.getNotEvenCount());
         System.out.println(MathStatistic.getZeroNumbers());
-        System.out.println(MathStatistic.getNeededNumbers(3));
+        System.out.println(MathStatistic.getNeededNumbersCount(3));
     }
 }
