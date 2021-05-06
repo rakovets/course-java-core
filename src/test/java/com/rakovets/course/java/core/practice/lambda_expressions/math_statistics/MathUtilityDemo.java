@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.math_statistics;
 
-import com.rakovets.course.java.core.practice.lambda_expressions.math_statistics.MathUtility;
-
 import java.util.List;
 import java.util.stream.Stream;
 

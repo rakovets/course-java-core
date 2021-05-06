@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.lambda_expressions;
 
-import com.rakovets.course.java.core.practice.lambda_expressions.lambda_expressions.Expression;
-
 import java.util.stream.IntStream;
 
 public class MultiplicationTable {
