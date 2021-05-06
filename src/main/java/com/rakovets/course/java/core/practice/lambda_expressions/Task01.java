@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class Task01 {
     private static Map<String, String> map = new HashMap<>();
-    private static final String[] keysAndValuesList = new String[] {
+    private static String[] keysAndValuesList = new String[] {
             "-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"
     };
 
