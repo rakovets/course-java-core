@@ -7,8 +7,8 @@ import java.util.Scanner;
  * Array utils.
  *
  * @author Dmitry Rakovets
- * @since 1.0
  */
+@SuppressWarnings("unused")
 public abstract class ArrayUtil {
     /**
      * Fill two-dimensional array with {@link Scanner} for {@code System.in}.

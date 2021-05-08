@@ -1,20 +1,32 @@
 package com.rakovets.course.java.core.practice.math;
 
-import com.rakovets.course.java.core.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task04Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task04.main(new String[]{"20"});
-        assertEquals("314.1592653589793", getStandardOutputContent());
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Material area")
+@SuppressWarnings("unused")
+class Task04Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(20, 314.16),
+                Arguments.of(4, 12.57)
+        );
     }
 
-    @Test
-    void test2() {
-        Task04.main(new String[]{"4"});
-        assertEquals("12.566370614359172", getStandardOutputContent());
+    @ParameterizedTest
+    @MethodSource("provideArguments")
+    void getMaterialAreaTest(int diameter, double expected) {
+        double actual = Task04.getMaterialArea(diameter);
+
+        assertEquals(expected, actual);
     }
 }

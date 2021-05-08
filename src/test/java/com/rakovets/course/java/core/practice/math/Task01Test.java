@@ -1,46 +1,36 @@
 package com.rakovets.course.java.core.practice.math;
 
-import com.rakovets.course.java.core.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
-class Task01Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task01.main(new String[]{"1", "2"});
-        assertEquals("1", getStandardOutputContent());
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Minimal penalty points")
+@SuppressWarnings("unused")
+class Task01Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(1, 2, 1),
+                Arguments.of(2, 1, 1),
+                Arguments.of(-3, 2, -3),
+                Arguments.of(2, -3, -3),
+                Arguments.of(-5, -4, -5),
+                Arguments.of(0, 0, 0)
+        );
     }
 
-    @Test
-    void test2() {
-        Task01.main(new String[]{"2", "1"});
-        assertEquals("1", getStandardOutputContent());
-    }
+    @ParameterizedTest
+    @MethodSource("provideArguments")
+    void getMinPenaltyPointsTest(int firstPlayerPenaltyPoints, int secondPlayerPenaltyPoints, int expected) {
+        int actual = Task01.getMinPenaltyPoints(firstPlayerPenaltyPoints, secondPlayerPenaltyPoints);
 
-    @Test
-    void test3() {
-        Task01.main(new String[]{"3", "2"});
-        assertEquals("2", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task01.main(new String[]{"-3", "2"});
-        assertEquals("-3", getStandardOutputContent());
-    }
-
-    @Test
-    void test5() {
-        Task01.main(new String[]{"-3", "-2"});
-        assertEquals("-3", getStandardOutputContent());
-    }
-
-    @Test
-    void test6() {
-        Task01.main(new String[]{"3", "-2"});
-        assertEquals("-2", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }

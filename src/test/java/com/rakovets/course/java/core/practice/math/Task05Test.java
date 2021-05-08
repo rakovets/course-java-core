@@ -1,26 +1,33 @@
 package com.rakovets.course.java.core.practice.math;
 
-import com.rakovets.course.java.core.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task05Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task05.main(new String[]{"256", "3"});
-        assertEquals("13.581221810508403", getStandardOutputContent());
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Rover trip distance")
+@SuppressWarnings("unused")
+class Task05Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(256, 3, 13.58),
+                Arguments.of(3, 1, 0.48),
+                Arguments.of(-100, 5, -3.18)
+        );
     }
 
-    @Test
-    void test2() {
-        Task05.main(new String[]{"3", "1"});
-        assertEquals("0.477464829275686", getStandardOutputContent());
-    }
+    @ParameterizedTest
+    @MethodSource("provideArguments")
+    void getTripDistanceTest(int encoderDegrees, int tireRadius, double expected) {
+        double actual = Task05.getTripDistance(encoderDegrees, tireRadius);
 
-    @Test
-    void test3() {
-        Task05.main(new String[]{"-100", "5"});
-        assertEquals("-3.183098861837907", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }

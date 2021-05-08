@@ -1,38 +1,35 @@
 package com.rakovets.course.java.core.practice.math;
 
-import com.rakovets.course.java.core.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task06Test extends StandardOutputTest {
-    @Test
-    void test0() {
-        Task06.main(new String[]{"-273.15"});
-        assertEquals("Celsius -273.15° - Kelvin 0.0° - Fahrenheit -459.66999999999996°", getStandardOutputContent());
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Conversion temperatures")
+@SuppressWarnings("unused")
+class Task06Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(-273.15, "Celsius -273.15° - Kelvin 0.0° - Fahrenheit -459.67°"),
+                Arguments.of(-17.78, "Celsius -17.78° - Kelvin 255.37° - Fahrenheit -0.0°"),
+                Arguments.of(0, "Celsius 0.0° - Kelvin 273.15° - Fahrenheit 32.0°"),
+                Arguments.of(36.8, "Celsius 36.8° - Kelvin 309.95° - Fahrenheit 98.24°"),
+                Arguments.of(5526.0, "Celsius 5526.0° - Kelvin 5799.15° - Fahrenheit 9978.8°")
+        );
     }
 
-    @Test
-    void test1() {
-        Task06.main(new String[]{"-17.78"});
-        assertEquals("Celsius -17.78° - Kelvin 255.36999999999998° - Fahrenheit -0.0040000000000048885°", getStandardOutputContent());
-    }
+    @ParameterizedTest
+    @MethodSource("provideArguments")
+    void getMinPenaltyPointsTest(double temperatureInCelsius, String expected) {
+        String actual = Task06.conversionTemperature(temperatureInCelsius);
 
-    @Test
-    void test2() {
-        Task06.main(new String[]{"0"});
-        assertEquals("Celsius 0.0° - Kelvin 273.15° - Fahrenheit 32.0°", getStandardOutputContent());
-    }
-
-    @Test
-    void test3() {
-        Task06.main(new String[]{"36.8"});
-        assertEquals("Celsius 36.8° - Kelvin 309.95° - Fahrenheit 98.24°", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task06.main(new String[]{"5526.0"});
-        assertEquals("Celsius 5526.0° - Kelvin 5799.15° - Fahrenheit 9978.8°", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }

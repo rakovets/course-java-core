@@ -1,26 +1,40 @@
 package com.rakovets.course.java.core.practice.math;
 
 /**
- * Разработать программу для игрового движка:
- * которая выводит штрафные очки игрока, который набрал меньше штрафных очков, если известно:
+ * Разработать программу для игрового движка.
  *
- * @param penaltyPointFirstPlayer  - штрафные очки первого игрока
- * @param penaltyPointSecondPlayer - штрафные очки второго игрока
+ * @author Dmitry Rakovets
  */
+@SuppressWarnings("unused")
 class Task01 {
+    /**
+     * The entry point of the task.
+     *
+     * @param args entry arguments
+     */
     public static void main(String[] args) {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
-        int penaltyPointFirstPlayer = 1;
-        int penaltyPointSecondPlayer = 2;
+        // аргументов. Типы данных изменять нельзя.
+        int firstPlayerPenaltyPoints = 1;
+        int secondPlayerPenaltyPoints = 2;
 
-        // Код необходимый для тестирования, не изменять
-        penaltyPointFirstPlayer = (args.length == 0) ? penaltyPointFirstPlayer : Integer.parseInt(args[0]);
-        penaltyPointSecondPlayer = (args.length == 0) ? penaltyPointSecondPlayer : Integer.parseInt(args[1]);
+        int minPenaltyPoints = getMinPenaltyPoints(firstPlayerPenaltyPoints, secondPlayerPenaltyPoints);
 
+        System.out.printf("Result: %b", minPenaltyPoints);
+    }
+
+    /**
+     * Определяет наименьшее количество штрафных очков для двух игроков.
+     *
+     * @param firstPlayerPenaltyPoints  - штрафные очки первого игрока
+     * @param secondPlayerPenaltyPoints - штрафные очки второго игрока
+     * @return наименьшие штрафные очки
+     */
+    public static int getMinPenaltyPoints(int firstPlayerPenaltyPoints, int secondPlayerPenaltyPoints) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
-        // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        // Код, решающий задачу пишем ниже, при этом используя переменные объявленные выше (их можно изменять).
+        // Для проверки решения необходимо запустить @Test для данного class (в директории test).
+        return 0;
     }
 }

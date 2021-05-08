@@ -1,38 +1,37 @@
 package com.rakovets.course.java.core.practice.math;
 
-import com.rakovets.course.java.core.util.StandardOutputTest;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Task03Test extends StandardOutputTest {
-    @Test
-    void test1() {
-        Task03.main(new String[]{"0.1"});
-        assertEquals("0", getStandardOutputContent());
+/**
+ * @author Dmitry Rakovets
+ */
+@DisplayName("Coordinate rounder")
+@SuppressWarnings("unused")
+class Task03Test {
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(0.1f, 0),
+                Arguments.of(111.5f, 112),
+                Arguments.of(15.0f, 15),
+                Arguments.of(11.2f, 11),
+                Arguments.of(-22.9f, -23),
+                Arguments.of(-15.0f, -15),
+                Arguments.of(-11.2f, -11)
+        );
     }
 
-    @Test
-    void test2() {
-        Task03.main(new String[]{"0.5"});
-        assertEquals("1", getStandardOutputContent());
-    }
+    @ParameterizedTest
+    @MethodSource("provideArguments")
+    void roundCoordinateValueTest(float coordinateValue, long expected) {
+        long actual = Task03.roundCoordinateValue(coordinateValue);
 
-    @Test
-    void test3() {
-        Task03.main(new String[]{"1.0"});
-        assertEquals("1", getStandardOutputContent());
-    }
-
-    @Test
-    void test4() {
-        Task03.main(new String[]{"1.2"});
-        assertEquals("1", getStandardOutputContent());
-    }
-
-    @Test
-    void test5() {
-        Task03.main(new String[]{"1.9"});
-        assertEquals("2", getStandardOutputContent());
+        assertEquals(expected, actual);
     }
 }
