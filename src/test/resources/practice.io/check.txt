@@ -1,0 +1,5 @@
+Hello world
+This is Java
+Minsk 2021
+Java IO
+Ararat, Tibet
