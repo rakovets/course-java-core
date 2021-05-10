@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.io;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -79,5 +77,72 @@ public class FileAnalyzeUtil {
         }
         return list;
     }
+
+    public static List<String> getListWithSequenceOfNumbers (String filePath) {
+        List<String> list = new ArrayList<>();
+        List<int[]> listWithSequence = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            int i;
+            String str = "";
+            while ((i = reader.read()) != -1) {
+                str += (char) i;
+            }
+
+            String str2 = str.trim();
+            Pattern pattern = Pattern.compile("[ ]+");
+            Matcher matcher = pattern.matcher(str2);
+            String str3 = matcher.replaceAll(" ");
+
+            Pattern pattern1 = Pattern.compile("(\\s*)\n(\\s)");
+            Matcher matcher1 = pattern1.matcher(str3);
+            String str4 = matcher1.replaceAll("\n");
+
+            String[] arrayStrings = str4.split("\n");
+            for (String item : arrayStrings) {
+                String[] sequence = item.split(" ");
+                int[] number = new int[sequence.length];
+                for (int j = 0; j < sequence.length; j++) {
+                    number[j] = Integer.parseInt(sequence[j]);
+                }
+                listWithSequence.add(number);
+            }
+
+            listWithSequence.stream().forEach(x -> {
+                int[] array = x;
+                String maxSequence = "";
+                String sequence = "";
+                int maxNumberOfMembers = 0;
+                int numberOfMembersInSequence = 0;
+
+                sequence = array[0] + "";
+                numberOfMembersInSequence = 1;
+                for (int j = 1; j < x.length; j++) {
+                    if (array[j] > array[j - 1]) {
+                        numberOfMembersInSequence++;
+                        sequence += " " + array[j];
+                    } else {
+                        if (numberOfMembersInSequence > maxNumberOfMembers) {
+                            maxSequence = sequence;
+                            maxNumberOfMembers = numberOfMembersInSequence;
+                            sequence = "" + array[j];
+                            numberOfMembersInSequence = 1;
+                        } else {
+                            sequence = "" + array[j];
+                            numberOfMembersInSequence = 1;
+                        }
+                    }
+                    if (numberOfMembersInSequence > maxNumberOfMembers) {
+                        maxSequence = sequence;
+                    }
+                }
+                list.add(maxSequence);
+            });
+        } catch (IOException ex) {
+            System.out.println("There is problem with a sequence of numbers");
+        }
+        return list;
+    }
+
 
 }

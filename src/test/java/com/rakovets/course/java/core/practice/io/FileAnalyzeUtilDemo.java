@@ -13,11 +13,13 @@ public class FileAnalyzeUtilDemo {
     public static void main(String[] args) {
         // The path of the file to be used is set through the properties
         String filePath = "";
+        String filePathWithSequenceOfNumbers = "";
         Path userPropertiesPath = Paths.get( "src", "test", "resources", "practice.io", "account.properties");
         Properties p = new Properties();
         try (FileReader reader = new FileReader(userPropertiesPath.toFile())) {
             p.load(reader);
             filePath = p.getProperty("filePathToWriting");
+            filePathWithSequenceOfNumbers = p.getProperty("filePathWithSequenceOfNumbers");
         } catch (IOException ex) {
             System.out.println("There is a problem with writing path for properties");
         }
@@ -50,11 +52,12 @@ public class FileAnalyzeUtilDemo {
         System.out.println("\nThis is a list of words that end with the letter the next word begins with:");
         List<String> list = FileAnalyzeUtil.getListOfWordsLastLitterSameWithFirstLitterNextWord(filePath);
         printList(list);
+
+        System.out.println("\nThis is a list of a sequence of numbers :");
+        List<String> listWithSequenceOfNumbers = FileAnalyzeUtil.getListWithSequenceOfNumbers(filePathWithSequenceOfNumbers);
+        printList(listWithSequenceOfNumbers);
+
     }
-
-
-
-
     static void printList (List<String> list) {
         list.stream().forEach(x -> System.out.println(x));
     }
