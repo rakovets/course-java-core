@@ -25,7 +25,9 @@ public class StringCollectionUtilTest {
     @MethodSource("resetWordsByLengthProviderArguments")
     public void resetWordsByLengthTest(String expectedString, int wordLength) {
         Collection<String> collection = new ArrayList<>(Arrays.asList("good", "day", "in", "spring"));
+
         String actualString = StringCollectionUtil.resetWordsByLength(collection, wordLength).toString();
+
         Assertions.assertEquals(expectedString, actualString);
     }
 
@@ -41,7 +43,9 @@ public class StringCollectionUtilTest {
     @MethodSource("removeWordsByLengthProviderArguments")
     public void removeWordsByLengthTest(String expectedString, int wordLength) {
         Collection<String> collection = new ArrayList<>(Arrays.asList("good", "day", "in", "spring"));
+
         String actualString = StringCollectionUtil.removeWordsByLength(collection, wordLength).toString();
+
         Assertions.assertEquals(expectedString, actualString);
     }
 }
