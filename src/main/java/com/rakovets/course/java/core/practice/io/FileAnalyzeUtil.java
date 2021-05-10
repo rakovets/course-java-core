@@ -82,7 +82,6 @@ public class FileAnalyzeUtil {
             maxCombinations.add(numbers.toString());
             numbers.clear();
         }
-
         return maxCombinations;
     }
 
@@ -103,7 +102,6 @@ public class FileAnalyzeUtil {
         for (int i = 0; i < arrayWithWords.length; i++) {
             unsortedMap.put(arrayWithWords[i], unsortedMap.getOrDefault(arrayWithWords[i], 0) + 1);
         }
-
         unsortedMap.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
                 .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
         return sortedMap;
