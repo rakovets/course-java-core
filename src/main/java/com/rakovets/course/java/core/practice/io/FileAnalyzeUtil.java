@@ -100,7 +100,6 @@ public class FileAnalyzeUtil {
         Map<String, Integer> sortedMap = new LinkedHashMap<>();
         String[] arrayWithWords = getTextInLinesList(filePath).toString().trim()
                 .replaceAll("[^a-zA-Z_0-9 ]", "").split(" ");
-
         for (int i = 0; i < arrayWithWords.length; i++) {
             unsortedMap.put(arrayWithWords[i], unsortedMap.getOrDefault(arrayWithWords[i], 0) + 1);
         }
@@ -114,12 +113,10 @@ public class FileAnalyzeUtil {
         List<String> unsortedNumbers = getTextInLinesList(filePath);
         String[] arrayWithNumbers = unsortedNumbers.toString()
                 .replaceAll("[^0-9\\s]", "").split(" ");
-
         List<Integer> sortedNumbers = Arrays.stream(arrayWithNumbers)
                 .map(Integer::parseInt)
                 .sorted()
                 .collect(Collectors.toList());
-
         try (BufferedWriter bufferedWriter =
                      new BufferedWriter(new FileWriter(filePath + "_"))) {
             bufferedWriter.write(sortedNumbers.toString());
