@@ -11,5 +11,5 @@ public class TextMonitoringDemo {
         System.out.println(TextMonitoring.getUniqueWords(text));
         System.out.println(TextMonitoring.getFrequencyWord(text, "word"));
         System.out.println(TextMonitoring.getFrequencyWords(text, true));
-        }
     }
+}
