@@ -8,7 +8,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
-
     public static List<String> getTextInLinesList(Path filePath) {
         List<String> fileList = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
@@ -19,14 +18,13 @@ public class FileAnalyzeUtil {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        System.out.println(fileList);
         return fileList;
     }
 
     public static List<String> getWordStartWithVowelList(Path filePath) {
         List<String> wordList = new ArrayList<>();
         String[] arrayWithWords = getTextInLinesList(filePath).toString()
-                .replaceAll("[,\\]\\[]","").split(" ");
+                .replaceAll("[,\\]\\[]", "").split(" ");
         Arrays.stream(arrayWithWords)
                 .filter(x -> x.matches("^[aeiouyAEIOUY].*"))
                 .forEach(x -> wordList.add(x));
@@ -36,7 +34,7 @@ public class FileAnalyzeUtil {
     public static List<String> getWordLastCharEqualFirstCharNextWord(Path filePath) {
         List<String> wordList = new ArrayList<>();
         String[] arrayWithWord = getTextInLinesList(filePath).toString().trim()
-                .replaceAll("[,\\]\\[]","").split(" ");
+                .replaceAll("[,\\]\\[]", "").split(" ");
         for (int i = 0; i < arrayWithWord.length - 1; i++) {
             System.out.println(arrayWithWord[i]);
             if (arrayWithWord[i].charAt(arrayWithWord[i].length() - 1) == arrayWithWord[i + 1].charAt(0)) {
@@ -90,47 +88,17 @@ public class FileAnalyzeUtil {
 
     public static Map<Character, Integer> getCharFrequency(Path filePath) {
         Map<Character, Integer> map = new HashMap<>();
-        String[] arrayWithWords = getTextInLinesList(filePath).toString().toLowerCase().split(" ");
-        for(String s: arrayWithWords){
-            System.out.println(s);
-        }
-        String text = arrayWithWords.toString().replaceAll("[^a-z]", "");
-        System.out.println(text);
+        String text = getTextInLinesList(filePath).toString().toLowerCase().replaceAll("[^a-z]", "");
         for (int i = 0; i < text.length(); i++) {
             map.put(text.charAt(i), map.getOrDefault(text.charAt(i), 0) + 1);
         }
         return map;
     }
-/*
-    public static void writeSortedNumbersInFile(String filePath) {
-        List<String> unsortedNumbers = getFileInList(filePath);
-        String[] arrayWithNumbers = unsortedNumbers.toString()
-                .replaceAll("[^0-9\\s]", "").split(" ");
 
-        List<Integer> sortedNumbers = Arrays.stream(arrayWithNumbers)
-                .map(Integer::parseInt)
-                .sorted()
-                .collect(Collectors.toList());
-
-
-        try (BufferedWriter bufferedWriter =
-                     new BufferedWriter(new FileWriter(filePath + "_"))) {
-            bufferedWriter.write(sortedNumbers.toString());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-
-
-
-/*
-
-
-    public static Map<String, Integer> getStringFrequency(String filePath) {
+    public static Map<String, Integer> getStringFrequency(Path filePath) {
         Map<String, Integer> unsortedMap = new HashMap<>();
         Map<String, Integer> sortedMap = new LinkedHashMap<>();
-        String[] arrayWithWords = getFileInList(filePath).toString().trim()
+        String[] arrayWithWords = getTextInLinesList(filePath).toString().trim()
                 .replaceAll("[^a-zA-Z_0-9 ]", "").split(" ");
 
         for (int i = 0; i < arrayWithWords.length; i++) {
@@ -142,9 +110,25 @@ public class FileAnalyzeUtil {
         return sortedMap;
     }
 
+    public static void writeSortedNumbersInFile(Path filePath) {
+        List<String> unsortedNumbers = getTextInLinesList(filePath);
+        String[] arrayWithNumbers = unsortedNumbers.toString()
+                .replaceAll("[^0-9\\s]", "").split(" ");
 
+        List<Integer> sortedNumbers = Arrays.stream(arrayWithNumbers)
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
 
-    public static double studentProgress(String filePath) {
+        try (BufferedWriter bufferedWriter =
+                     new BufferedWriter(new FileWriter(filePath + "_"))) {
+            bufferedWriter.write(sortedNumbers.toString());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static double studentProgress(Path filePath) {
         String text;
         double sum = 0;
         int count = 0;
@@ -166,7 +150,7 @@ public class FileAnalyzeUtil {
         return new BigDecimal(sum / count).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
-    public static void replaceAccessModifiers(String filePath, String oldModifier, String newModifier) {
+    public static void replaceAccess(String filePath, String oldModifier, String newModifier) {
         String newFilePath = filePath.replace(filePath, filePath + "_");
         String text;
         String newText;
@@ -181,6 +165,4 @@ public class FileAnalyzeUtil {
             e.printStackTrace();
         }
     }
-
- */
 }
