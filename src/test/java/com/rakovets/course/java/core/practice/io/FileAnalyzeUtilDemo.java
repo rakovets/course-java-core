@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class FileAnalyzeUtilDemo {
@@ -53,9 +54,13 @@ public class FileAnalyzeUtilDemo {
         List<String> list = FileAnalyzeUtil.getListOfWordsLastLitterSameWithFirstLitterNextWord(filePath);
         printList(list);
 
-        System.out.println("\nThis is a list of a sequence of numbers :");
+        System.out.println("\nThis is a list of a sequence of numbers:");
         List<String> listWithSequenceOfNumbers = FileAnalyzeUtil.getListWithSequenceOfNumbers(filePathWithSequenceOfNumbers);
         printList(listWithSequenceOfNumbers);
+
+        System.out.println("\nThis is a list of frequency of using litters in the text:");
+        Map<Character, Integer> map = FileAnalyzeUtil.getFrequencyOfUsingLitters(filePath);
+
 
     }
     static void printList (List<String> list) {

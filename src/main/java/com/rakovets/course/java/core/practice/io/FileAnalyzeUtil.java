@@ -1,8 +1,7 @@
 package com.rakovets.course.java.core.practice.io;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -144,5 +143,36 @@ public class FileAnalyzeUtil {
         return list;
     }
 
+    public static Map<Character, Integer> getFrequencyOfUsingLitters(String filePath) {
+        Map<Character, Integer> map = new HashMap<>();
+        String text = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String s;
+            while ((s = reader.readLine()) != null) {
+                text += s;
+            }
+
+            Pattern pattern = Pattern.compile("\\W");
+            Matcher matcher = pattern.matcher(text);
+            String test1 = matcher.replaceAll("");
+            String text2 = test1.toLowerCase();
+            char[] array = text2.toCharArray();
+
+            Character[] arrayCharacter = new Character[array.length];
+            for (int i = 0; i < array.length; i++) {
+                arrayCharacter[i] = Character.valueOf(array[i]);
+            }
+
+            Arrays.stream(arrayCharacter).forEach(x -> {
+
+            });
+
+
+
+        } catch (IOException ex) {
+            System.out.println("There is a problem with a frequency of using litters in the text:");
+        }
+        return map;
+        }
 
 }
