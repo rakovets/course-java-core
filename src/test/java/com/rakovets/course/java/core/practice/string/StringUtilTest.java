@@ -28,7 +28,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
-    static Stream<Arguments> indexSymbol() {
+    static Stream<Arguments> findSymbolIndex() {
         return Stream.of(
                 Arguments.of(2, "HelloJava", "l"),
                 Arguments.of(2, "Java", "v"),
@@ -37,18 +37,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("indexSymbol")
-    void IndexSymbol(int expectedSymbol, String str1, char symbol) {
+    @MethodSource("findSymbolIndex")
+    void findSymbolIndex(int expectedSymbol, String str1, char symbol) {
         // GIVEN
 
         // WHEN
-        int actualString = StringUtil.indexSymbol(str1, symbol);
+        int actualString = StringUtil.findSymbolIndex(str1, symbol);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments> identicalStrings() {
+    static Stream<Arguments> comparingStrings() {
         return Stream.of(
                 Arguments.of("true", "Hello", "Hello"),
                 Arguments.of("false", "Hello", "hello"),
@@ -57,12 +57,12 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("identicalStrings")
-    void identicalStrings(boolean expectedSymbol, String str1, String str2) {
+    @MethodSource("comparingStrings")
+    void comparingStrings(boolean expectedSymbol, String str1, String str2) {
         // GIVEN
 
         // WHEN
-        boolean actualString = StringUtil.identicalStrings(str1, str2);
+        boolean actualString = StringUtil.comparingStrings(str1, str2);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -88,7 +88,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments> extractionSubstring() {
+    static Stream<Arguments> getSubstring() {
         return Stream.of(
                 Arguments.of("ll", "Hello  ", 2, 4),
                 Arguments.of("l", " HeLlo", 4, 5),
@@ -97,18 +97,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("extractionSubstring")
-    void extractionSubstring(String expectedSymbol, String str1, int nSymbol, int mSymbol) {
+    @MethodSource("getSubstring")
+    void getSubstring(String expectedSymbol, String str1, int nSymbol, int mSymbol) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.extractionSubstring(str1, nSymbol, mSymbol);
+        String actualString = StringUtil.getSubstring(str1, nSymbol, mSymbol);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>happyEmoji() {
+    static Stream<Arguments>replaceEmoji() {
         return Stream.of(
                 Arguments.of("Hello:)  ", "Hello:(  ", "(", ")"),
                 Arguments.of(" HeLlo)", " HeLlo(", "(", ")"),
@@ -117,12 +117,12 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("happyEmoji")
-    void happyEmoji(String expectedSymbol, String str1, String previousSymbol, String modernSymbol) {
+    @MethodSource("replaceEmoji")
+    void replaceEmoji(String expectedSymbol, String str1, String previousSymbol, String modernSymbol) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.happyEmoji(str1, previousSymbol, modernSymbol);
+        String actualString = StringUtil.replaceEmoji(str1, previousSymbol, modernSymbol);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
@@ -148,7 +148,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>vowels() {
+    static Stream<Arguments>getVowels() {
         return Stream.of(
                 Arguments.of("2", "HEllo!"),
                 Arguments.of("6", "qwertyuiop[]';lkjhgfdsazxcvbnm,./"),
@@ -157,18 +157,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("vowels")
-    void vowels(int expectedSymbol, String str1) {
+    @MethodSource("getVowels")
+    void getVowels(int expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        int actualString = StringUtil.vowels(str1);
+        int actualString = StringUtil.getVowels(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>punctuations() {
+    static Stream<Arguments>getPunctuationsMarks() {
         return Stream.of(
                 Arguments.of("1", "Hello!"),
                 Arguments.of("2", "qwertyuiop[]';lkjhgfdsazxcvbnm,./"),
@@ -177,18 +177,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("punctuations")
-    void punctuations(int expectedSymbol, String str1) {
+    @MethodSource("getPunctuationsMarks")
+    void getPunctuationsMarks(int expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        int actualString = StringUtil.punctuations(str1);
+        int actualString = StringUtil.getPunctuationsMarks(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>palindrome() {
+    static Stream<Arguments>isPalindrome() {
         return Stream.of(
                 Arguments.of("true", "deed"),
                 Arguments.of("false", "deeds"),
@@ -197,18 +197,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("palindrome")
-    void palindrome(boolean expectedSymbol, String str1) {
+    @MethodSource("isPalindrome")
+    void isPalindrome(boolean expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        boolean actualString = StringUtil.palindrome(str1);
+        boolean actualString = StringUtil.isPalindrome(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>samePartsString() {
+    static Stream<Arguments>getSplitString() {
         return Stream.of(
                 Arguments.of(new String[] {"Hel", "lo ", "Jav", "a!"}, "Hello Java!", "3"),
                 Arguments.of(new String[] {"Hello", " Java", "!"}, "Hello Java!", "5")
@@ -216,18 +216,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("samePartsString")
-    void samePartsString(String[] expectedSymbol, String str1, int i) {
+    @MethodSource("getSplitString")
+    void getSplitString(String[] expectedSymbol, String str1, int i) {
         // GIVEN
 
         // WHEN
-        String[] actualString = StringUtil.samePartsString(str1, i);
+        String[] actualString = StringUtil.getSplitString(str1, i);
 
         // THAT
         Assertions.assertArrayEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>wordCount() {
+    static Stream<Arguments>getNumberWordsInText() {
         return Stream.of(
                 Arguments.of("2", "Hello Java!"),
                 Arguments.of("7", "ajfk afnoiafn iwfn qwjfjn,oiaf. oauhf! Fqwf?"),
@@ -236,18 +236,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("wordCount")
-    void wordCount(int expectedSymbol, String str1) {
+    @MethodSource("getNumberWordsInText")
+    void getNumberWordsInText(int expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        int actualString = StringUtil.wordCount(str1);
+        int actualString = StringUtil.getNumberWordsInText(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>initialsFullName() {
+    static Stream<Arguments>getInitials() {
         return Stream.of(
                 Arguments.of("EK", "Evgen Kolesnik"),
                 Arguments.of("AA", "ajfk afnoiafn iwfn qwjfjn,oiaf. oauhf! Fqwf?"),
@@ -256,18 +256,18 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("initialsFullName")
-    void initialsFullName(String expectedSymbol, String str1) {
+    @MethodSource("getInitials")
+    void getInitials(String expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.initialsFullName(str1);
+        String actualString = StringUtil.getInitials(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);
     }
 
-    static Stream<Arguments>allNumbers() {
+    static Stream<Arguments>getAllDigitsInString() {
         return Stream.of(
                 Arguments.of("1", "Evgen Kolesn1k"),
                 Arguments.of("1231244", "ajfk afnoiafn iwf123,1244afsf"),
@@ -276,12 +276,12 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("allNumbers")
-    void allNumbers(String expectedSymbol, String str1) {
+    @MethodSource("getAllDigitsInString")
+    void getAllDigitsInString(String expectedSymbol, String str1) {
         // GIVEN
 
         // WHEN
-        String actualString = StringUtil.allNumbers(str1);
+        String actualString = StringUtil.getAllDigitsInString(str1);
 
         // THAT
         Assertions.assertEquals(expectedSymbol, actualString);

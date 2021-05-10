@@ -9,11 +9,11 @@ public class StringUtil {
         return str1.concat(str2);
     }
 
-    static int indexSymbol(String str1, char symbol) {
+    static int findSymbolIndex(String str1, char symbol) {
         return str1.indexOf(symbol);
     }
 
-    static boolean identicalStrings(String str1, String str2) {
+    static boolean comparingStrings(String str1, String str2) {
         return str1.equals(str2);
     }
 
@@ -21,11 +21,11 @@ public class StringUtil {
         return str1.trim().toUpperCase();
     }
 
-    static String extractionSubstring(String str1, int nSymbol, int mSymbol) {
+    static String getSubstring(String str1, int nSymbol, int mSymbol) {
         return str1.substring(nSymbol, mSymbol);
     }
 
-    static String happyEmoji(String str1, String previousSymbol, String modernSymbol) {
+    static String replaceEmoji(String str1, String previousSymbol, String modernSymbol) {
         return str1.replace(previousSymbol, modernSymbol);
     }
 
@@ -33,7 +33,7 @@ public class StringUtil {
         return text.startsWith(word) && text.endsWith(word);
     }
 
-    static int vowels(String str1) {
+    static int getVowels(String str1) {
         Pattern pattern = Pattern.compile("[aAeEyYuUiIoO]");
         Matcher matcher = pattern.matcher(str1);
         int countVowels = 0;
@@ -43,7 +43,7 @@ public class StringUtil {
         return countVowels;
     }
 
-    static int punctuations(String str1) {
+    static int getPunctuationsMarks(String str1) {
         Pattern pattern = Pattern.compile("[.,?!]");
         Matcher matcher = pattern.matcher(str1);
         int countPunctuations = 0;
@@ -53,27 +53,27 @@ public class StringUtil {
         return countPunctuations;
     }
 
-    static boolean palindrome(String str1) {
+    static boolean isPalindrome(String str1) {
         str1.replaceAll("[.,!?;'\":\\s]", "");
         str1.toLowerCase();
         return str1.equals(new StringBuilder(str1).reverse().toString());
     }
 
-    static String[] samePartsString(String str1, int i) {
+    static String[] getSplitString(String str1, int i) {
         return str1.split("(?<=\\G.{" + i + "})");
     }
 
-    static int wordCount(String str1) {
+    static int getNumberWordsInText(String str1) {
         String[] wordCount = str1.split("\\s*(\\s|,|\\.|!|\\?)\\s*");
         return wordCount.length;
     }
 
-    static String initialsFullName(String str1) {
+    static String getInitials(String str1) {
         String[] str2 = str1.split("\\s*(\\s|,|\\.|!|\\?)\\s*");
         return str2[0].toUpperCase().charAt(0) + str2[1].toUpperCase().substring(0, 1);
     }
 
-    static String allNumbers(String str1) {
+    static String getAllDigitsInString(String str1) {
         Pattern pattern = Pattern.compile("\\d?");
         Matcher matcher = pattern.matcher(str1);
         StringBuilder str2 = new StringBuilder();
