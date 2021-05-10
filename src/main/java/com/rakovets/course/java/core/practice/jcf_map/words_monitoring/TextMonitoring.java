@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.jcf_map.words_monitoring;
 import java.util.*;
 
 public class TextMonitoring {
-
     public static Map<String, Integer> researchText(String text) {
         text = text.replaceAll("[?!.,:;]", "");
         Map<String, Integer> map = new HashMap<>();
