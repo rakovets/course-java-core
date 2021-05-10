@@ -6,9 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class FileAnalyzeUtilDemo {
     public static void main(String[] args) {
@@ -59,9 +57,9 @@ public class FileAnalyzeUtilDemo {
         printList(listWithSequenceOfNumbers);
 
         System.out.println("\nThis is a list of frequency of using litters in the text:");
-        Map<Character, Integer> map = FileAnalyzeUtil.getFrequencyOfUsingLitters(filePath);
-
-
+        Map<String, Integer> map = FileAnalyzeUtil.getFrequencyOfUsingLitters(filePath);
+        Set<Map.Entry<String, Integer>> set = map.entrySet();
+        set.stream().forEach(x -> System.out.println(x.getKey() + " - " + x.getValue()));
     }
     static void printList (List<String> list) {
         list.stream().forEach(x -> System.out.println(x));

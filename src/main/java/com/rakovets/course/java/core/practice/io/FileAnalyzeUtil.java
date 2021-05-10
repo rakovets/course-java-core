@@ -93,7 +93,7 @@ public class FileAnalyzeUtil {
             Matcher matcher = pattern.matcher(str2);
             String str3 = matcher.replaceAll(" ");
 
-            Pattern pattern1 = Pattern.compile("(\\s*)\n(\\s)");
+            Pattern pattern1 = Pattern.compile("(\\s*)\n(\\s*)");
             Matcher matcher1 = pattern1.matcher(str3);
             String str4 = matcher1.replaceAll("\n");
 
@@ -143,8 +143,8 @@ public class FileAnalyzeUtil {
         return list;
     }
 
-    public static Map<Character, Integer> getFrequencyOfUsingLitters(String filePath) {
-        Map<Character, Integer> map = new HashMap<>();
+    public static Map<String, Integer> getFrequencyOfUsingLitters(String filePath) {
+        Map<String, Integer> map = new HashMap<>();
         String text = "";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String s;
@@ -158,21 +158,22 @@ public class FileAnalyzeUtil {
             String text2 = test1.toLowerCase();
             char[] array = text2.toCharArray();
 
-            Character[] arrayCharacter = new Character[array.length];
+            String[] arrayString = new String[array.length];
             for (int i = 0; i < array.length; i++) {
-                arrayCharacter[i] = Character.valueOf(array[i]);
+                arrayString[i] = array[i] + "";
             }
 
-            Arrays.stream(arrayCharacter).forEach(x -> {
-
+            Arrays.stream(arrayString).forEach(x -> {
+                if (!map.containsKey(x)) {
+                    map.put(x, 1);
+                } else {
+                    map.put(x, map.get(x) + 1);
+                }
             });
-
-
-
         } catch (IOException ex) {
             System.out.println("There is a problem with a frequency of using litters in the text:");
         }
         return map;
-        }
+    }
 
 }
