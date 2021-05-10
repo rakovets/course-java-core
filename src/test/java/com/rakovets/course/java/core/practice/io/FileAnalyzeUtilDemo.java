@@ -25,9 +25,9 @@ public class FileAnalyzeUtilDemo {
         // Strings are written to the file for further use in different tasks
         String str1 = "Hello world";
         String str2 = "This is Java";
-        String str3 = "Minsk 2021";
+        String str3 = "Minsk Krakow";
         String str4 = "Java IO";
-        String str5 = "Ararat, Tibet";
+        String str5 = "Ararat,  Tibet";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
             writer.write(str1 + "\n");
@@ -46,7 +46,13 @@ public class FileAnalyzeUtilDemo {
         System.out.println("\nThis is a list of words starting with vowels:");
         List<String> listWithWordsStartingWithVowels = FileAnalyzeUtil.getWordsStartingWithVowels(filePath);
         printList(listWithWordsStartingWithVowels);
+
+        System.out.println("\nThis is a list of words that end with the letter the next word begins with:");
+        List<String> list = FileAnalyzeUtil.getListOfWordsLastLitterSameWithFirstLitterNextWord(filePath);
+        printList(list);
     }
+
+
 
 
     static void printList (List<String> list) {

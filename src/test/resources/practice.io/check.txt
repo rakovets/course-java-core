@@ -1,5 +1,5 @@
 Hello world
 This is Java
-Minsk 2021
+Minsk Krakow
 Java IO
-Ararat, Tibet
+Ararat,  Tibet
