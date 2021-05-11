@@ -10,35 +10,20 @@ import java.util.*;
 
 public class FileAnalyzeUtilDemo {
     public static void main(String[] args) {
-        // The path of the file to be used is set through the properties
-        String filePath = "";
-        String filePathWithSequenceOfNumbers = "";
+
         Path userPropertiesPath = Paths.get( "src", "test", "resources", "practice.io", "account.properties");
         Properties p = new Properties();
         try (FileReader reader = new FileReader(userPropertiesPath.toFile())) {
             p.load(reader);
-            filePath = p.getProperty("filePathToWriting");
-            filePathWithSequenceOfNumbers = p.getProperty("filePathWithSequenceOfNumbers");
         } catch (IOException ex) {
             System.out.println("There is a problem with writing path for properties");
         }
 
-        // Strings are written to the file for further use in different tasks
-        String str1 = "Hello world";
-        String str2 = "This is Java";
-        String str3 = "Minsk Krakow";
-        String str4 = "Java IO";
-        String str5 = "Ararat,  Tibet";
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
-            writer.write(str1 + "\n");
-            writer.write(str2 + "\n");
-            writer.write(str3 + "\n");
-            writer.write(str4 + "\n");
-            writer.write(str5 + "\n");
-        } catch (IOException ex) {
-            System.out.println("There is a problem with writing strings");
-        }
+        String filePath = p.getProperty("filePathToWriting");
+        String filePathWithSequenceOfNumbers = p.getProperty("filePathWithSequenceOfNumbers");
+        String filePathWithSequenceOfWords = p.getProperty("filePathWithSequenceOfWords");
+        String filePathToReadNumbers = p.getProperty("filePathToReadingNumbers");
+        String filePathToWriteNumbers = p.getProperty("filePathToWritingNumbers");
 
         System.out.println("This is a list of strings:");
         List<String> listWithStrings = FileAnalyzeUtil.getListOfFileStrings(filePath);
@@ -57,11 +42,23 @@ public class FileAnalyzeUtilDemo {
         printList(listWithSequenceOfNumbers);
 
         System.out.println("\nThis is a list of frequency of using litters in the text:");
-        Map<String, Integer> map = FileAnalyzeUtil.getFrequencyOfUsingLitters(filePath);
-        Set<Map.Entry<String, Integer>> set = map.entrySet();
-        set.stream().forEach(x -> System.out.println(x.getKey() + " - " + x.getValue()));
+        Map<String, Integer> mapLitters = FileAnalyzeUtil.getFrequencyOfUsingLitters(filePath);
+        printMap(mapLitters);
+
+        System.out.println("\nThis is a list of frequency of using words in the text:");
+        Map<String, Integer> mapWords = FileAnalyzeUtil.getFrequencyOfUsingWords(filePathWithSequenceOfWords);
+        printMap(mapWords);
+
+        System.out.println("\nThis is a list with sorted numbers:");
+        FileAnalyzeUtil.sortNumbers(filePathToReadNumbers, filePathToWriteNumbers);
     }
     static void printList (List<String> list) {
         list.stream().forEach(x -> System.out.println(x));
     }
+
+    static void printMap (Map<String, Integer> map) {
+        Set<Map.Entry<String, Integer>> set = map.entrySet();
+        set.stream().forEach(x -> System.out.println(x.getKey() + " - " + x.getValue()));
+    }
 }
+

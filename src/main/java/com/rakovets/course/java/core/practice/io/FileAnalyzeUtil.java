@@ -1,9 +1,13 @@
 package com.rakovets.course.java.core.practice.io;
 
 import java.io.*;
+import java.nio.CharBuffer;
+import java.nio.file.FileVisitResult;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static java.util.Map.Entry.comparingByValue;
 
 public class FileAnalyzeUtil {
     public static List<String> getListOfFileStrings(String filePath) {
@@ -171,9 +175,67 @@ public class FileAnalyzeUtil {
                 }
             });
         } catch (IOException ex) {
-            System.out.println("There is a problem with a frequency of using litters in the text:");
+            System.out.println("There is a problem with a frequency determination of using litters in the text:");
         }
         return map;
     }
+
+    public static Map<String, Integer> getFrequencyOfUsingWords(String filePath) {
+        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> mapSorted = new LinkedHashMap<>();
+        String text = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            int s;
+            while ((s = reader.read()) != -1) {
+                text += (char) s;
+            }
+
+            String str1 = text.replaceAll("\\s+", " ");
+            String str2 = str1.replaceAll("[^\\w\\s]", "");
+            String str3 = str2.trim().toLowerCase();
+            String[] arrayString = str3.split(" ");
+
+            Arrays.stream(arrayString).forEach(x -> {
+                if (!map.containsKey(x)) {
+                    map.put(x, 1);
+                } else {
+                    map.put(x, map.get(x) + 1);
+                }
+            });
+
+            map.entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                    .forEach(x -> mapSorted.put(x.getKey(), x.getValue()));
+
+        } catch (IOException ex) {
+            System.out.println("There is a problem with a frequency determination of using words in the text:");
+        }
+        return mapSorted;
+    }
+
+    public static void sortNumbers (String filePathToRead, String filePathTOWrite) {
+        List<Integer> list = new ArrayList<>();
+        List<String> sortList = new ArrayList<>();
+        String str = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePathToRead));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(filePathTOWrite))) {
+            String s;
+            while ((s = reader.readLine()) != null) {
+                str += s;
+            }
+
+            String[] array = str.replaceAll("[^0-9-\\s]","").replaceAll("\\s+"," ").trim().split(" ");
+
+            Arrays.stream(array).forEach(x -> list.add(Integer.parseInt(x)));
+            list.stream().sorted().forEach(x -> sortList.add(x.toString() + " "));
+            writer.write(sortList.toString());
+        } catch (IOException ex) {
+            System.out.println("These is a problem with writing or reading numbers from a file:");
+        } finally {
+            System.out.print("The method performed writing a sorted list of numbers to a file");
+        }
+    }
+
+
 
 }
