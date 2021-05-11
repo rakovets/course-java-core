@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.io.file_analyzer;
 import java.awt.event.ItemEvent;
 import java.io.*;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,5 +29,14 @@ public class FileAnalyzeUtil {
                 .collect(Collectors.toList());
     }
 
-
+    public static List<String> getListWord(Path filePath) {
+        String[] words = getListLines(filePath).toString().replaceAll("[.,:]", "").split(" ");
+        List<String> listWord = new ArrayList<>();
+        for (int i = 0; i < words.length - 1; i++) {
+            if (words[i].charAt(words[i].length() - 1) == words[i + 1].charAt(0)) {
+                listWord.add(words[i]);
+            }
+        }
+        return listWord;
+    }
 }
