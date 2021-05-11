@@ -1,0 +1,6 @@
+public class Test{
+public String name;
+public int age;
+public double value;
+private int count;
+}
