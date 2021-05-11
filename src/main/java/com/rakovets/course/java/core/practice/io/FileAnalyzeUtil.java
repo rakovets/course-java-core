@@ -1,17 +1,16 @@
 package com.rakovets.course.java.core.practice.io;
 
 import java.io.*;
-import java.nio.CharBuffer;
-import java.nio.file.FileVisitResult;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.Map.Entry.comparingByValue;
-
 public class FileAnalyzeUtil {
     public static List<String> getListOfFileStrings(String filePath) {
         List<String> list = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String s;
             while ((s = reader.readLine()) != null) {
@@ -25,6 +24,7 @@ public class FileAnalyzeUtil {
 
     public static List<String> getWordsStartingWithVowels(String filePath) {
         List<String> list = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String str = "";
             int c;
@@ -44,6 +44,7 @@ public class FileAnalyzeUtil {
 
     public static List<String> getListOfWordsLastLitterSameWithFirstLitterNextWord(String filePath) {
         List<String> list = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String str = "";
             int c;
@@ -150,6 +151,7 @@ public class FileAnalyzeUtil {
     public static Map<String, Integer> getFrequencyOfUsingLitters(String filePath) {
         Map<String, Integer> map = new HashMap<>();
         String text = "";
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String s;
             while ((s = reader.readLine()) != null) {
@@ -184,6 +186,7 @@ public class FileAnalyzeUtil {
         Map<String, Integer> map = new HashMap<>();
         Map<String, Integer> mapSorted = new LinkedHashMap<>();
         String text = "";
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             int s;
             while ((s = reader.read()) != -1) {
@@ -217,6 +220,7 @@ public class FileAnalyzeUtil {
         List<Integer> list = new ArrayList<>();
         List<String> sortList = new ArrayList<>();
         String str = "";
+
         try (BufferedReader reader = new BufferedReader(new FileReader(filePathToRead));
              BufferedWriter writer = new BufferedWriter(new FileWriter(filePathTOWrite))) {
             String s;
@@ -232,10 +236,59 @@ public class FileAnalyzeUtil {
         } catch (IOException ex) {
             System.out.println("These is a problem with writing or reading numbers from a file:");
         } finally {
-            System.out.print("The method performed writing a sorted list of numbers to a file");
+            System.out.println("The method performed writing a sorted list of numbers to a file");
         }
     }
 
+    public static List<String> getStudentProgress (String filePath) {
+        List<String> progress = new ArrayList<>();
+        Map<Integer, String> name = new HashMap<>();
+        Map<Integer, Double> studentProgress = new HashMap<>();
+        String studentMarks = "";
 
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String s;
+            while ((s = reader.readLine()) != null) {
+                studentMarks += s;
+            }
+            String names = studentMarks;
 
+            Pattern pattern = Pattern.compile("[A-Za-z]+");
+            Matcher matcher = pattern.matcher(names);
+            Integer j = 0;
+            while (matcher.find()) {
+                name.put(j, matcher.group());
+                j++;
+            }
+
+            String newString = studentMarks.replaceAll("[A-Za-z]+\\s+", "N").replaceAll("[^0-9\\sN]", "");
+            String[] arrayMarks = newString.join("","G", newString).replaceAll("GN", "").trim().split("N");
+            Integer k = 0;
+            for (String item : arrayMarks) {
+                String[] array = item.trim().split(" ");
+                Integer[] arrayInt = new Integer[array.length];
+                for (int i = 0; i < array.length; i++) {
+                    arrayInt[i] = Integer.parseInt(array[i].replaceAll("N", "").trim());
+                }
+                Integer sum = 0;
+                for (Integer mark : arrayInt) {
+                    sum += mark;
+                }
+                Double averageMarks = BigDecimal.valueOf(sum * 1.0 / arrayInt.length).setScale(2,RoundingMode.HALF_UP).doubleValue();
+                studentProgress.put(k, averageMarks);
+                k++;
+            }
+
+            int numberOfStudent = arrayMarks.length;
+            for (Integer w = 0; w < numberOfStudent; w++) {
+                String str1 = "";
+                str1 += name.get(w) + " - " + studentProgress.get(w);
+                progress.add(str1);
+            }
+
+        } catch (IOException ex) {
+            System.out.println("These is a problem with calculating student progress:");
+        }
+        return progress;
+    }
 }

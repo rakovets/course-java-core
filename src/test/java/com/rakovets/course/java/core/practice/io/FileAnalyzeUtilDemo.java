@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.io;
 
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,6 +22,7 @@ public class FileAnalyzeUtilDemo {
         String filePathWithSequenceOfWords = p.getProperty("filePathWithSequenceOfWords");
         String filePathToReadNumbers = p.getProperty("filePathToReadingNumbers");
         String filePathToWriteNumbers = p.getProperty("filePathToWritingNumbers");
+        String fileWithMarksOfStudents  = p.getProperty("fileWithMarksOfStudents");
 
         System.out.println("This is a list of strings:");
         List<String> listWithStrings = FileAnalyzeUtil.getListOfFileStrings(filePath);
@@ -51,7 +50,13 @@ public class FileAnalyzeUtilDemo {
 
         System.out.println("\nThis is a list with sorted numbers:");
         FileAnalyzeUtil.sortNumbers(filePathToReadNumbers, filePathToWriteNumbers);
+
+        System.out.println("\nThis is a list with students progress:");
+        List<String> studentsProgress = FileAnalyzeUtil.getStudentProgress(fileWithMarksOfStudents);
+        printList(studentsProgress);
+
     }
+
     static void printList (List<String> list) {
         list.stream().forEach(x -> System.out.println(x));
     }

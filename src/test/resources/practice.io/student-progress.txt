@@ -1,0 +1,4 @@
+Ivanov 9, 10, 8, 8, 7
+Petrov 4, 8, 6, 10, 10
+Sidorov 8, 8, 4, 10, 4
+Kovalev 9, 9, 10, 9, 10
