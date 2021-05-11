@@ -89,6 +89,7 @@ public class FileAnalyzeUtil {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
     }
 
+    //Task08
     public static void sortNumbersFromFile(Path sourceFilePath) throws IOException {
         Path writtenFilePath = Paths.get("src/main/java/com/rakovets/course/java/core/practice/io/" +
                 "files/fileAnalyzeUtil-task-08-sortedNumbers");
