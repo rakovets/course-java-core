@@ -1,0 +1,8 @@
+public class Test {
+    public static int a;
+    public static int b;
+
+    public static int sum() {
+        return a + b;
+    }
+}

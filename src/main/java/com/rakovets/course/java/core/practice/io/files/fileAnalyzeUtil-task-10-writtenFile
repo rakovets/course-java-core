@@ -1,0 +1,8 @@
+private class Test {
+    private static int a;
+    private static int b;
+
+    private static int sum() {
+        return a + b;
+    }
+}
