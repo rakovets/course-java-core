@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Atm {
-  private  int numberBanknotes20;
-  private  int numberBanknotes50;
-  private   int numberBanknotes100;
+  private int numberBanknotes20;
+  private int numberBanknotes50;
+  private int numberBanknotes100;
 
     public Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
         this.numberBanknotes20 = numberBanknotes20;

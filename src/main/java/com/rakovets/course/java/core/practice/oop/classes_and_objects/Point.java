@@ -1,11 +1,10 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Point {
-
     private int x;
     private int y;
 
-    public Point (int x, int y){
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -27,7 +26,7 @@ public class Point {
     }
 
     public double getDistance(Point point) {
-        return Math.sqrt ((point.x - this.x)^2 + (point.y-this.y)^2);
+        return Math.sqrt((point.x - this.x) ^ 2 + (point.y - this.y) ^ 2);
     }
-    }
+}
 

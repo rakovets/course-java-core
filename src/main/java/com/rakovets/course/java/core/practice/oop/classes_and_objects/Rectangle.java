@@ -1,11 +1,10 @@
 package com.rakovets.course.java.core.practice.oop.classes_and_objects;
 
 public class Rectangle {
+   private Point firstPoint;
+   private Point secondPoint;
 
-    Point firstPoint;
-    Point secondPoint;
-
-    public Rectangle(Point firstPoint, Point secondPoint){
+    public Rectangle(Point firstPoint, Point secondPoint) {
         this.firstPoint = firstPoint;
         this.secondPoint = secondPoint;
     }
@@ -23,11 +22,11 @@ public class Rectangle {
         this.secondPoint = secondPoint;
     }
 
-    public int gerPerimeter (Rectangle rectangle){
-        return (this.secondPoint.getX() - this.firstPoint.getX())*2 + (this.secondPoint.getY() - this.firstPoint.getY()) *2;
+    public int gerPerimeter (Rectangle rectangle) {
+        return Math.abs(this.secondPoint.getX() - this.firstPoint.getX())*2 + Math.abs(this.secondPoint.getY() - this.firstPoint.getY()) * 2;
     }
 
     public  int getArea (Rectangle rectangle) {
-        return (this.secondPoint.getX() - this.firstPoint.getX()) * (this.secondPoint.getY() - this.firstPoint.getY());
+        return Math.abs(this.secondPoint.getX() - this.firstPoint.getX()) * Math.abs(this.secondPoint.getY() - this.firstPoint.getY());
     }
 }
