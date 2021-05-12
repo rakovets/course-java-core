@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
     public static List<String> getListOfFileStrings(String filePath) {
@@ -184,7 +185,6 @@ public class FileAnalyzeUtil {
 
     public static Map<String, Integer> getFrequencyOfUsingWords(String filePath) {
         Map<String, Integer> map = new HashMap<>();
-        Map<String, Integer> mapSorted = new LinkedHashMap<>();
         String text = "";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -206,14 +206,12 @@ public class FileAnalyzeUtil {
                 }
             });
 
-            map.entrySet().stream()
-                    .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                    .forEach(x -> mapSorted.put(x.getKey(), x.getValue()));
-
         } catch (IOException ex) {
             System.out.println("There is a problem with a frequency determination of using words in the text:");
         }
-        return mapSorted;
+        return map.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
     }
 
     public static void sortNumbers (String filePathToRead, String filePathTOWrite) {
