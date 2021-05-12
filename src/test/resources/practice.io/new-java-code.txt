@@ -1,0 +1,29 @@
+public class Person {
+    private String name;
+    private int age;
+    private double height;
+    private boolean married;
+
+    private Person(String n, int a, double h, boolean m) {
+        name = n;
+        age = a;
+        height = h;
+        married = m;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private int getAge() {
+        return age;
+    }
+
+    private double getHeight() {
+        return height;
+    }
+
+    private boolean getMarried() {
+        return married;
+    }
+}

@@ -233,6 +233,7 @@ public class FileAnalyzeUtil {
             Arrays.stream(array).forEach(x -> list.add(Integer.parseInt(x)));
             list.stream().sorted().forEach(x -> sortList.add(x.toString() + " "));
             writer.write(sortList.toString());
+            writer.flush();
         } catch (IOException ex) {
             System.out.println("These is a problem with writing or reading numbers from a file:");
         } finally {
@@ -290,5 +291,27 @@ public class FileAnalyzeUtil {
             System.out.println("These is a problem with calculating student progress:");
         }
         return progress;
+    }
+
+    public static void changeModifier(String filePath, String newFilePath, String oldModifier, String newModifier) {
+        String javaCode = "";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath))) {
+            int s = -1;
+            while ((s = reader.read()) != -1) {
+                javaCode += (char) s;
+            }
+
+            String newJavaCode = javaCode.replaceAll(oldModifier, newModifier);
+            String newJavaCodeWithCorrectClass = newJavaCode.replaceAll(newModifier + "\\s+class", oldModifier + " class");
+            writer.write(newJavaCodeWithCorrectClass);
+            writer.flush();
+
+        } catch (IOException ex) {
+            System.out.println("These is a problem with changing modifier:");
+        } finally {
+            System.out.println("The process of replacing the modifier is complete");
+        }
     }
 }

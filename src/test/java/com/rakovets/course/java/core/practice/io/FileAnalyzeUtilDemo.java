@@ -22,7 +22,9 @@ public class FileAnalyzeUtilDemo {
         String filePathWithSequenceOfWords = p.getProperty("filePathWithSequenceOfWords");
         String filePathToReadNumbers = p.getProperty("filePathToReadingNumbers");
         String filePathToWriteNumbers = p.getProperty("filePathToWritingNumbers");
-        String fileWithMarksOfStudents  = p.getProperty("fileWithMarksOfStudents");
+        String fileWithMarksOfStudents = p.getProperty("fileWithMarksOfStudents");
+        String javaCode = p.getProperty("javaCode");
+        String newJavaCode = p.getProperty("newJavaCode");
 
         System.out.println("This is a list of strings:");
         List<String> listWithStrings = FileAnalyzeUtil.getListOfFileStrings(filePath);
@@ -48,13 +50,17 @@ public class FileAnalyzeUtilDemo {
         Map<String, Integer> mapWords = FileAnalyzeUtil.getFrequencyOfUsingWords(filePathWithSequenceOfWords);
         printMap(mapWords);
 
-        System.out.println("\nThis is a list with sorted numbers:");
+        System.out.println("\nSorting numbers:");
         FileAnalyzeUtil.sortNumbers(filePathToReadNumbers, filePathToWriteNumbers);
 
         System.out.println("\nThis is a list with students progress:");
         List<String> studentsProgress = FileAnalyzeUtil.getStudentProgress(fileWithMarksOfStudents);
         printList(studentsProgress);
 
+        System.out.println("\nModifier replacement in progress:");
+        String oldModifier = "public";
+        String newModifier = "private";
+        FileAnalyzeUtil.changeModifier(javaCode, newJavaCode, oldModifier, newModifier);
     }
 
     static void printList (List<String> list) {
