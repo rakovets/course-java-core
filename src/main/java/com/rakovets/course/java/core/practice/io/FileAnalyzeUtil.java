@@ -45,17 +45,12 @@ public class FileAnalyzeUtil {
     }
 
     //Task06
-    public static Map<Character, Integer> getLetterFrequency(Path filePath) throws IOException { // Incorrect program behavior! Need advice for further work
+    public static Map<Character, Integer> getLetterFrequency(Path filePath) throws IOException {
         Map<Character, Integer> map = new HashMap<>();
-        List <Character> list = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+        String line = Files.readAllLines(filePath).toString().replaceAll("[,.!?\\s\\p{P}]", "");
         int value = 1;
-        int symbol;
 
-        while ((symbol = bufferedReader.read()) != -1) {
-            list.add((char)symbol);
-        }
-        for (char key : list) {
+        for (char key : line.toCharArray()) {
             if (map.containsKey(key)) {
                 value = map.get(key);
                 map.put(key, ++value);
