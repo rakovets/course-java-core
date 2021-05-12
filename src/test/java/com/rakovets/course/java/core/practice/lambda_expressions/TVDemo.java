@@ -49,12 +49,5 @@ public class TVDemo {
 
         System.out.println("List of all TVs sorted in descending order by diagonal:");
         System.out.println(utilityClassForTV.getSortedDiagonalDescendingTV());
-
-
-
-
-
     }
-
-
 }

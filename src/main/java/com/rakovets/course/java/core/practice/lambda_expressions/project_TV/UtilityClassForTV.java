@@ -58,28 +58,4 @@ public class UtilityClassForTV {
                 .sorted(Comparator.comparingDouble(TV::getDiagonal).reversed())
                 .collect(Collectors.toList());
     }
-
-
-
-
-
-
-
-
 }
-
-
-
-
-/*
-
-Написать utility class, который реализует следующие методы:
-
-* получение телевизоров:
-** отсортированные по цене (по убыванию)
-** отсортированные по диагонали (по возрастанию)
-** отсортированные по диагонали (по убыванию)
-
-
-
- */
