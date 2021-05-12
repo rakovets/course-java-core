@@ -1,0 +1,6 @@
+private class Modifier
+    private int a;
+    private int b;
+
+    private int Math(){
+        return a + b;
