@@ -6,7 +6,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringUtil {
-
     public String glue(String str1, String str2) {
         return str1.concat(str2);
     }
@@ -23,7 +22,7 @@ public class StringUtil {
         return (str.trim()).toLowerCase();
     }
 
-    public String pieceExtraction(String str, int indexBegin, int indexEnd ) {
+    public String pieceExtraction(String str, int indexBegin, int indexEnd) {
         String result;
         char[] container = new char[indexEnd - indexBegin];
         str.getChars(indexBegin, indexEnd, container, 0);
@@ -35,7 +34,7 @@ public class StringUtil {
         return  str1.replace(str2, str3);
     }
 
-    public boolean correctBegin( String text, String word) {
+    public boolean correctBegin(String text, String word) {
         return text.startsWith(word) && text.endsWith(word);
     }
 
@@ -72,7 +71,7 @@ public class StringUtil {
             splitText = new String[text.length() / numberSymbols];
         }
 
-        for(int i = 0; i < text.length() ; i += numberSymbols) {
+        for (int i = 0; i < text.length() ; i += numberSymbols) {
             if (text.length() - i < numberSymbols) {
                 splitText[j] = text.substring(i);
             } else {
@@ -91,7 +90,6 @@ public class StringUtil {
         while (matcher.find()) {
             countWords++;
         }
-
         return  countWords;
     }
 
@@ -101,7 +99,6 @@ public class StringUtil {
         for (int i = 0; i < container.length; i ++) {
             firstLetters += container[i].toUpperCase().charAt(0);
         }
-
         return  firstLetters;
     }
 
@@ -112,7 +109,6 @@ public class StringUtil {
         while (matcher.find()) {
             allNumbers += matcher.group();
         }
-
         return allNumbers;
     }
 
@@ -123,13 +119,13 @@ public class StringUtil {
         for (char firstWordChar : firstWordChars) {
             int count = 0;
             for (int i = 0; i < secondWordChars.length; i++) {
-                if(firstWordChar == secondWordChars[i]) {
+                if (firstWordChar == secondWordChars[i]) {
                     count ++;
                     secondWordChars[i] = ' ';
                     break;
                 }
             }
-            if (count == 0){
+            if (count == 0) {
                 result += firstWordChar;
             }
         }
@@ -138,11 +134,10 @@ public class StringUtil {
                 result += secondWordChars[i];
             }
         }
-
         return  result;
     }
 
-    public boolean isSameArrays(String[] arrOnes, String[] arrTwos){
+    public boolean isSameArrays(String[] arrOnes, String[] arrTwos) {
         for (int i = 1; i < arrOnes.length; i++) {
             for (int j = 1; j < arrTwos.length; j++) {
                 if (arrOnes[i].equals(arrTwos[j])) {
@@ -151,7 +146,6 @@ public class StringUtil {
                 }
             }
         }
-
        return Arrays.toString(arrOnes).equals(Arrays.toString(arrTwos));
     }
 
@@ -164,23 +158,20 @@ public class StringUtil {
             sameSymbols += matcher.group() + " ";
         }
         String[] sameSymbolsArray = sameSymbols.split("\\s");
-
         for (String s : sameSymbolsArray) {
             String temp2 = "";
             char[] same = s.toCharArray();
             temp2 += same[0];
             result = result.replaceFirst("(\\w)\\1+", temp2);
         }
-
         return result;
     }
 
-    public long[] compareSpeed (String str) {
+    public long[] compareSpeed(String str) {
         String result1 = "";
         String result2 = "";
         long timeForString = 0;
         long timeForStringBuilder = 0;
-
         Date startString = new Date(System.currentTimeMillis());
         for (int i = 0; i <= 50; i++) {
             result1 += str;
@@ -194,16 +185,11 @@ public class StringUtil {
         }
         Date finishStringBuilder = new Date(System.currentTimeMillis());
         timeForStringBuilder = finishStringBuilder.getTime() - startStringBuilder.getTime();
-
         long[] results = new long[2];
         results[0] = timeForString;
         results[1]= timeForStringBuilder;
-
         return results;
     }
-
-
-
 }
 
 
