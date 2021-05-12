@@ -34,7 +34,7 @@ class Task04 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        double realPercent = regenerationPercentFromCurrentHealth/100.00d;
+        double realPercent = regenerationPercentFromCurrentHealth / 100.00d;
         double bossHealthPoints = (double) healthPoints;
 
         for (int i = 1; i <= hoursAfterRespawn; i++) {

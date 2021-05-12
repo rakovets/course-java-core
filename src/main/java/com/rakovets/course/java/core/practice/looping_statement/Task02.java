@@ -45,8 +45,7 @@ class Task02 {
                 result += i + "\n";
                 }
             }
-        result +=i;
-
+        result += i;
         return result;
     }
 }
