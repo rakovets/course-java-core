@@ -1,0 +1,1 @@
+public class Modifier    public int a;    public int b;    public int Math(){        return a + b;
