@@ -24,7 +24,7 @@ public class FileAnalyzeUtil {
     public static List<String> getListOfWordsStartWithVowelLetterFromFile(Path filePath) {
         String[] strings = getListOfStringFromFile(filePath).toString().replaceAll("[\\[\\],.!?]", "").split(" ");
         return Arrays.stream(strings)
-                .filter(e -> e.matches("^[eEuUiIoOaa].*"))
+                .filter(e -> e.matches("^[eEuUiIoOaA].*"))
                 .collect(Collectors.toList());
     }
 
@@ -136,8 +136,9 @@ public class FileAnalyzeUtil {
     }
 
     public static void changeModificator(Path filePath, String value, String changingValue) {
+        String replacedValue = " " + value + " ";
         List<String> oldFileTextLines = getListOfStringFromFile(filePath);
-        List<String> newFileTextLines = oldFileTextLines.stream().map(e -> e.replace(value, changingValue)).collect(Collectors.toList());
+        List<String> newFileTextLines = oldFileTextLines.stream().map(e -> e.replace(replacedValue, changingValue)).collect(Collectors.toList());
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath + "_"))){
             newFileTextLines.forEach(e -> {
                 try {
