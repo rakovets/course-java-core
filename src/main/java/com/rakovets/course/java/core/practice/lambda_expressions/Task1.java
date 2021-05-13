@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Task1 {
-
     public static Map<String, String> getMap(String[] arr) {
         String[] strings = String.join(" ", arr).split(" -");
         return Stream.of(strings)
