@@ -1,0 +1,17 @@
+private class Person {
+    private String name;
+    private int age;
+
+    private Person(String name, int a) {
+        this.name = name;
+        this.age = age;
+    }
+
+    private String getName() {
+        return name;
+        }
+
+    private int getAge() {
+        return age;
+    }
+
