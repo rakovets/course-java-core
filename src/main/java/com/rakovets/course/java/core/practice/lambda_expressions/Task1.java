@@ -14,9 +14,11 @@ public class Task1 {
                 .collect(Collectors.toMap(e ->"-" +e.split(s)[0], e -> e.split(s)[1]));
     }
 
-    public static List<String> mapToArray(Map<String, String> map) {
-        return  map.entrySet().stream()
+    public static String[] mapToArray(Map<String, String> map) {
+        List<String> list =  map.entrySet().stream()
                 .map(entry -> entry.getKey() + " : " + entry.getValue())
                 .collect(Collectors.toList());
+        String[] stringArray  = list.stream().toArray(String[]::new);
+        return stringArray;
     }
 }

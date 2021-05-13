@@ -4,5 +4,10 @@ public class Task1Demo {
     public static void main(String[] args) {
         String[] arrayString = {"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
         System.out.println(Task1.map(arrayString));
+        System.out.println(Task1.mapToArray(Task1.map(arrayString)));
+        for (String string :Task1.mapToArray(Task1.map(arrayString))
+             ) {
+            System.out.print(string);
+        }
     }
 }
