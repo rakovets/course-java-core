@@ -13,13 +13,14 @@ import java.util.stream.IntStream;
 public class FileAnalyzeUtil {
     //Task02
     public static List<String> getTextListFromFile(Path filePath) throws IOException {
-        return Files.lines(Paths.get(String.valueOf(filePath)))
-                .collect(Collectors.toList());
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+        return bufferedReader.lines().collect(Collectors.toList());
     }
 
     //Task03
     public static List<String> getWordsListStartingWithVowelFromFile(Path filePath) throws IOException {
-        List<String> list = Files.lines(Paths.get(String.valueOf(filePath)))
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+        List<String> list = bufferedReader.lines()
                 .flatMap(i -> Arrays.stream(i.replaceAll("[,.!?\\s]", " ").split(" ")))
                 .collect(Collectors.toList());
 
@@ -30,7 +31,8 @@ public class FileAnalyzeUtil {
 
     //Task04
     public static List<String> getWordsListEndingWithLetterEqualFirstLetterOfNextWord(Path filePath) throws IOException {
-        List<String> list = Files.lines(Paths.get(String.valueOf(filePath)))
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+        List<String> list = bufferedReader.lines()
                 .flatMap(i -> Arrays.stream(i.replaceAll("[,.!?\\s]", " ").split(" ")))
                 .collect(Collectors.toList());
 
@@ -46,8 +48,9 @@ public class FileAnalyzeUtil {
 
     //Task06
     public static Map<Character, Integer> getLetterFrequency(Path filePath) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
         Map<Character, Integer> map = new HashMap<>();
-        String line = Files.readAllLines(filePath).toString().replaceAll("[,.!?\\s\\p{P}]", "");
+        String line = bufferedReader.lines().toString().replaceAll("[,.!?\\s\\p{P}]", "");
         int value = 1;
 
         for (char key : line.toCharArray()) {
@@ -64,8 +67,9 @@ public class FileAnalyzeUtil {
 
     //Task07
     public static Map<String, Integer> getWordsFrequency(Path filePath) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
         Map<String, Integer> map = new HashMap<>();
-        List<String> list = Files.lines(Paths.get(String.valueOf(filePath)))
+        List<String> list = bufferedReader.lines()
                 .flatMap(i -> Arrays.stream(i.replaceAll("[,.!?\\s]", " ").split(" ")))
                 .collect(Collectors.toList());
         int value = 1;
@@ -85,12 +89,13 @@ public class FileAnalyzeUtil {
     }
 
     //Task08
-    public static void sortNumbersFromFile(Path sourceFilePath) throws IOException {
+    public static void sortNumbersFromFile(Path filePath) throws IOException {
         Path writtenFilePath = Paths.get("src/main/java/com/rakovets/course/java/core/practice/io/" +
                 "files/fileAnalyzeUtil-task-08-sortedNumbers");
         FileWriter writer = new FileWriter(String.valueOf(writtenFilePath));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
 
-        List<String> list = Files.lines(Paths.get(String.valueOf(sourceFilePath)))
+        List<String> list = bufferedReader.lines()
                 .flatMap(i -> Arrays.stream(i.replaceAll("[,.!?\\s]", " ").split(" ")))
                 .sorted()
                 .collect(Collectors.toList());
@@ -129,9 +134,9 @@ public class FileAnalyzeUtil {
     public static void changeFileModifiers(Path filePath, String oldModifier, String newModifier) throws IOException {
         Path writtenFilePath = Paths.get("src/main/java/com/rakovets/course/java/core/practice/io/" +
                 "files/fileAnalyzeUtil-task-10-writtenFile");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
 
-        List<String> list = Files.readAllLines(filePath)
-                .stream()
+        List<String> list = bufferedReader.lines()
                 .map(i -> i.replace(oldModifier, newModifier))
                 .collect(Collectors.toList());
         Files.write(writtenFilePath, list);
