@@ -1,13 +1,10 @@
 package com.rakovets.course.java.core.practice.io.file_analyzer;
-import java.awt.event.ItemEvent;
+
 import java.io.*;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
-
+// work with all names methods !!!!
 public class FileAnalyzeUtil {
     public static List<String> getListLines(Path filePath) {
         List<String> list = new ArrayList<>();
@@ -39,4 +36,28 @@ public class FileAnalyzeUtil {
         }
         return listWord;
     }
+
+    public static Map<Character, Integer> getQuantityCharsRepeating(Path filePath) {
+        Map<Character, Integer> map = new HashMap<>();
+        String text = getListLines(filePath).toString().toLowerCase().replaceAll("[^a-z]", "");
+        for (var iterator : text.toCharArray()) {
+            map.put(iterator, map.getOrDefault(iterator, 0) + 1);
+        }
+        return map;
+    }
+
+    public static List<Map.Entry<String, Integer>> getQuantityWordsRepeating(Path filePath) {
+        Map<String, Integer> map = new HashMap<>();
+        String[] text = getListLines(filePath).toString().replaceAll("[^a-zA-Z ]", "").split(" ");
+
+        for (var iterator : text) {
+            map.put(iterator, map.getOrDefault(iterator, 0) + 1);
+        }
+        return map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList());
+    }
 }
+
+                                            // 5, 8, 9, 10 //
