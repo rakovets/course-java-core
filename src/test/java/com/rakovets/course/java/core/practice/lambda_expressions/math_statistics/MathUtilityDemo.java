@@ -9,7 +9,8 @@ public class MathUtilityDemo {
         int numberOfRandomNumbers = 10;
         List<Integer> numbers = MathUtility.getCollectionOfRandomNumbers(numberOfRandomNumbers);
         Stream<Integer> numbersStream = numbers.stream();
-        numbersStream.forEach(x -> System.out.println(x));
+        numbersStream
+                .forEach(x -> System.out.println(x));
 
         long numberOfEvenNumbers = MathUtility.getNumberOfEvenNumbers(numbers);
         System.out.printf("\nNumber of even numbers equals: %d", numberOfEvenNumbers);
