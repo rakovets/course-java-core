@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.lambda_expressions;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class LambdaExpressions {
     public static Map<String, String> makeMapFromArray(String[] array) {
@@ -12,11 +13,9 @@ public class LambdaExpressions {
     }
 
     public static String[] makeArrayFromMap(Map<String, String> map) {
-        Set<Map.Entry<String, String>> set = map.entrySet();
-        Set<String> setString = new HashSet<>();
-        set.stream().forEach(s -> setString.add(s.getKey() + " - " + s.getValue()));
-        Object[] array1 = setString.toArray();
-        String[] array = Arrays.copyOf(array1, array1.length, String[].class);
-        return array;
+        return map.entrySet().stream()
+                .map(x -> x.getKey() + " - " + x.getValue())
+                .collect(Collectors.toList())
+                .toArray(new String[0]);
     }
 }

@@ -12,19 +12,27 @@ public class MathUtility {
         return numbers;
     }
 
-    public static int getNumberOfEvenNumbers(List<Integer> list) {
-        return (int) list.stream().filter(n -> n % 2 == 0).count();
+    public static long getNumberOfEvenNumbers(List<Integer> list) {
+        return list.stream().
+                filter(n -> n % 2 == 0)
+                .count();
     }
 
-    public static int getNumberOfOddNumbers(List<Integer> list) {
-        return (int) list.stream().filter(n -> n % 2 != 0).count();
+    public static long getNumberOfOddNumbers(List<Integer> list) {
+        return list.stream()
+                .filter(n -> n % 2 != 0)
+                .count();
     }
 
-    public static int getNumberOfNumbersEqualsZero(List<Integer> list) {
-        return (int) list.stream().filter(n -> n == 0).count();
+    public static long getNumberOfNumbersEqualsZero(List<Integer> list) {
+        return list.stream()
+                .filter(n -> n == 0)
+                .count();
     }
 
-    public static int getNumberOfNumbersEqualsSomeMeaning(List<Integer> list, int digital) {
-        return (int) list.stream().filter(n -> n == digital).count();
+    public static long getNumberOfNumbersEqualsSomeMeaning(List<Integer> list, int digital) {
+        return list.stream()
+                .filter(n -> n == digital)
+                .count();
     }
 }

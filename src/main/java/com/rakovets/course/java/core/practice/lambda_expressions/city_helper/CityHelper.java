@@ -5,31 +5,31 @@ import java.util.stream.Collectors;
 
 public class CityHelper {
     public static List<String> getListCitiesWithUniqueName(List<String> city) {
-        List<String> uniqueCityNames = new ArrayList<>();
-        city.stream().distinct().forEach(x -> uniqueCityNames.add(x));
+        List<String> uniqueCityNames = city.stream()
+                .distinct()
+                .collect(Collectors.toList());
         return uniqueCityNames;
     }
 
     public static List<String> getListCityNamesCertainLength(List<String> city, int lengthName) {
-        List<String> listCityNamesCertainLength = new ArrayList<>();
-        city.stream().filter(x -> x.length() >= lengthName).forEach(x -> listCityNamesCertainLength.add(x));
+        List<String> listCityNamesCertainLength = city.stream()
+                .distinct()
+                .filter(x -> x.length() >= lengthName)
+                .collect(Collectors.toList());
         return listCityNamesCertainLength;
     }
 
     public static List<String> getListCityNamesStartingOnCertainLetter(List<String> city, char letter) {
-        List<String> uniqueCityNames = getListCitiesWithUniqueName(city);
-        List<String> listCityNamesStartingOnCertainLetter = new ArrayList<>();
-        uniqueCityNames.stream().filter(x -> Objects.equals(x.charAt(0), letter)).forEach(x -> listCityNamesStartingOnCertainLetter.add(x));
+        List<String> listCityNamesStartingOnCertainLetter = city.stream()
+                .distinct()
+                .filter(x -> Objects.equals(x.charAt(0), letter))
+                .collect(Collectors.toList());
         return listCityNamesStartingOnCertainLetter;
     }
 
     public static Map<String, Long> getAmountConsumed(List<String> city) {
-        Map<String, Long> nameWithAmount = city.stream().collect(
-                Collectors.groupingBy(x -> x, Collectors.counting()));
+        Map<String, Long> nameWithAmount = city.stream()
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()));
         return nameWithAmount;
     }
 }
-
-
-
-

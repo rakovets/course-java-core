@@ -11,17 +11,17 @@ public class MathUtilityDemo {
         Stream<Integer> numbersStream = numbers.stream();
         numbersStream.forEach(x -> System.out.println(x));
 
-        int numberOfEvenNumbers = MathUtility.getNumberOfEvenNumbers(numbers);
+        long numberOfEvenNumbers = MathUtility.getNumberOfEvenNumbers(numbers);
         System.out.printf("\nNumber of even numbers equals: %d", numberOfEvenNumbers);
 
-        int numberOfOddNumbers = MathUtility.getNumberOfOddNumbers(numbers);
+        long numberOfOddNumbers = MathUtility.getNumberOfOddNumbers(numbers);
         System.out.printf("\nNumber of odd numbers equals: %d", numberOfOddNumbers);
 
-        int numberOfNumbersEqualsZero = MathUtility.getNumberOfNumbersEqualsZero(numbers);
+        long numberOfNumbersEqualsZero = MathUtility.getNumberOfNumbersEqualsZero(numbers);
         System.out.printf("\nNumber of numbers equals zero: %d", numberOfNumbersEqualsZero);
 
         int digital = 555;
-        int numberOfNumbersEqualsSomeMeaning = MathUtility.getNumberOfNumbersEqualsSomeMeaning(numbers, digital);
+        long numberOfNumbersEqualsSomeMeaning = MathUtility.getNumberOfNumbersEqualsSomeMeaning(numbers, digital);
         System.out.printf("\nNumber of numbers equals some meaning: %d", numberOfNumbersEqualsSomeMeaning);
     }
 }
