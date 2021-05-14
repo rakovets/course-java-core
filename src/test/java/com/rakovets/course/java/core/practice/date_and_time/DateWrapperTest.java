@@ -5,9 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.Temporal;
-import java.util.Locale;
 import java.util.stream.Stream;
 
 public class DateWrapperTest {
@@ -44,40 +41,40 @@ public class DateWrapperTest {
     }
 
     static Stream<Arguments> provideArgumentsForGetStringWithDate() {
-        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("MMMM, dd, yyyy", Locale.UK);
-        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("MM, dd, yy", Locale.UK);
+        String pattern1 = "MMMM, dd, yyyy";
+        String pattern2 = "MM, dd, yy";
 
         return Stream.of(
-                Arguments.of(LocalDate.of(2021, 5, 2), formatter1, "May, 02, 2021"),
-                Arguments.of(LocalDate.of(2012, 1, 21), formatter1, "January, 21, 2012"),
-                Arguments.of(LocalDate.of(2021, 5, 2), formatter2, "05, 02, 21"),
-                Arguments.of(LocalDate.of(2012, 1, 21), formatter2, "01, 21, 12")
+                Arguments.of(LocalDate.of(2021, 5, 2), pattern1, "May, 02, 2021"),
+                Arguments.of(LocalDate.of(2012, 1, 21), pattern1, "January, 21, 2012"),
+                Arguments.of(LocalDate.of(2021, 5, 2), pattern2, "05, 02, 21"),
+                Arguments.of(LocalDate.of(2012, 1, 21), pattern2, "01, 21, 12")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetStringWithDate")
-    void getStringWithDateTest(LocalDate date, DateTimeFormatter formatter, String expected) {
-        String actual = DateWrapper.getStringWithDate(date, formatter);
+    void getStringWithDateTest(LocalDate date, String pattern, String expected) {
+        String actual = DateWrapper.getStringWithDate(date, pattern);
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgumentsForMakeLocalDateFromString() {
-        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("MMMM, dd, yyyy", Locale.UK);
-        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("MM, dd, yy", Locale.UK);
+        String pattern1 = "MMMM, dd, yyyy";
+        String pattern2 = "MM, dd, yy";
 
         return Stream.of(
-                Arguments.of("May, 02, 2021", formatter1, LocalDate.of(2021, 5, 2)),
-                Arguments.of("January, 21, 2012", formatter1, LocalDate.of(2012, 1, 21)),
-                Arguments.of("05, 02, 21", formatter2, LocalDate.of(2021, 5, 2)),
-                Arguments.of("01, 21, 12", formatter2, LocalDate.of(2012, 1, 21))
+                Arguments.of("May, 02, 2021", pattern1, LocalDate.of(2021, 5, 2)),
+                Arguments.of("January, 21, 2012", pattern1, LocalDate.of(2012, 1, 21)),
+                Arguments.of("05, 02, 21", pattern2, LocalDate.of(2021, 5, 2)),
+                Arguments.of("01, 21, 12", pattern2, LocalDate.of(2012, 1, 21))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForMakeLocalDateFromString")
-    void makeLocalDateFromStringTest(String str, DateTimeFormatter formatter, LocalDate expected) {
-        LocalDate actual = DateWrapper.makeLocalDateFromString(str, formatter);
+    void makeLocalDateFromStringTest(String str, String pattern, LocalDate expected) {
+        LocalDate actual = DateWrapper.makeLocalDateFromString(str, pattern);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -109,8 +106,8 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForAdjustInto")
     void getAdjustIntoTest(LocalDate date1, int days, LocalDate expected) {
-        Temporal actual = DateWrapper.adjustInto(date1, days);
-        Assertions.assertEquals(expected, (LocalDate) actual);
+        LocalDate actual = date1.with(new DateCorrectionByDays(days));
+        Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgumentsForAdjustIntoAboutLeapYear() {
@@ -125,7 +122,7 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForAdjustIntoAboutLeapYear")
     void getAdjustIntoAboutLeapYearTest(LocalDate date1, LocalDate expected) {
-        Temporal actual = DateWrapper.adjustInto(date1);
-        Assertions.assertEquals(expected, (LocalDate) actual);
+        LocalDate actual = date1.with(new DateCorrection());
+        Assertions.assertEquals(expected, actual);
     }
 }
