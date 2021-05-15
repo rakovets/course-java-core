@@ -24,7 +24,7 @@ public class ClassTest {
     @Test
     void studentNameAndSurnameComparatorTest() {
         students.sort(new StudentNameAndSurnameComparator());
-        
+
         assertEquals("Andrei", students.get(0).getName());
         assertEquals("Borisov", students.get(0).getSurname());
         assertEquals("Ura", students.get(3).getName());
@@ -34,7 +34,7 @@ public class ClassTest {
     @Test
     void studentAgeComparatorTest() {
         students.sort(new StudentAgeComparator());
-        
+
         assertEquals(20, students.get(0).getAge());
         assertEquals(25, students.get(3).getAge());
     }
@@ -42,7 +42,7 @@ public class ClassTest {
     @Test
     void studentAverageAnnualMarkComparatorTest() {
         students.sort(new StudentAverageAnnualMarkComparator());
-        
+
         assertEquals(8.0, students.get(0).getAverageAnnualMark());
         assertEquals(9.9, students.get(3).getAverageAnnualMark());
     }
@@ -50,8 +50,7 @@ public class ClassTest {
     @Test
     void getBestStudentTest() {
         SchoolClass schoolClass = new SchoolClass(students);
-        
+
         assertEquals("Evgeni", schoolClass.getBestStudent(students).getName());
     }
 }
-
