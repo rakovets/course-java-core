@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Random;
 
 public class Client {
-
     private int priority;
     private String login;
     private String password;
