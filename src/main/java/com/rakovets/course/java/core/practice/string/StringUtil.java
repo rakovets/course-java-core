@@ -107,10 +107,8 @@ public class StringUtil {
 
     public String initialsOfTheName(String text) {
         String[] array = text.toUpperCase().split(" ");
-
         return array[0].substring(0, 1) + array[1].substring(0, 1);
     }
-
 
     public String getAllDigits(String text) {
         return text.replaceAll("[^0-9]", "");
