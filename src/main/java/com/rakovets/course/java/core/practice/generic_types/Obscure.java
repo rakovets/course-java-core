@@ -7,8 +7,6 @@ public class Obscure<T> {
         this.field = field;
     }
 
-    public Obscure() {}
-
     public T getField() {
         return field;
     }
@@ -25,19 +23,19 @@ public class Obscure<T> {
         return isPresent() ? field : defaultField;
     }
 
-    public T orElseThrow() throws NullPointerException{
+    public T orElseThrow(Exception exception) throws Exception {
         if (isPresent()) {
             return field;
         } else {
-            throw new NullPointerException("This is null field");
+            throw exception;
         }
     }
 
-    public static <S> Obscure<S> of(S field) {
+    public static <T> Obscure<T> of(T field) {
         return new Obscure<>(field);
     }
 
-    public static <S> Obscure<S> empty() {
-        return new Obscure<>();
+    public static <T> Obscure<T> empty() {
+        return new Obscure<>(null);
     }
 }

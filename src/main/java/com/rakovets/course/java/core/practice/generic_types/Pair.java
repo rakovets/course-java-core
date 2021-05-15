@@ -1,35 +1,35 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
 public class Pair<K, V> {
-    private K field1;
-    private V field2;
+    private K k;
+    private V v;
 
-    public Pair(K field1, V field2) {
-        this.field1 = field1;
-        this.field2 = field2;
+    public Pair(K k, V v) {
+        this.k = k;
+        this.v = v;
     }
 
-    public K getField1() {
-        return field1;
+    public K getK() {
+        return k;
     }
 
-    public void setField1(K field1) {
-        this.field1 = field1;
+    public void setK(K k) {
+        this.k = k;
     }
 
-    public V getField2() {
-        return field2;
+    public V getV() {
+        return v;
     }
 
     public void setField2(V field2) {
-        this.field2 = field2;
+        this.v = field2;
     }
 
     public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
-        return new Pair(pair.getField2(), pair.getField1());
+        return new Pair(pair.getV(), pair.getK());
     }
 
-    public <K, V> Pair<V, K> getSwapped() {
-        return new Pair(getField2(), getField1());
+    public Pair<V, K> getSwapped() {
+        return new Pair(getV(), getK());
     }
 }
