@@ -5,7 +5,6 @@ import com.rakovets.course.java.core.practice.jcf_list.Actor;
 import java.util.Comparator;
 
 public class ActorsFeeAndLastNameComparator implements Comparator<Actor> {
-
     @Override
     public int compare(Actor o1, Actor o2) {
         var result = Double.compare(o1.getFee(), o2.getFee());
