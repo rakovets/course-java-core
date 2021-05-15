@@ -21,7 +21,6 @@ public class UniversityTest {
             new Student("B", "B", "KIPIA", 1),
             new Student("C", "C", "Chemistry", 3));
 
-    @Test
     static Stream<Arguments> groupingByCourseTestProviderArguments() {
         return Stream.of(
                 Arguments.of(Map.of(
@@ -35,10 +34,10 @@ public class UniversityTest {
     @MethodSource("groupingByCourseTestProviderArguments")
     public void groupingByCourseTest(Map<Integer, List<Student>> expected) {
         Map<Integer, List<Student>> actual = University.groupingByCourse(students);
+        
         assertEquals(expected, actual);
     }
 
-    @Test
     static Stream<Arguments> getSpecTestProviderArguments() {
         return Stream.of(
                 Arguments.of(Arrays.asList("Chemistry", "KIPIA"))
@@ -49,10 +48,10 @@ public class UniversityTest {
     @MethodSource("getSpecTestProviderArguments")
     public void getSpecTest(List<Student> expected) {
         List<String> actual = University.getSpec(students);
+        
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
     static Stream<Arguments> countStudentsInSpecProviderArguments() {
         return Stream.of(
                 Arguments.of(Map.of("Chemistry", 2l, "KIPIA", 3l)));
@@ -62,10 +61,10 @@ public class UniversityTest {
     @MethodSource("countStudentsInSpecProviderArguments")
     public void countStudentsInSpecTest(Map<String, Long> expected) {
         Map<String, Long> actual = University.countStudentsInSpec(students);
+        
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
     static Stream<Arguments> groupingBySpecialtyProviderArguments() {
         return Stream.of(
                 Arguments.of(Map.of(
@@ -79,10 +78,10 @@ public class UniversityTest {
     @MethodSource("groupingBySpecialtyProviderArguments")
     public void groupingBySpecialtyTest(Map<String, Map<Integer, List<Student>>> expected) {
         Map<String, Map<Integer, List<Student>>> actual = University.groupingBySpecialty(students);
+        
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
     static Stream<Arguments> checkStudentsProviderArguments() {
         return Stream.of(
                 Arguments.of(false, 5, Arrays.asList("KIPIA")),
@@ -95,6 +94,7 @@ public class UniversityTest {
     @MethodSource("checkStudentsProviderArguments")
     public void checkStudentsTest(boolean expected, int course, List<Student> withoutSpec) {
         boolean actual = University.checkStudents(students, course, withoutSpec);
+        
         Assertions.assertEquals(expected, actual);
     }
 }
