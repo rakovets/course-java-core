@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class DateWrapper {
+public class DateWrapper extends AdjustInto {
     public static LocalDate getLocalDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
     }
@@ -32,15 +32,6 @@ public class DateWrapper {
 
     public static TemporalAdjuster addDays(int days) {
         return temporal -> temporal.plus(Period.ofDays(days));
-    }
-
-    public static Temporal adjustInto(Temporal temporal) {
-        int HALF_YEAR = 183;
-        if (temporal.get(ChronoField.DAY_OF_YEAR) >= HALF_YEAR) {
-            return temporal.with(TemporalAdjusters.firstDayOfNextYear());
-        } else {
-            return temporal.with(TemporalAdjusters.firstDayOfYear());
-        }
     }
 
     private static LocalDate getDate(Date date) {
