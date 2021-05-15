@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.string;
 import java.util.regex.Pattern;
 
 public class StringUtil {
-
     public String glue(String firstText, String secondText) {
         return firstText.concat(secondText);
     }
@@ -68,7 +67,6 @@ public class StringUtil {
         return stringBuilder.toString().equals(textAfterReplace);
     }
 
-
     public String[] lineSeparator(String text, int length) {
         String[] array;
 
@@ -131,7 +129,7 @@ public class StringUtil {
         for (String word : array) {
             result = result.append(word);
         }
-        for (String word : arrayTwo2) {
+        for (String word : arrayTwo) {
             result = result.append(word);
         }
         return result.toString();
@@ -185,7 +183,6 @@ public class StringUtil {
 
         return (timeAfter - timeBefore) > (timeAfterSB - timeBeforeSB);
     }
-
 
     public String repeatRemover(String text) {
         return text.replaceAll("(.)\\1+", "$1");
