@@ -122,7 +122,6 @@ public class StringUtil {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < array.length; i++) {
-
             for (int j = 0; j < array2.length; j++) {
                 if (array[i].equals(array2[j])) {
                     array[i] = "";
