@@ -2,17 +2,14 @@ package com.rakovets.course.java.core.practice.jcf_set;
 
 import jdk.jfr.Event;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Client {
     private int priority;
     private String login;
     private String password;
     private Map<Event, Long> eventDateMap = new HashMap<>();
-    private LinkedList<Event> currentRequests = new LinkedList();
+    private List<Event> currentRequests = new LinkedList();
 
     {
         Random random = new Random();
@@ -25,7 +22,7 @@ public class Client {
         this.password = password;
     }
 
-    public LinkedList getCurrentRequests() {
+    public List getCurrentRequests() {
         return currentRequests;
     }
 
@@ -52,5 +49,4 @@ public class Client {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

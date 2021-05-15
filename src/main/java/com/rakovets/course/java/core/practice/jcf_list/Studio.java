@@ -24,4 +24,3 @@ public class Studio {
         return actors;
     }
 }
-

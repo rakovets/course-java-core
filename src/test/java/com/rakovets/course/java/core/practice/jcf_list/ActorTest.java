@@ -92,5 +92,4 @@ public class ActorTest {
         assertEquals(2, studio.getActors().size());
         assertEquals(5300, actors.get(1).getFee());
     }
-
 }
