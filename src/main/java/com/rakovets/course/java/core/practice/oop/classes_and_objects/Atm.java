@@ -30,10 +30,10 @@ public class Atm {
         return getOptionsCombinationBanknotes(amount).length >= 1;
     }
 
-    public int[][] createArray(int i, int j, int x) {
+    public int[][] createArray(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
         int[][] save = Arrays.copyOf(arrayWithOptions, arrayWithOptions.length);
         arrayWithOptions = Arrays.copyOf(save, save.length + 1);
-        arrayWithOptions[arrayWithOptions.length - 1] = new int[]{i, j, x};
+        arrayWithOptions[arrayWithOptions.length - 1] = new int[]{numberBanknotes20, numberBanknotes50, numberBanknotes100};
         return arrayWithOptions;
     }
 
@@ -43,7 +43,6 @@ public class Atm {
         for (int i = 0; i <= numberBanknotes20; i++) {
             for (int j = 0; j <= numberBanknotes50; j++) {
                 for (int x = 0; x <= numberBanknotes100; x++) {
-
                     if (i * 20 + j * 50 + x * 100 == amount) {
                         createArray(i, j, x);
                     }
@@ -60,7 +59,7 @@ public class Atm {
             numberBanknotes20 -= variant[0];
             numberBanknotes50 -= variant[1];
             numberBanknotes100 -= variant[2];
-            return sumOfMoney;
-        } else return 0;
+        }
+        return sumOfMoney;
     }
 }
