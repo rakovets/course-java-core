@@ -48,7 +48,7 @@ public class StringUtil {
         return count;
     }
 
-    public int PunctuationCounter(String text) {
+    public int getPunctuationCount(String text) {
         int count = 0;
         String[] arrayFromText = text.split("");
 
