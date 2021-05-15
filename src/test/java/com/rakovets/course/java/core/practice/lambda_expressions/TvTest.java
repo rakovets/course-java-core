@@ -23,7 +23,6 @@ public class TvTest {
             new TV("Panasonic", "4DD", 2020, 52, 1250.0),
             new TV("Philips", "2EE", 2021, 43, 700.0));
 
-    @Test
     static Stream<Arguments> specificDiagonalTestProviderArguments() {
         return Stream.of(
                 Arguments.of(Arrays.asList(tv.get(1), tv.get(4)), 23),
@@ -35,6 +34,7 @@ public class TvTest {
     @MethodSource("specificDiagonalTestProviderArguments")
     public void specificDiagonalTest(List<TV> expected, int diagonal) {
         List<TV> actual = TvFilter.specificDiagonal(tv, diagonal);
+        
         assertEquals(expected, actual);
     }
 
@@ -50,6 +50,7 @@ public class TvTest {
     @MethodSource("specificManufacturerTestProviderArguments")
     public void specificManufacturerTest(List<TV> expected, String manufacturer) {
         List<TV> actual = TvFilter.specificManufacturer(tv, manufacturer);
+        
         Assertions.assertEquals(expected, actual);
     }
 
@@ -65,6 +66,7 @@ public class TvTest {
     @MethodSource("underSpecialYearProviderArguments")
     public void underSpecialYearTest(List<TV> expected, int year) {
         List<TV> actual = TvFilter.underSpecialYear(tv, year);
+        
         Assertions.assertEquals(expected, actual);
     }
 
@@ -80,6 +82,7 @@ public class TvTest {
     @MethodSource("specificPriseProviderArguments")
     public void specificPriseTest(List<TV> expected, double minCost, double maxCost) {
         List<TV> actual = TvFilter.specificPrise(tv, minCost, maxCost);
+        
         Assertions.assertEquals(expected, actual);
     }
 
@@ -94,6 +97,7 @@ public class TvTest {
     @MethodSource("sortedByPriceAscendingProviderArguments")
     public void sortedByPriceAscendingTest(List<TV> expected) {
         List<TV> actual = TvFilter.sortedByPriceAscending(tv);
+        
         Assertions.assertEquals(expected, actual);
     }
 
@@ -108,6 +112,7 @@ public class TvTest {
     @MethodSource("sortedByPriceDescendingProviderArguments")
     public void sortedByPriceDescendingTest(List<TV> expected) {
         List<TV> actual = TvFilter.sortedByPriceDescending(tv);
+        
         Assertions.assertEquals(expected, actual);
     }
 }
