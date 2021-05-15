@@ -13,28 +13,36 @@ class CityHelperTest {
     @Test
     void getUniqueCitiesTest() {
         List<String> expected = Arrays.asList("Minsk", "New York", "Los Angeles", "Boston");
+        
         List<String> actual = CityHelper.getUniqueCityNames(cities);
+        
         assertEquals(expected, actual);
     }
 
     @Test
     void getCitiesNameLongThenTest() {
         List<String> expected = Arrays.asList("Los Angeles", "Los Angeles");
+        
         List<String> actual = CityHelper.getCityNamesLongThen(cities, 8);
+        
         assertEquals(expected, actual);
     }
 
     @Test
     void startLetter() {
         List<String> expected = Arrays.asList("Minsk");
+        
         List<String> actual = CityHelper.getCityNamesStartWith(cities, 'M');
+        
         assertEquals(expected, actual);
     }
 
     @Test
     void equalNames() {
         int expected = 2;
+        
         int actual = CityHelper.countNumberCities(cities, "New York");
+        
         assertEquals(expected, actual);
     }
 }
