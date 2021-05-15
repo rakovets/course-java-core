@@ -10,4 +10,3 @@ public class StudentAgeComparator implements Comparator<Student> {
         return Integer.compare(o1.getAge(), o2.getAge());
     }
 }
-

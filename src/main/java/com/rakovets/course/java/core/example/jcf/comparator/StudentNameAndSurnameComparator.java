@@ -5,7 +5,6 @@ import com.rakovets.course.java.core.practice.jcf_list.Student;
 import java.util.Comparator;
 
 public class StudentNameAndSurnameComparator implements Comparator<Student> {
-
     @Override
     public int compare(Student o1, Student o2) {
         var result = o1.getName().compareTo(o2.getName());
@@ -15,4 +14,3 @@ public class StudentNameAndSurnameComparator implements Comparator<Student> {
             return result;
     }
 }
-

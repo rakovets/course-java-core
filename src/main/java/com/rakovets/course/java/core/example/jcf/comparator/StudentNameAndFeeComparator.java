@@ -5,7 +5,6 @@ import com.rakovets.course.java.core.example.jcf.model.Student;
 import java.util.Comparator;
 
 public class StudentNameAndFeeComparator implements Comparator<Student> {
-
     @Override
     public int compare(Student o1, Student o2) {
         var result = o1.getName().compareTo(o2.getName());
