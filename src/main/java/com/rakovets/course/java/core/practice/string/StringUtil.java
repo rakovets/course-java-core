@@ -61,7 +61,7 @@ public class StringUtil {
         return count;
     }
 
-    public boolean palindrome(String text) {
+    public boolean isPalindrome(String text) {
         String textAfterReplace = text.replaceAll("[.!,?\\s]", "").toLowerCase();
         StringBuilder stringBuilder = new StringBuilder(textAfterReplace).reverse();
 
