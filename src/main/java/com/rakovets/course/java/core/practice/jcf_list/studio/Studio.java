@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.jcf_list.studio;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Studio {
-    private ArrayList<Actor> actors;
+    private List<Actor> actors;
 
-      public static ArrayList<Actor> fire(ArrayList<Actor> actors) {
+      public static List<Actor> fire(List<Actor> actors) {
         int index = 0;
         double maxFee = 0.0;
         for(Actor actor : actors) {

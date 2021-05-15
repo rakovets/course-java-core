@@ -3,20 +3,16 @@ package com.rakovets.course.java.core.practice.jcf_list;
 import com.rakovets.course.java.core.practice.jcf_list.studio.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudioDemo {
     public static void main(String[] args) {
-        Actor dwayneJohnson = new Actor("Dwayne", "Johnson", 87.5, 48);
-        Actor vinDiesel = new Actor("Vin", "Diesel", 54.0, 53);
-        Actor willSmith = new Actor("Will", "Smith", 44.5, 52);
-        Actor ivanOkhlobystin = new Actor("Ivan", "Okhlobystin", 2.0, 54);
-
         ArrayList<Actor> actors = new ArrayList<>();
         ArrayList<Actor> fixActors = new ArrayList<>();
-        actors.add(dwayneJohnson);
-        actors.add(vinDiesel);
-        actors.add(willSmith);
-        actors.add(ivanOkhlobystin);
+        actors.add(new Actor("Dwayne", "Johnson", 87.5, 48));
+        actors.add(new Actor("Vin", "Diesel", 54.0, 53));
+        actors.add(new Actor("Will", "Smith", 44.5, 52));
+        actors.add(new Actor("Ivan", "Okhlobystin", 2.0, 54));
         fixActors.addAll(actors);
 
         System.out.println("\nThis is a list without the most expensive actor:");
@@ -43,17 +39,9 @@ public class StudioDemo {
         printActors(actors);
     }
 
-    public static void printActors(ArrayList<Actor> actors) {
+    public static void printActors(List<Actor> actors) {
         for (Actor actor : actors) {
             System.out.println(actor.getFirstName() + " " + actor.getLastName() + ", fee = " + actor.getFee() + ", age = " + actor.getAge());
         }
     }
 }
-
-
-
-
-
-
-
-

@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.jcf_list.schoolClass;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SchoolClass {
-    ArrayList<Student> students;
+   List<Student> students;
 
-    public static Student getBestStudent(ArrayList<Student> students) {
+    public static Student getBestStudent(List<Student> students) {
         double bestAverageAnnualMark =0.0;
         int index = 0;
         for (Student student : students) {
