@@ -5,12 +5,14 @@ import java.util.stream.Collectors;
 
 public class CityHelper {
     public static List<String> getUniqueCityNames(List<String> cities) {
-        return cities.stream().distinct()
+        return cities.stream()
+                .distinct()
                 .collect(Collectors.toList());
     }
 
     public static List<String> getCityNamesLongThen(List<String> cities, int length) {
-        return cities.stream().filter(city -> city.length() > length)
+        return cities.stream()
+                .filter(city -> city.length() > length)
                 .collect(Collectors.toList());
     }
 
@@ -20,6 +22,8 @@ public class CityHelper {
     }
 
     public static int countNumberCities(List<String> cities, String city) {
-        return (int) cities.stream().filter(anyCity -> anyCity.equals(city)).count();
+        return (int) cities.stream()
+                .filter(anyCity -> anyCity.equals(city))
+                .count();
     }
 }
