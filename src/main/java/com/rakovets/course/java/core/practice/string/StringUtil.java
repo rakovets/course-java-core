@@ -116,14 +116,13 @@ public class StringUtil {
 
     public String getIndividualSymbol(String firstText, String secondText) {
         String[] array = firstText.split("");
-        String[] array2 = secondText.split("");
+        String[] arrayTwo = secondText.split("");
         StringBuilder result = new StringBuilder();
-
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array2.length; j++) {
-                if (array[i].equals(array2[j])) {
+            for (int j = 0; j < arrayTwo.length; j++) {
+                if (array[i].equals(arrayTwo[j])) {
                     array[i] = "";
-                    array2[j] = "";
+                    arrayTwo[j] = "";
                     break;
                 }
             }
@@ -132,8 +131,8 @@ public class StringUtil {
         for (String word : array) {
             result = result.append(word);
         }
-        for (String word2 : array2) {
-            result = result.append(word2);
+        for (String word : arrayTwo2) {
+            result = result.append(word);
         }
         return result.toString();
 
