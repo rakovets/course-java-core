@@ -3,21 +3,23 @@ package com.rakovets.course.java.core.practice.concurrency;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.InputMismatchException;
-import java.util.InvalidPropertiesFormatException;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Producer {
-    Queue queue = new PriorityQueue();
+public class Producer implements Runnable {
+    private Queue queue;
 
-    public void reader() throws IOException, UserInputException {
+    public Producer(Queue queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line = "";
 
         while ((!line.equals("-1"))) {
-            line = reader.readLine();
             try {
+                line = reader.readLine();
                 int delay = Integer.parseInt(line);
                 if (delay == -1) {
                     break;
@@ -26,9 +28,10 @@ public class Producer {
                 } else {
                     queue.add(delay);
                 }
-            } catch (UserInputException | NumberFormatException exception) {
+            } catch (UserInputException | NumberFormatException | IOException exception) {
                 exception.printStackTrace();
             }
         }
     }
 }
+
