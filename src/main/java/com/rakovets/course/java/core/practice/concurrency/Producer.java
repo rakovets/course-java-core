@@ -3,12 +3,11 @@ package com.rakovets.course.java.core.practice.concurrency;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Queue;
 
 public class Producer implements Runnable {
-    private Queue queue;
+    private QueueDelay queue;
 
-    public Producer(Queue queue) {
+    public Producer(QueueDelay queue) {
         this.queue = queue;
     }
 
@@ -16,7 +15,6 @@ public class Producer implements Runnable {
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line = "";
-
         while ((!line.equals("-1"))) {
             try {
                 line = reader.readLine();
@@ -26,7 +24,7 @@ public class Producer implements Runnable {
                 } else if (delay < -1) {
                     throw new UserInputException();
                 } else {
-                    queue.add(delay);
+                    queue.queue.add(delay);
                 }
             } catch (UserInputException | NumberFormatException | IOException exception) {
                 exception.printStackTrace();
