@@ -3,26 +3,29 @@ package com.rakovets.course.java.core.practice.concurrency;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.sql.Timestamp;
-import java.util.Queue;
+import java.util.NoSuchElementException;
 
 public class Consumer implements Runnable {
-    private QueueDelay queue;
+    private QueueDelay queueDelay;
 
     public Consumer(QueueDelay queue) {
-        this.queue = queue;
+        this.queueDelay = queue;
     }
+
+    Path filePath = Paths.get("src", "main", "resources", "practice", "MasterWorker.txt");
 
     @Override
     public void run() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter
-                (String.valueOf(Paths.get("src", "main", "resources", "practice", "MasterWorker.txt"))));) {
-            while (true) {
+        while (true) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(String.valueOf(filePath), true));
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                if (queue.queue.size() != 0) {
-                    int delay = (int) queue.queue.poll();
+                if (queueDelay.queue.size() != 0) {
+                    int delay = queueDelay.queue.poll();
                     Thread.sleep(delay * 1000);
                     writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept " + delay + " seconds");
                 } else {
@@ -31,11 +34,9 @@ public class Consumer implements Runnable {
                 }
                 writer.newLine();
                 writer.flush();
+            } catch (IOException | InterruptedException | NullPointerException e) {
+                e.printStackTrace();
             }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
-
-

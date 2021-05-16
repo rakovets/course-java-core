@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Producer implements Runnable {
-    private QueueDelay queue;
+    private QueueDelay queueDelay;
 
     public Producer(QueueDelay queue) {
-        this.queue = queue;
+        this.queueDelay = queue;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Producer implements Runnable {
                 } else if (delay < -1) {
                     throw new UserInputException();
                 } else {
-                    queue.queue.add(delay);
+                    queueDelay.queue.add(delay);
                 }
             } catch (UserInputException | NumberFormatException | IOException exception) {
                 exception.printStackTrace();

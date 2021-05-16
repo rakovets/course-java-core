@@ -4,5 +4,5 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class QueueDelay {
-    Queue queue = new PriorityQueue<Integer>();
+    Queue<Integer> queue = new PriorityQueue();
 }
