@@ -2,34 +2,31 @@ package com.rakovets.course.java.core.practice.generic_types;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 public abstract class Math<T extends  Number> {
     public static <T extends Number> T getMaxValueOfThree(T a, T b, T c) {
-        double da = a.doubleValue();
-        double db = b.doubleValue();
-        double dc = c.doubleValue();
-        if (da >= db && da >=dc)
-            return a;
-        else if (db >= da && db >= dc) {
-            return b;
-        } else return c;
+        List<T> list = new ArrayList<>();
+        Stream.of(a, b, c).forEach(x -> list.add(x));
+        T max = a;
+        for (T item : list) {
+            if (item.doubleValue() > max.doubleValue()) {
+                max = item;
+            }
+        }
+        return max;
     }
 
     public static <T extends Number> T getMinValueOfFive(T a, T b, T c, T d, T f) {
+        List<T> list = new ArrayList<>();
+        Stream.of(a, b, c, d, f).forEach(x -> list.add(x));
         T min = a;
-        if(min.doubleValue() > b.doubleValue()) {
-            min = b;
-        }
-        if(min.doubleValue() > c.doubleValue()) {
-            min = c;
-        }
-        if(min.doubleValue() > d.doubleValue()) {
-            min = d;
-        }
-        if(min.doubleValue() > f.doubleValue()) {
-            min = f;
+        for (T item : list) {
+            if (item.doubleValue() < min.doubleValue()) {
+                min = item;
+            }
         }
         return min;
     }
