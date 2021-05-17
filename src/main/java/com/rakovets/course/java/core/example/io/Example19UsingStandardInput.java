@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.example.io;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class Example18UsingStandardInput {
+public class Example19UsingStandardInput {
     public static void main(String[] args) {
         try (InputStreamReader is = new InputStreamReader(System.in, StandardCharsets.UTF_8);
              BufferedReader bis = new BufferedReader(is);
