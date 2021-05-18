@@ -11,14 +11,14 @@ public class ParallelCalculatorThreading implements Runnable {
         List<Thread> threads = new LinkedList<>();
 
         listArray.addAll(list);
-    //    System.out.println("P1");
+
         for (int i = 0; i < countOfThreads; i++) {
-            Thread thread = new Thread(this);
-            threads.add(thread);
-          //  System.out.println("P2");
-            thread.start();
-         //   System.out.println("P3");
+            threads.add(new Thread(this));
         }
+
+        threads.stream()
+                .forEach(x -> x.start());
+
         threads.stream().forEach(x -> {
             try {
                 x.join();
@@ -31,21 +31,23 @@ public class ParallelCalculatorThreading implements Runnable {
 
     @Override
     public void run() {
-      //  System.out.println("P4");
-        try {
-            while (listArray.size() != 0) {
+        //  System.out.println("P4");
+
+        while (listArray.size() > 0) {
+            //    System.out.println("Size in circle is " + listArray.size());
+            try {
                 Integer[] list = listArray.remove(0);
-              //  System.out.println("Взял" + Arrays.toString(list));
+                //  System.out.println("Взял" + Arrays.toString(list));
                 int sum = 0;
                 for (Integer value : list) {
                     sum += value;
                 }
                 mapWithSum.put(list, sum);
-             //   System.out.println("Zapisal");
+                //   System.out.println("Zapisal");
+            } catch (NullPointerException | IndexOutOfBoundsException e) {
+                e.getMessage();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-        System.out.println("i vse");
+        System.out.println("i vse " + Thread.currentThread().getName());
     }
 }
