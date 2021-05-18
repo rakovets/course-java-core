@@ -1,27 +1,22 @@
 package com.rakovets.course.java.core.practice.jcf_collection.string_collection_util;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class StringCollectionUtil {
-
-    public Collection<String> resetWordsByLength(ArrayList<String> words, int wordLength) {
-        for (String word : words) {
-            if (word.length() == wordLength) {
-                words.set(words.indexOf(word), "*");
+    public Collection<String> resetWordsByLength(List<String> words, int wordLength) {
+        ListIterator<String> wordsList = words.listIterator();
+        while (wordsList.hasNext()) {
+            if (wordsList.next().length() == wordLength) {
+                wordsList.set("*");
             }
         }
         return words;
     }
 
-    public Collection<String> removeWordsByLength(ArrayList<String> words, int wordLength) {
-        Iterator<String> iterator = words.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().length() == wordLength) {
-                iterator.remove();
-            }
-        }
+    public Collection<String> removeWordsByLength(List<String> words, int wordLength) {
+        words.removeIf(s -> s.length() == wordLength);
         return words;
     }
 }

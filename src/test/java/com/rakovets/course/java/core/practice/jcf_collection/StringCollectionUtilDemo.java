@@ -20,7 +20,7 @@ public class StringCollectionUtilDemo {
         collection.add("a");
 
         StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
-        System.out.println(stringCollectionUtil.resetWordsByLength(collection,3));
-        System.out.println(stringCollectionUtil.removeWordsByLength(collection, 2));
+        System.out.println(stringCollectionUtil.resetWordsByLength(collection,2));
+        System.out.println(stringCollectionUtil.removeWordsByLength(collection, 3));
     }
 }

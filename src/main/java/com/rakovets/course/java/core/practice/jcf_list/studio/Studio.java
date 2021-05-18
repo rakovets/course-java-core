@@ -11,11 +11,11 @@ public class Studio {
 
     public List<Actor> fire(List<Actor> actors) {
         Actor maxFee = actors.get(0);
-            for (Actor actor : actors) {
-                if (actor.getFee()  > maxFee.getFee()) {
-                    maxFee = actor;
-                }
+        for (Actor actor : actors) {
+            if (actor.getFee() > maxFee.getFee()) {
+                maxFee = actor;
             }
+        }
         actors.remove(maxFee);
         return actors;
     }
