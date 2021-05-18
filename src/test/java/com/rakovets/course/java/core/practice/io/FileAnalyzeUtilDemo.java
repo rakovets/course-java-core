@@ -8,7 +8,12 @@ import java.nio.file.Paths;
 public class FileAnalyzeUtilDemo {
     public static void main(String[] args) {
         Path task02 = Paths.get("src", "main", "resources", "practice", "task02");
+        Path task03 = Paths.get("src","main", "resources", "practice", "task03");
+        Path task04 = Paths.get("src","main", "resources", "practice", "task04");
 
         System.out.println(FileAnalyzeUtil.takeFilePathGetListString(task02));
+        System.out.println(FileAnalyzeUtil.takeFilePathGetListWordsStartingVowel(task03));
+        System.out.println(FileAnalyzeUtil.takeFilePathGetListWordsStartingFirstLetterFollowingWord(task04));
+
     }
 }

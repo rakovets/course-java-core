@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
 
@@ -24,6 +26,30 @@ public class FileAnalyzeUtil {
     }
 
     //task 3
+    public static List<String> takeFilePathGetListWordsStartingVowel(Path filePath) {
+        List<String> listWord = new ArrayList<>();
+        String[] arrayWords = takeFilePathGetListString(filePath).toString()
+                .replaceAll("[\\[\\],.!?]", "").split(" ");
+        Arrays.stream(arrayWords)
+                .filter(x -> x.matches("^[aAeEiIoOuUyY].*"))
+                .forEach(listWord::add);
+        return listWord;
+    }
+
+    //task4
+    public static List<String> takeFilePathGetListWordsStartingFirstLetterFollowingWord(Path filePath) {
+        List<String> listWords = new ArrayList<>();
+        String[] arrayWords = takeFilePathGetListString(filePath).toString()
+                .replaceAll("[\\[\\],.!?]", "").split(" ");
+        for (int i = 0; i < arrayWords.length - 1; i++) {
+            int word = 0;
+            word++;
+            if (arrayWords[i].charAt(arrayWords[i].length() - 1) == arrayWords[i + 1].charAt(0)) {
+                listWords.add(arrayWords[i]);
+            }
+        }
+        return listWords;
+    }
 
 
 }
