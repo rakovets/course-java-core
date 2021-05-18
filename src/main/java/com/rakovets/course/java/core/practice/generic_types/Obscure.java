@@ -7,7 +7,7 @@ public class Obscure<T> {
         this.parametriseObject = parametriseObject;
     }
 
-    public T getParametriseObject() {
+    public T get() {
         return parametriseObject;
     }
 
@@ -27,11 +27,11 @@ public class Obscure<T> {
         }
     }
 
-    public T orElseThrow() throws Exception {
-        if (parametriseObject != null) {
+    public T orElseThrow(Exception exception) throws Exception {
+        if(isPresent()) {
             return parametriseObject;
         } else {
-            throw new Exception("ParametriseObject is null");
+            throw exception;
         }
     }
 
@@ -42,5 +42,4 @@ public class Obscure<T> {
     public static <T> Obscure<T> empty() {
         return new Obscure<>(null);
     }
-
 }
