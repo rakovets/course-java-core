@@ -6,20 +6,16 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
-import java.util.Deque;
-import java.util.Queue;
 
-public class Consumer extends Thread{
-    private Queue<Integer> terminalCollector;
+public class Consumer extends Thread {
     private final Path FILE_PATH = Paths.get("src", "main", "resources", "practice", "ThreadsData.txt");
     private boolean isAlive = true;
 
-    public Consumer(Queue<Integer> terminalCollector, String name) {
+    public Consumer(String name) {
         super(name);
-        this.terminalCollector = terminalCollector;
     }
 
-    public void kill(){
+    public void kill() {
         isAlive = false;
     }
 
@@ -28,7 +24,7 @@ public class Consumer extends Thread{
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(String.valueOf(FILE_PATH), true));
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                if (terminalCollector.size() > 0) {
+                if (Container.getTerminalCollector().size() > 0) {
                     int sleepTime = Container.getFromQueue();
                     sleep(sleepTime * 1000L);
                     bufferedWriter.write(timestamp + " " +  getName() + " I slept " + sleepTime + " seconds");
