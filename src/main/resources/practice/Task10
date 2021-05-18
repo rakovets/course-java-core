@@ -1,0 +1,5 @@
+public class Atm {
+    public int numberBanknotes20;
+    public int numberBanknotes50;
+    public int numberBanknotes100;
+}
