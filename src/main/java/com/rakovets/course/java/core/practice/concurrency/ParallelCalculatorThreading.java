@@ -5,20 +5,25 @@ import java.util.*;
 public class ParallelCalculatorThreading implements Runnable {
 
     private static Map<Integer[], Integer> mapWithSum = new HashMap<>();
-    private static List<Integer[]> listArray = new LinkedList<>();
+    //private static List<Integer[]> listArray = new LinkedList<>();
+    private static Queue<Integer[]> queue = new LinkedList<>();
+
+    private static List<Integer[]> listArray2 = new ArrayList<>();
+
 
     public Map<Integer[], Integer> getArraySum(List<Integer[]> list, int countOfThreads) throws InterruptedException {
         List<Thread> threads = new LinkedList<>();
-
-        listArray.addAll(list);
+        list.addAll(list);
+        listArray2.addAll(list);
+        list.stream()
+                .forEach(x -> queue.add(x));
+        //queue.addAll(list);
 
         for (int i = 0; i < countOfThreads; i++) {
-            threads.add(new Thread(this));
+            Thread thread = new Thread(this);
+            threads.add(thread);
+            thread.start();
         }
-
-        threads.stream()
-                .forEach(x -> x.start());
-
         threads.stream().forEach(x -> {
             try {
                 x.join();
@@ -31,23 +36,26 @@ public class ParallelCalculatorThreading implements Runnable {
 
     @Override
     public void run() {
-        //  System.out.println("P4");
 
-        while (listArray.size() > 0) {
-            //    System.out.println("Size in circle is " + listArray.size());
-            try {
-                Integer[] list = listArray.remove(0);
-                //  System.out.println("Взял" + Arrays.toString(list));
-                int sum = 0;
-                for (Integer value : list) {
-                    sum += value;
+        try {
+           // while (queue.size() != 0) {
+            while (listArray2.size() != 0) {
+               // Integer[] list = queue.poll();
+                Integer[] list = listArray2.remove(0);
+                // Integer[] list = list2.r
+                if (!(list.length == 0)) {
+
+                    int sum = 0;
+                    for (Integer value : list) {
+                        sum += value;
+                    }
+                    mapWithSum.put(list, sum);
                 }
-                mapWithSum.put(list, sum);
-                //   System.out.println("Zapisal");
-            } catch (NullPointerException | IndexOutOfBoundsException e) {
-                e.getMessage();
+
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        System.out.println("i vse " + Thread.currentThread().getName());
+
     }
 }
