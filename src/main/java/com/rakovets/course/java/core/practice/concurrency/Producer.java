@@ -19,9 +19,15 @@ public class Producer implements Runnable {
             System.out.print("Enter the number: ");
             try {
                 number = scanner.nextLine();
-                if (number.matches("[^0-9]")) {
+                if (
+                        number.matches("\\D") ||
+                        number.matches("") ||
+                        Double.parseDouble(number) % 1 != 0 ||
+                        Integer.parseInt(number) < 0 && Integer.parseInt(number) != -1
+                ) {
                     throw new UserInputException(number);
                 }
+
                 int i = Integer.parseInt(number);
                 if (i == -1) {
                     break;
