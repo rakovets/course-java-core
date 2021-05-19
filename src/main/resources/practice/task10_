@@ -1,0 +1,42 @@
+package com.rakovets.course.java.core.practice.lambda_expressions;
+
+private class TV {
+        private final String brand;
+        private final String model;
+        private final int year;
+        private final double diagonal;
+        private final double price;
+
+    private TV(String company, String model, int year, double diagonal, double price) {
+        this.brand = company;
+        this.model = model;
+        this.year = year;
+        this.diagonal = diagonal;
+        this.price = price;
+    }
+
+    private String getBrand() {
+        return brand;
+    }
+
+    private String getModel() {
+        return model;
+    }
+
+    private int getYear() {
+        return year;
+    }
+
+    private double getDiagonal() {
+        return diagonal;
+    }
+
+    private double getPrice() {
+        return price;
+    }
+
+    @Override
+    private String toString() {
+        return "TV (" + brand + ": " + model + ')';
+    }
+}
