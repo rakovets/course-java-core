@@ -47,6 +47,26 @@ public class FileAnalyzeUtil {
         return listWords;
     }
 
+    //task5
+    public static List<String> takeFilePathGetMaxCombinationNumeral(Path path) {
+        List<String> listOfMatches = new ArrayList<>();
+        List<String> nums = takeFilePathGetListString(path);
+        for (String numsLine : nums) {
+            String[] strings = numsLine.split("\\s+");
+            Set<String> hashset = new TreeSet<>();
+            for (int i = 0; i < strings.length - 1; i++) {
+                if (Integer.parseInt(strings[i]) < Integer.parseInt(strings[i + 1])) {
+                    hashset.add(strings[i]);
+                    if (Integer.parseInt(strings[i]) < Integer.parseInt(strings[i + 1])) {
+                        hashset.add(strings[i + 1]);
+                    }
+                }
+            }
+            listOfMatches.add(hashset.toString());
+        }
+        return listOfMatches;
+    }
+
     //task6
     public static Map<Character, Integer> takeFilePathGetFrequencyRepetitionAllLettersInText(Path filePath) {
         Map<Character, Integer> repetitionOfLetters = new HashMap<>();
