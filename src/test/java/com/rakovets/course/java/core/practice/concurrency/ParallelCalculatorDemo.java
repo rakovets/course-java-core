@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class ParallelCalculatorDemo {
     public static void main(String[] args) {
-
         Integer[] array = new Integer[]{1, 2, 3, 4, 5};
         Integer[] array2 = new Integer[]{-1, -2, -3, 4, 5};
         Integer[] array3 = new Integer[]{2, 3, 5};
@@ -18,9 +17,9 @@ public class ParallelCalculatorDemo {
 
         Map<Integer[], Integer> map = ParallelCalculator.getArraySum(list);
 
-        for (Map.Entry<Integer[],Integer> map2 : map.entrySet()) {
+        for (Map.Entry<Integer[], Integer> map2 : map.entrySet()) {
             Integer[] arrayS = map2.getKey();
-            System.out.println(Arrays.toString(arrayS)+ " sum = " + map2.getValue());
+            System.out.println(Arrays.toString(arrayS) + " sum = " + map2.getValue());
         }
     }
 }
