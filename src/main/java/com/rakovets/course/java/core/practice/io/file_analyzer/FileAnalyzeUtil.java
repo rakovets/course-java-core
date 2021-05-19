@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.io.file_analyzer;
 
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -84,7 +86,46 @@ public class FileAnalyzeUtil {
         }
     }
 
+    //task9
+    public static double takeFilePathGetAcademicPerformanceOfStudents(Path filePath) {
+        String text;
+        double countMarks = 0;
+        double sumMarks = 0;
+        double averageMark;
+        try (BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
+            while ((text = reader.readLine()) != null) {
+                String[] array = text.trim().replaceAll("[a-zA-Z]", "").split("[, ]");
+                for (String value : array) {
+                    try {
+                        sumMarks += Double.parseDouble(value.trim());
+                        countMarks++;
+                    } catch (NumberFormatException ignored) {
+                    }
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        averageMark = BigDecimal.valueOf(sumMarks / countMarks).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return averageMark;
+    }
 
+    //task10
+    public static void takeFilePathGetReplaceModifier(String filePath, String oldModifier, String newModifier) {
+        String newFilePath = filePath.replace(filePath, filePath + "_");
+        String javaCode;
+        String newJavaCode;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath))) {
+            while ((javaCode = reader.readLine()) != null) {
+                newJavaCode = javaCode.replace(oldModifier, newModifier);
+                writer.write(newJavaCode + "\n");
+            }
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }
 
 
