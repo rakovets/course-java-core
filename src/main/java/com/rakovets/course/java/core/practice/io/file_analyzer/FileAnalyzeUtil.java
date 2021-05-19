@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.io.file_analyzer;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -62,11 +60,31 @@ public class FileAnalyzeUtil {
         Map<String, Integer> repetitionOfWords = new HashMap<>();
         String[] words = takeFilePathGetListString(filePath).toString().trim()
                 .replaceAll("[\\[\\],.!?]", "").split(" ");
-        for (int i = 0; i < words.length; i++) {
-            repetitionOfWords.put(words[i], repetitionOfWords.getOrDefault(words[i], 0) + 1);
+        for (String word : words) {
+            repetitionOfWords.put(word, repetitionOfWords.getOrDefault(word, 0) + 1);
         }
         return repetitionOfWords.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
     }
+
+    //task8
+    public static void takeFilePathGetSortedNumbersInFile(Path filePath) {
+        String[] arrayNumbers = takeFilePathGetListString(filePath).toString()
+                .replaceAll("[^0-9\\s]", "").split(" ");
+        List<Integer> sortedNumbers = Arrays.stream(arrayNumbers)
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath + "_"))) {
+            bufferedWriter.write(sortedNumbers.toString());
+            bufferedWriter.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
 }
+
+
