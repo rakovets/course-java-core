@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.concurrency.threads;
 
+import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class ReadQueueAndWriteAtFile implements Runnable {
-    public static Queue<Integer> listOfNumbers = new LinkedList<>();
+    public static Deque<Integer> listOfNumbers = new LinkedList<>();
 
-    public static Queue<Integer> getListOfNumbers() {
+    public static Deque<Integer> getListOfNumbers() {
         return listOfNumbers;
     }
 
@@ -16,11 +16,6 @@ public class ReadQueueAndWriteAtFile implements Runnable {
         Thread read = new Thread(new Producer());
         read.setName("Producer");
         read.start();
-        try {
-            read.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Thread write = new Thread(new Consumer());
         write.setName("Consumer");
         Thread write2 = new Thread(new Consumer());

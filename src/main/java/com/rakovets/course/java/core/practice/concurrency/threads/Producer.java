@@ -14,6 +14,7 @@ public class Producer implements Runnable {
                 try {
                     int number = cin.nextInt();
                     if (number == -1) {
+                        ReadQueueAndWriteAtFile.listOfNumbers.add(number);
                         break;
                     }
                     ReadQueueAndWriteAtFile.listOfNumbers.add(number);
