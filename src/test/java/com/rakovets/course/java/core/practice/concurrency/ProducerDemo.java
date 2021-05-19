@@ -4,14 +4,14 @@ import java.io.IOException;
 
 public class ProducerDemo {
     public static void main(String[] args) throws IOException, UserInputException {
-        QueueDelay queueDelay = new QueueDelay();
-        Producer producer = new Producer(queueDelay);
+        Producer producer = new Producer();
         Thread threadProducer = new Thread(producer, "Producer");
         threadProducer.start();
-        Consumer consumer = new Consumer(queueDelay);
-        Thread threadConsumer = new Thread(consumer, "ConsumerOne");
+
+        Thread threadConsumer = new Thread(new Consumer(), "ConsumerOne");
         threadConsumer.start();
-        Thread threadConsumerTwo = new Thread(consumer, "ConsumerTwo");
+
+        Thread threadConsumerTwo = new Thread(new Consumer(), "ConsumerTwo");
         threadConsumerTwo.start();
     }
 }
