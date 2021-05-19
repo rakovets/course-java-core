@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
@@ -42,8 +40,6 @@ public class FileAnalyzeUtil {
         String[] arrayWords = takeFilePathGetListString(filePath).toString()
                 .replaceAll("[\\[\\],.!?]", "").split(" ");
         for (int i = 0; i < arrayWords.length - 1; i++) {
-            int word = 0;
-            word++;
             if (arrayWords[i].charAt(arrayWords[i].length() - 1) == arrayWords[i + 1].charAt(0)) {
                 listWords.add(arrayWords[i]);
             }
@@ -51,5 +47,26 @@ public class FileAnalyzeUtil {
         return listWords;
     }
 
+    //task6
+    public static Map<Character, Integer> takeFilePathGetFrequencyRepetitionAllLettersInText(Path filePath) {
+        Map<Character, Integer> repetitionOfLetters = new HashMap<>();
+        String text = takeFilePathGetListString(filePath).toString().toLowerCase().replaceAll("[^a-z]", "");
+        for (int i = 0; i < text.length(); i++) {
+            repetitionOfLetters.put(text.charAt(i), repetitionOfLetters.getOrDefault(text.charAt(i), 0) + 1);
+        }
+        return repetitionOfLetters;
+    }
 
+    //task7
+    public static Map<String, Integer> takeFilePathGetFrequencyRepetitionAllWordsInTextAscendingOrder(Path filePath) {
+        Map<String, Integer> repetitionOfWords = new HashMap<>();
+        String[] words = takeFilePathGetListString(filePath).toString().trim()
+                .replaceAll("[\\[\\],.!?]", "").split(" ");
+        for (int i = 0; i < words.length; i++) {
+            repetitionOfWords.put(words[i], repetitionOfWords.getOrDefault(words[i], 0) + 1);
+        }
+        return repetitionOfWords.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+    }
 }
