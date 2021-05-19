@@ -11,7 +11,6 @@ import java.sql.Timestamp;
 public class Consumer implements Runnable {
     private static boolean status = true;
 
-
     Path filePath = Paths.get("src", "main", "resources", "practice", "MasterWorker.txt");
 
     @Override
