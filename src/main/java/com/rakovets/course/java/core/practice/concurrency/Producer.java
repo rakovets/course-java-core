@@ -8,6 +8,7 @@ import java.util.LinkedList;
 public class Producer implements Runnable {
     private static LinkedList<Integer> queue = new LinkedList<>();
 
+
     @Override
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
