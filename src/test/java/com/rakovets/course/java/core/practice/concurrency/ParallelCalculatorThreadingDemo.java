@@ -17,12 +17,12 @@ public class ParallelCalculatorThreadingDemo {
         System.out.println("Input size of arrays : " + inoutArray.size());
         ParallelCalculatorThreading parallelCalculatorThreading = new ParallelCalculatorThreading();
 
-        Date one = new Date();
-        long timeBefore = one.getTime();
+        Date before = new Date();
+        long timeBefore = before.getTime();
         Map<Integer[], Integer> map = parallelCalculatorThreading.getArraySum(inoutArray, 2);
-        Date two = new Date();
+        Date after = new Date();
 
-        System.out.println("time is " + (two.getTime() - timeBefore) + "ms");
+        System.out.println("time is " + (after.getTime() - timeBefore) + "ms");
         System.out.println("Output size of arrays : " + map.size());
 
         for (Map.Entry<Integer[], Integer> map2 : map.entrySet()) {
