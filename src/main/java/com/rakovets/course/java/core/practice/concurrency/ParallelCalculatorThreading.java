@@ -9,7 +9,6 @@ public class ParallelCalculatorThreading implements Runnable {
     public Map<Integer[], Integer> getArraySum(List<Integer[]> list, int countOfThreads) {
         List<Thread> threads = new LinkedList<>();
         arrayListWithInoutArrays.addAll(list);
-
         for (int i = 0; i < countOfThreads; i++) {
             Thread thread = new Thread(this);
             threads.add(thread);
