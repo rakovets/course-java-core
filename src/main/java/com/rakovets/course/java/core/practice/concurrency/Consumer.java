@@ -15,10 +15,6 @@ public class Consumer extends Thread {
         super(name);
     }
 
-    public void kill() {
-        isAlive = false;
-    }
-
     public void run() {
         while (isAlive) {
             try {
@@ -26,8 +22,12 @@ public class Consumer extends Thread {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 if (Container.getTerminalCollector().size() > 0) {
                     int sleepTime = Container.getFromQueue();
-                    sleep(sleepTime * 1000L);
-                    bufferedWriter.write(timestamp + " " +  getName() + " I slept " + sleepTime + " seconds");
+                    if (sleepTime == -1) {
+                        isAlive = false;
+                    } else {
+                        sleep(sleepTime * 1000L);
+                        bufferedWriter.write(timestamp + " " + getName() + " I slept " + sleepTime + " seconds");
+                    }
                 } else {
                     int sleepTime = 1;
                     sleep(sleepTime * 1000L);

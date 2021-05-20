@@ -17,12 +17,13 @@ public class Producer extends Thread {
         while (true) {
             try {
                 container = scanner.nextLine();
-                if (container.equals("-1")) {
-                    break;
-                } else if (Integer.parseInt(container) < -1) {
+                if (Integer.parseInt(container) < -1) {
                     throw new UserInputException("Wrong input try again");
                 } else {
                     terminalCollector.offer(Integer.parseInt(container));
+                    if (container.equals("-1")) {
+                        break;
+                    }
                 }
             } catch (NumberFormatException numberFormatException) {
                 try {
