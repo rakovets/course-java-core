@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 
 public class Consumer implements Runnable {
     private static boolean status = true;
-
     Path filePath = Paths.get("src", "main", "resources", "practice", "MasterWorker.txt");
 
     @Override
@@ -22,7 +21,8 @@ public class Consumer implements Runnable {
                     if (Producer.getQueue().peek() != null) {
                         int delay = Producer.getQueue().poll();
                         Thread.sleep(delay * 1000);
-                        writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept " + delay + " seconds");
+                        writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept " + delay
+                                + " seconds");
                     } else {
                         writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept 1  seconds");
                         Thread.sleep(1000);
