@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency;
+package com.rakovets.course.java.core.practice.concurrency.queue;
 
 public class UserInputException extends Exception {
     private String number;

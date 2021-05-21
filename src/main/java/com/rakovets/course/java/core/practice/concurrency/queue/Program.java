@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency;
+package com.rakovets.course.java.core.practice.concurrency.queue;
 
 import com.rakovets.course.java.core.util.AnsiColorCode;
 
@@ -12,9 +12,15 @@ import java.util.Properties;
 import java.util.Queue;
 
 public class Program {
+    static boolean isInterrupt;
+
+    public static void setIsInterrupt (boolean isInterrupt) {
+        Program.isInterrupt = isInterrupt;
+    }
+
     public static void main(String[] args) {
-        Path userPropertiesPath = Paths.get("src", "main", "java", "com", "rakovets", "course", "java", "core",
-                "practice", "concurrency", "users.properties");
+
+        Path userPropertiesPath = Paths.get("src", "main", "resources", "users.properties");
         Properties p = new Properties();
         try (FileReader reader = new FileReader(userPropertiesPath.toFile())) {
             p.load(reader);
@@ -35,10 +41,10 @@ public class Program {
         Queue<Integer> queue = new ArrayDeque<>();
         System.out.printf("%s%s%s\n", AnsiColorCode.FG_BLUE_BOLD, "THE PROGRAM HAS STARTED:", AnsiColorCode.RESET);
         Thread thread1 = new Thread(new Producer(queue), "Producer");
-        Thread thread2 = new Thread(new Consumer(queue, thread1, filePath), "Consumer - 1");
-        Thread thread3 = new Thread(new Consumer(queue, thread1, filePath), "Consumer - 2");
-        Thread thread4 = new Thread(new Consumer(queue, thread1, filePath), "Consumer - 3");
-        Thread thread5 = new Thread(new Consumer(queue, thread1, filePath), "Consumer - 4");
+        Thread thread2 = new Thread(new Consumer(queue, filePath), "Consumer - 1");
+        Thread thread3 = new Thread(new Consumer(queue, filePath), "Consumer - 2");
+        Thread thread4 = new Thread(new Consumer(queue, filePath), "Consumer - 3");
+        Thread thread5 = new Thread(new Consumer(queue, filePath), "Consumer - 4");
 
         thread1.start();
         thread2.start();

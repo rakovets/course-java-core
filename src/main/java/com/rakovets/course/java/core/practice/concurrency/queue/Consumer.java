@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency;
+package com.rakovets.course.java.core.practice.concurrency.queue;
 
 import com.rakovets.course.java.core.util.AnsiColorCode;
 
@@ -10,19 +10,17 @@ import java.util.Queue;
 
 public class Consumer implements Runnable {
     private final Queue<Integer> queue;
-    private final Thread thread;
     private final String filePath;
 
-    public Consumer(Queue<Integer> queue, Thread thread, String filePath) {
+    public Consumer(Queue<Integer> queue, String filePath) {
         this.queue = queue;
-        this.thread = thread;
         this.filePath = filePath;
     }
 
     @Override
     public void run() {
         while (true) {
-            if (!thread.isAlive()) {
+            if (Program.isInterrupt) {
                 break;
             }
 
@@ -33,7 +31,8 @@ public class Consumer implements Runnable {
                     writer.write(LocalDateTime.now() + " " + Thread.currentThread().getName() + " ...\n");
                 } else {
                     Thread.sleep(i * 1000L);
-                    writer.write (LocalDateTime.now() + "I slept " + i + " seconds\n");
+                    writer.write (LocalDateTime.now() + " " + Thread.currentThread().getName() +
+                            " I slept " + i + " seconds\n");
                 }
 
                 writer.flush();

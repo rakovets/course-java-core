@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency;
+package com.rakovets.course.java.core.practice.concurrency.queue;
 
 import com.rakovets.course.java.core.util.AnsiColorCode;
 
@@ -30,6 +30,7 @@ public class Producer implements Runnable {
 
                 int i = Integer.parseInt(number);
                 if (i == -1) {
+                    Program.setIsInterrupt(true);
                     break;
                 }
                 queue.add(i);
