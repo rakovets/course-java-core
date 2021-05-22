@@ -8,7 +8,6 @@ public class Wednesday implements Runnable {
     private int countRobots = 0;
     private Map<Details, Integer> detailsWednesday = new HashMap<>();
     private boolean statusWednesday;
-    private boolean nightWednesday;
 
     public boolean isStatusWednesday() {
         return statusWednesday;
@@ -18,13 +17,6 @@ public class Wednesday implements Runnable {
         this.statusWednesday = statusWednesday;
     }
 
-    public void setNightWednesday(boolean nightWednesday) {
-        this.nightWednesday = nightWednesday;
-    }
-
-    public boolean isNightWednesday() {
-        return nightWednesday;
-    }
 
     {
         detailsWednesday.put(Details.HEAD, 0);
@@ -40,34 +32,30 @@ public class Wednesday implements Runnable {
     @Override
     public void run() {
         while (isStatusWednesday()) {
+
+            for (int i = 0; i < Factory.getDetail().size(); i++) {
+                if (DayPeriod.isNight() && isStatusWednesday()) {
+                    System.out.println(" Word Night!");
+                    //  System.out.println(" Word Night!");
+                    Details detailWorld = Factory.getDetails();
+                    int newCount = 0;
+                    if (detailsWednesday.containsKey(detailWorld)) {
+                        newCount = detailsWednesday.get(detailWorld) + 1;
+                    }
+                    detailsWednesday.put(detailWorld, newCount);
+                }
+            }
+            createNewWednesdayRobots();
+
             try {
-               Thread.sleep(10);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-          }
-
-            if (isNightWednesday() && isStatusWednesday()) {
-
-                for (int i = 0; i < 5; i++) {
-                    if (Factory.getDetail().size() >= 1) {
-                        Details detail = Factory.getDetails();
-                        int newCount = 0;
-                        if (detailsWednesday.containsKey(detail)) {
-                            newCount = detailsWednesday.get(detail) + 1;
-                        }
-                        detailsWednesday.put(detail, newCount);
-                    }
-                }
-                setNightWednesday(false);
-                createNewRobots();
-            } else if (!isStatusWednesday()) {
-                System.out.println("I die Wednesday");
-                break;
             }
         }
     }
 
-    public void createNewRobots() {
+    public void createNewWednesdayRobots() {
 
         // System.out.println();
         // System.out.println(Thread.currentThread().getName() + " " + " Heads " + detailsWednesday.get(Details.HEAD));

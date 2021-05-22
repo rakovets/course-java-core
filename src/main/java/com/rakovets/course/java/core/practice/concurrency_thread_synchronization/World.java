@@ -7,7 +7,6 @@ public class World implements Runnable {
     private int countWorldRobots = 0;
     private Map<Details, Integer> detailsWorld = new HashMap<>();
     private boolean statusWorld;
-    private boolean nightWorld;
 
     public boolean isStatusWorld() {
         return statusWorld;
@@ -15,14 +14,6 @@ public class World implements Runnable {
 
     public void setStatusWorld(boolean statusWorld) {
         this.statusWorld = statusWorld;
-    }
-
-    public void setNightWorld(boolean nightWorld) {
-        this.nightWorld = nightWorld;
-    }
-
-    public boolean isNightWorld() {
-        return nightWorld;
     }
 
     {
@@ -39,28 +30,25 @@ public class World implements Runnable {
     @Override
     public void run() {
         while (isStatusWorld()) {
+
+            for (int i = 0; i < Factory.getDetail().size(); i++) {
+                if (DayPeriod.isNight() && isStatusWorld()) {
+                    System.out.println(" Word Night!");
+                  //  System.out.println(" Word Night!");
+                    Details detailWorld = Factory.getDetails();
+                    int newCount = 0;
+                    if (detailsWorld.containsKey(detailWorld)) {
+                        newCount = detailsWorld.get(detailWorld) + 1;
+                    }
+                    detailsWorld.put(detailWorld, newCount);
+                }
+            }
+            createNewWorldRobots();
+
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
-
-            if (isNightWorld() && isStatusWorld()) {
-                for (int i = 0; i < 5; i++) {
-                    if (Factory.getDetail().size() >= 1) {
-                        Details detailWorld = Factory.getDetails();
-                        int newCount = 0;
-                        if (detailsWorld.containsKey(detailWorld)) {
-                            newCount = detailsWorld.get(detailWorld) + 1;
-                        }
-                        detailsWorld.put(detailWorld, newCount);
-                    }
-                }
-                setNightWorld(false);
-                createNewWorldRobots();
-            } else if (!isStatusWorld()) {
-                System.out.println("I die World");
-                break;
             }
         }
     }
