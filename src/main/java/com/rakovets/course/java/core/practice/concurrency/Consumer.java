@@ -30,7 +30,7 @@ public class Consumer implements Runnable{
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(String.valueOf(filePath)));
             while (isStatus()) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                if (commonResource.size() != 0) {
+                if (commonResource.peek() != null) {
                     int sleepTime = commonResource.poll();
                     Thread.sleep(sleepTime * 1000);
                     bufferedWriter.write(timestamp + " " + Thread.currentThread().getName() + " I slept " + sleepTime + " seconds");
@@ -41,7 +41,7 @@ public class Consumer implements Runnable{
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException | InterruptedException | NullPointerException e) {
                 e.printStackTrace();
         }
     }
