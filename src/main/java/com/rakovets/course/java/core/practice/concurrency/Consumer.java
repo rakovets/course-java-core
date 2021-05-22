@@ -10,7 +10,7 @@ import java.util.Queue;
 
 public class Consumer implements Runnable{
     private Queue<Integer> commonResource;
-    private final Path FILE_PATH = Paths.get("src", "main", "resources", "practice", "ThreadLog.txt");
+    Path filePath = Paths.get("src", "main", "resources", "practice", "ThreadLog.txt");
     private static boolean status = true;
 
     public Consumer(Queue<Integer> commonResource) {
@@ -26,24 +26,23 @@ public class Consumer implements Runnable{
     }
 
     public void run () {
-        while (isStatus()) {
-            try{
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(String.valueOf(FILE_PATH), true));
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(String.valueOf(filePath)));
+            while (isStatus()) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                System.out.println(commonResource.peek());
-                if(commonResource.size() != 0) {
+                if (commonResource.size() != 0) {
                     int sleepTime = commonResource.poll();
                     Thread.sleep(sleepTime * 1000);
-                    bufferedWriter.write(timestamp + " " +  Thread.currentThread().getName() + " I slept " + sleepTime + " seconds");
+                    bufferedWriter.write(timestamp + " " + Thread.currentThread().getName() + " I slept " + sleepTime + " seconds");
                 } else {
-                    Thread.sleep( 1000);
-                    bufferedWriter.write(timestamp + " " + Thread.currentThread().getName() );
+                    Thread.sleep(1000);
+                    bufferedWriter.write(timestamp + " " + Thread.currentThread().getName());
                 }
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
             }
+        } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
         }
     }
 }
