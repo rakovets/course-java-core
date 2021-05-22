@@ -6,36 +6,41 @@ import java.util.Random;
 
 public class Store {
     private static final Random random = new Random();
-    static Deque<Integer> listOfNumbers = new LinkedList<>();
+    private static Deque<Integer> listOfNumbers = new LinkedList<>();
     private final static int STORAGE_CAPACITY = 10;
 
-    synchronized public void produce() {
-        while (listOfNumbers.size() >= STORAGE_CAPACITY) {
+    public synchronized void produce() {
+        while (listOfNumbers.size() == STORAGE_CAPACITY) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        listOfNumbers.add(random.nextInt(100));
+        int element = random.nextInt(50);
+        listOfNumbers.add(element);
+        System.out.println("Added element: " + element + "\nStorage size: " + getStorageSize() + "\n" + getListOfNumbers());
         notify();
     }
 
-    public int consume() {
-        while (listOfNumbers.size() < 1) {
+    public synchronized void consume() {
+        while (listOfNumbers.size() == 0) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        int element = listOfNumbers.element();
-        listOfNumbers.removeFirst();
+        int element = listOfNumbers.removeFirst();
+        System.out.println("Received element: " + element + "\nStorage size: " + getStorageSize() + "\n" + getListOfNumbers());
         notify();
-        return element;
     }
 
-    public static Deque<Integer> getListOfNumbers() {
+    public int getStorageSize() {
+        return listOfNumbers.size();
+    }
+
+    public Deque<Integer> getListOfNumbers() {
         return listOfNumbers;
     }
 }

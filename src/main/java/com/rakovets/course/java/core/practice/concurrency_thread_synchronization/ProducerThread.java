@@ -1,20 +1,16 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
 
-import java.util.Random;
-
 public class ProducerThread implements Runnable {
-    private static final Random random = new Random();
-    Store store = new Store();
+    final private Store store;
+
+    public ProducerThread(Store store) {
+        this.store = store;
+    }
 
     @Override
     public void run() {
         while (true) {
             store.produce();
-            try {
-                Thread.sleep(random.nextInt(10));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
