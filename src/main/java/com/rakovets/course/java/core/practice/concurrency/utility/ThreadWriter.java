@@ -17,7 +17,6 @@ public class ThreadWriter implements Runnable {
     @Override
     public void run() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(directoryForCopy + "Copy.txt", false))) {
-            System.out.println("Writing begin");
             do {
                 String text = "";
                 while ((text = queue.poll()) != null) {

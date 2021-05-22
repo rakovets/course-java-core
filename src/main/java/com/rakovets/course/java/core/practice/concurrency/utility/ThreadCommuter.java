@@ -18,9 +18,10 @@ public class ThreadCommuter implements Runnable{
     public void run() {
         String message = "";
         while (true) {
-            System.out.printf("%s%s%s\n", AnsiColorCode.FG_GREEN_BOLD, "Autosave is performed every " + minute +
+            System.out.printf("%s%s%s\n", AnsiColorCode.FG_YELLOW_BOLD, "Autosave is performed every " + minute +
                     " minutes.", AnsiColorCode.RESET);
-            System.out.println("To close the application, enter N/n");
+            System.out.printf("%s%s%s\n", AnsiColorCode.FG_GREEN_BOLD, "To close the application, enter N/n",
+                    AnsiColorCode.RESET);
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter the value: ");
             try {
@@ -28,9 +29,9 @@ public class ThreadCommuter implements Runnable{
                 if (message.matches("[^Nn]")) {
                     throw new UserInputException(message);
                 }
-                repeatSave.interrupt();
-                break;
-            } catch (UserInputException ex) {
+                     repeatSave.interrupt();
+                    break;
+              } catch (UserInputException ex) {
                 System.out.printf("%s%s%s\n", AnsiColorCode.FG_RED_BOLD, ex.getMessage(), AnsiColorCode.RESET);
             }
             System.out.println("");
