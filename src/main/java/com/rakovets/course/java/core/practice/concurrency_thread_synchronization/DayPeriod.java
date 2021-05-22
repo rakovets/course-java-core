@@ -4,22 +4,37 @@ import java.util.Random;
 
 public class DayPeriod {
     private int days;
-    private World fractionWorld;
-    private World wednesday;
+    private World world;
+    private Wednesday wednesday;
+
+    public DayPeriod(int days, World world, Wednesday wednesday) {
+        this.days = days;
+        this.world = world;
+        this.wednesday = wednesday;
+    }
 
     Factory factory = new Factory();
 
-    public DayPeriod(int days) {
-        this.days = days;
-    }
-
-    public void time() {
+    public void start() throws InterruptedException {
         while (days > 0) {
+            days--;
             factory.createDetails();
-            int firstFraction = new Random().nextInt(1);
-            if (firstFraction == 1) {
+            int firstFraction = new Random().nextInt(2);
+            System.out.println("first clan is : " + firstFraction);
 
+            Thread fractionWorld = new Thread(world,"Clan World");
+            Thread fractionWednesday = new Thread(wednesday,"Clan Wednesday");
+
+            if (firstFraction == 1) {
+                fractionWorld.start();
+                fractionWednesday.start();
+            } else {
+                fractionWednesday.start();
+                fractionWorld.start();
             }
+            System.out.println("sleep");
+            fractionWorld.join();
+            fractionWednesday.join();
         }
     }
 }
