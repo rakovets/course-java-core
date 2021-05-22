@@ -10,11 +10,11 @@ public class SkyNetDemo {
         World world = new World();
         Wednesday wednesday = new Wednesday();
 
-        DayPeriod dayPeriod = new DayPeriod(6000, world, wednesday);
+        DayPeriod dayPeriod = new DayPeriod(1000, world, wednesday);
 
         dayPeriod.start();
         System.out.println("Demo:");
         System.out.println("Wednesday's Count of robots : " + wednesday.getCountRobots());
-        System.out.println("World's count of robots : " + world.getCountWorldRobotsRobots());
+        System.out.println("World's count of robots : " + world.getCountRobots());
     }
 }

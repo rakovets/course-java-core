@@ -24,8 +24,8 @@ public class DayPeriod {
 
 
     public void start() throws InterruptedException {
-        wednesday.setStatusWednesday(true);
-        world.setStatusWorld(true);
+        wednesday.setStatus(true);
+        world.setStatus(true);
 
         Factory factory = new Factory();
         factory.setStatusFactory(true);
@@ -55,8 +55,8 @@ public class DayPeriod {
             Thread.sleep(30);
             days--;
         }
-        world.setStatusWorld(false);
-        wednesday.setStatusWednesday(false);
+        world.setStatus(false);
+        wednesday.setStatus(false);
         factory.setStatusFactory(false);
     }
 }
