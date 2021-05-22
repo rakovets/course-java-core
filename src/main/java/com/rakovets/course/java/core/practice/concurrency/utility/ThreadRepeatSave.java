@@ -20,16 +20,16 @@ public class ThreadRepeatSave implements Runnable {
     @Override
     public void run() {
         try {
-            while (BackupUtility.getIsAlive()) {
+            while (true) {
                 Thread reader = new Thread(new ThreadReader(pathFile, queue), "Thread - Reader");
                 Thread writer = new Thread(new ThreadWriter(pathForCopy, queue), "Thread - Writer");
                 reader.start();
                 writer.start();
 
-                Thread.sleep(minute * 1_000 * 20);
+                Thread.sleep(minute * 1_000 * 60);
             }
         } catch (InterruptedException ex) {
-            System.out.printf("%s%s%s\n", AnsiColorCode.FG_RED_BOLD, "Thread has been interrupted", AnsiColorCode.RESET);
+            System.out.printf("%s%s%s\n", AnsiColorCode.FG_RED_BOLD, "The program has been interrupted", AnsiColorCode.RESET);
         }
     }
 }

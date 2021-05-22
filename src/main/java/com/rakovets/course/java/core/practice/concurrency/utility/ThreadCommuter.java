@@ -6,10 +6,12 @@ import com.rakovets.course.java.core.util.AnsiColorCode;
 import java.util.Scanner;
 
 public class ThreadCommuter implements Runnable{
-    long minute;
+    private long minute;
+    private Thread repeatSave;
 
-    public ThreadCommuter(long minute) {
+    public ThreadCommuter(long minute, Thread repeatSave) {
         this.minute = minute;
+        this.repeatSave = repeatSave;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class ThreadCommuter implements Runnable{
                 if (message.matches("[^Nn]")) {
                     throw new UserInputException(message);
                 }
-                BackupUtility.setIsAlive(false);
+                repeatSave.interrupt();
                 break;
             } catch (UserInputException ex) {
                 System.out.printf("%s%s%s\n", AnsiColorCode.FG_RED_BOLD, ex.getMessage(), AnsiColorCode.RESET);
