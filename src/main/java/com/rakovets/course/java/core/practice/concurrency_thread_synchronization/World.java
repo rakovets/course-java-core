@@ -4,56 +4,85 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class World implements Runnable {
-    private static int countRobots = 0;
-    private static Map<Details, Integer> details = new HashMap<>();
+    private int countWorldRobots = 0;
+    private Map<Details, Integer> detailsWorld = new HashMap<>();
+    private boolean statusWorld;
+    private boolean nightWorld;
 
-    {
-        details.put(Details.HEAD, 0);
-        details.put(Details.FEET, 0);
-        details.put(Details.HAND, 0);
-        details.put(Details.TORSO, 0);
+    public boolean isStatusWorld() {
+        return statusWorld;
     }
 
-    public int getCountRobots() {
-        return countRobots;
+    public void setStatusWorld(boolean statusWorld) {
+        this.statusWorld = statusWorld;
+    }
+
+    public void setNightWorld(boolean nightWorld) {
+        this.nightWorld = nightWorld;
+    }
+
+    public boolean isNightWorld() {
+        return nightWorld;
+    }
+
+    {
+        detailsWorld.put(Details.HEAD, 0);
+        detailsWorld.put(Details.FEET, 0);
+        detailsWorld.put(Details.HAND, 0);
+        detailsWorld.put(Details.TORSO, 0);
+    }
+
+    public int getCountWorldRobotsRobots() {
+        return countWorldRobots;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
-            if (Factory.getDetail().size() >= 1) {
-                Details detail = Factory.getDetails();
-                int newCount = 0;
-                System.out.println(detail);
-                if (details.containsKey(detail)) {
-                    newCount = details.get(detail) + 1;
+        while (isStatusWorld()) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
-                    System.out.println();
-                    System.out.println(" NEW COUNT = " + newCount);
-                    System.out.println();
+            if (isNightWorld() && isStatusWorld()) {
+                for (int i = 0; i < 5; i++) {
+                    if (Factory.getDetail().size() >= 1) {
+                        Details detailWorld = Factory.getDetails();
+                        int newCount = 0;
+                        if (detailsWorld.containsKey(detailWorld)) {
+                            newCount = detailsWorld.get(detailWorld) + 1;
+                        }
+                        detailsWorld.put(detailWorld, newCount);
+                    }
                 }
-                details.put(detail, newCount);
+                setNightWorld(false);
+                createNewWorldRobots();
+            } else if (!isStatusWorld()) {
+                System.out.println("I die World");
+                break;
             }
         }
-        createNewRobotsWorld();
     }
 
-    public void createNewRobotsWorld() {
-        System.out.println();
-        System.out.println(Thread.currentThread().getName() + " " + " Heads " + details.get(Details.HEAD));
-        System.out.println(Thread.currentThread().getName() + " " + " Torso " + details.get(Details.TORSO));
-        System.out.println(Thread.currentThread().getName() + " " + " Feet " + details.get(Details.FEET));
-        System.out.println(Thread.currentThread().getName() + " " + " Hand " + details.get(Details.HAND));
-        System.out.println();
+    public void createNewWorldRobots() {
 
-        while (details.get(Details.HEAD) > 1 && details.get(Details.FEET) > 2 && details.get(Details.HAND) > 2 &&
-                details.get(Details.TORSO) > 1) {
-            countRobots++;
-            details.put(Details.HEAD, details.get(Details.HEAD) - 1);
-            details.put(Details.FEET, details.get(Details.HEAD) - 2);
-            details.put(Details.HAND, details.get(Details.HAND) - 2);
-            details.put(Details.TORSO, details.get(Details.TORSO) - 1);
-            System.out.println(countRobots);
+        // System.out.println();
+        // System.out.println(Thread.currentThread().getName() + " " + " Heads " + detailsWednesday.get(Details.HEAD));
+        // System.out.println(Thread.currentThread().getName() + " " + " Torso " +detailsWednesday.get(Details.TORSO));
+        // System.out.println(Thread.currentThread().getName() + " " + " Feet" + detailsWednesday.get(Details.FEET));
+        // System.out.println(Thread.currentThread().getName() + " " + " Hand " + detailsWednesday.get(Details.HAND));
+        //System.out.println();
+
+        while (detailsWorld.get(Details.HEAD) > 1 && detailsWorld.get(Details.FEET) > 2 && detailsWorld.get(Details.HAND) > 2 &&
+                detailsWorld.get(Details.TORSO) > 1) {
+            countWorldRobots++;
+            detailsWorld.put(Details.HEAD, detailsWorld.get(Details.HEAD) - 1);
+            detailsWorld.put(Details.FEET, detailsWorld.get(Details.HEAD) - 2);
+            detailsWorld.put(Details.HAND, detailsWorld.get(Details.HAND) - 2);
+            detailsWorld.put(Details.TORSO, detailsWorld.get(Details.TORSO) - 1);
+            //  System.out.println(countRobots);
         }
+
     }
 }
