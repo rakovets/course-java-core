@@ -41,7 +41,7 @@ public class Consumer implements Runnable{
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
             }
-        } catch (IOException | InterruptedException | NullPointerException e) {
+        } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
         }
     }
