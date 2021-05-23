@@ -1,4 +1,6 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer.threads;
+
+import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer.Store;
 
 public class ProducerThread implements Runnable {
     final private Store store;
