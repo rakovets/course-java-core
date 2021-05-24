@@ -4,6 +4,5 @@ public class World extends BountyHunter implements Runnable {
     @Override
     public void run() {
         getDetails();
-        createNewRobots();
     }
 }

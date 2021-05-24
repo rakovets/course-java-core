@@ -4,7 +4,6 @@ public class Wednesday extends BountyHunter implements Runnable {
     @Override
     public void run() {
         getDetails();
-
     }
 }
 
