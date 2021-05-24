@@ -66,12 +66,12 @@ public class StringUtil {
         String[] splitText;
         int j = 0;
         if (text.length() % numberSymbols != 0) {
-            splitText = new String[text.length() / numberSymbols+1];
+            splitText = new String[text.length() / numberSymbols + 1];
         } else {
             splitText = new String[text.length() / numberSymbols];
         }
 
-        for (int i = 0; i < text.length() ; i += numberSymbols) {
+        for (int i = 0; i < text.length(); i += numberSymbols) {
             if (text.length() - i < numberSymbols) {
                 splitText[j] = text.substring(i);
             } else {
@@ -191,5 +191,3 @@ public class StringUtil {
         return results;
     }
 }
-
-

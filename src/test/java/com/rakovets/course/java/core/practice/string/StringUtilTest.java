@@ -303,4 +303,3 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 }
-
