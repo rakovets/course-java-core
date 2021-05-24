@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WebServiceApplication {
-
     public static Map<String, Client> map = new HashMap<>();
 
     public static String enterLogin() throws IOException {
@@ -75,7 +74,6 @@ public class WebServiceApplication {
         }
     }
 
-
     public static void changeLogin() throws IOException {
         String newLogin;
         String login = enterLogin();
@@ -94,7 +92,6 @@ public class WebServiceApplication {
         } else {
             ClientController.message(4);
         }
-
     }
 
     public static void changePassword() throws IOException {
@@ -112,5 +109,3 @@ public class WebServiceApplication {
         }
     }
 }
-
-
