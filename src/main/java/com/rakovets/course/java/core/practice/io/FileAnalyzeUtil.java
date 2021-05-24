@@ -24,9 +24,10 @@ public class FileAnalyzeUtil {
     public static List<String> getListOfWordsStartWithVowelLetterFromFile(Path filePath) {
         List<String> tempList = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
+            String line;
             String[] strings;
-            while (bufferedReader.readLine() != null) {
-                strings = getListOfStringFromFile(filePath).toString().replaceAll("[\\[\\],.!?]", "").split(" ");
+            while ((line = bufferedReader.readLine()) != null) {
+                strings = line.replaceAll("[\\[\\],.!?]", "").split(" ");
                 Arrays.stream(strings)
                         .filter(e -> e.matches("^[eEuUiIoOaA].*"))
                         .forEach(tempList::add);
@@ -40,9 +41,10 @@ public class FileAnalyzeUtil {
     public static List<String> getListOfWordsEndsWithTheFirstLetterOfTheNextWord(Path filePath) {
         List<String> listOfWords = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
+            String line;
             String[] strings;
-            while (bufferedReader.readLine() != null) {
-                strings = getListOfStringFromFile(filePath).toString().replaceAll("[,?!] ", "").split(" ");
+            while ((line = bufferedReader.readLine()) != null) {
+                strings = line.replaceAll("[,?!] ", "").split(" ");
                 for (int i = 0; i < strings.length - 1; i++) {
                     char[] tempOne = strings[i].toCharArray();
                     char[] tempTwo = strings[i + 1].toCharArray();
@@ -61,37 +63,41 @@ public class FileAnalyzeUtil {
         List<String> numbersOrders = new ArrayList<>();
         List<Integer> tempBiggest = new ArrayList<>();
         List<Integer> tempCurrent = new ArrayList<>();
-        getListOfStringFromFile(filePath)
-                .forEach(e -> {
-                    String[] listOfNumber = e.split(" ");
-                    tempCurrent.add(Integer.parseInt(listOfNumber[0]));
-                    for (int i = 1; i < listOfNumber.length; i++) {
-                        if (Integer.parseInt(listOfNumber[i]) - 1 == Integer.parseInt(listOfNumber[i - 1])) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] listOfNumber = line.split(" ");
+                tempCurrent.add(Integer.parseInt(listOfNumber[0]));
+                for (int i = 1; i < listOfNumber.length; i++) {
+                    if (Integer.parseInt(listOfNumber[i]) - 1 == Integer.parseInt(listOfNumber[i - 1])) {
+                        tempCurrent.add(Integer.parseInt(listOfNumber[i]));
+                    } else {
+                        if (tempCurrent.size() > tempBiggest.size()) {
+                            tempBiggest.clear();
+                            tempBiggest.addAll(tempCurrent);
+                            tempCurrent.clear();
                             tempCurrent.add(Integer.parseInt(listOfNumber[i]));
                         } else {
-                            if (tempCurrent.size() > tempBiggest.size()) {
-                                tempBiggest.clear();
-                                tempBiggest.addAll(tempCurrent);
-                                tempCurrent.clear();
-                                tempCurrent.add(Integer.parseInt(listOfNumber[i]));
-                            } else {
-                                tempCurrent.clear();
-                                tempCurrent.add(Integer.parseInt(listOfNumber[i]));
-                            }
+                            tempCurrent.clear();
+                            tempCurrent.add(Integer.parseInt(listOfNumber[i]));
                         }
                     }
-                    if (tempCurrent.size() > tempBiggest.size()) {
-                        tempBiggest.clear();
-                        tempBiggest.addAll(tempCurrent);
-                    }
-                    String lineOfNumbers = "";
-                    for (Integer number : tempBiggest) {
-                        lineOfNumbers += number + " ";
-                    }
-                    numbersOrders.add(lineOfNumbers);
+                }
+                if (tempCurrent.size() > tempBiggest.size()) {
                     tempBiggest.clear();
-                    tempCurrent.clear();
-                });
+                    tempBiggest.addAll(tempCurrent);
+                }
+                String lineOfNumbers = "";
+                for (Integer number : tempBiggest) {
+                    lineOfNumbers += number + " ";
+                }
+                numbersOrders.add(lineOfNumbers);
+                tempBiggest.clear();
+                tempCurrent.clear();
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         return numbersOrders;
     }
 
@@ -99,8 +105,8 @@ public class FileAnalyzeUtil {
         Map<Character, Integer> usageOfChars = new HashMap<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
             String line;
-            while (bufferedReader.readLine() != null) {
-                line = getListOfStringFromFile(filePath).toString().toLowerCase().replaceAll("[^a-z]", "");
+            while ((line = bufferedReader.readLine()) != null) {
+                line.toLowerCase().replaceAll("[^a-z]", "");
                 for (char currentChar : line.toCharArray()) {
                     usageOfChars.put(currentChar, usageOfChars.getOrDefault(currentChar, 0) + 1);
                 }
@@ -114,34 +120,48 @@ public class FileAnalyzeUtil {
     public static Map<String, Integer> getQuantityOfWordsRepeating(Path filePath) {
         Map<String, Integer> usageOfWords = new HashMap<>();
         Map<String, Integer> sortedMap = new HashMap<>();
-
-        String text = getListOfStringFromFile(filePath).toString().toLowerCase().replaceAll("[\\[\\],.!?]", "").replaceAll("[\\s+]", " ");
-        for (String currentWord : text.split(" ")) {
-            usageOfWords.put(currentWord, usageOfWords.getOrDefault(currentWord, 0) + 1);
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String text = line.toLowerCase().replaceAll("[\\[\\],.!?]", "").replaceAll("[\\s+]", " ");
+                for (String currentWord : text.split(" ")) {
+                    usageOfWords.put(currentWord, usageOfWords.getOrDefault(currentWord, 0) + 1);
+                }
+                usageOfWords.entrySet()
+                        .stream()
+                        .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                        .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        usageOfWords.entrySet()
-                .stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
-                .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
         return sortedMap;
     }
 
     public static void getSortedNubersOrder(Path filePath) {
-        String[] arrayOfNumbers = getListOfStringFromFile(filePath).toString().replaceAll("[^0-9\\s]", "").split(" ");
-        List<Integer> sortedList = Arrays.stream(arrayOfNumbers)
-                .map(Integer::parseInt)
-                .sorted()
-                .collect(Collectors.toList());
-        try (BufferedWriter bufferedWriter =
-                     new BufferedWriter(new FileWriter(filePath + "_"))) {
-            bufferedWriter.write(sortedList.toString());
-            bufferedWriter.flush();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] arrayOfNumbers = line.replaceAll("[^0-9\\s]", "").split(" ");
+                List<Integer> sortedList = Arrays.stream(arrayOfNumbers)
+                        .map(Integer::parseInt)
+                        .sorted()
+                        .collect(Collectors.toList());
+                try (BufferedWriter bufferedWriter =
+                             new BufferedWriter(new FileWriter(filePath + "_"))) {
+                    bufferedWriter.write(sortedList.toString());
+                    bufferedWriter.newLine();
+                    bufferedWriter.flush();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    public static Map<String, Double> getStudentsRate(Path filePath) {
+        public static Map<String, Double> getStudentsRate(Path filePath) {
         Map<String, Double> studentsRate = new HashMap<>();
         List<String> listOfLines = getListOfStringFromFile(filePath);
         listOfLines.
