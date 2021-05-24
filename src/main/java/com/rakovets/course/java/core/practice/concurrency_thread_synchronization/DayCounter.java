@@ -1,60 +1,45 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
 
-import java.util.Random;
-
-public class DayPeriod {
+public class DayCounter {
     private int days;
     private World world;
     private Wednesday wednesday;
+    private Factory factory;
     private static boolean night = true;
+    private final int TIME = 50;
 
     public static boolean isNight() {
         return night;
     }
 
     public static void setNight(boolean night) {
-        DayPeriod.night = night;
+        DayCounter.night = night;
     }
 
-    public DayPeriod(int days, World world, Wednesday wednesday) {
+    public DayCounter(int days, World world, Wednesday wednesday, Factory factory) {
         this.days = days;
         this.world = world;
         this.wednesday = wednesday;
+        this.factory = factory;
     }
 
-
     public void start() throws InterruptedException {
-        wednesday.setStatus(true);
-        world.setStatus(true);
-
-        Factory factory = new Factory();
-        factory.setStatusFactory(true);
-
         Thread fractionWorld = new Thread(world, "Clan World");
         Thread fractionWednesday = new Thread(wednesday, "Clan Wednesday");
-
         Thread threadFactory = new Thread(factory);
 
         threadFactory.start();
         fractionWednesday.start();
         fractionWorld.start();
 
-
         while (days > 0) {
-            System.out.println();
-            System.out.println("Day = " + days);
-            System.out.println("Period  - Day");
             setNight(false);
-
-            // System.out.println("Wednesday's Count of robots : " + wednesday.getCountRobots());
-            // System.out.println("World's count of robots : " + world.getCountWorldRobotsRobots());
-
-            Thread.sleep(30);
+            Thread.sleep(TIME);
             setNight(true);
-            System.out.println("Period  - Night");
-            Thread.sleep(30);
+            Thread.sleep(TIME);
             days--;
         }
+
         world.setStatus(false);
         wednesday.setStatus(false);
         factory.setStatusFactory(false);
