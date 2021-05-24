@@ -10,16 +10,11 @@ public class WednesdayAction extends Thread {
 
     @Override
     public void run() {
-        while (wednesday.getFactory().getDays() >= 0) {
-            if(!wednesday.getFactory().isDayTime()) {
-                if (!wednesday.getFactory().robotpartsIsEmpty()) {
-                    wednesday.getParts();
-                    if (wednesday.getFactory().robotpartsIsEmpty()) {
-                        wednesday.getFactory().setDayTime(true);
-                    }
-                }
-            }
+        while (wednesday.getFactory().getDays() > 0) {
+            wednesday.getParts();
         }
+        System.out.println("We" + wednesday.getArmyCounter());
+        System.out.println(wednesday.getRobotParts().toString());
     }
 }
 

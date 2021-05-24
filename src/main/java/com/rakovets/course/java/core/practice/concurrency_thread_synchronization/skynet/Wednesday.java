@@ -8,7 +8,7 @@ public class Wednesday {
     private Factory factory;
     private int armyCounter;
 
-    public Wednesday(Factory factory){
+    public Wednesday(Factory factory) {
         this.factory = factory;
         armyCounter = 0;
         robotParts.put("head", 0);
@@ -17,22 +17,22 @@ public class Wednesday {
         robotParts.put("feet", 0);
     }
 
-    public void getParts(){
-        synchronized (factory) {
-            String currentPart = factory.getPart();
+    public void getParts() {
+        String currentPart = factory.getPart();
+        if (!currentPart.equals("dust")) {
             robotParts.replace(currentPart, robotParts.get(currentPart) + 1);
-            makeRobot();
         }
+        makeRobot();
+
     }
 
-    public void makeRobot(){
-        if(robotParts.get("head") == 1 && robotParts.get("torso") == 1 && robotParts.get("hand") == 2 && robotParts.get("feet") == 2){
-            armyCounter++;
+    public void makeRobot() {
+        if(robotParts.get("head") >= 1 && robotParts.get("torso") >= 1 && robotParts.get("hand") >= 1 && robotParts.get("feet") >= 1) {
+            armyCounter ++;
             robotParts.replace("head", robotParts.get("head") - 1);
             robotParts.replace("torso", robotParts.get("torso") - 1);
-            robotParts.replace("hand", robotParts.get("hand") - 2);
-            robotParts.replace("feet", robotParts.get("feet") - 2);
-            System.out.println("Wedndes day army " + armyCounter);
+            robotParts.replace("hand", robotParts.get("hand") - 1);
+            robotParts.replace("feet", robotParts.get("feet") - 1);
         }
     }
 
@@ -42,5 +42,9 @@ public class Wednesday {
 
     public Factory getFactory() {
         return factory;
+    }
+
+    public Map<String, Integer> getRobotParts() {
+        return robotParts;
     }
 }

@@ -1,8 +1,10 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
 
-public class Main {
+import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.*;
+
+public class SkynetDemo {
     public static void main(String[] args) throws InterruptedException {
-        Factory factory = new Factory( 100);
+        Factory factory = new Factory(100);
         World world = new World(factory);
         Wednesday wednesday = new Wednesday(factory);
         FactoryAction factoryAction = new FactoryAction("Factory Action", factory);
@@ -14,9 +16,13 @@ public class Main {
         factoryActionThread.start();
         wednesdayActionThread.start();
         worldActionThread.start();
-        factoryActionThread.join();
-        wednesdayActionThread.join();
-        worldActionThread.join();
+        try {
+            factoryActionThread.join();
+            wednesdayActionThread.join();
+            wednesdayActionThread.join();
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
         if (wednesday.getArmyCounter() > world.getArmyCounter()){
             System.out.println("Wednesday army is stronger");
         } else {

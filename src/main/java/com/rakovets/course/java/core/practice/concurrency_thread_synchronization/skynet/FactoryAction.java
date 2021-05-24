@@ -10,7 +10,7 @@ public class FactoryAction extends Thread{
 
     @Override
     public void run() {
-        while (factory.getDays() >= 0) {
+        while (factory.getDays() > 0) {
             factory.put();
         }
     }
