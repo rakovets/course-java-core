@@ -29,8 +29,6 @@ public class Server {
             for (Map.Entry<Event, Long> eventAndDate : whatClientHasDone.entrySet()) {
                 System.out.println("Client : " + client.getLogin() + "Event : " + eventAndDate.getValue() + "Date : " + eventAndDate.getKey());
             }
-
         }
     }
 }
-
