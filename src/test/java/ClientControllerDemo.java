@@ -7,4 +7,3 @@ public class ClientControllerDemo {
         ClientController.control();
     }
 }
-
