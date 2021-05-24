@@ -11,7 +11,9 @@ public class FactionsThread implements Runnable {
 
     @Override
     public void run() {
-        factions.getPartsFromFactory();
-        factions.printAmountsPart();
+        for (int i = 0; i < 10; i++) {
+            factions.getPartsFromStorage();
+            factions.printAmountsPart();
+        }
     }
 }

@@ -1,63 +1,31 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net.factions;
 
-import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net.Factory;
-
-import java.util.Random;
+import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net.Storage;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Factions {
-    private final Random random = new Random();
-    private final Factory factory;
-    private int head = 0;
-    private int torso = 0;
-    private int hand = 0;
-    private int feet = 0;
+    private final Storage storage;
+    private final String head = "head";
+    private final String torso = "torso";
+    private final String hand = "hand";
+    private final String feet = "feet";
+    private Map<String, Integer> partsList = new HashMap<>(Map.of(
+            head, 0,
+            torso, 0,
+            hand, 0,
+            feet, 0
+    ));
 
-    public Factions(Factory factory) {
-        this.factory = factory;
+    public Factions(Storage storage) {
+        this.storage = storage;
     }
 
-    public synchronized void getPartsFromFactory() {
-        if (!factory.isDay()) {
-            final int MAX_GETTING_PARTS_EACH_DAYS = 5;
-            for (int i = 0; i < MAX_GETTING_PARTS_EACH_DAYS; i++) {
-                switch (random.nextInt(4)) {
-                    case 0:
-                        if (factory.pickUpHead()) {
-                            head++;
-                        }
-                        break;
-                    case 1:
-                        if (factory.pickUpTorso()) {
-                            torso++;
-                        }
-                        break;
-                    case 2:
-                        if (factory.pickUpHand()) {
-                            hand++;
-                        }
-                        break;
-                    case 3:
-                        if (factory.pickUpFeet()) {
-                            feet++;
-                        }
-                        break;
-                }
-            }
-            notifyAll();
-            factory.setDay(true);
-        } else {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    public void getPartsFromStorage() {
+        partsList = storage.getPartsToFactions();
     }
 
     public void printAmountsPart() {
-        System.out.println("---" + Thread.currentThread().getName() + "---\n Amount heads: " + head
-                + " Amount torso: " + torso
-                + " Amount hands: " + hand
-                + " Amount feet: " + feet);
+        System.out.println("---" + Thread.currentThread().getName() + "---\n " + partsList.toString());
     }
 }
