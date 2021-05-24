@@ -15,6 +15,5 @@ public class Task1Demo {
         System.out.println(Task1.getLocalDateFormatPattern(date, pattern));
         System.out.println(Task1.getQuantityDaysBetweenDates(LocalDate.of(2010, 11, 11),
                 LocalDate.of(2020, 11, 1)));
-        System.out.println(Task1.addNDays(LocalDate.now(),3));
     }
 }

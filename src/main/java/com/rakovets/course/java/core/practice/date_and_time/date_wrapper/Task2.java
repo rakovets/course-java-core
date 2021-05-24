@@ -1,10 +1,15 @@
 package com.rakovets.course.java.core.practice.date_and_time.date_wrapper;
 
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjusters;
 
 public class Task2 {
+    public static Temporal addNDays(Temporal temporal, int quantityDays){
+        return temporal.plus(quantityDays, ChronoUnit.DAYS);
+    }
+
     public static Temporal changesDateFirstDayOfYear(Temporal temporal) {
         final int HALF_NOT_LEAP_YEAR = 365 / 2;
         final int HALF_LEAP_YEAR = 366 / 2;
