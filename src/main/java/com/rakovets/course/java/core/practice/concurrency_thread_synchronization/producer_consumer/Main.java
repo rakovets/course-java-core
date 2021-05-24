@@ -1,13 +1,14 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Store store = new Store();
-        Producer producer = new Producer("producer1", store);
-        Consumer consumer = new Consumer("consumer1", store);
+        Producer producer = new Producer("producer", store);
+        Consumer consumer = new Consumer("consumer", store);
         Thread threadProducer = new Thread(producer);
         Thread threadConsumer = new Thread(consumer);
         threadProducer.start();
         threadConsumer.start();
+
     }
 }

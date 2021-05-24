@@ -1,4 +1,6 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
+
+import com.rakovets.course.java.core.util.StandardOutputUtil;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -9,9 +11,9 @@ public class Store {
     private  Random rnd = new Random();
 
     public synchronized void produce (){
-        while (numbersStorage.size() > 10) {
+        if (numbersStorage.size() > 9) {
             try {
-                wait();
+                Thread.currentThread().wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -19,19 +21,21 @@ public class Store {
         int addedNumber = rnd.nextInt(100);
         numbersStorage.add(addedNumber);
         System.out.println(Thread.currentThread().getName() + " number " + addedNumber + " was added.");
+        System.out.println("Store size is " + numbersStorage.size());
         notify();
     }
 
     public synchronized void consume() {
-        while (numbersStorage.size() < 1) {
+        if (numbersStorage.size() < 1) {
             try {
-                wait();
+                Thread.currentThread().wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         int removedNumber = numbersStorage.removeFirst();
         System.out.println(Thread.currentThread().getName() + " used number " + removedNumber);
+        System.out.println("Store size is " + numbersStorage.size());
         try {
             Thread.sleep(rnd.nextInt(11));
         } catch (InterruptedException e) {
