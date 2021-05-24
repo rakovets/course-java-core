@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 import java.io.IOException;
 
 class Consumer implements Runnable {
-    Store store;
+    private Store store;
 
     Consumer(Store store) {
         this.store = store;
