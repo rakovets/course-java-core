@@ -11,27 +11,27 @@ public class MathStatistics {
                 .toArray());
     }
 
-    public static int getAmountEvenNumbers(int[] array) {
-        return (int)Arrays.stream(array).
-                filter(n -> n % 2 == 0)
+    public static long getAmountEvenNumbers(int[] array) {
+        return Arrays.stream(array)
+                .filter(n -> n % 2 == 0)
                 .count();
     }
 
-    public static int getAmountOddNumbers(int[] array) {
-        return (int)Arrays.stream(array).
-                filter(n -> n % 2 != 0)
+    public static long getAmountOddNumbers(int[] array) {
+        return Arrays.stream(array)
+                .filter(n -> n % 2 != 0)
                 .count();
     }
 
-    public static int getAmountZeroNumbers(int[] array) {
-        return (int)Arrays.stream(array).
-                filter(n -> n == 0)
+    public static long getAmountZeroNumbers(int[] array) {
+        return Arrays.stream(array)
+                .filter(n -> n == 0)
                 .count();
     }
 
-    public static int getAmountEqualsNumbers(int[] array, int value) {
-        return (int)Arrays.stream(array).
-                filter(n -> n == value)
+    public static long getAmountEqualsNumbers(int[] array, int value) {
+        return Arrays.stream(array)
+                .filter(n -> n == value)
                 .count();
     }
 }
