@@ -10,19 +10,19 @@ public class Producer implements Runnable {
     @Override
     public void run() {
         OutputMessages.startThreadMessage(Thread.currentThread());
-            while (true) {
-                try {
-                    int number = cin.nextInt();
-                    if (number == -1) {
-                        ReadQueueAndWriteAtFile.listOfNumbers.add(number);
-                        break;
-                    }
-                    ReadQueueAndWriteAtFile.listOfNumbers.add(number);
-                } catch (InputMismatchException ex) {
-                    throw new UserInputException("Wrong input");
+        while (true) {
+            try {
+                int number = cin.nextInt();
+                if (number == -1) {
+                    SharedResource.listOfNumbers.add(number);
+                    break;
                 }
+                SharedResource.listOfNumbers.add(number);
+            } catch (InputMismatchException ex) {
+                throw new UserInputException("Wrong input");
             }
-        System.out.printf("%s\n", ReadQueueAndWriteAtFile.getListOfNumbers());
+        }
+        System.out.printf("%s\n", SharedResource.getListOfNumbers());
         OutputMessages.endThreadMessage(Thread.currentThread());
     }
 }

@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.concurrency.threads;
 
 import com.rakovets.course.java.core.practice.concurrency.OutputMessages;
 import com.rakovets.course.java.core.practice.concurrency.UsedPaths;
-import java.io.BufferedWriter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -13,7 +13,7 @@ public class Consumer implements Runnable {
 
     public void run() {
         OutputMessages.startThreadMessage(Thread.currentThread());
-        Deque<Integer> listOfNumbers = ReadQueueAndWriteAtFile.getListOfNumbers();
+        Deque<Integer> listOfNumbers = SharedResource.getListOfNumbers();
 
         while (true) {
             try {

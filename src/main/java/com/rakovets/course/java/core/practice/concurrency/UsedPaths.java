@@ -4,8 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class UsedPaths {
-    private final Path consumerWorkResult = Paths.get("src/main/java/com/rakovets/course/java/core/practice/" +
-            "concurrency/consumerWorkResult");
+    private final Path consumerWorkResult = Paths.get("src", "main", "resources", "practice", "consumerWorkResult");
 
     public Path getPathToConsumerWorkResult() {
         return consumerWorkResult;
