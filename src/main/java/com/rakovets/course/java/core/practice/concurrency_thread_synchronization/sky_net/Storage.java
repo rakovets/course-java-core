@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class Storage {
-    public boolean isDay = true;
+    public boolean isWorkingDay = true;
     Random random = new Random();
     private final String head = "head";
     private final String torso = "torso";
@@ -18,8 +18,8 @@ public class Storage {
             feet, 0
     ));
 
-    public synchronized void produceParts() {
-        while (!isDay) {
+    public synchronized void putPartsAtStorage() {
+        while (!isWorkingDay) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -47,8 +47,8 @@ public class Storage {
         notifyAll();
     }
 
-    public synchronized Map<String, Integer> getPartsToFactions() {
-        while (isDay) {
+    public synchronized Map<String, Integer> getPartsFromStorage() {
+        while (isWorkingDay) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -101,6 +101,6 @@ public class Storage {
     }
 
     public void setDay(boolean day) {
-        isDay = day;
+        isWorkingDay = day;
     }
 }

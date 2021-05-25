@@ -8,6 +8,6 @@ public class Factory {
     }
 
     public synchronized void factoryStartWork() {
-        storage.produceParts();
+        storage.putPartsAtStorage();
     }
 }
