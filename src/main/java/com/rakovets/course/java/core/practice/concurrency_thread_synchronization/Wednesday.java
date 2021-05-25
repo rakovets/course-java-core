@@ -6,4 +6,3 @@ public class Wednesday extends BountyHunter implements Runnable {
         getDetails();
     }
 }
-
