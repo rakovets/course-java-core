@@ -6,4 +6,3 @@ public enum Details {
     HAND,
     FEET
 }
-
