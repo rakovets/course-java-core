@@ -4,19 +4,14 @@ import com.rakovets.course.java.core.practice.jcf_list.Class.model.Student;
 import java.util.List;
 
 public class SchoolClass {
-
     public Student getBestStudent(List<Student> students) {
-        double maxFee = 0;
+        Student topStudent = students.get(0);
         for (Student i : students) {
-            if (maxFee < i.getAverageAnnualMark()) {
-                maxFee = i.getAverageAnnualMark();
+            if (topStudent.getAverageAnnualMark() < i.getAverageAnnualMark()) {
+                topStudent = i;
+
             }
         }
-        for (Student i : students) {
-            if (maxFee == i.getAverageAnnualMark()) {
-               return students.get(students.indexOf(i));
-            }
-        }
-        return null;
+        return topStudent;
     }
 }
