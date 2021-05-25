@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.date_and_time;
 
 import com.rakovets.course.java.core.practice.date_and_time.temporal_adjuster_implementations.AddDaysToDate;
 import com.rakovets.course.java.core.practice.date_and_time.temporal_adjuster_implementations.ChangeDateToNearestJanuary;
-
 import java.time.LocalDate;
 
 public class DateWrapperDemo {
