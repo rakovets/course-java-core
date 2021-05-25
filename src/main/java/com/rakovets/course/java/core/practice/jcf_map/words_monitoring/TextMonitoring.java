@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.jcf_map.words_monitoring;
 import java.util.*;
 
 public class TextMonitoring {
-    comparatorForHashMapValues compMapValues = new comparatorForHashMapValues();
-    HashMap<String, Integer> textList = new HashMap<>();
+    private comparatorForHashMapValues compMapValues = new comparatorForHashMapValues();
+    private Map<String, Integer> textList = new HashMap<>();
 
     public void researchText(String text) {
         int value = 1;
