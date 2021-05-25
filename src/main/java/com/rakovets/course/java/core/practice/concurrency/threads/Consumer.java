@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Deque;
 
 public class Consumer implements Runnable {
-    UsedPaths usedPaths = new UsedPaths();
+    private final UsedPaths usedPaths = new UsedPaths();
 
     public void run() {
         OutputMessages.startThreadMessage(Thread.currentThread());
