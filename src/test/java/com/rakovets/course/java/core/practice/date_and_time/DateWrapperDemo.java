@@ -26,10 +26,8 @@ public class DateWrapperDemo {
         long date5 = DateWrapper.getNumberOfDays(date4, date1);
         System.out.printf("NumberOfDays: %d\n", date5);
 
-        Temporal date6 = DateWrapper.adjustInto(date1, 21);
-        System.out.println(date6);
+        System.out.println(new TaskTemporalAdjuster(21).adjustInto(date1));
 
-        Temporal date7 = DateWrapper.adjustInto(LocalDate.of(2020, 07, 01));
-        System.out.println(date7);
+        System.out.println(new TaskTemporalAdjuster2().adjustInto(LocalDate.of(2020, 07, 01)));
     }
 }
