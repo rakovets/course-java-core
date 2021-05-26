@@ -1,11 +1,10 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.*;
 
-public class DateWrapper implements TemporalAdjuster {
+public class DateWrapper {
 
     public static LocalDate getLocalDate(int year, int month, int day) {
         return LocalDate.of(year, month, day);
@@ -31,27 +30,5 @@ public class DateWrapper implements TemporalAdjuster {
             difference = ChronoUnit.DAYS.between(dateOne, dateTwo);
         }
         return difference;
-    }
-
-    public Temporal adjustInto(Temporal temporal, int numberOfDays) {
-        return temporal.plus(numberOfDays, ChronoUnit.DAYS);
-
-    }
-
-    public Temporal adjustInto(Temporal temporal) {
-        Temporal nearestFirstOFJanuary;
-        int year = temporal.get(ChronoField.YEAR);
-        long period = ChronoUnit.DAYS.between(LocalDate.of(year, 1,1),temporal);
-        if (period > Year.of(year).length() / 2) {
-            nearestFirstOFJanuary = temporal
-                    .with(ChronoField.YEAR,year + 1)
-                    .with(ChronoField.MONTH_OF_YEAR, 1)
-                    .with(ChronoField.DAY_OF_YEAR, 1);
-        } else {
-            nearestFirstOFJanuary = temporal
-                    .with(ChronoField.MONTH_OF_YEAR, 1)
-                    .with(ChronoField.DAY_OF_YEAR, 1);
-        }
-        return nearestFirstOFJanuary;
     }
 }
