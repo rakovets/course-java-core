@@ -12,9 +12,9 @@ public class CitiDemo {
                 "Stambul",
                 "Moscow"));
         System.out.println(CityHelper.showUnicCities(list));
-        System.out.println(CityHelper.showUnicCitiesBiggerThan(list,5));
-        System.out.println(CityHelper.showUnicCitiesWhichNameStartWith(list,"M"));
-        System.out.println(CityHelper.showQuantityOfCities(list,"kiev"));
+        System.out.println(CityHelper.showUnicCitiesBiggerThan(list, 5));
+        System.out.println(CityHelper.showUnicCitiesWhichNameStartWith(list, "M"));
+        System.out.println(CityHelper.showQuantityOfCities(list, "kiev"));
 
     }
 }

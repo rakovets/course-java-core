@@ -4,13 +4,15 @@ import java.util.stream.IntStream;
 
 public class Task2 {
 
-    public static void tableFirst(){
-        IntStream.range(1,11).forEach( i -> {
-            IntStream.range(1,11).forEach( j -> {
-                System.out.println( i + " x " + j + " = " + i * j);
-            if (j == 10){
-                System.out.println();
-            } }); });
+    public static void tableFirst() {
+        IntStream.range(1, 11).forEach(i -> {
+            IntStream.range(1, 11).forEach(j -> {
+                System.out.println(i + " x " + j + " = " + i * j);
+                if (j == 10) {
+                    System.out.println();
+                }
+            });
+        });
     }
 
     public static void tableSecond() {
