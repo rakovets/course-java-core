@@ -1,12 +1,8 @@
 package com.rakovets.course.java.core.practice.io;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class FileAnalyzeUtil {
@@ -69,7 +65,6 @@ public class FileAnalyzeUtil {
         List<String> listStrings = getListStringsOfFilePath(filePath);
 
         for (String text : listStrings) {
-            String str = text.replaceAll("\\D", " ");
             String[] strings = text.replaceAll("\\D", " ").trim().split("\\s+");
             int first = Integer.parseInt(strings[0]);
             String combination = strings[0];
@@ -97,45 +92,83 @@ public class FileAnalyzeUtil {
     }
 
     //task6
-    public static Map<String, Integer> getFrequencyUsedWorld(Path filePath) {
-        List<String> listStrings = getListStringsOfFilePath(filePath);
-        Map<String, Integer> map = new HashMap<>();
+    public static Map<Character, Integer> getFrequencyUsedLetter(Path filePath) {
+        Map<Character, Integer> mapLetters = new HashMap<>();
+        String stringLetters = getListStringsOfFilePath(filePath).toString().toLowerCase(Locale.ROOT).replaceAll("[^a-z]","");
 
-
-        return map;
+        for (char thisLetter : stringLetters.toCharArray()) {
+            mapLetters.put(thisLetter, mapLetters.getOrDefault(thisLetter, 0) + 1);
+        }
+        return mapLetters;
     }
 
+    //task7
+    public static List<String> getFrequencyUsedWorld(Path filePath) {
+        Map<String, Integer> mapWords = new HashMap<>();
+        String stringWords = getListStringsOfFilePath(filePath).toString().toLowerCase(Locale.ROOT).replaceAll("\\W"," ");
+        String[] arrayWords = stringWords.trim().split("\\s+");
 
+        for (String thisWord : arrayWords) {
+            mapWords.put(thisWord, mapWords.getOrDefault(thisWord, 0) + 1);
+        }
+        return mapWords.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .sorted(Map.Entry.comparingByValue())
+                .map(str -> String.format("%s - %d", str.getKey(), str.getValue()))
+                .collect(Collectors.toList());
+    }
 
+    //task8
+    public static void sortedAndWriteNumbers(Path filePath) {
+        String stringNumbers = getListStringsOfFilePath(filePath).toString().replaceAll("\\D", " ");
 
+        List<Integer> numbers = Arrays.stream(stringNumbers.trim().split("\\s+"))
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
 
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath + "_"))) {
+            bufferedWriter.write(numbers.toString());
+            bufferedWriter.flush();
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+    }
 
+    //task9
+    public static Map<String, Double> getStudentAverageMark(Path filePath) {
+        Map<String, Double> studentAverageMark = new HashMap<>();
+        List<String> listStudents = getListStringsOfFilePath(filePath);
 
+        for (String students : listStudents) {
+            String name = students.replaceAll("[\\W\\d]","");
+            double averageMark = 0;
+            String[] stringMarks = students.replaceAll("\\D", " ").trim().split("\\s+");
+            Optional<Integer> marks = Arrays.stream(stringMarks)
+                    .map(Integer::parseInt)
+                    .reduce(Integer::sum);
+            if (marks.isPresent()) {
+                averageMark = (double) marks.get() / stringMarks.length;
+            }
+            studentAverageMark.put(name, averageMark);
+        }
+        return studentAverageMark;
+    }
 
+    //task10
+    public static void replaceAccessModifiers(Path filePath, String oldModifier, String newModifier) {
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(String.valueOf(filePath)));
+            PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream(filePath + "_")));
+            String str;
+            while ((str = bufferedReader.readLine()) != null) {
+                str = str.replace((" " + oldModifier + " "), newModifier);
+                writer.println(str);
+            }
+            writer.close();
+            bufferedReader.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
-
-
-/*
-
-=== Specification of task 6
-
-Реализовать метод, который принимает путь к файлу и возвращает частоту повторяемости всех букв в тексте, игнорируя регистр.
-
-=== Specification of task 7
-
-Реализовать метод, который принимает путь к файлу и возвращает частоту повторяемости всех слов в тексте в порядке возрастания частоты повторяемости.
-
-=== Specification of task 8
-
-Реализовать метод, который принимает путь к файлу с целыми числами и сортирующий содержимое файла по возрастанию и сохраняющий результат в файл `${origin_filepath}_`.
-
-=== Specification of task 9
-
-Реализовать метод, который принимает путь к файлу, где содержится фамилия студентов и их оценки (в качестве разделитетеля используется `,`) и возвращает успеваемость студентов.
-
-=== Specification of task 10
-
-Реализовать метод, который принимает путь к файлу с java кодом, и 2 модификатора доступа в виде строки и заменяет все модификаторы доступа `X` в объявлении атрибутов и методов класса на `Y` и сохраняющий результат в файл `${origin_filepath}_`.
-
-*/
-

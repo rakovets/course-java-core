@@ -1,0 +1,5 @@
+Aleksandrov 8,6,2,9,4
+Ivanov 3,4,7,5,1
+Kuznetsov 8,10,9,10,8
+Lukoshko 1 2 1 3 1
+Levchuk 10 9 7 10 6
