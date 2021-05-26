@@ -23,7 +23,6 @@ public class HibernateReader {
         try {
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             XMLEventReader eventReader = inputFactory.createXMLEventReader(new FileInputStream(pathToXML));
-
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
                 if (event.isStartElement()) {
@@ -40,20 +39,13 @@ public class HibernateReader {
                             property.setName(name);
                             property.setValue(value);
                             break;
-
                         case HibernateField.MAPPING:
                             mapping = new Mapping();
-                            String classValue = getAttributeValueByName(startElement, HibernateField.NAME);
+                            String classValue = getAttributeValueByName(startElement, HibernateField.CLASS);
                             event = eventReader.nextEvent();
                             if (classValue != null) {
                                 mapping.setName(HibernateField.NAME);
                                 mapping.setValue(classValue);
-                            } else {
-                                String packageValue = getAttributeValueByName(startElement, HibernateField.NAME);
-                                if (packageValue != null) {
-                                    mapping.setName(HibernateField.NAME);
-                                    mapping.setValue(packageValue);
-                                }
                             }
                     }
                 }
@@ -62,7 +54,7 @@ public class HibernateReader {
                     EndElement endElement = event.asEndElement();
                     if (endElement.getName().getLocalPart().equals(HibernateField.PROPERTY)) {
                         propertyList.add(property);
-                    } else if (endElement.getName().getLocalPart().equals(HibernateField.MAPPING)){
+                    } else if (endElement.getName().getLocalPart().equals(HibernateField.MAPPING)) {
                         mappingList.add(mapping);
                     }
                 }

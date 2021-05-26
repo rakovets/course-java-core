@@ -19,4 +19,9 @@ public class Property {
     public void setValue(String value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "property " + "name = " + getName() + " " + getValue();
+    }
 }

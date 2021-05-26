@@ -30,4 +30,5 @@ public class HibernateConfiguration {
     public List<Mapping> getMappingList() {
         return mappingList;
     }
+
 }
