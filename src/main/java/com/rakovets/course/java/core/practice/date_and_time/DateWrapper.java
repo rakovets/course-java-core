@@ -27,30 +27,4 @@ public class DateWrapper {
     public static long getNumberOfDays(LocalDate date1, LocalDate date2) {
         return ChronoUnit.DAYS.between(date1, date2);
     }
-
-    public static Temporal adjustInto(Temporal temporal, int days) {
-        return temporal.plus(days, ChronoUnit.DAYS);
-    }
-
-    public static Temporal adjustInto(Temporal temporal) {
-        final int HALF_YEAR = 365 / 2;
-        final int HALF_LEAP_YEAR = 366 / 2;
-
-        int day = temporal.get(ChronoField.DAY_OF_YEAR);
-        int middleYear;
-
-        boolean leapYear = temporal.get(ChronoField.YEAR) % 4 == 0;
-
-        if (leapYear == true) {
-            middleYear = HALF_LEAP_YEAR;
-        } else {
-            middleYear = HALF_YEAR;
-        }
-
-        if (day <= middleYear) {
-            return temporal.with(TemporalAdjusters.firstDayOfYear());
-        } else {
-            return temporal.with(TemporalAdjusters.firstDayOfNextYear());
-        }
-    }
 }
