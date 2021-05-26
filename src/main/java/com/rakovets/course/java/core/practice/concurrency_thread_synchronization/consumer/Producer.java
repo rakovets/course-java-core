@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.consumer;
 
-public class Producer extends Thread{
+public class Producer extends Thread {
     private store store;
 
-    public Producer(String name, store store){
+    public Producer(String name, store store) {
         super(name);
         this.store = store;
     }
@@ -13,8 +13,7 @@ public class Producer extends Thread{
         try {
             store.produce();
 
-        }
-        catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.getStackTrace();
         }
     }
