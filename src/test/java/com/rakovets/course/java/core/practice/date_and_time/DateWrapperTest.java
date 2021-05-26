@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjuster;
 
 public class DateWrapperTest {
     public static void main(String[] args) {
@@ -12,6 +13,7 @@ public class DateWrapperTest {
         System.out.println(DateWrapper.differenceLocalDate(DateWrapper.localDate(2014,12,26),
                 DateWrapper.localDate(2014,12,20)));
         System.out.println(dateWrapper.adjustInto(LocalDate.now(),10));
-        System.out.println(dateWrapper.adjustInto(LocalDate.now()));
+        System.out.println(new TemporalNearNewYear().adjustInto(LocalDate.now()));
+        System.out.println(new TemporalAddDays(20).adjustInto(LocalDate.now()));
     }
 }

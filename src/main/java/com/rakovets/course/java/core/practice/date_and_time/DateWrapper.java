@@ -10,7 +10,7 @@ import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Locale;
 
-public class DateWrapper implements TemporalAdjuster {
+public class DateWrapper{
     public static LocalDate localDate(int year, int months, int day) {
         return LocalDate.of(year, months, day);
     }
@@ -33,17 +33,5 @@ public class DateWrapper implements TemporalAdjuster {
 
     public Temporal adjustInto(Temporal temporal, int addDays) {
         return temporal.plus(addDays, ChronoUnit.DAYS);
-    }
-    @Override
-
-    public Temporal adjustInto(Temporal temporal) {
-        return ChronoUnit.DAYS.between(
-                        temporal.with(TemporalAdjusters.firstDayOfYear()),
-                        temporal
-                ) >= ChronoUnit.DAYS.between(
-                        temporal,
-                        temporal.with(TemporalAdjusters.firstDayOfNextYear())
-                ) ? temporal.with(TemporalAdjusters.firstDayOfNextYear()) :
-                        temporal.with(TemporalAdjusters.firstDayOfYear());
     }
 }
