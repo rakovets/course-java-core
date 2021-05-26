@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="com.mysql.jdbc.Driver">com.mysql.jdbc.Driver</property>
+		<property name="jdbc:mysql://localhost:3306/test">jdbc:mysql://localhost:3306/test</property>
+		<property name="root">root</property>
+		<property name="password">password</property>
+		<property name="1">1</property>
+		<property name="true">true</property>
+		<property name="org.hibernate.dialect.MySQLDialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="thread">thread</property>
+		<property name="utf8">utf8</property>
+		<property name="utf8">utf8</property>
+		<property name="true">true</property>
+
+		<mapping name="net.common.model.Person"></mapping>
+	</session-factory>
+</hibernate-configuration>
