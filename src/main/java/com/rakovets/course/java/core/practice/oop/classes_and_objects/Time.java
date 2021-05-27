@@ -12,30 +12,38 @@ public class Time {
         this.minutes = (totalSeconds - this.hours * SECONDS_IN_ONE_HOUR) / SECONDS_IN_ONE_MINUTE;
         this.seconds = totalSeconds - (this.hours * SECONDS_IN_ONE_HOUR + this.minutes * SECONDS_IN_ONE_MINUTE);
     }
+
     public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
     }
-    public int getHours () {
+
+    public int getHours() {
         return hours;
     }
-    public void setHours (int hours) {
+
+    public void setHours(int hours) {
         this.hours = hours;
     }
-    public int getMinutes () {
+
+    public int getMinutes() {
         return minutes;
     }
-    public void setMinutes (int minutes) {
+
+    public void setMinutes(int minutes) {
         this.minutes = minutes;
     }
-    public int getSeconds () {
+
+    public int getSeconds() {
         return seconds;
     }
-    public void setSeconds (int seconds) {
+
+    public void setSeconds(int seconds) {
         this.seconds = seconds;
     }
-    public int getTotalSeconds () {
-        return seconds+minutes*SECONDS_IN_ONE_MINUTE+hours*SECONDS_IN_ONE_HOUR;
+
+    public int getTotalSeconds() {
+        return seconds + minutes * SECONDS_IN_ONE_MINUTE + hours * SECONDS_IN_ONE_HOUR;
     }
 }

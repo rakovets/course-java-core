@@ -14,32 +14,37 @@ public class Atm {
         this.numberBanknotes50 = numberBanknotes50;
         this.numberBanknotes100 = numberBanknotes100;
     }
-//    public Atm(int amountBanknotes) {
-//        this.numberBanknotes100 += amountBanknotes / banknote100;
-//        this.numberBanknotes50 += amountBanknotes % banknote100 / banknote50;
-//        this.numberBanknotes20 += amountBanknotes % banknote100 % banknote50 / banknote20;
-//    }
+
+    public Atm(int amountBanknotes) {
+        this.numberBanknotes100 += amountBanknotes / banknote100;
+        this.numberBanknotes50 += amountBanknotes % banknote100 / banknote50;
+        this.numberBanknotes20 += amountBanknotes % banknote100 % banknote50 / banknote20;
+    }
+
     public int addBanknotes20(int numberBanknotes20) {
-        int i = 0;
-        while (numberBanknotes20 > i) {
-            i++;
+        int countBanknotes20 = 0;
+        while (numberBanknotes20 > countBanknotes20) {
+            countBanknotes20++;
         }
         return this.numberBanknotes20 + numberBanknotes20;
     }
+
     public int addBanknotes50(int numberBanknotes50) {
-        int i = 0;
-        while (numberBanknotes50 > i) {
-            i++;
+        int countBanknotes50 = 0;
+        while (numberBanknotes50 > countBanknotes50) {
+            countBanknotes50++;
         }
         return this.numberBanknotes50 + numberBanknotes50;
     }
+
     public int addBanknotes100(int numberBanknotes100) {
-        int i = 0;
-        while (numberBanknotes100 > i) {
-            i++;
+        int countBanknotes100 = 0;
+        while (numberBanknotes100 > countBanknotes100) {
+            countBanknotes100++;
         }
         return this.numberBanknotes100 + numberBanknotes100;
     }
+
     public int isPossibleIssue(int requestedAmount) {
         int sumBanknotes = numberBanknotes20 * banknote20 + numberBanknotes50 * banknote50 + numberBanknotes100 * banknote100;
         if (requestedAmount <= sumBanknotes) {
@@ -53,6 +58,7 @@ public class Atm {
         }
         return requestedAmount;
     }
+
     public String getOptionsCombinationBanknotes(int requestedAmount) {
         String combinations = "";
         for (int i = 0; numberBanknotes20 <= requestedAmount / banknote20; i++) {
