@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class ReflectionUtilzDemo {
     public static void main(String[] args) {
-        String brand = new String("BMW");
+        String brand = "BMW";
         String neBrand = "Volksvagen";
         String model = "M5";
         String fieldName = "model";
@@ -21,6 +21,7 @@ public class ReflectionUtilzDemo {
         System.out.println(Arrays.toString(ReflectionUtils.getAllMethod(carClass)));
         ReflectionUtils.invokeMethod(ReflectionUtils.getMethod(carClass,methodName),car);
         ReflectionUtils.setField(ReflectionUtils.getField(carClass,fieldName),car,neBrand);
+        System.out.println(car.model);
         ReflectionUtils.invokeAnotherMethod(ReflectionUtils.getAnotherMethod(carClass,anotherMethodName,stringClass),car, meters);
 
     }

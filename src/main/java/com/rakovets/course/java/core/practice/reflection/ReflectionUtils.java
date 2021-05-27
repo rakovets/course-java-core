@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 public class ReflectionUtils {
 
-    public static Field getField(Class<Car> clazz, String fieldName){
+    public static Field getField(Class<Car> clazz, String fieldName) {
         Field classField = null;
         try {
             classField = clazz.getField(fieldName);
@@ -32,7 +32,7 @@ public class ReflectionUtils {
         return clazz.getMethods();
     }
 
-    public static void invokeMethod(Method method, Car car){
+    public static void invokeMethod(Method method, Car car) {
         try {
             method.invoke(car);
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -48,7 +48,7 @@ public class ReflectionUtils {
         }
     }
 
-    public static Method getAnotherMethod(Class<Car> clazz, String title, Class<String> classParametr){
+    public static Method getAnotherMethod(Class<Car> clazz, String title, Class<String> classParametr) {
         Method method = null;
         try {
             method = clazz.getMethod(title,classParametr);
@@ -58,12 +58,10 @@ public class ReflectionUtils {
         return method;
     }
 
-    public static void invokeAnotherMethod(Method method, Car car, String distance){
+    public static void invokeAnotherMethod(Method method, Car car, String distance) {
         try {
             method.invoke(car, distance);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
