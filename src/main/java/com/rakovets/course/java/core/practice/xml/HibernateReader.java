@@ -35,9 +35,9 @@ public class HibernateReader {
                             event = eventReader.nextEvent();
                             String value = event.asCharacters().getData();
                             if (name != null) {
+                                property.setName(name);
+                                property.setValue(value);
                             }
-                            property.setName(name);
-                            property.setValue(value);
                             break;
                         case HibernateField.MAPPING:
                             mapping = new Mapping();
