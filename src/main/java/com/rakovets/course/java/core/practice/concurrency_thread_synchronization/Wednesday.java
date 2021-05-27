@@ -10,8 +10,9 @@ public class Wednesday extends Thread{
     private Factory factory;
     private JudgeDayTimer timer;
 
-    public Wednesday(JudgeDayTimer timer) {
+    public Wednesday(JudgeDayTimer timer,Factory factory) {
         this.timer = timer;
+        this.factory = factory;
     }
 
     @Override
