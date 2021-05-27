@@ -9,12 +9,12 @@ public class Car {
         this.model = model;
     }
 
-    public void rideAhead(int meters) {
-        System.out.println("Rolled " + meters + " meters ahead");
-    }
-
     public void rideBack(String meters) {
         System.out.println("Rolled " + meters + " ahead" );
+    }
+
+    public void rideAhead(int meters) {
+        System.out.println("Rolled " + meters + " meters ahead");
     }
 
     public String getBrand() {

@@ -8,16 +8,6 @@ import java.lang.reflect.Method;
 
 public class ReflectionUtils {
 
-    public static Field getField(Class<Car> clazz, String fieldName) {
-        Field classField = null;
-        try {
-            classField = clazz.getField(fieldName);
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-        return classField;
-    }
-
     public static Method getMethod(Class<Car> clazz, String methodName) {
         Method classMethod = null;
         try {
@@ -26,6 +16,16 @@ public class ReflectionUtils {
             e.printStackTrace();
         }
         return classMethod;
+    }
+
+    public static Field getField(Class<Car> clazz, String fieldName) {
+        Field classField = null;
+        try {
+            classField = clazz.getField(fieldName);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return classField;
     }
 
     public static Method[] getAllMethod(Class<Car> clazz) {

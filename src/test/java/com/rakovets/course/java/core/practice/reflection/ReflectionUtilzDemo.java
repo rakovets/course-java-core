@@ -7,8 +7,8 @@ import java.util.Arrays;
 public class ReflectionUtilzDemo {
     public static void main(String[] args) {
         String brand = "BMW";
-        String neBrand = "Volksvagen";
         String model = "M5";
+        String neBrand = "Volksvagen";
         String fieldName = "model";
         String methodName = "getBrand";
         String anotherMethodName = "rideBack";
