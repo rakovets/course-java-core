@@ -1,19 +1,18 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class DateWrapperDemo {
     public static void main(String[] args) {
-        System.out.println(DateWrapper.returnLocalDate(2021,04,27));
         LocalDate today = LocalDate.now();
-        LocalDate dayX = LocalDate.of(2021, 07, 02);
-        System.out.println(DateWrapper.afterFewMonth(today,5));
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M.d.yy");
-        System.out.println(DateWrapper.formalLocalDate(today, dateTimeFormatter));
-        System.out.println(DateWrapper.localDate("12.02.21", dateTimeFormatter));
+        LocalDate dayX = LocalDate.of(2021, 7, 5);
+
+        System.out.println(DateWrapper.returnLocalDate(2021, 4,27));
+        System.out.println(DateWrapper.getLocalDateAfterFewMonth(today,5));
+        System.out.println(DateWrapper.getStringDatePattern(today, "dd-MM-YYYY"));
+        System.out.println(DateWrapper.getLocalDateFormat("20/02/2021", "dd/MM/yyyy"));
         System.out.println(DateWrapper.periodDays(today, dayX));
-        System.out.println(DateWrapper.addDaysToDate(today, 60));
-        System.out.println(DateWrapper.changeDateNearestBeginningYear(dayX));
+        System.out.println(new myTemporalAdjusterAddDays(10).adjustInto(today));
+        System.out.println(new myTemporalAdjusterNearNewYear().adjustInto(dayX));
     }
 }
