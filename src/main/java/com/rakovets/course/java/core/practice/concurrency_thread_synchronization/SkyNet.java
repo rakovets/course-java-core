@@ -12,7 +12,7 @@ public class SkyNet extends Thread {
 
     public SkyNet(JudgeDayTimer timer,Factory factory) {
         this.timer = timer;
-        this.factory = factory
+        this.factory = factory;
     }
 
     @Override
