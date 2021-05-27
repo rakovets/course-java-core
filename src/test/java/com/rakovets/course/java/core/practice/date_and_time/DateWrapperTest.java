@@ -124,7 +124,7 @@ public class DateWrapperTest {
         LocalDate test = LocalDate.of(2000, 1, 1);
 
         // WHEN
-        LocalDate actualDate = DateWrapper.getDateAfterDays(test, days);
+        LocalDate actualDate = AdjusterInto.getDateAfterDays(test, days);
 
         // THEN
         Assertions.assertEquals(expectedDate, actualDate);
@@ -144,7 +144,7 @@ public class DateWrapperTest {
         // GIVEN
 
         // WHEN
-        LocalDate actualDate = (LocalDate) DateWrapper.closestNewYear.adjustInto(date);
+        LocalDate actualDate = (LocalDate) AdjusterInto.closestNewYear.adjustInto(date);
 
         // THEN
         Assertions.assertEquals(expectedDate, actualDate);
@@ -157,7 +157,7 @@ public class DateWrapperTest {
 
         // WHEN
         try {
-            actualDate = DateWrapper.getDate(2021, 2, 14);
+            actualDate = AdjusterInto.getDate(2021, 2, 14);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
