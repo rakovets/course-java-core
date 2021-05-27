@@ -3,36 +3,30 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CityHelper {
-    public static List<String> getUniqueNameCities(Collection<String> city) {
-        List<String> uniqueCitiesNames = new ArrayList<>();
-        city.stream()
+    public static List<String> getUniqueNameCities(List<String> city) {
+        return city.stream()
                 .distinct()
-                .forEach(x -> uniqueCitiesNames.add(x));
-        return uniqueCitiesNames;
+                .collect(Collectors.toList());
     }
 
-    public static List<String> getCitiesLengthNames(Collection<String> city, int lengthName) {
-        List<String> cityLengthNames = new ArrayList<>();
-        city.stream()
-                .filter(p -> p.length() >= lengthName)
-                .forEach(p -> cityLengthNames.add(p));
-        return cityLengthNames;
+    public static List<String> getCitiesLengthNames(List<String> city, int lengthName) {
+        return city.stream()
+                .filter(cityName -> cityName.length() >= lengthName)
+                .collect(Collectors.toList());
     }
 
     public static List<String> getCitiesFirstLetter(List<String> cityList, String letter) {
-        List<String> citiesFirstLetter = new ArrayList<>();
-        cityList.stream()
-                .filter(p -> p.startsWith(letter))
-                .forEach(p -> citiesFirstLetter.add(p));
-        return citiesFirstLetter;
+        return cityList.stream()
+                .filter(cityName -> cityName.startsWith(letter))
+                .collect(Collectors.toList());
     }
 
     public static long getNumberOfCitiesName(List<String> cityList, String cityName) {
-        long numberCityName = cityList.stream()
+        return cityList.stream()
                 .filter(p -> p.equals(cityName))
                 .count();
-        return numberCityName;
     }
 }
