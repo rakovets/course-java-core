@@ -6,9 +6,11 @@ import java.time.temporal.TemporalAdjuster;
 
 public class TemporalAdjusterImplementationTwo implements TemporalAdjuster {
     int numberOfDays;
+
     public TemporalAdjusterImplementationTwo(int numberOfDays){
         this.numberOfDays = numberOfDays;
     }
+
     @Override
     public Temporal adjustInto(Temporal temporal) {
         return temporal.plus(numberOfDays, ChronoUnit.DAYS);
