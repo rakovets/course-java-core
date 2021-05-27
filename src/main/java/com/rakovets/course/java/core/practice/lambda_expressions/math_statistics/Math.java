@@ -11,25 +11,25 @@ public class Math {
                 .collect(Collectors.toList());
     }
 
-    public static double numberEven(List<Integer> integerList) {
+    public static long numberEven(List<Integer> integerList) {
         return integerList.stream()
                 .filter(x -> x % 2 == 0)
                 .count();
     }
 
-    public static double numberOdd(List<Integer> integerList) {
+    public static long numberOdd(List<Integer> integerList) {
         return integerList.stream()
                 .filter(x -> x % 2 != 0)
                 .count();
     }
 
-    public static double equalZero(List<Integer> integerList) {
+    public static long equalZero(List<Integer> integerList) {
         return integerList.stream()
                 .filter(x -> x == 0)
                 .count();
     }
 
-    public static double equalGivenValue(List<Integer> integerList, int givenValue) {
+    public static long equalGivenValue(List<Integer> integerList, int givenValue) {
         return integerList.stream()
                 .filter(x -> x == givenValue)
                 .count();

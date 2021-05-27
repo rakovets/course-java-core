@@ -9,9 +9,9 @@ public class CityHelperDemo {
         List<String> cities = new ArrayList<>();
         Collections.addAll(cities, "Minsk", "Minsk", "Moscow", "Vilnius", "New-York");
 
-        CityHelper.getUniqueCities(cities);
-        CityHelper.getIfWordsLengthMoreThanSixCharacters(cities);
-        CityHelper.getIfWordsStartWithGivenLetter(cities, "M");
+        System.out.println(CityHelper.getUniqueCities(cities));
+        System.out.println(CityHelper.getIfWordsLengthMoreThanSixCharacters(cities));
+        System.out.println(CityHelper.getIfWordsStartWithGivenLetter(cities, "M"));
         System.out.println(CityHelper.getCountGivenWordBeenUsed(cities, "Minsk"));
     }
 }

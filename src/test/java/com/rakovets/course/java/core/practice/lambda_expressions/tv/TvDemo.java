@@ -14,13 +14,13 @@ public class TvDemo {
                 new TvModel("Panasonic", "TX-32FR250K", 2018, 31.5, 565.0),
                 new TvModel("Samsung", "UE43TU7090U", 2020, 43, 1015.0)));
 
-        Tv.tvWithGivenDiagonal(tvModels, 43);
-        Tv.tvWithGivenManufacture(tvModels, "LG");
-        Tv.tvNotOlderThanGivenYear(tvModels, 2019);
-        Tv.tvWithGivenPrice(tvModels, 600.0, 1200.0);
-        Tv.tvSortedByPriceAscending(tvModels);
-        Tv.tvSortedByPriceDescending(tvModels);
-        Tv.tvSortedByDiagonalAscending(tvModels);
-        Tv.tvSortedByDiagonalDescending(tvModels);
+        System.out.println(Tv.tvWithGivenDiagonal(tvModels, 43));
+        System.out.println(Tv.tvWithGivenManufacture(tvModels, "LG"));
+        System.out.println(Tv.tvNotOlderThanGivenYear(tvModels, 2019));
+        System.out.println(Tv.tvWithGivenPrice(tvModels, 600.0, 1200.0));
+        System.out.println(Tv.tvSortedByPriceAscending(tvModels));
+        System.out.println(Tv.tvSortedByPriceDescending(tvModels));
+        System.out.println(Tv.tvSortedByDiagonalAscending(tvModels));
+        System.out.println(Tv.tvSortedByDiagonalDescending(tvModels));
     }
 }

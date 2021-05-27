@@ -1,24 +1,26 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.city_helper;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class CityHelper {
-    public static void getUniqueCities(Collection<String> cities) {
-        cities.stream()
+    public static List<String> getUniqueCities(Collection<String> cities) {
+        return cities.stream()
                 .distinct()
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
     }
 
-    public static void getIfWordsLengthMoreThanSixCharacters(Collection<String> cities) {
-        cities.stream()
+    public static List<String> getIfWordsLengthMoreThanSixCharacters(Collection<String> cities) {
+        return cities.stream()
                 .filter(s -> s.length() > 6)
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
     }
 
-    public static void getIfWordsStartWithGivenLetter(Collection<String> cities, String givenLetter) {
-        cities.stream()
+    public static List<String> getIfWordsStartWithGivenLetter(Collection<String> cities, String givenLetter) {
+        return cities.stream()
                 .filter(s -> s.startsWith(givenLetter))
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
     }
 
     public static long getCountGivenWordBeenUsed(Collection<String> cities, String givenWord) {
