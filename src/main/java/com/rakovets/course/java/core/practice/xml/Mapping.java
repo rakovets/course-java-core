@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.xml;
 
 public class Mapping {
-
     private String name;
     private String value;
 

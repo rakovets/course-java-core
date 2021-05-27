@@ -1,34 +1,33 @@
 package com.rakovets.course.java.core.practice.xml;
 
-import java.util.List;
+import java.util.LinkedHashMap;
 
 public class HibernateConfiguration {
-    private List<Property> propertyList;
-    private List<Mapping> mappingList;
+    private LinkedHashMap<String, String> mapProperty;
+    private LinkedHashMap<String, String> mapMapping;
 
     public HibernateConfiguration() {
 
     }
 
-    public HibernateConfiguration(List<Property> propertyList, List<Mapping> mappingList) {
-        this.propertyList = propertyList;
-        this.mappingList = mappingList;
+    public HibernateConfiguration(LinkedHashMap<String, String> mapProperty, LinkedHashMap<String, String> mapMapping) {
+        this.mapProperty = mapProperty;
+        this.mapMapping = mapMapping;
     }
 
-    public void setPropertyList(List<Property> propertyList) {
-        this.propertyList = propertyList;
+    public void setMapProperty(LinkedHashMap<String, String> mapProperty) {
+        this.mapProperty = mapProperty;
     }
 
-    public void setMappingList(List<Mapping> mappingList) {
-        this.mappingList = mappingList;
+    public void setMapMapping(LinkedHashMap<String, String> mapMapping) {
+        this.mapMapping = mapMapping;
     }
 
-    public List<Property> getPropertyList() {
-        return propertyList;
+    public LinkedHashMap<String, String> getMapProperty() {
+        return mapProperty;
     }
 
-    public List<Mapping> getMappingList() {
-        return mappingList;
+    public LinkedHashMap<String, String> getMapMapping() {
+        return mapMapping;
     }
-
 }

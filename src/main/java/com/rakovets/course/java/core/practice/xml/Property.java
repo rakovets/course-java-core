@@ -24,4 +24,7 @@ public class Property {
     public String toString() {
         return "property " + "name = " + getName() + " " + getValue();
     }
+
+    public void put(String name, String value) {
+    }
 }

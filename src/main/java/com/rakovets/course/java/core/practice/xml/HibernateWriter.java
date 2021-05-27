@@ -8,14 +8,15 @@ import javax.xml.stream.events.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class HibernateWriter {
     private final XMLEventFactory eventFactory = XMLEventFactory.newInstance();
     private final XMLEvent lfEvent = eventFactory.createDTD("\n");
     private final XMLEvent tab = eventFactory.createDTD("\t");
 
-    public void createHibernateXML(String configFilePath, HibernateConfiguration lists) {
+    public void createHibernateXML(String configFilePath, HibernateConfiguration hibernate) {
         XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
         try (OutputStream outputStream = new FileOutputStream(configFilePath)) {
             XMLEventWriter eventWriter = outputFactory.createXMLEventWriter(outputStream);
@@ -30,14 +31,14 @@ public class HibernateWriter {
             eventWriter.add(tab);
             eventWriter.add(eventFactory.createStartElement("", "", "session-factory"));
             eventWriter.add(lfEvent);
-            List<Property> propertyList = lists.getPropertyList();
-            List<Mapping> mapList = lists.getMappingList();
-            for (Property property : propertyList) {
-                createPropertyNode(eventWriter, property.getName(), property.getValue());
+            LinkedHashMap<String, String> property = hibernate.getMapProperty();
+            LinkedHashMap<String, String> mapping = hibernate.getMapMapping();
+            for (Map.Entry<String, String> set : property.entrySet()) {
+                createPropertyNode(eventWriter, set.getKey(), set.getValue());
             }
             eventWriter.add(lfEvent);
-            for (Mapping mapping : mapList) {
-                createMappingNode(eventWriter, mapping.getValue(), mapping.getName());
+            for (Map.Entry<String, String> set : mapping.entrySet()) {
+                createMappingNode(eventWriter, set.getKey(), set.getValue());
             }
             eventWriter.add(tab);
             eventWriter.add(eventFactory.createEndElement("", "", "session-factory"));
