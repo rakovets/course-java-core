@@ -7,7 +7,6 @@ public class HibernateConfiguration {
     private LinkedHashMap<String, String> mapMapping;
 
     public HibernateConfiguration() {
-
     }
 
     public HibernateConfiguration(LinkedHashMap<String, String> mapProperty, LinkedHashMap<String, String> mapMapping) {

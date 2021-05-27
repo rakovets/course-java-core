@@ -78,4 +78,3 @@ public class HibernateWriter {
         eventWriter.add(lfEvent);
     }
 }
-

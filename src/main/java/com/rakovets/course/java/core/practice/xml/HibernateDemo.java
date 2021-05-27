@@ -11,7 +11,6 @@ public class HibernateDemo {
         HibernateReader hibernateReader = new HibernateReader();
         HibernateConfiguration readConfig = hibernateReader.readConfig(
                 Paths.get("src", "main", "resources", "practice", "xml", "hibernate.cfg.xml").toString());
-
         LinkedHashMap<String, String> mappingMap = readConfig.getMapMapping();
         LinkedHashMap<String, String> propertyMap = readConfig.getMapProperty();
 
