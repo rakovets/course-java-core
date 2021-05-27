@@ -10,8 +10,9 @@ public class SkyNet extends Thread {
     private Factory factory;
     private JudgeDayTimer timer;
 
-    public SkyNet(JudgeDayTimer timer) {
+    public SkyNet(JudgeDayTimer timer,Factory factory) {
         this.timer = timer;
+        this.factory = factory
     }
 
     @Override
