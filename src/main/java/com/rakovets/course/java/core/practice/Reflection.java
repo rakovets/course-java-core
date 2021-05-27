@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class Reflection {
-
     public static Field getField(Class<?> clazz, String fieldName) {
         Field field = null;
         try {
