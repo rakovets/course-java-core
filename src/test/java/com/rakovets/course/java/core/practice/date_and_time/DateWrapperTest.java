@@ -27,7 +27,7 @@ public class DateWrapperTest {
 
     static Stream<Arguments> provideArgumentsForGetLocalDateAfterMonth() {
         return Stream.of(
-                Arguments.of("2020-07-23", 5,  LocalDate.of(2020, 2, 23)),
+                Arguments.of("2020-07-23", 5, LocalDate.of(2020, 2, 23)),
                 Arguments.of("2021-02-23", 2, LocalDate.of(2020, 12, 23)),
                 Arguments.of("2022-12-23", 24, LocalDate.of(2020, 12, 23))
         );
@@ -115,54 +115,5 @@ public class DateWrapperTest {
                 Arguments.of(LocalDate.of(2000, 2, 1), 31),
                 Arguments.of(LocalDate.of(2001, 1, 1), 366)
         );
-    }
-
-    @ParameterizedTest
-    @MethodSource("provideArgumentsForGetDateAfterDays")
-    void getDateAfterDays(LocalDate expectedDate, int days) {
-        // GIVEN
-        LocalDate test = LocalDate.of(2000, 1, 1);
-
-        // WHEN
-        LocalDate actualDate = AdjusterInto.getDateAfterDays(test, days);
-
-        // THEN
-        Assertions.assertEquals(expectedDate, actualDate);
-    }
-
-    static Stream<Arguments> provideArgumentsForAdjustInto() {
-        return Stream.of(
-                Arguments.of(LocalDate.of(2000, 1, 1), LocalDate.of(2000, 2, 20)),
-                Arguments.of(LocalDate.of(2001, 1, 1),  LocalDate.of(2000, 9, 10)),
-                Arguments.of(LocalDate.of(2000, 1, 1),  LocalDate.of(2000, 6, 15))
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("provideArgumentsForAdjustInto")
-    void adjustIntoClosestNewYear(LocalDate expectedDate, LocalDate date) {
-        // GIVEN
-
-        // WHEN
-        LocalDate actualDate = (LocalDate) AdjusterInto.closestNewYear.adjustInto(date);
-
-        // THEN
-        Assertions.assertEquals(expectedDate, actualDate);
-    }
-
-    @Test
-    void getDate() {
-        // GIVEN
-        Date actualDate = new Date();
-
-        // WHEN
-        try {
-            actualDate = AdjusterInto.getDate(2021, 2, 14);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // THEN
-        Assertions.assertEquals("Sun Feb 14 00:00:00 MSK 2021", actualDate.toString());
     }
 }
