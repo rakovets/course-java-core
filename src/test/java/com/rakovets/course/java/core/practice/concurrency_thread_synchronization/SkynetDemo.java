@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 public class SkynetDemo {
     public static void main(String[] args) {
         JudgeDayTimer timer = new JudgeDayTimer();
-         SkyNet skyNet = new SkyNet(timer);
-         Wednesday wednesday = new Wednesday(timer);
+         SkyNet skyNet = new SkyNet(timer,factory);
+         Wednesday wednesday = new Wednesday(timer,factory);
          Factory factory = new Factory(timer);
 
          new Thread(timer).start();
