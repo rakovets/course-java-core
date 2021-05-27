@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Locale;
 import java.util.stream.Stream;
 
-
-
 public class StringUtilTest {
     static Stream<Arguments> provideArgumentsforconcat() {
         return Stream.of(
@@ -154,6 +152,7 @@ public class StringUtilTest {
 
 
     }
+
     static Stream<Arguments> provideArgumentsforamountOfSymbols() {
         return Stream.of(
                 Arguments.of("how many ? do u see?", 2),
@@ -173,6 +172,7 @@ public class StringUtilTest {
 
 
     }
+
     static Stream<Arguments> provideArgumentsforcheckForInversion() {
         return Stream.of(
                 Arguments.of("deed", true),
@@ -190,10 +190,11 @@ public class StringUtilTest {
         boolean actual = stringUtil.checkForInversion(text);
         assertEquals(expected, actual);
     }
+
     static Stream<Arguments> provideArgumentsforpartsofwords() {
         return Stream.of(
                 Arguments.of("hello", 0, new String[]{"hello"}),
-                Arguments.of("HELLO", 1, new String[]{"H","E", "L", "L", "O"}),
+                Arguments.of("HELLO", 1, new String[]{"H", "E", "L", "L", "O"}),
                 Arguments.of("zZzzZzzZz", 3, new String[]{"zZz", "zZz", "zZz"})
         );
     }
@@ -203,9 +204,10 @@ public class StringUtilTest {
     @MethodSource("provideArgumentsforpartsofwords")
     void partsofwordsTest(String text, int amountofparts, String[] expected) {
         StringUtil stringUtil = new StringUtil();
-        String[] actual = stringUtil.partsofwords(text,amountofparts);
+        String[] actual = stringUtil.partsofwords(text, amountofparts);
         assertArrayEquals(expected, actual);
     }
+
     static Stream<Arguments> provideArgumentsforamountOfWords() {
         return Stream.of(
                 Arguments.of("hello   hello hello", 3),
@@ -223,6 +225,7 @@ public class StringUtilTest {
         int actual = stringUtil.amountOfWords(text);
         assertEquals(expected, actual);
     }
+
     static Stream<Arguments> provideArgumentsFL() {
         return Stream.of(
                 Arguments.of("SergeI IvanoV", "SI"),
@@ -242,6 +245,7 @@ public class StringUtilTest {
 
 
     }
+
     static Stream<Arguments> provideArgumentsforamountOfDigit() {
         return Stream.of(
                 Arguments.of("84521", 5),
@@ -261,7 +265,6 @@ public class StringUtilTest {
 
 
     }
-
 
 
 }
