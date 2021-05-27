@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public class MathsStatisticsDemo {
     public static void main(String[] args) {
-        System.out.print("Array : ");
-        System.out.println(Arrays.toString(MathsStatistics.randomArray));
+        int[] arrayNumbers = MathsStatistics.getRandomNumber(10, -50, 50);
+        System.out.println("Array : " + Arrays.toString(arrayNumbers));
         System.out.print("Count of even numbers : ");
-        System.out.println(MathsStatistics.getCountEvenNumber());
+        System.out.println(MathsStatistics.getCountEvenNumber(arrayNumbers));
         System.out.print("Count of odd numbers : ");
-        System.out.println(MathsStatistics.getCountOddNumber());
+        System.out.println(MathsStatistics.getCountOddNumber(arrayNumbers));
         System.out.print("Count of zeros : ");
-        System.out.println(MathsStatistics.getCountZeroNumber());
+        System.out.println(MathsStatistics.getCountZeroNumber(arrayNumbers));
         System.out.print("Count of some value : ");
-        System.out.println(MathsStatistics.equalToValue(15));
+        System.out.println(MathsStatistics.equalToValue(arrayNumbers,15));
     }
 }
