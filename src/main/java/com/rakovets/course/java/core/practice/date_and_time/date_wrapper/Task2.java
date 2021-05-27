@@ -1,31 +1,28 @@
 package com.rakovets.course.java.core.practice.date_and_time.date_wrapper;
 
 import java.time.temporal.ChronoField;
-import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
-public class Task2 {
-    public static Temporal addNDays(Temporal temporal, int quantityDays){
-        return temporal.plus(quantityDays, ChronoUnit.DAYS);
-    }
+public class Task2 implements TemporalAdjuster {
+    private static boolean leapYear;
+    private static int middleYear;
+    private static int day;
+    private static final int HALF_YEAR = 365 / 2;
+    private static final int HALF_LEAP_YEAR = 366 / 2;
 
-    public static Temporal changesDateFirstDayOfYear(Temporal temporal) {
-        final int HALF_NOT_LEAP_YEAR = 365 / 2;
-        final int HALF_LEAP_YEAR = 366 / 2;
+    @Override
+    public Temporal adjustInto(Temporal temporal) {
+        leapYear = temporal.get(ChronoField.YEAR) % 4 == 0;
+        day = temporal.get(ChronoField.DAY_OF_YEAR);
 
-        int day = temporal.get(ChronoField.DAY_OF_YEAR);
-        int halfYear;
-
-        boolean checkLeapYear = temporal.get(ChronoField.YEAR) % 4 == 0;
-
-        if (checkLeapYear) {
-            halfYear = HALF_LEAP_YEAR;
+        if (leapYear == true) {
+            middleYear = HALF_LEAP_YEAR;
         } else {
-            halfYear = HALF_NOT_LEAP_YEAR;
+            middleYear = HALF_YEAR;
         }
-
-        if (day <= halfYear) {
+        if (day <= middleYear) {
             return temporal.with(TemporalAdjusters.firstDayOfYear());
         } else {
             return temporal.with(TemporalAdjusters.firstDayOfNextYear());
