@@ -44,7 +44,7 @@ public class HibernateReader {
                             String classValue = getAttributeValueByName(startElement, HibernateField.CLASS);
                             event = eventReader.nextEvent();
                             if (classValue != null) {
-                                mapping.setName(HibernateField.NAME);
+                                mapping.setName(HibernateField.CLASS);
                                 mapping.setValue(classValue);
                             }
                     }

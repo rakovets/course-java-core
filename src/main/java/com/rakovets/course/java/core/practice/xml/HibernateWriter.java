@@ -51,10 +51,10 @@ public class HibernateWriter {
         }
     }
 
-    private void createMappingNode(XMLEventWriter eventWriter, String value, String valueAttribute) throws XMLStreamException {
+    private void createMappingNode(XMLEventWriter eventWriter, String value, String valueAttr) throws XMLStreamException {
         XMLEvent tab = eventFactory.createDTD("\t\t");
         StartElement sElement = eventFactory.createStartElement("", "", "mapping");
-        Attribute attr = eventFactory.createAttribute(valueAttribute, value);
+        Attribute attr = eventFactory.createAttribute(valueAttr, value);
         eventWriter.add(tab);
         eventWriter.add(sElement);
         eventWriter.add(attr);
@@ -63,17 +63,18 @@ public class HibernateWriter {
         eventWriter.add(lfEvent);
     }
 
-    private void createPropertyNode(XMLEventWriter eventWriter, String value, String valueAttribute) throws XMLStreamException {
+    private void createPropertyNode(XMLEventWriter eventWriter, String value, String valueAttr) throws XMLStreamException {
         XMLEvent tab = eventFactory.createDTD("\t\t");
         StartElement sElement = eventFactory.createStartElement("", "", "property");
-        Attribute attr = eventFactory.createAttribute("name", valueAttribute);
+        Attribute attr = eventFactory.createAttribute("name", value);
         eventWriter.add(tab);
         eventWriter.add(sElement);
         eventWriter.add(attr);
-        Characters characters = eventFactory.createCharacters(valueAttribute);
+        Characters characters = eventFactory.createCharacters(valueAttr);
         eventWriter.add(characters);
         EndElement eElement = eventFactory.createEndElement("", "", "property");
         eventWriter.add(eElement);
         eventWriter.add(lfEvent);
     }
 }
+

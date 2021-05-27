@@ -5,18 +5,18 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="com.mysql.jdbc.Driver">com.mysql.jdbc.Driver</property>
-		<property name="jdbc:mysql://localhost:3306/test">jdbc:mysql://localhost:3306/test</property>
-		<property name="root">root</property>
-		<property name="password">password</property>
-		<property name="1">1</property>
-		<property name="true">true</property>
-		<property name="org.hibernate.dialect.MySQLDialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="thread">thread</property>
-		<property name="utf8">utf8</property>
-		<property name="utf8">utf8</property>
-		<property name="true">true</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.pool_size">1</property>
+		<property name="show_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.connection.CharSet">utf8</property>
+		<property name="hibernate.connection.characterEncoding">utf8</property>
+		<property name="hibernate.connection.useUnicode">true</property>
 
-		<mapping name="net.common.model.Person"></mapping>
+		<mapping class="net.common.model.Person"></mapping>
 	</session-factory>
 </hibernate-configuration>
