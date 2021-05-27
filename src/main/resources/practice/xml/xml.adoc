@@ -2,17 +2,17 @@
 
 == Project 'Hibernate Config Reader'
 
-* создать *configuration* класс для *Hibernate*
+* создать *configurationHibernate* класс для *Hibernate*
 * создать *reader* класс, который:
-** читает *configuration* файл для *Hibernate* (`hibernate.cfg.xml`) по пути к этому файлу
-** создает *configuration* класс на основе прочитанного *configuration* файла
+** читает *configurationHibernate* файл для *Hibernate* (`hibernate.cfg.xml`) по пути к этому файлу
+** создает *configurationHibernate* класс на основе прочитанного *configurationHibernate* файла
 
 == Project 'Hibernate Config Writer'
 
-* создать *configuration* класс для *Hibernate*
+* создать *configurationHibernate* класс для *Hibernate*
 * создать *writer* класс, который:
-** создает *configuration* файл на основе *configuration* класса
-** пишет *configuration* файл для *Hibernate* (`hibernate.cfg.xml`) по пути к этому файлу
+** создает *configurationHibernate* файл на основе *configurationHibernate* класса
+** пишет *configurationHibernate* файл для *Hibernate* (`hibernate.cfg.xml`) по пути к этому файлу
 
 == Project 'Recursive Parser'**
 
