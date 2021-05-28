@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.example.exception_handling.task5;
 
 public class Task5 {
-    public static void trowExceptionTask5() throws NullPointerException {
+    public static void trowExceptionTask5() {
         throw new NullPointerException("MESSAGE OF NullPointerException");
 
     }
@@ -14,4 +14,3 @@ public class Task5 {
         }
     }
 }
-
