@@ -20,7 +20,7 @@ public class Reflection {
         Method method = null;
         try {
             method = clazz.getDeclaredMethod(methodName);
-            method.setAccessible(true);
+          method.setAccessible(true);
         } catch (SecurityException | IllegalArgumentException | NoSuchMethodException e) {
             e.printStackTrace();
         }
