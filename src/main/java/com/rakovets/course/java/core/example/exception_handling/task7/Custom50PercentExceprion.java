@@ -5,7 +5,7 @@ public class Custom50PercentExceprion {
        int customValue = (int)(Math.random() * 2);
        if(customValue == 1) {
            customValue /= 0;
-           throw  new ArithmeticException("The deliver is zero");
+           throw new ArithmeticException("The deliver is zero");
        } else {
            customValue += 1;
        }

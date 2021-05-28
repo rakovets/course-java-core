@@ -4,5 +4,4 @@ public class WrongPositivNumberException extends Exception {
     public WrongPositivNumberException() {
         super("You write negative number");
     }
-
 }

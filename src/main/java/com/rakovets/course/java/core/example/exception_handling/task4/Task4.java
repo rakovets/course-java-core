@@ -9,7 +9,7 @@ public class Task4 {
         if (probablePrime) {
             return "Simple number: " + number;
         } else {
-            throw new WrongSimpleNumberException();
+            throw new WrongSimpleNumberException(number);
         }
     }
 }

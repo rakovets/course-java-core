@@ -1,8 +1,12 @@
 package com.rakovets.course.java.core.example.exception_handling.task4;
 
 public class WrongSimpleNumberException extends Exception {
-    public WrongSimpleNumberException() {
-        super("Number is not simple");
-    }
+    private int number;
 
+    public WrongSimpleNumberException(int number) {
+        this.number = number;
+    }
+    public String toString() {
+        return "Number " + number + " is not simple" ;
+    }
 }
