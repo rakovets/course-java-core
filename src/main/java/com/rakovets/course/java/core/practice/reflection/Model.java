@@ -7,7 +7,7 @@ public class Model {
         this.name = name;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 }
