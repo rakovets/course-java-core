@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.reflection;
 
 
+import com.rakovets.course.java.core.example.reflection.model.Group;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -20,8 +22,13 @@ public class ReflectionDemo {
 
         Reflection.invokeMethod(method, dateWrapper);
 
-        System.out.println("Time is " + dateWrapper.getTime());
+        System.out.println("Time = " + dateWrapper.getTime());
         Reflection.setField(field, dateWrapper, 200);
-        System.out.println("New time is " + dateWrapper.getTime());
+        System.out.println("New time = " + dateWrapper.getTime());
+
+        Method secondMethod = Reflection.getMethodByParameters(dateWrapper.getClass(), "setTime", int.class);
+        System.out.println(secondMethod);
+        Reflection.invokeMethodWithParameters(secondMethod, dateWrapper, 5000);
+        System.out.println("New time after invokeMethodWithParameters = " + dateWrapper.getTime());
     }
 }
