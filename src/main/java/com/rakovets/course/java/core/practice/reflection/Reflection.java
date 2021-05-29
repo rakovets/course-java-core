@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice;
+package com.rakovets.course.java.core.practice.reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -19,8 +19,8 @@ public class Reflection {
     public static Method getMethod(Class<?> clazz, String methodName) {
         Method method = null;
         try {
-            method = clazz.getDeclaredMethod(methodName);
-          method.setAccessible(true);
+            method = clazz.getMethod(methodName);
+            method.setAccessible(true);
         } catch (SecurityException | IllegalArgumentException | NoSuchMethodException e) {
             e.printStackTrace();
         }
