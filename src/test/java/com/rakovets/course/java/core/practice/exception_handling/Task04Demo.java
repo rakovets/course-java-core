@@ -1,13 +1,12 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-public class Task03Demo {
+public class Task04Demo {
     public static void main(String[] args) {
-
+        int n = 0;
         try {
-            System.out.println(Task03.throwException(0));
-        } catch (ArithmeticException e) {
+            Task04.divisionByZero();
+        } catch (DivisionByZeroException e) {
             System.out.println(e.getMessage());
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }
