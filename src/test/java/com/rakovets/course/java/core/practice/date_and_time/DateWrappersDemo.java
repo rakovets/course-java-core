@@ -24,9 +24,9 @@ public class DateWrappersDemo {
         long daysBetweenTwoDates = DateWrapper.getDaysBetweenDates (firstDate,secondDate);
         System.out.println("Days between 2016 and 2014: " + daysBetweenTwoDates);
 
-        System.out.println("Override TemporalAdjuster interface,now it change date for N days: " + DateWrapper.adjustInto(date, 15));
+        System.out.println(new TaskTemporalAdjuster(21).adjustInto(date));
 
-        System.out.println("Nearest 1st January in days: " + DateWrapper.adjustInto(LocalDate.of(2020, 8, 29)));
+        System.out.println(new TaskTemporalAdjuster2().adjustInto(LocalDate.of(2020, 07, 01)));
 
     }
 }
