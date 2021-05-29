@@ -1,21 +1,19 @@
 package com.rakovets.course.java.core.practice;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ParallelCalculatorDemo {
     public static void main(String[] args) {
-        Integer[] array = new Integer[]{1, 2, 3, 4, 5};
-        Integer[] array2 = new Integer[]{-1, -2, -3, 4, 5};
-        Integer[] array3 = new Integer[]{2, 3, 5};
-        List<Integer[]> list = new ArrayList<>();
-        list.add(array);
-        list.add(array2);
-        list.add(array3);
+        List<Integer[]> inputArray = new LinkedList<>();
+        for (int i = 0; i < 100; i++) {
+            Integer[] array = new Integer[1000000];
+            for (int x = 0; x < array.length; x++) {
+                array[x] = new Random().nextInt(300);
+            }
+            inputArray.add(array);
+        }
 
-        Map<Integer[], Integer> map = ParallelCalculator.getArraySum(list);
+        Map<Integer[], Integer> map = ParallelCalculator.getArraySum(inputArray);
 
         for (Map.Entry<Integer[], Integer> map2 : map.entrySet()) {
             Integer[] arrayS = map2.getKey();
