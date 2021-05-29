@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrent_utilities;
+package com.rakovets.course.java.core.practice;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicIntegerArray;
