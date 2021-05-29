@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 public class ImprovedParallelCalculatorDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        Map<Integer[], Long> map = new HashMap<>();
+        Map<Integer[], Long> map;
         Random random = new Random();
         List<Integer[]> arraysList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
