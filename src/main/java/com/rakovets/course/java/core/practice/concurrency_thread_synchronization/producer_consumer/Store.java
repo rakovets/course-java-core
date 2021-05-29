@@ -17,7 +17,7 @@ public class Store {
         this.filePath = filePath;
     }
 
-    public synchronized void produce() {
+    public synchronized void produce(int number) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             while (queue.size() >= 10) {
                 writer.write(LocalDateTime.now().toString() + " " + Thread.currentThread().getName() + " wait\n");
@@ -27,7 +27,6 @@ public class Store {
                 System.out.println(LocalDateTime.now().toString() + " " + Thread.currentThread().getName() + " wake up");
             }
 
-            int number = (int) (Math.random() * 100);
             queue.add(number);
             writer.write(LocalDateTime.now().toString() + " " + Thread.currentThread().getName() +
                     " get number - " + number + "\n");

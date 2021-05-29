@@ -12,7 +12,8 @@ public class ProducerThread implements Runnable {
     @Override
     public void run() {
         for (int i = 1; i <= numberOfNumbersProduced; i++) {
-            store.produce();
+            int number = (int) (Math.random() * 100);
+            store.produce(number);
         }
     }
 }
