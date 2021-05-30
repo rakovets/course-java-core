@@ -7,7 +7,6 @@ public class HibernateConfiguration {
     private HashMap<String, String> propertyMap = new LinkedHashMap<>();
     private HashMap<String, String> mappingMap = new LinkedHashMap<>();
 
-
     public void putInPropertyMap(String key, String value) {
         propertyMap.put(key, value);
     }

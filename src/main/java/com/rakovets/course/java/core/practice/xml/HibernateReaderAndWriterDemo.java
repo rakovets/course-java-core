@@ -14,6 +14,7 @@ public class HibernateReaderAndWriterDemo {
         String writePath = Paths.get("src", "main", "resources", "practice", "xml", "hibernate.newcfg.xml").toString();
         Map<String, String> configurationsMap = new LinkedHashMap<>();
 
+        //Reader
         try {
             hibernateReader.readXmlFile(readPaths);
             configurationsMap.putAll(hibernateConfiguration.getPropertyMap());
@@ -24,6 +25,8 @@ public class HibernateReaderAndWriterDemo {
         } catch (FileNotFoundException | XMLStreamException e) {
             e.printStackTrace();
         }
+
+        //Writer
         try {
             hibernateWriter.writeConfig(writePath);
         } catch (XMLStreamException | FileNotFoundException e) {

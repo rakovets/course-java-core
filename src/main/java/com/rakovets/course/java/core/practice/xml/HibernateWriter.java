@@ -40,12 +40,12 @@ public class HibernateWriter {
         eventWriter.add(lfEvent);
         for (Map.Entry<String, String> map : propertyMap.entrySet()) {
             eventWriter.add(tab);
-            createNode(eventWriter, HibernateField.PROPERTY, map.getKey(), map.getValue());
+            createNodeForProperty(eventWriter, HibernateField.PROPERTY, map.getKey(), map.getValue());
         }
         eventWriter.add(lfEvent);
         for (Map.Entry<String,String> map : mappingMap.entrySet()) {
             eventWriter.add(tab);
-            createNode(eventWriter, HibernateField.MAPPING, map.getKey(), map.getValue());
+            createNodeForMapping(eventWriter, HibernateField.MAPPING, map.getKey(), map.getValue());
         }
         eventWriter.add(tab);
         eventWriter.add(eventFactory.createEndElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, HibernateField.SESSION));
@@ -56,7 +56,7 @@ public class HibernateWriter {
         eventWriter.close();
     }
 
-    private void createNode(XMLEventWriter eventWriter, String name, String key, String value) throws  XMLStreamException {
+    private void createNodeForProperty(XMLEventWriter eventWriter, String name, String key, String value) throws  XMLStreamException {
         StartElement startElement = eventFactory.createStartElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, name);
         Attribute attribute = eventFactory.createAttribute(HibernateField.NAME, key);
         eventWriter.add(tab);
@@ -64,6 +64,17 @@ public class HibernateWriter {
         eventWriter.add(attribute);
         Characters characters = eventFactory.createCharacters(value);
         eventWriter.add(characters);
+        EndElement endElement = eventFactory.createEndElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, name);
+        eventWriter.add(endElement);
+        eventWriter.add(lfEvent);
+    }
+
+    private void createNodeForMapping(XMLEventWriter eventWriter, String name, String key, String value) throws XMLStreamException {
+        StartElement startElement = eventFactory.createStartElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, name);
+        Attribute attribute = eventFactory.createAttribute(key, value);
+        eventWriter.add(tab);
+        eventWriter.add(startElement);
+        eventWriter.add(attribute);
         EndElement endElement = eventFactory.createEndElement(EMPTY_PREFIX, EMPTY_NAMESPACE_URI, name);
         eventWriter.add(endElement);
         eventWriter.add(lfEvent);
