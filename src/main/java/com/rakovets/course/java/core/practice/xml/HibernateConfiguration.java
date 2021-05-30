@@ -13,7 +13,7 @@ public class HibernateConfiguration {
     }
 
     public void putInMappingMap(String key, String value) {
-        propertyMap.put(key, value);
+        mappingMap.put(key, value);
     }
 
     public HashMap<String, String> getPropertyMap() {
