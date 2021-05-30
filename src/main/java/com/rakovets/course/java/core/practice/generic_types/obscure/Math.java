@@ -1,41 +1,32 @@
 package com.rakovets.course.java.core.practice.generic_types.obscure;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
 public abstract class Math {
-
-    public static <K extends Number> K getMax(K firstValue, K secondValue, K thirdValue) {
-        int firstDIntValue = firstValue.intValue();
-        int secondIntValue = secondValue.intValue();
-        int thirdIntValue = thirdValue.intValue();
-        int maxValue = java.lang.Math.max(firstDIntValue, java.lang.Math.max(secondIntValue, thirdIntValue));
-        if (maxValue == firstDIntValue) {
-            return firstValue;
-        } else if (maxValue == secondIntValue) {
-            return secondValue;
-        } else {
-            return thirdValue;
+    public static <K extends Number> K getMax(K a, K b, K c) {
+        List<K> list = new ArrayList<>();
+        Stream.of(a, b, c).forEach(x -> list.add(x));
+        K max = a;
+        for (K item : list) {
+            if (item.doubleValue() > max.doubleValue()) {
+                max = item;
+            }
         }
-
+        return max;
     }
 
-    public static <K extends Number> K getMin(K firstValue, K secondValue, K thirdValue, K fourthValue, K fifthValue) {
-        int firstDIntValue = firstValue.intValue();
-        int secondIntValue = secondValue.intValue();
-        int thirdIntValue = thirdValue.intValue();
-        int fourthIntValue = fourthValue.intValue();
-        int fifthIntValue = fifthValue.intValue();
-        int minValue = java.lang.Math.min(firstDIntValue, java.lang.Math.min(secondIntValue, java.lang.Math.min(thirdIntValue,
-                java.lang.Math.min(fourthIntValue, fifthIntValue))));
-        if (minValue == firstDIntValue) {
-            return firstValue;
-        } else if (minValue == secondIntValue) {
-            return secondValue;
-        } else if (minValue == thirdIntValue) {
-            return thirdValue;
-        } else if (minValue == fourthIntValue) {
-            return fourthValue;
-        } else {
-            return fifthValue;
+    public static <K extends Number> K getMin(K a, K b, K c, K d, K f) {
+        List<K> list = new ArrayList<>();
+        Stream.of(a, b, c, d, f).forEach(x -> list.add(x));
+        K min = a;
+        for (K item : list) {
+            if (item.doubleValue() < min.doubleValue()) {
+                min = item;
+            }
         }
+        return min;
     }
 
     public static <T extends Number> double getAverageInArray(T[] array) {

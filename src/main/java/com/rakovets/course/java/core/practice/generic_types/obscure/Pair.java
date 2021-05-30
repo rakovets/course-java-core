@@ -26,10 +26,10 @@ public class Pair<K, V> {
     }
 
     public static <K,V> Pair<K,V> swap(Pair<K, V> pair) {
-        return new Pair(pair.getSecondParameter(),pair.getFirstParameter());
+        return new Pair(pair.getSecondParameter(), pair.getFirstParameter());
     }
 
     public Pair<K, V> getSwapped() {
-        return new Pair(getSecondParameter(),getFirstParameter());
+        return new Pair(getSecondParameter(), getFirstParameter());
     }
 }

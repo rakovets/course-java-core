@@ -1,37 +1,33 @@
 package com.rakovets.course.java.core.practice.generic_types.obscure;
 
 public class Obscure<T> {
-    private T parameterObscure;
+    private T value;
 
     public Obscure(T parameterObscure) {
-        this.parameterObscure = parameterObscure;
+        this.value = parameterObscure;
     }
 
-    public T getParameterObscure() {
-        return parameterObscure;
+    public T getValue() {
+        return value;
     }
 
     public boolean isPresent() {
-        return parameterObscure != null;
+        return value != null;
     }
 
     public boolean isEmpty() {
-        return parameterObscure == null;
+        return value == null;
     }
 
     public T orElse(T currentParameterObscure) {
-        if (parameterObscure != null) {
-            return parameterObscure;
-        } else {
-            return currentParameterObscure;
-        }
+       return isPresent() ? value : currentParameterObscure;
     }
 
-    public T orElseThrow() throws NullPointerException {
-            if (parameterObscure == null) {
-                throw new NullPointerException("Field is empty!");
+    public T orElseThrow(Exception exception) throws Exception {
+            if (isPresent()) {
+                return value;
             } else {
-                return parameterObscure;
+                throw exception;
             }
     }
     public static <S> Obscure<S> of(S obj) {
