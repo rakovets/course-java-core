@@ -5,13 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Consumer implements Runnable {
-    private static boolean status = true;
     private final LinkedList<Integer> queue;
     private final ReentrantLock lock;
 
@@ -25,12 +23,16 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(String.valueOf(filePath)))) {
-            while (isStatus()) {
+            while (true) {
                 try {
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                     lock.lock();
                     int delay = 1;
                     if (queue.peekFirst() != null) {
+                        if (queue.peekFirst() == -1) {
+                            lock.unlock();
+                            break;
+                        }
                         delay = queue.removeFirst();
                         lock.unlock();
                         writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept " + delay
@@ -49,13 +51,5 @@ public class Consumer implements Runnable {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void setStatus(boolean status) {
-        Consumer.status = status;
-    }
-
-    public static boolean isStatus() {
-        return status;
     }
 }

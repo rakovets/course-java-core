@@ -8,7 +8,7 @@ public class ProducerDemo {
     public static void main(String[] args) {
         Repository list = new Repository();
         ReentrantLock lock = new ReentrantLock();
-        Producer producer = new Producer(list.queue);
+        Producer producer = new Producer(list.queue,lock);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         executorService.submit(producer);
