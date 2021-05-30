@@ -7,9 +7,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.sql.Timestamp;
+import java.util.LinkedList;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Consumer implements Runnable {
     private static boolean status = true;
+    private LinkedList<Integer> queue;
+    private ReentrantLock lock;
+
+    public Consumer(LinkedList<Integer> queue, ReentrantLock lock) {
+        this.queue = queue;
+        this.lock = lock;
+    }
+
     Path filePath = Paths.get("src", "main", "resources", "practice", "MasterWorker.txt");
 
     @Override
@@ -18,16 +28,19 @@ public class Consumer implements Runnable {
             while (isStatus()) {
                 try {
                     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-                    if (Producer.getQueue().size() > 0) {
-
-                        int delay = Producer.getQueue().remove(0);
-                        Thread.sleep(delay * 1000);
+                    lock.lock();
+                    int delay = 1;
+                    if (queue.peekFirst() != null) {
+                        delay = queue.removeFirst();
+                        lock.unlock();
+                        System.out.println(Thread.currentThread().getName() + "  i will sleep during  = " + delay);
                         writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept " + delay
                                 + " seconds");
                     } else {
+                        lock.unlock();
                         writer.write(timestamp + " " + Thread.currentThread().getName());
-                        Thread.sleep(1000);
                     }
+                    Thread.sleep(delay * 1000L);
                     writer.newLine();
                     writer.flush();
                 } catch (NullPointerException e) {

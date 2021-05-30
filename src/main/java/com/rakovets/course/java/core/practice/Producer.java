@@ -1,17 +1,21 @@
 package com.rakovets.course.java.core.practice;
 
+import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Producer implements Runnable {
-    private static CopyOnWriteArrayList<Integer> queue = new CopyOnWriteArrayList<>();
+    private LinkedList<Integer> queue;
+
+    public Producer(LinkedList<Integer> queue) {
+        this.queue = queue;
+    }
 
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
-                int delay = scanner.nextInt();
+                int delay = Integer.parseInt(scanner.nextLine());
                 if (delay == -1) {
                     Consumer.setStatus(false);
                     break;
@@ -24,9 +28,5 @@ public class Producer implements Runnable {
                 exception.printStackTrace();
             }
         }
-    }
-
-    public static CopyOnWriteArrayList<Integer> getQueue() {
-        return queue;
     }
 }
