@@ -1,41 +1,32 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Producer implements Runnable {
-    private static LinkedList<Integer> queue = new LinkedList<>();
+    private final LinkedList<Integer> queue;
+
+    public Producer(LinkedList<Integer> queue) {
+        this.queue = queue;
+    }
 
     @Override
     public void run() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String line = "";
-        while (!line.equals("-1")) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
             try {
-                line = reader.readLine();
-                int delay = Integer.parseInt(line);
+                int delay = Integer.parseInt(scanner.nextLine());
                 if (delay == -1) {
-                    Consumer.setStatus(false);
+                    queue.addFirst(-1);
                     break;
                 } else if (delay < -1) {
                     throw new UserInputException();
                 } else {
-                    queue.addLast(delay);
+                    queue.add(delay);
                 }
-            } catch (UserInputException | NumberFormatException | IOException exception) {
+            } catch (UserInputException | NumberFormatException exception) {
                 exception.printStackTrace();
             }
         }
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static LinkedList<Integer> getQueue() {
-        return queue;
     }
 }
