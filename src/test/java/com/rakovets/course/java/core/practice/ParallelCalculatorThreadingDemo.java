@@ -33,4 +33,3 @@ public class ParallelCalculatorThreadingDemo {
         System.out.println(Arrays.deepToString(time));
     }
 }
-

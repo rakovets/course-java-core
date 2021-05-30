@@ -15,7 +15,7 @@ public class ParallelCalculator implements Runnable {
             threads.add(thread);
             thread.start();
         }
-        threads.stream().forEach(x -> {
+        threads.forEach(x -> {
             try {
                 x.join();
             } catch (InterruptedException e) {
@@ -32,8 +32,8 @@ public class ParallelCalculator implements Runnable {
             while ((list = copyOnWriteArrayList.remove(0)) != null) {
                 if (!(list.length == 0)) {
                     int sum = 0;
-                    for (int i = 0; i < list.length; i++) {
-                        sum += list[i];
+                    for (Integer integer : list) {
+                        sum += integer;
                     }
                     mapWithSum.put(list, sum);
                 }
@@ -46,11 +46,11 @@ public class ParallelCalculator implements Runnable {
     public static Map<Integer[], Integer> getArraySum(List<Integer[]> list) {
         Map<Integer[], Integer> mapWithSum = new HashMap<>();
         int sum = 0;
-        for (int i = 0; i < list.size(); i++) {
-            for (Integer value : list.get(i)) {
+        for (Integer[] integers : list) {
+            for (Integer value : integers) {
                 sum += value;
             }
-            mapWithSum.put(list.get(i), sum);
+            mapWithSum.put(integers, sum);
             sum = 0;
         }
         return mapWithSum;

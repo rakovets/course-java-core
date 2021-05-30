@@ -16,8 +16,7 @@ public class ParallelCalculatorDemo {
         Map<Integer[], Integer> map = ParallelCalculator.getArraySum(inputArray);
 
         for (Map.Entry<Integer[], Integer> map2 : map.entrySet()) {
-            Integer[] arrayS = map2.getKey();
-            System.out.println(Arrays.toString(arrayS) + " sum = " + map2.getValue());
+            System.out.println(" sum = " + map2.getValue());
         }
     }
 }
