@@ -1,4 +1,8 @@
-package com.rakovets.course.java.core.practice.concurrent_utilities.producer_cosumer;
+package com.rakovets.course.java.core.practice.concurrent_utilities;
+
+import com.rakovets.course.java.core.practice.concurrent_utilities.producer_cosumer.Consumer;
+import com.rakovets.course.java.core.practice.concurrent_utilities.producer_cosumer.Container;
+import com.rakovets.course.java.core.practice.concurrent_utilities.producer_cosumer.Producer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

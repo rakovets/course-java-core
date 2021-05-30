@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator;
+package com.rakovets.course.java.core.practice.concurrent_utilities;
 
 import com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator.ParallelCalculator;
 
