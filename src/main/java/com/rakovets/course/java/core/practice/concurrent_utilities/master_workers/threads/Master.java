@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.concurrent_utilities.master_worke
 
 import com.rakovets.course.java.core.practice.concurrent_utilities.master_workers.OutputMessage;
 import com.rakovets.course.java.core.practice.concurrent_utilities.master_workers.SharedResource;
+import com.rakovets.course.java.core.practice.concurrent_utilities.master_workers.UserInputException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class Master implements Runnable {
                 }
                 sharedResource.addNumberToList(number);
             } catch (InputMismatchException ex) {
-                ex.printStackTrace();
+                throw new UserInputException("Wrong input");
             }
             lock.unlock();
         }
