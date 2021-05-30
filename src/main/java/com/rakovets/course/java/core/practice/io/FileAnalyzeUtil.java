@@ -146,13 +146,14 @@ public class FileAnalyzeUtil {
     }
 
     public static void replaceAccess(String filePath, String oldModifier, String newModifier) {
+        String replacedValue = " " + oldModifier + " ";
         String newFilePath = filePath.replace(filePath, filePath + "_");
         String text;
         String newText;
         try (BufferedReader in = new BufferedReader(new FileReader(filePath));
              BufferedWriter out = new BufferedWriter(new FileWriter(newFilePath))) {
             while ((text = in.readLine()) != null) {
-                newText = text.replace(oldModifier, newModifier);
+                newText = text.replace(replacedValue, newModifier);
                 out.write(newText + "\n");
             }
             out.flush();
