@@ -10,7 +10,7 @@ class Consumer implements Runnable {
     }
 
     public void run() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             try {
                 store.consume();
             } catch (IOException e) {

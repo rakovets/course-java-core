@@ -13,14 +13,15 @@ public class Store {
     private List<Integer> storage = new ArrayList<>();
     Path filePath = Paths.get("src", "main", "resources", "practice", "ProducerConsumer.txt");
 
-    public synchronized void produce() throws IOException {
+    public synchronized void produce(Integer value) throws IOException {
         while (storage.size() >= 10) {
             try {
                 wait();
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-        storage.add(new Random().nextInt(100));
+        storage.add(value);
         BufferedWriter writer = new BufferedWriter(new FileWriter(String.valueOf(filePath), true));
         writer.write("One item has been added to the store.\n");
         notify();
@@ -32,6 +33,7 @@ public class Store {
             try {
                 wait();
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
         BufferedWriter writer = new BufferedWriter(new FileWriter(String.valueOf(filePath), true));
