@@ -3,7 +3,7 @@ import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class HibernateReaderDemo {
+public class HibernateDemo {
     public static void main(String[] args) {
         HibernateReader read = new HibernateReader();
         HibernateConfiguration readConfig = read.readConfig(Paths.get("src", "main", "resources", "practice", "xml", "hibernate.cfg.xml").toString());
@@ -15,5 +15,8 @@ public class HibernateReaderDemo {
         for (Map.Entry<String, String> map : mapping.entrySet()) {
             System.out.println("[Class = " + map.getKey() + " _________ Value = " + map.getValue() + "]");
         }
+        HibernateConfiguration hibernateConfiguration = new HibernateConfiguration(propertys, mapping);
+        HibernateWriter configFile = new HibernateWriter();
+        configFile.saveConfigFile(Paths.get("src", "main", "resources", "practice", "xml", "hibernate-writer.xml").toString(),hibernateConfiguration);
     }
 }
