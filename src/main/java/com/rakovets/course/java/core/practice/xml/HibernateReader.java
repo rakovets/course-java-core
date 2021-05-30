@@ -17,7 +17,7 @@ public class HibernateReader {
     static Map<String, String> mappingMap = new LinkedHashMap<>();
 
     public HibernateConfig readConfig(String pathToXML) {
-        HibernateConfig Hibernate = new HibernateConfig();
+        HibernateConfig Hibernate = new HibernateConfig(propertyMap, mappingMap);
 
         try {
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();

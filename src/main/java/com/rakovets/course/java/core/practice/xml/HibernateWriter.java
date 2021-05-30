@@ -34,11 +34,11 @@ public class HibernateWriter {
             Map<String, String> property = hibernate.getMapProperty();
             Map<String, String> mapping = hibernate.getMapMapping();
             for (Map.Entry<String, String> set : property.entrySet()) {
-                createPropertyNode(eventWriter, set.getKey(), set.getValue());
+                makePropertyNode(eventWriter, set.getKey(), set.getValue());
             }
             eventWriter.add(lfEvent);
             for (Map.Entry<String, String> set : mapping.entrySet()) {
-                createMappingNode(eventWriter, set.getKey(), set.getValue());
+                makeMappingNode(eventWriter, set.getKey(), set.getValue());
             }
             eventWriter.add(tab);
             eventWriter.add(eventFactory.createEndElement("", "", "session-factory"));
@@ -52,7 +52,7 @@ public class HibernateWriter {
         }
     }
 
-    private void createMappingNode(XMLEventWriter eventWriter, String value, String valueAttr) throws XMLStreamException {
+    private void makeMappingNode(XMLEventWriter eventWriter, String value, String valueAttr) throws XMLStreamException {
         XMLEvent tab = eventFactory.createDTD("\t\t");
         StartElement sElement = eventFactory.createStartElement("", "", "mapping");
         Attribute attr = eventFactory.createAttribute(valueAttr, value);
@@ -64,7 +64,7 @@ public class HibernateWriter {
         eventWriter.add(lfEvent);
     }
 
-    private void createPropertyNode(XMLEventWriter eventWriter, String value, String valueAttr) throws XMLStreamException {
+    private void makePropertyNode(XMLEventWriter eventWriter, String value, String valueAttr) throws XMLStreamException {
         XMLEvent tab = eventFactory.createDTD("\t\t");
         StartElement sElement = eventFactory.createStartElement("", "", "property");
         Attribute attr = eventFactory.createAttribute("name", value);

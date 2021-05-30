@@ -7,9 +7,6 @@ public class HibernateConfig {
     private Map<String, String> mapProperty;
     private Map<String, String> mapMapping;
 
-    public HibernateConfig() {
-    }
-
     public HibernateConfig(Map<String, String> mapProperty, Map<String, String> mapMapping) {
         this.mapProperty = mapProperty;
         this.mapMapping = mapMapping;
