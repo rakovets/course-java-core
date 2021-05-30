@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.concurrency;
 import java.util.*;
 
 public class ParallelCalculatorThreading implements Runnable {
-    private static Map<Integer[], Integer> mapWithSum = new HashMap<>();
-    private static List<Integer[]> arrayListWithInoutArrays = new ArrayList<>();
+    private static final Map<Integer[], Integer> mapWithSum = new HashMap<>();
+    private static final List<Integer[]> arrayListWithInoutArrays = new ArrayList<>();
 
     public Map<Integer[], Integer> getArraySum(List<Integer[]> list, int countOfThreads) {
         List<Thread> threads = new LinkedList<>();
@@ -14,7 +14,7 @@ public class ParallelCalculatorThreading implements Runnable {
             threads.add(thread);
             thread.start();
         }
-        threads.stream().forEach(x -> {
+        threads.forEach(x -> {
             try {
                 x.join();
             } catch (InterruptedException e) {
