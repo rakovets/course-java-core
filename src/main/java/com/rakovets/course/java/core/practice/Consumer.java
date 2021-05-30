@@ -12,8 +12,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Consumer implements Runnable {
     private static boolean status = true;
-    private LinkedList<Integer> queue;
-    private ReentrantLock lock;
+    private final LinkedList<Integer> queue;
+    private final ReentrantLock lock;
 
     public Consumer(LinkedList<Integer> queue, ReentrantLock lock) {
         this.queue = queue;
@@ -33,7 +33,6 @@ public class Consumer implements Runnable {
                     if (queue.peekFirst() != null) {
                         delay = queue.removeFirst();
                         lock.unlock();
-                        System.out.println(Thread.currentThread().getName() + "  i will sleep during  = " + delay);
                         writer.write(timestamp + " " + Thread.currentThread().getName() + " - I slept " + delay
                                 + " seconds");
                     } else {
