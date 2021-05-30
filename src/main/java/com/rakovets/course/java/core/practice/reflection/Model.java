@@ -10,4 +10,8 @@ public class Model {
     public String getName() {
         return name;
     }
+
+    public void printName() {
+        System.out.println(name);
+    }
 }

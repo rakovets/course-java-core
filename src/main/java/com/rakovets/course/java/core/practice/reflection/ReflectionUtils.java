@@ -16,7 +16,7 @@ public class ReflectionUtils {
     }
 
     public static Method[] getAllMethodFromObject(Class<?> clazz) {
-        return clazz.getMethods();
+        return clazz.getDeclaredMethods();
     }
 
     public static void invokeMethodFromObject(Method method, Object object) throws IllegalAccessException, InvocationTargetException {
