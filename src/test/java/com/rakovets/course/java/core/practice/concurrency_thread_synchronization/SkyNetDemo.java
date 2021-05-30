@@ -12,10 +12,13 @@ public class SkyNetDemo {
         System.out.println("Wednesday's Count of robots : " + wednesday.getCountRobots());
         System.out.println("World's count of robots : " + world.getCountRobots());
 
-        if (wednesday.getCountRobots() > world.getCountRobots()) {
-            System.out.println("Wednesday has won. Robots");
-        } else if (world.getCountRobots() > wednesday.getCountRobots()) {
-            System.out.println("World has won. Robots");
+        int countRobotsOfWednesday = wednesday.getCountRobots();
+        int countRobotsOfWorld = world.getCountRobots();
+
+        if (countRobotsOfWednesday > countRobotsOfWorld) {
+            System.out.println("Wednesday has won.");
+        } else if (countRobotsOfWorld > countRobotsOfWednesday) {
+            System.out.println("World has won");
         } else System.out.println("Draw.");
     }
 }
