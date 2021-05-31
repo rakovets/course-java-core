@@ -26,6 +26,8 @@ public class Workers implements Runnable {
                 locker.lock();
                 if (!commonResource.isEmptyCommonResource()) {
                     if (commonResource.getElementFromCommonResource() == -1) {
+                        locker.lock();
+                        commonResource.setStatus();
                         locker.unlock();
                         break;
                     } else {
