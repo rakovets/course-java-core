@@ -18,22 +18,23 @@ public class Store {
         return store;
     }
 
-    public synchronized void produce() {
+    public synchronized void produce(int number) {
         Integer numberInteger;
         while (isRun) {
-            while (store.size() >= storageCapacity) {
+            if (store.size() >= storageCapacity) {
                 try {
                     wait();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
+            } else {
+                number = new Random().nextInt();
+                numberInteger = number;
+                store.add(numberInteger);
+                System.out.println(Thread.currentThread().getName() + " was added number: " + number + ".");
+                System.out.println("Store size: " + store.size() + ".");
+                notify();
             }
-            number = random.nextInt(100);
-            numberInteger = number;
-            store.add(numberInteger);
-            System.out.println(Thread.currentThread().getName() + " was added number: " + number + ".");
-            System.out.println("Store size: " + store.size() + ".");
-            notify();
         }
     }
 
