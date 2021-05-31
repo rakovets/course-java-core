@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.concurrent_utilities;
 import java.util.Deque;
 import java.util.LinkedList;
 
-
 public class CommonResource {
     private static Deque<Integer> numberCommonResource = new LinkedList<>();
     private static boolean status = true;
