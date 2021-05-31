@@ -13,7 +13,7 @@ public class StoreDemo {
         Thread thread3 = new Thread(new Consumer(store), "Consumer2");
         thread3.start();
 
-        Thread.sleep(300);
+        Thread.sleep(1500);
         store.isIsRun();
     }
 }
