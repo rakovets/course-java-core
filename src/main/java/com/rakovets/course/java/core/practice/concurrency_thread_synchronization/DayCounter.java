@@ -2,9 +2,9 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 
 public class DayCounter {
     private int days;
-    private World world;
-    private Wednesday wednesday;
-    private Factory factory;
+    private final Clan world;
+    private final Clan wednesday;
+    private final Factory factory;
     private static boolean night = true;
     private final int TIME = 50;
 
@@ -16,7 +16,7 @@ public class DayCounter {
         DayCounter.night = night;
     }
 
-    public DayCounter(int days, World world, Wednesday wednesday, Factory factory) {
+    public DayCounter(int days, Clan world, Clan wednesday, Factory factory) {
         this.days = days;
         this.world = world;
         this.wednesday = wednesday;

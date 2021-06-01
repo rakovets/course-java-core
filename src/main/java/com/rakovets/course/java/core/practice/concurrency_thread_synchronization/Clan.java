@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class BountyHunter {
+public class Clan implements Runnable {
     private int countRobots = 0;
     private boolean lifeStatus = true;
     private Map<Details, Integer> details = new HashMap<>();
@@ -23,7 +23,7 @@ public class BountyHunter {
         FULLPARTS.put(Details.TORSO, 1);
     }
 
-    public void getDetails() {
+    public void run() {
         while (isStatus()) {
             try {
                 Thread.sleep(10);
