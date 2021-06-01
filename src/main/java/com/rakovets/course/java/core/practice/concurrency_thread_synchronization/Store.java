@@ -63,17 +63,3 @@ public class Store {
         return capacity;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
