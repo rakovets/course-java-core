@@ -1,61 +1,38 @@
 package com.rakovets.course.java.core.practice.skynet;
 
-import java.util.*;
+import java.util.List;
 
 public class Storage {
-    private Deque<Detail> storage;
-    private boolean working;
-    private int days;
+    private final List<Detail> storage;
+    private final int workingDaysLimit;
+    private int currentWorkingDay = 0;
 
-    public Storage() {
-        this.storage = new LinkedList<>();
-        this.working = true;
-        this.days = 0;
+    public Storage(List<Detail> list, int workingDaysLimit) {
+        this.storage = list;
+        this.workingDaysLimit = workingDaysLimit;
     }
 
-    public synchronized void produce() {
-        Random random = new Random();
-        while (days < 30) {
-            while (storage.isEmpty()) {
-                for (int i = 0; i < random.nextInt(10); i++) {
-                    int randomDetail = random.nextInt(4);
-                    switch (randomDetail) {
-                        case 0:
-                            storage.addLast(Detail.head);
-                            break;
-                        case 1:
-                            storage.addLast(Detail.torso);
-                            break;
-                        case 2:
-                            storage.addLast(Detail.hand);
-                            break;
-                        case 3:
-                            storage.addLast(Detail.feet);
-                            break;
-                    }
-                }
-                days++;
-                notify();
-            }
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        notifyAll();
+    public void goToNextDay() {
+        this.currentWorkingDay++;
     }
 
-    public synchronized Map<Detail, Integer> getDetail() {
-        Map<Detail, Integer> details = new HashMap<>();
-        while (days < 30) {
-            while (storage.isEmpty()) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    public int getWorkingDaysLimit() {
+        return workingDaysLimit;
+    }
+
+    public int getCurrentWorkingDay() {
+        return currentWorkingDay;
+    }
+
+    public void addToStorage(Detail detail) {
+        storage.add(detail);
+    }
+
+    public boolean isStorageEmpty() {
+        return storage.isEmpty();
+    }
+
+    public Detail takePart() {
+        return storage.remove(0);
     }
 }
