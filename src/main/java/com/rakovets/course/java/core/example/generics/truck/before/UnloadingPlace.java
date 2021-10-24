@@ -1,6 +1,6 @@
-package com.rakovets.course.java.core.example.generic_types.truck.before;
+package com.rakovets.course.java.core.example.generics.truck.before;
 
-import com.rakovets.course.java.core.example.generic_types.truck.model.Laptop;
+import com.rakovets.course.java.core.example.generics.truck.model.Laptop;
 
 public class UnloadingPlace {
     void unload(Truck truck) {

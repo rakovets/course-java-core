@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.generic_types.truck.model;
+package com.rakovets.course.java.core.example.generics.truck.model;
 
 public class Potato {
     private String variety;

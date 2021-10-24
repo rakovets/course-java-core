@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.generic_types.truck.before;
+package com.rakovets.course.java.core.example.generics.truck.before;
 
 public class Truck {
     private final Box[] boxes = new Box[5];

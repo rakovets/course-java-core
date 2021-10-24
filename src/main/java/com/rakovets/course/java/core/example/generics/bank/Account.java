@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.generic_types.bank;
+package com.rakovets.course.java.core.example.generics.bank;
 
 public class Account<T> {
     private T id;

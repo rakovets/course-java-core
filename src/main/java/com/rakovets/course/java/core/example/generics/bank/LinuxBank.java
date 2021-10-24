@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.generic_types.bank;
+package com.rakovets.course.java.core.example.generics.bank;
 
 public class LinuxBank {
     public static void main(String[] args) {

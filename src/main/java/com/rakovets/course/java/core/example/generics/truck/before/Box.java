@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.generic_types.truck.before;
+package com.rakovets.course.java.core.example.generics.truck.before;
 
 public class Box {
     private Object item;

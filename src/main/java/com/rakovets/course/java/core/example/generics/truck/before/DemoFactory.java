@@ -1,7 +1,7 @@
-package com.rakovets.course.java.core.example.generic_types.truck.before;
+package com.rakovets.course.java.core.example.generics.truck.before;
 
-import com.rakovets.course.java.core.example.generic_types.truck.model.Laptop;
-import com.rakovets.course.java.core.example.generic_types.truck.model.Potato;
+import com.rakovets.course.java.core.example.generics.truck.model.Laptop;
+import com.rakovets.course.java.core.example.generics.truck.model.Potato;
 
 public class DemoFactory {
     public static void main(String[] args) {

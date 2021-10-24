@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.generic_types.truck.after;
+package com.rakovets.course.java.core.example.generics.truck.after;
 
 public class Box<T> {
     private T item;
