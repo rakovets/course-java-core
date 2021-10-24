@@ -7,7 +7,7 @@ public abstract class DayParentClass {
 
     private String name;
 
-    public DayParentClass(String name) {
+    protected DayParentClass(String name) {
         this.name = name;
     }
 
