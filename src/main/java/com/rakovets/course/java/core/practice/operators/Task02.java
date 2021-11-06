@@ -19,7 +19,7 @@ class Task02 {
         int carryingCapacity = 2;
 
         int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
-        System.out.printf("Result: %d", amountRemainingCargo);
+        System.out.printf("Result : %d", amountRemainingCargo);
     }
 
     /**
