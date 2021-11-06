@@ -23,7 +23,7 @@ class Task04 {
         float milliseconds = 2000f;
 
         float distance = getDistance(milliseconds);
-        System.out.printf("Result: %f", distance);
+        System.out.printf("Result: %.2f", distance);
     }
 
     /**
@@ -33,7 +33,7 @@ class Task04 {
      * @param milliseconds время (в миллисекундах) между срабатыванием датчика света и звука
      */
     public static float getDistance(float milliseconds) {
-        float distance = SOUND_SPEED * (milliseconds/1000/60/60);
+        float distance = SOUND_SPEED * (milliseconds/60/60);
         return distance;
     }
 }
