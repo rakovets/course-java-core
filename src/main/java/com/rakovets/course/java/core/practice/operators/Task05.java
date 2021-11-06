@@ -19,7 +19,7 @@ class Task05 {
         int weight = 86;
 
         float deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
-        System.out.printf("Result: %f", deviationStandardWeight);
+        System.out.printf("Result : %f", deviationStandardWeight);
     }
 
     /**
