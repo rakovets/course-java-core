@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Dmitry Rakovets
  */
 @DisplayName("Full trucks")
-class Task01Test {
+class Task01Test{
     static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(2, 2, 1),
