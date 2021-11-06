@@ -18,7 +18,7 @@ class Task06 {
         int playingTimeInSeconds = 4567;
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
-        System.out.printf("Result : %s", playingTime);
+        System.out.printf("Result: %s", playingTime);
     }
 
     /**

@@ -19,7 +19,7 @@ class Task01 {
         int carryingCapacity = 2;
 
         int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
-        System.out.printf("Result: %d", numberFullTrucks);
+        System.out.printf("Result : %d", numberFullTrucks);
     }
 
     /**

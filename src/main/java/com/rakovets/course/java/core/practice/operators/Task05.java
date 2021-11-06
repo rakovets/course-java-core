@@ -12,14 +12,12 @@ class Task05 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
+
         int height = 186;
         int weight = 86;
 
-        float deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
-        System.out.printf("Result : %f", deviationStandardWeight);
+        int deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
+        System.out.printf("Result : %d", deviationStandardWeight);
     }
 
     /**
@@ -33,8 +31,8 @@ class Task05 {
      * @param height - рост
      * @param weight - вес
      */
-    static float calculateDeviationStandardWeight(int height, int weight) {
-        float deviationStandardWeight = weight - (height-110);
+    static int calculateDeviationStandardWeight(int height, int weight) {
+        int deviationStandardWeight = weight - (height-110);
         return deviationStandardWeight;
     }
 }
