@@ -26,7 +26,7 @@ class Task02 {
      * Рассчитывает количество некоторого груза, который останется на складе, после полной загрузки его в грузовики, т.е.
      * грузовики должны быть загружены полностью
      *
-     * @param cargo           вес всего груза
+     * @param cargo          вес всего груза
      * @param carryingCapacity грузоподъемность грузовиков
      */
     public static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
