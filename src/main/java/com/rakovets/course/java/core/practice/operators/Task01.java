@@ -24,7 +24,7 @@ class Task01 {
 
     /**
      * Рассчитывает количество полностью загруженных грузовиков, необходимых для перевозки некоторого груза.
-     * @param cargo          вес всего груза
+     * @param cargo         вес всего груза
      * @param carryingCapacity грузоподъемность грузовиков
      */
     public static int getNumberFullTrucks(int cargo, int carryingCapacity) {
