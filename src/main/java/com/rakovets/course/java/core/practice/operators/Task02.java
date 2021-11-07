@@ -29,9 +29,8 @@ class Task02 {
      * @param cargo            вес всего груза
      * @param carryingCapacity грузоподъемность грузовиков
      */
-    static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+    public static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
+        int amountRemainingCargo = cargo % carryingCapacity;
+        return amountRemainingCargo;
     }
 }
