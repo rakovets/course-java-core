@@ -15,9 +15,9 @@ class Task13 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberFloors = 9;
+        int numberFloors = 10;
         int numberApartmentsPerFloor = 4;
-        int apartmentNumber = 68;
+        int apartmentNumber = 11;
 
         int floorNumber = getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", floorNumber);
@@ -32,8 +32,16 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int i = 1;
+        while (apartmentNumber-numberApartmentsPerFloor > 0) {
+            if (i == numberFloors) {
+                i = 1;
+                apartmentNumber = apartmentNumber - numberApartmentsPerFloor;
+            } else {
+                i++;
+                apartmentNumber = apartmentNumber - numberApartmentsPerFloor;
+            }
+        }
+        return i;
     }
 }
