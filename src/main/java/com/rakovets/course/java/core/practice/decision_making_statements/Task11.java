@@ -25,10 +25,12 @@ class Task11 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        char symbol = 'а';
-
-        String monthName = getSymbolType(symbol);
-        System.out.printf("Result: %s", monthName);
+        char symbol = 'Г';
+        if (Character.isUpperCase(symbol)) {
+            symbol = Character.toLowerCase(symbol);
+        }
+       String monthName = getSymbolType(symbol);
+       System.out.printf("Result: %s", monthName);
     }
 
     /**
@@ -38,8 +40,34 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        char[] digitArray = new char [] {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        char[] cyrillicArray = new char[]
+                {'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о',
+                 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', 'ё', 'х', 'ъ'};
+        char[] latinArray = new char[]
+                {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j',
+                        'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'};
+        char[] undefinedArray = new char[]
+                {'¬', '!', '"', '£', '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+', '?', '/',
+                        '#', '~', '.', ',', '<', '>', '{', '}', '[', ']', '`', '№', ';', ':', ' '};
+
+        for (int i=0; i<digitArray.length; i++) {
+
+            if (digitArray [i] == symbol)
+                return "digit";
+        }
+        for (int i=0; i<cyrillicArray.length; i++) {
+            if (cyrillicArray [i] == symbol)
+                return "cyrillic";
+        }
+        for (int i=0; i<latinArray.length; i++) {
+            if (latinArray [i] == symbol)
+                return "latin";
+        }
+        for (int i=0; i<undefinedArray.length; i++) {
+            if (undefinedArray [i] == symbol)
+                return "undefined";
+        }
         return null;
     }
 }
