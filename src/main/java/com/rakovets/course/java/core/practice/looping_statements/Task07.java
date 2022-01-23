@@ -24,10 +24,10 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 2;
-        double startPriceAllItems = 2.0;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        int sizeTotalPrice = 3;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -45,8 +45,17 @@ class Task07 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String generatetotalPriceList = "";
+        int numberItems = startNumberItems;
+        double priceAllItems =startPriceAllItems;
+        double priceoneItem = startPriceAllItems / startNumberItems;
+        for (int i = 1; i < sizeTotalPrice; i++){
+            generatetotalPriceList += numberItems + " - " + priceAllItems + "\n";
+            numberItems += differentialNumberItems;
+            priceAllItems = Math.round((numberItems * priceoneItem) * 100);
+            priceAllItems = priceAllItems / 100;
+        }
+        generatetotalPriceList += numberItems + " - " + priceAllItems;
+        return generatetotalPriceList;
     }
 }
