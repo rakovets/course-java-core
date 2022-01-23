@@ -24,11 +24,11 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3.0;
-        int differentialNumberItems = 5;
-        double differentialSell = 4.0;
-        int sizeTotalPrice = 6;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 10;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -49,8 +49,26 @@ class Task08 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String generatetotalPriceList = "";
+        int numberItems = startNumberItems;
+        double priceAllItems =startPriceAllItems;
+        double priceoneItem = startPriceAllItems / startNumberItems;
+        double sell = 0.0;
+        double sellFromPrice = 0.0;
+        for (int i = 1; i <= sizeTotalPrice; i++){
+            generatetotalPriceList += numberItems + " - " + priceAllItems + " with sell " + sell + "%";
+            if (i < sizeTotalPrice) {
+                generatetotalPriceList += "\n";
+            }
+            numberItems += differentialNumberItems;
+            sell += differentialSell;
+            priceAllItems = numberItems * priceoneItem;
+            sellFromPrice = priceAllItems * sell / 100;
+            priceAllItems -= sellFromPrice;
+            priceAllItems = (int) Math.round(priceAllItems * 100);
+            priceAllItems /= 100;
+
+        }
+        return generatetotalPriceList;
     }
 }
