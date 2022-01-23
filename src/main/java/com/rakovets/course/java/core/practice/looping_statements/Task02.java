@@ -15,12 +15,12 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        double depositAmount = 1500.0;
-        double annualDepositPercent = 7.0;
-        int depositTerm = 5;
+        double depositAmount = 10000.0;
+        double annualDepositPercent = 3.0;
+        int depositTerm = 15;
 
         double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
-        System.out.printf("Result: %f", totalDepositAmount);
+        System.out.printf("Result: %.2f", totalDepositAmount);
     }
 
     /**
@@ -32,8 +32,13 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double totalDepositAmount = depositAmount;
+        annualDepositPercent = annualDepositPercent / 100;
+        for (int i = 1; i <= depositTerm; i++){
+            totalDepositAmount += totalDepositAmount * annualDepositPercent;
+        }
+        totalDepositAmount = (int) Math.round (totalDepositAmount * 100);
+        totalDepositAmount /= 100;
+        return totalDepositAmount;
     }
 }
