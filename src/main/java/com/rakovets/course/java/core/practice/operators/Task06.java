@@ -30,7 +30,6 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
         int seconds = playingTimeInSeconds % 60;
         int minutes = (playingTimeInSeconds / 60) % 60;
         int hours = (playingTimeInSeconds / (60 * 60)) % 24;
