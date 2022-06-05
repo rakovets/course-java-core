@@ -37,6 +37,6 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int normalWeight = height - 110;
-        return weight - normalWeight;
+        return weight-normalWeight;
     }
 }
