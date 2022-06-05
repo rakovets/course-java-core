@@ -34,7 +34,6 @@ class Task06 {
         int hour = playingTimeInSeconds % 86400 / 3600;
         int minutes = playingTimeInSeconds % 86400 % 3600 / 60;
         int seconds = playingTimeInSeconds % 86400 % 3600 % 60;
-        String playingTime = day + " " + hour + ":" + minutes + ":" + seconds;
-        return playingTime;
+        return day + " " + hour + ":" + minutes + ":" + seconds;
     }
 }
