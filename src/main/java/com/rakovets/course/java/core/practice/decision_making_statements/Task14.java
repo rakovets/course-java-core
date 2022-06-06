@@ -44,6 +44,7 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         int num = year % 100;
         String text;
         if(num <= 12) {
