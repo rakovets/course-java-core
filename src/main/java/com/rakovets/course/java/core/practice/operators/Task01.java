@@ -30,6 +30,7 @@ class Task01 {
      */
     static int getNumberFullTrucks(int cargo, int carryingCapacity) {
         int fullCargoes = cargo / carryingCapacity;
+
         return fullCargoes;
     }
 }
