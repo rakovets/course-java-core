@@ -45,6 +45,7 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         String text;
         if(month == 12 && day >= 22 || month == 1 && day <= 20) {
             text = "Capricorn";
