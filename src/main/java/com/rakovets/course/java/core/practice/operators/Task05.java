@@ -34,7 +34,14 @@ class Task05 {
      * @param weight - вес
      */
     static int calculateDeviationStandardWeight(int height, int weight) {
+        int indexBroka = 110;
+        int standardWeight;
+        int deviationWeight;
 
-        return weight - (height - 110);
+        standardWeight = height - indexBroka;
+
+        deviationWeight = weight - standardWeight;
+
+        return deviationWeight;
     }
 }

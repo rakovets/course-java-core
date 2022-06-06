@@ -28,23 +28,33 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        int dayPlay;
-        int hourPlay;
-        int minutePlay;
-        int secondPlay;
+        int minuteTimeInSeconds;
+        int hourTimeInSeconds;
+        int dayTimeInSeconds;
+        int dayPlaying;
+        int hourPlaying;
+        int minutePlaying;
+        int secondPlaying;
 
-        dayPlay = playingTimeInSeconds / (60 * 60 * 24);
+        minuteTimeInSeconds = 60;
 
-        playingTimeInSeconds = playingTimeInSeconds - (dayPlay * 60 * 60 * 24);
+        hourTimeInSeconds = 3600;
 
-        hourPlay = playingTimeInSeconds / (60 * 60);
+        dayTimeInSeconds = 86400;
 
-        playingTimeInSeconds = playingTimeInSeconds - (hourPlay * 60 * 60);
 
-        minutePlay = playingTimeInSeconds / 60;
+        dayPlaying = playingTimeInSeconds / dayTimeInSeconds;
 
-        secondPlay = playingTimeInSeconds - (minutePlay * 60);
+        playingTimeInSeconds = playingTimeInSeconds - (dayPlaying * dayTimeInSeconds);
 
-        return  (dayPlay + " " + hourPlay + ":" + minutePlay + ":" + secondPlay);
+        hourPlaying = playingTimeInSeconds / hourTimeInSeconds;
+
+        playingTimeInSeconds = playingTimeInSeconds - hourPlaying * hourTimeInSeconds;
+
+        minutePlaying = playingTimeInSeconds / minuteTimeInSeconds;
+
+        secondPlaying = playingTimeInSeconds - (minutePlaying * minuteTimeInSeconds);
+
+        return  (dayPlaying + " " + hourPlaying + ":" + minutePlaying + ":" + secondPlaying);
     }
 }
