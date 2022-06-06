@@ -1,8 +1,5 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.Nullable;
-
 /**
  * Разработать программу для desktop приложения:
  * которая преобразует номер дня недели в его словесный аналог.
@@ -31,8 +28,8 @@ class Task04 {
      * @param dayOfWeekNumber номер дня недели
      * @return день недели на английском языке (UPPER CASE)
      */
-    @Contract(pure = true)
-    static @Nullable String getDayOfWeekNumber(byte dayOfWeekNumber) {
+
+    static String getDayOfWeekNumber(byte dayOfWeekNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String text;
