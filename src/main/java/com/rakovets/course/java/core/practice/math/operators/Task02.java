@@ -1,11 +1,11 @@
-package com.rakovets.course.java.core.practice.operators;
+package com.rakovets.course.java.core.practice.math.operators;
 
 /**
  * Разработать программу для логистического центра.
  *
  * @author Dmitry Rakovets
  */
-class Task01 {
+class Task02 {
     /**
      * The entry point of the task
      *
@@ -15,20 +15,21 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int cargo = 11;
+        int cargo = 1;
         int carryingCapacity = 2;
 
-        int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
-        System.out.printf("Result: %d", numberFullTrucks);
+        int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
+        System.out.printf("Result: %d", amountRemainingCargo);
     }
 
     /**
-     * Рассчитывает количество полностью загруженных грузовиков, необходимых для перевозки некоторого груза.
+     * Рассчитывает количество некоторого груза, который останется на складе, после полной загрузки его в грузовики, т.е.
+     * грузовики должны быть загружены полностью
      *
      * @param cargo            вес всего груза
      * @param carryingCapacity грузоподъемность грузовиков
      */
-    static int getNumberFullTrucks(int cargo, int carryingCapacity) {
+    static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return 0;

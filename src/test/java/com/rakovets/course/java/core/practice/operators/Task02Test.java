@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import com.rakovets.course.java.core.practice.math.operators.Task02;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

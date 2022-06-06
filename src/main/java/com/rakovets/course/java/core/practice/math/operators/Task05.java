@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.operators;
+package com.rakovets.course.java.core.practice.math.operators;
 
 /**
  * Разработать программу для фитнес приложения.
