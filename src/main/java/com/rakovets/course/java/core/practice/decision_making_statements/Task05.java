@@ -33,6 +33,7 @@ class Task05 {
     static String getMonthName(byte monthNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         String text;
         switch(monthNumber) {
             case (1):
