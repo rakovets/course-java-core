@@ -38,6 +38,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
 
+
         if(currentHealthPoint <= maxHealthPoint*0.25 && currentHealthPoint >= 0) {
             return "RED";
         }
