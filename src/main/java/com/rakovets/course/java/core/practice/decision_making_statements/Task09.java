@@ -34,6 +34,7 @@ class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         int commonCountOfApartaments = numberFloors * numberApartmentsPerFloor;
         float numberOfPorch = (float) apartmentNumber / commonCountOfApartaments;
         int result = Math.round(numberOfPorch);
