@@ -40,6 +40,7 @@ class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         String text;
         int num = (int) symbol;
         if(num >= 32 && num <= 47 || num >= 58 && num <= 64 || num >= 91 && num <= 96 || num >= 123 && num <= 127) {
