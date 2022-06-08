@@ -44,6 +44,48 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int SUM_OF_ZODIAC = 12;
+        String zodiacYearName = "";
+        int zodiacYearNumber = year % SUM_OF_ZODIAC;
+        switch (zodiacYearNumber) {
+            case 0:
+                zodiacYearName = "Monkey";
+                break;
+            case 1:
+                zodiacYearName = "Rooster";
+                break;
+            case 2:
+                zodiacYearName = "Dog";
+                break;
+            case 3:
+                zodiacYearName = "Pig";
+                break;
+            case 4:
+                zodiacYearName = "Rat";
+                break;
+            case 5:
+                zodiacYearName = "Ox";
+                break;
+            case 6:
+                zodiacYearName = "Tiger";
+                break;
+            case 7:
+                zodiacYearName = "Rabbit";
+                break;
+            case 8:
+                zodiacYearName = "Dragon";
+                break;
+            case 9:
+                zodiacYearName = "Snake";
+                break;
+            case 10:
+                zodiacYearName = "Horse";
+                break;
+            case 11:
+                zodiacYearName = "Ram";
+                break;
+        }
+
+        return zodiacYearName;
     }
 }
