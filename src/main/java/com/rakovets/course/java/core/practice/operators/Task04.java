@@ -10,7 +10,9 @@ class Task04 {
      * Скорость звука в воздушной среде 1191.6 км/ч
      */
     private static final float SOUND_SPEED = 1191.6f;
-
+    private static final int METERS_IN_KILO = 1000;
+    private static final int  SECONDS_IN_HOUR = 3600;
+    private static final int  MILLIS_IN_SEC = 1000;
     /**
      * The entry point of the task
      *
@@ -35,6 +37,6 @@ class Task04 {
     static float getDistance(float milliseconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        return SOUND_SPEED * METERS_IN_KILO / SECONDS_IN_HOUR * milliseconds / MILLIS_IN_SEC;
     }
 }

@@ -37,6 +37,8 @@ class Task03 {
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        // Сумма начисленного процента по вкладу высчитывается по следующей формуле
+        // Первоначальная сумма на счете * Время вклада в годах * Ежегодный простой процент/100
+        return depositAmount + depositAmount * depositYears * depositAnnualPercentage / 100F;
     }
 }
