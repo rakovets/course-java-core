@@ -9,8 +9,9 @@ class Task06 {
     private final static int HOURS_IN_DAY = 24;
     private final static int MIN_IN_HOUR = 60;
     private final static int SEC_IN_MIN = 60;
-    private final  static int SEC_IN_DAY = HOURS_IN_DAY * MIN_IN_HOUR * SEC_IN_MIN;
+    private final static int SEC_IN_DAY = HOURS_IN_DAY * MIN_IN_HOUR * SEC_IN_MIN;
     private final static int SEC_N_HOUR = MIN_IN_HOUR * SEC_IN_MIN;
+
     /**
      * The entry point of the task
      *

@@ -11,8 +11,9 @@ class Task04 {
      */
     private static final float SOUND_SPEED = 1191.6f;
     private static final int METERS_IN_KILO = 1000;
-    private static final int  SECONDS_IN_HOUR = 3600;
-    private static final int  MILLIS_IN_SEC = 1000;
+    private static final int SECONDS_IN_HOUR = 3600;
+    private static final int MILLIS_IN_SEC = 1000;
+
     /**
      * The entry point of the task
      *
