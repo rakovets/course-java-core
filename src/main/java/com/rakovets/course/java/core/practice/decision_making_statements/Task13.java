@@ -34,6 +34,11 @@ class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double totalStages = Math.ceil((double) apartmentNumber / numberApartmentsPerFloor);
+        int floorNumber = (int) totalStages % numberFloors ;
+        if (floorNumber == 0) {
+            floorNumber = numberFloors;
+        }
+        return floorNumber;
     }
 }
