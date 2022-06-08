@@ -40,11 +40,12 @@ class Task06 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
         double dailyDistance = startDistance;
+        double percent = dailyProgressAsPercentage / 100;
+        if (startDistance <= 0) {
+            return totalDistance;
+        }
         while (dailyDistance <= finishDistance) {
-            if (startDistance <= 0) {
-                break;
-            }
-            dailyDistance += dailyDistance * dailyProgressAsPercentage / 100;
+            dailyDistance += dailyDistance * percent;
             totalDistance += dailyDistance;
         }
         return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);
