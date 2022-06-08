@@ -40,6 +40,15 @@ class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int value = symbol;
+        String symbolType = "undefined";
+        if (value >= 48 && value <= 57) {
+            symbolType = "digit";
+        } else if ((value >= 65 && value <= 90) || (value >= 97 && value <= 122)) {
+            symbolType = "latin";
+        } else if (value >=1024 && value <= 1279) {
+            symbolType = "cyrillic";
+        }
+        return symbolType;
     }
 }
