@@ -37,6 +37,14 @@ class Task02 {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (hour < 6) {
+            return "Good night";
+        } else if (hour < 12) {
+            return "Good morning";
+        } else if (hour < 18) {
+            return "Good day";
+        } else {
+            return "Good evening";
+        }
     }
 }
