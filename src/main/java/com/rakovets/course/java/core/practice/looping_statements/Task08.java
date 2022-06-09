@@ -1,5 +1,11 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +30,12 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3.0;
-        int differentialNumberItems = 5;
-        double differentialSell = 4.0;
-        int sizeTotalPrice = 6;
+
+        int startNumberItems = 34;
+        double startPriceAllItems = 10.0;
+        int differentialNumberItems = 1;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -51,6 +58,22 @@ class Task08 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String text = "";
+        double onePrice = startPriceAllItems / startNumberItems;
+        if (startNumberItems < 0 || startNumberItems < 0) {
+            throw new Error();
+        } else {
+            for (int i = 0; i < sizeTotalPrice; i++) {
+                double differentialPrice = onePrice * differentialNumberItems * i;
+                double price = startPriceAllItems + differentialPrice;
+                double percentPrice = price * (differentialSell * i / 100);
+                price -= percentPrice;
+                price = NumberUtil.roundValueToTwoDigitsForMantissa(price);
+                text += startNumberItems + differentialNumberItems * i + " - ";
+                text += price + " with sell " + differentialSell * i + "%";
+                text += '\n';
+            }
+        }
+        return text;
     }
 }
