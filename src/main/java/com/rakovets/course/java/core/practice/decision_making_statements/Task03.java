@@ -38,16 +38,18 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         float percentHealthPoint = (float) currentHealthPoint / maxHealthPoint * 100;
-        if (percentHealthPoint == 0) {
-            return null;
+        String result;
+        if (percentHealthPoint == 0 || percentHealthPoint > 100) {
+            result = null;
         } else if (percentHealthPoint < 25) {
-            return " RED";
+            result = "RED";
         } else if (percentHealthPoint < 50) {
-            return "ORANGE";
+            result = "ORANGE";
         } else if (percentHealthPoint < 75) {
-            return "YELLOW";
+            result = "YELLOW";
         } else {
-            return "GREEN";
+            result = "GREEN";
         }
+        return result;
     }
 }

@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import java.util.Objects;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -40,6 +42,14 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int result = damage;
+        if (hasHolyAttribute) {
+            if ("SAINT".equals(typeMob)) {
+                result = damage / 2;
+            } else if ("UNDEAD".equals(typeMob) || "ZOMBIE".equals(typeMob)) {
+                result = (int) (damage * 1.5);
+            }
+        }
+        return result;
     }
 }

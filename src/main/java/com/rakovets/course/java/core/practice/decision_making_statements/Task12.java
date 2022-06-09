@@ -45,6 +45,34 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result;
+        if (month < 1 || day < 1 || month > 12 || day > 31) {
+            result = null;
+        } else if (month == 1 && day < 21 || month == 12 && day >= 22) {
+            result = "Goat";
+        } else if (month == 1 || month == 2 && day <= 19) {
+            result = "Water-bearer";
+        } else if (month == 2 || month == 3 && day <= 20) {
+            result = "Fish";
+        } else if (month == 3 || month == 4 && day <= 20) {
+            result = "Ram";
+        } else if (month == 4 || month == 5 && day <= 20) {
+            result = "Bull";
+        } else if (month == 5 || month == 6 && day <= 21) {
+            result = "Twins";
+        } else if (month == 6 || month == 7 && day <= 22) {
+            result = "Crab";
+        } else if (month == 7 || month == 8 && day <= 22) {
+            result = "Lion";
+        } else if (month == 8 || month == 9 && day <= 21) {
+            result = "Maiden";
+        } else if (month == 9 || month == 10 && day <= 22) {
+            result = "Scales";
+        } else if (month == 10 || month == 11 && day <= 22) {
+            result = "Scorpion";
+        } else {
+            result = "Archer";
+        }
+        return result;
     }
 }
