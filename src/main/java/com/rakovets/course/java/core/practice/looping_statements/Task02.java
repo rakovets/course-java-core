@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для банка.
  *
@@ -15,9 +17,9 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        double depositAmount = 1500.0;
-        double annualDepositPercent = 7.0;
-        int depositTerm = 5;
+        double depositAmount = 10000.0;
+        double annualDepositPercent = 1.0;
+        int depositTerm = 10;
 
         double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
         System.out.printf("Result: %f", totalDepositAmount);
@@ -34,6 +36,15 @@ class Task02 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double newDepositAmount = depositAmount;
+        if (depositAmount < 0 || depositTerm < 0) {
+            throw new Error();
+        } else {
+            for (int i = 0; i < depositTerm; i++) {
+                double perAnnual = newDepositAmount * (annualDepositPercent / 100);
+                newDepositAmount += perAnnual;
+            }
+        }
+        return NumberUtil.roundValueToTwoDigitsForMantissa(newDepositAmount);
     }
 }
