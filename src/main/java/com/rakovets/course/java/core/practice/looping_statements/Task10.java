@@ -37,9 +37,34 @@ class Task10 {
      * @param finishNumber конец промежутка (включая)
      * @return количество простых чисел
      */
+
+    static boolean isPrime(int num) {
+        if (num == 0 || num == 1) {
+            return false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int count = 0;
+        if (startNumber < 0 || finishNumber < 0) {
+            throw new Error();
+        } else {
+            for (int i = startNumber; i < finishNumber; i++) {
+                if (isPrime(startNumber)) {
+                    count++;
+                }
+                startNumber++;
+            }
+        }
+        return count;
     }
 }
