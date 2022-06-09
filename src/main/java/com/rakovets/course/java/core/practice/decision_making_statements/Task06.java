@@ -43,10 +43,10 @@ class Task06 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int pointsFirstPlayer;
         int pointsSecondPlayer;
-        pointsFirstPlayer = (tanksKilledFirstPlayer > tanksKilledSecondPlayer) ? 500 : 0;
-        pointsSecondPlayer = (tanksKilledSecondPlayer > tanksKilledFirstPlayer) ? 500 : 0;
-        pointsFirstPlayer += tanksKilledFirstPlayer * 100;
-        pointsSecondPlayer += tanksKilledSecondPlayer * 100;
+        pointsFirstPlayer = (tanksKilledFirstPlayer > tanksKilledSecondPlayer) ? BONUS_POINT : 0;
+        pointsSecondPlayer = (tanksKilledSecondPlayer > tanksKilledFirstPlayer) ? BONUS_POINT : 0;
+        pointsFirstPlayer += tanksKilledFirstPlayer * KILL_POINT;
+        pointsSecondPlayer += tanksKilledSecondPlayer * KILL_POINT;
         return "Player 1: " + pointsFirstPlayer + ". Player 2: " + pointsSecondPlayer;
     }
 }
