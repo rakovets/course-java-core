@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,10 +26,10 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 2;
-        double startPriceAllItems = 2.0;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startNumberItems = 34;
+        double startPriceAllItems = 10.0;
+        int differentialNumberItems = 1;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -47,6 +49,19 @@ class Task07 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String text = "";
+        double onePrice = startPriceAllItems / startNumberItems;
+        if (startNumberItems < 0 || startPriceAllItems < 0) {
+            throw new Error();
+        } else {
+            for (int i = 0; i < sizeTotalPrice; i++) {
+                double differentialPrice = onePrice * (startNumberItems + differentialNumberItems * i);
+                int newCount = startNumberItems + differentialNumberItems * i;
+                double result = NumberUtil.roundValueToTwoDigitsForMantissa(differentialPrice);
+                text += newCount + " - " + result;
+                text += '\n';
+            }
+        }
+        return text;
     }
 }
