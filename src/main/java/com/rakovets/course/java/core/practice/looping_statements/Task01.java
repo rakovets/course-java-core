@@ -16,7 +16,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int rows = 10;
+        int rows = 9;
 
         String numbersColumn = generateNumbersColumn(rows);
         System.out.printf("Result:\n%s", numbersColumn);
@@ -31,6 +31,19 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String text = "";
+        if (numberRows < 0) {
+            throw new Error();
+        } else {
+            for (int i = 1; i < numberRows + 1; i++) {
+                if (i == numberRows) {
+                    text += i;
+                } else {
+                    text += i;
+                    text += '\n';
+                }
+            }
+        }
+        return text;
     }
 }
