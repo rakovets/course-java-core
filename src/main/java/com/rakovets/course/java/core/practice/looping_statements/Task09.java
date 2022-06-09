@@ -36,6 +36,27 @@ class Task09 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String startString;
+        if (amount >= 0) {
+            startString = "";
+        } else {
+            startString = "-";
+            amount *= -1;
+        }
+        String amountWithAccountingFormat = startString;
+        String reverseAmountWithAccountingFormat = "";
+        String strAmount = Long.toString(amount);
+        int strAmountLength = strAmount.length();
+        for (int i = strAmountLength-1, k = 1; i >= 0; i--, k++) {
+            reverseAmountWithAccountingFormat += strAmount.charAt(i);
+            if (k % 3 == 0 && i != 0) {
+                reverseAmountWithAccountingFormat += " ";
+            }
+        }
+        System.out.println(reverseAmountWithAccountingFormat);
+        for (int i = reverseAmountWithAccountingFormat.length() - 1; i >= 0; i--) {
+            amountWithAccountingFormat += reverseAmountWithAccountingFormat.charAt(i);
+        }
+        return amountWithAccountingFormat;
     }
 }
