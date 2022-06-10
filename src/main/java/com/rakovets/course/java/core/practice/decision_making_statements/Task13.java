@@ -34,6 +34,8 @@ class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return (apartmentNumber - 1) % (numberApartmentsPerFloor * numberFloors) / numberApartmentsPerFloor + 1;
+        final byte UNTIL_OF_MESURE_PER_FLOOR = 1; 
+            
+        return (apartmentNumber - UNTIL_OF_MESURE_PER_FLOOR) % (numberApartmentsPerFloor * numberFloors) / numberApartmentsPerFloor + UNTIL_OF_MESURE_PER_FLOOR;
     }
 }
