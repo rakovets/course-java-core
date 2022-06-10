@@ -83,6 +83,9 @@ class Task14 {
             case 11:
                 zodiacYearName = "Ram";
                 break;
+            default:
+                zodiacYearName = null;
+                break;
         }
         return zodiacYearName;
     }
