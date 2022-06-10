@@ -74,6 +74,7 @@ class Task05 {
                 break;
             default:
                 monthName = null;
+                break;
         }
         return monthName;
     }
