@@ -30,10 +30,17 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int hours = playingTimeInSeconds / 3600;
-        int minutes = playingTimeInSeconds / 60;
-        int days = playingTimeInSeconds / 86400;
+        final int SECONDS_TO_HOURS = 3600;
+        final byte SECONDS_TO_MINUTES = 60;
+        final int SECONDS_TO_DAYS = 86400;
+        final byte HOURS_IN_DAY = 24;
+        final byte MINUTES_IN_HOURS = 60;
+        final byte SECONDS_IN_SECONDS = 60;
+              
+        int hours = playingTimeInSeconds / SECONDS_TO_HOURS;
+        int minutes = playingTimeInSeconds / SECONDS_TO_MINUTES
+        int days = playingTimeInSeconds / SECONDS_TO_DAYS;
 
-        return (days + " " + hours % 24 + ":" + minutes % 60 + ":" + playingTimeInSeconds % 60);
+        return (days + " " + hours % HOURS_IN_DAY + ":" + minutes % MINUTES_IN_HOURS + ":" + playingTimeInSeconds % SECONDS_IN_SECONDS);
     }
 }
