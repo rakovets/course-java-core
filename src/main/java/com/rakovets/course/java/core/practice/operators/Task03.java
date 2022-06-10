@@ -38,6 +38,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final float PERCENT = 100f;
+        
         return (float) depositAmount + depositYears * depositAmount * depositAnnualPercentage / PERCENT;
     }
 }
