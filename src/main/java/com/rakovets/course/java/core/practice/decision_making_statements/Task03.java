@@ -38,6 +38,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double getAPercentage = 100.0 / ((double) maxHealthPoint / (double) currentHealthPoint);
+        
         String colorHealthPoint;
 
         if (getAPercentage <= 0) {
