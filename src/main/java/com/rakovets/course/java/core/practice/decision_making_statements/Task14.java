@@ -44,9 +44,11 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        final byte MONTH_IN_YEAR = 12;
+        
         String zodiacYearName = null;
-
-        switch (year % 12) {
+        
+        switch (year % MONTH_IN_YEAR) {
             case 0:
                 zodiacYearName = "Monkey";
                 break;
