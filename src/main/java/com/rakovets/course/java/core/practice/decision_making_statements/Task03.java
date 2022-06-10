@@ -37,19 +37,25 @@ class Task03 {
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double getAPercentage = 100.0 / ((double) maxHealthPoint / (double) currentHealthPoint);
+        final float PERCENTAGE = 100f;
+        final byte PERCENTAGE_RED = 25;
+        final byte PERCENTAGE_ORANGE = 50;
+        final byte PERCENTAGE_YELLOW = 75;
+        final byte PERCENTAGE_GREEN = 100;
+        
+        double getAPercentage = PERCENTAGE / ((double) maxHealthPoint / (double) currentHealthPoint);
         
         String colorHealthPoint;
 
         if (getAPercentage <= 0) {
             colorHealthPoint = null;
-        } else if (getAPercentage < 25) {
+        } else if (getAPercentage < PERCENTAGE_RED) {
             colorHealthPoint = "RED";
-        } else if (getAPercentage < 50) {
+        } else if (getAPercentage < PERCENTAGE_ORANGE) {
             colorHealthPoint = "ORANGE";
-        } else if (getAPercentage < 75) {
+        } else if (getAPercentage < PERCENTAGE_YELLOW) {
             colorHealthPoint = "YELLOW";
-        } else if (getAPercentage <= 100) {
+        } else if (getAPercentage <= PERCENTAGE_GREEN) {
             colorHealthPoint = "GREEN";
         } else {
             colorHealthPoint = null;
