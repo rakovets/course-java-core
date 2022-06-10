@@ -31,6 +31,16 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int row = 0;
+        String result = "";
+        while (row < numberRows) {
+            row++;
+            if (!(row == numberRows)) {
+                result = result + row + "\n";
+            } else {
+                result = result + row;
+            }
+        }
+        return result;
     }
 }
