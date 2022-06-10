@@ -41,27 +41,22 @@ class Task08 {
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         int totalDamage = 0;
-        if (
-                hasHolyAttribute
-                && Objects.equals(typeMob, "UNDEAD")
-                || Objects.equals(typeMob, "ZOMBIE"))
-        {
-            totalDamage += damage * 1.5;
-        }
-        if (
-                hasHolyAttribute
-                && Objects.equals(typeMob, "SAINT"))
-        {
-            totalDamage += damage / 2;
-        }
-        if (
-                hasHolyAttribute
-                && Objects.equals(typeMob, "ANIMAL")
-                || Objects.equals(typeMob, "HUMANOID")
-                || Objects.equals(typeMob, "PLANT")
-                || Objects.equals(typeMob, "GHOST"))
-        {
-            totalDamage += damage;
+
+        if (hasHolyAttribute) {
+            switch (typeMob) {
+                case "UNDEAD":
+                case "ZOMBIE":
+                    totalDamage += damage * 1.5;
+                    break;
+                case "SAINT":
+                    totalDamage += damage / 2;
+                    break;
+                case "ANIMAL":
+                case "HUMANOID":
+                case "PLANT":
+                case "GHOST":
+                    totalDamage += damage;
+            }
         }
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
