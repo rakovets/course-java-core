@@ -35,8 +35,16 @@ class Task10 {
      * @return номер заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
+        int lowFuelReserves = 0;
+        if (firstFuelReserves <= thirdFuelReserves && firstFuelReserves <= secondFuelReserves) {
+            lowFuelReserves = 1;
+        } else if (secondFuelReserves <= thirdFuelReserves) {
+            lowFuelReserves = 2;
+        } else {
+            lowFuelReserves = 3;
+        }
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return lowFuelReserves;
     }
 }
