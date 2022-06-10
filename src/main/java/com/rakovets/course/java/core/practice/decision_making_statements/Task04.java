@@ -57,6 +57,7 @@ class Task04 {
                 break;
             default:
                 dayOfWeek = null;
+                break;
         }
         return dayOfWeek;
     }
