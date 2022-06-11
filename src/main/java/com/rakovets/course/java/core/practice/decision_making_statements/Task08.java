@@ -40,6 +40,24 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        final float INCREASED_DAMAGE_UNDEAD_AND_ZOMBIE = 1.5f;
+        final float REDUCED_DAMAGE_SAINT = 2.0f;
+
+        if (hasHolyAttribute) {
+
+            switch (typeMob) {
+                case "UNDEAD":
+                case "ZOMBIE":
+                    damage = (int) (damage * INCREASED_DAMAGE_UNDEAD_AND_ZOMBIE);
+                    break;
+                case "SAINT":
+                    damage = (int) (damage / REDUCED_DAMAGE_SAINT);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return damage;
     }
 }

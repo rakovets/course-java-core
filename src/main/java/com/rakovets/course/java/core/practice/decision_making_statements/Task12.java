@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 20;
+        int month = 5;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -45,6 +45,36 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiac;
+
+        if ((day >= 21 && day <= 31 && month == 3) || (day >= 0 && day <= 20 && month == 4)) {
+            zodiac = "Ram";
+        } else if ((day >= 21 && day <= 30 && month == 4) || (day >= 0 && day <= 20 && month == 5)) {
+            zodiac = "Bull";
+        } else if ((day >= 21 && day <= 31 && month == 5) || (day >= 0 && day <= 21 && month == 6)) {
+            zodiac = "Twins";
+        } else if ((day >= 22 && day <= 30 && month == 6) || (day >= 0 && day <= 22 && month == 7)) {
+            zodiac = "Crab";
+        } else if ((day >= 23 && day <= 31 && month == 7) || (day >= 0 && day <= 22 && month == 8)) {
+            zodiac = "Lion";
+        } else if ((day >= 23 && day <= 31 && month == 8) || (day >= 0 && day <= 21 && month == 9)) {
+            zodiac = "Maiden";
+        } else if ((day >= 22 && day <= 30 && month == 9) || (day >= 0 && day <= 22 && month == 10)) {
+            zodiac = "Scales";
+        } else if ((day >= 23 && day <= 31 && month == 10) || (day >= 0 && day <= 22 && month == 11)) {
+            zodiac = "Scorpion";
+        } else if ((day >= 23 && day <= 30 && month == 11) || (day >= 0 && day <= 21 && month == 12)) {
+            zodiac = "Archer";
+        } else if ((day >= 22 && day <= 31 && month == 12) || (day >= 0 && day <= 20 && month == 1)) {
+            zodiac = "Goat";
+        } else if ((day >= 21 && day <= 31 && month == 1) || (day >= 0 && day <= 19 && month == 2)) {
+            zodiac = "Water-bearer";
+        } else if ((day >= 20 && day <= 29 && month == 2) || (day >= 0 && day <= 20 && month == 3)) {
+            zodiac = "Fish";
+        } else {
+            zodiac = null;
+        }
+
+        return zodiac;
     }
 }
