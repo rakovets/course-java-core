@@ -35,6 +35,23 @@ class Task04 {
     static float getDistance(float milliseconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        float seconds;
+        float hours;
+        float distanceKilometres;
+        float distanceMetres;
+
+        final int MILLISECONDS_IN_SECONDS = 1000;
+        final  int SECONDS_IN_HOURS = 3600;
+        final int KILOMETRES_IN_METRES = 1000;
+
+        seconds = milliseconds / MILLISECONDS_IN_SECONDS;
+
+        hours = seconds / SECONDS_IN_HOURS;
+
+        distanceKilometres = SOUND_SPEED * hours;
+
+        distanceMetres = distanceKilometres * KILOMETRES_IN_METRES;
+
+        return distanceMetres;
     }
 }
