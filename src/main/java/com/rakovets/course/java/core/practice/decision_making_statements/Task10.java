@@ -15,9 +15,9 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int firstFuelReserves = 100;
+        int firstFuelReserves = 50;
         int secondFuelReserves = 50;
-        int thirdFuelReserves = 70;
+        int thirdFuelReserves = 60;
 
         int numberStation = getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
         System.out.printf("Result: %s", numberStation);
@@ -37,6 +37,17 @@ class Task10 {
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int numberOfStation = 0;
+        if ((firstFuelReserves < secondFuelReserves && firstFuelReserves < thirdFuelReserves)
+               | (firstFuelReserves  == secondFuelReserves) | (firstFuelReserves == thirdFuelReserves)
+        | (firstFuelReserves == secondFuelReserves && firstFuelReserves == thirdFuelReserves)) {
+            numberOfStation = 1;
+        } else if ((secondFuelReserves < firstFuelReserves && secondFuelReserves < thirdFuelReserves)
+         | (secondFuelReserves ==  thirdFuelReserves)) {
+            numberOfStation = 2;
+        } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
+            numberOfStation = 3;
+        }
+        return numberOfStation;
     }
 }
