@@ -45,6 +45,32 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String theZodiacSign = null;
+        if (day >= 21 && month == 3 || day <= 20 && month == 4){
+            theZodiacSign = "Ram";
+        } else if (day >= 21 && month == 4 || day <= 20 && month == 5) {
+            theZodiacSign = "Bull";
+        } else if (day >= 21 && month == 5 || day <= 21 && month == 6) {
+            theZodiacSign = "Twins";
+        } else if (day >= 22 && month == 6 || day <= 22 && month == 7) {
+            theZodiacSign = "Crab";
+        } else if (day >= 7 && month == 7 || day <= 22 && month == 8) {
+          theZodiacSign = "Lion";
+        } else if (day >= 23 && month == 8 || day <= 21 && month == 9) {
+            theZodiacSign = "Maiden";
+        } else if (day >= 22 && month == 9 || day <= 22 && month == 10) {
+            theZodiacSign = "Scales";
+        } else if (day >= 23 && month == 10 || day <= 22 && month == 11){
+            theZodiacSign = "Scorpion";
+        } else if (day >= 23 && month == 11 || day <= 21 && month == 12) {
+            theZodiacSign = "Archer";
+        } else if (day >= 22 && month == 12 || day <= 20 && month == 1) {
+            theZodiacSign = "Goat";
+        } else if (day >= 21 && month == 1 || day <= 19 && month == 2) {
+            theZodiacSign = "Water-bearer";
+        } else if (day >= 20 && month == 2 || day <= 20 && month == 3) {
+            theZodiacSign = "Fish";
+        }
+        return theZodiacSign;
     }
 }
