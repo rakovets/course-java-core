@@ -38,7 +38,7 @@ class Task06 {
         final byte SECONDS_IN_SECONDS = 60;
               
         int hours = playingTimeInSeconds / SECONDS_TO_HOURS;
-        int minutes = playingTimeInSeconds / SECONDS_TO_MINUTES
+        int minutes = playingTimeInSeconds / SECONDS_TO_MINUTES;
         int days = playingTimeInSeconds / SECONDS_TO_DAYS;
 
         return (days + " " + hours % HOURS_IN_DAY + ":" + minutes % MINUTES_IN_HOURS + ":" + playingTimeInSeconds % SECONDS_IN_SECONDS);
