@@ -44,6 +44,32 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result;
+        if ((2001 - year) % 12 == 0) {
+            result = "Snake";
+        } else if ((2002 - year) % 12 == 0) {
+            result = "Horse";
+        } else if ((2003 - year) % 12 == 0) {
+            result = "Ram";
+        } else if ((2004 - year) % 12 == 0) {
+            result = "Monkey";
+        } else if ((2005 - year) % 12 == 0) {
+            result = "Rooster";
+        } else if ((2006 - year) % 12 == 0) {
+            result = "Dog";
+        } else if ((2007 - year) % 12 == 0) {
+            result = "Pig";
+        } else if ((2008 - year) % 12 == 0) {
+            result = "Rat";
+        } else if ((2009 - year) % 12 == 0) {
+            result = "Ox";
+        } else if ((2010 - year) % 12 == 0) {
+            result = "Tiger";
+        } else if ((2011 - year) % 12 == 0) {
+            result = "Rabbit";
+        } else {
+            result = "Dragon";
+        }
+        return result;
     }
 }
