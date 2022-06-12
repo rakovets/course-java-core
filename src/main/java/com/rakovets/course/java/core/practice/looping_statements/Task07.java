@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -25,7 +27,7 @@ class Task07 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startNumberItems = 2;
-        double startPriceAllItems = 2.0;
+        double startPriceAllItems = 2;
         int differentialNumberItems = 2;
         int sizeTotalPrice = 15;
 
@@ -47,6 +49,15 @@ class Task07 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = "";
+        String LF = "\n";
+        double pricePerItem = startPriceAllItems / startNumberItems;
+        result += startNumberItems + " - " + startPriceAllItems;
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            int numberItems = differentialNumberItems * i + startNumberItems;
+            double priceAllItems = NumberUtil.roundValueToTwoDigitsForMantissa(pricePerItem * numberItems);
+            result += LF + numberItems + " - " + priceAllItems;
+        }
+        return result;
     }
 }

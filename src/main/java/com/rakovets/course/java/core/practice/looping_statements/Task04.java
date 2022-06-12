@@ -7,6 +7,8 @@ package com.rakovets.course.java.core.practice.looping_statements;
  * @author Dmitry Rakovets
  */
 class Task04 {
+    private static final int TIME_LIMIT = 24;
+
     /**
      * The entry point of the task
      *
@@ -35,6 +37,14 @@ class Task04 {
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int i;
+        for (i = 1; i <= TIME_LIMIT; i++) {
+            int regenerationPointsPerHour = (int) (healthPoints * regenerationPercentPerHour / 100);
+            healthPoints = healthPoints + regenerationPointsPerHour - averageDamagePerHour;
+            if (healthPoints <= 0) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
