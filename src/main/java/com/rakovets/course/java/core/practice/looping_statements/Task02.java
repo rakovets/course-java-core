@@ -1,5 +1,11 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * Разработать программу для банка.
  *
@@ -34,6 +40,10 @@ class Task02 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        for (int i = 1; i <= depositTerm; i++) {
+            double profit = depositAmount * (annualDepositPercent / 100);
+            depositAmount  += profit;
+        }
+            return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
     }
 }
