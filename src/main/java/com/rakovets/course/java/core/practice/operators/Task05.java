@@ -36,6 +36,17 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int h = height;
+        int w = weight;
+        int standart = h - 110;
+
+        if (standart > w) {
+            System.out.println("You have to gain");
+        } else if (standart < w) {
+            System.out.println("You have to lose");
+        } else {
+            System.out.println("You are normal");
+        }
+        return (w - standart);
     }
 }
