@@ -31,6 +31,15 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder numbersString = new StringBuilder();
+
+        for (int i = 1; i <= numberRows; i++) {
+            if (i < numberRows) {
+                numbersString.append(i).append("\n");
+            } else {
+                numbersString.append(i);
+            }
+        }
+        return numbersString.toString();
     }
 }
