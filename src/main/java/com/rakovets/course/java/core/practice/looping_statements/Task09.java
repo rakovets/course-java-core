@@ -36,6 +36,25 @@ class Task09 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        long number = Math.abs(amount);
+        StringBuilder accountingFormat = new StringBuilder();
+
+        if (amount == 0) {
+            accountingFormat.append(amount);
+            return accountingFormat.toString();
+        }
+        for (int i = 0; number != 0; i++) {
+            long remainderOfDivision = number % 1000;
+            number /= 1000;
+            if (i == 0) {
+                accountingFormat.insert(0, remainderOfDivision);
+            } else {
+                accountingFormat.insert(0, remainderOfDivision + " ");
+            }
+        }
+        if (amount < 0) {
+            accountingFormat.insert(0, "-");
+        }
+        return accountingFormat.toString();
     }
 }
