@@ -37,21 +37,16 @@ class Task04 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         float seconds;
         float hours;
-        float distanceKilometres;
-        float distanceMetres;
-
+        float distanceKilometers;
+        float distanceMeters;
         final int MILLISECONDS_IN_SECONDS = 1000;
         final  int SECONDS_IN_HOURS = 3600;
-        final int KILOMETRES_IN_METRES = 1000;
-
+        final int KILOMETERS_IN_METERS = 1000;
         seconds = milliseconds / MILLISECONDS_IN_SECONDS;
-
         hours = seconds / SECONDS_IN_HOURS;
+        distanceKilometers = SOUND_SPEED * hours;
+        distanceMeters = distanceKilometers * KILOMETERS_IN_METERS;
 
-        distanceKilometres = SOUND_SPEED * hours;
-
-        distanceMetres = distanceKilometres * KILOMETRES_IN_METRES;
-
-        return distanceMetres;
+        return distanceMeters;
     }
 }
