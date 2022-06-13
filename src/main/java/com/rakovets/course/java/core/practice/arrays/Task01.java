@@ -39,11 +39,10 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double sum = 0;
+        double sum = 0.0;
         for (int mark : marks) {
             sum += mark;
         }
-
         return NumberUtil.roundValueToTwoDigitsForMantissa(sum / marks.length);
     }
 
