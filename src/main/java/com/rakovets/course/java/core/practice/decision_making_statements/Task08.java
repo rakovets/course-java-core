@@ -44,7 +44,6 @@ class Task08 {
         final float REDUCED_DAMAGE_SAINT = 2.0f;
 
         if (hasHolyAttribute) {
-
             switch (typeMob) {
                 case "UNDEAD":
                 case "ZOMBIE":
