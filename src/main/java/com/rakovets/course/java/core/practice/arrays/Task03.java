@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,21 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMark = new double[marks.length];
+        int sumMark;
+        int marksLength;
+        int subject = 0;
+        for (int[] row : marks) {
+            sumMark = 0;
+            marksLength = 0;
+            for (int mark : row) {
+                sumMark += mark;
+                marksLength++;
+            }
+            averageMark[subject] = NumberUtil.roundValueToTwoDigitsForMantissa((double) sumMark / marksLength);
+            subject++;
+        }
+        return averageMark;
     }
 
     /**
@@ -47,7 +63,20 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMarks = new int[marks.length];
+        int subject = 0;
+        int minMark;
+        for (int[] row : marks) {
+            minMark = marks[subject][0];
+            for (int mark : row) {
+                if (mark < minMark) {
+                    minMark = mark;
+                }
+            }
+            minMarks[subject] = minMark;
+            subject++;
+        }
+        return minMarks;
     }
 
     /**
@@ -59,6 +88,19 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMarks = new int[marks.length];
+        int subject = 0;
+        int maxMark;
+        for (int[] row : marks) {
+            maxMark = marks[subject][0];
+            for (int mark : row) {
+                if (mark > maxMark) {
+                    maxMark = mark;
+                }
+            }
+            maxMarks[subject] = maxMark;
+            subject++;
+        }
+        return maxMarks;
     }
 }
