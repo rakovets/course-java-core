@@ -56,7 +56,13 @@ class Task01 {
     static int getMinMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minMark = marks[0];
+        for (int mark : marks) {
+            if ( minMark > mark){
+                minMark = mark;
+            }
+        }
+        return minMark;
     }
 
     /**
