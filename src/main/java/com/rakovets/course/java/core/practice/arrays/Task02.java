@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками по всем предметам.
  *
@@ -33,7 +35,14 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        int sum = 0;
+        for (int[] row : marks) {
+            for (int mark : row) {
+                sum += mark;
+            }
+        }
+        double averageMark = (double) sum / Math.pow(marks.length, 2);
+        return NumberUtil.roundValueToTwoDigitsForMantissa(averageMark);
     }
 
     /**
@@ -45,7 +54,15 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minMark = marks[0][0];
+        for (int[] row : marks) {
+            for (int mark : row) {
+                if(mark < minMark) {
+                    minMark = mark;
+                }
+            }
+        }
+        return minMark;
     }
 
     /**
@@ -57,6 +74,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int maxMark = marks[0][0];
+        for (int[] row : marks) {
+            for (int mark : row) {
+                if(mark > maxMark) {
+                    maxMark = mark;
+                }
+            }
+        }
+        return maxMark;
     }
 }
