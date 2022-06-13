@@ -65,7 +65,7 @@ class Task08 {
             numberItems += differentialNumberItems;
             sell += differentialSell;
             priceAllItems = numberItems * priceOneItem;
-            sellFromPrice = priceAllItems * sell /100;
+            sellFromPrice = priceAllItems * sell / 100;
             priceAllItems -= sellFromPrice;
             priceAllItems = (int) Math.round(priceAllItems * 100);
             priceAllItems /= 100;
