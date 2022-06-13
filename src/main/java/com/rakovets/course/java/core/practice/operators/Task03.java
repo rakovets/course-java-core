@@ -39,11 +39,8 @@ class Task03 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         float interestRateYears;
         float amountPercentageYears;
-
         final int CONVERTING_INTEREST = 100;
-
         interestRateYears = (float) depositAnnualPercentage * depositYears / CONVERTING_INTEREST;
-
         amountPercentageYears = depositAmount * interestRateYears;
 
         return (depositAmount  +  amountPercentageYears);
