@@ -42,15 +42,15 @@ class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer){
-           tanksKilledFirstPlayer = tanksKilledFirstPlayer*KILL_POINT+BONUS_POINT;
-           tanksKilledSecondPlayer = tanksKilledSecondPlayer*KILL_POINT;
+           tanksKilledFirstPlayer = tanksKilledFirstPlayer * KILL_POINT + BONUS_POINT;
+           tanksKilledSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
         } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
-           tanksKilledFirstPlayer = tanksKilledFirstPlayer*KILL_POINT;
-           tanksKilledSecondPlayer = tanksKilledSecondPlayer*KILL_POINT+BONUS_POINT;
+           tanksKilledFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
+           tanksKilledSecondPlayer = tanksKilledSecondPlayer * KILL_POINT + BONUS_POINT;
        } else{
            tanksKilledFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
            tanksKilledSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
        }
-        return "Player 1: "+tanksKilledFirstPlayer+". Player 2: "+tanksKilledSecondPlayer;
+        return "Player 1: " + tanksKilledFirstPlayer + ". Player 2: " + tanksKilledSecondPlayer;
     }
 }
