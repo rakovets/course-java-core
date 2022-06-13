@@ -1,5 +1,9 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 /**
@@ -7,7 +11,8 @@ import java.util.Arrays;
  *
  * @author Dmitry Rakovets
  */
-class Task03 {
+class
+Task03 {
     public static void main(String[] args) {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
@@ -35,7 +40,15 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMarks = new double[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            double sum = 0.0;
+            for (int j = 0; j < marks[i].length; j++) {
+                sum += marks[i][j];
+            }
+            averageMarks[i] = NumberUtil.roundValueToTwoDigitsForMantissa(sum / marks[i].length);
+        }
+        return averageMarks;
     }
 
     /**
@@ -47,8 +60,20 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+        int minMark = marks[i][0];
+        for (int j = 0; j < marks[i].length; j++) {
+            if (minMark > marks[i][j]) {
+                minMark = marks[i][j] ;
+            }
+            minMarks[i] = minMark;
+        }
     }
+        return minMarks;
+    }
+
+
 
     /**
      * Возвращает максимальную отметку по предметам за весь период обучения.
