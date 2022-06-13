@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками только по одному предмету.
  *
@@ -32,9 +34,14 @@ class Task01 {
      * @return средняя арифметическая отметка
      */
     static double getAverageMark(int[] marks) {
+        double averageMark = 0;
+        for (int i = 0; i < marks.length; i ++){
+            averageMark += marks[i];
+        }
+        averageMark = averageMark / marks.length;
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        return NumberUtil.roundValueToTwoDigitsForMantissa(averageMark);
     }
 
     /**
@@ -44,9 +51,15 @@ class Task01 {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
+        int minMark = marks[0];
+        for (int i = 0; i < marks.length; i++){
+            if (marks[i] < minMark){
+                minMark = marks[i];
+            }
+        }
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return minMark;
     }
 
     /**
@@ -56,8 +69,14 @@ class Task01 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
+        int maxMark = marks[0];
+        for (int i = 0; i < marks.length; i++){
+            if (marks[i] > maxMark){
+                maxMark = marks[i];
+            }
+        }
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return maxMark;
     }
 }
