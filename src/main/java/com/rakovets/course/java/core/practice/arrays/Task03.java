@@ -62,17 +62,16 @@ Task03 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int[] minMarks = new int[marks.length];
         for (int i = 0; i < marks.length; i++) {
-        int minMark = marks[i][0];
-        for (int j = 0; j < marks[i].length; j++) {
-            if (minMark > marks[i][j]) {
-                minMark = marks[i][j] ;
+            int minMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (minMark > marks[i][j]) {
+                    minMark = marks[i][j];
+                }
+                minMarks[i] = minMark;
             }
-            minMarks[i] = minMark;
         }
-    }
         return minMarks;
     }
-
 
 
     /**
@@ -84,6 +83,16 @@ Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int maxMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (maxMark < marks[i][j]) {
+                    maxMark = marks[i][j];
+                }
+                maxMarks[i] = maxMark;
+            }
+        }
+        return maxMarks;
     }
 }
