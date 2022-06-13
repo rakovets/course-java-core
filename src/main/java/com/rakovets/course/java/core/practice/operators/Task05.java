@@ -6,6 +6,7 @@ package com.rakovets.course.java.core.practice.operators;
  * @author Dmitry Rakovets
  */
 class Task05 {
+    public static final int BROK_NUMBER = 110;
     /**
      * The entry point of the task
      *
@@ -36,6 +37,6 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return weight - (height - 110);
+        return weight - (height - BROK_NUMBER);
     }
 }
