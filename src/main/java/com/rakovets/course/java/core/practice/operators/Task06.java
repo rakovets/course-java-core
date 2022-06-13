@@ -30,32 +30,19 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int minuteTimeInSeconds;
-        int hourTimeInSeconds;
-        int dayTimeInSeconds;
+        final int MINUTE_TIME_IN_SECONDS = 60;
+        final int HOUR_TIME_IN_SECONDS = 3600;
+        final int DAY_TIME_IN_SECONDS = 86400;
         int dayPlaying;
         int hourPlaying;
         int minutePlaying;
         int secondPlaying;
-
-        minuteTimeInSeconds = 60;
-
-        hourTimeInSeconds = 3600;
-
-        dayTimeInSeconds = 86400;
-
-
-        dayPlaying = playingTimeInSeconds / dayTimeInSeconds;
-
-        playingTimeInSeconds = playingTimeInSeconds - (dayPlaying * dayTimeInSeconds);
-
-        hourPlaying = playingTimeInSeconds / hourTimeInSeconds;
-
-        playingTimeInSeconds = playingTimeInSeconds - hourPlaying * hourTimeInSeconds;
-
-        minutePlaying = playingTimeInSeconds / minuteTimeInSeconds;
-
-        secondPlaying = playingTimeInSeconds - (minutePlaying * minuteTimeInSeconds);
+        dayPlaying = playingTimeInSeconds / DAY_TIME_IN_SECONDS;
+        playingTimeInSeconds = playingTimeInSeconds - (dayPlaying * DAY_TIME_IN_SECONDS);
+        hourPlaying = playingTimeInSeconds / HOUR_TIME_IN_SECONDS;
+        playingTimeInSeconds = playingTimeInSeconds - hourPlaying * HOUR_TIME_IN_SECONDS;
+        minutePlaying = playingTimeInSeconds / MINUTE_TIME_IN_SECONDS;
+        secondPlaying = playingTimeInSeconds - (minutePlaying * MINUTE_TIME_IN_SECONDS);
 
         return  (dayPlaying + " " + hourPlaying + ":" + minutePlaying + ":" + secondPlaying);
     }
