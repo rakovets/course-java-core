@@ -38,31 +38,34 @@ class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int priorityStationFuelDelivery;
+        final int FIRST_STATION = 1;
+        final int SECOND_STATION = 2;
+        final int THIRD_STATION = 3;
 
         if (firstFuelReserves >= secondFuelReserves) {
             if (secondFuelReserves >= thirdFuelReserves) {
                 if (secondFuelReserves == thirdFuelReserves) {
                     if (firstFuelReserves == secondFuelReserves) {
-                        priorityStationFuelDelivery = 1;
+                        priorityStationFuelDelivery = FIRST_STATION;
                     } else {
-                        priorityStationFuelDelivery = 2;
+                        priorityStationFuelDelivery = SECOND_STATION;
                     }
                 } else {
-                    priorityStationFuelDelivery = 3;
+                    priorityStationFuelDelivery = THIRD_STATION;
                 }
             } else if (firstFuelReserves == secondFuelReserves) {
-                priorityStationFuelDelivery = 1;
+                priorityStationFuelDelivery = FIRST_STATION;
             } else {
-                priorityStationFuelDelivery = 2;
+                priorityStationFuelDelivery = SECOND_STATION;
             }
         } else if (firstFuelReserves >= thirdFuelReserves) {
             if (firstFuelReserves == thirdFuelReserves) {
-                priorityStationFuelDelivery = 1;
+                priorityStationFuelDelivery = FIRST_STATION;
             } else {
-                priorityStationFuelDelivery =  3;
+                priorityStationFuelDelivery =  THIRD_STATION;
             }
         }  else {
-            priorityStationFuelDelivery = 1;
+            priorityStationFuelDelivery = FIRST_STATION;
         }
 
         return priorityStationFuelDelivery;
