@@ -40,9 +40,8 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        final float DAMAGE_ADDITIONAL = 1.5;
+        final float DAMAGE_ADDITIONAL = 1.5F;
         final byte DAMAGE_ADDITIONAL_FOR_SAINT = 2;
-        
         int damageIncrease = damage;
 
         if (hasHolyAttribute) {
