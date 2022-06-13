@@ -35,7 +35,6 @@ class Task04 {
     static float getDistance(float milliseconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        float b1 = milliseconds;
-        return (331 * b1 / 1000);
+        return (SOUND_SPEED * milliseconds * 5 / 18000);
     }
 }

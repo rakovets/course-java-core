@@ -30,12 +30,11 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int b1 = playingTimeInSeconds;
-        int D = b1/86400;
-        int H = (b1%86400) / 3600;
-        int m = ((b1%86400)%3600) / 60;
-        int s = (((b1%86400)%3600)) % 60;
+        int day = playingTimeInSeconds / 86400;
+        int hour = (playingTimeInSeconds % 86400) / 3600;
+        int minute = ((playingTimeInSeconds % 86400) % 3600) / 60;
+        int second = (((playingTimeInSeconds % 86400) % 3600)) % 60;
 
-        return String.format(+D+ " "+H+ ":" +m+ ":" +s+ "");
+        return String.format(+day+ " "+hour+ ":" +minute+ ":" +second+ "");
     }
 }
