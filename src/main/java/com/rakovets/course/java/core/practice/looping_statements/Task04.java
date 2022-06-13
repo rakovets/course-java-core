@@ -41,9 +41,9 @@ class Task04 {
         while (healthPoints > 0 && raidTime <= 23) {
             healthPoints += (int) Math.round(healthPoints * regenerationPercentPerHour);
             healthPoints -= averageDamagePerHour;
-            raidTime +=1;
+            raidTime += 1;
         }
-        if (healthPoints<0){
+        if (healthPoints < 0){
             return raidTime;
         } else {
             return -1;
