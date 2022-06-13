@@ -37,7 +37,7 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final int BROCKS_INDEX = 110;
-        
-        return weight - (height - BrocksIndex);
+
+        return weight - (height - BROCKS_INDEX);
     }
 }
