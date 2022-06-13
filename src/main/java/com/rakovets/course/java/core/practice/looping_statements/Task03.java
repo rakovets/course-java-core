@@ -41,7 +41,8 @@ class Task03 {
             double regenHealthRaidBoss = healthPointsRaidBoss * (regenerationPercentFromCurrentHealth / 100);
             healthPointsRaidBoss += regenHealthRaidBoss;
         }
-        return (int) healthPointsRaidBoss;
+        int result = (int) healthPointsRaidBoss;
+        return result;
     }
 
 }

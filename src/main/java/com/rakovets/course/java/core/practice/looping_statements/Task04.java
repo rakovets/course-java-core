@@ -43,7 +43,7 @@ class Task04 {
             healthPoints -= averageDamagePerHour;
             raidTime +=1;
         }
-        if (healthPoints < 0){
+        if (healthPoints<0){
             return raidTime;
         } else {
             return -1;

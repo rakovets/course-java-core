@@ -42,8 +42,8 @@ class Task06 {
         double todayDistance = startDistance;
         double percentage = dailyProgressAsPercentage / 100;
         while (todayDistance < finishDistance && todayDistance != 0) {
-            todayDistance += todayDistance * percentage;
-            totalDistance += todayDistance;
+            todayDistance = todayDistance + todayDistance * percentage;
+            totalDistance =  totalDistance + todayDistance;
         }
         return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);
     }

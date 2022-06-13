@@ -55,7 +55,7 @@ class Task07 {
             generateTotalPriceList += numberItems + " - " + totalPrice + "\n";
             numberItems += differentialNumberItems;
             totalPrice = Math.round((numberItems * oneItemPrice) * 100);
-            totalPrice = totalPrice / 100;
+            totalPrice = totalPrice /100;
         }
         generateTotalPriceList += numberItems + " - " + totalPrice;
         return generateTotalPriceList;
