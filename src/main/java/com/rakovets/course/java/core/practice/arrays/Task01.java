@@ -74,6 +74,14 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int maxMark = marks[0];
+        for ( int mark: marks){
+            if (maxMark < mark){
+                maxMark = mark;
+            }
+        }
+        return maxMark;
     }
+
+
 }
