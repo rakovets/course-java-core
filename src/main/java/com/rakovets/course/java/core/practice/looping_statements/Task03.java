@@ -37,6 +37,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte PERCENT = 100;
+
         double health = healthPoints;
 
         for (int i = 0; i < hoursAfterRespawn; i++) {
