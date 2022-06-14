@@ -41,11 +41,8 @@ class Task04 {
 
         for (int i = 1; i <= 24; i++) {
             regenerationHealthPoint = healthPointsNew * (regenerationPercentPerHour / 100);
-
             healthPointsNew += regenerationHealthPoint;
-
             healthPointsNew = healthPointsNew - averageDamagePerHour;
-
                 if (healthPointsNew <= 0) {
                    killRaidBossHours = i;
                    break;
@@ -55,7 +52,6 @@ class Task04 {
                     break;
                 }
             }
-
         return killRaidBossHours;
     }
 }
