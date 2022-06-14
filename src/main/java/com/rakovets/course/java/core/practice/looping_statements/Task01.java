@@ -32,14 +32,11 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String textNumberColumns = "";
-
         for (int i = 1; i <= numberRows; i++) {
-
             if (i == numberRows) {
                 textNumberColumns += i;
                 continue;
             }
-
             textNumberColumns = textNumberColumns + i + "\n";
         }
         return textNumberColumns;
