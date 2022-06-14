@@ -56,6 +56,7 @@ class Task07 {
 
         for (int i = 1; i <= sizeTotalPrice; i++) {
             double value;
+
             if (i != 1) {
                 startNumberItems = startNumberItems + differentialNumberItems;
             }
