@@ -37,6 +37,7 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte PERCENT = 100;
+
         double capital;
 
         for (int i = 1; i <= depositTerm; i++) {
