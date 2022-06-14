@@ -38,13 +38,10 @@ class Task03 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double healthPointsNew = healthPoints;
         double regenerationHealthPoint;
-
         for (int i = 1; i <= hoursAfterRespawn; i++) {
             regenerationHealthPoint = healthPointsNew * (regenerationPercentFromCurrentHealth / 100);
-
             healthPointsNew += regenerationHealthPoint;
         }
-
         return (int) healthPointsNew;
     }
 }
