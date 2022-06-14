@@ -38,7 +38,6 @@ class Task04 {
         double healthPointsNew = healthPoints;
         double regenerationHealthPoint;
         int killRaidBossHours = 0;
-
         for (int i = 1; i <= 24; i++) {
             regenerationHealthPoint = healthPointsNew * (regenerationPercentPerHour / 100);
             healthPointsNew += regenerationHealthPoint;
