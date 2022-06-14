@@ -36,12 +36,11 @@ class Task02 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        final byte PERCENT = 100; // and 0.01
+        final byte PERCENT = 100;
         double capital;
 
         for (int i = 1; i <= depositTerm; i++) {
             capital = depositAmount * (annualDepositPercent / PERCENT);
-//            capital = depositAmount * (annualDepositPercent * PERCENT (0.01));
             depositAmount += capital;
         }
         return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
