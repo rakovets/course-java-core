@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,17 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMark = new double[marks.length];
+        double sumMarks = 0.0;
+
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                sumMarks += marks[i][j];
+            }
+            averageMark[i] = NumberUtil.roundValueToTwoDigitsForMantissa(sumMarks / marks[i].length);
+            sumMarks = 0.0;
+        }
+        return averageMark;
     }
 
     /**
@@ -47,7 +59,18 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMark = new int[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            int startMarks = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (startMarks > marks[i][j]) {
+                    startMarks = marks[i][j];
+                }
+                minMark[i] = startMarks;
+            }
+        }
+        return minMark;
     }
 
     /**
@@ -59,6 +82,17 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMark = new int[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            int startMarks = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (startMarks < marks[i][j]) {
+                    startMarks = marks[i][j];
+                }
+                maxMark[i] = startMarks;
+            }
+        }
+        return maxMark;
     }
 }
