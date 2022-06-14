@@ -39,7 +39,6 @@ class Task02 {
         for (int i = 1; i <= depositTerm; i++) {
             depositAmount = depositAmount * (1 + annualDepositPercent / 100);
         }
-
         return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
     }
 }
