@@ -41,7 +41,6 @@ class Task05 {
         int deviationWeight;
         standardWeight = height - indexBroka;
         deviationWeight = weight - standardWeight;
-
         return deviationWeight;
     }
 }
