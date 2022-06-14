@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -64,7 +66,7 @@ class Task08 {
             }
             totalSell = differentialSell * (i - 1);
             value = startNumberItems * oneItemPrise - (startNumberItems * oneItemPrise * totalSell / 100);
-            value = Math.round(100.0 * value) / 100.0;
+            value = NumberUtil.roundValueToTwoDigitsForMantissa(value);
             totalPriceList.append(startNumberItems).append(" - ").append(value).append(" with sell ").append(totalSell).append("%").append("\n");
         }
         totalPriceList.deleteCharAt(totalPriceList.length() - 1);
