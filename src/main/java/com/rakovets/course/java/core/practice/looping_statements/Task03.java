@@ -36,12 +36,11 @@ class Task03 {
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        final byte PERCENT = 100; // and 0.01
+        final byte PERCENT = 100;
         double health = healthPoints;
 
         for (int i = 0; i < hoursAfterRespawn; i++) {
             double regenHealth = health * (regenerationPercentFromCurrentHealth / PERCENT);
-//            double regenHealth = health * (regenerationPercentFromCurrentHealth * PERCENT (0.01);
             health += regenHealth;
         }
         return (int) health;
