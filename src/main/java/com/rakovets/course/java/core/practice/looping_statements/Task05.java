@@ -35,26 +35,19 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String table = "";
-
         if (isEnableHeaderRow) {
-
             for (int i = 1; i < numberRows; i++) {
                 table +=  "\n" + i;
             }
-
         } else {
-
             for (int i = 1; i <= numberRows; i++) {
-
                 if (i ==1) {
                     table += i;
                     continue;
                 }
-
                 table += "\n" + i;
             }
         }
-
         return table;
     }
 }
