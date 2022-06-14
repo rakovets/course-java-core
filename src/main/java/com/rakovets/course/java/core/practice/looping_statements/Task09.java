@@ -39,26 +39,17 @@ class Task09 {
         long convertAmount = 0L;
         String buhFormatAmount = "";
         String negative = "";
-
         if (amount < 0) {
             amount = -amount;
-
             negative = "-";
         }
-
         do {
             convertAmount = amount % 1000;
-
             if (buhFormatAmount == "") {
-
                 buhFormatAmount += convertAmount;
-
                 amount = amount / 1000;
-
             } else {
-
                 buhFormatAmount = convertAmount + " " + buhFormatAmount;
-
                 amount = amount / 1000;
             }
         }
