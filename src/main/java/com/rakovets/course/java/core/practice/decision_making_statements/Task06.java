@@ -12,7 +12,7 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * </ul>
  */
 class Task06 {
-//    private static final int BONUS_POINT = 500;
+    private static final int BONUS_POINT = 500;
     private static final int KILL_POINT = 100;
 
     /**
@@ -41,8 +41,8 @@ class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int bonusPoint = 5;
-            
+        int bonusPoint = BONUS_POINT / 100;
+
         if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
             tanksKilledFirstPlayer += bonusPoint;
         } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
