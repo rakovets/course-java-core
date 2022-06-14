@@ -43,7 +43,6 @@ class Task06 {
         playingTimeInSeconds = playingTimeInSeconds - hourPlaying * HOUR_TIME_IN_SECONDS;
         minutePlaying = playingTimeInSeconds / MINUTE_TIME_IN_SECONDS;
         secondPlaying = playingTimeInSeconds - (minutePlaying * MINUTE_TIME_IN_SECONDS);
-
         return  (dayPlaying + " " + hourPlaying + ":" + minutePlaying + ":" + secondPlaying);
     }
 }
