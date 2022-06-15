@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -14,8 +16,8 @@ class Task03 {
         // аргументов. Типы данных изменять нельзя
         int[][] marks = {
                 {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
+                {4, 6, 6},
+                {7, 8, 2}
         };
 
         double[] averageMark = getAverageMarks(marks);
@@ -35,7 +37,17 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMark = new double[1];
+        double arrayElementsCount = 0;
+        for (int i = 0; i < marks.length; i++ ) {
+            for (int j = 0; j < marks[i].length; j++ ) {
+                averageMark[0] += marks[i][j];
+                arrayElementsCount += j;
+            }
+        }
+        double x = NumberUtil.roundValueToTwoDigitsForMantissa( averageMark[0] / arrayElementsCount);
+        averageMark[0] = x;
+        return averageMark;
     }
 
     /**

@@ -1,5 +1,9 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
+import java.util.Arrays;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками по всем предметам.
  *
@@ -33,7 +37,15 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double sumOfMarks = 0;
+        int arrayElementsCount = 0;
+        for (int i = 0; i < marks.length; i++ ) {
+            for (int j = 0; j < marks[i].length; j++ ) {
+                    sumOfMarks += marks[i][j];
+                    arrayElementsCount += j;
+            }
+        }
+        return NumberUtil.roundValueToTwoDigitsForMantissa(sumOfMarks / arrayElementsCount);
     }
 
     /**
@@ -45,7 +57,16 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minimalArrayElement = 128;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < minimalArrayElement) {
+                    minimalArrayElement = marks[i][j];
+                    System.out.println(marks[i][j]);
+                }
+            }
+        }
+        return minimalArrayElement;
     }
 
     /**
@@ -57,6 +78,15 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int maximalArrayElement = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > maximalArrayElement) {
+                    maximalArrayElement = marks[i][j];
+                }
+            }
+        }
+        return maximalArrayElement;
     }
 }
+
