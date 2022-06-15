@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 /**
@@ -35,7 +38,15 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMarks = new double[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            double average = 0;
+            for (int j = 0; j < marks[i].length; j++) {
+                average += marks[i][j];
+            }
+            averageMarks[i] = NumberUtil.roundValueToTwoDigitsForMantissa((average / marks[i].length));
+        }
+        return averageMarks;
     }
 
     /**
@@ -47,7 +58,17 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] averageMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int average = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                if (average > marks[i][j]) {
+                    average = marks[i][j];
+                }
+            }
+            averageMarks[i] = average;
+        }
+        return averageMarks;
     }
 
     /**
@@ -59,6 +80,16 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] averageMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int average = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                if (average < marks[i][j]) {
+                    average = marks[i][j];
+                }
+            }
+            averageMarks[i] = average;
+        }
+        return averageMarks;
     }
 }
