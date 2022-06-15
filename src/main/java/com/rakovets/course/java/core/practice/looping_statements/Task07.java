@@ -56,6 +56,7 @@ class Task07 {
              i++, currentNumberItem += differentialNumberItems){
             totalPriceList += currentNumberItem + " - "
                     + NumberUtil.roundValueToTwoDigitsForMantissa(currentNumberItem * pricePerItem) ;
+
             if (i != sizeTotalPrice - 1){
                 totalPriceList += "\n";
             }
