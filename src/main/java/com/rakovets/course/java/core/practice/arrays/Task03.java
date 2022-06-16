@@ -38,18 +38,13 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double[] averageMark = new double[marks.length];
-        int sumMark;
-        int marksLength;
-        int subject = 0;
-        for (int[] row : marks) {
-            sumMark = 0;
-            marksLength = 0;
-            for (int mark : row) {
-                sumMark += mark;
-                marksLength++;
+        int sumMarks = 0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int k = 0; k < marks[i].length; k++) {
+                sumMarks += marks[i][k];
             }
-            averageMark[subject] = NumberUtil.roundValueToTwoDigitsForMantissa((double) sumMark / marksLength);
-            subject++;
+            averageMark[i] = NumberUtil.roundValueToTwoDigitsForMantissa((double) sumMarks / marks[i].length);
+            sumMarks = 0;
         }
         return averageMark;
     }
@@ -64,17 +59,15 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int[] minMarks = new int[marks.length];
-        int subject = 0;
         int minMark;
-        for (int[] row : marks) {
-            minMark = marks[subject][0];
-            for (int mark : row) {
-                if (mark < minMark) {
-                    minMark = mark;
+        for (int i = 0; i < marks.length; i++) {
+            minMark = marks[i][0];
+            for (int k = 0; k < marks[i].length; k++) {
+                if (marks[i][k] < minMark) {
+                    minMark = marks[i][k];
                 }
             }
-            minMarks[subject] = minMark;
-            subject++;
+            minMarks[i] = minMark;
         }
         return minMarks;
     }
@@ -89,17 +82,15 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int[] maxMarks = new int[marks.length];
-        int subject = 0;
         int maxMark;
-        for (int[] row : marks) {
-            maxMark = marks[subject][0];
-            for (int mark : row) {
-                if (mark > maxMark) {
-                    maxMark = mark;
+        for (int i = 0; i < marks.length; i++) {
+            maxMark = marks[i][0];
+            for (int k = 0; k < marks[i].length; k++) {
+                if (marks[i][k] > maxMark) {
+                    maxMark = marks[i][k];
                 }
             }
-            maxMarks[subject] = maxMark;
-            subject++;
+            maxMarks[i] = maxMark;
         }
         return maxMarks;
     }
