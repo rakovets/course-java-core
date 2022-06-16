@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,17 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMarks = new double[marks.length];
+        int sumMarks = 0;
+        for (int i = 0; i < marks.length; i++){
+            for (int j = 0; j < marks[0].length; j++) {
+                    sumMarks += marks[i][j];
+                }
+            double averageMark = (double) sumMarks / marks.length;
+            averageMarks[i] = NumberUtil.roundValueToTwoDigitsForMantissa(averageMark);
+            sumMarks = 0;
+            }
+        return averageMarks;
     }
 
     /**
@@ -47,7 +59,16 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int minMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks [i][j] < minMark) {
+                   minMark = marks[i][j];
+                }
+            } minMarks[i] = minMark;
+        }
+        return minMarks;
     }
 
     /**
@@ -59,6 +80,15 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int maxMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks [i][j] > maxMark) {
+                    maxMark = marks[i][j];
+                }
+            } maxMarks [i] = maxMark;
+        }
+        return maxMarks;
     }
 }
