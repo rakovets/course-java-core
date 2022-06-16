@@ -36,7 +36,8 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int calculateDeviationStandardWeight = weight - ( height - 110);
+        final int BROK_INDEX = 110;
+        int calculateDeviationStandardWeight = weight - ( height - BROK_INDEX);
         return calculateDeviationStandardWeight;
     }
 }
