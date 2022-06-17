@@ -38,10 +38,8 @@ class Task02 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte PERCENT = 100;
 
-        double capital;
-
         for (int i = 1; i <= depositTerm; i++) {
-            capital = depositAmount * (annualDepositPercent / PERCENT);
+            double capital = depositAmount * (annualDepositPercent / PERCENT);
             depositAmount += capital;
         }
         return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
