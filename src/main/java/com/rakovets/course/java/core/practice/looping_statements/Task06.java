@@ -39,6 +39,7 @@ class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte PERCENT = 100;
+
         double totalDistance = 0;
 
         while (startDistance < finishDistance && startDistance != 0) {
