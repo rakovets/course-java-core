@@ -37,6 +37,7 @@ class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         long number = Math.abs(amount);
+
         StringBuilder accountingFormat = new StringBuilder();
 
         if (amount == 0) {
