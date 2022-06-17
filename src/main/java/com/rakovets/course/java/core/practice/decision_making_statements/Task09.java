@@ -36,6 +36,7 @@ class Task09 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte UNTIL_OF_MEASURE_PER_FLOOR = 1;
 
-        return (apartmentNumber - UNTIL_OF_MEASURE_PER_FLOOR) / (numberFloors * numberApartmentsPerFloor) + UNTIL_OF_MEASURE_PER_FLOOR;
+        return (apartmentNumber - UNTIL_OF_MEASURE_PER_FLOOR) / (numberFloors * numberApartmentsPerFloor) +
+                UNTIL_OF_MEASURE_PER_FLOOR;
     }
 }
