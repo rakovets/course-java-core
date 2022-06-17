@@ -41,10 +41,11 @@ class Task06 {
         final byte PERCENT = 100;
 
         double totalDistance = 0;
+        double startingDistance = startDistance;
 
-        while (startDistance < finishDistance && startDistance != 0) {
-            startDistance += startDistance * (dailyProgressAsPercentage / PERCENT);
-            totalDistance += startDistance;
+        while (startingDistance < finishDistance && startingDistance != 0) {
+            startingDistance += startingDistance * (dailyProgressAsPercentage / PERCENT);
+            totalDistance += startingDistance;
         }
         return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);
     }
