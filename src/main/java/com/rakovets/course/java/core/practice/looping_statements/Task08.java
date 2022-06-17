@@ -56,6 +56,7 @@ class Task08 {
         StringBuilder totalPriceList = new StringBuilder();
 
         double totalSell;
+
         double oneItemPrise = startPriceAllItems / startNumberItems;
 
         for (int i = 1; i <= sizeTotalPrice; i++) {
