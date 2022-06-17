@@ -42,19 +42,18 @@ class Task08 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final float DAMAGE_ADDITIONAL = 1.5F;
         final byte DAMAGE_ADDITIONAL_FOR_SAINT = 2;
-        int damageIncrease = damage;
 
         if (hasHolyAttribute) {
             switch (typeMob) {
                 case "UNDEAD":
                 case "ZOMBIE":
-                    damageIncrease *= DAMAGE_ADDITIONAL;
+                    damage *= DAMAGE_ADDITIONAL;
                     break;
                 case "SAINT":
-                    damageIncrease /= DAMAGE_ADDITIONAL_FOR_SAINT;
+                    damage /= DAMAGE_ADDITIONAL_FOR_SAINT;
                     break;
             }
         }
-        return damageIncrease;
+        return damage;
     }
 }
