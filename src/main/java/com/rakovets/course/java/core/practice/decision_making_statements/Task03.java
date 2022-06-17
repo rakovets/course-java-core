@@ -42,9 +42,9 @@ class Task03 {
         final byte PERCENTAGE_ORANGE = 50;
         final byte PERCENTAGE_YELLOW = 75;
         final byte PERCENTAGE_GREEN = 100;
-        
+
         double getAPercentage = PERCENTAGE / ((double) maxHealthPoint / (double) currentHealthPoint);
-        
+
         String colorHealthPoint;
 
         if (getAPercentage <= 0) {
