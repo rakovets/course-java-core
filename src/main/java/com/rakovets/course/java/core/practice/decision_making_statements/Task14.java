@@ -45,6 +45,7 @@ class Task14 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte MONTH_IN_YEAR = 12;
+
         String zodiacYearName;
 
         switch (year % MONTH_IN_YEAR) {
