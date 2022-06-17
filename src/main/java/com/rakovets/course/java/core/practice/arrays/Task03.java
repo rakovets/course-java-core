@@ -38,6 +38,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double[] averageMark = new double[marks.length];
+
         double sumMarks = 0.0;
 
         for (int i = 0; i < marks.length; i++) {
