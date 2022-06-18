@@ -7,7 +7,6 @@ public class RectangleTest {
      * @author Anastasia Melnikova
      * @since 18.06.2022
      */
-
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
