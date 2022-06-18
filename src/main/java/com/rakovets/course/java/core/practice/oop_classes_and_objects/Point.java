@@ -25,9 +25,9 @@ public class Point {
         this.y = y;
     }
 
-    public double getDistance(Point object) {
-        double squareOfDifferenceX = Math.pow(this.x - object.getX(), 2);
-        double squareOfDifferenceY = Math.pow(this.y - object.getY(), 2);
+    public double getDistance(Point nextPoint) {
+        double squareOfDifferenceX = Math.pow(this.x - nextPoint.getX(), 2);
+        double squareOfDifferenceY = Math.pow(this.y - nextPoint.getY(), 2);
         return Math.sqrt(squareOfDifferenceX + squareOfDifferenceY);
     }
 }
