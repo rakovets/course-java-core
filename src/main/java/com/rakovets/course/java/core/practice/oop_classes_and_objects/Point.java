@@ -26,8 +26,8 @@ public class Point {
     }
 
     public double getDistance(Point object) {
-        double squareOfDifferenceX = Math.pow(Math.abs(this.x - object.getX()), 2);
-        double squareOfDifferenceY = Math.pow(Math.abs(this.y - object.getY()), 2);
+        double squareOfDifferenceX = Math.pow(this.x - object.getX(), 2);
+        double squareOfDifferenceY = Math.pow(this.y - object.getY(), 2);
         return Math.sqrt(squareOfDifferenceX + squareOfDifferenceY);
     }
 }
