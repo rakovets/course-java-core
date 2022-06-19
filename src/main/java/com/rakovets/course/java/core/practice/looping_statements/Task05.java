@@ -46,7 +46,6 @@ class Task05 {
             } else if (i == numberRows - 1 && isEnableHeaderRow) {
                 numbersColum.append(i);
             } else if (!isEnableHeaderRow) {
-
                 if (i < numberRows) {
                     numbersColum.append(i).append("\n");
                 } else {
