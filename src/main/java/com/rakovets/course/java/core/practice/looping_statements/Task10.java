@@ -57,7 +57,6 @@ class Task10 {
                     primeNumber = 1;
                 }
             }
-
             if (primeNumber == 1) {
                 totalNumberOfPrimes++;
             }
