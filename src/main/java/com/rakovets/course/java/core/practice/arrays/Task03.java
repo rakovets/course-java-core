@@ -64,6 +64,7 @@ class Task03 {
 
         for (int i = 0; i < marks.length; i++) {
             int startMarks = marks[i][0];
+
             for (int j = 0; j < marks[i].length; j++) {
                 if (startMarks > marks[i][j]) {
                     startMarks = marks[i][j];
@@ -87,6 +88,7 @@ class Task03 {
 
         for (int i = 0; i < marks.length; i++) {
             int startMarks = marks[i][0];
+
             for (int j = 0; j < marks[i].length; j++) {
                 if (startMarks < marks[i][j]) {
                     startMarks = marks[i][j];
