@@ -40,11 +40,13 @@ class Task05 {
             if (isEnableHeaderRow && i == 1) {
                 numbersColum.append("\n");
             }
+
             if (i < numberRows - 1) {
                 numbersColum.append(i).append("\n");
             } else if (i == numberRows - 1 && isEnableHeaderRow) {
                 numbersColum.append(i);
             } else if (!isEnableHeaderRow) {
+
                 if (i < numberRows) {
                     numbersColum.append(i).append("\n");
                 } else {
