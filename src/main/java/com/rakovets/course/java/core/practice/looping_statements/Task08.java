@@ -65,6 +65,7 @@ class Task08 {
             if (i != 1) {
                 startNumberItems = startNumberItems + differentialNumberItems;
             }
+
             totalSell = differentialSell * (i - 1);
             value = startNumberItems * oneItemPrise - (startNumberItems * oneItemPrise * totalSell / 100);
             value = NumberUtil.roundValueToTwoDigitsForMantissa(value);
