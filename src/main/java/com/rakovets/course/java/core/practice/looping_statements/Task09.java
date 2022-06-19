@@ -44,9 +44,11 @@ class Task09 {
             accountingFormat.append(amount);
             return accountingFormat.toString();
         }
+
         for (int i = 0; number != 0; i++) {
             long remainderOfDivision = number % 1000;
             number /= 1000;
+
             if (i == 0) {
                 accountingFormat.insert(0, remainderOfDivision);
             } else {
