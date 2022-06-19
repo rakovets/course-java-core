@@ -8,8 +8,7 @@ public class PointApplication {
         dot.setY(3);
         System.out.println("Point coordinates: " + dot.getX() + "," + dot.getY());
 
-        Point anotherPoint = new Point(2,2);
+        Point anotherPoint = new Point(2, 2);
         System.out.println(dot.getDistance(anotherPoint));
     }
 }
-

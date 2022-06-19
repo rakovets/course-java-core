@@ -26,10 +26,10 @@ public class Rectangle {
     }
 
     public int getPerimeter() {
-        return 2 * (Math.abs(topLeftPoint.getX()-bottomRightPoint.getX()) + Math.abs(topLeftPoint.getY()- bottomRightPoint.getY()));
+        return 2 * (Math.abs(topLeftPoint.getX() - bottomRightPoint.getX()) + Math.abs(topLeftPoint.getY() - bottomRightPoint.getY()));
     }
 
     public int getArea() {
-        return Math.abs((topLeftPoint.getX()-bottomRightPoint.getX())*(topLeftPoint.getY()- bottomRightPoint.getY()));
+        return Math.abs((topLeftPoint.getX() - bottomRightPoint.getX()) * (topLeftPoint.getY() - bottomRightPoint.getY()));
     }
 }

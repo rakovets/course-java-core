@@ -28,6 +28,6 @@ public class Point {
     }
 
     public double getDistance(Point anotherPoint) {
-        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.sqrt(Math.pow(x -  anotherPoint.getX(), 2) + Math.pow(y - anotherPoint.getY(), 2)));
+        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.sqrt(Math.pow(x - anotherPoint.getX(), 2) + Math.pow(y - anotherPoint.getY(), 2)));
     }
 }
