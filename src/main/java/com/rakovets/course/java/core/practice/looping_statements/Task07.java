@@ -61,6 +61,7 @@ class Task07 {
             if (i != 1) {
                 startNumberItems = startNumberItems + differentialNumberItems;
             }
+
             value = startNumberItems * oneItemPrise - (startNumberItems * oneItemPrise * totalSell / 100);
             value = NumberUtil.roundValueToTwoDigitsForMantissa(value);
             totalPriceList.append(startNumberItems).append(" - ").append(value).append("\n");
