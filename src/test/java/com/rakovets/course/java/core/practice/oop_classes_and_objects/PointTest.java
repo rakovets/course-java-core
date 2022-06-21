@@ -1,40 +1,26 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-import java.util.Scanner;
-
 public class PointTest {
-    /**
-     * @author Anastasia Melnikova
-     * @since 18.06.2022
-     */
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("\nEnter x: ");
-        int x = scanner.nextInt();
-        System.out.print("Enter y: ");
-        int y = scanner.nextInt();
+        double x = 1;
+        double y = 2;
         Point point = new Point(x, y);
 
-        System.out.printf("x:%d y:%d", point.getX(), point.getY());
+        System.out.printf("\nx:%.2f y:%.2f\n", point.getX(), point.getY());
 
-        System.out.print("\n\nEnter x: ");
-        x = scanner.nextInt();
-        System.out.print("Enter y: ");
-        y = scanner.nextInt();
+        x = 5;
+        y = 9;
 
         point.setX(x);
         point.setY(y);
 
-        System.out.printf("x:%d y:%d\n", point.getX(), point.getY());
+        System.out.printf("\nx:%.2f y:%.2f\n", point.getX(), point.getY());
 
-        System.out.print("\nEnter x: ");
-        x = scanner.nextInt();
-        System.out.print("Enter y: ");
-        y = scanner.nextInt();
+        x = 6;
+        y = 15;
         Point instancePoint = new Point(x, y);
 
-        System.out.printf("%d", point.getDistance(instancePoint));
+        System.out.printf("\n%.2f\n", point.getDistance(instancePoint));
     }
 }
