@@ -1,59 +1,41 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-/**
- * @author Anastasia Melnikova
- * @since 18.06.2022
- */
 public class Point {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     /**
-     * Конструктор. Принимает координаты `x` и `y`
+     * Constructor. Accepts `x` and `y` coordinates.
      *
-     * @param x координата точки по оси Ox
-     * @param y координата точки по оси Oy
+     * @param x point coordinate along the Ox axis.
+     * @param y point coordinate along the Oy axis.
      */
-    public Point(int x, int y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    /**
-     * Метод для получения значения поля
-     */
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    /**
-     * Метод для установки значения поля
-     */
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    /**
-     * Метод для получения значения поля
-     */
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    /**
-     * Метод для установки значения поля
-     */
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
     /**
-     * Принимает объект типа `Point`.
-     * Возвращает расстояние от текущей точки (экземпляра, для которого был вызван), до принимаемой точки
-     *
-     * @param instancePoint экземпляр
+     * Accepts an object of type `Point`.
+     * Returns the distance from the current point (the instance on which it was called) to the received point.
      */
-    public int getDistance(Point instancePoint) {
-        return (int) Math.sqrt((this.x - instancePoint.x) * (this.x - instancePoint.x) + (this.y - instancePoint.y) * (this.y - instancePoint.y));
+    public double getDistance(Point instancePoint) {
+        return Math.sqrt((this.x - instancePoint.x) * (this.x - instancePoint.x) + (this.y - instancePoint.y) * (this.y - instancePoint.y));
     }
 }
