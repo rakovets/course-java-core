@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 21;
+        int month = 1;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -45,6 +45,33 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        String zodiacSign = "";
+        switch (month) {
+            case 1:
+                return zodiacSign = (day <= 20) ? "Goat" : "Water-bearer";
+            case 2:
+                return zodiacSign = (day <= 19) ? "Water-bearer" : "Fish";
+            case 3:
+                return zodiacSign = (day <= 20) ? "Fish" : "Ram";
+            case 4:
+                return zodiacSign = (day <= 20) ? "Ram" : "Bull";
+            case 5:
+                return zodiacSign = (day <= 20) ? "Bull" : "Twins";
+            case 6:
+                return zodiacSign = (day <= 21) ? "Twins" : "Crab";
+            case 7:
+                return zodiacSign = (day <= 22) ? "Crab" : "Lion";
+            case 8:
+                return zodiacSign = (day <= 22) ? "Lion" : "Maiden";
+            case 9:
+                return zodiacSign = (day <= 21) ? "Maiden" : "Scales";
+            case 10:
+                return zodiacSign = (day <= 22) ? "Scales" : "Scorpion";
+            case 11:
+                return zodiacSign = (day <= 22) ? "Scorpion" : "Archer";
+            case 12:
+                return zodiacSign = (day <= 21) ? "Archer" : "Goat";
+        }
         return null;
     }
 }

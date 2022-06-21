@@ -44,6 +44,47 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int zodiak = 12;
+        String nameZodiac = "";
+        int zodiacYearNumber = year % zodiak;
+        switch (zodiacYearNumber) {
+            case 0:
+                nameZodiac = "Monkey";
+                break;
+            case 1:
+                nameZodiac = "Rooster";
+                break;
+            case 2:
+                nameZodiac = "Dog";
+                break;
+            case 3:
+                nameZodiac = "Pig";
+                break;
+            case 4:
+                nameZodiac = "Rat";
+                break;
+            case 5:
+                nameZodiac = "Ox";
+                break;
+            case 6:
+                nameZodiac = "Tiger";
+                break;
+            case 7:
+                nameZodiac = "Rabbit";
+                break;
+            case 8:
+                nameZodiac = "Dragon";
+                break;
+            case 9:
+                nameZodiac = "Snake";
+                break;
+            case 10:
+                nameZodiac = "Horse";
+                break;
+            case 11:
+                nameZodiac = "Ram";
+                break;
+        }
+        return nameZodiac;
     }
 }
