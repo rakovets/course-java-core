@@ -33,7 +33,8 @@ class Task03 {
      * @param hoursAfterRespawn                    время прошедшее после появления Raid Boss
      * @return количество HP
      */
-    static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
+    static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth,
+                                           int hoursAfterRespawn) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final byte PERCENT = 100;
