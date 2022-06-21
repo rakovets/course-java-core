@@ -36,6 +36,7 @@ public class Point {
      * Returns the distance from the current point (the instance on which it was called) to the received point.
      */
     public double getDistance(Point instancePoint) {
-        return Math.sqrt((this.x - instancePoint.x) * (this.x - instancePoint.x) + (this.y - instancePoint.y) * (this.y - instancePoint.y));
+        return Math.sqrt((this.x - instancePoint.x) * (this.x - instancePoint.x)
+                       + (this.y - instancePoint.y) * (this.y - instancePoint.y));
     }
 }
