@@ -46,7 +46,8 @@ class Task07 {
      * 2 знаков после вещественного разделителя:
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
-    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
+    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems,
+                                         int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         StringBuilder totalPriceList = new StringBuilder();
