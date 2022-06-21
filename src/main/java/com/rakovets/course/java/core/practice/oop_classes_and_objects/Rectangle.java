@@ -1,64 +1,48 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-/**
- * @author Anastasia Melnikova
- * @since 18.06.2022
- */
 public class Rectangle {
     private Point topLeftPoint;
     private Point bottomRightPoint;
 
     /**
-     * Конструктор. Принимает два объекта типа `Point`
+     * Constructor. Accepts two objects of type `Point`.
      *
-     * @param topLeftPoint     первая точка
-     * @param bottomRightPoint вторая точка
+     * @param topLeftPoint     first point.
+     * @param bottomRightPoint second point.
      */
     public Rectangle(Point topLeftPoint, Point bottomRightPoint) {
         this.topLeftPoint = topLeftPoint;
         this.bottomRightPoint = bottomRightPoint;
     }
 
-    /**
-     * Метод для получения значения поля
-     */
     public Point getTopLeftPoint() {
         return topLeftPoint;
     }
 
-    /**
-     * Метод для установки значения поля
-     */
     public void setTopLeftPoint(Point topLeftPoint) {
         this.topLeftPoint = topLeftPoint;
     }
 
-    /**
-     * Метод для получения значения поля
-     */
     public Point getBottomRightPoint() {
         return bottomRightPoint;
     }
 
-    /**
-     * Метод для установки значения поля
-     */
     public void setBottomRightPoint(Point bottomRightPoint) {
         this.bottomRightPoint = bottomRightPoint;
     }
 
     /**
-     * Возвращает периметр прямоугольника
+     * Returns the perimeter of the rectangle.
      */
-    public int getPerimeter() {
+    public double getPerimeter() {
         return 2 * (Math.abs(bottomRightPoint.getX() - topLeftPoint.getX())
                 + Math.abs(bottomRightPoint.getY() - topLeftPoint.getY()));
     }
 
     /**
-     * Возвращает площадь прямоугольника
+     * Returns the area of a rectangle.
      */
-    public int getArea() {
+    public double getArea() {
         return Math.abs(bottomRightPoint.getX() - topLeftPoint.getX())
                 * Math.abs(bottomRightPoint.getY() - topLeftPoint.getY());
     }
