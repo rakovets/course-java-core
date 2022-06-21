@@ -16,7 +16,7 @@ class Task05 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberRows = 10;
+        int numberRows = 13;
         boolean isEnableHeaderRow = true;
 
         String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
@@ -34,6 +34,19 @@ class Task05 {
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String numbersColumnTable = "";
+
+        if (isEnableHeaderRow == true) {
+            numbersColumnTable += "\n";
+            numberRows -= 1;
+        }
+        for (int i = 1; i <= numberRows; i++) {
+            if (i == numberRows) {
+                numbersColumnTable += i;
+                return numbersColumnTable;
+            }
+            numbersColumnTable += i + "\n";
+        }
+        return numbersColumnTable;
     }
 }

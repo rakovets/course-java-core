@@ -36,6 +36,21 @@ class Task09 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int TOTAL_THOUSAND = 1000;
+        String result = "";
+        String startPosition = "";
+        if (amount < 0) {
+            amount = -amount;
+            startPosition = "-";
+        }
+        while (amount / TOTAL_THOUSAND != 0) {
+            if (amount % TOTAL_THOUSAND == 0) {
+                result += " 000";
+            } else {
+                result = " " + amount % TOTAL_THOUSAND + result;
+            }
+            amount = amount / TOTAL_THOUSAND;
+        }
+        return startPosition + amount + result;
     }
 }
