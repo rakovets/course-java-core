@@ -37,7 +37,6 @@ public class Time {
    }
    public int getSeconds() {
         return this.seconds;
-
    }
    public void setSeconds(int seconds) {
         this.seconds = seconds;
