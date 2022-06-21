@@ -14,18 +14,21 @@ public class Point {
     }
 
     public int get_X() {
+
         return x;
     }
-
     public void set_X(int x) {
+
         this.x = x;
     }
 
     public int get_Y() {
+
         return y;
     }
 
     public void set_Y(int y) {
+
         this.y = y;
     }
 }
