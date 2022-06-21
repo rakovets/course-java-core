@@ -37,15 +37,13 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double sumOfMarks = 0;
-        int arrayElementsCount = 0;
-        for (int i = 0; i < marks.length; i++ ) {
-            for (int j = 0; j < marks[i].length; j++ ) {
-                    sumOfMarks += marks[i][j];
-                    arrayElementsCount += j;
+        double averageMarks = 0.0;
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                averageMarks += i;
             }
         }
-        return NumberUtil.roundValueToTwoDigitsForMantissa(sumOfMarks / arrayElementsCount);
+        return NumberUtil.roundValueToTwoDigitsForMantissa(averageMarks / (marks.length * marks[0].length));
     }
 
     /**
@@ -57,16 +55,15 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int minimalArrayElement = 128;
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[i].length; j++) {
-                if (marks[i][j] < minimalArrayElement) {
-                    minimalArrayElement = marks[i][j];
-                    System.out.println(marks[i][j]);
+        int minMark = marks[0][0];
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                if (minMark > i) {
+                    minMark = i;
                 }
             }
         }
-        return minimalArrayElement;
+        return minMark;
     }
 
     /**
@@ -78,15 +75,15 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int maximalArrayElement = 0;
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[i].length; j++) {
-                if (marks[i][j] > maximalArrayElement) {
-                    maximalArrayElement = marks[i][j];
+        int maxMark = marks[0][0];
+        for (int[] mark : marks) {
+            for (int i : mark) {
+                if (maxMark < i) {
+                    maxMark = i;
                 }
             }
         }
-        return maximalArrayElement;
+        return maxMark;
     }
 }
 

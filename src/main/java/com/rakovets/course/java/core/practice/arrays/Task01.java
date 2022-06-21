@@ -38,11 +38,11 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double sumOfMarks = 0;
-        for (int i = 0; i < marks.length; i++) {
-            sumOfMarks += marks[i];
+        double averageMark = 0.0;
+        for (int i : marks) {
+            averageMark += i;
         }
-        return NumberUtil.roundValueToTwoDigitsForMantissa(sumOfMarks / marks.length);
+        return NumberUtil.roundValueToTwoDigitsForMantissa(averageMark / marks.length);
     }
 
     /**
@@ -54,16 +54,13 @@ class Task01 {
     static int getMinMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        for (int i = marks.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j ++) {
-                if (marks[j] > marks[j + 1]) {
-                    int temp = marks[j];
-                    marks[j] = marks[j + 1];
-                    marks[j + 1] = temp;
-                }
+        int minMark = marks[0];
+        for (int i : marks) {
+            if (minMark > i) {
+                minMark = i;
             }
         }
-        return marks[0];
+        return minMark;
     }
 
     /**
@@ -75,16 +72,13 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-       int arrayLastIndex = marks.length - 1;
-        for (int i = marks.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j ++) {
-                if (marks[j] > marks[j + 1]) {
-                    int temp = marks[j];
-                    marks[j] = marks[j + 1];
-                    marks[j + 1] = temp;
-                }
+        int maxMark = marks[0];
+        for (int i : marks) {
+            if (maxMark < i) {
+                maxMark = i;
             }
         }
-        return marks[arrayLastIndex];
+        return maxMark;
     }
 }
+
