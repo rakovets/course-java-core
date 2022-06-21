@@ -8,4 +8,3 @@ public class AtmApplication {
         atm.addBanknotes100(1);
     }
 }
-

@@ -18,4 +18,3 @@ public class TimeApplication {
         System.out.println("This Total Seconds : " + time1.getTotalSeconds());
     }
 }
-

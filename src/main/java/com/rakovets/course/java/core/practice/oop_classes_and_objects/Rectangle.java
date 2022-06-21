@@ -27,4 +27,3 @@ public class Rectangle {
         this.bottomRightPoint = bottomRightPoint;
     }
 }
-

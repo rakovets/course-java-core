@@ -20,4 +20,3 @@ public class Atm {
         this.numberBanknotes100 += number;
     }
 }
-

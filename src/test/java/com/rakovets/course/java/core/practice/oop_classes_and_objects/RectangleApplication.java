@@ -15,4 +15,3 @@ public class RectangleApplication {
         System.out.println("Area : " + figure.getArea());
     }
 }
-

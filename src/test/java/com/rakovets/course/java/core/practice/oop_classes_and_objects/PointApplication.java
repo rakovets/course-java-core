@@ -13,4 +13,3 @@ public class PointApplication {
         System.out.println("Distance between points : " + point1.getDistance(point2));
     }
 }
-
