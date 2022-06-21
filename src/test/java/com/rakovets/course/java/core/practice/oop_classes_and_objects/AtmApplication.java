@@ -12,6 +12,8 @@ public class AtmApplication {
         System.out.println("New number of 20 Banknotes: " + banknotesCounter.getNumberBanknotes20());
         System.out.println("New number of 50 Banknotes: " + banknotesCounter.getNumberBanknotes50());
         System.out.println("New number of 100 Banknotes: " + banknotesCounter.getNumberBanknotes100());
-        System.out.println(banknotesCounter.isPossibleIssue(105));
+        banknotesCounter.setAmount(170);
+        System.out.println(banknotesCounter.isPossibleIssue(banknotesCounter.getAmount()));
+        System.out.println(banknotesCounter.getOptionsCombinationBanknotes(banknotesCounter.getAmount()));
     }
 }
