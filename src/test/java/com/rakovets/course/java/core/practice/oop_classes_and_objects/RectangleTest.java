@@ -1,50 +1,34 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-import java.util.Scanner;
-
 public class RectangleTest {
-    /**
-     * @author Anastasia Melnikova
-     * @since 18.06.2022
-     */
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        int x = 4;
+        int y = 5;
 
-        System.out.print("\nEnter x: ");
-        int x = scanner.nextInt();
-        System.out.print("Enter y: ");
-        int y = scanner.nextInt();
-
-        System.out.print("\nEnter x: ");
-        int x2 = scanner.nextInt();
-        System.out.print("Enter y: ");
-        int y2 = scanner.nextInt();
+        int x2 = 15;
+        int y2 = 20;
 
         Rectangle rectangle = new Rectangle(new Point(x, y), new Point(x2, y2));
 
-        System.out.printf("\nx:%d y:%d\n", rectangle.getTopLeftPoint().getX(), rectangle.getTopLeftPoint().getY());
-        System.out.printf("x:%d y:%d\n", rectangle.getBottomRightPoint().getX(), rectangle.getBottomRightPoint().getY());
+        System.out.printf("\nx:% .2f y:% .2f\n", rectangle.getTopLeftPoint().getX(), rectangle.getTopLeftPoint().getY());
+        System.out.printf("x:% .2f y:% .2f\n", rectangle.getBottomRightPoint().getX(), rectangle.getBottomRightPoint().getY());
 
-        System.out.printf("\nPerimeter: %d", rectangle.getPerimeter());
-        System.out.printf("\nArea: %d\n", rectangle.getArea());
+        System.out.printf("\nPerimeter: %.2f", rectangle.getPerimeter());
+        System.out.printf("\nArea: %.2f\n", rectangle.getArea());
 
-        System.out.print("\nEnter x: ");
-        x = scanner.nextInt();
-        System.out.print("Enter y: ");
-        y = scanner.nextInt();
+        x = 10;
+        y = 18;
         rectangle.setTopLeftPoint(new Point(x, y));
 
-        System.out.print("\nEnter x: ");
-        x2 = scanner.nextInt();
-        System.out.print("Enter y: ");
-        y2 = scanner.nextInt();
+        x2 = 4;
+        y2 = 8;
         rectangle.setBottomRightPoint(new Point(x2, y2));
 
-        System.out.printf("\nx:%d y:%d\n", rectangle.getTopLeftPoint().getX(), rectangle.getTopLeftPoint().getY());
-        System.out.printf("x:%d y:%d\n", rectangle.getBottomRightPoint().getX(), rectangle.getBottomRightPoint().getY());
+        System.out.printf("\nx:% .2f y:% .2f\n", rectangle.getTopLeftPoint().getX(), rectangle.getTopLeftPoint().getY());
+        System.out.printf("x:% .2f y:% .2f\n", rectangle.getBottomRightPoint().getX(), rectangle.getBottomRightPoint().getY());
 
-        System.out.printf("\nPerimeter: %d", rectangle.getPerimeter());
-        System.out.printf("\nArea: %d", rectangle.getArea());
+        System.out.printf("\nPerimeter: %.2f", rectangle.getPerimeter());
+        System.out.printf("\nArea: %.2f\n", rectangle.getArea());
     }
 }
