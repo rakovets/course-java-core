@@ -50,7 +50,8 @@ class Task08 {
      * вещественного разделителя:
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
-    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
+    static String generateTotalPriceList(int startNumberItems, double startPriceAllItems,
+                                         int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         StringBuilder totalPriceList = new StringBuilder();
@@ -69,7 +70,12 @@ class Task08 {
             totalSell = differentialSell * (i - 1);
             value = startNumberItems * oneItemPrise - (startNumberItems * oneItemPrise * totalSell / 100);
             value = NumberUtil.roundValueToTwoDigitsForMantissa(value);
-            totalPriceList.append(startNumberItems).append(" - ").append(value).append(" with sell ").append(totalSell).append("%").append("\n");
+            totalPriceList.
+                    append(startNumberItems).
+                    append(" - ").append(value).
+                    append(" with sell ")
+                    .append(totalSell).append("%")
+                    .append("\n");
         }
         totalPriceList.deleteCharAt(totalPriceList.length() - 1);
 
