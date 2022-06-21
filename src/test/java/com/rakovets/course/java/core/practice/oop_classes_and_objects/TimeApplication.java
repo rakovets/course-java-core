@@ -11,7 +11,11 @@ public class TimeApplication {
 
         fullTime.setSeconds(1);
         System.out.println("Seconds: " + fullTime.getSeconds());
-
         System.out.println("Total seconds: " + fullTime.getTotalSeconds());
+
+        Time totalSecondsTime = new Time(34534);
+        System.out.println("Hours: " + totalSecondsTime.getHours());
+        System.out.println("Minutes: " + totalSecondsTime.getMinutes());
+        System.out.println("Total seconds: " + totalSecondsTime.getSeconds());
     }
 }
