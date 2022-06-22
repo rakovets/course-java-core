@@ -47,16 +47,14 @@ class Task06 {
             return "Player 1: " + tanksKilledFirstPlayer + ". Player 2: " + tanksKilledSecondPlayer;
         } else {
             if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
-                tanksKilledFirstPlayer =  (tanksKilledFirstPlayer * KILL_POINT) + BONUS_POINT;
+                tanksKilledFirstPlayer = (tanksKilledFirstPlayer * KILL_POINT) + BONUS_POINT;
                 tanksKilledSecondPlayer *= KILL_POINT;
                 return "Player 1: " + tanksKilledFirstPlayer + ". Player 2: " + tanksKilledSecondPlayer;
-
-            }else {
-                    tanksKilledFirstPlayer *= KILL_POINT ;
-                    tanksKilledSecondPlayer = (tanksKilledSecondPlayer * KILL_POINT) + BONUS_POINT;
-                    return "Player 1: "+ tanksKilledFirstPlayer + ". Player 2: " + tanksKilledSecondPlayer;
+            } else {
+                tanksKilledFirstPlayer *= KILL_POINT;
+                tanksKilledSecondPlayer = (tanksKilledSecondPlayer * KILL_POINT) + BONUS_POINT;
+                return "Player 1: " + tanksKilledFirstPlayer + ". Player 2: " + tanksKilledSecondPlayer;
             }
         }
     }
 }
-

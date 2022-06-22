@@ -42,11 +42,12 @@ class Task11 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int unicodeNumber = symbol;
         String typeSymbol = "undefined";
+
         if (unicodeNumber >= 48 && unicodeNumber <= 57) {
             typeSymbol = "digit";
-        }else if ((unicodeNumber >= 65 && unicodeNumber <= 90) || (unicodeNumber >= 97 && unicodeNumber <= 122)) {
+        } else if ((unicodeNumber >= 65 && unicodeNumber <= 90) || (unicodeNumber >= 97 && unicodeNumber <= 122)) {
             typeSymbol = "latin";
-        }else if (unicodeNumber >=1024 && unicodeNumber <= 1279) {
+        } else if (unicodeNumber >= 1024 && unicodeNumber <= 1279) {
             typeSymbol = "cyrillic";
         }
         return typeSymbol;

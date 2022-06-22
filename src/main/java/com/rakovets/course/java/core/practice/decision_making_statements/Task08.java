@@ -42,8 +42,9 @@ class Task08 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double damageUndeadZombie = 1.5;
         int damageSaint = 2;
-        if (hasHolyAttribute == true){
-            if (typeMob == "SAINT"){
+
+        if (hasHolyAttribute == true) {
+            if (typeMob == "SAINT") {
                 damage /= damageSaint;
                 return damage;
             } else {
@@ -54,8 +55,8 @@ class Task08 {
                     return damage;
                 }
             }
-    } else {
-        return damage;
+        } else {
+            return damage;
         }
     }
 }

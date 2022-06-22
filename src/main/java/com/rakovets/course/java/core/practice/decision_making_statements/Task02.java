@@ -37,20 +37,24 @@ class Task02 {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if (hour <= 0 & hour >= 24) {
-            return "null";
-        } else {
-            if (hour >= 6 & hour <= 11) {
-                return "Good morning";
-            }else if (hour >= 12 & hour <= 17) {
-                return "Good day";
-            }else if (hour >= 18 & hour <= 23) {
-                return "Good evening";
-            }else if (hour >= 0 & hour <= 5) {
-                return "Good night";
-            }
+        final int BEGINNING_DAY = 0;
+        final int START_MORNING = 6;
+        final int END_MORNING = 11;
+        final int START_DAY = 12;
+        final int END_DAY = 17;
+        final int START_EVENING = 18;
+        final int END_EVENING = 23;
+        final int END_NIGHT = 5;
+
+        if (hour >= START_MORNING & hour <= END_MORNING) {
+            return "Good morning";
+        } else if (hour >= START_DAY & hour <= END_DAY) {
+            return "Good day";
+        } else if (hour >= START_EVENING & hour <= END_EVENING) {
+            return "Good evening";
+        } else if (hour >= BEGINNING_DAY & hour <= END_NIGHT) {
+            return "Good night";
         }
         return null;
     }
 }
-

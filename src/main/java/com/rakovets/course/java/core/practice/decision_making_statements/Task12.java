@@ -46,6 +46,7 @@ class Task12 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String zodiacSign = "";
+
         switch (month) {
             case 1:
                 return zodiacSign = (day <= 20) ? "Goat" : "Water-bearer";

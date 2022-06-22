@@ -38,13 +38,17 @@ class Task07 {
     static boolean isLeapYear(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        if (year % 400 == 0) {
+        final int YEAR_MULTIPLE_FOUR_HUNDRED = 400;
+        final int ANOTHER_YEAR_MULTIPLE_ONE_HUNDRED = 100;
+        final int ANOTHER_YEAR_MULTIPLE_ONE_FOUR = 4;
+
+        if (year % YEAR_MULTIPLE_FOUR_HUNDRED == 0) {
             return true;
         } else {
-            if (year % 100 == 0) {
+            if (year % ANOTHER_YEAR_MULTIPLE_ONE_HUNDRED == 0) {
                 return false;
             } else {
-                if (year % 4 == 0) {
+                if (year % ANOTHER_YEAR_MULTIPLE_ONE_FOUR == 0) {
                     return true;
                 } else {
                     return false;
@@ -53,10 +57,3 @@ class Task07 {
         }
     }
 }
-
-
-
-
-
-
-

@@ -36,8 +36,8 @@ class Task09 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int startNumberApartments = 1;
         int roundingOtherSide = 1;
+
         int numberApartmentsPerPorch = (numberFloors * numberApartmentsPerFloor);
-        int porchNumber = ((apartmentNumber - startNumberApartments) / numberApartmentsPerPorch) + roundingOtherSide;
-        return porchNumber;
+        return ((apartmentNumber - startNumberApartments) / numberApartmentsPerPorch) + roundingOtherSide;
     }
 }

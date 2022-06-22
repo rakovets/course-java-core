@@ -38,15 +38,16 @@ class Task14 {
     /**
      * Определяет названия года по китайскому календарю.
      *
-     * @param year  год дня рождения (больше 0 г. н.э.)
+     * @param year год дня рождения (больше 0 г. н.э.)
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int zodiak = 12;
+        final int ZODIAK = 12;
         String nameZodiac = "";
-        int zodiacYearNumber = year % zodiak;
+
+        int zodiacYearNumber = year % ZODIAK;
         switch (zodiacYearNumber) {
             case 0:
                 nameZodiac = "Monkey";
