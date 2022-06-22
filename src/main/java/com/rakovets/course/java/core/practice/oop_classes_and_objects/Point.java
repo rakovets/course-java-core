@@ -2,15 +2,19 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Point {
 
-    int x;
-    int y;
+    double x;
+    double y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getDistance(Point point) {
+        return Math.sqrt(Math.pow((point.x - this.x), 2) + Math.pow((point.y - this.y), 2));
+    }
+
+    public double getX() {
         return x;
     }
 
@@ -18,7 +22,7 @@ public class Point {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -26,7 +30,4 @@ public class Point {
         this.y = y;
     }
 
-    public double getDistance(Point point) {
-        return Math.sqrt(Math.pow((point.x - this.x), 2) + Math.pow((point.y - this.y), 2));
-    }
 }
