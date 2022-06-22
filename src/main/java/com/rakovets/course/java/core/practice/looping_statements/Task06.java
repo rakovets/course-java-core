@@ -41,6 +41,7 @@ class Task06 {
         double mileageTotal = 0;
         double dayDistance = startDistance;
         final int TRANSITION_TO_PERCENTAGE = 100;
+
         double percent = dailyProgressAsPercentage / TRANSITION_TO_PERCENTAGE;
         while (dayDistance < finishDistance && dayDistance != 0) {
             dayDistance += dayDistance * percent;

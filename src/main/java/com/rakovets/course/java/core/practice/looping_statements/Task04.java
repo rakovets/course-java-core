@@ -37,10 +37,11 @@ class Task04 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final int TRANSITION_TO_PERCENTAGE = 100;
         final int TIME_TO_KILL = 24;
+
         for (int partyKillTime = 0; partyKillTime <= TIME_TO_KILL; partyKillTime++) {
             if (healthPoints > 0) {
                 healthPoints += healthPoints * (regenerationPercentPerHour / TRANSITION_TO_PERCENTAGE) - averageDamagePerHour;
-                } else {
+            } else {
                 return partyKillTime;
             }
         }

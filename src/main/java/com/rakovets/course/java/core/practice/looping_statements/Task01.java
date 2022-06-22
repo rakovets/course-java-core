@@ -32,6 +32,7 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String numbersSequence = "";
+
         for (int i = 1; i <= numberRows; i++) {
             if (i == numberRows) {
                 numbersSequence += i;

@@ -61,6 +61,7 @@ class Task08 {
         double discountValue = 0;
         final int TOTAL_PRICE_IN_PERCENT = 100;
         final int PERCENT = 100;
+
         for (int i = 1; i <= sizeTotalPrice; i++) {
             discountValue = (TOTAL_PRICE_IN_PERCENT - discountPercent) / PERCENT;
             cost = startNumberItems * oneItemPrice;

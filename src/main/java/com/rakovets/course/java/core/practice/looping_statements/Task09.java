@@ -39,6 +39,7 @@ class Task09 {
         final int TOTAL_THOUSAND = 1000;
         String result = "";
         String startPosition = "";
+
         if (amount < 0) {
             amount = -amount;
             startPosition = "-";

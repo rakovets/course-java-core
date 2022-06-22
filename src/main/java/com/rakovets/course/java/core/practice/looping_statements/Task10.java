@@ -42,6 +42,7 @@ class Task10 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int primeNumber = 0;
         final int START_DIVISOR_PRIME_NUMBER = 2;
+
         for (int i = startNumber; i <= finishNumber; i++) {
             if (i <= 1) {
                 continue;
@@ -57,4 +58,3 @@ class Task10 {
         return primeNumber;
     }
 }
-

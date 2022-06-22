@@ -38,6 +38,7 @@ class Task03 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double healthRaidBoss = healthPoints;
         final int TRANSITION_TO_PERCENTAGE = 100;
+
         for (int i = 0; i < hoursAfterRespawn; i++) {
             double regenHealthRaidBoss = healthRaidBoss * (regenerationPercentFromCurrentHealth / TRANSITION_TO_PERCENTAGE);
             healthRaidBoss += regenHealthRaidBoss;

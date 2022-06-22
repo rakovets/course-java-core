@@ -38,6 +38,7 @@ class Task02 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double capital;
         final int TRANSITION_TO_PERCENTAGE = 100;
+
         for (int i = 1; i <= depositTerm; i++) {
             capital = depositAmount * (annualDepositPercent / TRANSITION_TO_PERCENTAGE);
             depositAmount += capital;
