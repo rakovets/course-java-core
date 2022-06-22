@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 class TimeApplication {
     public static void main(String[] args) {
-        Time test1 = new Time(1,20,3);
+        Time test1 = new Time(1, 20, -3);
         Time test2 = new Time(3672);
         System.out.println(test1.getTotalSeconds());
         System.out.println(test1.getHours());
