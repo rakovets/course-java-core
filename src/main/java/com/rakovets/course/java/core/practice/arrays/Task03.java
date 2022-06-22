@@ -38,6 +38,7 @@ class Task03 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double[] averageMark = new double[marks.length];
         double sumMarks = 0;
+
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
                 sumMarks += marks [i][j];
@@ -48,6 +49,7 @@ class Task03 {
         }
         return averageMark;
     }
+
     /**
      * Возвращает минимальную отметку по предметам за весь период обучения.
      *
@@ -58,6 +60,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int[] getMinMarks = new int[marks.length];
+
         for (int i = 0; i < marks.length; i++) {
             int minMarks = marks[i][0];
             for (int j = 0; j < marks[i].length; j++) {
@@ -69,6 +72,7 @@ class Task03 {
         }
         return getMinMarks;
     }
+
     /**
      * Возвращает максимальную отметку по предметам за весь период обучения.
      *
@@ -79,6 +83,7 @@ class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int[] getMinMarks = new int[marks.length];
+
         for (int i = 0; i < marks.length; i++) {
             int minMarks = marks[i][0];
             for (int j = 0; j < marks[i].length; j++) {

@@ -37,9 +37,11 @@ class Task02 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double sumMarks = 0;
         double lengthArrays = 0;
+
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
-                sumMarks += marks [i][j];                           }
+                sumMarks += marks [i][j];
+            }
             lengthArrays = marks.length * marks[i].length;
         }
         double getAverageMark = sumMarks / lengthArrays;
@@ -55,8 +57,8 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
         int minMarks = marks [0][0];
+
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
                 if (marks [i][j] < minMarks){
@@ -77,6 +79,7 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int maxMarks = marks [0][0];
+
         for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[i].length; j++) {
                 if (marks [i][j] > maxMarks){

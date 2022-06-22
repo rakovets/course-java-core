@@ -36,15 +36,14 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-
         double sumMarks = 0;
+
         for (int mark : marks) {
             sumMarks += mark;
         }
         double getAverageMark = sumMarks / marks.length;
         return NumberUtil.roundValueToTwoDigitsForMantissa(getAverageMark);
     }
-
 
     /**
      * Возвращает минимальную отметку.
@@ -56,14 +55,14 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int minMarks = marks[0];
+
         for (int mark : marks) {
-            if (mark < minMarks){
+            if (mark < minMarks) {
                 minMarks = mark;
             }
         }
         return minMarks;
     }
-
 
     /**
      * Возвращает максимальную отметку.
@@ -75,6 +74,7 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int maxMarks = marks[0];
+
         for (int mark : marks) {
             if (mark > maxMarks){
                 maxMarks = mark;
