@@ -36,6 +36,6 @@ class Task04 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         float speed = SOUND_SPEED * 1000 / 3600;
         float time = milliseconds / 1000;
-        return speed*time;
+        return speed * time;
     }
 }
