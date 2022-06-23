@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class Time {
     private static final int SECONDS_IN_MINUTE = 60;
+
     private int hours;
     private int minutes;
     private int seconds;
