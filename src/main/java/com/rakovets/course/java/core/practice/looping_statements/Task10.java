@@ -24,7 +24,7 @@ class Task10 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startNumber = 0;
-        int finishNumber = 50;
+        int finishNumber = 53;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -38,8 +38,19 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int result = 0;
+
+        for (int i = startNumber; i <= finishNumber; i++) {
+            int count = 0;
+            for (int number = 1; number <= i; number++) {
+                if (i % number == 0 && i % 1 == 0) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                result++;
+            }
+        }
+        return result;
     }
 }

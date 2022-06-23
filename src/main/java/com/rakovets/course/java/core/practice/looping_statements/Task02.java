@@ -20,7 +20,7 @@ class Task02 {
         int depositTerm = 5;
 
         double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
-        System.out.printf("Result: %f", totalDepositAmount);
+        System.out.printf("Result: %.2f", totalDepositAmount);
     }
 
     /**
@@ -32,8 +32,14 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double benefit = 0;
+
+        for (int i = 1; i <= depositTerm; i++) {
+            benefit = depositAmount * (annualDepositPercent / 100);
+            depositAmount += benefit;
+        }
+        return depositAmount;
     }
 }
+
+
