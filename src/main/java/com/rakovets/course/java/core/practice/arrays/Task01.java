@@ -38,9 +38,9 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double sumMarks = 0;
-        for(int i = 0; i < marks.length; i++) {
+        for (int i = 0; i < marks.length; i++) {
             sumMarks += marks [i];
-        } sumMarks = sumMarks /marks.length;
+        } sumMarks = sumMarks / marks.length;
         return NumberUtil.roundValueToTwoDigitsForMantissa(sumMarks);
     }
 
@@ -73,7 +73,7 @@ class Task01 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int maxMark = marks[0];
         for (int i = 0; i < marks.length; i++) {
-            if (marks [i] > maxMark){
+            if (marks [i] > maxMark) {
                 maxMark = marks [i];
             }
         }

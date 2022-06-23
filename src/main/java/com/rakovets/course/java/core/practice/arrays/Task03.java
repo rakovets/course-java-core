@@ -39,14 +39,14 @@ class Task03 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double[] averageMarks = new double[marks.length];
         int sumMarks = 0;
-        for (int i = 0; i < marks.length; i++){
+        for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[0].length; j++) {
-                    sumMarks += marks[i][j];
-                }
+                sumMarks += marks[i][j];
+            }
             double averageMark = (double) sumMarks / marks.length;
             averageMarks[i] = NumberUtil.roundValueToTwoDigitsForMantissa(averageMark);
             sumMarks = 0;
-            }
+        }
         return averageMarks;
     }
 
@@ -64,9 +64,10 @@ class Task03 {
             int minMark = marks[i][0];
             for (int j = 0; j < marks[i].length; j++) {
                 if (marks [i][j] < minMark) {
-                   minMark = marks[i][j];
+                    minMark = marks[i][j];
                 }
-            } minMarks[i] = minMark;
+            }
+            minMarks[i] = minMark;
         }
         return minMarks;
     }
@@ -87,7 +88,8 @@ class Task03 {
                 if (marks [i][j] > maxMark) {
                     maxMark = marks[i][j];
                 }
-            } maxMarks [i] = maxMark;
+            }
+            maxMarks [i] = maxMark;
         }
         return maxMarks;
     }

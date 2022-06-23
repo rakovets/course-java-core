@@ -37,11 +37,12 @@ class Task02 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int sumMark = 0;
         double averageMark = 0.0;
-        for (int i = 0; i < marks.length; i++){
-            for(int j = 0; j < marks[0].length; j++){
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[0].length; j++) {
                 sumMark += marks[i][j];
             }
-        } averageMark += (double) sumMark / (marks.length * marks[0].length);
+        }
+        averageMark += (double) sumMark / (marks.length * marks[0].length);
         return NumberUtil.roundValueToTwoDigitsForMantissa(averageMark);
     }
 
@@ -55,9 +56,9 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int minMark = marks[0][0];
-        for (int i = 0; i < marks.length; i++){
+        for (int i = 0; i < marks.length; i++) {
             for (int j = 0; j < marks[0].length; j++)
-                if (marks [i][j] < minMark){
+                if (marks [i][j] < minMark) {
                     minMark = marks[i][j];
                 }
         }
@@ -74,9 +75,9 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int maxMark = marks[0][0];
-        for (int i = 0; i < marks.length; i++){
-            for (int j = 0; j < marks[0].length; j++){
-                if(marks[i][j] > maxMark) {
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[0].length; j++) {
+                if (marks[i][j] > maxMark) {
                     maxMark = marks[i][j];
                 }
             }
