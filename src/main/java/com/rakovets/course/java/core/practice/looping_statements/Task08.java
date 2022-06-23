@@ -56,7 +56,7 @@ class Task08 {
         double priceAllItems = startPriceAllItems;
         double priceOneItem = startPriceAllItems / startNumberItems;
         double sell = 0.0;
-        double sellFromPrice = 0.0;
+        double sellFromPrice;
         for (int i = 1; i <= sizeTotalPrice; i++) {
             generateTotalPriceList += numberItems + " - " + priceAllItems + " with sell " + sell + "%";
             if (i < sizeTotalPrice) {
@@ -69,7 +69,6 @@ class Task08 {
             priceAllItems -= sellFromPrice;
             priceAllItems = (int) Math.round(priceAllItems * 100);
             priceAllItems /= 100;
-
         }
         return generateTotalPriceList;
     }
