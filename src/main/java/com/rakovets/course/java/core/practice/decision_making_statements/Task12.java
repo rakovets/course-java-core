@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 8;
+        int month = 11;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -43,8 +43,69 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiac = null;
+        switch (month) {
+            case 1:
+                if (day <= 20) {
+                    zodiac = "Goat";
+                }
+                break;
+            case 2:
+                if (day <= 19) {
+                    zodiac = "Water-bearer";
+                }
+                break;
+            case 3:
+                if (day <= 20) {
+                    zodiac = "Fish";
+                }
+                break;
+            case 4:
+                if (day <= 20) {
+                    zodiac = "Ram";
+                }
+                break;
+            case 5:
+                if (day <= 20) {
+                    zodiac = "Bull";
+                }
+                break;
+            case 6:
+                if (day <= 21) {
+                    zodiac = "Twins";
+                }
+                break;
+            case 7:
+                if (day <= 22) {
+                    zodiac = "Crab";
+                }
+                break;
+            case 8:
+                if (day <= 22) {
+                    zodiac = "Lion";
+                }
+                break;
+            case 9:
+                if (day <= 21) {
+                    zodiac = "Maiden";
+                }
+                break;
+            case 10:
+                if (day <= 22) {
+                    zodiac = "Scales";
+                }
+                break;
+            case 11:
+                if (day <= 22) {
+                    zodiac = "Scorpion";
+                }
+                break;
+            case 12:
+                if (day <= 21) {
+                    zodiac = "Archer";
+                }
+                break;
+        }
+        return zodiac;
     }
 }

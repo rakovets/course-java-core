@@ -24,8 +24,8 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int tanksKilledFirstPlayer = 2;
-        int tanksKilledSecondPlayer = 4;
+        int tanksKilledFirstPlayer = 8;
+        int tanksKilledSecondPlayer = 8;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
@@ -39,8 +39,16 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int resultPointsFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
+        int resultPointsSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
+
+        if (resultPointsFirstPlayer > resultPointsSecondPlayer) {
+            resultPointsFirstPlayer += BONUS_POINT;
+        } else if (resultPointsFirstPlayer < resultPointsSecondPlayer) {
+            resultPointsSecondPlayer += BONUS_POINT;
+        } else {
+            return "No bonus points " + "Player 1:" + resultPointsFirstPlayer + ". " + "Player 2:" + resultPointsSecondPlayer;
+        }
+        return "Player 1:" + resultPointsFirstPlayer + ". " + "Player 2:" + resultPointsSecondPlayer;
     }
 }
