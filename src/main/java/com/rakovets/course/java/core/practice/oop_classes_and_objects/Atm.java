@@ -10,12 +10,15 @@ public class Atm {
         this.numberBanknotes50 = numberBanknotes50;
         this.numberBanknotes100 = numberBanknotes100;
     }
+
     public void addBanknotes20(int number) {
         this.numberBanknotes20 += number;
     }
+
     public void addBanknotes50(int number) {
         this.numberBanknotes50 += number;
     }
+
     public void addBanknotes100(int number) {
         this.numberBanknotes100 += number;
     }

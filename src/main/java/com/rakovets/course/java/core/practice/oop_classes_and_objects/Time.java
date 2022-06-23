@@ -18,26 +18,33 @@ public class Time {
         this.minutes = (totalSeconds / SECONDS_IN_MINUTE) % MINUTES_IN_HOUR ;
         this.seconds = totalSeconds % SECONDS_IN_MINUTE;
     }
+
     public int getTotalSeconds() {
         final int SECONDS_IN_MINUTE = 60;
         final int MINUTES_IN_HOUR = 60;
         return (this.hours * SECONDS_IN_MINUTE * SECONDS_IN_MINUTE) + (this.minutes * MINUTES_IN_HOUR) + this.seconds;
     }
+
    public int getHours() {
         return this.hours;
    }
+
    public void setHours(int hours) {
         this.hours = hours;
    }
+
    public int getMinutes() {
         return this.minutes;
    }
+
    public void setMinutes(int minutes) {
         this.minutes = minutes;
    }
+
    public int getSeconds() {
         return this.seconds;
    }
+
    public void setSeconds(int seconds) {
         this.seconds = seconds;
    }
