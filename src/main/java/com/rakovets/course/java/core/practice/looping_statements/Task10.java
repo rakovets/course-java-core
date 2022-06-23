@@ -52,8 +52,6 @@ class Task10 {
                 }
             }
         }
-
         return countPrimeNumber;
     }
 }
-
