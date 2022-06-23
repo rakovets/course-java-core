@@ -7,6 +7,12 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * @author Dmitry Rakovets
  */
 class Task02 {
+    private static final int START_MORNING = 6;
+    private static final int START_AFTERNOON = 12;
+    private static final int START_EVENING = 18;
+    private static final int END_EVENING = 23;
+    private static final int START_NIGHT = 0;
+
     /**
      * The entry point of the task
      *
@@ -37,21 +43,15 @@ class Task02 {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String result;
-        if (hour >= 0) {
-            if (hour < 6) {
-                result = "Good night";
-            } else if (hour < 12) {
-                result = "Good morning";
-            } else if (hour < 18) {
-                result = "Good day";
-            } else if (hour < 24) {
-                result = "Good evening";
-            } else {
-                result = null;
-            }
-        } else {
-            result = null;
+        String result = null;
+        if (hour >= START_NIGHT && hour < START_MORNING) {
+            result = "Good night";
+        } else if (hour >= START_MORNING && hour < START_AFTERNOON) {
+            result = "Good morning";
+        } else if (hour >= START_AFTERNOON && hour < START_EVENING) {
+            result = "Good day";
+        } else if (hour >= START_EVENING && hour <= END_EVENING) {
+            result = "Good evening";
         }
         return result;
     }

@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
-import java.util.Objects;
-
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -14,6 +12,7 @@ import java.util.Objects;
  * Определить сколько урона нанесет оружие по данному типу моба (моб - персонаж в игре управляемый компьютером).
  */
 class Task08 {
+
     /**
      * The entry point of the task
      *
@@ -43,11 +42,17 @@ class Task08 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int result = damage;
+        int DAMAGE_RATIO_FOR_SAINT = 2;
+        double DAMAGE_RATIO_FOR_UNDEAD_ZOMBIE = 1.5;
         if (hasHolyAttribute) {
-            if ("SAINT".equals(typeMob)) {
-                result = damage / 2;
-            } else if ("UNDEAD".equals(typeMob) || "ZOMBIE".equals(typeMob)) {
-                result = (int) (damage * 1.5);
+            switch (typeMob) {
+                case ("SAINT"):
+                    result = damage / DAMAGE_RATIO_FOR_SAINT;
+                    break;
+                case ("UNDEAD"):
+                case ("ZOMBIE"):
+                    result = (int) (damage * DAMAGE_RATIO_FOR_UNDEAD_ZOMBIE);
+                    break;
             }
         }
         return result;

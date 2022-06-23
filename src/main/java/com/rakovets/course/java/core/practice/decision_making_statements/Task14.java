@@ -20,6 +20,8 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * 2012 - `Dragon`
  */
 class Task14 {
+    private static final int MONTHS_IN_YEAR = 12;
+
     /**
      * The entry point of the task
      *
@@ -44,32 +46,45 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String result;
-        if ((2001 - year) % 12 == 0) {
-            result = "Snake";
-        } else if ((2002 - year) % 12 == 0) {
-            result = "Horse";
-        } else if ((2003 - year) % 12 == 0) {
-            result = "Ram";
-        } else if ((2004 - year) % 12 == 0) {
-            result = "Monkey";
-        } else if ((2005 - year) % 12 == 0) {
-            result = "Rooster";
-        } else if ((2006 - year) % 12 == 0) {
-            result = "Dog";
-        } else if ((2007 - year) % 12 == 0) {
-            result = "Pig";
-        } else if ((2008 - year) % 12 == 0) {
-            result = "Rat";
-        } else if ((2009 - year) % 12 == 0) {
-            result = "Ox";
-        } else if ((2010 - year) % 12 == 0) {
-            result = "Tiger";
-        } else if ((2011 - year) % 12 == 0) {
-            result = "Rabbit";
-        } else {
-            result = "Dragon";
+        String zodiacYearName = null;
+        switch (year % MONTHS_IN_YEAR) {
+            case 0:
+                zodiacYearName = "Monkey";
+                break;
+            case 1:
+                zodiacYearName = "Rooster";
+                break;
+            case 2:
+                zodiacYearName = "Dog";
+                break;
+            case 3:
+                zodiacYearName = "Pig";
+                break;
+            case 4:
+                zodiacYearName = "Rat";
+                break;
+            case 5:
+                zodiacYearName = "Ox";
+                break;
+            case 6:
+                zodiacYearName = "Tiger";
+                break;
+            case 7:
+                zodiacYearName = "Rabbit";
+                break;
+            case 8:
+                zodiacYearName = "Dragon";
+                break;
+            case 9:
+                zodiacYearName = "Snake";
+                break;
+            case 10:
+                zodiacYearName = "Horse";
+                break;
+            case 11:
+                zodiacYearName = "Ram";
+                break;
         }
-        return result;
+        return zodiacYearName;
     }
 }

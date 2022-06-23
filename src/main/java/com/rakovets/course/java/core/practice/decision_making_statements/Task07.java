@@ -39,11 +39,11 @@ class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         boolean result;
-        if (year % 400 == 0) {
+        if (year % 400 == 0 || year % 4 == 0 && year % 100 != 0) {
             result = true;
-        } else if (year % 100 == 0) {
+        } else {
             result = false;
-        } else result = (year % 4 == 0);
+        }
         return result;
     }
 }
