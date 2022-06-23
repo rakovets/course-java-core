@@ -10,6 +10,7 @@ public class Time {
         this.minutes = minutes;
         this.seconds = seconds;
     }
+
     public Time(int totalSeconds) {
         final int SECONDS_IN_MINUTE = 60;
         final int MINUTES_IN_HOUR = 60;
