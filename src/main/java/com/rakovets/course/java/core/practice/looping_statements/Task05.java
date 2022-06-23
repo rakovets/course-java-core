@@ -35,17 +35,17 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String numberColumn = "";
-            if (isEnableHeaderRow) {
-                numberColumn += numberColumn + "\n";
-                numberRows -= 1;
+        if (isEnableHeaderRow) {
+            numberColumn += numberColumn + "\n";
+            numberRows -= 1;
+        }
+        for (int i =1; i <= numberRows; i++) {
+            if (i == numberRows) {
+                numberColumn += i;
+                break;
             }
-            for (int i =1; i <= numberRows; i++) {
-                if (i == numberRows) {
-                    numberColumn += i;
-                    break;
-                }
-                numberColumn += i + "\n";
-            }
-            return numberColumn;
+            numberColumn += i + "\n";
+        }
+        return numberColumn;
     }
 }

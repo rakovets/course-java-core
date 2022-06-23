@@ -44,6 +44,6 @@ class Task02 {
             double profit = depositAmount * (annualDepositPercent / 100);
             depositAmount  += profit;
         }
-            return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
+        return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
     }
 }

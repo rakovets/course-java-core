@@ -37,19 +37,19 @@ class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String toAccountingFormat = "";
-        final int SEPARETION_THREE_SIGNS = 1000;
+        final int SEPARATION_THREE_SIGNS = 1000;
         String minus = "";
         if (amount < 0) {
             minus = "-";
             amount = -amount;
         }
-        while (amount / SEPARETION_THREE_SIGNS != 0) {
-            if (amount % SEPARETION_THREE_SIGNS == 0) {
-                amount = amount / SEPARETION_THREE_SIGNS;
+        while (amount / SEPARATION_THREE_SIGNS != 0) {
+            if (amount % SEPARATION_THREE_SIGNS == 0) {
+                amount = amount / SEPARATION_THREE_SIGNS;
                 toAccountingFormat = " 000" + toAccountingFormat;
-            } else{
-                toAccountingFormat = " " + amount % SEPARETION_THREE_SIGNS + toAccountingFormat;
-            } amount = amount / SEPARETION_THREE_SIGNS;
+            } else {
+                toAccountingFormat = " " + amount % SEPARATION_THREE_SIGNS + toAccountingFormat;
+            } amount = amount / SEPARATION_THREE_SIGNS;
            }
         return minus + amount + toAccountingFormat;
     }

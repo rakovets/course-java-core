@@ -41,11 +41,11 @@ class Task10 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int countPrimeNumber = 0;
-        for(int i = startNumber; i <= finishNumber; i++) {
+        for (int i = startNumber; i <= finishNumber; i++) {
             if(i <= 1){
                 continue;
             } countPrimeNumber++;
-            for (int divisor = 2; divisor < i; divisor++){
+            for (int divisor = 2; divisor < i; divisor++) {
                 if (i % divisor == 0){
                     countPrimeNumber--;
                     break;
