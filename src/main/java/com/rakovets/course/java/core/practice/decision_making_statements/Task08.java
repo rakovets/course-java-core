@@ -42,10 +42,23 @@ class Task08 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         final double EXTRA_DAMAGE_FOR_UNDEAD_AND_ZOMBIE = 1.5;
         final int LESS_DAMAGE_FOR_SAINT = 2;
-        if (hasHolyAttribute && (typeMob == "UNDEAD" || typeMob ==  "ZOMBIE")) {
-            return (int) (damage * EXTRA_DAMAGE_FOR_UNDEAD_AND_ZOMBIE);
-        } else if (hasHolyAttribute && (typeMob == "SAINT")) {
-            return (int) (damage / LESS_DAMAGE_FOR_SAINT);
-        } else return damage;
+        int finalDamage = 0;
+
+        if (hasHolyAttribute) {
+            switch (typeMob) {
+                case "UNDEAD":
+                case "ZOMBIE":
+                    finalDamage = (int) (damage * EXTRA_DAMAGE_FOR_UNDEAD_AND_ZOMBIE);
+                    break;
+                case "SAINT":
+                    finalDamage = damage / LESS_DAMAGE_FOR_SAINT;
+                    break;
+                default:
+                    finalDamage = damage;
+                    break;
+            }
+        }
+        return finalDamage;
     }
 }
+
