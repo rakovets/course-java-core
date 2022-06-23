@@ -37,15 +37,12 @@ class Task10 {
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int numberOfStation = 0;
-        if ((firstFuelReserves < secondFuelReserves && firstFuelReserves < thirdFuelReserves)
-               | (firstFuelReserves  == secondFuelReserves) | (firstFuelReserves == thirdFuelReserves)
-        | (firstFuelReserves == secondFuelReserves && firstFuelReserves == thirdFuelReserves)) {
+        int numberOfStation;
+        if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves) {
             numberOfStation = 1;
-        } else if ((secondFuelReserves < firstFuelReserves && secondFuelReserves < thirdFuelReserves)
-         | (secondFuelReserves ==  thirdFuelReserves)) {
+        } else if (secondFuelReserves <= thirdFuelReserves) {
             numberOfStation = 2;
-        } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
+        } else {
             numberOfStation = 3;
         }
         return numberOfStation;

@@ -41,16 +41,14 @@ class Task11 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String symbolType;
-        int number = (int) symbol;
-        if (number >= 32 && number <= 47 || number >= 58 && number <= 64 || number >= 91 && number <= 96
-                || number >= 123 && number <= 127) {
-            symbolType = "undefined";
-        } else if (number >= 48 && number <= 57) {
+        if (symbol >= 'А' && symbol <= 'Я' || symbol >= 'а' && symbol <= 'я') {
+            symbolType = "cyrillic";
+        } else if (symbol >= '0' && symbol <= '9') {
             symbolType = "digit";
-        } else if (number >= 65 && number <= 90 || number >= 97 && number <= 122) {
+        } else if (symbol >= 'A' && symbol <= 'Z' || symbol >= 'a' && symbol <= 'z') {
             symbolType = "latin";
         } else {
-            symbolType = "cyrillic";
+            symbolType = "undefined";;
         }
         return symbolType;
     }

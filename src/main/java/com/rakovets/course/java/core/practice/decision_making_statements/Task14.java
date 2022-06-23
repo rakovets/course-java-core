@@ -45,27 +45,28 @@ class Task14 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String zodiacYear;
-        if ((2001 - year) % 12 == 0) {
+        final int YEARS_IN_CYCLE = 12;
+        if ((2001 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Snake";
-        } else if ((2002 - year) % 12 == 0) {
+        } else if ((2002 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Horse";
-        } else if ((2003 - year) % 12 == 0) {
+        } else if ((2003 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Ram";
-        } else if ((2004 - year) % 12 == 0) {
+        } else if ((2004 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Monkey";
-        } else if ((2005 - year) % 12 == 0) {
+        } else if ((2005 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Rooster";
-        } else if ((2006 - year) % 12 == 0) {
+        } else if ((2006 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Dog";
-        } else if ((2007 - year) % 12 == 0) {
+        } else if ((2007 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Pig";
-        } else if ((2008 - year) % 12 == 0) {
+        } else if ((2008 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Rat";
-        } else if ((2009 - year) % 12 == 0) {
+        } else if ((2009 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Ox";
-        } else if ((2010 - year) % 12 == 0) {
+        } else if ((2010 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Tiger";
-        } else if ((2011 - year) % 12 == 0) {
+        } else if ((2011 - year) % YEARS_IN_CYCLE == 0) {
             zodiacYear = "Rabbit";
         } else {
             zodiacYear = "Dragon";

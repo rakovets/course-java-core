@@ -46,30 +46,91 @@ class Task12 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String zodiacSign = null;
-        if ((day >= 21 && day <= 31 && month == 3) || (day >= 1 && day <= 20 && month == 4)) {
-            zodiacSign = "Ram";
-        } else if ((day >= 21 && day <= 30 && month == 4) || (day >= 1 && day <= 20 && month == 5)) {
-            zodiacSign = "Bull";
-        } else if ((day >= 21 && day <= 31 && month == 5)|| (day >= 1 && day <= 21 && month == 6)) {
-            zodiacSign = "Twins";
-        }else if ((day >= 22 && day <= 30 && month == 6)|| (day >= 1 && day <= 22 && month == 7)) {
-            zodiacSign = "Crab";
-        }else if ((day >= 23 && day <= 31 && month == 7)|| (day >= 1 && day <= 22 && month == 8)) {
-            zodiacSign = "Lion";
-        }else if ((day >= 23 && day <= 31 && month == 8)|| (day >= 1 && day <= 21 && month == 9)) {
-            zodiacSign = "Maiden";
-        }else if ((day >= 22 && day <= 30 && month == 9)|| (day >= 1 && day <= 22 && month == 10)) {
-            zodiacSign = "Scales";
-        }else if ((day >= 23 && day <= 31 && month == 10)|| (day >= 1 && day <= 22 && month == 11)) {
-            zodiacSign = "Scorpion";
-        }else if ((day >= 23 && day <= 30 && month == 11)|| (day >= 1 && day <= 21 && month == 12)) {
-            zodiacSign = "Archer";
-        }else if ((day >= 22 && day <= 31 && month == 12)|| (day >= 1 && day <= 20 && month == 1)) {
-            zodiacSign = "Goat";
-        }else if ((day >= 21 && day <= 31 && month == 1)|| (day >= 1 && day <= 19 && month == 2)) {
-            zodiacSign = "Water-bearer";
-        }else if ((day >= 20 && day <= 28 && month == 2)|| (day >= 1 && day <= 20 && month == 3)) {
-            zodiacSign = "Fish";
+        switch (month) {
+            case 1:
+                if (day <= 20) {
+                zodiacSign = "Goat";
+                } else {
+                    zodiacSign = "Water-bearer";
+                }
+                break;
+            case 2:
+                if (day <= 19) {
+                    zodiacSign = "Water-bearer";
+                } else {
+                    zodiacSign = "Fish";
+                }
+                break;
+            case 3:
+                if (day <= 20) {
+                    zodiacSign = "Fish";
+                } else {
+                    zodiacSign = "Ram";
+                }
+                break;
+            case 4:
+                if (day <= 20) {
+                    zodiacSign = "Ram";
+                } else {
+                    zodiacSign = "Bull";
+                }
+                break;
+            case 5:
+                if (day <= 20) {
+                zodiacSign = "Bull";
+            } else {
+                zodiacSign = "Twins";
+            }
+                break;
+            case 6:
+                if (day <= 21) {
+                zodiacSign = "Twins";
+            } else {
+                zodiacSign = "Crab";
+            }
+                break;
+            case 7:
+                if (day <= 22) {
+                    zodiacSign = "Crab";
+                } else {
+                    zodiacSign = "Lion";
+                }
+                break;
+            case 8:
+                if (day <= 22) {
+                    zodiacSign = "Lion";
+                } else {
+                    zodiacSign = "Maiden";
+                }
+                break;
+            case 9:
+                if (day <= 21) {
+                    zodiacSign = "Maiden";
+                } else {
+                    zodiacSign = "Scales";
+                }
+                break;
+            case 10:
+                if (day <= 22) {
+                    zodiacSign = "Scales";
+                } else {
+                    zodiacSign = "Scorpion";
+                }
+                break;
+            case 11:
+                if (day <= 22) {
+                    zodiacSign = "Scorpion";
+                } else {
+                    zodiacSign = "Archer";
+                }
+                break;
+            case 12:
+                if (day <= 21) {
+                    zodiacSign = "Archer";
+                } else {
+                    zodiacSign = "Goat";
+                }
+                break;
         }
         return zodiacSign;
     }

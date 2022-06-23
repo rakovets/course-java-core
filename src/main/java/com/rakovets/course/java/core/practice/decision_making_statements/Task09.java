@@ -35,12 +35,12 @@ class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int amountApartmentsInPorch = numberApartmentsPerFloor * numberFloors;
-        int poarchNumber = apartmentNumber / amountApartmentsInPorch;
+        int porchNumber = apartmentNumber / amountApartmentsInPorch;
         if (amountApartmentsInPorch  % apartmentNumber != 0) {
-            poarchNumber++;
+            porchNumber++;
         } else if (amountApartmentsInPorch >= apartmentNumber) {
-            poarchNumber = 1;
+            porchNumber = 1;
         }
-        return poarchNumber;
+        return porchNumber;
     }
 }

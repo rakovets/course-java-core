@@ -39,13 +39,14 @@ class Task02 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String greeting = null;
         if (6 <= hour && hour <= 11) {
-            greeting = "Good morning";}
-        else if (12 <= hour && hour <= 17) {
-            greeting = "Good day";}
-        else if (18 <= hour && hour <= 23) {
-                greeting = "Good evening";}
-        else if (0 <= hour && hour <= 5) {
-            greeting = "Good night";}
+            greeting = "Good morning";
+        } else if (12 <= hour && hour <= 17) {
+            greeting = "Good day";
+        } else if (18 <= hour && hour <= 23) {
+            greeting = "Good evening";
+        } else if (0 <= hour && hour <= 5) {
+            greeting = "Good night";
+        }
         return greeting;
     }
 }

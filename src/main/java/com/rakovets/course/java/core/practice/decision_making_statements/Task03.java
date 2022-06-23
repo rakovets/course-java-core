@@ -40,15 +40,16 @@ class Task03 {
         float healthPercentage = currentHealthPoint * 100F / maxHealthPoint;
         String colorOfHealthPercentage = null;
         if (healthPercentage <= 0) {
-            colorOfHealthPercentage = null;}
-        else if (healthPercentage < 25) {
+            colorOfHealthPercentage = null;
+        } else if (healthPercentage < 25) {
             colorOfHealthPercentage = "RED";}
         else if (healthPercentage < 50 && healthPercentage >= 25) {
-            colorOfHealthPercentage = "ORANGE";}
-        else if (healthPercentage < 75 && healthPercentage >= 50) {
-            colorOfHealthPercentage = "YELLOW";}
-        else if (healthPercentage <= 100 && healthPercentage >= 75) {
-            colorOfHealthPercentage = "GREEN";}
+            colorOfHealthPercentage = "ORANGE";
+        } else if (healthPercentage < 75 && healthPercentage >= 50) {
+            colorOfHealthPercentage = "YELLOW";
+        } else if (healthPercentage <= 100 && healthPercentage >= 75) {
+            colorOfHealthPercentage = "GREEN";
+        }
         return colorOfHealthPercentage;
     }
 }
