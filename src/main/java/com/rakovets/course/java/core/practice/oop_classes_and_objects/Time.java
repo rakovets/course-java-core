@@ -4,6 +4,9 @@ public class Time {
     private int hours;
     private int minutes;
     private int seconds;
+    final int SECONDS_IN_MINUTE = 60;
+    final int MINUTES_IN_HOUR = 60;
+    final int HOURS_IN_DAY = 24;
 
     public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
@@ -12,18 +15,13 @@ public class Time {
     }
 
     public Time(int totalSeconds) {
-        final int SECONDS_IN_MINUTE = 60;
-        final int MINUTES_IN_HOUR = 60;
-        final int HOURS_IN_DAY = 24;
         this.hours = (totalSeconds / (SECONDS_IN_MINUTE * MINUTES_IN_HOUR)) % HOURS_IN_DAY;;
         this.minutes = (totalSeconds / SECONDS_IN_MINUTE) % MINUTES_IN_HOUR ;
         this.seconds = totalSeconds % SECONDS_IN_MINUTE;
     }
 
     public int getTotalSeconds() {
-        final int SECONDS_IN_MINUTE = 60;
-        final int MINUTES_IN_HOUR = 60;
-        return (this.hours * SECONDS_IN_MINUTE * SECONDS_IN_MINUTE) + (this.minutes * MINUTES_IN_HOUR) + this.seconds;
+              return (this.hours * SECONDS_IN_MINUTE * SECONDS_IN_MINUTE) + (this.minutes * MINUTES_IN_HOUR) + this.seconds;
     }
 
    public int getHours() {
