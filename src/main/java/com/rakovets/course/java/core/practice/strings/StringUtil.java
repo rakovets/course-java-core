@@ -44,4 +44,19 @@ public class StringUtil {
         }
         return amount;
     }
+
+
+    public int punctuationMarks(String str1) {
+        int amount = 0;
+        char[] punctuationMarks = {',', '.', '!', '?'};
+        char[] str1ToArray = str1.toCharArray();
+        for (char c : str1ToArray) {
+            for (char punctuationMark : punctuationMarks) {
+                if (c == punctuationMark) {
+                    amount++;
+                }
+            }
+        }
+        return amount;
+    }
 }
