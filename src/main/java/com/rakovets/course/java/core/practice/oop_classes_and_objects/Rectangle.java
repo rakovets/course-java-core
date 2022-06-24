@@ -19,15 +19,12 @@ public class Rectangle {
         return topLeftPoint;
     }
     public void setTopLeftPoint (Point topLeftPoint){
-
         this.topLeftPoint = topLeftPoint;
     }
     public Point getBottomRightPoint(){
-
         return bottomRightPoint;
     }
     public void setBottomRightPoint (Point bottomRightPoint){
-
         this.bottomRightPoint = bottomRightPoint;
     }
 }
