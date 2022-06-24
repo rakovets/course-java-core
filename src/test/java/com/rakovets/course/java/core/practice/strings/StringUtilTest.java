@@ -234,4 +234,17 @@ public class StringUtilTest {
     void testGetFirstCharacters2() {
         testGetFirstCharacters("alena  trafimovich", "AT");
     }
+
+    //Test for Task14
+    void testGetNumbers (String str1, String expected) {
+        String actual = stringUtil.getNumbers(str1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testGetNumbers1 () {
+        testGetNumbers("Hello1234","1234");
+    }
+
+
 }
