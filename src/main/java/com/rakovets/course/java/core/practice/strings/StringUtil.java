@@ -71,8 +71,8 @@ public class StringUtil {
     //Task 10
     public boolean ifPalindrome(String str1) {
         String improved = str1.toLowerCase().replaceAll("\\W", "");
-        StringBuffer stringBuffer = new StringBuffer(improved);
-        String inverted = stringBuffer.reverse().toString();
+        StringBuilder stringBuilder = new StringBuilder(improved);
+        String inverted = stringBuilder.reverse().toString();
         return equals(improved, inverted);
     }
 
@@ -103,7 +103,6 @@ public class StringUtil {
     }
 
 //Task 13
-
     public String getFirstCharacters(String str1) {
         StringBuilder stringBuilder = new StringBuilder();
         for (String word : str1.toUpperCase().split(" +")) {
@@ -112,5 +111,18 @@ public class StringUtil {
         return stringBuilder.toString();
     }
 
+    //Task 14
+    public String getNumbers(String str1) {
+        char [] numbers = {'0','1','2','3','4','5','6','7','8','9'};
+       char [] array = str1.toCharArray();
+       StringBuilder stringBuilder = new StringBuilder();
+        for (char symbol : array) {
+            for (char number : numbers) {
+                if (symbol == number) {
+                    stringBuilder.append(symbol);}
+                }
+            }
+        return stringBuilder.toString();
+        }
+    }
 
-}
