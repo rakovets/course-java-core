@@ -4,7 +4,6 @@ public class TimeApplication {
     public static void main(String[] args) {
         Time time = new Time(10, 50, 25);
         Time time1 = new Time(3672);
-
         System.out.println("Current time " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
         time.setHours(12);
         time.setMinutes(25);

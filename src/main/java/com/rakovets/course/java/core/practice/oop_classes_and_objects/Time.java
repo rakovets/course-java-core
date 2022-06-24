@@ -8,7 +8,6 @@ public class Time {
     final int SECONDS_IN_HOUR = 3600;
     final int SECONDS_IN_MINUTES = 60;
 
-
     public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
