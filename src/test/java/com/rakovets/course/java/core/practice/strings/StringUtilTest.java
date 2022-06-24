@@ -138,6 +138,19 @@ public class StringUtilTest {
         testCountVowels("GIT is SOFTWARE for tracking changes", 10);
     }
 
+    void testPunctuationMarks(String str1, int expected){
+        int actual = stringUtil.punctuationMarks(str1);
+      Assertions.assertEquals(expected,actual);
+    }
+
+    @Test
+    void testPunctuationMarks1(){
+        testPunctuationMarks("Hello, Java!!!",4);
+    }
+    @Test
+    void testPunctuationMarks2(){
+        testPunctuationMarks("Is it Git and GitHub the same? No,different! Okay...",6);
+    }
 
 }
 
