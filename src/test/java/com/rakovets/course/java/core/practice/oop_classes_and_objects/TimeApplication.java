@@ -7,14 +7,10 @@ public class TimeApplication {
         System.out.println("Hours: " + time.getHours());
         System.out.println("Minutes: " + time.getMinutes());
         System.out.println("Seconds: " + time.getSeconds());
-
-        Time timeInSeconds = new Time(1560);
-        System.out.println("All seconds: " + timeInSeconds.getSeconds());
-
         System.out.println("Hours: " + time.setHours(10));
         System.out.println("Minutes: " + time.setMinutes(20));
         System.out.println("Seconds: : " + time.setSeconds(15));
         System.out.println("Total seconds: " + time.getTotalSeconds());
-
+        Time timeInSeconds = new Time(5093);
     }
 }
