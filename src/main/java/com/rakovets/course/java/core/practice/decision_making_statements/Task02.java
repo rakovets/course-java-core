@@ -38,7 +38,6 @@ class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String greatingUser;
-
         if (hour > 5 && hour < 12) {
             greatingUser = "Good morning";
         } else if (hour >= 12 && hour < 18) {
@@ -50,7 +49,6 @@ class Task02 {
         } else {
             greatingUser = null;
         }
-
         return greatingUser;
     }
 }
