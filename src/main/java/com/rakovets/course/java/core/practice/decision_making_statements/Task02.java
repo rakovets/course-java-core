@@ -45,7 +45,7 @@ class Task02 {
             greatingUser = "Good day";
         } else if (hour >= 18 && hour < 24) {
             greatingUser = "Good evening";
-        } else if (hour >= 0 && hour < 6){
+        } else if (hour >= 0 && hour < 6) {
             greatingUser = "Good night";
         } else {
             greatingUser = null;
