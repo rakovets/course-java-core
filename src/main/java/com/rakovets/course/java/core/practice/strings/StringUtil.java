@@ -9,4 +9,8 @@ public class StringUtil {
     public int findIndex (String currentString, String userString){
         return currentString.indexOf(userString);
     }
+
+    public boolean compareTwoStrings(String string1, String string2){
+        return string1.equals(string2);
+    }
 }
