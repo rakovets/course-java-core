@@ -39,11 +39,11 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         boolean topRating;
-
-        topRating = (positionPlayerByDamage <= sizeTop)
-                ? true
-                : false;
-
+        if (positionPlayerByDamage <= sizeTop) {
+            topRating = true;
+        } else {
+            topRating = false;
+        }
         return topRating;
     }
 }
