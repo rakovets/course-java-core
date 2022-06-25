@@ -34,35 +34,60 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String monthName;
-
-        if (monthNumber == 1) {
-            monthName = "JANUARY";
-        } else if (monthNumber == 2) {
-            monthName = "FEBRUARY";
-        } else if (monthNumber == 3) {
-            monthName = "MARCH";
-        } else if (monthNumber == 4) {
-            monthName = "APRIL";
-        } else if (monthNumber == 5) {
-            monthName = "MAY";
-        } else if (monthNumber == 6) {
-            monthName = "JUNE";
-        } else if (monthNumber == 7) {
-            monthName = "JULY";
-        } else if (monthNumber == 8) {
-            monthName = "AUGUST";
-        } else if (monthNumber == 9) {
-            monthName = "SEPTEMBER";
-        } else if (monthNumber == 10) {
-            monthName = "OCTOBER";
-        } else if (monthNumber == 11) {
-            monthName = "NOVEMBER";
-        } else if (monthNumber == 12) {
-            monthName = "DECEMBER";
-        } else {
-            monthName = null;
+        switch (monthNumber) {
+            case 1: {
+                monthName = "JANUARY";
+                break;
+            }
+            case 2: {
+                monthName = "FEBRUARY";
+                break;
+            }
+            case 3: {
+                monthName = "MARCH";
+                break;
+            }
+            case 4: {
+                monthName = "APRIL";
+                break;
+            }
+            case 5: {
+                monthName = "MAY";
+                break;
+            }
+            case 6: {
+                monthName = "JUNE";
+                break;
+            }
+            case 7: {
+                monthName = "JULY";
+                break;
+            }
+            case 8: {
+                monthName = "AUGUST";
+                break;
+            }
+            case 9: {
+                monthName = "SEPTEMBER";
+                break;
+            }
+            case 10: {
+                monthName = "OCTOBER";
+                break;
+            }
+            case 11: {
+                monthName = "NOVEMBER";
+                break;
+            }
+            case 12: {
+                monthName = "DECEMBER";
+                break;
+            }
+            default: {
+                monthName = null;
+                break;
+            }
         }
-
         return monthName;
     }
 }
