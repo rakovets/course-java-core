@@ -68,4 +68,25 @@ public class StringUtilTest {
         testCompareStrings("null","any", false);
     }
 
+    @Test
+    void testDeleteSpacesAndChangeToLowerCase (String currentString, String expected) {
+        //When
+        String actual = stringUtil.deleteSpacesAndChangeToLowerCase(currentString);
+        //Then
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testDeleteSpacesFromBackAndFrontAndChangeToLowerCase () {
+        testDeleteSpacesAndChangeToLowerCase(" Dave Smith ", "dave smith");
+    }
+    @Test
+    void testDeleteSpacesAndChangeToLowerCase_NoSpaceInFront () {
+        testDeleteSpacesAndChangeToLowerCase("Dave Smith ", "dave smith");
+    }
+    @Test
+    void testDeleteSpacesAndChangeToLowerCase_NoSpaceAtEnd () {
+        testDeleteSpacesAndChangeToLowerCase(" Dave Smith", "dave smith");
+    }
+
 }
