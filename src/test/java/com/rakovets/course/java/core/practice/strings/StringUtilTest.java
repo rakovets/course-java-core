@@ -379,7 +379,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 15*.
-     * Testing different argument values for task 15.
+     * Testing different argument values for task 15*.
      *
      * @return test result.
      */
@@ -405,7 +405,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 16*.
-     * Testing different argument values for task 16.
+     * Testing different argument values for task 16*.
      *
      * @return test result.
      */
@@ -427,6 +427,90 @@ public class StringUtilTest {
     @MethodSource("receiveArrayEqualsProviderArguments")
     void receiveArrayEquals(boolean expected, String[] firstArray, String[] secondArray) {
         boolean actual = StringUtil.receiveArrayEquals(firstArray, secondArray);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    /**
+     * Test method for Task 17*.
+     * Performs job testing based on arguments.
+     */
+    public static void main(String[] args) {
+        String firstString = "Java";
+        String secondString = "Java";
+
+        System.out.println("\nTest 1:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 0));
+        System.out.println("\nTest 2:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 12));
+        System.out.println("\nTest 3:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 123));
+        System.out.println("\nTest 4:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 1_234));
+        System.out.println("\nTest 5:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 12_345));
+        System.out.println("\nTest 6:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 123_456));
+        System.out.println("\nTest 7:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 1_234_567));
+        System.out.println("\nTest 8:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 12_345_678));
+        System.out.println("\nTest 9:\nConcatenation rate: "
+                + StringUtil.receiveExecutionSpeed(firstString, secondString, 124_567_890));
+    }
+
+    /**
+     * Test arguments for Task 18*.
+     * Testing different argument values for task 18*.
+     *
+     * @return test result.
+     */
+    static @NotNull Stream<Arguments> receiveStringWithoutRepeatingCharactersProviderArguments() {
+        return Stream.of(
+                Arguments.of("abcdef", "aaabbcdeef"),
+                Arguments.of("12345789", "1122334455778899"),
+                Arguments.of("", ""),
+                Arguments.of("123 123", "123 111222333")
+        );
+    }
+
+    /**
+     * Test method for Task 18*.
+     * Performs job testing based on arguments.
+     */
+    @ParameterizedTest
+    @MethodSource("receiveStringWithoutRepeatingCharactersProviderArguments")
+    void receiveStringWithoutRepeatingCharacters(String expected, String firstString) {
+        String actual = StringUtil.receiveStringWithoutRepeatingCharacters(firstString);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    /**
+     * Test arguments for Task 19**.
+     * Testing different argument values for task 19**.
+     *
+     * @return test result.
+     */
+    static @NotNull Stream<Arguments> receiveConversionToArabicNumeralsProviderArguments() {
+        return Stream.of(
+                Arguments.of("3999", "MMMCMXCIX"),
+                Arguments.of("2022", "MMXXII"),
+                Arguments.of("398", "CCCXCVIII"),
+                Arguments.of("1", "I"),
+                Arguments.of("45", "xLv"),
+                Arguments.of("900", "CM")
+        );
+    }
+
+    /**
+     * Test method for Task 19**.
+     * Performs job testing based on arguments.
+     */
+    @ParameterizedTest
+    @MethodSource("receiveConversionToArabicNumeralsProviderArguments")
+    void receiveConversionToArabicNumerals(String expected, String firstString) {
+        String actual = StringUtil.receiveConversionToArabicNumerals(firstString);
 
         Assertions.assertEquals(expected, actual);
     }
