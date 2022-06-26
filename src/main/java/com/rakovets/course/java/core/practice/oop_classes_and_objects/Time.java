@@ -46,5 +46,4 @@ public class Time {
         this.totalSeconds = this.hours * SECONDS_IN_HOUR + this.minutes * SECONDS_IN_MINUTE + this.seconds;
         return this.totalSeconds;
     }
-
 }
