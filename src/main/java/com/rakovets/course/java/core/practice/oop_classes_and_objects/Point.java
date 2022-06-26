@@ -10,10 +10,24 @@ public class Point {
     }
 
     public double getPointX() {
-        return this.pointX;
+        return pointX;
+    }
+
+    public void setPointX(double pointX) {
+        this.pointX = pointX;
     }
 
     public double getPointY() {
-        return this.pointY;
+        return pointY;
+    }
+
+    public void setPointY(double pointY) {
+        this.pointY = pointY;
+    }
+
+    public double getDistance(Point disnancePoint) {
+        double squareDistanceX = Math.pow(this.pointX - disnancePoint.getPointX(), 2);
+        double squareDistanceY = Math.pow(this.pointY - disnancePoint.getPointY(), 2);
+        return Math.sqrt(squareDistanceX + squareDistanceY);
     }
 }
