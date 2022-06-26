@@ -30,7 +30,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveConcatProvideArgument")
-    void receiveConcat(String expected, String firstString, String secondString) {
+    void receiveConcatTest(String expected, String firstString, String secondString) {
         String actual = StringUtil.receiveConcat(firstString, secondString);
 
         Assertions.assertEquals(expected, actual);
@@ -56,7 +56,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveIndexOfProviderArguments")
-    void receiveIndexOf(int expected, String firstString, char symbol) {
+    void receiveIndexOfTest(int expected, String firstString, char symbol) {
         int actual = StringUtil.receiveIndexOf(firstString, symbol);
 
         Assertions.assertEquals(expected, actual);
@@ -83,7 +83,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveEqualsProviderArguments")
-    void receiveEquals(boolean expected, String firstString, String secondString) {
+    void receiveEqualsTest(boolean expected, String firstString, String secondString) {
         boolean actual = StringUtil.receiveEquals(firstString, secondString);
 
         Assertions.assertEquals(expected, actual);
@@ -109,7 +109,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveTrimAndToUpperCaseProviderArguments")
-    void receiveTrimAndToUpperCase(String expected, String firstString) {
+    void receiveTrimAndToUpperCaseTest(String expected, String firstString) {
         String actual = StringUtil.receiverTrimAndToUpperCase(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -135,7 +135,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveSubstringProviderArguments")
-    void receiveSubstring(String expected, String firstString, int nSymbol, int mSymbol) {
+    void receiveSubstringTest(String expected, String firstString, int nSymbol, int mSymbol) {
         String actual = StringUtil.receiveSubstring(firstString, nSymbol, mSymbol);
 
         Assertions.assertEquals(expected, actual);
@@ -161,7 +161,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveReplaceProviderArguments")
-    void receiveReplace(String expected, String firstString, String oldString, String newString) {
+    void receiveReplaceTest(String expected, String firstString, String oldString, String newString) {
         String actual = StringUtil.receiveReplace(firstString, oldString, newString);
 
         Assertions.assertEquals(expected, actual);
@@ -187,7 +187,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveStartWithAndEndWithProviderArguments")
-    void receiveStartWithAndEndWith(boolean expected, String text, String word) {
+    void receiveStartWithAndEndWithTest(boolean expected, String text, String word) {
         boolean actual = StringUtil.receiveStartWithAndEndWith(text, word);
 
         Assertions.assertEquals(expected, actual);
@@ -213,7 +213,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveTheNumberOfEnglishVowelsProviderArguments")
-    void receiveTheNumberOfEnglishVowels(int expected, String firstString) {
+    void receiveTheNumberOfEnglishVowelsTest(int expected, String firstString) {
         int actual = StringUtil.receiveTheNumberOfEnglishVowels(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -240,7 +240,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receivePunctuationMarksProviderArguments")
-    void receivePunctuationMarks(int expected, String firstString) {
+    void receivePunctuationMarksTest(int expected, String firstString) {
         int actual = StringUtil.receivePunctuationMarks(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -267,7 +267,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receivePalindromeProviderArguments")
-    void receivePalindrome(boolean expected, String firstString) {
+    void receivePalindromeTest(boolean expected, String firstString) {
         boolean actual = StringUtil.receivePalindrome(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -293,7 +293,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveSplitProviderArguments")
-    void receiveSplit(String[] expected, String firstString, int n) {
+    void receiveSplitTest(String[] expected, String firstString, int n) {
         String[] actual = StringUtil.receiveSplit(firstString, n);
 
         Assertions.assertArrayEquals(expected, actual);
@@ -319,7 +319,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveTheNumberOfWordsInATextProviderArguments")
-    void receiveTheNumberOfWordsInAText(int expected, String firstString) {
+    void receiveTheNumberOfWordsInATextTest(int expected, String firstString) {
         int actual = StringUtil.receiveTheNumberOfWordsInAText(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -346,7 +346,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveInitialsProviderArguments")
-    void receiveInitials(String expected, String firstString) {
+    void receiveInitialsTest(String expected, String firstString) {
         String actual = StringUtil.receiveInitials(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -371,7 +371,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveAllNumbersFromTextProviderArguments")
-    void receiveAllNumbersFromText(String expected, String firstString) {
+    void receiveAllNumbersFromTextTest(String expected, String firstString) {
         String actual = StringUtil.receiveAllNumbersFromText(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -397,7 +397,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveDifferentSymbolsProviderArguments")
-    void receiveDifferentSymbols(String expected, String firstString, String secondString) {
+    void receiveDifferentSymbolsTest(String expected, String firstString, String secondString) {
         String actual = StringUtil.receiveDifferentSymbols(firstString, secondString);
 
         Assertions.assertEquals(expected, actual);
@@ -425,7 +425,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveArrayEqualsProviderArguments")
-    void receiveArrayEquals(boolean expected, String[] firstArray, String[] secondArray) {
+    void receiveArrayEqualsTest(boolean expected, String[] firstArray, String[] secondArray) {
         boolean actual = StringUtil.receiveArrayEquals(firstArray, secondArray);
 
         Assertions.assertEquals(expected, actual);
@@ -480,7 +480,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveStringWithoutRepeatingCharactersProviderArguments")
-    void receiveStringWithoutRepeatingCharacters(String expected, String firstString) {
+    void receiveStringWithoutRepeatingCharactersTest(String expected, String firstString) {
         String actual = StringUtil.receiveStringWithoutRepeatingCharacters(firstString);
 
         Assertions.assertEquals(expected, actual);
@@ -509,7 +509,7 @@ public class StringUtilTest {
      */
     @ParameterizedTest
     @MethodSource("receiveConversionToArabicNumeralsProviderArguments")
-    void receiveConversionToArabicNumerals(String expected, String firstString) {
+    void receiveConversionToArabicNumeralsTest(String expected, String firstString) {
         String actual = StringUtil.receiveConversionToArabicNumerals(firstString);
 
         Assertions.assertEquals(expected, actual);
