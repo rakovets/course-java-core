@@ -259,8 +259,8 @@ public class StringUtil {
      * Two arrays of strings are given. Determine if the contents of these arrays are identical.
      * The order of the elements does not matter.
      *
-     * @param firstArray  first Array.
-     * @param secondArray second Array.
+     * @param firstArray  first array.
+     * @param secondArray second array.
      * @return a boolean value of the results of the comparison
      */
     static boolean receiveArrayEquals(String[] firstArray, String[] secondArray) {
@@ -268,5 +268,97 @@ public class StringUtil {
         Arrays.sort(secondArray);
 
         return Arrays.equals(firstArray, secondArray);
+    }
+
+    /**
+     * Task 17*.
+     * Write two loops that repeatedly add strings, one with the addition operator and String,
+     * and the other with a StringBuilder and the append method. Compare the speed of their execution.
+     *
+     * @param firstString       first string.
+     * @param secondString      second string.
+     * @param rowSummationCount number of summations.
+     * @return rows with the results of the execution in milliseconds.
+     */
+    static @NotNull String receiveExecutionSpeed(String firstString, String secondString, long rowSummationCount) {
+        StringBuilder builder = new StringBuilder();
+
+        long startComparingTheWorkOfTheFirstCycle = System.currentTimeMillis();
+        for (int i = 0; i < rowSummationCount; i++) {
+            firstString.concat(secondString);
+        }
+        long endOfComparisonOfTheWorkOfTheFirstCycle = System.currentTimeMillis();
+
+        long startComparingTheWorkOfTheSecondCycle = System.currentTimeMillis();
+        for (int i = 0; i < rowSummationCount; i++) {
+            builder.append(firstString).append(secondString);
+        }
+        long endOfComparisonOfTheWorkOfTheSecondCycle = System.currentTimeMillis();
+
+        return (
+                (endOfComparisonOfTheWorkOfTheFirstCycle - startComparingTheWorkOfTheFirstCycle)
+                        + "\nSpeed String Builder: "
+                        + (endOfComparisonOfTheWorkOfTheSecondCycle - startComparingTheWorkOfTheSecondCycle));
+    }
+
+    /**
+     * Task 18*.
+     * Replace several consecutive identical characters in a string with one. For example: aaabbcdeef → abcdef
+     *
+     * @param firstString string.
+     * @return a string without consecutive characters.
+     */
+    @Contract(pure = true)
+    static @NotNull String receiveStringWithoutRepeatingCharacters(@NotNull String firstString) {
+        return (firstString.replaceAll("(.)\\1+", "$1"));
+    }
+
+    /**
+     * Task 19**.
+     * <li>Convert a string containing a Roman notation for a number to an Arabic notation for a number.</li>
+     * <li>Number limits: from 1 to 3999.</li>
+     * <li>Provide for the case when the smaller character comes before the larger one, for example: CM == 900.</li>
+     *
+     * @param romanNumerals roman notation for a number.
+     * @return arabic notation for a number.
+     */
+    static @NotNull String receiveConversionToArabicNumerals(@NotNull String romanNumerals) {
+        int[] array = new int[romanNumerals.trim().length()];
+
+        for (int i = 0; i < array.length; i++) {
+            switch (romanNumerals.toUpperCase().charAt(i)) {
+                case 'M':
+                    array[i] = 1000;
+                    break;
+                case 'D':
+                    array[i] = 500;
+                    break;
+                case 'C':
+                    array[i] = 100;
+                    break;
+                case 'L':
+                    array[i] = 50;
+                    break;
+                case 'X':
+                    array[i] = 10;
+                    break;
+                case 'V':
+                    array[i] = 5;
+                    break;
+                case 'I':
+                    array[i] = 1;
+                    break;
+            }
+        }
+        int translationOfArabicNumerals = array[0];
+
+        for (int i = 0; i + 1 < array.length; i++) {
+            if (array[i] >= array[i + 1]) {
+                translationOfArabicNumerals += array[i + 1];
+            } else {
+                translationOfArabicNumerals += (array[i + 1] - (array[i] * 2));
+            }
+        }
+        return "" + translationOfArabicNumerals;
     }
 }
