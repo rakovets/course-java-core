@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class StringUtil {
     /**
      * Task 1.
+     * <p>
      * Using the methods of the String class, output the string that is the result of concatenating two strings.
      *
      * @param firstString  first string.
@@ -21,6 +22,7 @@ public class StringUtil {
 
     /**
      * Task 2.
+     * <p>
      * Find the index of the character x (x is the character entered by the user) in the string.
      * If there is no such character, then -1.
      *
@@ -35,6 +37,7 @@ public class StringUtil {
 
     /**
      * Task 3.
+     * <p>
      * Determine if two strings are the same considering case.
      *
      * @param firstString  first string.
@@ -48,6 +51,7 @@ public class StringUtil {
 
     /**
      * Task 4.
+     * <p>
      * Remove spaces at the beginning and end of the string.
      * Make sure that the entire string consists of uppercase letters.
      *
@@ -60,6 +64,7 @@ public class StringUtil {
 
     /**
      * Task 5.
+     * <p>
      * Extract a substring from the string starting from the nth character and up to the mth character.
      *
      * @param firstString string.
@@ -74,6 +79,7 @@ public class StringUtil {
 
     /**
      * Task 6.
+     * <p>
      * Replace all sad emoji :( in the string with happy ones :).
      *
      * @param firstString string.
@@ -88,6 +94,7 @@ public class StringUtil {
 
     /**
      * Task 7.
+     * <p>
      * Write a method that takes 2 parameters text and word, and returns: true if the string starts
      * and ends with this word or false in all others.
      *
@@ -101,6 +108,7 @@ public class StringUtil {
 
     /**
      * Task 8.
+     * <p>
      * Determine the number of English vowels in a sentence.
      *
      * @param firstString string.
@@ -126,6 +134,7 @@ public class StringUtil {
 
     /**
      * Task 9.
+     * <p>
      * Count the total number of punctuation marks (periods, commas, question marks, and exclamation marks) in a string.
      *
      * @param firstString string.
@@ -147,6 +156,7 @@ public class StringUtil {
 
     /**
      * Task 10.
+     * <p>
      * Check if the input string is a palindrome.
      *
      * @param firstString string.
@@ -160,6 +170,7 @@ public class StringUtil {
 
     /**
      * Task 11.
+     * <p>
      * Split the string into equal parts of n characters each and store the individual parts in an array.
      *
      * @param firstString string.
@@ -173,6 +184,7 @@ public class StringUtil {
 
     /**
      * Task 12.
+     * <p>
      * Count the number of words in the text. Note that words can be separated by multiple spaces.
      *
      * @param firstString string.
@@ -193,6 +205,7 @@ public class StringUtil {
 
     /**
      * Task 13.
+     * <p>
      * Last name and first name are given as one line. Return initials according to the FL pattern,
      * for example: DmitRY RakOVets → DR. Please note that the input parameters can be in any case,
      * and the resulting string must be in the upper case.
@@ -208,6 +221,7 @@ public class StringUtil {
 
     /**
      * Task 14.
+     * <p>
      * Return a string that contains all the digits in the text.
      *
      * @param firstString string.
@@ -220,6 +234,7 @@ public class StringUtil {
 
     /**
      * Task 15*.
+     * <p>
      * Return only those characters of two words that are in only one of them,
      * including duplicates. For example, if the given words are information and motivation,
      * then the answer should be: nfrtv.
@@ -255,6 +270,7 @@ public class StringUtil {
 
     /**
      * Task 16*.
+     * <p>
      * Two arrays of strings are given. Determine if the contents of these arrays are identical.
      * The order of the elements does not matter.
      *
@@ -271,6 +287,7 @@ public class StringUtil {
 
     /**
      * Task 17*.
+     * <p>
      * Write two loops that repeatedly add strings, one with the addition operator and String,
      * and the other with a StringBuilder and the append method. Compare the speed of their execution.
      *
@@ -302,6 +319,7 @@ public class StringUtil {
 
     /**
      * Task 18*.
+     * <p>
      * Replace several consecutive identical characters in a string with one. For example: aaabbcdeef → abcdef
      *
      * @param firstString string.
