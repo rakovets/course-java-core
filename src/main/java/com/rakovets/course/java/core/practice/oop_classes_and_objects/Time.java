@@ -4,20 +4,22 @@ public class Time {
     private int hours;
     private int  minutes;
     private int seconds;
+    private final int SECONDS_IN_HOUR = 3600;
+    private final int SECONDS_IN_MINUTE = 60;
 
     public Time (int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
-        System.out.println("This hours: " + hours);
     }
 
     public Time (int totalSeconds) {
-        getTotalSeconds(totalSeconds);
+        this.hours = totalSeconds / SECONDS_IN_HOUR;
+        this.minutes = (totalSeconds % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
+        this.seconds = (totalSeconds % SECONDS_IN_HOUR) % SECONDS_IN_MINUTE;
     }
 
     public int getHours () {
-
         return this.hours;
     }
     public void setHours (int hours) {
@@ -26,7 +28,7 @@ public class Time {
     public  int getMinutes () {
         return this.minutes;
     }
-    public void setMinutes () {
+    public void setMinutes (int minutes) {
         this.minutes = minutes;
     }
 
@@ -34,14 +36,12 @@ public class Time {
         return this.seconds;
     }
 
-    public void setSeconds () {
+    public void setSeconds (int seconds) {
         this.seconds = seconds;
     }
 
-    public void getTotalSeconds (int totalSeconds) {
-        System.out.println ("This total seconds: " + totalSeconds);
+    public int  getTotalSeconds () {
+        return this.hours * SECONDS_IN_HOUR + minutes * SECONDS_IN_MINUTE + seconds;
     }
-
-
 }
 
