@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 public class StringUtilTest {
     /**
      * Test arguments for Task 1.
+     * <p>
      * Testing different argument values for task 1.
      *
      * @return test result.
@@ -26,6 +27,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 1.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -38,6 +40,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 2.
+     * <p>
      * Testing different argument values for task 2.
      *
      * @return test result.
@@ -52,6 +55,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 2.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -64,6 +68,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 3.
+     * <p>
      * Testing different argument values for task 3.
      *
      * @return test result.
@@ -79,6 +84,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 3.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -91,6 +97,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 4.
+     * <p>
      * Testing different argument values for task 4.
      *
      * @return test result.
@@ -105,6 +112,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 4.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -117,6 +125,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 5.
+     * <p>
      * Testing different argument values for task 5.
      *
      * @return test result.
@@ -131,6 +140,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 5.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -143,6 +153,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 6.
+     * <p>
      * Testing different argument values for task 6.
      *
      * @return test result.
@@ -156,7 +167,8 @@ public class StringUtilTest {
     }
 
     /**
-     * Test method for Task 5.
+     * Test method for Task 6.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -169,6 +181,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 7.
+     * <p>
      * Testing different argument values for task 7.
      *
      * @return test result.
@@ -183,6 +196,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 7.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -195,6 +209,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 8.
+     * <p>
      * Testing different argument values for task 8.
      *
      * @return test result.
@@ -209,6 +224,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 8.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -221,6 +237,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 9.
+     * <p>
      * Testing different argument values for task 9.
      *
      * @return test result.
@@ -236,6 +253,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 9.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -248,6 +266,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 10.
+     * <p>
      * Testing different argument values for task 10.
      *
      * @return test result.
@@ -263,6 +282,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 10.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -275,6 +295,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 11.
+     * <p>
      * Testing different argument values for task 11.
      *
      * @return test result.
@@ -289,6 +310,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 11.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -301,6 +323,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 12.
+     * <p>
      * Testing different argument values for task 12.
      *
      * @return test result.
@@ -315,6 +338,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 12.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -327,6 +351,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 13.
+     * <p>
      * Testing different argument values for task 13.
      *
      * @return test result.
@@ -342,6 +367,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 13.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -354,6 +380,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 14.
+     * <p>
      * Testing different argument values for task 14.
      *
      * @return test result.
@@ -367,6 +394,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 14.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -379,6 +407,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 15*.
+     * <p>
      * Testing different argument values for task 15*.
      *
      * @return test result.
@@ -393,6 +422,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 15*.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -405,6 +435,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 16*.
+     * <p>
      * Testing different argument values for task 16*.
      *
      * @return test result.
@@ -421,6 +452,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 16*.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -433,6 +465,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 17*.
+     * <p>
      * Performs job testing based on arguments.
      */
     public static void main(String[] args) {
@@ -461,6 +494,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 18*.
+     * <p>
      * Testing different argument values for task 18*.
      *
      * @return test result.
@@ -476,6 +510,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 18*.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
@@ -488,6 +523,7 @@ public class StringUtilTest {
 
     /**
      * Test arguments for Task 19**.
+     * <p>
      * Testing different argument values for task 19**.
      *
      * @return test result.
@@ -505,6 +541,7 @@ public class StringUtilTest {
 
     /**
      * Test method for Task 19**.
+     * <p>
      * Performs job testing based on arguments.
      */
     @ParameterizedTest
