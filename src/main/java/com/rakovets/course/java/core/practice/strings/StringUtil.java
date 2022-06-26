@@ -241,7 +241,6 @@ public class StringUtil {
                 }
             }
         }
-
         StringBuilder receiveDifferentSymbols = new StringBuilder();
 
         for (String word : arrayOfFirstStringSymbols) {
