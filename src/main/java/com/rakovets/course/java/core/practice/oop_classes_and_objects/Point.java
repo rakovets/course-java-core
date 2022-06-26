@@ -2,8 +2,8 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Point {
 
-    double x;
-    double y;
+    private double x;
+    private double y;
 
     public Point(int x, int y) {
         this.x = x;
