@@ -4,247 +4,440 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
-    private StringUtil stringUtil = new StringUtil();
+    private final StringUtil stringUtil = new StringUtil();
 
-    //Test for Task1
+    //Tests for Task1
     @Test
     void testConcatWithTwoValues() {
-        testConcat("123", "456", "123456");
+        verifyConcat("123", "456", "123456");
     }
 
     @Test
-    void testConcatWithOneValue() {
-        testConcat("123", "", "123");
+    void testConcatWithEmptyValue() {
+        verifyConcat("Java", "", "Java");
     }
 
     @Test
-    void testConcat(String str1, String str2, String expected) {
+    void testConcatWithBothNulls() {
+        verifyConcat(null, null, null);
+    }
+
+    @Test
+    void testConcatWithFirstNull() {
+        verifyConcat("11", null, "11");
+    }
+
+    @Test
+    void testConcatWithSecondNull() {
+        verifyConcat(null, "12", "12");
+    }
+
+    void verifyConcat(String str1, String str2, String expected) {
         String actual = stringUtil.concat(str1, str2);
         Assertions.assertEquals(expected, actual);
     }
 
-    //Test for Task2
-    void testIndexOf(String str1, char symbol, int expected) {
-        int actual = stringUtil.indexOf(str1, symbol);
+    //Tests for Task2
+
+    @Test
+    void testGetIndexOfSymbolMiddle() {
+        verifyGetIndexOfSymbol("Hello", 'l', 2);
+    }
+
+    @Test
+    void testGetIndexOfSymbolBeginning() {
+        verifyGetIndexOfSymbol("Java", 'J', 0);
+    }
+
+    @Test
+    void testGetIndexOfSymbolEnd() {
+        verifyGetIndexOfSymbol("Git", 't', 2);
+    }
+
+    @Test
+    void testGetIndexNoSymbol() {
+        verifyGetIndexOfSymbol("Java", 'e', -1);
+    }
+
+    @Test
+    void testGetIndexNullString() {
+        verifyGetIndexOfSymbol(null, 'e', -1);
+    }
+
+    void verifyGetIndexOfSymbol(String str, char symbol, int expected) {
+        int actual = stringUtil.getIndexOfSymbol(str, symbol);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task3
+
     @Test
-    void testIndexOfWithSymbol() {
-        testIndexOf("Hello", 'l', 2);
+    void testIsEqual() {
+        verifyIsEqual("Hello", "Hello", true);
     }
 
     @Test
-    void testIndexOfWithoutSymbol() {
-        testIndexOf("", 'e', -1);
+    void testIsNotEqual() {
+        verifyIsEqual("Java", "java", false);
     }
 
-    //Test for Task3
-    void testEquals(String str1, String str2, boolean expected) {
-        boolean actual = stringUtil.equals(str1, str2);
+    @Test
+    void testEqualBothNullStrings() {
+        verifyIsEqual(null, null, true);
+    }
+
+    @Test
+    void testEqualFirstNullString() {
+        verifyIsEqual(null, "Java", false);
+    }
+
+    @Test
+    void testEqualSecondNullString() {
+        verifyIsEqual("Java", null, false);
+    }
+
+    void verifyIsEqual(String str1, String str2, boolean expected) {
+        boolean actual = stringUtil.isEqual(str1, str2);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task4
+
     @Test
-    void testEqualsCaseSensitive() {
-        testEquals("Hello", "Hello", true);
+    void testGetTrimSpaceToLowerCaseLetters() {
+        verifyGetTrimSpaceToLowerCase("   Hello    ", "hello");
     }
 
     @Test
-    void testEqualsCaseInsensitive() {
-        testEquals("Java", "java", false);
+    void testGetTrimSpaceToLowerCaseDigits() {
+        verifyGetTrimSpaceToLowerCase("    15 45   ", "15 45");
     }
 
-    //Test for Task4
-    void testTrimSpaceLowerCase(String str1, String expected) {
-        String actual = stringUtil.trimSpaceLowerCase(str1);
+    @Test
+    void testGetTrimSpaceToLowerCaseNoSpaces() {
+        verifyGetTrimSpaceToLowerCase("1515", "1515");
+    }
+
+    @Test
+    void testGetTrimSpaceToLowerCaseNull() {
+        verifyGetTrimSpaceToLowerCase(null, null);
+    }
+
+    void verifyGetTrimSpaceToLowerCase(String str, String expected) {
+        String actual = stringUtil.getTrimSpaceToLowerCase(str);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task5
+
     @Test
-    void testTrimSpaceLowerCase1() {
-        testTrimSpaceLowerCase("   Hello    ", "hello");
+    void testGetSubstring() {
+        verifyGetSubstring("Hello Java", 'J', 'v', "Ja");
     }
 
     @Test
-    void testTrimSpaceLowerCase2() {
-        testTrimSpaceLowerCase("    JA VA   ", "ja va");
+    void testGetSubstringNoFirstSymbol() {
+        verifyGetSubstring("Git", '5', 't', "");
     }
 
-    //Test for Task5
-    void testSubstringSymbol(String str1, char firstSymbol, char secondSymbol, String expected) {
-        String actual = stringUtil.substringSymbol(str1, firstSymbol, secondSymbol);
+    @Test
+    void testGetSubstringNoSecondSymbol() {
+        verifyGetSubstring("git", 'g', '4', "");
+    }
+
+    @Test
+    void testGetSubstringNoSymbols() {
+        verifyGetSubstring("Git", '3', '5', "");
+    }
+
+    void verifyGetSubstring(String str, char firstSymbol, char secondSymbol, String expected) {
+        String actual = stringUtil.getSubstring(str, firstSymbol, secondSymbol);
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    void testSubstringSymbol1() {
-        testSubstringSymbol("Hello Java", 'J', 'a', "Ja");
-    }
+    //Tests for Task6
 
     @Test
-    void testSubstringSymbol2() {
-        testSubstringSymbol("gGit", 'G', 't', "Git");
-    }
-
-    //Test for Task6
-    void testReplace(String str1, String oldValue, String newValue, String expected) {
-        String actual = stringUtil.replace(str1, oldValue, newValue);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    void testReplace1() {
-        testReplace("Hello Java:(", ":(", ":)", "Hello Java:)");
+    void testReplace() {
+        verifyReplace("Hello Java:(", ":(", ":)", "Hello Java:)");
     }
 
     @Test
     void testReplaceParenthesisCheck() {
-        testReplace("Hello() Java:(", ":(", ":)", "Hello() Java:)");
+        verifyReplace("Hello()))))):) Ja()va:((", ":(", ":)", "Hello()))))):) Ja()va:)(");
     }
 
-    //Test for Task7
-    void testStartAndEndWithWord(String str1, String word, Boolean expected) {
-        Boolean actual = stringUtil.startAndEndWithWord(str1, word);
+    @Test
+    void testReplaceNullNewValue() {
+        verifyReplace("opp:(", ":(", null, "opp");
+    }
+
+    @Test
+    void testReplaceNullOLdValue() {
+        verifyReplace("opp:(", null, "5", "opp:(");
+    }
+
+    @Test
+    void testReplaceNullString() {
+        verifyReplace(null, "4", "5", null);
+    }
+
+    void verifyReplace(String str, String oldValue, String newValue, String expected) {
+        String actual = stringUtil.replace(str, oldValue, newValue);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task7
     @Test
-    void testStartAndEndWithWordCaseSensitive() {
-        testStartAndEndWithWord("Hello,Java,Hello", "hello", false);
+    void testStartAndEndWithWordRegisterCheck() {
+        verifyStartAndEndWithWord("Hello,Java,Hello", "hello", false);
     }
 
     @Test
-    void testStartAndEndWithWord2() {
-        testStartAndEndWithWord("Hello,Java,Hello", "Hello", true);
+    void testStartAndEndWithWord() {
+        verifyStartAndEndWithWord("Hello,Java,Hello", "Hello", true);
     }
 
     @Test
     void testStartAndEndWithWordOnlyStart() {
-        testStartAndEndWithWord("Hello,Java", "Hello", false);
+        verifyStartAndEndWithWord("Hello,Java", "Hello", false);
     }
 
     @Test
     void testStartAndEndWithWordOnlyEnd() {
-        testStartAndEndWithWord("Java, hello", "hello", false);
+        verifyStartAndEndWithWord("Java, hello", "hello", false);
     }
 
-    //Test for Task8
-    void testCountVowels(String str1, int expected) {
-        int actual = stringUtil.countVowels(str1);
+    @Test
+    void testStartAndEndWithWordNullText() {
+        verifyStartAndEndWithWord(null, "hello", false);
+    }
+
+    @Test
+    void testStartAndEndWithWordNullWord() {
+        verifyStartAndEndWithWord("hello", null, false);
+    }
+
+    void verifyStartAndEndWithWord(String str1, String word, Boolean expected) {
+        Boolean actual = stringUtil.isStartAndEndWithWord(str1, word);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //Tests for Task8
+
+    @Test
+    void testCountVowels() {
+        verifyCountVowels("Hello", 2);
+    }
+
+    @Test
+    void testCountVowelsRegisterCheck() {
+        verifyCountVowels("GIT is SOFTWARE for tracking changes", 10);
+    }
+
+    @Test
+    void testCountVowelsNullString() {
+        verifyCountVowels(null, 0);
+    }
+
+    void verifyCountVowels(String str, int expected) {
+        int actual = stringUtil.countVowels(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //Tests for Task9
+
+    @Test
+    void testPunctuationMarks() {
+        verifyPunctuationMarks("Hello, Java!?.", 4);
+    }
+
+    @Test
+    void testPunctuationMarksNullString() {
+        verifyPunctuationMarks(null, 0);
+    }
+
+    void verifyPunctuationMarks(String str1, int expected) {
+        int actual = stringUtil.countPunctuationMarks(str1);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //Tests for Task10
+
+    void testIsPalindrome(String str1, boolean expected) {
+        boolean actual = stringUtil.isPalindrome(str1);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    void testCountVowels1() {
-        testCountVowels("Hello", 2);
+    void testIsPalindrome() {
+        testIsPalindrome("Deed", true);
     }
 
     @Test
-    void testCountVowels2() {
-        testCountVowels("GIT is SOFTWARE for tracking changes", 10);
-    }
-
-    //Test for Task9
-    void testPunctuationMarks(String str1, int expected) {
-        int actual = stringUtil.punctuationMarks(str1);
-        Assertions.assertEquals(expected, actual);
+    void testIsPalindromeNumbers() {
+        testIsPalindrome("1991", true);
     }
 
     @Test
-    void testPunctuationMarks1() {
-        testPunctuationMarks("Hello, Java!!!", 4);
+    void testIsNotPalindrome() {
+        testIsPalindrome("Java", false);
     }
 
     @Test
-    void testPunctuationMarks2() {
-        testPunctuationMarks("Is it Git and GitHub the same? No,different! Okay...", 6);
-    }
-
-    //Test for Task10
-    void testIfPalindrome(String str1, boolean expected) {
-        boolean actual = stringUtil.ifPalindrome(str1);
-        Assertions.assertEquals(expected, actual);
+    void testIsPalindromePunctuation() {
+        testIsPalindrome("Do geese see God?", true);
     }
 
     @Test
-    void testIfPalindrome1() {
-        testIfPalindrome("Deed", true);
+    void testIsPalindromeSpecialSymbols() {
+        testIsPalindrome("1991\n", true);
     }
 
     @Test
-    void testIfPalindrome2() {
-        testIfPalindrome("Java", false);
+    void testIsPalindromeStringNull() {
+        testIsPalindrome(null, false);
     }
 
-    @Test
-    void testIfPalindromePunctuationAccounting() {
-        testIfPalindrome("Do geese see God?", true);
-    }
-
-    @Test
-    void testIfPalindromeNumbers() {
-        testIfPalindrome("1991", true);
-    }
-
-    //    Test for Task11
-    void testSplitToArray(String str1, int numberSymbolsInEveryNewArray, String[] expected) {
-        String[] actual = stringUtil.splitToArray(str1, numberSymbolsInEveryNewArray);
-        Assertions.assertArrayEquals(expected, actual);
-    }
+    //Tests  for Task11
 
     @Test
     void testSplitToArrayEvenAmount() {
-        testSplitToArray("Hello!", 2, new String[]{"He", "ll", "o!"});
+        verifySplitToArray("Hello!", 2, new String[]{"He", "ll", "o!"});
     }
 
     @Test
     void testSplitToArrayOddAmount() {
-        testSplitToArray("Hello", 2, new String[]{"He", "ll", "o"});
+        verifySplitToArray("Hello", 3, new String[]{"Hel", "lo"});
     }
 
-    //Test for Task12
-    void testCountNumberWords(String str1, int expected) {
+    @Test
+    void testSplitToArrayStringNull() {
+        verifySplitToArray(null, 3, null);
+    }
+
+    void verifySplitToArray(String str1, int numberSymbolsInEveryNewArray, String[] expected) {
+        String[] actual = stringUtil.splitToArray(str1, numberSymbolsInEveryNewArray);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //Tests for Task12
+
+    @Test
+    void testCountNumberWordsWhiteSpaces() {
+        verifyCountNumberWords(" Hello    Java Java ", 3);
+    }
+
+    @Test
+    void testCountNumberWordsPunctuation() {
+        verifyCountNumberWords(" Hello,0 va Java Java! ", 5);
+    }
+
+    @Test
+    void testCountNumberWordsSpecialSymbols() {
+        verifyCountNumberWords(" Hello,0 \n Java Java! ", 4);
+    }
+
+    @Test
+    void testCountNumberWordsStringNull() {
+        verifyCountNumberWords(null, 0);
+    }
+
+    void verifyCountNumberWords(String str1, int expected) {
         int actual = stringUtil.countNumberWords(str1);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task13
+
     @Test
-    void testCountNumberWordsNotOneWhiteSpace() {
-        testCountNumberWords(" Hello    Java Java ", 3);
+    void testGetFirstCharacters() {
+        verifyGetFirstCharacters("Alena Trafimovich", "AT");
     }
 
     @Test
-    void testCountNumberWordsPunctuationAccording() {
-        testCountNumberWords(" Hello,0 va Java Java! ", 5);
+    void testGetFirstCharactersLowerCase() {
+        verifyGetFirstCharacters("alena  trafimovich-ivanova", "AT");
     }
 
-    //Test for Task13
-    void testGetFirstCharacters(String str1, String expected) {
+    @Test
+    void testGetFirstCharactersNullString() {
+        verifyGetFirstCharacters(null, "");
+    }
+
+    void verifyGetFirstCharacters(String str1, String expected) {
         String actual = stringUtil.getFirstCharacters(str1);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task14
+
     @Test
-    void testGetFirstCharacters1() {
-        testGetFirstCharacters("Alena Trafimovich", "AT");
+    void testGetNumbers() {
+        verifyGetNumbers("Hello1234bye", "1234");
     }
 
     @Test
-    void testGetFirstCharacters2() {
-        testGetFirstCharacters("alena  trafimovich", "AT");
+    void testGetNumbersNullString() {
+        verifyGetNumbers(null, "");
     }
 
-    //Test for Task14
-    void testGetNumbers (String str1, String expected) {
-        String actual = stringUtil.getNumbers(str1);
+    void verifyGetNumbers(String str, String expected) {
+        String actual = stringUtil.getNumbers(str);
         Assertions.assertEquals(expected, actual);
     }
 
+    //Test for Task15
+
     @Test
-    void testGetNumbers1 () {
-        testGetNumbers("Hello1234","1234");
+    void testGetUniqueSymbols() {
+        verifyGetUniqueSymbols("Jjava", "Hhava", "jh");
     }
 
+    @Test
+    void testGetUniqueSymbolsNumbers() {
+        verifyGetUniqueSymbols("Jjava3258", "Hhava325", "j8h");
+    }
 
+    @Test
+    void testGetUniqueSymbolsNumbersFirstNull() {
+        verifyGetUniqueSymbols(null, "Git", "Git");
+    }
+
+    @Test
+    void testGetUniqueSymbolsNumbersSecondNull() {
+        verifyGetUniqueSymbols("Java", null, "Java");
+    }
+
+    @Test
+    void testGetUniqueSymbolsNumbersBothNulls() {
+        verifyGetUniqueSymbols(null, null, null);
+    }
+
+    void verifyGetUniqueSymbols(String str1, String str2, String expected) {
+        String actual = stringUtil.getUniqueSymbols(str1, str2);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    //Tests for Task18
+
+    @Test
+    void testRemoveDuplicateLetters() {
+        verifyRemoveDuplicateLetters("aaabbcdeef", "abcdef");
+    }
+
+    @Test
+    void testRemoveDuplicateLettersDigits() {
+        verifyRemoveDuplicateLetters("2552255", "2525");
+    }
+
+    @Test
+    void testRemoveDuplicateNullString() {
+        verifyRemoveDuplicateLetters(null, "");
+    }
+
+    void verifyRemoveDuplicateLetters(String str, String expected) {
+        String actual = stringUtil.removeDuplicateLetters(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }

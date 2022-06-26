@@ -3,126 +3,215 @@ package com.rakovets.course.java.core.practice.strings;
 public class StringUtil {
     //Task 1
     public String concat(String str1, String str2) {
-        return str1 + str2;
+        if (str1 == null && str2 == null) {
+            return null;
+        } else if (str1 == null) {
+            return str2;
+        } else if (str2 == null) {
+            return str1;
+        } else {
+            return str1.concat(str2);
+        }
     }
 
     //Task 2
-    public int indexOf(String str1, char symbol) {
-        return str1.indexOf(symbol);
+    public int getIndexOfSymbol(String str, char symbol) {
+        return str != null ? str.indexOf(symbol) : -1;
     }
 
     //Task 3
-    public boolean equals(String str1, String str2) {
-        return str1.equals(str2);
+    public boolean isEqual(String str1, String str2) {
+        if (str1 == null) {
+            return str2 == null;
+        } else {
+            return str1.equals(str2);
+        }
     }
 
     //Task 4
-    public String trimSpaceLowerCase(String str1) {
-        return (str1.trim()).toLowerCase();
+    public String getTrimSpaceToLowerCase(String str) {
+        return str == null ? null : str.trim().toLowerCase();
     }
 
     //Task 5
-    public String substringSymbol(String str1, char firstSymbol, char secondSymbol) {
-        int indexFirstSymbol = indexOf(str1, firstSymbol);
-        int indexSecondSymbol = indexOf(str1, secondSymbol);
-        return str1.substring(indexFirstSymbol, indexSecondSymbol);
+    // excluding second symbol
+    public String getSubstring(String str, char firstSymbol, char secondSymbol) {
+        int indexFirstSymbol = getIndexOfSymbol(str, firstSymbol);
+        int indexSecondSymbol = getIndexOfSymbol(str, secondSymbol);
+        return indexFirstSymbol < 0 || indexSecondSymbol < 0 ? "" : str.substring(indexFirstSymbol, indexSecondSymbol);
     }
 
     //Task 6
-    public String replace(String str1, String oldValue, String newValue) {
-        return str1.replace(oldValue, newValue);
+    public String replace(String str, String oldValue, String newValue) {
+        if (str == null) {
+            return null;
+        } else if (oldValue == null) {
+            return str;
+        } else if (newValue == null) {
+            newValue = "";
+        }
+        return str.replace(oldValue, newValue);
     }
 
     //Task 7
-    public boolean startAndEndWithWord(String text, String word) {
-        return text.startsWith(word) && text.endsWith(word);
+    public boolean isStartAndEndWithWord(String text, String word) {
+        return text != null && word != null && text.startsWith(word) && text.endsWith(word);
     }
 
     //Task 8
-    public int countVowels(String str1) {
-        int amount = 0;
+    public int countVowels(String str) {
+        int amountVowels = 0;
+        if (str == null) {
+            return amountVowels;
+        }
         char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
-        char[] str1ToArray = str1.toLowerCase().toCharArray();
+        char[] str1ToArray = str.toLowerCase().toCharArray();
         for (char c : str1ToArray) {
             for (char vowel : vowels) {
                 if (c == vowel) {
-                    amount++;
+                    amountVowels++;
                 }
             }
         }
-        return amount;
+        return amountVowels;
     }
 
     //Task 9
-    public int punctuationMarks(String str1) {
-        int amount = 0;
+    public int countPunctuationMarks(String str) {
+        int amountPunctuationMarks = 0;
+        if (str == null) {
+            return amountPunctuationMarks;
+        }
         char[] punctuationMarks = {',', '.', '!', '?'};
-        char[] str1ToArray = str1.toCharArray();
+        char[] str1ToArray = str.toCharArray();
         for (char c : str1ToArray) {
             for (char punctuationMark : punctuationMarks) {
                 if (c == punctuationMark) {
-                    amount++;
+                    amountPunctuationMarks++;
                 }
             }
         }
-        return amount;
+        return amountPunctuationMarks;
     }
 
     //Task 10
-    public boolean ifPalindrome(String str1) {
-        String improved = str1.toLowerCase().replaceAll("\\W", "");
-        StringBuilder stringBuilder = new StringBuilder(improved);
+    public boolean isPalindrome(String str) {
+        if (str == null) {
+            return false;
+        }
+        String modified = str.toLowerCase().replaceAll("\\W", "");
+        StringBuilder stringBuilder = new StringBuilder(modified);
         String inverted = stringBuilder.reverse().toString();
-        return equals(improved, inverted);
+        return isEqual(modified, inverted);
     }
 
-    //    Task 11
-    public String[] splitToArray(String str1, int numberSymbolsInEveryNewArray) {
-        StringBuilder stringBuilder = new StringBuilder(str1);
+    //Task 11
+    public String[] splitToArray(String str, int numberSymbols) {
+        if (str == null) {
+            return null;
+        }
         int length = 0;
-        if (stringBuilder.length() % numberSymbolsInEveryNewArray == 0) {
-            length += stringBuilder.length() / numberSymbolsInEveryNewArray;
+        if (str.length() % numberSymbols == 0) {
+            length += str.length() / numberSymbols;
         } else {
-            length += stringBuilder.length() / numberSymbolsInEveryNewArray + 1;
+            length += str.length() / numberSymbols + 1;
         }
         String[] array = new String[length];
         for (int i = 0; i < length; i++) {
             if (i == length - 1) {
-                array[i] = stringBuilder.toString();
-                break;
+                array[i] = str.substring(i * numberSymbols);
+            } else {
+                array[i] = str.substring(i * numberSymbols, i * numberSymbols + numberSymbols);
             }
-            array[i] = stringBuilder.substring(0, numberSymbolsInEveryNewArray);
-            stringBuilder.delete(0, numberSymbolsInEveryNewArray);
         }
         return array;
     }
 
     //Task 12
-    public int countNumberWords(String str1) {
-        return str1.trim().replaceAll("\\pP", " ").split(" +").length;
+    public int countNumberWords(String str) {
+        return str == null ? 0 : str.trim().replaceAll("[\\pP\\s]", " ").split(" +").length;
     }
 
-//Task 13
-    public String getFirstCharacters(String str1) {
+    //Task 13
+    public String getFirstCharacters(String str) {
+        if (str == null) {
+            return "";
+        }
         StringBuilder stringBuilder = new StringBuilder();
-        for (String word : str1.toUpperCase().split(" +")) {
+        for (String word : str.toUpperCase().split(" +")) {
             stringBuilder.append(word.charAt(0));
         }
         return stringBuilder.toString();
     }
 
     //Task 14
-    public String getNumbers(String str1) {
-        char [] numbers = {'0','1','2','3','4','5','6','7','8','9'};
-       char [] array = str1.toCharArray();
-       StringBuilder stringBuilder = new StringBuilder();
+    public String getNumbers(String str) {
+        if (str == null) {
+            return "";
+        }
+        char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        char[] array = str.toCharArray();
+        StringBuilder stringBuilder = new StringBuilder();
         for (char symbol : array) {
             for (char number : numbers) {
                 if (symbol == number) {
-                    stringBuilder.append(symbol);}
+                    stringBuilder.append(symbol);
                 }
             }
-        return stringBuilder.toString();
         }
+        return stringBuilder.toString();
     }
 
+    //Task 15
+    public String getUniqueSymbols(String str1, String str2) {
+        if (str1 == null && str2 == null) {
+            return null;
+        } else if (str1 == null) {
+            return str2;
+        } else if (str2 == null) {
+            return str1;
+        }
+        String input1 = str1.toLowerCase();
+        String input2 = str2.toLowerCase();
+        return findUniqueCharsinArray(input1, input2).concat(findUniqueCharsinArray(input2, input1));
+    }
+
+    private String findUniqueCharsinArray(String input1, String input2) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < input1.length(); i++) {
+            boolean similar = false;
+            char current = input1.charAt(i);
+            for (int j = 0; j < input2.length(); j++) {
+                if (current == input2.charAt(j)) {
+                    similar = true;
+                    break;
+                }
+            }
+            if (!similar && !result.toString().contains(String.valueOf(current))) {
+                result.append(current);
+            }
+        }
+        return result.toString();
+    }
+
+    //Task 18
+    public String removeDuplicateLetters(String str) {
+        if (str == null) {
+            return "";
+        }
+        char[] array = str.toLowerCase().toCharArray();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            int j;
+            if (i == array.length - 1) {
+                stringBuilder.append(array[i]);
+                break;
+            }
+            j = i + 1;
+            if (array[i] != array[j]) {
+                stringBuilder.append(array[i]);
+            }
+        }
+        return stringBuilder.toString();
+    }
+}
