@@ -4,16 +4,25 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestStringUtil {
-    StringUtil actualString = new StringUtil();
+    StringUtil stringUtil = new StringUtil();
     @Test
     void testConcatWithTwoValues() {
-        testConcat("123", "456", "123456");
+        testValues("123", "456", "123456");
     }
 
     @Test
-    void testConcatWithEmptyValues() {
-        testConcat("", "","");
+    void testConcatWithEmptyValues() {testValues("", "", "");}
+
+    @Test
+    void testGetIndexOfSymbol() {
+        testValues("Hello", "l", String.valueOf(2));
     }
 
-    void testConcat(String input1, String input2, String expected) {}
+    @Test
+    void testGetIndexOfSymbolIfWrong() {
+        testValues("Hello", "b", String.valueOf(-1));
+    }
+
+    void testValues(String input1, String input2, String expected) {}
 }
+
