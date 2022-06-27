@@ -446,6 +446,22 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    //Tests for Task17
+    @Test
+    void testGetSpeed1() {
+        System.out.println(stringUtil.getSpeed("10",10));
+    }
+
+    @Test
+    void testGetSpeed2() {
+        System.out.println(stringUtil.getSpeed("10",15));
+    }
+
+    @Test
+    void testGetSpeed3() {
+        System.out.println(stringUtil.getSpeed("10",20));
+    }
+
     //Tests for Task18
 
     @Test

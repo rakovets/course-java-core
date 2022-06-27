@@ -3,26 +3,6 @@ package com.rakovets.course.java.core.practice.strings;
 import java.util.Arrays;
 
 public class StringUtil {
-    //Task 17
-    private static void getSeconds(String str, int amountOfEditions) {
-        long first = System.currentTimeMillis();
-        for (int i = 0; i < amountOfEditions; i++) {
-            str += str;
-        }
-        long second = System.currentTimeMillis();
-        long third = System.currentTimeMillis();
-        StringBuilder stringBuilder = new StringBuilder(str);
-        for (int i = 0; i < amountOfEditions; i++) {
-            stringBuilder.append(str);
-        }
-        long fourth = System.currentTimeMillis();
-        System.out.println(second - first);
-        System.out.println(fourth - third);
-    }
-
-    public static void main(String[] args) {
-        getSeconds("1", 30);
-    }
 
     //Task 1
     public String concat(String str1, String str2) {
@@ -226,6 +206,23 @@ public class StringUtil {
         return first.concat(second).equals("");
     }
 
+    //Task 17
+    public String getSpeed(String str, int amountOfEditions) {
+        StringBuilder stringBuilder = new StringBuilder(str);
+        long startFirstCycle = System.currentTimeMillis();
+        for (int i = 0; i < amountOfEditions; i++) {
+            str += str;
+        }
+        long endFirstCycle = System.currentTimeMillis();
+        long startSecondCycle= System.currentTimeMillis();
+        for (int i = 0; i < amountOfEditions; i++) {
+            stringBuilder.append(str);
+        }
+        long endSecondCycle = System.currentTimeMillis();
+        return "Speed (Addition operator):" + (endFirstCycle-startFirstCycle) + "\nSpeed (StringBuilder):"
+                + (endSecondCycle-startSecondCycle);
+    }
+
     //Task 18
     public String removeDuplicateLetters(String str) {
         if (str == null) {
@@ -246,6 +243,7 @@ public class StringUtil {
         }
         return stringBuilder.toString();
     }
+
 }
 
 
