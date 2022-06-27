@@ -261,7 +261,6 @@ public class StringUtil {
         for (String word : arrayOfFirstStringSymbols) {
             receiveDifferentSymbols.append(word);
         }
-
         for (String word : arrayOfSecondStringSymbols) {
             receiveDifferentSymbols.append(word);
         }
