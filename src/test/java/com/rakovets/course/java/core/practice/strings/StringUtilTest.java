@@ -419,6 +419,33 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    //    Tests for Task16
+
+    @Test
+    void testIsArraySimilarDigitsNotIdentical() {
+        verifyIsArraySimilar(new String[]{"3", "5", "6"}, new String[]{"1", "2", "6"}, false);
+    }
+
+    @Test
+    void testIsArraySimilarNull() {
+        verifyIsArraySimilar(new String[]{null, "6", "7"}, new String[]{"7", "6", "6"}, false);
+    }
+
+    @Test
+    void testIsArraySimilarWords() {
+        verifyIsArraySimilar(new String[]{"JOB", "JAVA"}, new String[]{"JAVA", "JOB"}, true);
+    }
+
+    @Test
+    void testIsArraySimilarDigitsIdentical() {
+        verifyIsArraySimilar(new String[]{"56", "28"}, new String[]{"28", "56"}, true);
+    }
+
+    void verifyIsArraySimilar(String[] array1, String[] array2, boolean expected) {
+        boolean actual = stringUtil.isArraySimilar(array1, array2);
+        Assertions.assertEquals(expected, actual);
+    }
+
     //Tests for Task18
 
     @Test

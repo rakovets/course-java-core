@@ -1,6 +1,29 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.util.Arrays;
+
 public class StringUtil {
+    //Task 17
+    private static void getSeconds(String str, int amountOfEditions) {
+        long first = System.currentTimeMillis();
+        for (int i = 0; i < amountOfEditions; i++) {
+            str += str;
+        }
+        long second = System.currentTimeMillis();
+        long third = System.currentTimeMillis();
+        StringBuilder stringBuilder = new StringBuilder(str);
+        for (int i = 0; i < amountOfEditions; i++) {
+            stringBuilder.append(str);
+        }
+        long fourth = System.currentTimeMillis();
+        System.out.println(second - first);
+        System.out.println(fourth - third);
+    }
+
+    public static void main(String[] args) {
+        getSeconds("1", 30);
+    }
+
     //Task 1
     public String concat(String str1, String str2) {
         if (str1 == null && str2 == null) {
@@ -194,6 +217,15 @@ public class StringUtil {
         return result.toString();
     }
 
+    //Task 16
+    public boolean isArraySimilar(String[] array1, String[] array2) {
+        String input1 = Arrays.toString(array1);
+        String input2 = Arrays.toString(array2);
+        String first = findUniqueCharsinArray(input1, input2);
+        String second = findUniqueCharsinArray(input2, input1);
+        return first.concat(second).equals("");
+    }
+
     //Task 18
     public String removeDuplicateLetters(String str) {
         if (str == null) {
@@ -215,3 +247,5 @@ public class StringUtil {
         return stringBuilder.toString();
     }
 }
+
+
