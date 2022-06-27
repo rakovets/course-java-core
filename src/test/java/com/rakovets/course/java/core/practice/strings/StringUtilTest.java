@@ -419,7 +419,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //    Tests for Task16
+    //Tests for Task16
 
     @Test
     void testIsArraySimilarDigitsNotIdentical() {
@@ -447,19 +447,20 @@ public class StringUtilTest {
     }
 
     //Tests for Task17
+
     @Test
-    void testGetSpeed1() {
-        System.out.println(stringUtil.getSpeed("10",10));
+    void testGetSpeedOfAddition1() {
+        System.out.println(stringUtil.getSpeedOfAddition("10", 10));
     }
 
     @Test
-    void testGetSpeed2() {
-        System.out.println(stringUtil.getSpeed("10",15));
+    void testGetSpeedOfAddition2() {
+        System.out.println(stringUtil.getSpeedOfAddition("10", 15));
     }
 
     @Test
-    void testGetSpeed3() {
-        System.out.println(stringUtil.getSpeed("10",20));
+    void testGetSpeedOfAddition3() {
+        System.out.println(stringUtil.getSpeedOfAddition("10", 20));
     }
 
     //Tests for Task18
