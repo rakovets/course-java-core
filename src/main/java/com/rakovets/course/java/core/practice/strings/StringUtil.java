@@ -68,8 +68,8 @@ public class StringUtil {
             return amountVowels;
         }
         char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
-        char[] str1ToArray = str.toLowerCase().toCharArray();
-        for (char c : str1ToArray) {
+        char[] strArray = str.toLowerCase().toCharArray();
+        for (char c : strArray) {
             for (char vowel : vowels) {
                 if (c == vowel) {
                     amountVowels++;
@@ -86,8 +86,8 @@ public class StringUtil {
             return amountPunctuationMarks;
         }
         char[] punctuationMarks = {',', '.', '!', '?'};
-        char[] str1ToArray = str.toCharArray();
-        for (char c : str1ToArray) {
+        char[] strArray = str.toCharArray();
+        for (char c : strArray) {
             for (char punctuationMark : punctuationMarks) {
                 if (c == punctuationMark) {
                     amountPunctuationMarks++;
@@ -176,16 +176,16 @@ public class StringUtil {
         }
         String input1 = str1.toLowerCase();
         String input2 = str2.toLowerCase();
-        return findUniqueCharsinArray(input1, input2).concat(findUniqueCharsinArray(input2, input1));
+        return findUniqueCharsofString(input1, input2).concat(findUniqueCharsofString(input2, input1));
     }
 
-    private String findUniqueCharsinArray(String input1, String input2) {
+    private String findUniqueCharsofString(String str1, String str2) {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < input1.length(); i++) {
+        for (int i = 0; i < str1.length(); i++) {
             boolean similar = false;
-            char current = input1.charAt(i);
-            for (int j = 0; j < input2.length(); j++) {
-                if (current == input2.charAt(j)) {
+            char current = str1.charAt(i);
+            for (int j = 0; j < str2.length(); j++) {
+                if (current == str2.charAt(j)) {
                     similar = true;
                     break;
                 }
@@ -199,28 +199,26 @@ public class StringUtil {
 
     //Task 16
     public boolean isArraySimilar(String[] array1, String[] array2) {
-        String input1 = Arrays.toString(array1);
-        String input2 = Arrays.toString(array2);
-        String first = findUniqueCharsinArray(input1, input2);
-        String second = findUniqueCharsinArray(input2, input1);
-        return first.concat(second).equals("");
+        String str1 = Arrays.toString(array1);
+        String str2 = Arrays.toString(array2);
+        return findUniqueCharsofString(str1, str2).concat(findUniqueCharsofString(str2, str1)).equals("");
     }
 
     //Task 17
-    public String getSpeed(String str, int amountOfEditions) {
+    public String getSpeedOfAddition(String str, int amountOfEditions) {
         StringBuilder stringBuilder = new StringBuilder(str);
         long startFirstCycle = System.currentTimeMillis();
         for (int i = 0; i < amountOfEditions; i++) {
             str += str;
         }
         long endFirstCycle = System.currentTimeMillis();
-        long startSecondCycle= System.currentTimeMillis();
+        long startSecondCycle = System.currentTimeMillis();
         for (int i = 0; i < amountOfEditions; i++) {
             stringBuilder.append(str);
         }
         long endSecondCycle = System.currentTimeMillis();
-        return "Speed (Addition operator):" + (endFirstCycle-startFirstCycle) + "\nSpeed (StringBuilder):"
-                + (endSecondCycle-startSecondCycle);
+        return "Speed (Addition operator):" + (endFirstCycle - startFirstCycle) + "\nSpeed (StringBuilder):"
+                + (endSecondCycle - startSecondCycle);
     }
 
     //Task 18
@@ -228,22 +226,19 @@ public class StringUtil {
         if (str == null) {
             return "";
         }
-        char[] array = str.toLowerCase().toCharArray();
+        char[] strArray = str.toLowerCase().toCharArray();
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < strArray.length; i++) {
             int j;
-            if (i == array.length - 1) {
-                stringBuilder.append(array[i]);
+            if (i == strArray.length - 1) {
+                stringBuilder.append(strArray[i]);
                 break;
             }
             j = i + 1;
-            if (array[i] != array[j]) {
-                stringBuilder.append(array[i]);
+            if (strArray[i] != strArray[j]) {
+                stringBuilder.append(strArray[i]);
             }
         }
         return stringBuilder.toString();
     }
-
 }
-
-
