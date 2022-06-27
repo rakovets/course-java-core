@@ -6,50 +6,34 @@ import org.junit.jupiter.api.Test;
 public class StringUtilTest {
     StringUtil stringUtil = new StringUtil();
 
-    //task 1
     @Test
-    void testJoinTwoStrings() {
-        //Given
-        String expected = "Done";
-        //When
-        String actual = stringUtil.joinTwoStrings("Do", "ne");
-        //Then
-        Assertions.assertEquals(expected, actual);
-    }
-
-    //task 2
-    @Test
-    void testFindIndex() {
-        //Given
-        int expected = 0;
-        //When
-        int actual = stringUtil.findIndex("distance", "d");
-        //Then
-        Assertions.assertEquals(expected, actual);
-    }
-
-    //task 3
-    @Test
-    void testFindMissingCharIndex() {
-        //Given
-        int expected = -1;
-        //When
-        int actual = stringUtil.findIndex("distance", "l");
-        //Then
+    void testJoinTwoStrings(String inputString, String anotherInputString, String expected) {
+        String actual = stringUtil.joinTwoStrings(inputString, anotherInputString);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    void testFindMiddleIndex() {
-        //Given
-        int expected = 4;
-        //When
-        int actual = stringUtil.findIndex("distance", "a");
-        //Then
+    void testingJoinTwoStrings() {
+        testJoinTwoStrings("Do", "ne", "Done");
+        testJoinTwoStrings("", "done", "done");
+        testJoinTwoStrings("null", "done", "nulldone");
+    }
+
+    @Test
+    void testFindIndex(String currentString, String userString, int expected) {
+        int actual = stringUtil.findIndex(currentString, userString);
         Assertions.assertEquals(expected, actual);
     }
 
-    //task 4
+    @Test
+    void testingFindIndex() {
+        testFindIndex("Hello world", "w", 6);
+        testFindIndex("Hello world", " ", 5);
+        testFindIndex("Hello world", "H", 0);
+        testFindIndex("Hello world", "h", -1);
+        testFindIndex("Hello world", "l", 2);
+    }
+
     @Test
     void testCompareStrings(String string1, String string2, boolean expected) {
         //When
@@ -62,16 +46,17 @@ public class StringUtilTest {
     void testingCompareStrings() {
         testCompareStrings("any", "any", true);
         testCompareStrings("any", "Any", false);
+        testCompareStrings("any ", "any", false);
+        testCompareStrings(" any", "any", false);
         testCompareStrings("", "any", false);
         testCompareStrings("null", "any", false);
+        testCompareStrings("any case", "any case", true);
+        testCompareStrings("anycase", "any case", false);
     }
 
-    //task 5
     @Test
     void testDeleteSpacesAndChangeToLowerCase(String currentString, String expected) {
-        //When
         String actual = stringUtil.deleteSpacesAndChangeToLowerCase(currentString);
-        //Then
         Assertions.assertEquals(expected, actual);
     }
 
@@ -80,9 +65,10 @@ public class StringUtilTest {
         testDeleteSpacesAndChangeToLowerCase(" Dave Smith ", "dave smith");
         testDeleteSpacesAndChangeToLowerCase("Dave Smith ", "dave smith");
         testDeleteSpacesAndChangeToLowerCase(" Dave Smith", "dave smith");
+        testDeleteSpacesAndChangeToLowerCase("Dave Smith", "dave smith");
+        testDeleteSpacesAndChangeToLowerCase("  Dave Smith     ", "dave smith");
     }
 
-    //task 5
     @Test
     void testGetCharsFromToExactChar(String currentString, int startExtractingIndex, int endExtractingIndex, int startCounterIndex, String expected) {
         //When
@@ -95,9 +81,9 @@ public class StringUtilTest {
     void testingGetCharsFromToExactChar() {
         testGetCharsFromToExactChar("hello world!", 6, 11, 0, "world");
         testGetCharsFromToExactChar("hello world!", 0, 5, 0, "hello");
+        testGetCharsFromToExactChar("hello world!", 3, 8, 0, "lo wo");
     }
 
-    //task 6
     @Test
     void testReplaceSadEmojiWithGladEmoji(String currentString, String expected) {
         //When
@@ -108,16 +94,15 @@ public class StringUtilTest {
 
     @Test
     void testingReplaceSadEmojiWithGladEmoji() {
-        testReplaceSadEmojiWithGladEmoji(":(", ":)" );
-        testReplaceSadEmojiWithGladEmoji("Hey world:(", "Hey world:)" );
-        testReplaceSadEmojiWithGladEmoji("Hey:(, world:(", "Hey:), world:)" );
-        testReplaceSadEmojiWithGladEmoji("( Hey world:( )", "( Hey world:) )" );
+        testReplaceSadEmojiWithGladEmoji(":(", ":)");
+        testReplaceSadEmojiWithGladEmoji("Hey world:(", "Hey world:)");
+        testReplaceSadEmojiWithGladEmoji("Hey:(, world:(", "Hey:), world:)");
+        testReplaceSadEmojiWithGladEmoji("( Hey world:( )", "( Hey world:) )");
     }
 
-    //task 7
     @Test
-    void testCompareStartAndEndWord (String text, String word, boolean expected) {
-        boolean actual = stringUtil.compareStartAndEndWord(text,word);
+    void testCompareStartAndEndWord(String text, String word, boolean expected) {
+        boolean actual = stringUtil.compareStartAndEndWord(text, word);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -127,33 +112,55 @@ public class StringUtilTest {
         testCompareStartAndEndWord("world hello", "hello", false);
         testCompareStartAndEndWord("hello world", "hello", false);
         testCompareStartAndEndWord("hello hello", "hello", true);
+        testCompareStartAndEndWord("   ", "hello", false);
+        testCompareStartAndEndWord("null", "hello", false);
+        testCompareStartAndEndWord("hello hello", " ", false);
+        testCompareStartAndEndWord(" hello hello ", "hello", false);
+        testCompareStartAndEndWord(" hello hello ", " ", true);
     }
 
-    //task 8
     @Test
-    void testCountNumberOfVowels (String stringToCheck, int expected){
+    void testCountNumberOfVowels(String stringToCheck, int expected) {
         int actual = stringUtil.countNumberOfVowels(stringToCheck);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    void testingCountNumberOfVowels () {
+    void testingCountNumberOfVowels() {
         testCountNumberOfVowels("Hello Ann", 3);
         testCountNumberOfVowels("Everything is changing, Alice.", 10);
-        testCountNumberOfVowels ("BRB", 0);
+        testCountNumberOfVowels("BRB", 0);
     }
 
     //task 9
     @Test
-    void testCountNumberOfPunctuationMarks (String stringToCheck, int expected) {
+    void testCountNumberOfPunctuationMarks(String stringToCheck, int expected) {
         int actual = stringUtil.countNumberOfPunctuationMarks(stringToCheck);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    void testingCountNumberOfPunctuationMarks () {
+    void testingCountNumberOfPunctuationMarks() {
         testCountNumberOfPunctuationMarks("Sir, wait!", 2);
         testCountNumberOfPunctuationMarks("What is it, Kelly-jelly?", 3);
         testCountNumberOfPunctuationMarks("It is cold", 0);
+    }
+
+    @Test
+    void testIsTheStringPalindrome(String theStringToCheck, boolean expected) {
+        boolean actual = stringUtil.isTheStringPalindrome(theStringToCheck);
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @Test
+    void testingIsTheStringPalindrome() {
+        testIsTheStringPalindrome("dad", true);
+        testIsTheStringPalindrome("dad ", false);
+        testIsTheStringPalindrome(" dad", false);
+        testIsTheStringPalindrome("step on no pets", true);
+        testIsTheStringPalindrome("Dad", true);
+        testIsTheStringPalindrome("Dammit, I'm mad!", false);
+        testIsTheStringPalindrome("Dammit I'm mad", false);
+        testIsTheStringPalindrome("Dammit I m mad", false);
     }
 }
