@@ -387,7 +387,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Test for Task15
+    //Tests for Task15
 
     @Test
     void testGetUniqueSymbols() {
