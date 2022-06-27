@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
     private final StringUtil stringUtil = new StringUtil();
+    String str;
 
-    //Tests for Task1
     @Test
     void testConcatWithTwoValues() {
         verifyConcat("123", "456", "123456");
@@ -36,8 +36,6 @@ public class StringUtilTest {
         String actual = stringUtil.concat(str1, str2);
         Assertions.assertEquals(expected, actual);
     }
-
-    //Tests for Task2
 
     @Test
     void testGetIndexOfSymbolMiddle() {
@@ -69,8 +67,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task3
-
     @Test
     void testIsEqual() {
         verifyIsEqual("Hello", "Hello", true);
@@ -101,8 +97,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task4
-
     @Test
     void testGetTrimSpaceToLowerCaseLetters() {
         verifyGetTrimSpaceToLowerCase("   Hello    ", "hello");
@@ -128,8 +122,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task5
-
     @Test
     void testGetSubstring() {
         verifyGetSubstring("Hello Java", 'J', 'v', "Ja");
@@ -154,8 +146,6 @@ public class StringUtilTest {
         String actual = stringUtil.getSubstring(str, firstSymbol, secondSymbol);
         Assertions.assertEquals(expected, actual);
     }
-
-    //Tests for Task6
 
     @Test
     void testReplace() {
@@ -187,7 +177,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task7
     @Test
     void testStartAndEndWithWordRegisterCheck() {
         verifyStartAndEndWithWord("Hello,Java,Hello", "hello", false);
@@ -223,8 +212,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task8
-
     @Test
     void testCountVowels() {
         verifyCountVowels("Hello", 2);
@@ -245,8 +232,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task9
-
     @Test
     void testPunctuationMarks() {
         verifyPunctuationMarks("Hello, Java!?.", 4);
@@ -261,8 +246,6 @@ public class StringUtilTest {
         int actual = stringUtil.countPunctuationMarks(str1);
         Assertions.assertEquals(expected, actual);
     }
-
-    //Tests for Task10
 
     void testIsPalindrome(String str1, boolean expected) {
         boolean actual = stringUtil.isPalindrome(str1);
@@ -299,12 +282,11 @@ public class StringUtilTest {
         testIsPalindrome(null, false);
     }
 
-    //Tests  for Task11
-
     @Test
     void testSplitToArrayEvenAmount() {
         verifySplitToArray("Hello!", 2, new String[]{"He", "ll", "o!"});
     }
+
 
     @Test
     void testSplitToArrayOddAmount() {
@@ -320,8 +302,6 @@ public class StringUtilTest {
         String[] actual = stringUtil.splitToArray(str1, numberSymbolsInEveryNewArray);
         Assertions.assertArrayEquals(expected, actual);
     }
-
-    //Tests for Task12
 
     @Test
     void testCountNumberWordsWhiteSpaces() {
@@ -348,8 +328,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task13
-
     @Test
     void testGetFirstCharacters() {
         verifyGetFirstCharacters("Alena Trafimovich", "AT");
@@ -366,11 +344,9 @@ public class StringUtilTest {
     }
 
     void verifyGetFirstCharacters(String str1, String expected) {
-        String actual = stringUtil.getFirstCharacters(str1);
+        String actual = stringUtil.getFirstCharactersInUpperCase(str1);
         Assertions.assertEquals(expected, actual);
     }
-
-    //Tests for Task14
 
     @Test
     void testGetNumbers() {
@@ -386,8 +362,6 @@ public class StringUtilTest {
         String actual = stringUtil.getNumbers(str);
         Assertions.assertEquals(expected, actual);
     }
-
-    //Tests for Task15
 
     @Test
     void testGetUniqueSymbols() {
@@ -419,8 +393,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task16
-
     @Test
     void testIsArraySimilarDigitsNotIdentical() {
         verifyIsArraySimilar(new String[]{"3", "5", "6"}, new String[]{"1", "2", "6"}, false);
@@ -446,8 +418,6 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    //Tests for Task17
-
     @Test
     void testGetSpeedOfAddition1() {
         System.out.println(stringUtil.getSpeedOfAddition("10", 10));
@@ -459,11 +429,9 @@ public class StringUtilTest {
     }
 
     @Test
-    void testGetSpeedOfAddition3() {
+    void testGetSpeed3() {
         System.out.println(stringUtil.getSpeedOfAddition("10", 20));
     }
-
-    //Tests for Task18
 
     @Test
     void testRemoveDuplicateLetters() {

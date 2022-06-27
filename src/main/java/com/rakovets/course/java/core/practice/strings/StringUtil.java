@@ -1,10 +1,7 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
-
 public class StringUtil {
-
-    //Task 1
     public String concat(String str1, String str2) {
         if (str1 == null && str2 == null) {
             return null;
@@ -17,12 +14,10 @@ public class StringUtil {
         }
     }
 
-    //Task 2
     public int getIndexOfSymbol(String str, char symbol) {
         return str != null ? str.indexOf(symbol) : -1;
     }
 
-    //Task 3
     public boolean isEqual(String str1, String str2) {
         if (str1 == null) {
             return str2 == null;
@@ -31,20 +26,16 @@ public class StringUtil {
         }
     }
 
-    //Task 4
     public String getTrimSpaceToLowerCase(String str) {
         return str == null ? null : str.trim().toLowerCase();
     }
 
-    //Task 5
-    // excluding second symbol
     public String getSubstring(String str, char firstSymbol, char secondSymbol) {
         int indexFirstSymbol = getIndexOfSymbol(str, firstSymbol);
         int indexSecondSymbol = getIndexOfSymbol(str, secondSymbol);
         return indexFirstSymbol < 0 || indexSecondSymbol < 0 ? "" : str.substring(indexFirstSymbol, indexSecondSymbol);
     }
 
-    //Task 6
     public String replace(String str, String oldValue, String newValue) {
         if (str == null) {
             return null;
@@ -56,12 +47,10 @@ public class StringUtil {
         return str.replace(oldValue, newValue);
     }
 
-    //Task 7
     public boolean isStartAndEndWithWord(String text, String word) {
         return text != null && word != null && text.startsWith(word) && text.endsWith(word);
     }
 
-    //Task 8
     public int countVowels(String str) {
         int amountVowels = 0;
         if (str == null) {
@@ -79,7 +68,6 @@ public class StringUtil {
         return amountVowels;
     }
 
-    //Task 9
     public int countPunctuationMarks(String str) {
         int amountPunctuationMarks = 0;
         if (str == null) {
@@ -97,7 +85,6 @@ public class StringUtil {
         return amountPunctuationMarks;
     }
 
-    //Task 10
     public boolean isPalindrome(String str) {
         if (str == null) {
             return false;
@@ -108,35 +95,27 @@ public class StringUtil {
         return isEqual(modified, inverted);
     }
 
-    //Task 11
     public String[] splitToArray(String str, int numberSymbols) {
         if (str == null) {
             return null;
         }
-        int length = 0;
-        if (str.length() % numberSymbols == 0) {
-            length += str.length() / numberSymbols;
-        } else {
-            length += str.length() / numberSymbols + 1;
-        }
+        int length = (str.length() % numberSymbols == 0) ? (str.length() / numberSymbols) : (str.length() / numberSymbols + 1);
         String[] array = new String[length];
         for (int i = 0; i < length; i++) {
             if (i == length - 1) {
                 array[i] = str.substring(i * numberSymbols);
             } else {
-                array[i] = str.substring(i * numberSymbols, i * numberSymbols + numberSymbols);
+                array[i] = str.substring(i * numberSymbols, numberSymbols*(i+1));
             }
         }
         return array;
     }
 
-    //Task 12
     public int countNumberWords(String str) {
         return str == null ? 0 : str.trim().replaceAll("[\\pP\\s]", " ").split(" +").length;
     }
 
-    //Task 13
-    public String getFirstCharacters(String str) {
+    public String getFirstCharactersInUpperCase(String str) {
         if (str == null) {
             return "";
         }
@@ -147,7 +126,6 @@ public class StringUtil {
         return stringBuilder.toString();
     }
 
-    //Task 14
     public String getNumbers(String str) {
         if (str == null) {
             return "";
@@ -165,7 +143,6 @@ public class StringUtil {
         return stringBuilder.toString();
     }
 
-    //Task 15
     public String getUniqueSymbols(String str1, String str2) {
         if (str1 == null && str2 == null) {
             return null;
@@ -176,10 +153,10 @@ public class StringUtil {
         }
         String input1 = str1.toLowerCase();
         String input2 = str2.toLowerCase();
-        return findUniqueCharsofString(input1, input2).concat(findUniqueCharsofString(input2, input1));
+        return findUniqueCharsString(input1, input2).concat(findUniqueCharsString(input2, input1));
     }
 
-    private String findUniqueCharsofString(String str1, String str2) {
+    private String findUniqueCharsString(String str1, String str2) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < str1.length(); i++) {
             boolean similar = false;
@@ -197,14 +174,12 @@ public class StringUtil {
         return result.toString();
     }
 
-    //Task 16
     public boolean isArraySimilar(String[] array1, String[] array2) {
         String str1 = Arrays.toString(array1);
         String str2 = Arrays.toString(array2);
-        return findUniqueCharsofString(str1, str2).concat(findUniqueCharsofString(str2, str1)).equals("");
+        return findUniqueCharsString(str1, str2).concat(findUniqueCharsString(str2, str1)).equals("");
     }
 
-    //Task 17
     public String getSpeedOfAddition(String str, int amountOfEditions) {
         StringBuilder stringBuilder = new StringBuilder(str);
         long startFirstCycle = System.currentTimeMillis();
@@ -221,7 +196,6 @@ public class StringUtil {
                 + (endSecondCycle - startSecondCycle);
     }
 
-    //Task 18
     public String removeDuplicateLetters(String str) {
         if (str == null) {
             return "";
