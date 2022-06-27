@@ -157,7 +157,3 @@ public class StringUtilTest {
         testCountNumberOfPunctuationMarks("It is cold", 0);
     }
 }
-
-
-
-
