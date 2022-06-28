@@ -43,7 +43,7 @@ class Task02 {
             return "Good day";
         } else if (hour >= 18 && hour <= 23) {
             return "Good evening";
-        } else if (hour >= 0 && hour <= 5){
+        } else if (hour >= 0 && hour <= 5) {
             return "Good night";
         } else {
             return null;

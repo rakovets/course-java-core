@@ -46,7 +46,7 @@ class Task11 {
             symbolType = "digit";
         } else if ((value >= 65 && value <= 90) || (value >= 97 && value <= 122)) {
             symbolType = "latin";
-        } else if (value >=1024 && value <= 1279) {
+        } else if (value >= 1024 && value <= 1279) {
             symbolType = "cyrillic";
         }
         return symbolType;

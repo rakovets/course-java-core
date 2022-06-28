@@ -42,19 +42,22 @@ class Task03 {
         final int ORANGE_PERCENT = 50;
         final int YELLOW_PERCENT = 75;
         final int GREEN_PERCENT = 100;
+
+        String colorHealthPoint;
         double checkPercent = currentHealthPoint * PERCENTAGE / maxHealthPoint;
         if (checkPercent <= 0) {
-            return null;
+            colorHealthPoint = null;
         } else if (checkPercent < RED_PERCENT) {
-            return "RED";
+            colorHealthPoint = "RED";
         } else if (checkPercent < ORANGE_PERCENT) {
-            return "ORANGE";
+            colorHealthPoint =  "ORANGE";
         } else if (checkPercent < YELLOW_PERCENT) {
-            return "YELLOW";
+            colorHealthPoint =  "YELLOW";
         } else if (checkPercent <= GREEN_PERCENT) {
-            return "GREEN";
+            colorHealthPoint =  "GREEN";
         } else {
-            return null;
+            colorHealthPoint =  null;
         }
+        return colorHealthPoint;
     }
 }
