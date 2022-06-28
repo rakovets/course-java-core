@@ -7,8 +7,8 @@ public class Person {
         this.happiness = happiness;
     }
 
-    public float changeHappiness(float percentHappiness) {
-        return happiness + happiness * percentHappiness / 100;
+    public void changeHappiness(float percentHappiness) {
+        setHappiness(happiness + happiness * percentHappiness / 100);
     }
 
     public float getHappiness() {
