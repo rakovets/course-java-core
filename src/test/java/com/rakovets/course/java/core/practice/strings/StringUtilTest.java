@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
     private final StringUtil stringUtil = new StringUtil();
-    String str;
 
     @Test
     void testConcatWithTwoValues() {
