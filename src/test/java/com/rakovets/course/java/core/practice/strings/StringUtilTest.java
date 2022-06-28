@@ -330,20 +330,20 @@ public class StringUtilTest {
 
     @Test
     void testGetFirstCharacters() {
-        verifyGetFirstCharacters("Alena Trafimovich", "AT");
+        verifyGetFirstCharactersInUpperCase("Alena Trafimovich", "AT");
     }
 
     @Test
     void testGetFirstCharactersLowerCase() {
-        verifyGetFirstCharacters("alena  trafimovich-ivanova", "AT");
+        verifyGetFirstCharactersInUpperCase("alena  trafimovich-ivanova", "AT");
     }
 
     @Test
     void testGetFirstCharactersNullString() {
-        verifyGetFirstCharacters(null, "");
+        verifyGetFirstCharactersInUpperCase(null, "");
     }
 
-    void verifyGetFirstCharacters(String str1, String expected) {
+    void verifyGetFirstCharactersInUpperCase(String str1, String expected) {
         String actual = stringUtil.getFirstCharactersInUpperCase(str1);
         Assertions.assertEquals(expected, actual);
     }

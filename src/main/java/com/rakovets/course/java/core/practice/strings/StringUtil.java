@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
+
 public class StringUtil {
     public String concat(String str1, String str2) {
         if (str1 == null && str2 == null) {
@@ -105,7 +106,7 @@ public class StringUtil {
             if (i == length - 1) {
                 array[i] = str.substring(i * numberSymbols);
             } else {
-                array[i] = str.substring(i * numberSymbols, numberSymbols*(i+1));
+                array[i] = str.substring(i * numberSymbols, numberSymbols * (i + 1));
             }
         }
         return array;
