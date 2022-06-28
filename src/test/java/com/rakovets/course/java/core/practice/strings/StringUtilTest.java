@@ -163,4 +163,64 @@ public class StringUtilTest {
         testIsTheStringPalindrome("Dammit I'm mad", false);
         testIsTheStringPalindrome("Dammit I m mad", false);
     }
+
+    @Test
+    void testDivideIntoEqualParts(String givenString, int index, String[] expected) {
+        String[] actual = StringUtil.divideIntoEqualParts(givenString, index);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void testingDivideIntoEqualParts() {
+        testDivideIntoEqualParts("Hello world!", 3, new String[]{"Hel", "lo ", "wor", "ld!"});
+        testDivideIntoEqualParts("Hello worl", 3, new String[]{"Hel", "lo ", "wor", "l"});
+        testDivideIntoEqualParts("Hel lo", 1, new String[]{"H", "e", "l", " ", "l", "o"});
+        testDivideIntoEqualParts("Hello", 0, new String[]{"Hello"});
+        testDivideIntoEqualParts("Hello", 10, new String[]{"Hello"});
+    }
+
+    @Test
+    void testCountNumberWords(String currentString, int expected) {
+        int actual = stringUtil.countNumberWords(currentString);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testingCountNumberWords() {
+        testCountNumberWords("Hello world", 2);
+        testCountNumberWords("Hello, world!", 2);
+        testCountNumberWords(" Hello world ", 2);
+        testCountNumberWords("Hello   world", 2);
+        testCountNumberWords(" ", 0);
+    }
+
+    @Test
+    void testGetInitialsReturnUpperCase (String fullName, String expected) {
+        String actual = stringUtil.getInitialsReturnUpperCase(fullName);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testingGetInitialsReturnUpperCase () {
+        testGetInitialsReturnUpperCase("Tom Smith", "TS");
+        testGetInitialsReturnUpperCase(" Tom Smith ", "TS");
+        testGetInitialsReturnUpperCase("tom Smith", "TS");
+        testGetInitialsReturnUpperCase("TOM Smith", "TS");
+        testGetInitialsReturnUpperCase("TomSmith", "T");
+    }
+
+    @Test
+    void testGetAllNumbers(String currentString, String expected) {
+        String actual = stringUtil.getAllNumbers(currentString);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testingGetAllNumbers() {
+        testGetAllNumbers("123 string1", "1231");
+        testGetAllNumbers(" 123 string1", "1231");
+        testGetAllNumbers("thy123 string1  ", "1231");
+        testGetAllNumbers("hnDBNHfgc,.{}((())[[]]", "");
+        testGetAllNumbers("", "");
+    }
 }
