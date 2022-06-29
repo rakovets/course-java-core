@@ -6,44 +6,44 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class SiameseTest {
-    Siamese wild = new Siamese("Wild");
+    Siamese siamese = new Siamese("Siamese");
     private Person user = new Person(100);
 
     @Test
     void testConstructor() {
-        Siamese white = new Siamese("White");
-        Assertions.assertEquals("White", white.getName());
+        Siamese white = new Siamese("Siamese");
+        Assertions.assertEquals("Siamese", white.getName());
     }
 
     @Test
     void testMew() {
-        Assertions.assertEquals("Mew-shhh-Mew", wild.mew());
+        Assertions.assertEquals("Mew-shhh-Mew", siamese.mew());
     }
 
     @Test
     void testMewWithPerson() {
-        Assertions.assertEquals("Mew-shhh-Mew", wild.mew(user));
+        Assertions.assertEquals("Mew-shhh-Mew", siamese.mew(user));
         Assertions.assertEquals(50, user.getHappiness());
     }
 
     void testPurr() {
-        Assertions.assertEquals("Purr-Purrrrrrr", wild.purr());
+        Assertions.assertEquals("Purr-Purrrrrrr", siamese.purr());
     }
 
     @Test
     void testPurrWithPerson() {
-        Assertions.assertEquals("Purr-Purrrrrrr", wild.purr(user));
+        Assertions.assertEquals("Purr-Purrrrrrr", siamese.purr(user));
         Assertions.assertEquals(150, user.getHappiness());
     }
 
     @Test
     void getNameCat() {
-        Assertions.assertEquals("Wild", wild.getName());
+        Assertions.assertEquals("Siamese", siamese.getName());
     }
 
     @Test
     void setNameCat() {
-        wild.setName("White");
-        Assertions.assertEquals("White", wild.getName());
+        siamese.setName("Siamese");
+        Assertions.assertEquals("Siamese", siamese.getName());
     }
 }

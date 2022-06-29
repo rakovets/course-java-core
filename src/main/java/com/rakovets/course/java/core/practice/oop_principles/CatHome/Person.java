@@ -8,7 +8,7 @@ public class Person {
     }
 
     public void changeHappiness(float percentHappiness) {
-        setHappiness(happiness + happiness * percentHappiness / 100);
+       setHappiness(happiness + happiness * percentHappiness / 100);
     }
 
     public float getHappiness() {

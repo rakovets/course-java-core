@@ -6,44 +6,44 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PersianTest {
-    Persian snowball = new Persian("Snowball");
+    Persian persian = new Persian("Persian");
     private Person user = new Person(100);
 
     @Test
     void testConstructor() {
-        Persian white = new Persian("White");
-        Assertions.assertEquals("White", white.getName());
+        Persian persian = new Persian("Persian");
+        Assertions.assertEquals("Persian", persian.getName());
     }
 
     @Test
     void testMew() {
-        Assertions.assertEquals("Meeeeeeeeeew", snowball.mew());
+        Assertions.assertEquals("Meeeeeeeeeew", persian.mew());
     }
 
     @Test
     void testMewWithPerson() {
-        Assertions.assertEquals("Meeeeeeeeeew", snowball.mew(user));
+        Assertions.assertEquals("Meeeeeeeeeew", persian.mew(user));
         Assertions.assertEquals(60, user.getHappiness());
     }
 
     void testPurr() {
-        Assertions.assertEquals("Puuuuuuuuuurr", snowball.purr());
+        Assertions.assertEquals("Puuuuuuuuuurr", persian.purr());
     }
 
     @Test
     void testPurrWithPerson() {
-        Assertions.assertEquals("Puuuuuuuuuurr", snowball.purr(user));
+        Assertions.assertEquals("Puuuuuuuuuurr", persian.purr(user));
         Assertions.assertEquals(140, user.getHappiness());
     }
 
     @Test
     void getNameCat() {
-        Assertions.assertEquals("Snowball", snowball.getName());
+        Assertions.assertEquals("Persian", persian.getName());
     }
 
     @Test
     void setNameCat() {
-        snowball.setName("White");
-        Assertions.assertEquals("White", snowball.getName());
+        persian.setName("Persian");
+        Assertions.assertEquals("Persian", persian.getName());
     }
 }
