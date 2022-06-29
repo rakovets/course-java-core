@@ -32,7 +32,7 @@ class Task04 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String dayName = "";
-        switch (dayOfWeekNumber){
+        switch (dayOfWeekNumber) {
             case 1:
                 dayName = "MONDAY";
                 break;

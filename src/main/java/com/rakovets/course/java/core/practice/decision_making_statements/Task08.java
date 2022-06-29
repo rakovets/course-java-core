@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
-import java.util.Objects;
-
 /**
  * Разработать программу для игрового движка.
  * <p>

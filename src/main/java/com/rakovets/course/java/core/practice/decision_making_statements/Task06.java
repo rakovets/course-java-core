@@ -41,12 +41,13 @@ class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         int totalScorePlayer1 = 0;
         int totalScorePlayer2 = 0;
+
         if (tanksKilledFirstPlayer > 0) {
             totalScorePlayer1 = tanksKilledFirstPlayer * KILL_POINT;
-        }
-        if (tanksKilledSecondPlayer > 0){
+        } else if (tanksKilledSecondPlayer > 0) {
             totalScorePlayer2 = tanksKilledSecondPlayer * KILL_POINT;
         }
+
         if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
             totalScorePlayer1 = totalScorePlayer1 + BONUS_POINT;
         } else if (tanksKilledSecondPlayer > tanksKilledFirstPlayer) {

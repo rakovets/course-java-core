@@ -41,16 +41,14 @@ class Task03 {
         if (healtPercent <= 0) {
             return null;
         }
-        if (healtPercent < 25){
+
+        if (healtPercent < 25) {
             return "RED";
-        }
-        else if (healtPercent < 50){
+        } else if (healtPercent < 50) {
             return "ORANGE";
-        }
-        else if (healtPercent < 75){
+        } else if (healtPercent < 75) {
             return "YELLOW";
-        }
-        else if (healtPercent <= 100){
+        } else if (healtPercent <= 100) {
             return "GREEN";
         }
             return null;

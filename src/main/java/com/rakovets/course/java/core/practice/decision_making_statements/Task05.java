@@ -32,7 +32,7 @@ class Task05 {
      */
     static String getMonthName(byte monthNumber) {
         String monthName = "";
-        switch (monthNumber){
+        switch (monthNumber) {
             case 1:
                 monthName = "JANUARY";
                 break;
