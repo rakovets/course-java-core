@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats;
 
 public class Person {
     private int happiness;

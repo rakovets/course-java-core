@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats;
 
 public class Cat {
     private String name;
@@ -8,7 +8,7 @@ public class Cat {
     }
 
     public String mew() {
-        return "Meow";
+        return "Meow like default cat";
     }
 
     public void mew(Person p) {
@@ -16,7 +16,7 @@ public class Cat {
     }
 
     public String purr() {
-        return "Purr";
+        return "Purr like default cat";
     }
 
     public void purr(Person p) {
