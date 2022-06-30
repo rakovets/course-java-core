@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Siamese extends Cat {
     Siamese(String name) {
@@ -11,8 +11,9 @@ public class Siamese extends Cat {
     }
 
     @Override
-    public void mew(Person person) {
+    public String mew(Person person) {
         person.changeHappiness(-5);
+        return "Siamese " + getName() + ": meow-Master-meow";
     }
 
     @Override
@@ -21,7 +22,8 @@ public class Siamese extends Cat {
     }
 
     @Override
-    public void purr(Person person) {
+    public String purr(Person person) {
         person.changeHappiness(10);
+        return "Siamese: purr-purr-purr";
     }
 }

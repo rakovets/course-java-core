@@ -1,6 +1,9 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Person {
+    final double MINIMUM_HAPPINESS = 0;
+    final double MAXIMUM_HAPPINESS = 100;
+
     private double happiness;
 
     Person(double happiness) {
@@ -13,12 +16,13 @@ public class Person {
         checkMinMaxHappiness();
     }
 
-    private void checkMinMaxHappiness() {
-        if (this.happiness > 100) {
-            this.happiness = 100;
+    protected void checkMinMaxHappiness() {
+        if (this.happiness > MAXIMUM_HAPPINESS) {
+            this.happiness = MAXIMUM_HAPPINESS;
         }
-        else if (this.happiness < 0) {
-            this.happiness = 0;}
+        else if (this.happiness < MINIMUM_HAPPINESS) {
+            this.happiness = MINIMUM_HAPPINESS;
+        }
     }
 
     public double getHappiness() {
