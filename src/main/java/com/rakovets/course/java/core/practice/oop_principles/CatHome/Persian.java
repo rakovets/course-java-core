@@ -26,5 +26,4 @@ public class Persian extends Cat {
         user.changeHappiness(40);
         return purr();
     }
-
 }

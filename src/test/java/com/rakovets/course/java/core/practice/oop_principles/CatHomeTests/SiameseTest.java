@@ -1,18 +1,24 @@
 package com.rakovets.course.java.core.practice.oop_principles.CatHomeTests;
 
+import com.rakovets.course.java.core.practice.oop_principles.CatHome.Cat;
 import com.rakovets.course.java.core.practice.oop_principles.CatHome.Person;
 import com.rakovets.course.java.core.practice.oop_principles.CatHome.Siamese;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SiameseTest {
-    Siamese siamese = new Siamese("Siamese");
-    private Person user = new Person(100);
+    private final Cat siamese = new Siamese("Siamese");
+    private Person user;
+
+    @BeforeEach
+    void setup() {
+        user = new Person(50);
+    }
 
     @Test
     void testConstructor() {
-        Siamese white = new Siamese("Siamese");
-        Assertions.assertEquals("Siamese", white.getName());
+        Assertions.assertEquals("Siamese", siamese.getName());
     }
 
     @Test
@@ -23,7 +29,14 @@ public class SiameseTest {
     @Test
     void testMewWithPerson() {
         Assertions.assertEquals("Mew-shhh-Mew", siamese.mew(user));
-        Assertions.assertEquals(50, user.getHappiness());
+        Assertions.assertEquals(0, user.getHappiness());
+    }
+
+    @Test
+    void testMewWithPersonHappinessZero() {
+        user = new Person(0);
+        Assertions.assertEquals("Mew-shhh-Mew", siamese.mew(user));
+        Assertions.assertEquals(0, user.getHappiness());
     }
 
     void testPurr() {
@@ -33,17 +46,24 @@ public class SiameseTest {
     @Test
     void testPurrWithPerson() {
         Assertions.assertEquals("Purr-Purrrrrrr", siamese.purr(user));
-        Assertions.assertEquals(150, user.getHappiness());
+        Assertions.assertEquals(100, user.getHappiness());
     }
 
     @Test
-    void getNameCat() {
+    void testPurrWithPersonHappiness100() {
+        user = new Person(100);
+        Assertions.assertEquals("Purr-Purrrrrrr", siamese.purr(user));
+        Assertions.assertEquals(100, user.getHappiness());
+    }
+
+    @Test
+    void testGetName() {
         Assertions.assertEquals("Siamese", siamese.getName());
     }
 
     @Test
-    void setNameCat() {
-        siamese.setName("Siamese");
-        Assertions.assertEquals("Siamese", siamese.getName());
+    void setGetName() {
+        siamese.setName("Wild");
+        Assertions.assertEquals("Wild", siamese.getName());
     }
 }

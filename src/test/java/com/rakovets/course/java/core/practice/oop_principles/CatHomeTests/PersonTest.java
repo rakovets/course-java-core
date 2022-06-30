@@ -2,21 +2,52 @@ package com.rakovets.course.java.core.practice.oop_principles.CatHomeTests;
 
 import com.rakovets.course.java.core.practice.oop_principles.CatHome.Person;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PersonTest {
-    Person user = new Person(50);
+    private Person user;
+
+    @BeforeEach
+    void setup() {
+        user = new Person(50);
+    }
 
     @Test
     void testPersonConsructor() {
-        Person man = new Person(100);
-        Assertions.assertEquals(100, man.getHappiness());
+        Assertions.assertEquals(50, user.getHappiness());
+    }
+
+    @Test
+    void testPersonConsructorHappinessBelowZero() {
+        user = new Person(-10);
+        Assertions.assertEquals(0, user.getHappiness());
+    }
+
+    @Test
+    void testPersonConsructorHappinessOver100() {
+        user = new Person(110);
+        Assertions.assertEquals(100, user.getHappiness());
     }
 
     @Test
     void testChangeHappiness() {
         user.changeHappiness(10);
-        Assertions.assertEquals(55, user.getHappiness());
+        Assertions.assertEquals(60, user.getHappiness());
+    }
+
+    @Test
+    void testChangeHappinessOver100() {
+        user = new Person(100);
+        user.changeHappiness(10);
+        Assertions.assertEquals(100, user.getHappiness());
+    }
+
+    @Test
+    void testChangeHappinessBelowZero() {
+        user = new Person(0);
+        user.changeHappiness(-10);
+        Assertions.assertEquals(0, user.getHappiness());
     }
 
     @Test
@@ -26,7 +57,14 @@ public class PersonTest {
     }
 
     @Test
-    void testGetHappiness() {
-        Assertions.assertEquals(50, user.getHappiness());
+    void testSetHappinessBelowZero() {
+        user.setHappiness(-15);
+        Assertions.assertEquals(0, user.getHappiness());
+    }
+
+    @Test
+    void testSetHappinessoOver100() {
+        user.setHappiness(110);
+        Assertions.assertEquals(100, user.getHappiness());
     }
 }

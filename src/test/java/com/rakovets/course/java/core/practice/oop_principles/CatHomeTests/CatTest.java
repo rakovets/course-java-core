@@ -7,20 +7,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CatTest {
-    private Cat cat = new Cat("Cat");
+    private final Cat cat = new Cat("Cat");
     private Person user;
 
     @BeforeEach
     void setup() {
-        user = new Person(100);
-
+        user = new Person(50);
     }
 
     @Test
     void testConstructor() {
-        Cat cat = new Cat("Cate");
-        Assertions.assertEquals("Cate", cat.getName());
-
+        Assertions.assertEquals("Cat", cat.getName());
     }
 
     @Test
@@ -31,7 +28,14 @@ public class CatTest {
     @Test
     void testMewWithPerson() {
         Assertions.assertEquals("Mew", cat.mew(user));
-        Assertions.assertEquals(90, user.getHappiness());
+        Assertions.assertEquals(40, user.getHappiness());
+    }
+
+    @Test
+    void testMewWithPersonHappinessZero() {
+        user = new Person(0);
+        Assertions.assertEquals("Mew", cat.mew(user));
+        Assertions.assertEquals(0, user.getHappiness());
     }
 
     @Test
@@ -42,19 +46,24 @@ public class CatTest {
     @Test
     void testPurrWithPerson() {
         Assertions.assertEquals("Purr", cat.purr(user));
-        Assertions.assertEquals(110, user.getHappiness());
+        Assertions.assertEquals(60, user.getHappiness());
     }
 
     @Test
-    void getNameCat() {
+    void testPurrWithPersonHappinessOver100() {
+        user = new Person(100);
+        Assertions.assertEquals("Purr", cat.purr(user));
+        Assertions.assertEquals(100, user.getHappiness());
+    }
+
+    @Test
+    void testGetName() {
         Assertions.assertEquals("Cat", cat.getName());
     }
 
     @Test
-    void setNameCat() {
-        cat.setName("Cat");
-        Assertions.assertEquals("Cat", cat.getName());
+    void testSetName() {
+        cat.setName("Kitten");
+        Assertions.assertEquals("Kitten", cat.getName());
     }
-
-
 }
