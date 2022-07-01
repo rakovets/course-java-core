@@ -8,6 +8,7 @@ public class PointApplication {
         System.out.println("First point: X = " + pointFirst.getX() + "; Y = " + pointFirst.getY());
         System.out.println("Second point: X = " + pointSecond.getX() + "; Y = " + pointSecond.getY());
         System.out.println("Distance between points: " + pointFirst.getDistance(pointSecond));
+        System.out.println();
 
         pointFirst.setX(33);
         pointFirst.setY(-2);
