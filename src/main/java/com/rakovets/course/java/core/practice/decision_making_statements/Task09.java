@@ -38,10 +38,9 @@ class Task09 {
         int entranceNumber;
 
         entranceNumberApartments = numberFloors * numberApartmentsPerFloor;
-
         entranceNumber = apartmentNumber / entranceNumberApartments;
 
-        if (apartmentNumber % entranceNumberApartments > 0){
+        if (apartmentNumber % entranceNumberApartments > 0) {
             entranceNumber = entranceNumber + 1;
         }
 
