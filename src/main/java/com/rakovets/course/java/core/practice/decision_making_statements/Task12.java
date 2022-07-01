@@ -45,36 +45,47 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String zodiac;
+        String zodiacName = "";
 
-        if ((day >= 21 && day <= 31 && month == 3) || (day >= 0 && day <= 20 && month == 4)) {
-            zodiac = "Ram";
-        } else if ((day >= 21 && day <= 30 && month == 4) || (day >= 0 && day <= 20 && month == 5)) {
-            zodiac = "Bull";
-        } else if ((day >= 21 && day <= 31 && month == 5) || (day >= 0 && day <= 21 && month == 6)) {
-            zodiac = "Twins";
-        } else if ((day >= 22 && day <= 30 && month == 6) || (day >= 0 && day <= 22 && month == 7)) {
-            zodiac = "Crab";
-        } else if ((day >= 23 && day <= 31 && month == 7) || (day >= 0 && day <= 22 && month == 8)) {
-            zodiac = "Lion";
-        } else if ((day >= 23 && day <= 31 && month == 8) || (day >= 0 && day <= 21 && month == 9)) {
-            zodiac = "Maiden";
-        } else if ((day >= 22 && day <= 30 && month == 9) || (day >= 0 && day <= 22 && month == 10)) {
-            zodiac = "Scales";
-        } else if ((day >= 23 && day <= 31 && month == 10) || (day >= 0 && day <= 22 && month == 11)) {
-            zodiac = "Scorpion";
-        } else if ((day >= 23 && day <= 30 && month == 11) || (day >= 0 && day <= 21 && month == 12)) {
-            zodiac = "Archer";
-        } else if ((day >= 22 && day <= 31 && month == 12) || (day >= 0 && day <= 20 && month == 1)) {
-            zodiac = "Goat";
-        } else if ((day >= 21 && day <= 31 && month == 1) || (day >= 0 && day <= 19 && month == 2)) {
-            zodiac = "Water-bearer";
-        } else if ((day >= 20 && day <= 29 && month == 2) || (day >= 0 && day <= 20 && month == 3)) {
-            zodiac = "Fish";
-        } else {
-            zodiac = null;
+        switch (month) {
+            case 1:
+                zodiacName = (day <= 20) ? "Goat" : "Water-bearer";
+                break;
+            case 2:
+                zodiacName = (day <= 19) ? "Water-bearer" : "Fish";
+                break;
+            case 3:
+                zodiacName = (day <= 20) ? "Fish" : "Ram";
+                break;
+            case 4:
+                zodiacName = (day <= 20) ? "Ram" : "Bull";
+                break;
+            case 5:
+                zodiacName = (day <= 20) ? "Bull" : "Twins";
+                break;
+            case 6:
+                zodiacName = (day <= 21) ? "Twins" : "Crab";
+                break;
+            case 7:
+                zodiacName = (day <= 22) ? "Crab" : "Lion";
+                break;
+            case 8:
+                zodiacName = (day <= 22) ? "Lion" : "Maiden";
+                break;
+            case 9:
+                zodiacName = (day <= 21) ? "Maiden" : "Scales";
+                break;
+            case 10:
+                zodiacName = (day <= 22) ? "Scales" : "Scorpion";
+                break;
+            case 11:
+                zodiacName = (day <= 22) ? "Scorpion" : "Archer";
+                break;
+            case 12:
+                zodiacName = (day <= 21) ? "Archer" : "Goat";
+                break;
         }
 
-        return zodiac;
+        return zodiacName;
     }
 }
