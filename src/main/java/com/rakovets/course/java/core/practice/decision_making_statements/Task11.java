@@ -42,17 +42,14 @@ class Task11 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String typeChar;
 
-        if (symbol >= 65 && symbol <= 90 || symbol >= 97 && symbol <= 122 ) {
+        if (symbol >= 'A' && symbol <= 'Z' || symbol >= 'a' && symbol <= 'z' ) {
             typeChar = "latin";
-        } else if (symbol >= 1040 && symbol <= 1105 || symbol == 1025) {
+        } else if (symbol >= 'А' && symbol <= 'Я' || symbol >= 'а' && symbol <= 'я') {
             typeChar = "cyrillic";
-        } else if (symbol >= 48 && symbol <= 57) {
+        } else if (symbol >= '0' && symbol <= '9') {
             typeChar = "digit";
-        } else if (symbol >= 33 && symbol <= 47 || symbol >= 58 && symbol <= 64
-                || symbol >= 91 && symbol <= 96) {
-            typeChar = "undefined";
         } else {
-            typeChar = null;
+            typeChar = "undefined";
         }
 
         return typeChar;
