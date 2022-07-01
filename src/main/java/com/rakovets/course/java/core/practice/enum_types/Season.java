@@ -14,9 +14,8 @@ public enum Season {
     };
 
     private final String averageTemperature;
-    private String myFavouriteSeason;
 
-    public String myFavouriteSeason() {
+    public String myFavouriteSeasonAutumn() {
         return "My favourite season is " + Season.AUTUMN + ", it's average temperature is " + Season.AUTUMN.averageTemperature;
     }
 
@@ -28,7 +27,7 @@ public enum Season {
         return averageTemperature;
     }
 
-    public static String likeSeasonOrNot(Season season) {
+    public String likeSeasonOrNot(Season season) {
         String likeSeasonOrNot = "";
         switch (season) {
             case SUMMER:
@@ -46,10 +45,9 @@ public enum Season {
     }
 
     public String getInfoAllAboutSeasons() {
-        return
-                Season.WINTER + ": Average temperature is " + Season.WINTER.getAverageTemperature() + " it " + Season.WINTER.getDescription() + "\n" +
-                        Season.SPRING + ": Average temperature is " + Season.SPRING.getAverageTemperature() + " it " + Season.SPRING.getDescription() + "\n" +
-                        Season.SUMMER + ": Average temperature is " + Season.SUMMER.getAverageTemperature() + " it " + Season.SUMMER.getDescription() + "\n" +
-                        Season.AUTUMN + ": Average temperature is " + Season.AUTUMN.getAverageTemperature() + " it " + Season.AUTUMN.getDescription() + "\n";
+        return Season.WINTER + ": Average temperature is " + Season.WINTER.getAverageTemperature() + " it " + Season.WINTER.getDescription() + "\n" +
+               Season.SPRING + ": Average temperature is " + Season.SPRING.getAverageTemperature() + " it " + Season.SPRING.getDescription() + "\n" +
+               Season.SUMMER + ": Average temperature is " + Season.SUMMER.getAverageTemperature() + " it " + Season.SUMMER.getDescription() + "\n" +
+               Season.AUTUMN + ": Average temperature is " + Season.AUTUMN.getAverageTemperature() + " it " + Season.AUTUMN.getDescription() + "\n";
     }
 }
