@@ -1,25 +1,23 @@
-package com.rakovets.course.java.core.practice.oop_principles.TestBattleGround;
+package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
 
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Enemy;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Hero;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Warrior;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Witch;
+import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class WarriorTest {
 
     @Test
-    public void testConstructor1() {
+    public void testConstructor() {
         Hero warrior = new Warrior("Warrior");
         Assertions.assertEquals("Warrior", warrior.getName());
     }
 
     @Test
-    public void testConstructor2() {
+    public void testConstructorHealthTypeHero() {
         Hero warrior = new Warrior("Warrior", 100);
         Assertions.assertEquals("Warrior", warrior.getName());
         Assertions.assertEquals(100, warrior.getHealth());
+        Assertions.assertEquals(TypeHero.WARRIOR,warrior.getTypeHero());
     }
 
     @Test
@@ -45,7 +43,7 @@ public class WarriorTest {
     public void testTakeDamage() {
         Hero warrior = new Warrior("Warrior", 30);
         warrior.takeDamage(20);
-        Assertions.assertEquals(15, warrior.getHealth());
+        Assertions.assertEquals(13, warrior.getHealth());
     }
 
     @Test

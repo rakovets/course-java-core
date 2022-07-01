@@ -6,7 +6,7 @@ public class Warrior extends Hero {
     }
 
     public Warrior(String name, int health) {
-        super(name, health);
+        super(name, health,TypeHero.WARRIOR);
     }
 
     @Override
@@ -16,6 +16,6 @@ public class Warrior extends Hero {
 
     @Override
     public void takeDamage(int damage) {
-        super.takeDamage(damage - 5);
+        super.takeDamage(damage - 3);
     }
 }

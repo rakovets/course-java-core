@@ -1,21 +1,23 @@
-package com.rakovets.course.java.core.practice.oop_principles.TestBattleGround;
+package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
 
 import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MagTest {
+
     @Test
-    public void testConstructor1() {
+    public void testConstructor() {
         Hero mag = new Mag("Mag");
         Assertions.assertEquals("Mag", mag.getName());
     }
 
     @Test
-    public void testConstructor2() {
+    public void testConstructorWithHealthTypeHero() {
         Hero mag = new Mag("Mag", 100);
         Assertions.assertEquals("Mag", mag.getName());
         Assertions.assertEquals(100, mag.getHealth());
+        Assertions.assertEquals(TypeHero.MAG,mag.getTypeHero());
     }
 
     @Test
@@ -45,18 +47,26 @@ public class MagTest {
     }
 
     @Test
-    public void testAttackEnemyHealthGreaterThan50() {
+    public void testAttackEnemyWitchEnemyType() {
         Hero mag = new Mag("Mag", 80);
         Enemy witch = new Witch(100);
         mag.attackEnemy(witch);
-        Assertions.assertEquals(95, witch.getHealth());
+        Assertions.assertEquals(90, witch.getHealth());
     }
 
     @Test
-    public void testAttackEnemyHealthLessThan50() {
-        Hero mag = new Mag("Mag", 45);
-        Enemy witch = new Witch(45);
-        mag.attackEnemy(witch);
-        Assertions.assertEquals(35, witch.getHealth());
+    public void testAttackEnemyVampireEnemyType() {
+        Hero mag = new Mag("Mag", 80);
+        Enemy vampire = new Vampire(100);
+        mag.attackEnemy(vampire);
+        Assertions.assertEquals(95, vampire.getHealth());
+    }
+
+    @Test
+    public void testAttackEnemyZombieEnemyType() {
+        Hero mag = new Mag("Mag", 80);
+        Enemy zombie = new Zombie(100);
+        mag.attackEnemy(zombie);
+        Assertions.assertEquals(95, zombie.getHealth());
     }
 }

@@ -6,15 +6,15 @@ public class Mag extends Hero {
     }
 
     public Mag(String name, int health) {
-        super(name, health);
+        super(name, health, TypeHero.MAG);
     }
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        if (enemy.getHealth() > 50) {
-            enemy.takeDamage(5);
-        } else {
+        if (enemy.getTypeEnemy() == TypeEnemy.WITCH) {
             enemy.takeDamage(10);
+        } else {
+            enemy.takeDamage(5);
         }
     }
 }

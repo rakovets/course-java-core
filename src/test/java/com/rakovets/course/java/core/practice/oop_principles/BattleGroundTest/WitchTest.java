@@ -1,9 +1,6 @@
-package com.rakovets.course.java.core.practice.oop_principles.TestBattleGround;
+package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
 
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Archer;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Enemy;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Hero;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Witch;
+import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +10,7 @@ public class WitchTest {
     public void testConstructor() {
         Enemy witch = new Witch(100);
         Assertions.assertEquals(100, witch.getHealth());
+        Assertions.assertEquals(TypeEnemy.WITCH,witch.getTypeEnemy());
     }
 
     @Test
@@ -23,12 +21,21 @@ public class WitchTest {
     }
 
     @Test
-    public void testTakeDamage() {
+    public void testTakeFatalDamage() {
         Enemy witch = new Witch(20);
         Hero archer = new Archer("Archer", 100);
         witch.takeDamage(30, archer);
         Assertions.assertEquals(-10, witch.getHealth());
         Assertions.assertEquals(70, archer.getHealth());
+    }
+
+    @Test
+    public void testTakeDamage() {
+        Enemy witch = new Witch(60);
+        Hero archer = new Archer("Archer", 100);
+        witch.takeDamage(30, archer);
+        Assertions.assertEquals(30, witch.getHealth());
+        Assertions.assertEquals(100, archer.getHealth());
     }
 
     @Test
@@ -44,10 +51,29 @@ public class WitchTest {
     }
 
     @Test
-    public void testAttackHero() {
+    public void testAttackHeroTypeHeroArcher() {
         Enemy witch = new Witch(100);
         Hero archer = new Archer("Archer", 100);
         witch.attackHero(archer);
         Assertions.assertEquals(95, archer.getHealth());
     }
+
+    @Test
+    public void testAttackHeroTypeHeroWarrior() {
+        Enemy witch = new Witch(100);
+        Hero warrior = new Warrior("Warrior", 100);
+        witch.attackHero(warrior);
+        Assertions.assertEquals(98, warrior.getHealth());
+    }
+
+    @Test
+    public void testAttackHeroTypeHeroMag() {
+        Enemy witch = new Witch(100);
+        Hero mag = new Mag("Mag", 100);
+        witch.attackHero(mag);
+        Assertions.assertEquals(90, mag.getHealth());
+    }
 }
+
+
+

@@ -1,25 +1,23 @@
-package com.rakovets.course.java.core.practice.oop_principles.TestBattleGround;
+package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
 
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Archer;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Enemy;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Hero;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Witch;
+import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ArcherTest {
 
     @Test
-    public void testConstructor1() {
+    public void testConstructor() {
         Hero archer = new Archer("Archer");
         Assertions.assertEquals("Archer", archer.getName());
     }
 
     @Test
-    public void testConstructor2() {
+    public void testConstructorWithHealthTypeHero() {
         Hero archer = new Archer("Archer", 100);
         Assertions.assertEquals("Archer", archer.getName());
         Assertions.assertEquals(100, archer.getHealth());
+        Assertions.assertEquals(TypeHero.ARCHER,archer.getTypeHero());
     }
 
     @Test
@@ -49,7 +47,7 @@ public class ArcherTest {
     }
 
     @Test
-    public void testAttackHeroHealthGreaterThan50() {
+    public void testAttackEnemyHeroHealthGreaterThan50() {
         Hero archer = new Archer("Archer", 80);
         Enemy witch = new Witch(20);
         archer.attackEnemy(witch);
@@ -57,11 +55,10 @@ public class ArcherTest {
     }
 
     @Test
-    public void testAttackHeroHealthLessThan50() {
+    public void testAttackEnemyHeroHealthLessThan50() {
         Hero archer = new Archer("Archer", 45);
         Enemy witch = new Witch(20);
         archer.attackEnemy(witch);
         Assertions.assertEquals(15, witch.getHealth());
     }
-
 }

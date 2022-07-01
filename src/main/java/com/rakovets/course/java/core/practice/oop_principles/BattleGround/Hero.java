@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.oop_principles.BattleGround;
 public abstract class Hero implements Mortal {
     private String name;
     private int health;
+    private TypeHero typeHero;
 
     public Hero(String name) {
         this.name = name;
@@ -12,6 +13,15 @@ public abstract class Hero implements Mortal {
         this.name = name;
         this.health = health;
     }
+
+    public Hero(String name, int health,TypeHero typeHero) {
+        this.name = name;
+        this.health = health;
+        this.typeHero=typeHero;
+    }
+
+    public TypeHero getTypeHero() {
+        return typeHero;}
 
     public String getName() {
         return name;

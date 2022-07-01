@@ -2,9 +2,19 @@ package com.rakovets.course.java.core.practice.oop_principles.BattleGround;
 
 public abstract class Enemy implements Mortal {
     private int health;
+    private TypeEnemy typeEnemy;
 
     public Enemy(int health) {
         this.health = health;
+    }
+
+    public Enemy(int health,TypeEnemy typeEnemy) {
+        this.health = health;
+        this.typeEnemy=typeEnemy;
+    }
+
+    public TypeEnemy getTypeEnemy() {
+        return typeEnemy;
     }
 
     public int getHealth() {

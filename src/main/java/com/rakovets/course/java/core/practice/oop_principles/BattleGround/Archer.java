@@ -7,7 +7,7 @@ public class Archer extends Hero {
     }
 
     public Archer(String name, int health) {
-        super(name, health);
+        super(name, health, TypeHero.ARCHER);
     }
 
     @Override

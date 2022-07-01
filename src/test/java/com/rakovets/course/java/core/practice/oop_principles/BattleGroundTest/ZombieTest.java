@@ -1,9 +1,6 @@
-package com.rakovets.course.java.core.practice.oop_principles.TestBattleGround;
+package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
 
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Archer;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Enemy;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Hero;
-import com.rakovets.course.java.core.practice.oop_principles.BattleGround.Zombie;
+import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +10,7 @@ public class ZombieTest {
     public void testConstructor() {
         Enemy zombie = new Zombie(100);
         Assertions.assertEquals(100, zombie.getHealth());
+        Assertions.assertEquals(TypeEnemy.ZOMBIE,zombie.getTypeEnemy());
     }
 
     @Test
