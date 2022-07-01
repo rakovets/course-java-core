@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 20;
-        int month = 5;
+        int day = 12;
+        int month = 12;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
