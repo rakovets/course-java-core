@@ -41,18 +41,16 @@ class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int scoreFirstPlayer = 0;
-        int scoreSecondPlayer = 0;
+        int scoreFirstPlayer;
+        int scoreSecondPlayer;
+
+        scoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
+        scoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
 
         if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
-            scoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT + BONUS_POINT;
-            scoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
+            scoreFirstPlayer += BONUS_POINT;
         } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
-            scoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
-            scoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT + BONUS_POINT;
-        } else if (tanksKilledFirstPlayer == tanksKilledSecondPlayer) {
-            scoreFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
-            scoreSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
+            scoreSecondPlayer += BONUS_POINT;
         }
 
         return ("Player 1: " + scoreFirstPlayer + ". Player 2: " + scoreSecondPlayer);
