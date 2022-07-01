@@ -15,9 +15,9 @@ class Task13 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int numberFloors = 1;
-        int numberApartmentsPerFloor = 1;
-        int apartmentNumber = 1;
+        int numberFloors = 9;
+        int numberApartmentsPerFloor = 4;
+        int apartmentNumber = 68;
 
         int floorNumber = getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", floorNumber);
