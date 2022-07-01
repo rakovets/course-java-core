@@ -87,7 +87,6 @@ class Task14 {
                 zodiacYearName = "Ram";
                 break;
         }
-        System.out.println(year % 12);
         return zodiacYearName;
     }
 }
