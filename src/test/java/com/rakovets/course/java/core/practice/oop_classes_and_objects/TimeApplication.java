@@ -8,7 +8,7 @@ public class TimeApplication {
         System.out.println("Hours: " + time.getHours());
         System.out.println("Minutes: " + time.getMinutes());
         System.out.println("Seconds: " + time.getSeconds());
-        System.out.println ("Total seconds: " + time.getTotalSeconds());
+        System.out.println("Total seconds: " + time.getTotalSeconds());
         System.out.println();
 
         time.setHours(8);
