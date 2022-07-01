@@ -38,7 +38,6 @@ class Task13 {
         int floorNumber;
 
         entranceNumberApartments = numberFloors * numberApartmentsPerFloor;
-
         floorNumber = 1 + ((apartmentNumber - 1) % entranceNumberApartments) / numberApartmentsPerFloor;
 
         return floorNumber;
