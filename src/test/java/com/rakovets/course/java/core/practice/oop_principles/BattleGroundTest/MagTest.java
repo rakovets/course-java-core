@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.lambda_expressions.BattleGroundTest;
+package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
 
 import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
