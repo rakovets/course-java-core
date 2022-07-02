@@ -38,7 +38,7 @@ class Task14 {
     /**
      * Определяет названия года по китайскому календарю.
      *
-     * @param year  год дня рождения (больше 0 г. н.э.)
+     * @param year год дня рождения (больше 0 г. н.э.)
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
@@ -46,7 +46,7 @@ class Task14 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int num = year % 12;
         String text;
-        if(num == 1) {
+        if (num == 1) {
             text = "Snake";
         } else if (num == 2) {
             text = "Horse";
@@ -68,12 +68,10 @@ class Task14 {
             text = "Tiger";
         } else if (num == 11) {
             text = "Rabbit";
-        }
-        else if (num == 12) {
+        } else if (num == 12) {
             text = "Dragon";
-        }
-        else {
-            throw new Error();
+        } else {
+            return null;
         }
         return text;
     }
