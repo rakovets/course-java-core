@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 import com.rakovets.course.java.core.example.enum_types.model.Sunday;
 
+import java.util.Random;
+
 public class Archer extends Hero {
     public Archer(String name, int health) {
         super(name, health);
@@ -20,9 +22,15 @@ public class Archer extends Hero {
     @Override
     public void takeDamage(int damage) {
         if (isAlive()) {
-            setHealth(getHealth() - damage);
+            if (!dodge()) {
+                setHealth(getHealth() - damage);
+            }
         } else {
             System.out.println("He is dead.");
         }
+    }
+
+    private static boolean dodge() {
+        return new Random().nextBoolean();
     }
 }
