@@ -29,6 +29,9 @@ class Task08 {
         System.out.printf("Result: %s", totalDamage);
     }
 
+    public static final double DAMAGE_ADDITIONAL = 1.5;
+    public static final double DAMAGE_ADDITIONAL_FOR_SAINT = 2;
+
     /**
      * Определяет итоговый урон оружия для данного типу моба.
      *
@@ -40,18 +43,22 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        int totalDamage = damage;
+
+        int damageWithAtribute = damage;
+
         if (hasHolyAttribute) {
-            if (typeMob == "UNDEAD" || typeMob == "ZOMBIE") {
-                totalDamage *= 1.5;
-            } else if (typeMob == "SAINT") {
-                totalDamage /= 2;
-            } else if (typeMob == "ANIMAL" || typeMob == "HUMANOID" || typeMob == "PLANT" || typeMob == "GHOST") {
-                totalDamage = damage;
-            } else {
-                throw new Error("There is no such type of mob here!");
+            switch (typeMob) {
+                case "UNDEAD":
+                case "ZOMBIE":
+                    damageWithAtribute *= 1.5;
+                    damageWithAtribute *= DAMAGE_ADDITIONAL;
+                    break;
+                case "SAINT":
+                    damageWithAtribute /= 2;
+                    damageWithAtribute /= DAMAGE_ADDITIONAL_FOR_SAINT;
+                    break;
             }
         }
-        return totalDamage;
+        return damageWithAtribute;
     }
 }
