@@ -16,7 +16,7 @@ public class Person {
      * @param percentHappiness changes the indicator of happiness.
      * @return percentage of happiness.
      */
-    public double changeHappiness(double percentHappiness) {
+    protected double changeHappiness(double percentHappiness) {
         return happiness += percentHappiness;
     }
 
