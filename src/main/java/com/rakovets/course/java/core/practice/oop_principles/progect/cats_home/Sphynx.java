@@ -22,12 +22,15 @@ public class Sphynx extends Cat {
      * Сat meows for user and the value of the percentage of happiness for the user changes to negative.
      *
      * @param user person type object.
+     * @return meow text.
      */
     @Override
-    public void mew(Person user) {
+    public String mew(Person user) {
         final double NEGATIVE_PERCENTAGE = -10.0;
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
+
+        return "meow";
     }
 
     /**
@@ -44,11 +47,14 @@ public class Sphynx extends Cat {
      * The cat purrs for the user, and the user's happiness percentage changes to a positive value.
      *
      * @param user person type object.
+     * @return text of the purr.
      */
     @Override
-    public void prr(Person user) {
+    public String prr(Person user) {
         final double POSITIVE_PERCENTAGE = 10.0;
 
         user.changeHappiness(POSITIVE_PERCENTAGE);
+
+        return "prr-rr-rr";
     }
 }
