@@ -46,7 +46,6 @@ public class PersianTest {
         user.setHappiness(happiness);
 
         persian.mew(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
@@ -67,7 +66,6 @@ public class PersianTest {
         user.setHappiness(happiness);
 
         persian.prr(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
