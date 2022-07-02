@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
+package com.rakovets.course.java.core.practice.lambda_expressions.BattleGroundTest;
 
 import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
@@ -10,21 +10,23 @@ public class WarriorTest {
     public void testConstructor() {
         Hero warrior = new Warrior("Warrior");
         Assertions.assertEquals("Warrior", warrior.getName());
+        Assertions.assertEquals(100, warrior.getHealth());
+        Assertions.assertEquals(TypeHero.WARRIOR, warrior.getTypeHero());
     }
 
     @Test
-    public void testConstructorHealthTypeHero() {
-        Hero warrior = new Warrior("Warrior", 100);
+    public void testConstructorHealth() {
+        Hero warrior = new Warrior("Warrior", 82);
         Assertions.assertEquals("Warrior", warrior.getName());
-        Assertions.assertEquals(100, warrior.getHealth());
-        Assertions.assertEquals(TypeHero.WARRIOR,warrior.getTypeHero());
+        Assertions.assertEquals(82, warrior.getHealth());
+        Assertions.assertEquals(TypeHero.WARRIOR, warrior.getTypeHero());
     }
 
     @Test
     public void testSetHealth() {
-        Hero warrior = new Warrior("Warrior", 100);
-        warrior.setHealth(90);
-        Assertions.assertEquals(90, warrior.getHealth());
+        Hero warrior = new Warrior("Warrior", 90);
+        warrior.setHealth(10);
+        Assertions.assertEquals(80, warrior.getHealth());
     }
 
     @Test
@@ -42,8 +44,19 @@ public class WarriorTest {
     @Test
     public void testTakeDamage() {
         Hero warrior = new Warrior("Warrior", 30);
+        Assertions.assertTrue(warrior.isAlive());
         warrior.takeDamage(20);
         Assertions.assertEquals(13, warrior.getHealth());
+        Assertions.assertTrue(warrior.isAlive());
+    }
+
+    @Test
+    public void testTakeDamageHealthBelowZero() {
+        Hero warrior = new Warrior("Warrior", 10);
+        Assertions.assertTrue(warrior.isAlive());
+        warrior.takeDamage(30);
+        Assertions.assertEquals(-17, warrior.getHealth());
+        Assertions.assertFalse(warrior.isAlive());
     }
 
     @Test

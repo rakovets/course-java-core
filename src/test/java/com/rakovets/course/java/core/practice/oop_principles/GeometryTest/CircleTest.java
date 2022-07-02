@@ -17,25 +17,25 @@ public class CircleTest {
     @Test
     public void testGetPerimeter() {
         Figure circle = new Circle(10);
-        Assertions.assertEquals(62.8, circle.getPerimeter());
+        Assertions.assertEquals(62.83, circle.getPerimeter());
     }
 
     @Test
     public void testGetPerimeterNonInteger() {
         Figure circle = new Circle(10.2);
-        Assertions.assertEquals(64.06, circle.getPerimeter());
+        Assertions.assertEquals(64.09, circle.getPerimeter());
     }
 
     @Test
     public void testGetSquare() {
         Figure circle = new Circle(10);
-        Assertions.assertEquals(314, circle.getSquare());
+        Assertions.assertEquals(314.16, circle.getSquare());
     }
 
     @Test
     public void testGetSquareNonInteger() {
         Figure circle = new Circle(10.2);
-        Assertions.assertEquals(326.69, circle.getSquare());
+        Assertions.assertEquals(326.85, circle.getSquare());
     }
 
     @Test

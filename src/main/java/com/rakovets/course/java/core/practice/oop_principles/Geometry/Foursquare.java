@@ -8,6 +8,16 @@ public class Foursquare extends Rectangle {
     }
 
     @Override
+    public double getPerimeter() {
+        return NumberUtil.roundValueToTwoDigitsForMantissa(4 * getSideA());
+    }
+
+    @Override
+    public double getSquare() {
+        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.pow(getSideA(),2));
+    }
+
+    @Override
     public double getDiagonal() {
         return NumberUtil.roundValueToTwoDigitsForMantissa(Math.sqrt(2) * getSideA());
     }

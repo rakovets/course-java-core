@@ -4,13 +4,14 @@ public abstract class Enemy implements Mortal {
     private int health;
     private TypeEnemy typeEnemy;
 
-    public Enemy(int health) {
-        this.health = health;
+    public Enemy(TypeEnemy typeEnemy) {
+        this.health = 100;
+        this.typeEnemy = typeEnemy;
     }
 
-    public Enemy(int health,TypeEnemy typeEnemy) {
+    public Enemy(int health, TypeEnemy typeEnemy) {
         this.health = health;
-        this.typeEnemy=typeEnemy;
+        this.typeEnemy = typeEnemy;
     }
 
     public TypeEnemy getTypeEnemy() {

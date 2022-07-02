@@ -7,14 +7,6 @@ public class Person {
         setHappiness(happiness);
     }
 
-    public void changeHappiness(int percentHappiness) {
-        setHappiness(happiness + percentHappiness);
-    }
-
-    public int getHappiness() {
-        return happiness;
-    }
-
     public void setHappiness(int happiness) {
         if (happiness < 0) {
             this.happiness = 0;
@@ -25,4 +17,11 @@ public class Person {
         }
     }
 
+    public int getHappiness() {
+        return happiness;
+    }
+
+    public void changeHappiness(int percentHappiness) {
+        setHappiness(happiness + percentHappiness);
+    }
 }

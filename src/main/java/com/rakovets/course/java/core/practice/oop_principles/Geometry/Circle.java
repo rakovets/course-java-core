@@ -10,13 +10,11 @@ public class Circle extends Ellipse {
 
     @Override
     public double getPerimeter() {
-        return NumberUtil.roundValueToTwoDigitsForMantissa(2 * getRadiusA() *
-                NumberUtil.roundValueToTwoDigitsForMantissa(Math.PI));
+        return NumberUtil.roundValueToTwoDigitsForMantissa(2 * getRadiusA() * Math.PI);
     }
 
     @Override
     public double getSquare() {
-        return NumberUtil.roundValueToTwoDigitsForMantissa(NumberUtil.roundValueToTwoDigitsForMantissa(Math.PI) *
-                Math.pow(getRadiusA(), 2));
+        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.PI * Math.pow(getRadiusA(), 2));
     }
 }

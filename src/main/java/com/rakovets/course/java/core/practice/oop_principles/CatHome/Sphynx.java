@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.CatHome;
 
 public class Sphynx extends Cat {
+
     public Sphynx(String name) {
         super(name);
     }

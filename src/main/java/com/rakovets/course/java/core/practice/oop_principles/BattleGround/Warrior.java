@@ -2,11 +2,11 @@ package com.rakovets.course.java.core.practice.oop_principles.BattleGround;
 
 public class Warrior extends Hero {
     public Warrior(String name) {
-        super(name);
+        super(name, TypeHero.WARRIOR);
     }
 
     public Warrior(String name, int health) {
-        super(name, health,TypeHero.WARRIOR);
+        super(name, health, TypeHero.WARRIOR);
     }
 
     @Override

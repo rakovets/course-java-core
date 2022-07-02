@@ -33,12 +33,13 @@ public class SiameseTest {
     }
 
     @Test
-    void testMewWithPersonHappinessZero() {
+    void testMewWithPersonHappinessBelowZero() {
         user = new Person(0);
         Assertions.assertEquals("Mew-shhh-Mew", siamese.mew(user));
         Assertions.assertEquals(0, user.getHappiness());
     }
 
+    @Test
     void testPurr() {
         Assertions.assertEquals("Purr-Purrrrrrr", siamese.purr());
     }
@@ -50,15 +51,10 @@ public class SiameseTest {
     }
 
     @Test
-    void testPurrWithPersonHappiness100() {
+    void testPurrWithPersonHappinessOver100() {
         user = new Person(100);
         Assertions.assertEquals("Purr-Purrrrrrr", siamese.purr(user));
         Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
-    void testGetName() {
-        Assertions.assertEquals("Siamese", siamese.getName());
     }
 
     @Test

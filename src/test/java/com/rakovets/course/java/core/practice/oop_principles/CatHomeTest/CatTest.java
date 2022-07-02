@@ -32,7 +32,7 @@ public class CatTest {
     }
 
     @Test
-    void testMewWithPersonHappinessZero() {
+    void testMewWithPersonHappinessBelowZero() {
         user = new Person(0);
         Assertions.assertEquals("Mew", cat.mew(user));
         Assertions.assertEquals(0, user.getHappiness());
@@ -54,11 +54,6 @@ public class CatTest {
         user = new Person(100);
         Assertions.assertEquals("Purr", cat.purr(user));
         Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
-    void testGetName() {
-        Assertions.assertEquals("Cat", cat.getName());
     }
 
     @Test

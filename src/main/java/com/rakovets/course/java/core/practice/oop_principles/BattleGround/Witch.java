@@ -1,6 +1,11 @@
 package com.rakovets.course.java.core.practice.oop_principles.BattleGround;
 
 public class Witch extends Enemy {
+
+    public Witch() {
+        super(TypeEnemy.WITCH);
+    }
+
     public Witch(int health) {
         super(health, TypeEnemy.WITCH);
     }
@@ -11,12 +16,6 @@ public class Witch extends Enemy {
             hero.takeDamage(10);
         } else {
             hero.takeDamage(5);
-        }}
-
-        public void takeDamage ( int damage, Hero hero){
-            super.takeDamage(damage);
-            if (!isAlive()) {
-                hero.takeDamage(30);
-            }
         }
     }
+}

@@ -14,18 +14,18 @@ public class PersonTest {
     }
 
     @Test
-    void testPersonConsructor() {
+    void testConstructor() {
         Assertions.assertEquals(50, user.getHappiness());
     }
 
     @Test
-    void testPersonConsructorHappinessBelowZero() {
+    void testConstructorHappinessBelowZero() {
         user = new Person(-10);
         Assertions.assertEquals(0, user.getHappiness());
     }
 
     @Test
-    void testPersonConsructorHappinessOver100() {
+    void testConstructorHappinessOver100() {
         user = new Person(110);
         Assertions.assertEquals(100, user.getHappiness());
     }

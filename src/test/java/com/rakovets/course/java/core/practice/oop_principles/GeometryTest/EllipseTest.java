@@ -19,31 +19,31 @@ public class EllipseTest {
     @Test
     public void testGetPerimeter() {
         Figure ellipse = new Ellipse(5, 10);
-        Assertions.assertEquals(43.2, ellipse.getPerimeter());
+        Assertions.assertEquals(43.22, ellipse.getPerimeter());
     }
 
     @Test
     public void testGetPerimeterNonInteger() {
         Figure ellipse = new Ellipse(10.5, 5.5);
-        Assertions.assertEquals(46.58, ellipse.getPerimeter());
+        Assertions.assertEquals(46.61, ellipse.getPerimeter());
     }
 
     @Test
     public void testGetSquare() {
         Figure ellipse = new Ellipse(10, 5);
-        Assertions.assertEquals(157, ellipse.getSquare());
+        Assertions.assertEquals(157.08, ellipse.getSquare());
     }
 
     @Test
     public void testGetSquareNotInteger() {
         Figure ellipse = new Ellipse(10.5, 5.5);
-        Assertions.assertEquals(181.34, ellipse.getSquare());
+        Assertions.assertEquals(181.43, ellipse.getSquare());
     }
 
     @Test
     public void testIsSquareEquals() {
-        Figure ellipse = new Ellipse(10, 5);
-        Figure rectangle = new Rectangle(31.4, 5);
+        Figure ellipse = new Ellipse(6, 5);
+        Figure rectangle = new Rectangle(18.85, 5);
         Assertions.assertTrue(ellipse.isSquareEquals(rectangle));
     }
 

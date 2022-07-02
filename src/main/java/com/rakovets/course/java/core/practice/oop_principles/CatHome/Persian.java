@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.CatHome;
 
 public class Persian extends Cat {
+
     public Persian(String name) {
         super(name);
     }

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.BattleGroundTest;
+package com.rakovets.course.java.core.practice.lambda_expressions.BattleGroundTest;
 
 import com.rakovets.course.java.core.practice.oop_principles.BattleGround.*;
 import org.junit.jupiter.api.Assertions;
@@ -10,21 +10,23 @@ public class ArcherTest {
     public void testConstructor() {
         Hero archer = new Archer("Archer");
         Assertions.assertEquals("Archer", archer.getName());
+        Assertions.assertEquals(100, archer.getHealth());
+        Assertions.assertEquals(TypeHero.ARCHER, archer.getTypeHero());
     }
 
     @Test
-    public void testConstructorWithHealthTypeHero() {
-        Hero archer = new Archer("Archer", 100);
+    public void testConstructorWithHealth() {
+        Hero archer = new Archer("Archer", 85);
         Assertions.assertEquals("Archer", archer.getName());
-        Assertions.assertEquals(100, archer.getHealth());
-        Assertions.assertEquals(TypeHero.ARCHER,archer.getTypeHero());
+        Assertions.assertEquals(85, archer.getHealth());
+        Assertions.assertEquals(TypeHero.ARCHER, archer.getTypeHero());
     }
 
     @Test
     public void testSetHealth() {
-        Hero archer = new Archer("Archer", 100);
-        archer.setHealth(90);
-        Assertions.assertEquals(90, archer.getHealth());
+        Hero archer = new Archer("Archer", 90);
+        archer.setHealth(80);
+        Assertions.assertEquals(80, archer.getHealth());
     }
 
     @Test
@@ -41,13 +43,24 @@ public class ArcherTest {
 
     @Test
     public void testTakeDamage() {
-        Hero archer = new Archer("Archer", 45);
+        Hero archer = new Archer("Archer", 90);
+        Assertions.assertTrue(archer.isAlive());
         archer.takeDamage(45);
-        Assertions.assertEquals(0, archer.getHealth());
+        Assertions.assertEquals(45, archer.getHealth());
+        Assertions.assertTrue(archer.isAlive());
     }
 
     @Test
-    public void testAttackEnemyHeroHealthGreaterThan50() {
+    public void testTakeDamageHealthBelowZero() {
+        Hero archer = new Archer("Archer", 45);
+        Assertions.assertTrue(archer.isAlive());
+        archer.takeDamage(50);
+        Assertions.assertEquals(-5, archer.getHealth());
+        Assertions.assertFalse(archer.isAlive());
+    }
+
+    @Test
+    public void testAttackEnemyArcherHealthGreaterThan50() {
         Hero archer = new Archer("Archer", 80);
         Enemy witch = new Witch(20);
         archer.attackEnemy(witch);
@@ -55,7 +68,7 @@ public class ArcherTest {
     }
 
     @Test
-    public void testAttackEnemyHeroHealthLessThan50() {
+    public void testAttackEnemyArcherHealthLessThan50() {
         Hero archer = new Archer("Archer", 45);
         Enemy witch = new Witch(20);
         archer.attackEnemy(witch);

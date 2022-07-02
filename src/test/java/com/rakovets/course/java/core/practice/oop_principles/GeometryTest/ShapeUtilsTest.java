@@ -12,7 +12,6 @@ public class ShapeUtilsTest {
         Assertions.assertEquals(true, ShapeUtils.isRectangle(rectangle));
     }
 
-
     @Test
     public void testIsNotRectangle() {
         Figure triangle = new Triangle(2, 3, 4);
@@ -43,4 +42,3 @@ public class ShapeUtilsTest {
         Assertions.assertEquals(true, ShapeUtils.isTriangle(equilateralTriangle));
     }
 }
-

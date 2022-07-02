@@ -12,7 +12,6 @@ public class FoursquareTest {
         Assertions.assertEquals(10, foursquare.getSideA());
     }
 
-
     @Test
     public void testGetPerimeter() {
         Figure foursquare = new Foursquare(10);
@@ -37,7 +36,6 @@ public class FoursquareTest {
         Assertions.assertEquals(111.30, foursquare.getSquare());
     }
 
-    //
     @Test
     public void testGetDiagonal() {
         Diagonal foursquare = new Foursquare(10);

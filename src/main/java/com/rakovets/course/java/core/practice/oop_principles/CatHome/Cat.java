@@ -7,6 +7,14 @@ public class Cat {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String mew() {
         return "Mew";
     }
@@ -23,13 +31,5 @@ public class Cat {
     public String purr(Person user) {
         user.changeHappiness(10);
         return purr();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

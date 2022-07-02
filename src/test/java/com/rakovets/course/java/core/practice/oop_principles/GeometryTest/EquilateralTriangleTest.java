@@ -38,7 +38,7 @@ public class EquilateralTriangleTest {
     @Test
     public void testGetSquareNonInteger() {
         Figure equilateralTriangle = new EquilateralTriangle(5.5);
-        Assertions.assertEquals(13.09, equilateralTriangle.getSquare());
+        Assertions.assertEquals(13.1, equilateralTriangle.getSquare());
     }
 
     @Test

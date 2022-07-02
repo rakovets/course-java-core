@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.oop_principles.BattleGround;
 
 public class Mag extends Hero {
     public Mag(String name) {
-        super(name);
+        super(name, TypeHero.MAG);
     }
 
     public Mag(String name, int health) {

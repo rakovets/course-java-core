@@ -22,5 +22,4 @@ public class EquilateralTriangle extends Triangle {
     public double getHeight() {
         return NumberUtil.roundValueToTwoDigitsForMantissa(getSideA() * Math.sqrt(3) / 2);
     }
-
 }

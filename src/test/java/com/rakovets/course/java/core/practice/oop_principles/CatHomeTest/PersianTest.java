@@ -33,7 +33,7 @@ public class PersianTest {
     }
 
     @Test
-    void testMewWithPersonHappinessZero() {
+    void testMewWithPersonHappinessBelowZero() {
         user = new Person(0);
         Assertions.assertEquals("Meeeeeeeeeew", persian.mew(user));
         Assertions.assertEquals(0, user.getHappiness());
@@ -50,15 +50,10 @@ public class PersianTest {
     }
 
     @Test
-    void testPurrWithPersonHappiness100() {
+    void testPurrWithPersonHappinessOver100() {
         user = new Person(100);
         Assertions.assertEquals("Puuuuuuuuuurr", persian.purr(user));
         Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
-    void testGetName() {
-        Assertions.assertEquals("Persian", persian.getName());
     }
 
     @Test

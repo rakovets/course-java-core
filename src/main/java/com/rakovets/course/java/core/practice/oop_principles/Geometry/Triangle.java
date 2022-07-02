@@ -3,9 +3,9 @@ package com.rakovets.course.java.core.practice.oop_principles.Geometry;
 import com.rakovets.course.java.core.util.NumberUtil;
 
 public class Triangle implements Figure, Height {
-    private double sideA;
-    private double sideB;
-    private double sideC;
+    private final double sideA;
+    private final double sideB;
+    private final double sideC;
 
     public Triangle(double sideA, double sideB, double sideC) {
         if (!(sideA < (sideB + sideC) && sideA > (sideB - sideC)) || !(sideB < (sideA + sideC) && sideB > (sideA - sideC))
@@ -16,6 +16,18 @@ public class Triangle implements Figure, Height {
             this.sideB = sideB;
             this.sideC = sideC;
         }
+    }
+
+    public double getSideA() {
+        return sideA;
+    }
+
+    public double getSideB() {
+        return sideB;
+    }
+
+    public double getSideC() {
+        return sideC;
     }
 
     @Override
@@ -32,17 +44,5 @@ public class Triangle implements Figure, Height {
         double semiPerimeter = getPerimeter() / 2;
         return NumberUtil.roundValueToTwoDigitsForMantissa((2 * Math.sqrt(semiPerimeter * (semiPerimeter - sideA)
                 * (semiPerimeter - sideB) * (semiPerimeter - sideC)) / sideC));
-    }
-
-    public double getSideA() {
-        return sideA;
-    }
-
-    public double getSideB() {
-        return sideB;
-    }
-
-    public double getSideC() {
-        return sideC;
     }
 }
