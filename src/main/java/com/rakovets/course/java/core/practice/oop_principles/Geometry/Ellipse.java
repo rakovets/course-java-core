@@ -29,4 +29,9 @@ public class Ellipse implements Figure {
     public double getSquare() {
         return NumberUtil.roundValueToTwoDigitsForMantissa(radiusA * radiusB * Math.PI);
     }
+
+    @Override
+    public String toString() {
+        return "Ellipse{" + "radiusA=" + radiusA + ", radiusB=" + radiusB + '}';
+    }
 }

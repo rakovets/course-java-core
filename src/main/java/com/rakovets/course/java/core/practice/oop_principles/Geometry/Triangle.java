@@ -45,4 +45,9 @@ public class Triangle implements Figure, Height {
         return NumberUtil.roundValueToTwoDigitsForMantissa((2 * Math.sqrt(semiPerimeter * (semiPerimeter - sideA)
                 * (semiPerimeter - sideB) * (semiPerimeter - sideC)) / sideC));
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" + "sideA=" + sideA + ", sideB=" + sideB + ", sideC=" + sideC + '}';
+    }
 }

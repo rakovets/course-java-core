@@ -65,4 +65,10 @@ public class RectangleTest {
         Figure foursquare = new Foursquare(6);
         Assertions.assertFalse(rectangle.isSquareEquals(foursquare));
     }
+
+    @Test
+    public void testToString() {
+        Figure rectangle = new Rectangle(3, 9);
+        Assertions.assertEquals("Rectangle{sideA=3.0, sideB=9.0}", rectangle.toString());
+    }
 }

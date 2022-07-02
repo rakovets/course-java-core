@@ -17,4 +17,9 @@ public class Circle extends Ellipse {
     public double getSquare() {
         return NumberUtil.roundValueToTwoDigitsForMantissa(Math.PI * Math.pow(getRadiusA(), 2));
     }
+
+    @Override
+    public String toString() {
+        return "Circle{" + "radius=" + getRadiusA() + '}';
+    }
 }

@@ -53,4 +53,10 @@ public class EllipseTest {
         Figure triangle = new Triangle(2, 3, 4);
         Assertions.assertFalse(ellipse.isSquareEquals(triangle));
     }
+
+    @Test
+    public void testToString() {
+        Figure ellipse = new Ellipse(5, 5);
+        Assertions.assertEquals("Ellipse{radiusA=5.0, radiusB=5.0}", ellipse.toString());
+    }
 }

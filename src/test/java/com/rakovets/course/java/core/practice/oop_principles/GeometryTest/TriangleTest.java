@@ -26,7 +26,6 @@ public class TriangleTest {
     public void testGetPerimeter() {
         Figure triangle = new Triangle(2, 3, 4);
         Assertions.assertEquals(9, triangle.getPerimeter());
-
     }
 
     @Test
@@ -71,5 +70,11 @@ public class TriangleTest {
         Figure triangle = new Triangle(2, 3, 4);
         Figure equilateralTriangle = new EquilateralTriangle(3);
         Assertions.assertFalse(triangle.isSquareEquals(equilateralTriangle));
+    }
+
+    @Test
+    public void testToString() {
+        Figure triangle = new Triangle(2, 3, 4);
+        Assertions.assertEquals("Triangle{sideA=2.0, sideB=3.0, sideC=4.0}", triangle.toString());
     }
 }

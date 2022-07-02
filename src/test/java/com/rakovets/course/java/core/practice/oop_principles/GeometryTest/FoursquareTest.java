@@ -61,5 +61,11 @@ public class FoursquareTest {
         Figure circle = new Circle(10);
         Assertions.assertFalse(foursquare.isSquareEquals(circle));
     }
+
+    @Test
+    public void testToString() {
+        Figure foursquare = new Foursquare(10);
+        Assertions.assertEquals("Foursquare{side=10.0}", foursquare.toString());
+    }
 }
 

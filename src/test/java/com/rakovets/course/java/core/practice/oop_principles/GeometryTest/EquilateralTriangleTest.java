@@ -66,4 +66,10 @@ public class EquilateralTriangleTest {
         Figure rectangle = new Rectangle(5, 5);
         Assertions.assertFalse(equilateralTriangle.isSquareEquals(rectangle));
     }
+
+    @Test
+    public void testToString() {
+        Figure equilateralTriangle = new EquilateralTriangle(5);
+        Assertions.assertEquals("Equilateral Triangle{side=5.0}", equilateralTriangle.toString());
+    }
 }

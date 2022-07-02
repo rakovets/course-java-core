@@ -33,4 +33,9 @@ public class Rectangle implements Figure, Diagonal {
     public double getDiagonal() {
         return NumberUtil.roundValueToTwoDigitsForMantissa(Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2)));
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" + "sideA=" + sideA + ", sideB=" + sideB + '}';
+    }
 }

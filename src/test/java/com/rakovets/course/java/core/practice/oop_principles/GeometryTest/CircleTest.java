@@ -51,4 +51,10 @@ public class CircleTest {
         Figure triangle = new Triangle(2, 3, 4);
         Assertions.assertFalse(circle.isSquareEquals(triangle));
     }
+
+    @Test
+    public void testToString() {
+        Figure circle = new Circle(10);
+        Assertions.assertEquals("Circle{radius=10.0}", circle.toString());
+    }
 }
