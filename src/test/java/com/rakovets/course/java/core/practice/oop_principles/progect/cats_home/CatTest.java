@@ -46,7 +46,6 @@ public class CatTest {
         user.setHappiness(happiness);
 
         cat.mew(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
@@ -67,7 +66,6 @@ public class CatTest {
         user.setHappiness(happiness);
 
         cat.prr(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
