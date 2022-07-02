@@ -9,6 +9,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class PersonTest {
+    Person person = new Person(0);
+
     static Stream<Arguments> personChangeHappinessProvideArguments() {
         return Stream.of(
                 Arguments.of(100.0, 0.0, 100.0),
@@ -24,7 +26,7 @@ public class PersonTest {
     @ParameterizedTest
     @MethodSource("personChangeHappinessProvideArguments")
     void personChangeHappiness(double happiness, double percent, double expected) {
-        Person person = new Person(happiness);
+        person.setHappiness(happiness);
 
         double actual = NumberUtil.roundValueToTwoDigitsForMantissa(person.changeHappiness(percent));
 
@@ -42,7 +44,7 @@ public class PersonTest {
     @ParameterizedTest
     @MethodSource("personGetHappinessProvideArguments")
     void personGetHappiness(double happiness, double expected) {
-        Person person = new Person(happiness);
+        person.setHappiness(happiness);
 
         double actual = NumberUtil.roundValueToTwoDigitsForMantissa(person.getHappiness());
 
@@ -65,7 +67,7 @@ public class PersonTest {
     @ParameterizedTest
     @MethodSource("personSetHappinessProvideArguments")
     void catSetName(double happiness, double setHappiness, double expected) {
-        Person person = new Person(happiness);
+        person.setHappiness(happiness);
 
         person.setHappiness(setHappiness);
         double actual = NumberUtil.roundValueToTwoDigitsForMantissa(person.getHappiness());
