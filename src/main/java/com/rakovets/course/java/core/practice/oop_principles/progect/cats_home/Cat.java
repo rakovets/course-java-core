@@ -15,7 +15,7 @@ public class Cat {
      *
      * @return meow text.
      */
-    public String mew() {
+    protected String mew() {
         return "mew";
     }
 
@@ -24,7 +24,7 @@ public class Cat {
      *
      * @param user person type object.
      */
-    public String mew(Person user) {
+    protected String mew(Person user) {
         final double NEGATIVE_PERCENTAGE = -5.0;
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
@@ -37,7 +37,7 @@ public class Cat {
      *
      * @return text of the purr.
      */
-    public String prr() {
+    protected String prr() {
         return "prr";
     }
 
@@ -47,7 +47,7 @@ public class Cat {
      * @param user person type object.
      * @return text of the purr.
      */
-    public String prr(Person user) {
+    protected String prr(Person user) {
         final double POSITIVE_PERCENTAGE = 5.0;
 
         user.changeHappiness(POSITIVE_PERCENTAGE);
