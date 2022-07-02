@@ -30,6 +30,33 @@ public class SphynxTest {
         Assertions.assertEquals(secondExpected, secondActual);
     }
 
+    static Stream<Arguments> sphynxGetNameAndSayMeowAndDoPrrForPersonProvideArguments() {
+        return Stream.of(
+                Arguments.of("Murka", "Murka say: meow. Percentage of happiness: 40.0",
+                        "Murka start to prr-rr-rr. Percentage of happiness: 50.0"),
+                Arguments.of("cat", "cat say: meow. Percentage of happiness: 40.0",
+                        "cat start to prr-rr-rr. Percentage of happiness: 50.0")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("sphynxGetNameAndSayMeowAndDoPrrForPersonProvideArguments")
+    void sphynxGetNameAndSayMeowAndDoPrrForPerson(String name, String firstExpected, String secondExpected) {
+        double testHappiness = 50.0;
+        sphynx.setName(name);
+        user.setHappiness(testHappiness);
+
+
+        String firstActual = sphynx.getName() + " say: " + sphynx.mew(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+        String secondActual = sphynx.getName() + " start to " + sphynx.prr(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+
+        Assertions.assertEquals(firstExpected, firstActual);
+        Assertions.assertEquals(secondExpected, secondActual);
+
+    }
+
     static Stream<Arguments> sphynxSayMeowForPersonProvideArguments() {
         return Stream.of(
                 Arguments.of(100.0, 90.0),
