@@ -28,7 +28,6 @@ public class SphynxTest {
 
         Assertions.assertEquals(firstExpected, firstActual);
         Assertions.assertEquals(secondExpected, secondActual);
-        Assertions.assertEquals(secondExpected, secondActual);
     }
 
     static Stream<Arguments> sphynxSayMeowForPersonProvideArguments() {
@@ -47,7 +46,6 @@ public class SphynxTest {
         user.setHappiness(happiness);
 
         sphynx.mew(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
@@ -69,7 +67,6 @@ public class SphynxTest {
         user.setHappiness(happiness);
 
         sphynx.prr(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
