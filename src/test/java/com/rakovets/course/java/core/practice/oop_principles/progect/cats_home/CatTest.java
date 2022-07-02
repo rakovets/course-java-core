@@ -30,6 +30,33 @@ public class CatTest {
         Assertions.assertEquals(secondExpected, secondActual);
     }
 
+    static Stream<Arguments> catGetNameAndSayMeowAndDoPrrForPersonProvideArguments() {
+        return Stream.of(
+                Arguments.of("Murka", "Murka say: mew. Percentage of happiness: 45.0",
+                        "Murka start to prr. Percentage of happiness: 50.0"),
+                Arguments.of("cat", "cat say: mew. Percentage of happiness: 45.0",
+                        "cat start to prr. Percentage of happiness: 50.0")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("catGetNameAndSayMeowAndDoPrrForPersonProvideArguments")
+    void catGetNameAndSayMeowAndDoPrrForPerson(String name, String firstExpected, String secondExpected) {
+        double testHappiness = 50.0;
+        cat.setName(name);
+        user.setHappiness(testHappiness);
+
+
+        String firstActual = cat.getName() + " say: " + cat.mew(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+        String secondActual = cat.getName() + " start to " + cat.prr(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+
+        Assertions.assertEquals(firstExpected, firstActual);
+        Assertions.assertEquals(secondExpected, secondActual);
+
+    }
+
     static Stream<Arguments> catSayMeowForPersonProvideArguments() {
         return Stream.of(
                 Arguments.of(100.0, 95.0),
