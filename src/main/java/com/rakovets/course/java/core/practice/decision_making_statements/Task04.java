@@ -33,29 +33,29 @@ class Task04 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String text;
         switch (dayOfWeekNumber) {
-            case (1):
+            case 1:
                 text = "Monday";
                 break;
-            case (2):
+            case 2:
                 text = "Tuesday";
                 break;
-            case (3):
+            case 3:
                 text = "Wednesday";
                 break;
-            case (4):
+            case 4:
                 text = "Thursday";
                 break;
-            case (5):
+            case 5:
                 text = "Friday";
                 break;
-            case (6):
+            case 6:
                 text = "Saturday";
                 break;
-            case (7):
+            case 7:
                 text = "Sunday";
                 break;
             default:
-                throw new Error();
+                return null;
         }
         return text;
     }
