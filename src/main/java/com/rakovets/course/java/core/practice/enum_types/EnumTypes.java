@@ -28,10 +28,13 @@ public class EnumTypes {
             switch (seasons) {
                 case AUTUMN:
                     text = "I like " + Seasons.AUTUMN;
+                    break;
                 case WINTER:
                     text = "I like " + Seasons.WINTER;
+                    break;
                 case SPRING:
                     text = "I like " + Seasons.SPRING;
+                    break;
                 case SUMMER:
                     text = "I like " + Seasons.SUMMER;
                     break;
@@ -40,7 +43,7 @@ public class EnumTypes {
         }
 
         public void getInfoAboutSeasons() {
-            for (Seasons seasons: Seasons.values()) {
+            for (Seasons seasons : Seasons.values()) {
                 System.out.println(seasons + " with temperature " + seasons.averageTemperature + "C " + seasons.getDescription());
             }
         }
