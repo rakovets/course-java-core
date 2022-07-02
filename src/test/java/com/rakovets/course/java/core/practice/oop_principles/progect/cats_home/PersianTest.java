@@ -20,7 +20,7 @@ public class PersianTest {
 
     @ParameterizedTest
     @MethodSource("persianGetNameAndSayMeowAndDoPrrProvideArguments")
-    void persianGetNameAndSayMeow(String name, String firstExpected, String secondExpected) {
+    void persianGetNameAndSayMeowFirstVersion(String name, String firstExpected, String secondExpected) {
         persian.setName(name);
 
         String firstActual = persian.getName() + " say: " + persian.mew();
@@ -28,6 +28,32 @@ public class PersianTest {
 
         Assertions.assertEquals(firstExpected, firstActual);
         Assertions.assertEquals(secondExpected, secondActual);
+    }
+
+    static Stream<Arguments> persianGetNameAndSayMeowAndDoPrrForPersonProvideArguments() {
+        return Stream.of(Arguments.of("Murka", "Murka say: meau. Percentage of happiness: 30.0",
+                        "Murka start to purrr. Percentage of happiness: 50.0"),
+                Arguments.of("cat", "cat say: meau. Percentage of happiness: 30.0",
+                        "cat start to purrr. Percentage of happiness: 50.0")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("persianGetNameAndSayMeowAndDoPrrForPersonProvideArguments")
+    void persianGetNameAndSayMeowAndDoPrrForPerson(String name, String firstExpected, String secondExpected) {
+        double testHappiness = 50.0;
+        persian.setName(name);
+        user.setHappiness(testHappiness);
+
+
+        String firstActual = persian.getName() + " say: " + persian.mew(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+        String secondActual = persian.getName() + " start to " + persian.prr(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+
+        Assertions.assertEquals(firstExpected, firstActual);
+        Assertions.assertEquals(secondExpected, secondActual);
+
     }
 
     static Stream<Arguments> persianSayMeowForPersonProvideArguments() {
