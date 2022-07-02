@@ -46,7 +46,6 @@ public class SiamesTest {
         user.setHappiness(happiness);
 
         siames.mew(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
@@ -67,7 +66,6 @@ public class SiamesTest {
         user.setHappiness(happiness);
 
         siames.prr(user);
-
         double actual = user.getHappiness();
 
         Assertions.assertEquals(expected, actual);
