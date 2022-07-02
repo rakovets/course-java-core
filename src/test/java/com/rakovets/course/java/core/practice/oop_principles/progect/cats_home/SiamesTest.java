@@ -30,6 +30,32 @@ public class SiamesTest {
         Assertions.assertEquals(secondExpected, secondActual);
     }
 
+    static Stream<Arguments> siamesGetNameAndSayMeowAndDoPrrForPersonProvideArguments() {
+        return Stream.of(Arguments.of("Murka", "Murka say: me-oo-w. Percentage of happiness: 35.0",
+                        "Murka start to pr. Percentage of happiness: 50.0"),
+                Arguments.of("cat", "cat say: me-oo-w. Percentage of happiness: 35.0",
+                        "cat start to pr. Percentage of happiness: 50.0")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("siamesGetNameAndSayMeowAndDoPrrForPersonProvideArguments")
+    void siamesGetNameAndSayMeowAndDoPrrForPerson(String name, String firstExpected, String secondExpected) {
+        double testHappiness = 50.0;
+        siames.setName(name);
+        user.setHappiness(testHappiness);
+
+
+        String firstActual = siames.getName() + " say: " + siames.mew(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+        String secondActual = siames.getName() + " start to " + siames.prr(user)
+                + ". Percentage of happiness: " + user.getHappiness();
+
+        Assertions.assertEquals(firstExpected, firstActual);
+        Assertions.assertEquals(secondExpected, secondActual);
+
+    }
+
     static Stream<Arguments> siamesSayMeowForPersonProvideArguments() {
         return Stream.of(
                 Arguments.of(100.0, 85.0),
