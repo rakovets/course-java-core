@@ -39,7 +39,7 @@ class Task10 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int lowest;
         if (firstFuelReserves < 0 || secondFuelReserves < 0 || thirdFuelReserves < 0) {
-            throw new Error();
+            return 0;
         } else {
             if (firstFuelReserves == secondFuelReserves && secondFuelReserves == thirdFuelReserves) {
                 lowest = 1;
