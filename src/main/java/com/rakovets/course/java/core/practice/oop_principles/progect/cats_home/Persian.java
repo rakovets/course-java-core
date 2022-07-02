@@ -14,7 +14,7 @@ public class Persian extends Cat {
      * @return meow text.
      */
     @Override
-    public String mew() {
+    protected String mew() {
         return "meau";
     }
 
@@ -25,7 +25,7 @@ public class Persian extends Cat {
      * @return meow text.
      */
     @Override
-    public String mew(Person user) {
+    protected String mew(Person user) {
         final double NEGATIVE_PERCENTAGE = -20.0;
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
@@ -39,7 +39,7 @@ public class Persian extends Cat {
      * @return text of the purr.
      */
     @Override
-    public String prr() {
+    protected String prr() {
         return "purrr";
     }
 
@@ -50,7 +50,7 @@ public class Persian extends Cat {
      * @return text of the purr
      */
     @Override
-    public String prr(Person user) {
+    protected String prr(Person user) {
         final double POSITIVE_PERCENTAGE = 20.0;
 
         user.changeHappiness(POSITIVE_PERCENTAGE);
