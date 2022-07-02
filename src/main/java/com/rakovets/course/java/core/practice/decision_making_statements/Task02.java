@@ -46,7 +46,7 @@ class Task02 {
         } else if (hour >= 0 && hour <= 5) {
             return "Good night";
         } else {
-            throw new Error();
+            return null;
         }
     }
 }
