@@ -24,10 +24,12 @@ public class Cat {
      *
      * @param user person type object.
      */
-    public void mew(Person user) {
+    public String mew(Person user) {
         final double NEGATIVE_PERCENTAGE = -5.0;
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
+
+        return "mew";
     }
 
     /**
@@ -43,11 +45,14 @@ public class Cat {
      * The cat purrs for the user, and the user's happiness percentage changes to a positive value.
      *
      * @param user person type object.
+     * @return text of the purr.
      */
-    public void prr(Person user) {
+    public String prr(Person user) {
         final double POSITIVE_PERCENTAGE = 5.0;
 
         user.changeHappiness(POSITIVE_PERCENTAGE);
+
+        return "prr";
     }
 
     public String getName() {
