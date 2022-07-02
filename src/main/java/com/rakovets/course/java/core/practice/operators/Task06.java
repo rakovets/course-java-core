@@ -17,9 +17,13 @@ class Task06 {
         // аргументов. Типы данных изменять нельзя
         int playingTimeInSeconds = 4567;
 
+
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);
     }
+
+    public static final int SECONDS_IN_MINUTE = 60;
+    public static  final  int HOURS_IN_DAY = 24;
 
     /**
      * Высчитывает сколько времени пользователь провел в игре.
@@ -28,33 +32,17 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        int days = 0, hours = 0, min = 0, sec = 0;
+        int days = 0;
+        int hours = 0;
+        int min = 0;
+        int sec = 0;
 
-        days = playingTimeInSeconds / 86400;
-        hours = playingTimeInSeconds % 86400;
-        min = hours % 3600;
-        hours /= 3600;
-        sec = min % 60;
-        min /= 60;
-
-        /**boolean agreem = true;
-        while (agreem) {
-            if (playingTimeInSeconds >= 60) {
-                playingTimeInSeconds -= 60;
-                min++;
-            } else {
-                sec = playingTimeInSeconds;
-                agreem = false;
-            }
-            if (min == 60) {
-                hours++;
-                min = 0;
-            }
-            if (hours == 24) {
-                days++;
-                hours = 0;
-            }
-        }**/
+        days = playingTimeInSeconds / (SECONDS_IN_MINUTE * SECONDS_IN_MINUTE) * HOURS_IN_DAY;
+        hours = playingTimeInSeconds % (SECONDS_IN_MINUTE * SECONDS_IN_MINUTE) * HOURS_IN_DAY;
+        min = hours % (SECONDS_IN_MINUTE * SECONDS_IN_MINUTE);
+        hours /= Math.pow(SECONDS_IN_MINUTE, 2);
+        sec = min % SECONDS_IN_MINUTE;
+        min /= SECONDS_IN_MINUTE;
 
         String time = days + " " + hours + ":" + min + ":" + sec;
         return time;

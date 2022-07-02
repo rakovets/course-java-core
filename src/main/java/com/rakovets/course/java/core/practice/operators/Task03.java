@@ -23,6 +23,8 @@ class Task03 {
         System.out.printf("Result: %f", totalDepositAmount);
     }
 
+    public static final int PERCENT = 100;
+
     /**
      * Высчитывает конечную сумма на депозитном счете, при условии:
      * <ul>
@@ -35,8 +37,6 @@ class Task03 {
      * @param depositAnnualPercentage ежегодный простой процент
      */
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
-        int countDays = depositYears * 365;
-        int totalDeposit = (depositAmount * depositAnnualPercentage * (countDays/365))/100;
-        return totalDeposit;
+        return ((depositAmount * depositAnnualPercentage * (depositYears)) / PERCENT);
     }
 }
