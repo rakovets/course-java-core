@@ -28,5 +28,7 @@ public class BattleGroundApplication {
         titan.attackHero(mag, 100);
         mag.healing(warrior, 100);
         System.out.println(warrior.getHealth());
+        vampire.attackHero(archer, 100);
+        System.out.println(archer.getHealth());
     }
 }
