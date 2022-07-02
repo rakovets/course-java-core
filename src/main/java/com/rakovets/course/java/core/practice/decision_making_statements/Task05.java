@@ -35,44 +35,44 @@ class Task05 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String text;
         switch (monthNumber) {
-            case (1):
+            case 1:
                 text = "January";
                 break;
-            case (2):
+            case 2:
                 text = "February";
                 break;
-            case (3):
+            case 3:
                 text = "March";
                 break;
-            case (4):
+            case 4:
                 text = "April";
                 break;
-            case (5):
+            case 5:
                 text = "May";
                 break;
-            case (6):
+            case 6:
                 text = "June";
                 break;
-            case (7):
+            case 7:
                 text = "July";
                 break;
-            case (8):
+            case 8:
                 text = "August";
                 break;
-            case (9):
+            case 9:
                 text = "September";
                 break;
-            case (10):
+            case 10:
                 text = "October";
                 break;
-            case (11):
+            case 11:
                 text = "November";
                 break;
-            case (12):
+            case 12:
                 text = "December";
                 break;
             default:
-                throw new Error();
+                return null;
         }
         return text;
     }
