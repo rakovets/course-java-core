@@ -25,6 +25,11 @@ class Task03 {
         System.out.printf("Result: %s", colorHealthPoint);
     }
 
+    public static final int PERCENTAGE_RED = 25;
+    public static final int PERCENTAGE_ORANGE = 50;
+    public static final int PERCENTAGE_YELLOW = 75;
+    public static final int PERCENTAGE_GREEN = 100;
+
     /**
      * Возвращает цвет для шкалы HP игрока, в зависимости от процентного соотношения максимального количества HP и
      * текущего. Когда меньше 25% - красный, меньше 50% - оранжевый, меньше 75% - желтый, меньше либо равно 100 -
@@ -37,17 +42,18 @@ class Task03 {
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        double percentHealth = (double) (currentHealthPoint * 100) / maxHealthPoint;
 
-        if (currentHealthPoint <= maxHealthPoint * 0.25 && currentHealthPoint >= 0) {
+        if (percentHealth <= 0) {
+            return null;
+        } else if (percentHealth < PERCENTAGE_RED) {
             return "RED";
-        } else if (currentHealthPoint <= maxHealthPoint * 0.50 && currentHealthPoint > maxHealthPoint * 0.25) {
+        } else if (percentHealth < PERCENTAGE_ORANGE) {
             return "ORANGE";
-        } else if (currentHealthPoint <= maxHealthPoint * 0.75 && currentHealthPoint > maxHealthPoint * 0.50) {
+        } else if (percentHealth < PERCENTAGE_YELLOW) {
             return "YELLOW";
-        } else if (currentHealthPoint <= maxHealthPoint && currentHealthPoint > maxHealthPoint * 0.75) {
+        } else if (percentHealth <= PERCENTAGE_GREEN) {
             return "GREEN";
-        } else {
-            throw new Error();
-        }
+        } else return null;
     }
 }
