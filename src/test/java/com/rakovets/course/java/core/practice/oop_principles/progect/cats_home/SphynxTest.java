@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class SphynxTest {
-    Cat sphynx = new Sphynx("Unknown");
+    Sphynx sphynx = new Sphynx("Unknown");
     Person user = new Person(0);
 
     static Stream<Arguments> sphynxGetNameAndSayMeowAndDoPrrProvideArguments() {
