@@ -12,6 +12,7 @@ public class WarriorTest {
         Assertions.assertEquals("Warrior", warrior.getName());
         Assertions.assertEquals(100, warrior.getHealth());
         Assertions.assertEquals(TypeHero.WARRIOR, warrior.getTypeHero());
+        Assertions.assertEquals(15, warrior.getDamage());
     }
 
     @Test
@@ -20,12 +21,13 @@ public class WarriorTest {
         Assertions.assertEquals("Warrior", warrior.getName());
         Assertions.assertEquals(82, warrior.getHealth());
         Assertions.assertEquals(TypeHero.WARRIOR, warrior.getTypeHero());
+        Assertions.assertEquals(15, warrior.getDamage());
     }
 
     @Test
     public void testSetHealth() {
         Hero warrior = new Warrior("Warrior", 90);
-        warrior.setHealth(10);
+        warrior.setHealth(80);
         Assertions.assertEquals(80, warrior.getHealth());
     }
 

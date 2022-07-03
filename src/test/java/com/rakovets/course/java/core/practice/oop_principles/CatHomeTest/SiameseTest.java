@@ -19,6 +19,16 @@ public class SiameseTest {
     @Test
     void testConstructor() {
         Assertions.assertEquals("Siamese", siamese.getName());
+        Assertions.assertEquals(-50, siamese.getMewValue());
+        Assertions.assertEquals(50, siamese.getPurrValue());
+    }
+
+    @Test
+    void testConstructorWithMewValueAndPurrValue() {
+        Cat siamese = new Siamese("Siamese", -20, 20);
+        Assertions.assertEquals("Siamese", siamese.getName());
+        Assertions.assertEquals(-20, siamese.getMewValue());
+        Assertions.assertEquals(20, siamese.getPurrValue());
     }
 
     @Test

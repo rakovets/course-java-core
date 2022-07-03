@@ -4,19 +4,22 @@ public class Vampire extends Enemy {
 
     public Vampire() {
         super(TypeEnemy.VAMPIRE);
+        this.damage = 5;
     }
 
     public Vampire(int health) {
         super(health, TypeEnemy.VAMPIRE);
+        this.damage = 5;
     }
 
     @Override
     public void attackHero(Hero hero) {
         if (hero.getTypeHero() == TypeHero.MAG) {
-            hero.takeDamage(5);
+            hero.takeDamage(damage);
         } else {
-            hero.takeDamage(10);
+            hero.takeDamage(damage * 2);
         }
-        this.setHealth(getHealth() + 5);
+        int vampireHealthIncreaseFactor = 5;
+        this.setHealth(getHealth() + vampireHealthIncreaseFactor);
     }
 }

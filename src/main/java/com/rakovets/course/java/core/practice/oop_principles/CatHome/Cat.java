@@ -1,10 +1,26 @@
 package com.rakovets.course.java.core.practice.oop_principles.CatHome;
 
 public class Cat {
+    protected int mewValue = -10;
+    protected int purrValue = 10;
     private String name;
 
     public Cat(String name) {
         this.name = name;
+    }
+
+    public Cat(String name, int mewValue, int purrValue) {
+        this.mewValue = mewValue;
+        this.purrValue = purrValue;
+        this.name = name;
+    }
+
+    public int getMewValue() {
+        return mewValue;
+    }
+
+    public int getPurrValue() {
+        return purrValue;
     }
 
     public String getName() {
@@ -20,7 +36,7 @@ public class Cat {
     }
 
     public String mew(Person user) {
-        user.changeHappiness(-10);
+        user.changeHappiness(mewValue);
         return mew();
     }
 
@@ -29,7 +45,7 @@ public class Cat {
     }
 
     public String purr(Person user) {
-        user.changeHappiness(10);
+        user.changeHappiness(purrValue);
         return purr();
     }
 }

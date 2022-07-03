@@ -11,6 +11,7 @@ public class ZombieTest {
         Enemy zombie = new Zombie();
         Assertions.assertEquals(100, zombie.getHealth());
         Assertions.assertEquals(TypeEnemy.ZOMBIE, zombie.getTypeEnemy());
+        Assertions.assertEquals(5, zombie.getDamage());
     }
 
     @Test
@@ -18,6 +19,7 @@ public class ZombieTest {
         Enemy zombie = new Zombie(90);
         Assertions.assertEquals(90, zombie.getHealth());
         Assertions.assertEquals(TypeEnemy.ZOMBIE, zombie.getTypeEnemy());
+        Assertions.assertEquals(5, zombie.getDamage());
     }
 
     @Test

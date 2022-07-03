@@ -11,6 +11,7 @@ public class VampireTest {
         Enemy vampire = new Vampire();
         Assertions.assertEquals(100, vampire.getHealth());
         Assertions.assertEquals(TypeEnemy.VAMPIRE, vampire.getTypeEnemy());
+        Assertions.assertEquals(5, vampire.getDamage());
     }
 
     @Test
@@ -18,6 +19,7 @@ public class VampireTest {
         Enemy vampire = new Vampire(90);
         Assertions.assertEquals(90, vampire.getHealth());
         Assertions.assertEquals(TypeEnemy.VAMPIRE, vampire.getTypeEnemy());
+        Assertions.assertEquals(5, vampire.getDamage());
     }
 
     @Test

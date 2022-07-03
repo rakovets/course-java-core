@@ -19,6 +19,16 @@ public class SphynxTest {
     @Test
     void testConstructor() {
         Assertions.assertEquals("Sphynx", sphynx.getName());
+        Assertions.assertEquals(-30, sphynx.getMewValue());
+        Assertions.assertEquals(30, sphynx.getPurrValue());
+    }
+
+    @Test
+    void testConstructorWithMewValueAndPurrValue() {
+        Cat sphynx = new Sphynx("Sphynx", -20, 20);
+        Assertions.assertEquals("Sphynx", sphynx.getName());
+        Assertions.assertEquals(-20, sphynx.getMewValue());
+        Assertions.assertEquals(20, sphynx.getPurrValue());
     }
 
     @Test

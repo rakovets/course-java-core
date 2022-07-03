@@ -11,6 +11,7 @@ public class WitchTest {
         Enemy witch = new Witch();
         Assertions.assertEquals(100, witch.getHealth());
         Assertions.assertEquals(TypeEnemy.WITCH, witch.getTypeEnemy());
+        Assertions.assertEquals(5, witch.getDamage());
     }
 
     @Test
@@ -18,6 +19,7 @@ public class WitchTest {
         Enemy witch = new Witch(90);
         Assertions.assertEquals(90, witch.getHealth());
         Assertions.assertEquals(TypeEnemy.WITCH, witch.getTypeEnemy());
+        Assertions.assertEquals(5, witch.getDamage());
     }
 
     @Test

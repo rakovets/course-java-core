@@ -4,18 +4,20 @@ public class Zombie extends Enemy {
 
     public Zombie() {
         super(TypeEnemy.ZOMBIE);
+        this.damage = 5;
     }
 
     public Zombie(int health) {
         super(health, TypeEnemy.ZOMBIE);
+        this.damage = 5;
     }
 
     @Override
     public void attackHero(Hero hero) {
         if (hero.getTypeHero() == TypeHero.MAG) {
-            hero.takeDamage(5);
+            hero.takeDamage(damage);
         } else {
-            hero.takeDamage(10);
+            hero.takeDamage(damage * 2);
         }
     }
 

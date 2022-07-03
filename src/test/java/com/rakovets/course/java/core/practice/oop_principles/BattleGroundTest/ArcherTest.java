@@ -12,6 +12,7 @@ public class ArcherTest {
         Assertions.assertEquals("Archer", archer.getName());
         Assertions.assertEquals(100, archer.getHealth());
         Assertions.assertEquals(TypeHero.ARCHER, archer.getTypeHero());
+        Assertions.assertEquals(5, archer.getDamage());
     }
 
     @Test
@@ -20,6 +21,7 @@ public class ArcherTest {
         Assertions.assertEquals("Archer", archer.getName());
         Assertions.assertEquals(85, archer.getHealth());
         Assertions.assertEquals(TypeHero.ARCHER, archer.getTypeHero());
+        Assertions.assertEquals(5, archer.getDamage());
     }
 
     @Test

@@ -4,18 +4,20 @@ public class Witch extends Enemy {
 
     public Witch() {
         super(TypeEnemy.WITCH);
+        this.damage = 5;
     }
 
     public Witch(int health) {
         super(health, TypeEnemy.WITCH);
+        this.damage = 5;
     }
 
     @Override
     public void attackHero(Hero hero) {
         if (hero.getTypeHero() == TypeHero.MAG) {
-            hero.takeDamage(10);
+            hero.takeDamage(damage * 2);
         } else {
-            hero.takeDamage(5);
+            hero.takeDamage(damage);
         }
     }
 }

@@ -12,6 +12,7 @@ public class MagTest {
         Assertions.assertEquals("Mag", mag.getName());
         Assertions.assertEquals(100, mag.getHealth());
         Assertions.assertEquals(TypeHero.MAG, mag.getTypeHero());
+        Assertions.assertEquals(5, mag.getDamage());
     }
 
     @Test
@@ -20,6 +21,7 @@ public class MagTest {
         Assertions.assertEquals("Mag", mag.getName());
         Assertions.assertEquals(85, mag.getHealth());
         Assertions.assertEquals(TypeHero.MAG, mag.getTypeHero());
+        Assertions.assertEquals(5, mag.getDamage());
     }
 
     @Test

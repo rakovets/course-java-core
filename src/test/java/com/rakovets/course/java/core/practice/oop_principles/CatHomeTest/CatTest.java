@@ -18,6 +18,16 @@ public class CatTest {
     @Test
     void testConstructor() {
         Assertions.assertEquals("Cat", cat.getName());
+        Assertions.assertEquals(-10, cat.getMewValue());
+        Assertions.assertEquals(10, cat.getPurrValue());
+    }
+
+    @Test
+    void testConstructorWithMewValueAndPurrValue() {
+        Cat cat = new Cat("Cat", -30, 30);
+        Assertions.assertEquals("Cat", cat.getName());
+        Assertions.assertEquals(-30, cat.getMewValue());
+        Assertions.assertEquals(30, cat.getPurrValue());
     }
 
     @Test

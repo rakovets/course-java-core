@@ -19,6 +19,16 @@ public class PersianTest {
     @Test
     void testConstructor() {
         Assertions.assertEquals("Persian", persian.getName());
+        Assertions.assertEquals(-40, persian.getMewValue());
+        Assertions.assertEquals(40, persian.getPurrValue());
+    }
+
+    @Test
+    void testConstructorWithMewValueAndPurrValue() {
+        Cat persian = new Persian("Persian", -30, 30);
+        Assertions.assertEquals("Persian", persian.getName());
+        Assertions.assertEquals(-30, persian.getMewValue());
+        Assertions.assertEquals(30, persian.getPurrValue());
     }
 
     @Test
