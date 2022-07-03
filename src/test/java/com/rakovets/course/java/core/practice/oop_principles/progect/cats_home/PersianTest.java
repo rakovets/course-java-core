@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class PersianTest {
-    Cat persian = new Persian("Unknown");
+    Persian persian = new Persian("Unknown");
     Person user = new Person(0.0);
 
     static Stream<Arguments> persianGetNameAndSayMeowAndDoPrrProvideArguments() {
