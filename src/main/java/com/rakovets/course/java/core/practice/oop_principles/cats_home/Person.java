@@ -1,20 +1,21 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Person {
-    double happiness;
+    final int MAX_PERCENTAGE = 100;
+    int happiness;
 
-    Person(double happiness) {
+    Person(int happiness) {
         this.happiness = happiness;
     }
 
-    public double changeHappiness(double percentHappiness) {
-        return percentHappiness += happiness;
+    public int changeHappiness(int percentHappiness) {
+        return this.happiness += percentHappiness;
     }
 
     public double getHappiness() {
         return happiness;
     }
-    public void setHappiness(double happiness) {
+    public void setHappiness(int happiness) {
         this.happiness = happiness;
     }
 }
