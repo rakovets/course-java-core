@@ -12,9 +12,6 @@ public abstract class Hero implements Mortal {
         this.healthHero = health;
     }
 
-    /**
-     * @param enemy type enemy.
-     */
     protected abstract void attackEnemy(Enemy enemy);
 
     /**
