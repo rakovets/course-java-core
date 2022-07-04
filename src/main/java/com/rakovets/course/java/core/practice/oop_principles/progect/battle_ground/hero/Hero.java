@@ -5,6 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 
 public abstract class Hero implements Mortal {
     private final String name;
+
     private int healthHero;
 
     protected Hero(String name, int health) {
