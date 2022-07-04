@@ -18,127 +18,10 @@ public class ArcherTest {
     Zombie zombie = new Zombie(0);
     Enemy enemy = new Enemy(0) {
         @Override
-        protected void attackEnemy(Hero hero) {
+        protected void attackHero(Hero hero) {
+            hero.attackEnemy(enemy);
         }
     };
-
-    static Stream<Arguments> archerIsAliveProviderArguments() {
-        return Stream.of(
-                Arguments.of(100, true),
-                Arguments.of(0, false),
-                Arguments.of(50, true)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("archerIsAliveProviderArguments")
-    void archerIsAlive(int health, boolean expected) {
-        archer.setHealth(health);
-
-        boolean actual = archer.isAlive();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> archerTakingDamageProviderArguments() {
-        return Stream.of(
-                Arguments.of(100, 80, 20),
-                Arguments.of(0, 10, 0),
-                Arguments.of(50, 20, 30)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("archerTakingDamageProviderArguments")
-    void archerTakingDamage(int health, int damage, int expected) {
-        archer.setHealth(health);
-
-        int actual = archer.takingDamage(damage);
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> archerTakingDamageByAVampireProviderArguments() {
-        return Stream.of(
-                Arguments.of(100, 75),
-                Arguments.of(0, 0),
-                Arguments.of(50, 25),
-                Arguments.of(25, 0),
-                Arguments.of(10, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("archerTakingDamageByAVampireProviderArguments")
-    void archerTakingDamageByAVampire(int health, int expected) {
-        archer.setHealth(health);
-
-        int actual = archer.takingDamage(vampire.getDAMAGE_VAMPIRE());
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> archerTakingDamageByAWerewolfDayProviderArguments() {
-        return Stream.of(
-                Arguments.of(100, 80),
-                Arguments.of(0, 0),
-                Arguments.of(50, 30),
-                Arguments.of(25, 5),
-                Arguments.of(10, 0),
-                Arguments.of(20, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("archerTakingDamageByAWerewolfDayProviderArguments")
-    void archerTakingDamageByAWerewolfDay(int health, int expected) {
-        archer.setHealth(health);
-
-        int actual = archer.takingDamage(werewolf.getDAMAGE_WEREWOLF());
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> archerTakingDamageByAWerewolfNightProviderArguments() {
-        return Stream.of(
-                Arguments.of(100, 60),
-                Arguments.of(0, 0),
-                Arguments.of(50, 10),
-                Arguments.of(25, 0),
-                Arguments.of(10, 0),
-                Arguments.of(40, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("archerTakingDamageByAWerewolfNightProviderArguments")
-    void archerTakingDamageByAWerewolfNight(int health, int expected) {
-        archer.setHealth(health);
-
-        int actual = archer.takingDamage(werewolf.getDAMAGE_WEREWOLF_NIGHT());
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> archerTakingDamageByAZombieProviderArguments() {
-        return Stream.of(
-                Arguments.of(100, 88),
-                Arguments.of(0, 0),
-                Arguments.of(50, 38),
-                Arguments.of(12, 0),
-                Arguments.of(10, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("archerTakingDamageByAZombieProviderArguments")
-    void archerTakingDamageByAZombie(int health, int expected) {
-        archer.setHealth(health);
-
-        int actual = archer.takingDamage(zombie.getDAMAGE_ZOMBIE());
-
-        Assertions.assertEquals(expected, actual);
-    }
 
     static Stream<Arguments> archerAttackEnemyProvideArguments() {
         return Stream.of(
@@ -271,7 +154,6 @@ public class ArcherTest {
                 Arguments.of(100, 80),
                 Arguments.of(50, 30),
                 Arguments.of(0, 0),
-                Arguments.of(20, 0),
                 Arguments.of(10, 0)
         );
     }
@@ -304,6 +186,124 @@ public class ArcherTest {
 
         archer.boostedShot(zombie);
         int actual = zombie.getHealth();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> archerTakingDamageProviderArguments() {
+        return Stream.of(
+                Arguments.of(100, 80, 20),
+                Arguments.of(0, 10, 0),
+                Arguments.of(50, 20, 30)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("archerTakingDamageProviderArguments")
+    void archerTakingDamage(int health, int damage, int expected) {
+        archer.setHealth(health);
+
+        int actual = archer.takingDamage(damage);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> archerTakingDamageByAVampireProviderArguments() {
+        return Stream.of(
+                Arguments.of(100, 75),
+                Arguments.of(0, 0),
+                Arguments.of(50, 25),
+                Arguments.of(25, 0),
+                Arguments.of(10, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("archerTakingDamageByAVampireProviderArguments")
+    void archerTakingDamageByAVampire(int health, int expected) {
+        archer.setHealth(health);
+
+        int actual = archer.takingDamage(vampire.getDAMAGE_VAMPIRE());
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> archerTakingDamageByAWerewolfDayProviderArguments() {
+        return Stream.of(
+                Arguments.of(100, 80),
+                Arguments.of(0, 0),
+                Arguments.of(50, 30),
+                Arguments.of(25, 5),
+                Arguments.of(10, 0),
+                Arguments.of(20, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("archerTakingDamageByAWerewolfDayProviderArguments")
+    void archerTakingDamageByAWerewolfDay(int health, int expected) {
+        archer.setHealth(health);
+
+        int actual = archer.takingDamage(werewolf.getDAMAGE_WEREWOLF());
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> archerTakingDamageByAWerewolfNightProviderArguments() {
+        return Stream.of(
+                Arguments.of(100, 60),
+                Arguments.of(0, 0),
+                Arguments.of(50, 10),
+                Arguments.of(25, 0),
+                Arguments.of(10, 0),
+                Arguments.of(40, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("archerTakingDamageByAWerewolfNightProviderArguments")
+    void archerTakingDamageByAWerewolfNight(int health, int expected) {
+        archer.setHealth(health);
+
+        int actual = archer.takingDamage(werewolf.getDAMAGE_WEREWOLF_NIGHT());
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> archerTakingDamageByAZombieProviderArguments() {
+        return Stream.of(
+                Arguments.of(100, 88),
+                Arguments.of(0, 0),
+                Arguments.of(50, 38),
+                Arguments.of(12, 0),
+                Arguments.of(10, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("archerTakingDamageByAZombieProviderArguments")
+    void archerTakingDamageByAZombie(int health, int expected) {
+        archer.setHealth(health);
+
+        int actual = archer.takingDamage(zombie.getDAMAGE_ZOMBIE());
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> archerIsAliveProviderArguments() {
+        return Stream.of(
+                Arguments.of(100, true),
+                Arguments.of(0, false),
+                Arguments.of(50, true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("archerIsAliveProviderArguments")
+    void archerIsAlive(int health, boolean expected) {
+        archer.setHealth(health);
+
+        boolean actual = archer.isAlive();
 
         Assertions.assertEquals(expected, actual);
     }
