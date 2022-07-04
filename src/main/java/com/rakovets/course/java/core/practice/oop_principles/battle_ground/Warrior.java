@@ -7,7 +7,7 @@ public class Warrior extends Hero {
     }
 
     @Override
-    public String attackEnemy() {
-        return "Attacking !";
+    public int attackEnemy(Enemy enemy) {
+        return enemy.takeDamage(20);
     }
 }

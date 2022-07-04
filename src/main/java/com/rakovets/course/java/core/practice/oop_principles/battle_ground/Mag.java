@@ -5,7 +5,7 @@ public class Mag extends Hero {
         super(name);
     }
     @Override
-    public String attackEnemy() {
-        return "Attack with pure magic!";
+    public int attackEnemy(Enemy enemy) {
+        return enemy.takeDamage(25);
     }
 }

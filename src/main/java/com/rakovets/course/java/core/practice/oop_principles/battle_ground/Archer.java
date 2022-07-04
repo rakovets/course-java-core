@@ -5,7 +5,7 @@ public class Archer extends Hero {
         super(name);
     }
     @Override
-    public String attackEnemy() {
-        return "My arrow attacks";
+    public int attackEnemy(Enemy enemy) {
+        return enemy.takeDamage(12);
     }
 }
