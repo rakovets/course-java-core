@@ -3,6 +3,9 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Enemy;
 
 public class Mag extends Hero {
+    final int HEALING = 25;
+    final int MINIMAL_HEALING = 50;
+    final int PERCENTAGE = 100;
     private int damageMag = 17;
 
     public Mag(String name, int health) {
@@ -28,15 +31,11 @@ public class Mag extends Hero {
      */
     @Override
     public int takingDamage(int damage) {
-        final int HEALING = 25;
-        final int MINIMAL_HEALING = 50;
-        final int PERCENTAGE = 100;
-
-        int health = 0;
+        int health = MIN_HP;
 
         if (isAlive()) {
-            if (getHealth() - damage <= 0) {
-                setHealth(0);
+            if (getHealth() - damage <= MIN_HP) {
+                setHealth(MIN_HP);
             } else if (getHealth() * MINIMAL_HEALING / PERCENTAGE <= MINIMAL_HEALING) {
                 setHealth(getHealth() - damage + HEALING);
                 health = getHealth();
