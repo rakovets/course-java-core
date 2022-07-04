@@ -1,5 +1,4 @@
 package com.rakovets.course.java.core.practice.enum_types.season;
-
 public class SeasonApplication {
     public static void main(String[] args) {
         Season seasonSpring = Season.SPRING;
