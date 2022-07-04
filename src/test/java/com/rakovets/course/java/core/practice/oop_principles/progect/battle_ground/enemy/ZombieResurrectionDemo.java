@@ -4,7 +4,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Mag;
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Warrior;
 
-public class ZombieResurrectionTest {
+public class ZombieResurrectionDemo {
     public static void main(String[] args) {
         Zombie zombie = new Zombie(100);
         Archer archer = new Archer("", 100);
