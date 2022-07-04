@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Enemy;
 
 public class Archer extends Hero {
-    private int DAMAGES_ARCHER = 20;
-    final int BOOSTER_SHOT = 40;
+    private int damageArcher = 20;
+    private int boostShot = 40;
 
     public Archer(String name, int health) {
         super(name, health);
@@ -17,7 +17,7 @@ public class Archer extends Hero {
      */
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takingDamage(DAMAGES_ARCHER);
+        enemy.takingDamage(damageArcher);
     }
 
     /**
@@ -25,15 +25,23 @@ public class Archer extends Hero {
      *
      * @param enemy type enemy.
      */
-    protected void boostedShot(Enemy enemy) {
-        enemy.takingDamage(BOOSTER_SHOT);
+    public void boostedShot(Enemy enemy) {
+        enemy.takingDamage(boostShot);
     }
 
     public void setDamageArcher(int damageArcher) {
-        this.DAMAGES_ARCHER = damageArcher;
+        this.damageArcher = damageArcher;
     }
 
-    public int getDAMAGES_ARCHER() {
-        return DAMAGES_ARCHER;
+    public int getDamageArcher() {
+        return damageArcher;
+    }
+
+    public int getBoostShot() {
+        return boostShot;
+    }
+
+    public void setBoostShot(int boostShot) {
+        this.boostShot = boostShot;
     }
 }
