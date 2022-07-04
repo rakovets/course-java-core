@@ -30,7 +30,7 @@ public class Sphynx extends Cat {
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
 
-        return "meow";
+        return mew();
     }
 
     /**
