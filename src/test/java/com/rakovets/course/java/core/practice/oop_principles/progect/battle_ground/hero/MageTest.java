@@ -18,24 +18,95 @@ public class MageTest {
     Zombie zombie = new Zombie(0);
     Enemy enemy = new Enemy(0) {
         @Override
-        protected void attackEnemy(Hero hero) {
+        protected void attackHero(Hero hero) {
+            hero.attackEnemy(enemy);
         }
     };
 
-    static Stream<Arguments> mageIsAliveProviderArguments() {
+    static Stream<Arguments> magAttackEnemyProvideArguments() {
         return Stream.of(
-                Arguments.of(100, true),
-                Arguments.of(0, false),
-                Arguments.of(50, true)
+                Arguments.of(100, 83),
+                Arguments.of(50, 33),
+                Arguments.of(0, 0),
+                Arguments.of(20, 3),
+                Arguments.of(10, 0)
         );
     }
 
     @ParameterizedTest
-    @MethodSource("mageIsAliveProviderArguments")
-    void mageIsAlive(int health, boolean expected) {
-        mag.setHealth(health);
+    @MethodSource("magAttackEnemyProvideArguments")
+    void magAttackEnemy(int health, int expected) {
+        enemy.setHealth(health);
 
-        boolean actual = mag.isAlive();
+        mag.attackEnemy(enemy);
+        int actual = enemy.getHealth();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> magAttackVampireProvideArguments() {
+        return Stream.of(
+                Arguments.of(100, 98),
+                Arguments.of(50, 48),
+                Arguments.of(0, 0),
+                Arguments.of(4, 0),
+                Arguments.of(10, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("magAttackVampireProvideArguments")
+    void magAttackVampire(int health, int expected) {
+        vampire.setHealth(health);
+
+        mag.attackEnemy(vampire);
+        int actual = vampire.getHealth();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> magAttackWerewolfProvideArguments() {
+        return Stream.of(
+                Arguments.of(100, 0, 83),
+                Arguments.of(100, 1, 83),
+                Arguments.of(100, 6, 83),
+                Arguments.of(100, 12, 83),
+                Arguments.of(50, 4, 33),
+                Arguments.of(0, 1, 0),
+                Arguments.of(20, 7, 3),
+                Arguments.of(10, 8, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("magAttackWerewolfProvideArguments")
+    void magAttackWerewolf(int health, int time, int expected) {
+        werewolf.setHealth(health);
+        werewolf.setTime(time);
+
+        mag.attackEnemy(werewolf);
+        int actual = werewolf.getHealth();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> magAttackZombieProvideArguments() {
+        return Stream.of(
+                Arguments.of(100, 83),
+                Arguments.of(50, 33),
+                Arguments.of(0, 0),
+                Arguments.of(18, 1),
+                Arguments.of(10, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("magAttackZombieProvideArguments")
+    void magAttackZombie(int health, int expected) {
+        zombie.setHealth(health);
+
+        mag.attackEnemy(zombie);
+        int actual = zombie.getHealth();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -140,86 +211,20 @@ public class MageTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> magAttackEnemyProvideArguments() {
+    static Stream<Arguments> mageIsAliveProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 83),
-                Arguments.of(50, 33),
-                Arguments.of(0, 0),
-                Arguments.of(20, 3),
-                Arguments.of(10, 0)
+                Arguments.of(100, true),
+                Arguments.of(0, false),
+                Arguments.of(50, true)
         );
     }
 
     @ParameterizedTest
-    @MethodSource("magAttackEnemyProvideArguments")
-    void magAttackEnemy(int health, int expected) {
-        enemy.setHealth(health);
+    @MethodSource("mageIsAliveProviderArguments")
+    void mageIsAlive(int health, boolean expected) {
+        mag.setHealth(health);
 
-        mag.attackEnemy(enemy);
-        int actual = enemy.getHealth();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> magAttackVampireProvideArguments() {
-        return Stream.of(
-                Arguments.of(100, 98),
-                Arguments.of(50, 48),
-                Arguments.of(0, 0),
-                Arguments.of(4, 0),
-                Arguments.of(10, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("magAttackVampireProvideArguments")
-    void magAttackVampire(int health, int expected) {
-        vampire.setHealth(health);
-
-        mag.attackEnemy(vampire);
-        int actual = vampire.getHealth();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> magAttackWerewolfProvideArguments() {
-        return Stream.of(
-                Arguments.of(100, 83),
-                Arguments.of(50, 33),
-                Arguments.of(0, 0),
-                Arguments.of(20, 3),
-                Arguments.of(10, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("magAttackWerewolfProvideArguments")
-    void magAttackWerewolf(int health, int expected) {
-        werewolf.setHealth(health);
-
-        mag.attackEnemy(werewolf);
-        int actual = werewolf.getHealth();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    static Stream<Arguments> magAttackZombieProvideArguments() {
-        return Stream.of(
-                Arguments.of(100, 83),
-                Arguments.of(50, 33),
-                Arguments.of(0, 0),
-                Arguments.of(18, 1),
-                Arguments.of(10, 0)
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("magAttackZombieProvideArguments")
-    void magAttackZombie(int health, int expected) {
-        zombie.setHealth(health);
-
-        mag.attackEnemy(zombie);
-        int actual = zombie.getHealth();
+        boolean actual = mag.isAlive();
 
         Assertions.assertEquals(expected, actual);
     }
