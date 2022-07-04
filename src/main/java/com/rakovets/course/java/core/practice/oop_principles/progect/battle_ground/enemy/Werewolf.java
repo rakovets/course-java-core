@@ -9,12 +9,6 @@ public class Werewolf extends Enemy {
     final int DAMAGE_WEREWOLF_NIGHT = 40;
     private int time;
 
-    /**
-     * Constructor.
-     *
-     * @param health indicator of health.
-     * @param time   current time.
-     */
     public Werewolf(int health, int time) {
         super(health);
         this.time = time;
