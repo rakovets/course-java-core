@@ -3,7 +3,9 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Enemy;
 
 public class Mag extends Hero {
-    protected Mag(String name, int health) {
+    private int damageMag = 17;
+
+    public Mag(String name, int health) {
         super(name, health);
     }
 
@@ -13,10 +15,8 @@ public class Mag extends Hero {
      * @param enemy type enemy.
      */
     @Override
-    protected void attackEnemy(Enemy enemy) {
-        final int DAMAGE_MAGE = 17;
-
-        enemy.takingDamage(DAMAGE_MAGE);
+    public void attackEnemy(Enemy enemy) {
+        enemy.takingDamage(damageMag);
     }
 
     /**
@@ -39,9 +39,20 @@ public class Mag extends Hero {
                 setHealth(0);
             } else if (getHealth() * MINIMAL_HEALING / PERCENTAGE <= MINIMAL_HEALING) {
                 setHealth(getHealth() - damage + HEALING);
+                health = getHealth();
+            } else {
+                setHealth(getHealth() - damage);
+                health = getHealth();
             }
-            health = getHealth();
         }
         return health;
+    }
+
+    public int getDamageMag() {
+        return damageMag;
+    }
+
+    public void setDamageMag(int damageMag) {
+        this.damageMag = damageMag;
     }
 }
