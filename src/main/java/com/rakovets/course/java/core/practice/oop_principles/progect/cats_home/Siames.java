@@ -30,7 +30,7 @@ public class Siames extends Cat {
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
 
-        return "me-oo-w";
+        return mew();
     }
 
     /**
