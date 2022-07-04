@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Hero;
 
 public class Vampire extends Enemy {
+    final int REGENERATION = 15;
     final int DAMAGE_VAMPIRE = 25;
 
     public Vampire(int health) {
@@ -28,11 +29,9 @@ public class Vampire extends Enemy {
      */
     @Override
     public void takingDamage(int damage) {
-        final int REGENERATION = 15;
-
         if (isAlive()) {
-            if (getHealth() - damage <= 0) {
-                setHealth(0);
+            if (getHealth() - damage <= MIN_HP) {
+                setHealth(MIN_HP);
             } else {
                 setHealth(getHealth() - damage + REGENERATION);
             }
