@@ -43,7 +43,6 @@ public class Zombie extends Enemy {
                 }
             } else {
                 setHealth(getHealth() - damage);
-
             }
         }
     }
