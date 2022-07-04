@@ -5,7 +5,6 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Warrior extends Hero {
-
     Random random = new Random();
 
     protected Warrior(String name, int health) {
