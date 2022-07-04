@@ -30,7 +30,7 @@ public class Persian extends Cat {
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
 
-        return "meau";
+        return mew();
     }
 
     /**
