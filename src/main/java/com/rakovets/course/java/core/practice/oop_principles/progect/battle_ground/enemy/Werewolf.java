@@ -7,6 +7,7 @@ public class Werewolf extends Enemy {
     final int DAWN = 6;
     final int DAMAGE_WEREWOLF = 20;
     final int DAMAGE_WEREWOLF_NIGHT = 40;
+
     private int time;
 
     public Werewolf(int health, int time) {
