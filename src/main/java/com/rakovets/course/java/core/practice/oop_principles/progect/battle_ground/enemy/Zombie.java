@@ -6,14 +6,8 @@ import java.util.Random;
 
 public class Zombie extends Enemy {
     final int DAMAGE_ZOMBIE = 12;
-
     Random random = new Random();
 
-    /**
-     * Constructor.
-     *
-     * @param health indicator of health.
-     */
     public Zombie(int health) {
         super(health);
     }
