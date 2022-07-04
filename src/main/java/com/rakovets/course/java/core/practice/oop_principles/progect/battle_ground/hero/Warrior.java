@@ -5,9 +5,10 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Warrior extends Hero {
+    private int damageWarrior = 24;
     Random random = new Random();
 
-    protected Warrior(String name, int health) {
+    public Warrior(String name, int health) {
         super(name, health);
     }
 
@@ -17,10 +18,8 @@ public class Warrior extends Hero {
      * @param enemy type enemy.
      */
     @Override
-    protected void attackEnemy(Enemy enemy) {
-        final int DAMAGE_WARRIOR = 24;
-
-        enemy.takingDamage(DAMAGE_WARRIOR);
+    public void attackEnemy(Enemy enemy) {
+        enemy.takingDamage(damageWarrior);
     }
 
     /**
@@ -49,5 +48,13 @@ public class Warrior extends Hero {
             }
         }
         return health;
+    }
+
+    public int getDamageWarrior() {
+        return damageWarrior;
+    }
+
+    public void setDamageWarrior(int damageWarrior) {
+        this.damageWarrior = damageWarrior;
     }
 }
