@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
+
 public class CatsHomeApplication {
     public static void main(String[] args) {
         Cat cat = new Cat("Murka");

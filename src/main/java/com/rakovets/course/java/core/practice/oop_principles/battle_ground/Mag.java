@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
+
 class Mag extends Hero {
     public Mag(String name, int health) {
         super(name, health);

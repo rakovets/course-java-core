@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
+
 public abstract class Enemy {
     private int health;
 

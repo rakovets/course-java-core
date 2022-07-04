@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
+
 public class BattleGroundApplication {
     public static void main(String[] args) {
         Mag magik = new Mag("San", 100);
