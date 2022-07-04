@@ -29,7 +29,7 @@ public class Cat {
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
 
-        return "mew";
+        return mew();
     }
 
     /**
