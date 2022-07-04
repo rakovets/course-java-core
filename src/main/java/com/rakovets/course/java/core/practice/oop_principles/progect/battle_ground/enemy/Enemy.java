@@ -10,7 +10,7 @@ public abstract class Enemy implements Mortal {
         this.healthEnemy = health;
     }
 
-    protected abstract void attackEnemy(Hero hero);
+    protected abstract void attackHero(Hero hero);
 
     /**
      * Subtracts damage taken from current health.
