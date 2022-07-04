@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.enum_types.season;
+
 public enum Season {
     SPRING(+9),
     SUMMER(+23) {
