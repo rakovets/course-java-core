@@ -5,6 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Warrior extends Hero {
+    final int SHIELD_BLOCK = 10;
     private int damageWarrior = 24;
 
     Random random = new Random();
@@ -31,17 +32,14 @@ public class Warrior extends Hero {
      */
     @Override
     public int takingDamage(int damage) {
-        final int SHIELD_BLOCK = 10;
-
-        int health = 0;
+        int health = MIN_HP;
 
         if (isAlive()) {
-            if (getHealth() - damage < 0) {
-                setHealth(0);
+            if (getHealth() - damage < MIN_HP) {
+                setHealth(MIN_HP);
                 health = getHealth();
-            } else if (getHealth() - damage != 0) {
+            } else if (getHealth() - damage != MIN_HP) {
                 boolean block = random.nextBoolean();
-
                 if (block) {
                     setHealth(getHealth() - damage + SHIELD_BLOCK);
                     health = getHealth();
