@@ -6,12 +6,14 @@ public class Sphynx extends Cat {
     }
 
     @Override
-    public String mew() {
+    public String mew(Person user) {
+        user.changeHappiness(-25);
         return "mio-mio";
     }
 
     @Override
-    public String purr() {
+    public String purr(Person user) {
+        user.changeHappiness(+25);
         return "mur-mur";
     }
 }

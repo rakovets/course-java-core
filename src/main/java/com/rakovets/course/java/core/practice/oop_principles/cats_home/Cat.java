@@ -7,11 +7,13 @@ public class Cat {
         this.name = name;
     }
 
-    public String mew() {
+    public String mew(Person user) {
+        user.changeHappiness(-1);
         return "mew";
     }
 
-    public String purr() {
+    public String purr(Person user) {
+        user.changeHappiness(+1);
         return "purr";
     }
 
