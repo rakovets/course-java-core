@@ -10,6 +10,16 @@ public class Vampire extends Enemy {
     }
 
     /**
+     * Deals damage to the hero.
+     *
+     * @param hero type hero.
+     */
+    @Override
+    public void attackHero(Hero hero) {
+        hero.takingDamage(DAMAGE_VAMPIRE);
+    }
+
+    /**
      * Restores HP.
      * <p>
      * Passive ability.
@@ -27,16 +37,6 @@ public class Vampire extends Enemy {
                 setHealth(getHealth() - damage + REGENERATION);
             }
         }
-    }
-
-    /**
-     * Deals damage to the hero.
-     *
-     * @param hero type hero.
-     */
-    @Override
-    protected void attackEnemy(Hero hero) {
-        hero.takingDamage(DAMAGE_VAMPIRE);
     }
 
     public int getDAMAGE_VAMPIRE() {
