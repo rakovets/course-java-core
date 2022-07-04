@@ -5,6 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Werewolf;
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Zombie;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -16,12 +17,17 @@ public class MageTest {
     Vampire vampire = new Vampire(0);
     Werewolf werewolf = new Werewolf(0, 0);
     Zombie zombie = new Zombie(0);
-    Enemy enemy = new Enemy(0) {
-        @Override
-        protected void attackHero(Hero hero) {
-            hero.attackEnemy(enemy);
-        }
-    };
+    static Enemy enemy;
+
+    @BeforeAll
+    static void beforeAll() {
+        enemy = new Enemy(0) {
+            @Override
+            protected void attackHero(Hero hero) {
+                hero.takingDamage(0);
+            }
+        };
+    }
 
     static Stream<Arguments> magAttackEnemyProvideArguments() {
         return Stream.of(
