@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.Cats_home;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Cat {
     private String name;
@@ -19,7 +19,6 @@ public class Cat {
     public String purr() {
         return "purr - purr - purr ";
     }
-
 
     public void purr(Person user) {
         this.purr();

@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.oop_principles.Cats_home;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 class Sphynx extends Cat {
-
     public Sphynx(String nameCat) {
         super(nameCat);
     }
@@ -27,5 +26,4 @@ class Sphynx extends Cat {
         this.purr();
         user.changeHappiness(30);
     }
-
 }
