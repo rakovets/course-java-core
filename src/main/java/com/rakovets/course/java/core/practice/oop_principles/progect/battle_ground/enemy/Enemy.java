@@ -6,20 +6,10 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 public abstract class Enemy implements Mortal {
     private int healthEnemy;
 
-    /**
-     * Constructor.
-     *
-     * @param health indicator of health.
-     */
     protected Enemy(int health) {
         this.healthEnemy = health;
     }
 
-    /**
-     * An abstract class requiring an implementation.
-     *
-     * @param hero type hero.
-     */
     protected abstract void attackEnemy(Hero hero);
 
     /**
