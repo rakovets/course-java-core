@@ -5,11 +5,6 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 public class Vampire extends Enemy {
     final int DAMAGE_VAMPIRE = 25;
 
-    /**
-     * Constructor.
-     *
-     * @param health indicator of health.
-     */
     public Vampire(int health) {
         super(health);
     }
