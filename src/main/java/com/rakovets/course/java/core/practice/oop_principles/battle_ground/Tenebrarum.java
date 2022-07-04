@@ -1,5 +1,4 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
-
 public class Tenebrarum extends Enemy implements Mortal {
     public Tenebrarum(int health) {
         super(health);
