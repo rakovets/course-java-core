@@ -5,6 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Mag;
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Warrior;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -15,12 +16,17 @@ public class EnemyTest {
     Archer archer = new Archer("", 0);
     Mag mag = new Mag("", 0);
     Warrior warrior = new Warrior("", 0);
-    Enemy enemy = new Enemy(0) {
-        @Override
-        protected void attackHero(Hero hero) {
-            hero.takingDamage(0);
-        }
-    };
+    static Enemy enemy;
+
+    @BeforeAll
+    static void beforeAll() {
+        enemy = new Enemy(0) {
+            @Override
+            protected void attackHero(Hero hero) {
+                hero.takingDamage(0);
+            }
+        };
+    }
 
     static Stream<Arguments> enemyTakingDamageProviderArguments() {
         return Stream.of(
