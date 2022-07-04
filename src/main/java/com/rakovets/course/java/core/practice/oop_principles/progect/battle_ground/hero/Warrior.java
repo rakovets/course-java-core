@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Warrior extends Hero {
     private int damageWarrior = 24;
+
     Random random = new Random();
 
     public Warrior(String name, int health) {
