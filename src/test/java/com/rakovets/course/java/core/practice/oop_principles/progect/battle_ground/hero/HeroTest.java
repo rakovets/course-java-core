@@ -5,6 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Werewolf;
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Zombie;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -15,12 +16,17 @@ public class HeroTest {
     Vampire vampire = new Vampire(0);
     Werewolf werewolf = new Werewolf(0, 0);
     Zombie zombie = new Zombie(0);
-    Hero hero = new Hero("", 0) {
-        @Override
-        protected void attackEnemy(Enemy enemy) {
-            hero.attackEnemy(enemy);
-        }
-    };
+    static Hero hero;
+
+    @BeforeAll
+    static void beforeAll() {
+        hero = new Hero("", 0) {
+            @Override
+            protected void attackEnemy(Enemy enemy) {
+                enemy.takingDamage(0);
+            }
+        };
+    }
 
     static Stream<Arguments> heroTakingDamageProviderArguments() {
         return Stream.of(
