@@ -31,9 +31,9 @@ public class Zombie extends Enemy {
      */
     public void takingDamage(int damage) {
         if (isAlive()) {
-            if (getHealth() - damage < 0) {
-                setHealth(0);
-            } else if (getHealth() - damage == 0) {
+            if (getHealth() - damage < MIN_HP) {
+                setHealth(MIN_HP);
+            } else if (getHealth() - damage == MIN_HP) {
                 boolean live = random.nextBoolean();
                 if (live) {
                     setHealth(super.getHealth());
