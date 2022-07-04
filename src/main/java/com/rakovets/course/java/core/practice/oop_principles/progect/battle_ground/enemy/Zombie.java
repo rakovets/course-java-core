@@ -18,7 +18,7 @@ public class Zombie extends Enemy {
      * @param hero type hero.
      */
     @Override
-    protected void attackEnemy(Hero hero) {
+    public void attackHero(Hero hero) {
         hero.takingDamage(DAMAGE_ZOMBIE);
     }
 
