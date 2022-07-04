@@ -4,7 +4,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Werewolf;
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Zombie;
 
-public class WarriorShieldBlockTest {
+public class WarriorShieldBlockDemo {
     public static void main(String[] args) {
         Warrior warrior = new Warrior("", 100);
         Vampire vampire = new Vampire(100);
