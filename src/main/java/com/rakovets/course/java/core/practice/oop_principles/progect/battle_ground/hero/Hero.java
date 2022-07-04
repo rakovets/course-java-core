@@ -4,6 +4,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Enemy;
 
 public abstract class Hero implements Mortal {
+    final int MIN_HP = 0;
     private final String name;
 
     private int healthHero;
@@ -22,8 +23,8 @@ public abstract class Hero implements Mortal {
      * @return remaining HP.
      */
     public int takingDamage(int damage) {
-        if (this.healthHero - damage <= 0) {
-            return this.healthHero = 0;
+        if (this.healthHero - damage <= MIN_HP) {
+            return this.healthHero = MIN_HP;
         } else {
             return this.healthHero -= damage;
         }
@@ -34,7 +35,7 @@ public abstract class Hero implements Mortal {
      */
     @Override
     public boolean isAlive() {
-        return this.healthHero > 0;
+        return this.healthHero > MIN_HP;
     }
 
     public String getName() {
