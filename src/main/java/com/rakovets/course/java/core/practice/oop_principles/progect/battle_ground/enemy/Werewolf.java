@@ -20,7 +20,7 @@ public class Werewolf extends Enemy {
      * @param hero type enemy.
      */
     @Override
-    protected void attackEnemy(Hero hero) {
+    public void attackHero(Hero hero) {
         if (secondGuise(time)) {
             hero.takingDamage(DAMAGE_WEREWOLF_NIGHT);
         } else {
@@ -48,7 +48,7 @@ public class Werewolf extends Enemy {
      * @param time current time.
      * @return boolean comparison.
      */
-    private boolean secondGuise(int time) {
+    boolean secondGuise(int time) {
         boolean secondGuise = false;
 
         if (timeCheck(time)) {
@@ -73,7 +73,7 @@ public class Werewolf extends Enemy {
         return time;
     }
 
-    protected void setTime(int time) {
+    public void setTime(int time) {
         if (!timeCheck(time)) {
             this.time = 0;
         } else {
