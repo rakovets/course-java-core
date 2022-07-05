@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.cats;
+package com.rakovets.course.java.core.practice.oop_principles.catshome;
 
 public class Cat {
     private String name;
