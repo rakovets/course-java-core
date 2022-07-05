@@ -13,7 +13,7 @@ public class Siamese extends Cat {
     @Override
     public String mew(Person person) {
         person.changeHappiness(-5);
-        return "Siamese " + getName() + ": meow-Master-meow";
+        return mew();
     }
 
     @Override
@@ -24,6 +24,6 @@ public class Siamese extends Cat {
     @Override
     public String purr(Person person) {
         person.changeHappiness(10);
-        return "Siamese: purr-purr-purr";
+        return purr();
     }
 }

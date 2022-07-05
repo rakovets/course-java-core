@@ -13,7 +13,7 @@ public class Persian extends Cat {
     @Override
     public String mew(Person person) {
         person.changeHappiness(-15);
-        return "Persian " + getName() + ": meow-Master-meow";
+        return mew();
     }
 
     @Override
@@ -24,6 +24,6 @@ public class Persian extends Cat {
     @Override
     public String purr(Person person) {
         person.changeHappiness(20);
-        return "Persian: purr-purr-purr";
+        return purr();
     }
 }
