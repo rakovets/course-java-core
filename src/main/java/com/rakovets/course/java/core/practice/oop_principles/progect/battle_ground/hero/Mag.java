@@ -27,11 +27,11 @@ public class Mag extends Hero {
     /**
      * Mage takes damage.
      * <p>Passive ability.
-     * <p>If the mage takes damage and his health drops below zero, then his current health is 0.
-     * <p> If the mage takes damage and his health does not fall below zero, then the mage can heal
+     * <li>If the mage takes damage and his health drops below zero, then his current health is 0.
+     * <li> If the mage takes damage and his health does not fall below zero, then the mage can heal
      * himself if the mage's health after taking damage is less than 50.
-     * <p>When healed, the mage cannot restore more health to himself than his maximum health.
-     * <p> If the mage takes damage and his health has not dropped to 50, then the healing does not work.
+     * <li>When healed, the mage cannot restore more health to himself than his maximum health.
+     * <li> If the mage takes damage and his health has not dropped to 50, then the healing does not work.
      *
      * @param damage damage received.
      * @return current health after taking damage.
