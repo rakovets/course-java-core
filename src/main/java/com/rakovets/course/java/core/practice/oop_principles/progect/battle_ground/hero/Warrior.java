@@ -31,8 +31,8 @@ public class Warrior extends Hero {
     /**
      * The warrior takes damage.
      * <p>Passive ability.
-     * <p>Randomly, the warrior blocks 10 damage.
-     * <p>A warrior cannot heal himself.
+     * <li>Randomly, the warrior blocks 10 damage.
+     * <li>A warrior cannot heal himself.
      *
      * @param damage damage received.
      * @return current health after taking damage.
