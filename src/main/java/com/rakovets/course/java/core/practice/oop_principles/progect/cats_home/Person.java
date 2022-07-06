@@ -4,46 +4,51 @@ public class Person {
     private double happiness;
 
     /**
-     * @param happiness accepts amount of happiness.
+     * Constructor.
+     *
+     * @param happiness user's happiness in percent.
      */
     public Person(double happiness) {
         checkDiapason(happiness);
     }
 
     /**
-     * Increases the current percentage of happiness by percentHappiness.
+     * The user's happiness changes from interacting with cats.
      *
-     * @param percentHappiness changes the indicator of happiness.
-     * @return percentage of happiness.
+     * @param percentHappiness percentage of happiness.
+     * @return current percentage of happiness.
      */
     protected double changeHappiness(double percentHappiness) {
         return happiness += percentHappiness;
     }
 
-    public double getHappiness() {
-        if (happiness > 100.0) {
-            return 100.0;
-        } else if (happiness < 0.0) {
-            return happiness = 0.0;
-        } else {
-            return happiness;
-        }
-    }
-
-    public void setHappiness(double happiness) {
-        checkDiapason(happiness);
-    }
-
     /**
-     * Makes the validation.
+     * Does a check for a range of values from 0 to 100.
+     * <p>If the value is greater than 100 then the current happiness value is 100.
+     * <p>If the value is less than 0 then the current happiness value is 0.
      *
-     * @param happiness accepts amount of happiness.
+     * @param happiness the current value of happiness after checking the values.
      */
-    private void checkDiapason(double happiness) {
+    public void checkDiapason(double happiness) {
         if (happiness >= 100.0) {
             this.happiness = 100.0;
         } else {
             this.happiness = Math.max(happiness, 0.0);
         }
+    }
+
+    public double getHappiness() {
+        return happiness;
+    }
+
+    /**
+     * Does a check for a range of values from 0 to 100.
+     * <p>If the value is greater than 100 then the current happiness value is 100.
+     * <p>If the value is less than 0 then the current happiness value is 0.
+     *
+     * @param happiness percentage of happiness.
+     */
+    public void setHappiness(double happiness) {
+        checkDiapason(happiness);
     }
 }
