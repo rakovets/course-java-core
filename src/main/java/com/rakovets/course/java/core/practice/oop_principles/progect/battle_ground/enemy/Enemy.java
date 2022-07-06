@@ -19,7 +19,6 @@ public abstract class Enemy implements Mortal {
     protected Enemy(int healthEnemy, int damageEnemy) {
         this.healthEnemy = healthEnemy;
         this.damageEnemy = damageEnemy;
-
     }
 
     /**
