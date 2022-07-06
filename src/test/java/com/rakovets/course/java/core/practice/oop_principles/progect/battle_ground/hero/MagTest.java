@@ -24,7 +24,7 @@ public class MagTest {
         enemy = new Enemy(0, 0) {
             @Override
             protected void attackHero(Hero hero) {
-                hero.takeDamage(0);
+                hero.takeDamage(getDamageEnemy());
             }
         };
     }
