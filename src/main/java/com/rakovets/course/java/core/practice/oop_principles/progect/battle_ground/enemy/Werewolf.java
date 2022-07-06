@@ -93,8 +93,4 @@ public class Werewolf extends Enemy {
             this.time = time;
         }
     }
-
-    public int getTime() {
-        return time;
-    }
 }
