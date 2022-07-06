@@ -5,48 +5,49 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Zombie extends Enemy {
-    final int DAMAGE_ZOMBIE = 12;
     Random random = new Random();
 
-    public Zombie(int health) {
-        super(health);
+    /**
+     * Constructor.
+     *
+     * @param healthZombie zombie max health.
+     * @param damageZombie maximum zombie damage.
+     */
+    public Zombie(int healthZombie, int damageZombie) {
+        super(healthZombie, damageZombie);
     }
 
     /**
-     * Deals damage to the hero.
+     * Zombie attacks the hero.
      *
-     * @param hero type hero.
+     * @param hero attacked hero.
      */
     @Override
     public void attackHero(Hero hero) {
-        hero.takingDamage(DAMAGE_ZOMBIE);
+        hero.takeDamage(getDamageEnemy());
     }
 
     /**
-     * Subtracts damage taken from current health.
-     * <p>
-     * Passive Ability: Can randomly resurrect after death.
+     * The zombie takes damage.
+     * <p> Passive ability.
+     * <p>Zombies can resurrect after death.
      *
-     * @param damage damage taken.
+     * @param damage the damage it takes.
      */
-    public void takingDamage(int damage) {
+    public void takeDamage(int damage) {
         if (isAlive()) {
-            if (getHealth() - damage < MIN_HP) {
-                setHealth(MIN_HP);
-            } else if (getHealth() - damage == MIN_HP) {
+            if (getHealthEnemy() - damage < MINIMAL_HP) {
+                setHealthEnemy(MINIMAL_HP);
+            } else if (getHealthEnemy() - damage == MINIMAL_HP) {
                 boolean live = random.nextBoolean();
                 if (live) {
-                    setHealth(super.getHealth());
+                    setHealthEnemy(super.getHealthEnemy());
                 } else {
-                    setHealth(getHealth() - damage);
+                    setHealthEnemy(getHealthEnemy() - damage);
                 }
             } else {
-                setHealth(getHealth() - damage);
+                setHealthEnemy(getHealthEnemy() - damage);
             }
         }
-    }
-
-    public int getDAMAGE_ZOMBIE() {
-        return DAMAGE_ZOMBIE;
     }
 }
