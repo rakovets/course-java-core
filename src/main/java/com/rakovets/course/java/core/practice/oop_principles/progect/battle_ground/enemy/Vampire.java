@@ -3,42 +3,41 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Hero;
 
 public class Vampire extends Enemy {
-    final int REGENERATION = 15;
-    final int DAMAGE_VAMPIRE = 25;
-
-    public Vampire(int health) {
-        super(health);
+    /**
+     * Constructor.
+     *
+     * @param healthVampire maximum vampire health.
+     * @param damageVampire maximum vampire damage.
+     */
+    public Vampire(int healthVampire, int damageVampire) {
+        super(healthVampire, damageVampire);
     }
 
     /**
-     * Deals damage to the hero.
+     * The vampire attacks the hero.
      *
-     * @param hero type hero.
+     * @param hero attacked hero.
      */
     @Override
     public void attackHero(Hero hero) {
-        hero.takingDamage(DAMAGE_VAMPIRE);
+        hero.takeDamage(getDamageEnemy());
     }
 
     /**
-     * Restores HP.
-     * <p>
-     * Passive ability.
+     * The vampire takes damage.
      *
-     * @param damage damage taken.
+     * @param damage the damage it takes.
      */
     @Override
-    public void takingDamage(int damage) {
+    public void takeDamage(int damage) {
+        final int REGENERATION = 15;
+
         if (isAlive()) {
-            if (getHealth() - damage <= MIN_HP) {
-                setHealth(MIN_HP);
+            if (getHealthEnemy() - damage <= MINIMAL_HP) {
+                setHealthEnemy(MINIMAL_HP);
             } else {
-                setHealth(getHealth() - damage + REGENERATION);
+                setHealthEnemy(getHealthEnemy() - damage + REGENERATION);
             }
         }
-    }
-
-    public int getDAMAGE_VAMPIRE() {
-        return DAMAGE_VAMPIRE;
     }
 }
