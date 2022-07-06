@@ -13,102 +13,106 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class WarriorTest {
-    Warrior warrior = new Warrior("", 0);
-    Vampire vampire = new Vampire(0);
-    Werewolf werewolf = new Werewolf(0, 0);
-    Zombie zombie = new Zombie(0);
+    Warrior warrior = new Warrior("", 0, 0);
+    Vampire vampire = new Vampire(0, 0);
+    Werewolf werewolf = new Werewolf(0, 0, 0);
+    Zombie zombie = new Zombie(0, 0);
     static Enemy enemy;
 
     @BeforeAll
     static void beforeAll() {
-        enemy = new Enemy(0) {
+        enemy = new Enemy(0, 0) {
             @Override
             protected void attackHero(Hero hero) {
-                hero.takingDamage(0);
+                hero.takeDamage(0);
             }
         };
     }
 
     static Stream<Arguments> warriorAttackEnemyProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 76),
-                Arguments.of(50, 26),
-                Arguments.of(0, 0),
-                Arguments.of(20, 0),
-                Arguments.of(10, 0)
+                Arguments.of(100, 24, 76),
+                Arguments.of(50, 24, 26),
+                Arguments.of(0, 0, 0),
+                Arguments.of(24, 24, 0),
+                Arguments.of(10, 24, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("warriorAttackEnemyProvideArguments")
-    void archerAttackEnemy(int health, int expected) {
-        enemy.setHealth(health);
+    void archerAttackEnemy(int health, int damage, int expected) {
+        enemy.setHealthEnemy(health);
+        warrior.setDamageHero(damage);
 
         warrior.attackEnemy(enemy);
-        int actual = enemy.getHealth();
+        int actual = enemy.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> warriorAttackVampireProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 91),
-                Arguments.of(50, 41),
-                Arguments.of(0, 0),
-                Arguments.of(4, 0),
-                Arguments.of(10, 0)
+                Arguments.of(100, 24, 91),
+                Arguments.of(50, 24, 41),
+                Arguments.of(0, 0, 0),
+                Arguments.of(4, 24, 0),
+                Arguments.of(10, 24, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("warriorAttackVampireProvideArguments")
-    void warriorAttackVampire(int health, int expected) {
-        vampire.setHealth(health);
+    void warriorAttackVampire(int health, int damage, int expected) {
+        vampire.setHealthEnemy(health);
+        warrior.setDamageHero(damage);
 
         warrior.attackEnemy(vampire);
-        int actual = vampire.getHealth();
+        int actual = vampire.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> warriorAttackWerewolfProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 76),
-                Arguments.of(50, 26),
-                Arguments.of(0, 0),
-                Arguments.of(20, 0),
-                Arguments.of(10, 0)
+                Arguments.of(100, 24, 76),
+                Arguments.of(50, 24, 26),
+                Arguments.of(0, 0, 0),
+                Arguments.of(24, 24, 0),
+                Arguments.of(10, 24, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("warriorAttackWerewolfProvideArguments")
-    void warriorAttackWerewolf(int health, int expected) {
-        werewolf.setHealth(health);
+    void warriorAttackWerewolf(int health, int damage, int expected) {
+        werewolf.setHealthEnemy(health);
+        warrior.setDamageHero(damage);
 
         warrior.attackEnemy(werewolf);
-        int actual = werewolf.getHealth();
+        int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> warriorAttackZombieProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 76),
-                Arguments.of(50, 26),
-                Arguments.of(0, 0),
-                Arguments.of(20, 0),
-                Arguments.of(10, 0)
+                Arguments.of(100, 24, 76),
+                Arguments.of(50, 24, 26),
+                Arguments.of(0, 0, 0),
+                Arguments.of(25, 24, 1),
+                Arguments.of(10, 24, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("warriorAttackZombieProvideArguments")
-    void warriorAttackZombie(int health, int expected) {
-        zombie.setHealth(health);
+    void warriorAttackZombie(int health, int damage, int expected) {
+        zombie.setHealthEnemy(health);
+        warrior.setDamageHero(damage);
 
         warrior.attackEnemy(zombie);
-        int actual = zombie.getHealth();
+        int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -124,7 +128,7 @@ public class WarriorTest {
     @ParameterizedTest
     @MethodSource("warriorIsAliveProviderArguments")
     void warriorIsAlive(int health, boolean expected) {
-        warrior.setHealth(health);
+        warrior.setHealthHero(health);
 
         boolean actual = warrior.isAlive();
 
