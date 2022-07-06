@@ -7,17 +7,17 @@ import com.rakovets.course.java.core.practice.exception_handling.exception.Argum
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Demo6 {
-    Logger logger = Logger.getLogger(Demo6.class.getName());
-    Task6 task6 = new Task6();
+public class MultiplyExceptionDemo {
+    Logger logger = Logger.getLogger(MultiplyExceptionDemo.class.getName());
+    MultiplyExceptionTask task = new MultiplyExceptionTask();
 
-    public void demoGetNumber(int number) {
+    public void catchMultiplyExceptions(int number) {
         try {
-            task6.getNumber(number);
+            task.produceMultiplyExceptions(number);
         } catch (ArgumentPositiveException | ArgumentZeroException exception) {
             logger.log(Level.SEVERE, exception.getMessage());
         } catch (ArgumentNegativeException exception) {
-            logger.log(Level.SEVERE, "");
+            logger.log(Level.SEVERE, "Don't use negative numbers!");
         }
     }
 }

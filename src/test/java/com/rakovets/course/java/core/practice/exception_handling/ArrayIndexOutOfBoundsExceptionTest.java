@@ -9,12 +9,12 @@ public class ArrayIndexOutOfBoundsExceptionTest {
     ArrayIndexOutOfBoundsExceptionDemo demo = new ArrayIndexOutOfBoundsExceptionDemo();
 
     @Test
-    public void testGetNumberInArray() {
-        Assertions.assertThrows(ArgumentPositiveException.class, () -> task.getNumberInArray());
+    public void testProduceArrayIndexOutOfBoundsException() {
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> task.produceArrayIndexOutOfBoundsException());
     }
 
     @Test
-    public void testDemoGetNumberInArray() {
-        demo.demoGetNumberInArray();
+    public void testCatchArrayIndexOutOfBoundsException() {
+        demo.catchArrayIndexOutOfBoundsException();
     }
 }

@@ -7,9 +7,9 @@ public class NPEDemo {
     Logger logger = Logger.getLogger(NPEDemo.class.getName());
     NPETask task = new NPETask();
 
-    public void getDemoTrimString() {
+    public void catchNullPointerException() {
         try {
-            task.trimString();
+            task.produceNullPointerException();
         } catch (NullPointerException exception) {
             logger.log(Level.SEVERE, "Null Pointer Exception");
         }

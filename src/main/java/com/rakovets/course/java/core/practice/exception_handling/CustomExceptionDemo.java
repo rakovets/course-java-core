@@ -5,13 +5,13 @@ import com.rakovets.course.java.core.practice.exception_handling.exception.Argum
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Demo3 {
-    Logger logger = Logger.getLogger(Demo3.class.getName());
-    Task3 task3 = new Task3();
+public class CustomExceptionDemo {
+    Logger logger = Logger.getLogger(CustomExceptionDemo.class.getName());
+    CustomExceptionTask task = new CustomExceptionTask();
 
-    public void demoGetPositiveNumber(int number) {
+    public void catchArgumentNegativeException(int number) {
         try {
-            task3.getPositiveNumber(number);
+            task.verifyPositiveArgument(number);
         } catch (ArgumentNegativeException exception) {
             logger.log(Level.SEVERE, "Enter a positive number");
             exception.printStackTrace();

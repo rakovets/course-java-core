@@ -5,13 +5,13 @@ import com.rakovets.course.java.core.practice.exception_handling.exception.Argum
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Demo7 {
-    Task7 task = new Task7();
+public class MixedExceptionsDemo {
+    Logger logger = Logger.getLogger(MixedExceptionsDemo.class.getName());
+    MixedExceptionsTask task = new MixedExceptionsTask();
 
-    public void demoGetPositiveNumber(int number) {
-        Logger logger = Logger.getLogger(Demo7.class.getName());
+    public void catchMixedExceptions(int number) {
         try {
-            task.getPositiveNumber(number);
+            task.produceMixedExceptions(number);
         } catch (ArgumentPositiveException exception) {
             logger.log(Level.SEVERE, "It's positive number");
         } finally {

@@ -8,12 +8,12 @@ public class NPETest {
     NPEDemo demo = new NPEDemo();
 
     @Test
-    public void testTrimString() {
-        Assertions.assertThrows(NullPointerException.class, () -> task.trimString());
+    public void testProduceNullPointerException() {
+        Assertions.assertThrows(NullPointerException.class, () -> task.produceNullPointerException());
     }
 
     @Test
-    public void testGetDemoTrimString() {
-        demo.getDemoTrimString();
+    public void testCatchNullPointerException() {
+        demo.catchNullPointerException();
     }
 }

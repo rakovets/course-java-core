@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
 public class NPETask {
-    public String trimString() {
+    public void produceNullPointerException() {
         String string = null;
-        return string.trim();
+        string.trim();
     }
 }
