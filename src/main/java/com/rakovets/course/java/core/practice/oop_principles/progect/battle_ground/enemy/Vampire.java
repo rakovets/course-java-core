@@ -26,7 +26,7 @@ public class Vampire extends Enemy {
     /**
      * The vampire takes damage.
      * <ul> Vampire regeneration.
-     * <ul> Passive ability.
+     * <p>Passive ability.
      * <li> If a vampire takes damage and their health falls below zero, then their current health is 0.
      * <li> If the vampire takes damage and his health does not fall below zero, then the vampire heals himself.
      * <li> When regenerating, the vampire cannot restore more health to himself than his maximum health.
