@@ -16,7 +16,7 @@ public class Zombie extends Enemy {
         if (hero instanceof Mag) {
             hero.takeDamage(damage);
         } else {
-            hero.takeDamage(damage * 2);
+            hero.takeDamage(damage * INCREASE_POWER_FACTOR);
         }
     }
 

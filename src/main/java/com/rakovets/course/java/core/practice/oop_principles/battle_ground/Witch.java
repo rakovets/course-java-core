@@ -14,7 +14,7 @@ public class Witch extends Enemy {
     @Override
     public void attackHero(Hero hero) {
         if (hero instanceof Mag) {
-            hero.takeDamage(damage * MAGIC_POWER_FACTOR);
+            hero.takeDamage(damage * INCREASE_POWER_FACTOR);
         } else {
             hero.takeDamage(damage);
         }
