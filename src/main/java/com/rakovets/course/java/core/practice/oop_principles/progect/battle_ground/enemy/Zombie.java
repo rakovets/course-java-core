@@ -43,8 +43,6 @@ public class Zombie extends Enemy {
                 boolean live = random.nextBoolean();
                 if (live) {
                     setHealthEnemy(super.getHealthEnemy());
-                } else {
-                    setHealthEnemy(getHealthEnemy() - damage);
                 }
             } else {
                 setHealthEnemy(getHealthEnemy() - damage);
