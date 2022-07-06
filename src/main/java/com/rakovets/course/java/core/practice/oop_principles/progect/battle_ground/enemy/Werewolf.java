@@ -5,53 +5,61 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 public class Werewolf extends Enemy {
     final int MAX_TIME = 24;
     final int MIN_TIME = 0;
-    final int MIDNIGHT = 1;
-    final int DAWN = 6;
-    final int DAMAGE_WEREWOLF = 20;
-    final int DAMAGE_WEREWOLF_NIGHT = 40;
 
     private int time;
 
-    public Werewolf(int health, int time) {
-        super(health);
+    /**
+     * Constructor.
+     *
+     * @param healthWerewolf werewolf's maximum health..
+     * @param damageWerewolf werewolf maximum damage.
+     * @param time           current time.
+     */
+    public Werewolf(int healthWerewolf, int damageWerewolf, int time) {
+        super(healthWerewolf, damageWerewolf);
         this.time = time;
     }
 
     /**
-     * Deals damage to the hero.
+     * The werewolf attacks the hero.
      *
-     * @param hero type enemy.
+     * @param hero attacked hero.
      */
     @Override
     public void attackHero(Hero hero) {
+        final int ATTACK_MULTIPLIER = 2;
+
         if (secondGuise(time)) {
-            hero.takingDamage(DAMAGE_WEREWOLF_NIGHT);
+            hero.takeDamage(getDamageEnemy() * ATTACK_MULTIPLIER);
         } else {
-            hero.takingDamage(DAMAGE_WEREWOLF);
+            hero.takeDamage(getDamageEnemy());
         }
     }
 
     /**
-     * Current HP after taking damage.
+     * The werewolf takes damage.
      *
-     * @param damage damage taken.
+     * @param damage the damage it takes.
      */
     @Override
-    public void takingDamage(int damage) {
+    public void takeDamage(int damage) {
         if (isAlive()) {
-            setHealth(Math.max(getHealth() - damage, MIN_HP));
+            setHealthEnemy(Math.max(getHealthEnemy() - damage, MINIMAL_HP));
         } else {
-            setHealth(MIN_HP);
+            setHealthEnemy(MIN_TIME);
         }
     }
 
     /**
-     * Checks if the werewolf is in the second form.
+     * The werewolf assumes a second form if the current time is greater than 1 am and less than 7 am.
      *
      * @param time current time.
-     * @return boolean comparison.
+     * @return true werewolf in second form, false werewolf not in second form.
      */
-    boolean secondGuise(int time) {
+    public boolean secondGuise(int time) {
+        final int MIDNIGHT = 1;
+        final int DAWN = 6;
+
         boolean secondGuise = false;
 
         if (timeCheck(time)) {
@@ -61,21 +69,23 @@ public class Werewolf extends Enemy {
     }
 
     /**
-     * Validation of the bounds of a variable.
-     * <p>
-     * If the value is greater than 25 or less than 0 then it returns 0.
+     * Makes a check.
+     * <p> Time cannot be more than 25 and less than 0.
+     * <p> If it receives values 25 and values less than 0 rounds to 0.
      *
-     * @param time time to check.
-     * @return boolean comparison.
+     * @param time current time.
+     * @return returns the current time after validation.
      */
     private boolean timeCheck(int time) {
         return time <= MAX_TIME && time > MIN_TIME;
     }
 
-    public int getTime() {
-        return time;
-    }
-
+    /**
+     * Time cannot be more than 25 and less than 0.
+     * <p> If it receives values 25 and values less than 0 rounds to 0.
+     *
+     * @param time returns the current time after validation.
+     */
     public void setTime(int time) {
         if (!timeCheck(time)) {
             this.time = MIN_TIME;
@@ -84,11 +94,7 @@ public class Werewolf extends Enemy {
         }
     }
 
-    public int getDAMAGE_WEREWOLF() {
-        return DAMAGE_WEREWOLF;
-    }
-
-    public int getDAMAGE_WEREWOLF_NIGHT() {
-        return DAMAGE_WEREWOLF_NIGHT;
+    public int getTime() {
+        return time;
     }
 }
