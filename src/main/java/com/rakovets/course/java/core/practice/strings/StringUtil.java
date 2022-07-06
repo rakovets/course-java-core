@@ -3,12 +3,10 @@ package com.rakovets.course.java.core.practice.strings;
 import java.util.Locale;
 
 public class StringUtil {
-    //Task 1
     static String concatTwoStrings(String str1, String str2) {
         return str1.concat(str2);
     }
 
-    //Task 2
     static int getIndexOfSymbol(String str1, String symbol) {
         int position;
         if (str1.contains(symbol)) {
@@ -19,32 +17,26 @@ public class StringUtil {
         return position;
     }
 
-    //Task 3
     static boolean compareStringCaseSensitive(String str1, String str2) {
         return str1.equals(str2);
     }
 
-    //Task4
     static String removeSpaceAndUppercase(String str) {
         return str.trim().toUpperCase();
     }
 
-    //Task 5
     static String extractSubstring(String str, int indexOfBeginning, int indexOfEnding) {
         return str.substring(indexOfBeginning, indexOfEnding);
     }
 
-    //Task 6
     static String replaceEmoji(String str, String sadEmoji, String happyEmoji) {
         return str.replace(sadEmoji, happyEmoji);
     }
 
-    //Task 7
     static  boolean receiveIfEndAndBeginningIsWord(String text, String word) {
         return text.startsWith(word) && text.endsWith(word);
     }
 
-    //Task 8
     static int getNumberOfVowels(String sourceText) {
         int numberOfVowels = 0;
         char[] text = sourceText.toCharArray();
@@ -52,14 +44,13 @@ public class StringUtil {
         for (char letterOfText : text) {
             for (char letterOfVowels : vowels) {
                 if (letterOfText == letterOfVowels) {
-                numberOfVowels++;
+                    numberOfVowels++;
                 }
             }
         }
         return numberOfVowels;
     }
 
-    //Task 9
     static int getNumberOfPunctuationMarks(String sourceText) {
         int numberOfPunctuationMarks = 0;
         char[] text = sourceText.toCharArray();
@@ -74,13 +65,11 @@ public class StringUtil {
         return numberOfPunctuationMarks;
     }
 
-    //Task 10
     static boolean isPalindrome(String text) {
         text = text.toLowerCase().replaceAll("[!?.,-;: ]", "");
         return text.equals(new StringBuilder(text).reverse().toString());
     }
 
-    //Task 11
     static String[] splitToEqualParts(String text, int symbolsInSubstring) {
         int arrayLength = 0;
         if (text.length() % symbolsInSubstring == 0) {
@@ -99,7 +88,6 @@ public class StringUtil {
         return array;
     }
 
-    //Task 12
     static int countWordsNumber(String text) {
         String[] arrayOfWords = text.trim().split(" ");
         int numberWords = 0;
@@ -111,7 +99,6 @@ public class StringUtil {
         return numberWords;
     }
 
-    //Task 13
     static String getInitials(String userName) {
         StringBuilder stringBuilder = new StringBuilder();
         for (String word : userName.toUpperCase().split(" +")) {
@@ -120,7 +107,6 @@ public class StringUtil {
         return stringBuilder.toString();
     }
 
-    //Task 14
     public static String getNumbers(String str) {
         char [] numbers = {'0','1','2','3','4','5','6','7','8','9'};
         char [] array = str.toCharArray();
