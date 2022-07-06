@@ -94,10 +94,11 @@ public class VampireTest {
 
     static Stream<Arguments> vampireTakingDamageProviderArguments() {
         return Stream.of(
+                Arguments.of(100,1,100),
                 Arguments.of(100, 20, 95),
                 Arguments.of(50, 70, 0),
                 Arguments.of(0, 40, 0),
-                Arguments.of(10, 5, 20),
+                Arguments.of(10, 5, 10),
                 Arguments.of(500, 350, 165),
                 Arguments.of(50, 15, 50)
         );
