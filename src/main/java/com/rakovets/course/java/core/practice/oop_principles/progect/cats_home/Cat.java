@@ -4,6 +4,8 @@ public class Cat {
     private String name;
 
     /**
+     * Constructor.
+     *
      * @param name cat's name.
      */
     public Cat(String name) {
@@ -11,48 +13,53 @@ public class Cat {
     }
 
     /**
-     * Сat meows.
+     * The cat meows.
      *
-     * @return meow text.
+     * @return text "mew".
      */
     protected String mew() {
         return "mew";
     }
 
     /**
-     * Сat meows for user and the value of the percentage of happiness for the user changes to negative.
+     * The cat meows for the character.
+     * <p> The character's mood drops.
      *
-     * @param user person type object.
+     * @param user character for which the cat meows.
+     * @return text "mew".
      */
     protected String mew(Person user) {
         final double NEGATIVE_PERCENTAGE = -5.0;
 
         user.changeHappiness(NEGATIVE_PERCENTAGE);
+        user.checkDiapason(user.getHappiness());
 
         return mew();
     }
 
     /**
-     * Сat purrs.
+     * The cat purrs.
      *
-     * @return text of the purr.
+     * @return text "prr".
      */
     protected String prr() {
         return "prr";
     }
 
     /**
-     * The cat purrs for the user, and the user's happiness percentage changes to a positive value.
+     * The cat purrs for the character.
+     * <p>The mood of the character rises.
      *
-     * @param user person type object.
-     * @return text of the purr.
+     * @param user the character to whom the cat purrs.
+     * @return text "prr".
      */
     protected String prr(Person user) {
         final double POSITIVE_PERCENTAGE = 5.0;
 
         user.changeHappiness(POSITIVE_PERCENTAGE);
+        user.checkDiapason(user.getHappiness());
 
-        return "prr";
+        return prr();
     }
 
     public String getName() {
