@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Archer extends Hero {
-    Archer(String name, int health) {
+    public Archer(String name, int health) {
         super(name, health);
     }
 

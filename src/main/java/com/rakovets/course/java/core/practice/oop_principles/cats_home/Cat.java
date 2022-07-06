@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 public class Cat {
     private String name;
 
-    Cat(String name) {
+    public Cat(String name) {
         this.name = name;
     }
 

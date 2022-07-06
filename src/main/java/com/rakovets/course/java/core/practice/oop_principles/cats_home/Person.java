@@ -6,7 +6,7 @@ public class Person {
 
     private double happiness;
 
-    Person(double happiness) {
+    public Person(double happiness) {
         this.happiness = happiness;
         checkMinMaxHappiness();
     }

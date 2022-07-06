@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 import java.util.Random;
 
 public class Poring extends Enemy{
-    Poring(int health) {
+    public Poring(int health) {
         super(health);
     }
 

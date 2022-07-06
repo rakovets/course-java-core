@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 public abstract class Enemy implements Mortal {
     private int health;
 
-    Enemy(int health) {
+    public Enemy(int health) {
         this.health = health;
     }
 

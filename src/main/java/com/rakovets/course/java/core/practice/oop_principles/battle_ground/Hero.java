@@ -4,7 +4,7 @@ public abstract class Hero {
     private final String name;
     private int health;
 
-    Hero(String name, int health) {
+    public Hero(String name, int health) {
         this.name = name;
         this.health = health;
     }
