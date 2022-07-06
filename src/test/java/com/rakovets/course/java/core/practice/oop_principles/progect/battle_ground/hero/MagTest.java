@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class MageTest {
+public class MagTest {
     Mag mag = new Mag("", 0, 0);
     Vampire vampire = new Vampire(0, 0);
     Werewolf werewolf = new Werewolf(0, 0, 0);
