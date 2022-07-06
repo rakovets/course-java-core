@@ -13,90 +13,93 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class WerewolfTest {
-    Werewolf werewolf = new Werewolf(0, 0);
-    Archer archer = new Archer("", 0);
-    Mag mag = new Mag("", 0);
-    Warrior warrior = new Warrior("", 0);
+    Werewolf werewolf = new Werewolf(0, 0, 0);
+    Archer archer = new Archer("", 0, 0);
+    Mag mag = new Mag("", 0, 0);
+    Warrior warrior = new Warrior("", 0, 0);
     static Hero hero;
 
     @BeforeAll
     static void beforeAll() {
-        hero = new Hero("", 0) {
+        hero = new Hero("", 0, 0) {
             @Override
             protected void attackEnemy(Enemy enemy) {
-                enemy.takingDamage(0);
+                enemy.takeDamage(0);
             }
         };
     }
 
     static Stream<Arguments> werewolfAttackArcherProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 5, 60),
-                Arguments.of(50, 12, 30),
-                Arguments.of(0, 0, 0),
-                Arguments.of(100, 1, 60),
-                Arguments.of(40, 4, 0),
-                Arguments.of(100, 6, 60),
-                Arguments.of(100, 7, 80),
-                Arguments.of(100, 0, 80)
+                Arguments.of(100, 5, 20, 60),
+                Arguments.of(50, 12, 20, 30),
+                Arguments.of(0, 0, 0, 0),
+                Arguments.of(100, 1, 20, 60),
+                Arguments.of(40, 4, 20, 0),
+                Arguments.of(100, 6, 20, 60),
+                Arguments.of(100, 7, 20, 80),
+                Arguments.of(100, 0, 20, 80)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfAttackArcherProvideArguments")
-    void werewolfAttackArcher(int health, int time, int expected) {
-        archer.setHealth(health);
+    void werewolfAttackArcher(int health, int time, int damage, int expected) {
+        archer.setHealthHero(health);
         werewolf.setTime(time);
+        werewolf.setDamageEnemy(damage);
 
         werewolf.attackHero(archer);
-        int actual = archer.getHealth();
+        int actual = archer.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> werewolfAttackHeroProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 5, 60),
-                Arguments.of(50, 12, 30),
-                Arguments.of(0, 0, 0),
-                Arguments.of(100, 1, 60),
-                Arguments.of(40, 4, 0),
-                Arguments.of(100, 6, 60),
-                Arguments.of(100, 7, 80),
-                Arguments.of(100, 0, 80)
+                Arguments.of(100, 5, 20, 60),
+                Arguments.of(50, 12, 20, 30),
+                Arguments.of(0, 0, 0, 0),
+                Arguments.of(100, 1, 20, 60),
+                Arguments.of(40, 4, 20, 0),
+                Arguments.of(100, 6, 20, 60),
+                Arguments.of(100, 7, 20, 80),
+                Arguments.of(100, 0, 20, 80)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfAttackHeroProvideArguments")
-    void werewolfAttackHero(int health, int time, int expected) {
-        hero.setHealth(health);
+    void werewolfAttackHero(int health, int time, int damage, int expected) {
+        hero.setHealthHero(health);
         werewolf.setTime(time);
+        werewolf.setDamageEnemy(damage);
 
         werewolf.attackHero(hero);
-        int actual = hero.getHealth();
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> werewolfAttackMagProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 5, 85),
-                Arguments.of(50, 12, 55),
-                Arguments.of(0, 0, 0),
-                Arguments.of(450, 6, 410),
-                Arguments.of(450, 7, 430)
+                Arguments.of(100, 5, 20, 85),
+                Arguments.of(50, 12, 20, 50),
+                Arguments.of(0, 0, 20, 0),
+                Arguments.of(450, 6, 20, 410),
+                Arguments.of(450, 7, 20, 430)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfAttackMagProvideArguments")
-    void werewolfAttackMag(int health, int time, int expected) {
-        mag.setHealth(health);
+    void werewolfAttackMag(int health, int time, int damage, int expected) {
+        mag.setHealthHero(health);
         werewolf.setTime(time);
+        werewolf.setDamageEnemy(damage);
 
         werewolf.attackHero(mag);
-        int actual = mag.getHealth();
+        int actual = mag.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -115,96 +118,99 @@ public class WerewolfTest {
     @ParameterizedTest
     @MethodSource("werewolfTakingDamageProviderArguments")
     void werewolfTakingDamage(int health, int damage, int expected) {
-        werewolf.setHealth(health);
+        werewolf.setHealthEnemy(health);
 
-        werewolf.takingDamage(damage);
-        int actual = werewolf.getHealth();
+        werewolf.takeDamage(damage);
+        int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> werewolfTakingDamageArcherProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 80),
-                Arguments.of(50, 30),
-                Arguments.of(10, 0),
-                Arguments.of(500, 480),
-                Arguments.of(20, 0)
+                Arguments.of(100, 20, 80),
+                Arguments.of(50, 20, 30),
+                Arguments.of(10, 20, 0),
+                Arguments.of(500, 20, 480),
+                Arguments.of(20, 20, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfTakingDamageArcherProviderArguments")
-    void werewolfTakingDamageArcher(int health, int expected) {
-        werewolf.setHealth(health);
+    void werewolfTakingDamageArcher(int health, int damage, int expected) {
+        werewolf.setHealthEnemy(health);
+        archer.setDamageHero(damage);
 
-        werewolf.takingDamage(archer.getDamageArcher());
-        int actual = werewolf.getHealth();
+        werewolf.takeDamage(archer.getDamageHero());
+        int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> werewolfTakingDamageArcherBoostShotProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 60),
-                Arguments.of(50, 10),
-                Arguments.of(10, 0),
-                Arguments.of(500, 460),
-                Arguments.of(20, 0)
+                Arguments.of(100, 20, 60),
+                Arguments.of(50, 20, 10),
+                Arguments.of(10, 20, 0),
+                Arguments.of(500, 20, 460),
+                Arguments.of(20, 20, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfTakingDamageArcherBoostShotProviderArguments")
-    void werewolfTakingDamageArcherBoostShot(int health, int expected) {
-        werewolf.setHealth(health);
+    void werewolfTakingDamageArcherBoostShot(int health, int damage, int expected) {
+        werewolf.setHealthEnemy(health);
+        archer.setDamageHero(damage);
 
-        werewolf.takingDamage(archer.getBoostShot());
-        int actual = werewolf.getHealth();
+        werewolf.takeDamage(archer.boostedShot());
+        int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> werewolfTakingDamageMagProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 83),
-                Arguments.of(50, 33),
-                Arguments.of(10, 0),
-                Arguments.of(500, 483),
-                Arguments.of(20, 3),
-                Arguments.of(17, 0)
+                Arguments.of(100, 17, 83),
+                Arguments.of(50, 17, 33),
+                Arguments.of(10, 17, 0),
+                Arguments.of(500, 17, 483),
+                Arguments.of(20, 17, 3),
+                Arguments.of(17, 17, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfTakingDamageMagProviderArguments")
-    void werewolfTakingDamageMag(int health, int expected) {
-        werewolf.setHealth(health);
+    void werewolfTakingDamageMag(int health, int damage, int expected) {
+        werewolf.setHealthEnemy(health);
+        mag.setDamageHero(damage);
 
-        werewolf.takingDamage(mag.getDamageMag());
-        int actual = werewolf.getHealth();
+        werewolf.takeDamage(mag.getDamageHero());
+        int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> werewolfTakingDamageWarriorProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 76),
-                Arguments.of(50, 26),
-                Arguments.of(10, 0),
-                Arguments.of(500, 476),
-                Arguments.of(20, 0),
-                Arguments.of(24, 0)
+                Arguments.of(100, 24, 76),
+                Arguments.of(50, 24, 26),
+                Arguments.of(10, 24, 0),
+                Arguments.of(500, 24, 476),
+                Arguments.of(24, 24, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("werewolfTakingDamageWarriorProviderArguments")
-    void werewolfTakingDamageWarrior(int health, int expected) {
-        werewolf.setHealth(health);
+    void werewolfTakingDamageWarrior(int health, int damage, int expected) {
+        werewolf.setHealthEnemy(health);
+        warrior.setDamageHero(damage);
 
-        werewolf.takingDamage(warrior.getDamageWarrior());
-        int actual = werewolf.getHealth();
+        werewolf.takeDamage(warrior.getDamageHero());
+        int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -241,7 +247,7 @@ public class WerewolfTest {
     @ParameterizedTest
     @MethodSource("werewolfIsAliveProviderArguments")
     void werewolfIsAlive(int health, boolean expected) {
-        werewolf.setHealth(health);
+        werewolf.setHealthEnemy(health);
 
         boolean actual = werewolf.isAlive();
 
