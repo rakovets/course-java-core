@@ -13,76 +13,79 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class ZombieTest {
-    Zombie zombie = new Zombie(0);
-    Archer archer = new Archer("", 0);
-    Mag mag = new Mag("", 0);
-    Warrior warrior = new Warrior("", 0);
+    Zombie zombie = new Zombie(0, 0);
+    Archer archer = new Archer("", 0, 0);
+    Mag mag = new Mag("", 0, 0);
+    Warrior warrior = new Warrior("", 0, 0);
     static Hero hero;
 
     @BeforeAll
     static void beforeAll() {
-        hero = new Hero("", 0) {
+        hero = new Hero("", 0, 0) {
             @Override
             protected void attackEnemy(Enemy enemy) {
-                enemy.takingDamage(0);
+                enemy.takeDamage(0);
             }
         };
     }
 
     static Stream<Arguments> zombieAttackArcherProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 88),
-                Arguments.of(50, 38),
-                Arguments.of(0, 0)
+                Arguments.of(100, 17, 83),
+                Arguments.of(50, 17, 33),
+                Arguments.of(0, 0, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieAttackArcherProvideArguments")
-    void zombieAttackArcher(int health, int expected) {
-        archer.setHealth(health);
+    void zombieAttackArcher(int health, int damage, int expected) {
+        archer.setHealthHero(health);
+        zombie.setDamageEnemy(damage);
 
         zombie.attackHero(archer);
-        int actual = archer.getHealth();
+        int actual = archer.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> zombieAttackHeroProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 88),
-                Arguments.of(50, 38),
-                Arguments.of(0, 0)
+                Arguments.of(100, 12, 88),
+                Arguments.of(50, 12, 38),
+                Arguments.of(0, 12, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieAttackHeroProvideArguments")
-    void zombieAttackHero(int health, int expected) {
-        hero.setHealth(health);
+    void zombieAttackHero(int health, int damage, int expected) {
+        hero.setHealthHero(health);
+        zombie.setDamageEnemy(damage);
 
         zombie.attackHero(hero);
-        int actual = hero.getHealth();
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> zombieAttackMagProvideArguments() {
         return Stream.of(
-                Arguments.of(100, 113),
-                Arguments.of(50, 63),
-                Arguments.of(0, 0),
-                Arguments.of(450, 438)
+                Arguments.of(100, 12, 100),
+                Arguments.of(50, 12, 50),
+                Arguments.of(0, 12, 0),
+                Arguments.of(450, 12, 438)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieAttackMagProvideArguments")
-    void zombieAttackMag(int health, int expected) {
-        mag.setHealth(health);
+    void zombieAttackMag(int health, int damage, int expected) {
+        mag.setHealthHero(health);
+        zombie.setDamageEnemy(damage);
 
         zombie.attackHero(mag);
-        int actual = mag.getHealth();
+        int actual = mag.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -101,98 +104,101 @@ public class ZombieTest {
     @ParameterizedTest
     @MethodSource("zombieTakingDamageProviderArguments")
     void zombieTakingDamage(int health, int damage, int expected) {
-        zombie.setHealth(health);
+        zombie.setHealthEnemy(health);
 
-        zombie.takingDamage(damage);
-        int actual = zombie.getHealth();
+        zombie.takeDamage(damage);
+        int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> zombieTakingDamageArcherProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 80),
-                Arguments.of(50, 30),
-                Arguments.of(0, 0),
-                Arguments.of(25, 5),
-                Arguments.of(500, 480),
-                Arguments.of(2, 0)
+                Arguments.of(100, 20, 80),
+                Arguments.of(50, 20, 30),
+                Arguments.of(0, 0, 0),
+                Arguments.of(25, 20, 5),
+                Arguments.of(500, 20, 480),
+                Arguments.of(1, 20, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieTakingDamageArcherProviderArguments")
-    void zombieTakingDamageArcher(int health, int expected) {
-        zombie.setHealth(health);
+    void zombieTakingDamageArcher(int health, int damage, int expected) {
+        zombie.setHealthEnemy(health);
+        archer.setDamageHero(damage);
 
-        zombie.takingDamage(archer.getDamageArcher());
-        int actual = zombie.getHealth();
+        zombie.takeDamage(archer.getDamageHero());
+        int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> zombieTakingDamageArcherBoostShotProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 60),
-                Arguments.of(50, 10),
-                Arguments.of(0, 0),
-                Arguments.of(25, 0),
-                Arguments.of(500, 460),
-                Arguments.of(2, 0)
+                Arguments.of(100, 20, 60),
+                Arguments.of(50, 20, 10),
+                Arguments.of(0, 0, 0),
+                Arguments.of(25, 20, 0),
+                Arguments.of(500, 20, 460),
+                Arguments.of(2, 20, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieTakingDamageArcherBoostShotProviderArguments")
-    void zombieTakingDamageArcherBoostShot(int health, int expected) {
-        zombie.setHealth(health);
+    void zombieTakingDamageArcherBoostShot(int health, int damage, int expected) {
+        zombie.setHealthEnemy(health);
+        archer.setDamageHero(damage);
 
-        zombie.takingDamage(archer.getBoostShot());
-        int actual = zombie.getHealth();
+        zombie.takeDamage(archer.boostedShot());
+        int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> zombieTakingDamageMageProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 83),
-                Arguments.of(50, 33),
-                Arguments.of(0, 0),
-                Arguments.of(25, 8),
-                Arguments.of(500, 483),
-                Arguments.of(2, 0)
+                Arguments.of(100, 17, 83),
+                Arguments.of(50, 17, 33),
+                Arguments.of(0, 0, 0),
+                Arguments.of(25, 17, 8),
+                Arguments.of(500, 17, 483),
+                Arguments.of(2, 17, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieTakingDamageMageProviderArguments")
-    void zombieTakingDamageMage(int health, int expected) {
-        zombie.setHealth(health);
+    void zombieTakingDamageMage(int health, int damage, int expected) {
+        zombie.setHealthEnemy(health);
+        mag.setDamageHero(damage);
 
-        zombie.takingDamage(mag.getDamageMag());
-        int actual = zombie.getHealth();
+        zombie.takeDamage(mag.getDamageHero());
+        int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> zombieTakingDamageWarriorProviderArguments() {
         return Stream.of(
-                Arguments.of(100, 76),
-                Arguments.of(50, 26),
-                Arguments.of(0, 0),
-                Arguments.of(500, 476),
-                Arguments.of(2, 0),
-                Arguments.of(17, 0)
+                Arguments.of(100, 24, 76),
+                Arguments.of(50, 24, 26),
+                Arguments.of(0, 0, 0),
+                Arguments.of(500, 24, 476),
+                Arguments.of(2, 24, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("zombieTakingDamageWarriorProviderArguments")
-    void zombieTakingDamageWarrior(int health, int expected) {
-        zombie.setHealth(health);
+    void zombieTakingDamageWarrior(int health, int damage, int expected) {
+        zombie.setHealthEnemy(health);
+        warrior.setDamageHero(damage);
 
-        zombie.takingDamage(warrior.getDamageWarrior());
-        int actual = zombie.getHealth();
+        zombie.takeDamage(warrior.getDamageHero());
+        int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -208,7 +214,7 @@ public class ZombieTest {
     @ParameterizedTest
     @MethodSource("zombieIsAliveProviderArguments")
     void zombieIsAlive(int health, boolean expected) {
-        zombie.setHealth(health);
+        zombie.setHealthEnemy(health);
 
         boolean actual = zombie.isAlive();
 
