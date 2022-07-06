@@ -5,55 +5,56 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Warrior extends Hero {
-    final int SHIELD_BLOCK = 10;
-    private int damageWarrior = 24;
-
     Random random = new Random();
 
-    public Warrior(String name, int health) {
-        super(name, health);
+    /**
+     * Constructor.
+     *
+     * @param nameWarrior   warrior name.
+     * @param healthWarrior warrior's maximum health.
+     * @param damageWarrior maximum damage of a warrior.
+     */
+    public Warrior(String nameWarrior, int healthWarrior, int damageWarrior) {
+        super(nameWarrior, healthWarrior, damageWarrior);
     }
 
     /**
-     * Warrior attacks the enemy.
+     * The warrior attacks the enemy.
      *
-     * @param enemy type enemy.
+     * @param enemy attacked enemy.
      */
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takingDamage(damageWarrior);
+        enemy.takeDamage(getDamageHero());
     }
 
     /**
-     * Subtracts damage taken from current health.
+     * The warrior takes damage.
+     * <p>Passive ability.
+     * <p>Randomly, the warrior blocks 10 damage.
+     * <p>A warrior cannot heal himself.
      *
-     * @param damage damage taken.
-     * @return remaining HP.
+     * @param damage damage received.
+     * @return current health after taking damage.
      */
     @Override
-    public int takingDamage(int damage) {
-        int health = MIN_HP;
+    public int takeDamage(int damage) {
+        final int SHIELD_BLOCK = 10;
+
+        int health = getHealthHero();
 
         if (isAlive()) {
-            if (getHealth() - damage < MIN_HP) {
-                setHealth(MIN_HP);
-                health = getHealth();
-            } else if (getHealth() - damage != MIN_HP) {
+            if (getHealthHero() - damage < MINIMAL_HP) {
+                setHealthHero(MINIMAL_HP);
+                health = getHealthHero();
+            } else if (getHealthHero() - damage != MINIMAL_HP) {
                 boolean block = random.nextBoolean();
                 if (block) {
-                    setHealth(getHealth() - damage + SHIELD_BLOCK);
-                    health = getHealth();
+                    setHealthHero(Math.min(getHealthHero() - damage + SHIELD_BLOCK, getHealthHero()));
+                    health = getHealthHero();
                 }
             }
         }
         return health;
-    }
-
-    public int getDamageWarrior() {
-        return damageWarrior;
-    }
-
-    public void setDamageWarrior(int damageWarrior) {
-        this.damageWarrior = damageWarrior;
     }
 }
