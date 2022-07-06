@@ -34,6 +34,7 @@ public class Zombie extends Enemy {
      *
      * @param damage the damage it takes.
      */
+    @Override
     public void takeDamage(int damage) {
         if (isAlive()) {
             if (getHealthEnemy() - damage < MINIMAL_HP) {
