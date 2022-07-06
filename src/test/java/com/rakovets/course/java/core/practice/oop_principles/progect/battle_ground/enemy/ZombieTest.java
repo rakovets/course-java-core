@@ -24,7 +24,7 @@ public class ZombieTest {
         hero = new Hero("", 0, 0) {
             @Override
             protected void attackEnemy(Enemy enemy) {
-                enemy.takeDamage(0);
+                enemy.takeDamage(getDamageHero());
             }
         };
     }
