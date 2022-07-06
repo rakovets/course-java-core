@@ -3,45 +3,36 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.enemy.Enemy;
 
 public class Archer extends Hero {
-    private int damageArcher = 20;
-    private int boostShot = 40;
-
-    public Archer(String name, int health) {
-        super(name, health);
+    /**
+     * Constructor.
+     *
+     * @param nameArcher   archer's name.
+     * @param healthArcher archer's maximum health.
+     * @param damageArcher archer's maximum damage.
+     */
+    public Archer(String nameArcher, int healthArcher, int damageArcher) {
+        super(nameArcher, healthArcher, damageArcher);
     }
 
     /**
-     * Deals archer damage to an enemy.
+     * The archer attacks the enemy.
      *
-     * @param enemy type enemy.
+     * @param enemy attacked enemy.
      */
     @Override
     public void attackEnemy(Enemy enemy) {
-        enemy.takingDamage(damageArcher);
+        enemy.takeDamage(getDamageHero());
     }
 
     /**
-     * Empowered Shot deals double Archer damage to an enemy.
+     * Reinforced shot.
+     * <p> Doubles the archer's current maximum damage.
      *
-     * @param enemy type enemy.
+     * @return current damage.
      */
-    public void boostedShot(Enemy enemy) {
-        enemy.takingDamage(boostShot);
-    }
+    public int boostedShot() {
+        final int ATTACK_MULTIPLIER = 2;
 
-    public void setDamageArcher(int damageArcher) {
-        this.damageArcher = damageArcher;
-    }
-
-    public int getDamageArcher() {
-        return damageArcher;
-    }
-
-    public int getBoostShot() {
-        return boostShot;
-    }
-
-    public void setBoostShot(int boostShot) {
-        this.boostShot = boostShot;
+        return getDamageHero() * ATTACK_MULTIPLIER;
     }
 }
