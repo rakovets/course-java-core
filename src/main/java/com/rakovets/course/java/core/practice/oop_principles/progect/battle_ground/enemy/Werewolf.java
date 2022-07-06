@@ -70,8 +70,8 @@ public class Werewolf extends Enemy {
 
     /**
      * Makes a check.
-     * <p> Time cannot be more than 25 and less than 0.
-     * <p> If it receives values 25 and values less than 0 rounds to 0.
+     * <li> Time cannot be more than 25 and less than 0.
+     * <li> If it receives values 25 and values less than 0 rounds to 0.
      *
      * @param time current time.
      * @return returns the current time after validation.
