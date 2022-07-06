@@ -1,6 +1,10 @@
 package com.rakovets.course.java.core.practice.oop_principles.progect.cats_home;
 
 public class Person {
+
+    final double MAXIMUM_PERCENTAGE_HAPPINESS = 100.0;
+    final double MINIMUM_PERCENTAGE_HAPPINESS = 0.0;
+
     private double happiness;
 
     /**
@@ -30,10 +34,10 @@ public class Person {
      * @param happiness the current value of happiness after checking the values.
      */
     public void checkDiapason(double happiness) {
-        if (happiness >= 100.0) {
-            this.happiness = 100.0;
+        if (happiness >= MAXIMUM_PERCENTAGE_HAPPINESS) {
+            this.happiness = MAXIMUM_PERCENTAGE_HAPPINESS;
         } else {
-            this.happiness = Math.max(happiness, 0.0);
+            this.happiness = Math.max(happiness, MINIMUM_PERCENTAGE_HAPPINESS);
         }
     }
 
