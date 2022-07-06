@@ -25,6 +25,11 @@ public class Vampire extends Enemy {
 
     /**
      * The vampire takes damage.
+     * <p> Vampire regeneration.
+     * <p> Passive ability.
+     * <p> If a vampire takes damage and their health falls below zero, then their current health is 0.
+     * <p> If the vampire takes damage and his health does not fall below zero, then the vampire heals himself.
+     * <p> When regenerating, the vampire cannot restore more health to himself than his maximum health.
      *
      * @param damage the damage it takes.
      */
@@ -35,6 +40,8 @@ public class Vampire extends Enemy {
         if (isAlive()) {
             if (getHealthEnemy() - damage <= MINIMAL_HP) {
                 setHealthEnemy(MINIMAL_HP);
+            } else if (getHealthEnemy() - damage + REGENERATION > getHealthEnemy()) {
+                setDamageEnemy(super.getDamageEnemy());
             } else {
                 setHealthEnemy(getHealthEnemy() - damage + REGENERATION);
             }
