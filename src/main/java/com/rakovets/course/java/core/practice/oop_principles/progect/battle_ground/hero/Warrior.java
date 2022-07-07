@@ -47,7 +47,7 @@ public class Warrior extends Hero {
             if (getHealthHero() - damage < MINIMAL_HP) {
                 setHealthHero(MINIMAL_HP);
                 health = getHealthHero();
-            } else if (getHealthHero() - damage != MINIMAL_HP) {
+            } else {
                 boolean block = random.nextBoolean();
                 if (block) {
                     setHealthHero(Math.min(getHealthHero() - damage + SHIELD_BLOCK, getHealthHero()));
