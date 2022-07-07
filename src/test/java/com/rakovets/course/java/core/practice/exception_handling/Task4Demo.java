@@ -9,7 +9,6 @@ public class Task4Demo {
         try {
             time.setCurrentTime(23, 61);
         } catch (IllegalTimeException e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

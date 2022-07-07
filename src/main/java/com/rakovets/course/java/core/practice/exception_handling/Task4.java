@@ -11,7 +11,7 @@ public class Task4 {
         this.currentMinutes = minutes;
     }
 
-    public void setCurrentTime(int hours, int minutes) throws IllegalTimeException {
+    public void setCurrentTime(int hours, int minutes) {
         if (hours < 0 || hours >= 24) {
             throw new IllegalTimeException("Valid values for hours from 0 to 23");
         }
