@@ -11,7 +11,7 @@ public enum Season {
          */
         @Override
         public String getDescription() {
-            return "Warm season";
+            return "Warm season.";
         }
     },
     AUTUMN(9);
@@ -36,7 +36,7 @@ public enum Season {
     public String getMyFavoriteSeason() {
         return "My favorite seasons is " + (MY_FAVORITE_SEASONS.toString().toLowerCase())
                 + ".\nThe average temperature for my favorite time of the year " + Season.WINTER.TEMPERATURE + ". "
-                + Season.WINTER.getDescription() + ".";
+                + Season.WINTER.getDescription();
     }
 
     /**
@@ -71,7 +71,7 @@ public enum Season {
      * @return description text.
      */
     public String getDescription() {
-        return "Cold season";
+        return "Cold season.";
     }
 
     /**
