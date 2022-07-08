@@ -13,12 +13,12 @@ public class Cat {
 
     public String mew(Person user) {
         user.changeHappiness(-1);
-        return "mew";
+        return getName() + mew();
     }
 
     public String purr(Person user) {
         user.changeHappiness(+1);
-        return "purr";
+        return getName() + purr() ;
     }
 
     public String purr() {

@@ -1,11 +1,13 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Archer extends Hero {
-    Archer (String name) {
-        super(name);
+    final int DAMAGE_ARCHER_SHOT = 15;
+    public Archer (String name, int health) {
+        super(name, health);
     }
     @Override
     public int attackEnemy(Enemy enemy) {
-        return enemy.takeDamage(12);
+        return enemy.takeDamage(DAMAGE_ARCHER_SHOT);
     }
+
 }

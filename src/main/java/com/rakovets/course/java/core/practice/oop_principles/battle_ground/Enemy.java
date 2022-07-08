@@ -1,24 +1,32 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Enemy implements Mortal {
+public abstract class Enemy implements Mortal {
+    final int HEALTH_MAX = 100;
     private int health;
 
-    Enemy (int health) {
-        this.health = health;
+    public Enemy(int health) {
+        this.health = HEALTH_MAX;
     }
+
     public int takeDamage(int damage) {
         return health - damage;
     }
 
     @Override
     public boolean isAlive(int health) {
-      return health > 0 ;
+        return getHealth() > 0;
     }
 
-    public void setHealth(){
-        this.health = health;
+    @Override
+    public String aliveOrDead(int health) {
+        return (getHealth() > 0) ?
+                "It's OK! Not dead yet)" :
+                "You're dead(";
     }
-    public int getHealth (int health){
+
+    public int getHealth() {
         return health;
     }
+
+    public abstract int attackHero(Hero hero);
 }

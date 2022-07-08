@@ -8,7 +8,7 @@ public class Persian extends Cat {
     @Override
     public String mew(Person user) {
         user.changeHappiness(-20);
-        return getName() +" mii-mii";
+        return getName() + mew();
     }
     @Override
     public String mew() {
@@ -18,7 +18,7 @@ public class Persian extends Cat {
     @Override
     public String purr(Person user) {
         user.changeHappiness(+15);
-        return getName() +" rrr-rrr" ;
+        return getName() + purr();
     }
     @Override
     public String purr() {

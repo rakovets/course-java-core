@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Person {
-    final int MAX_PERCENTAGE = 100;
     int happiness;
 
     Person(int happiness) {
