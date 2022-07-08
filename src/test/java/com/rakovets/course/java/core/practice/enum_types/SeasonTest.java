@@ -49,10 +49,10 @@ public class SeasonTest {
 
     static Stream<Arguments> getDescriptionProviderArguments() {
         return Stream.of(
-                Arguments.of("WINTER", "Cold season"),
-                Arguments.of("SPRING", "Cold season"),
-                Arguments.of("SUMMER", "Warm season"),
-                Arguments.of("AUTUMN", "Cold season")
+                Arguments.of("WINTER", "Cold season."),
+                Arguments.of("SPRING", "Cold season."),
+                Arguments.of("SUMMER", "Warm season."),
+                Arguments.of("AUTUMN", "Cold season.")
         );
     }
 
