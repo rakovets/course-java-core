@@ -4,7 +4,7 @@ public class Warrior extends Hero {
     final int DAMAGE_WARRIOR_HIT = 20;
 
     public Warrior(String name, int health) {
-        super(name, health);
+        super(name,health);
     }
 
     @Override

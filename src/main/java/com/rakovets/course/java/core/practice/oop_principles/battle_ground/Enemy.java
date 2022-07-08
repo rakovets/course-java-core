@@ -1,15 +1,15 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public abstract class Enemy implements Mortal {
-    final int HEALTH_MAX = 100;
-    private int health;
+    final int HEALTH_HEAL_MAX = 100;
+    int health;
 
-    public Enemy(int health) {
-        this.health = HEALTH_MAX;
+    public Enemy() {
+        this.health = HEALTH_HEAL_MAX;
     }
 
     public int takeDamage(int damage) {
-        return health - damage;
+        return this.health = getHealth() - damage;
     }
 
     @Override

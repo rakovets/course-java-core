@@ -1,13 +1,13 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public abstract class Hero implements Mortal {
-    final int HEALTH_MAX = 100;
+    final int HEALTH_HEAL_MAX = 100;
     private final String name;
-    private int health;
+    int health;
 
     public Hero(String name, int health) {
         this.name = name;
-        this.health = HEALTH_MAX;
+        this.health = health;
     }
     @Override
     public boolean isAlive(int health) {
@@ -21,7 +21,7 @@ public abstract class Hero implements Mortal {
                 "You're dead(";
     }
     public int takeDamage(int damage) {
-        return health - damage;
+        return this.health = getHealth() - damage;
     }
     public String getName() {
         return name;
