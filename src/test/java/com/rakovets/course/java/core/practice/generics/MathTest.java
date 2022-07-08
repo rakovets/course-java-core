@@ -1,39 +1,28 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import com.rakovets.course.java.core.practice.exception_handling.InputParameterInvalidException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MathTest {
 
     @Test
-    public void testGetMaximum() throws InputParameterInvalidException {
+    public void testGetMaximum() {
         Assertions.assertEquals(5, Math.getMaximum(1, 3, 5));
     }
 
     @Test
-    public void testGetMaximumDifferentTypes() throws InputParameterInvalidException {
-        Assertions.assertEquals(2, Math.getMaximum(2, 0.4, 0.9));
+    public void testGetMaximumDifferentTypes()  {
+        Assertions.assertEquals(2, Math.getMaximum(2, null, 0.9));
     }
 
     @Test
-    public void testGetMaximumException() {
-        Assertions.assertThrows(InputParameterInvalidException.class, () -> Math.getMaximum(2, null, 0.9));
-    }
-
-    @Test
-    public void testGetMinimum() throws InputParameterInvalidException {
+    public void testGetMinimum() {
         Assertions.assertEquals(2, Math.getMinimum(10, 4, 5, 2, 8));
     }
 
     @Test
-    public void testGetMinimumDifferentTypes() throws InputParameterInvalidException {
-        Assertions.assertEquals(2, Math.getMinimum(10.5, 4, 5.4, 2, 8));
-    }
-
-    @Test
-    public void testGetMinimumException() {
-        Assertions.assertThrows(InputParameterInvalidException.class, () -> Math.getMinimum(2, null, 0.9, 10, null));
+    public void testGetMinimumDifferentTypes()  {
+        Assertions.assertEquals(4, Math.getMinimum(10.5, 4, 5.4, null, 8));
     }
 
     @Test
@@ -53,7 +42,7 @@ public class MathTest {
 
     @Test
     public void testGetMinimumInArrayNull() {
-        Assertions.assertEquals(1.0, Math.getMinimumInArray(new Double[]{null, 2.5,null,  1.0}));
+        Assertions.assertEquals(0.0, Math.getMinimumInArray(new Double[]{null, null, 1.0, 0.0, null}));
     }
 
     @Test
@@ -63,7 +52,7 @@ public class MathTest {
 
     @Test
     public void testGetMaximumInArrayNull() {
-        Assertions.assertEquals(10, Math.getMaximumInArray(new Integer[]{null, 2, null, 10}));
+        Assertions.assertEquals(10, Math.getMaximumInArray(new Integer[]{null, 2, null, 10, null}));
     }
 
     @Test

@@ -1,23 +1,14 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import com.rakovets.course.java.core.practice.exception_handling.InputParameterInvalidException;
-
 public abstract class Math<T extends Number> {
-    public static <T> T getMaximum(T first, T second, T third) throws InputParameterInvalidException {
-        if (first == null || second == null || third == null) {
-            throw new InputParameterInvalidException("Insert a none-zero value");
-        }
+    public static <T> T getMaximum(T first, T second, T third) {
         T[] arr = (T[]) new Object[]{first, second, third};
         return getMaximumInArray(arr);
     }
 
-    public static <T> T getMinimum(T first, T second, T third, T fourth, T fifth) throws InputParameterInvalidException {
-        if (first == null || second == null || third == null || fourth == null || fifth == null) {
-            throw new InputParameterInvalidException("Insert a none-zero value");
-        }
+    public static <T> T getMinimum(T first, T second, T third, T fourth, T fifth) {
         T[] arr = (T[]) new Object[]{first, second, third, fourth, fifth};
         return getMinimumInArray(arr);
-
     }
 
     public static <T> double getAverageInArray(T[] array) {
@@ -32,45 +23,54 @@ public abstract class Math<T extends Number> {
     }
 
     public static <T> T getMaximumInArray(T[] array) {
-        int position = 0;
-        for (int i = 1; i < array.length; i++) {
-            if (array[position] == null) {
-                continue;
-            } else if (array[i] == null) {
-                continue;
-            } else if (getDouble(array[position]) < getDouble(array[i])) {
-                position = i;
+        T max = getFirstOrNull(array);
+        if (max == null) {
+            return null;
+        }
+        for (T t : array) {
+            if (t != null && getDouble(max) < getDouble(t)) {
+                max = t;
             }
         }
-        return array[position];
+        return max;
     }
 
     public static <T> T getMinimumInArray(T[] array) {
-        int position = 0;
-        for (int i = 1; i < array.length; i++) {
-            if (array[position] == null) {
-                continue;
-            } else if (array[i] == null) {
-                continue;
-            } else if (getDouble(array[position]) > getDouble(array[i])) {
-                position = i;
+      T min = getFirstOrNull(array);
+        if (min == null) {
+            return null;
+        }
+        for (T t : array) {
+            if (t != null && getDouble(min) > getDouble(t)) {
+                min = t;
             }
         }
-        return array[position];
+        return min;
+    }
+
+    private static<T> T getFirstOrNull(T[]array) {
+        T first = null;
+        for (T t : array) {
+            if (t != null) {
+                first = t;
+                break;
+            }
+        }
+        return first;
     }
 
     public static <T> T[] sortArray(T[] array) {
         int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
+        for (T t : array) {
+            if (t == null) {
                 count++;
             }
         }
         T[] arrayNew = (T[]) new Object[array.length - count];
         int k = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] != null) {
-                arrayNew[k] = array[i];
+        for (T t : array) {
+            if (t != null) {
+                arrayNew[k] = t;
                 k++;
             }
         }
@@ -112,9 +112,7 @@ public abstract class Math<T extends Number> {
         return valuePosition != -1;
     }
 
-    public static <T> double getDouble(T element) {
+    private static <T> double getDouble(T element) {
         return Double.parseDouble(element.toString());
     }
-
 }
-

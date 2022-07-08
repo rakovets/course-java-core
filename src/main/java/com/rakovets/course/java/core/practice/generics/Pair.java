@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.generics;
 
-public class Pair <K,V> {
+public class Pair<K, V> {
     private K first;
     private V second;
 
@@ -9,32 +9,31 @@ public class Pair <K,V> {
         this.second = second;
     }
 
-    public K getFirst() {
-        return first;
+    public static <K, V> Pair<K, V> swap(Pair<K, V> pair) {
+        return pair.getSwapped();
     }
 
-    public V getSecond() {
-        return second;
+    public K getFirst() {
+        return first;
     }
 
     public void setFirst(K first) {
         this.first = first;
     }
 
+    public V getSecond() {
+        return second;
+    }
+
     public void setSecond(V second) {
         this.second = second;
     }
 
-    public Pair<K,V> getSwapped() {
-        K firstNew= (K) getSecond();
-        V secondNew= (V) getFirst();
+    public Pair<K, V> getSwapped() {
+        K firstNew = (K) getSecond();
+        V secondNew = (V) getFirst();
         setFirst(firstNew);
         setSecond(secondNew);
         return this;
     }
-
-    public static <K,V>  Pair <K,V> swap(Pair <K,V> pair) {
-        return  pair.getSwapped();
-    }
 }
-
