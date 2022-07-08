@@ -31,7 +31,7 @@ public class MathTest {
     }
 
     @Test
-    public void testGetAverageNull() {
+    public void testGetAverageWithNull() {
         Assertions.assertEquals(2, Math.getAverageInArray(new Double[]{null, 3.0, 3.0}));
     }
 
@@ -41,7 +41,7 @@ public class MathTest {
     }
 
     @Test
-    public void testGetMinimumInArrayNull() {
+    public void testGetMinimumInArrayWithNull() {
         Assertions.assertEquals(0.0, Math.getMinimumInArray(new Double[]{null, null, 1.0, 0.0, null}));
     }
 
@@ -51,7 +51,7 @@ public class MathTest {
     }
 
     @Test
-    public void testGetMaximumInArrayNull() {
+    public void testGetMaximumInArrayWithNull() {
         Assertions.assertEquals(10, Math.getMaximumInArray(new Integer[]{null, 2, null, 10, null}));
     }
 
@@ -61,7 +61,7 @@ public class MathTest {
     }
 
     @Test
-    public void testGetSortNull() {
+    public void testGetSortWithNull() {
         Assertions.assertArrayEquals(new Double[]{2.5, 5.0}, Math.sortArray(new Double[]{5.0, 2.5, null}));
     }
 
@@ -71,7 +71,7 @@ public class MathTest {
     }
 
     @Test
-    public void testBinarySearchInArrayFalse() {
-        Assertions.assertFalse(Math.binarySearchInArray(new Double[]{5.0, 2.5, 3.0}, 1));
+    public void testBinarySearchInArrayWithNull() {
+        Assertions.assertTrue(Math.binarySearchInArray(new Double[]{5.0, 2.5, 3.0,null}, 2.5));
     }
 }
