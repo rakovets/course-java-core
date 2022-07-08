@@ -33,13 +33,6 @@ public class CatTest {
     }
 
     @Test
-    void testMewWithPersonHappinessBelowZero() {
-        user = new Person(0);
-        Assertions.assertEquals("Mew", cat.mew(user));
-        Assertions.assertEquals(0, user.getHappiness());
-    }
-
-    @Test
     void testPurr() {
         Assertions.assertEquals("Purr", cat.purr());
     }
@@ -48,18 +41,5 @@ public class CatTest {
     void testPurrWithPerson() {
         Assertions.assertEquals("Purr", cat.purr(user));
         Assertions.assertEquals(60, user.getHappiness());
-    }
-
-    @Test
-    void testPurrWithPersonHappinessOver100() {
-        user = new Person(100);
-        Assertions.assertEquals("Purr", cat.purr(user));
-        Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
-    void testSetName() {
-        cat.setName("Kitten");
-        Assertions.assertEquals("Kitten", cat.getName());
     }
 }

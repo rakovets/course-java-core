@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground_test;
 
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.*;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Archer;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Enemy;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Hero;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Witch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

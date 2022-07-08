@@ -34,13 +34,6 @@ public class SphynxTest {
     }
 
     @Test
-    void testMewWithPersonHappinessBelowZero() {
-        user = new Person(0);
-        Assertions.assertEquals("Mew-Mew-Mew", sphynx.mew(user));
-        Assertions.assertEquals(0, user.getHappiness());
-    }
-
-    @Test
     void testPurr() {
         Assertions.assertEquals("Purr-Purr-Purr", sphynx.purr());
     }
@@ -52,20 +45,7 @@ public class SphynxTest {
     }
 
     @Test
-    void testPurrWithPersonHappinessOver100() {
-        user = new Person(100);
-        Assertions.assertEquals("Purr-Purr-Purr", sphynx.purr(user));
-        Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
     void testGetName() {
         Assertions.assertEquals("Sphynx", sphynx.getName());
-    }
-
-    @Test
-    void setGetName() {
-        sphynx.setName("Baldy");
-        Assertions.assertEquals("Baldy", sphynx.getName());
     }
 }

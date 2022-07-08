@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public abstract class Enemy implements Mortal {
-    protected final int INCREASE_POWER_FACTOR  = 2;
+    protected final int INCREASE_POWER_FACTOR = 2;
     protected int damage;
     private int health;
 

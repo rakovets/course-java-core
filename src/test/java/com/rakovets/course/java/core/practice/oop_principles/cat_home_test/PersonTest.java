@@ -19,52 +19,8 @@ public class PersonTest {
     }
 
     @Test
-    void testConstructorHappinessBelowZero() {
-        user = new Person(-10);
-        Assertions.assertEquals(0, user.getHappiness());
-    }
-
-    @Test
-    void testConstructorHappinessOver100() {
-        user = new Person(110);
-        Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
     void testChangeHappiness() {
         user.changeHappiness(10);
         Assertions.assertEquals(60, user.getHappiness());
-    }
-
-    @Test
-    void testChangeHappinessOver100() {
-        user = new Person(100);
-        user.changeHappiness(10);
-        Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
-    void testChangeHappinessBelowZero() {
-        user = new Person(0);
-        user.changeHappiness(-10);
-        Assertions.assertEquals(0, user.getHappiness());
-    }
-
-    @Test
-    void testSetHappiness() {
-        user.setHappiness(15);
-        Assertions.assertEquals(15, user.getHappiness());
-    }
-
-    @Test
-    void testSetHappinessBelowZero() {
-        user.setHappiness(-15);
-        Assertions.assertEquals(0, user.getHappiness());
-    }
-
-    @Test
-    void testSetHappinessoOver100() {
-        user.setHappiness(110);
-        Assertions.assertEquals(100, user.getHappiness());
     }
 }

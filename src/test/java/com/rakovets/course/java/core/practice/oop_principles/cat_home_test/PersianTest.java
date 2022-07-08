@@ -33,13 +33,6 @@ public class PersianTest {
         Assertions.assertEquals(10, user.getHappiness());
     }
 
-    @Test
-    void testMewWithPersonHappinessBelowZero() {
-        user = new Person(0);
-        Assertions.assertEquals("Meeeeeeeeeew", persian.mew(user));
-        Assertions.assertEquals(0, user.getHappiness());
-    }
-
     void testPurr() {
         Assertions.assertEquals("Puuuuuuuuuurr", persian.purr());
     }
@@ -48,18 +41,5 @@ public class PersianTest {
     void testPurrWithPerson() {
         Assertions.assertEquals("Puuuuuuuuuurr", persian.purr(user));
         Assertions.assertEquals(90, user.getHappiness());
-    }
-
-    @Test
-    void testPurrWithPersonHappinessOver100() {
-        user = new Person(100);
-        Assertions.assertEquals("Puuuuuuuuuurr", persian.purr(user));
-        Assertions.assertEquals(100, user.getHappiness());
-    }
-
-    @Test
-    void testSetName() {
-        persian.setName("Persik");
-        Assertions.assertEquals("Persik", persian.getName());
     }
 }
