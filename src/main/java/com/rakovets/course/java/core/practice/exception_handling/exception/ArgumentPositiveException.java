@@ -5,5 +5,3 @@ public class ArgumentPositiveException extends Exception {
         super(message);
     }
 }
-
-
