@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public abstract class Hero implements Mortal {
-    protected final int INCREASE_POWER_FACTOR = 2;
+    protected static final int INCREASE_POWER_FACTOR = 2;
     private final String name;
     protected int damage;
     private int health;
@@ -22,15 +22,6 @@ public abstract class Hero implements Mortal {
         return name;
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-
     public int getDamage() {
         return damage;
     }
@@ -44,4 +35,12 @@ public abstract class Hero implements Mortal {
     }
 
     public abstract void attackEnemy(Enemy enemy);
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }

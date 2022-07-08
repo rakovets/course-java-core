@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 
 public class Sphynx extends Cat {
-    private final int MEW_PERCENT_HAPPINESS = -30;
-    private final int PURR_PERCENT_HAPPINESS = 30;
+    private static final int MEW_PERCENT_HAPPINESS = -30;
+    private static final int PURR_PERCENT_HAPPINESS = 30;
 
     public Sphynx(String name) {
         super(name);

@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Warrior extends Hero {
+    private static final int WARRIOR_DAMAGE_REDUCTION = 3;
+
     public Warrior(String name) {
         super(name);
         this.damage = 15;
@@ -18,7 +20,6 @@ public class Warrior extends Hero {
 
     @Override
     public void takeDamage(int damage) {
-        int warriorDamageReduction = 3;
-        super.takeDamage(damage - warriorDamageReduction);
+        super.takeDamage(damage - WARRIOR_DAMAGE_REDUCTION);
     }
 }
