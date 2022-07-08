@@ -81,7 +81,7 @@ public enum Season {
         for (Season season : Season.values()) {
             System.out.println(season.toString().substring(0, 1).toUpperCase()
                     + season.toString().toLowerCase().substring(1)
-                    + ". Average temperature: " + season.TEMPERATURE + ". " + season.getDescription() + ".");
+                    + ". Average temperature: " + season.TEMPERATURE + ". " + season.getDescription());
         }
     }
 }
