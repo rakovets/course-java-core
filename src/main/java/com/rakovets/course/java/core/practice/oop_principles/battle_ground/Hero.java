@@ -9,9 +9,10 @@ public abstract class Hero implements Mortal {
         this.name = name;
         this.health = health;
     }
+
     @Override
     public boolean isAlive(int health) {
-        return getHealth() > 0 ;
+        return getHealth() > 0;
     }
 
     @Override
@@ -20,13 +21,16 @@ public abstract class Hero implements Mortal {
                 "It's OK! Not dead yet)" :
                 "You're dead(";
     }
+
     public int takeDamage(int damage) {
         return this.health = getHealth() - damage;
     }
+
     public String getName() {
         return name;
     }
-    public int getHealth () {
+
+    public int getHealth() {
         return health;
     }
 
