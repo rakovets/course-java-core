@@ -12,9 +12,9 @@ public class Task04 {
      * @throws IndexOutOfBoundsException returns an error if the index is invalid.
      */
     public static String getIndexArray(int index, int[] array) throws IndexOutOfBoundsException {
-        final int EXCEPTION = 1;
+        final int EXCEPTION_NUMBER = 1;
 
-        if (index == EXCEPTION) {
+        if (index == EXCEPTION_NUMBER) {
             throw new IndexOutOfBoundsException();
         }
         return "numbers[" + index + "] = " + array[index];
