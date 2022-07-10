@@ -34,9 +34,15 @@ public enum Season {
      * @return description text.
      */
     public String getMyFavoriteSeason() {
-        return "My favorite seasons is " + (MY_FAVORITE_SEASONS.toString().toLowerCase())
-                + ".\nThe average temperature for my favorite time of the year " + Season.WINTER.TEMPERATURE + ". "
-                + Season.WINTER.getDescription();
+        final String DOT = ".";
+        final String FAVORITE_SEASON = "My favorite season is";
+        final String LF = "\n";
+        final String DESCRIPTION_FAVORITE_SEASON = "The average temperature for my favorite time of the year";
+        final String SPACE = " ";
+
+        return FAVORITE_SEASON + SPACE + (MY_FAVORITE_SEASONS.toString().toLowerCase())
+                + DOT + LF + DESCRIPTION_FAVORITE_SEASON + SPACE + Season.WINTER.TEMPERATURE
+                + DOT + SPACE + Season.WINTER.getDescription();
     }
 
     /**
@@ -46,20 +52,24 @@ public enum Season {
      * @return test with a message for the season.
      */
     public String findsAFavoriteSeason(Season season) {
+        final String FAVORITE_SEASON = "Favorite season is";
+        final String SPACE = " ";
+        final String DOT = ".";
+
         String favoriteSeason = null;
 
         switch (season) {
             case WINTER:
-                favoriteSeason = "Favorite season is " + Season.WINTER.toString().toLowerCase() + ".";
+                favoriteSeason = FAVORITE_SEASON + SPACE + Season.WINTER.toString().toLowerCase() + DOT;
                 break;
             case SPRING:
-                favoriteSeason = "Favorite season is " + Season.SPRING.toString().toLowerCase() + ".";
+                favoriteSeason = FAVORITE_SEASON + SPACE + Season.SPRING.toString().toLowerCase() + DOT;
                 break;
             case SUMMER:
-                favoriteSeason = "Favorite season is " + Season.SUMMER.toString().toLowerCase() + ".";
+                favoriteSeason = FAVORITE_SEASON + SPACE + Season.SUMMER.toString().toLowerCase() + DOT;
                 break;
             case AUTUMN:
-                favoriteSeason = "Favorite season is " + Season.AUTUMN.toString().toLowerCase() + ".";
+                favoriteSeason = FAVORITE_SEASON + SPACE + Season.AUTUMN.toString().toLowerCase() + DOT;
                 break;
         }
         return favoriteSeason;
@@ -78,10 +88,15 @@ public enum Season {
      * Displays text describing all seasons.
      */
     public void getDescriptionForAllSeasons() {
+        final String DOT = ".";
+        final String AVERAGE_TEMPERATURE = "Average temperature:";
+        final String SPACE = " ";
+
         for (Season season : Season.values()) {
             System.out.println(season.toString().substring(0, 1).toUpperCase()
-                    + season.toString().toLowerCase().substring(1)
-                    + ". Average temperature: " + season.TEMPERATURE + ". " + season.getDescription());
+                    + season.toString().toLowerCase().substring(1) + DOT + SPACE
+                    + AVERAGE_TEMPERATURE + SPACE + season.TEMPERATURE + DOT + SPACE + season.getDescription());
+
         }
     }
 }

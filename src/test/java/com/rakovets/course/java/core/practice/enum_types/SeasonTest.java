@@ -11,13 +11,13 @@ public class SeasonTest {
 
     static Stream<Arguments> getMyFavoriteSeasonProviderArguments() {
         return Stream.of(
-                Arguments.of("WINTER", "My favorite seasons is winter.\n" +
+                Arguments.of("WINTER", "My favorite season is winter.\n" +
                         "The average temperature for my favorite time of the year -1. Cold season."),
-                Arguments.of("SPRING", "My favorite seasons is winter.\n" +
+                Arguments.of("SPRING", "My favorite season is winter.\n" +
                         "The average temperature for my favorite time of the year -1. Cold season."),
-                Arguments.of("SUMMER", "My favorite seasons is winter.\n" +
+                Arguments.of("SUMMER", "My favorite season is winter.\n" +
                         "The average temperature for my favorite time of the year -1. Cold season."),
-                Arguments.of("AUTUMN", "My favorite seasons is winter.\n" +
+                Arguments.of("AUTUMN", "My favorite season is winter.\n" +
                         "The average temperature for my favorite time of the year -1. Cold season.")
         );
     }

@@ -5,5 +5,8 @@ public class SeasonsDemo {
         Season season = Season.MY_FAVORITE_SEASONS;
 
         season.getDescriptionForAllSeasons();
+
+        System.out.print("-----------------------------------------------------------------------------------------");
+        System.out.print("\n" + season.findsAFavoriteSeason(season));
     }
 }
