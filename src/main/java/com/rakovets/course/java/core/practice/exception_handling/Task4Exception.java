@@ -6,5 +6,4 @@ public class Task4Exception extends RuntimeException {
     public Task4Exception(String message) {
         super(message);
     }
-
 }
