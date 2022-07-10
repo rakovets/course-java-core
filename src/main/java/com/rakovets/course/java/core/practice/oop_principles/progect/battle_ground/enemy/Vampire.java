@@ -31,7 +31,7 @@ public class Vampire extends Enemy {
      * <li> If the vampire takes damage and his health does not fall below zero, then the vampire heals himself.
      * <li> When regenerating, the vampire cannot restore more health to himself than his maximum health.
      *
-     * @param damage the damage it takes.
+     * @param damage the vampire takes.
      */
     @Override
     public void takeDamage(int damage) {
@@ -41,7 +41,7 @@ public class Vampire extends Enemy {
             if (getHealthEnemy() - damage <= MINIMAL_HP) {
                 setHealthEnemy(MINIMAL_HP);
             } else if (getHealthEnemy() - damage + REGENERATION > getHealthEnemy()) {
-                setDamageEnemy(super.getDamageEnemy());
+                setDamageEnemy(getDamageEnemy());
             } else {
                 setHealthEnemy(getHealthEnemy() - damage + REGENERATION);
             }

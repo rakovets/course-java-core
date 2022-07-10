@@ -152,7 +152,7 @@ public class ZombieTest {
         zombie.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        zombie.takeDamage(archer.boostedShot());
+        archer.boostedShot(zombie);
         int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);

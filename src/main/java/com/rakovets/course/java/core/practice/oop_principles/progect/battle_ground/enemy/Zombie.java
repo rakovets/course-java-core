@@ -28,21 +28,26 @@ public class Zombie extends Enemy {
     }
 
     /**
-     * The zombie takes damage.
+     * Zombies take damage.
      * <p> Passive ability.
-     * <p>Zombies can resurrect after death.
+     * <p>Zombies can resurrect from death with half their maximum health.
      *
-     * @param damage the damage it takes.
+     * @param damage the damage the zombie takes.
      */
     @Override
     public void takeDamage(int damage) {
+        final int HEALTH_DIVISOR = 2;
+
+        boolean live = random.nextBoolean();
+
         if (isAlive()) {
             if (getHealthEnemy() - damage < MINIMAL_HP) {
                 setHealthEnemy(MINIMAL_HP);
             } else if (getHealthEnemy() - damage == MINIMAL_HP) {
-                boolean live = random.nextBoolean();
                 if (live) {
-                    setHealthEnemy(super.getHealthEnemy());
+                    setHealthEnemy(getHealthEnemy() / HEALTH_DIVISOR);
+                } else {
+                    setHealthEnemy(MINIMAL_HP);
                 }
             } else {
                 setHealthEnemy(getHealthEnemy() - damage);

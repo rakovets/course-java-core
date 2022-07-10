@@ -87,7 +87,7 @@ public class EnemyTest {
         enemy.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        enemy.takeDamage(archer.boostedShot());
+        archer.boostedShot(enemy);
         int actual = enemy.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);

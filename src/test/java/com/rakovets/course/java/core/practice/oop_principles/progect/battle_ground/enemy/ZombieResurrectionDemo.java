@@ -18,10 +18,6 @@ public class ZombieResurrectionDemo {
         System.out.println(zombie.getHealthEnemy());
         archer.attackEnemy(zombie);
         System.out.println(zombie.getHealthEnemy());
-        archer.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
-        archer.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
         System.out.print("-------------------------------------------------------------------------------------------");
 
         zombie.setHealthEnemy(100);
@@ -29,13 +25,9 @@ public class ZombieResurrectionDemo {
 
         System.out.println("\nThe archer attacks the zombies using an enhanced shot.");
         System.out.println(zombie.getHealthEnemy());
-        archer.boostedShot();
+        archer.boostedShot(zombie);
         System.out.println(zombie.getHealthEnemy());
-        archer.boostedShot();
-        System.out.println(zombie.getHealthEnemy());
-        archer.boostedShot();
-        System.out.println(zombie.getHealthEnemy());
-        archer.boostedShot();
+        archer.boostedShot(zombie);
         System.out.println(zombie.getHealthEnemy());
         System.out.print("-------------------------------------------------------------------------------------------");
 
@@ -50,14 +42,6 @@ public class ZombieResurrectionDemo {
         System.out.println(zombie.getHealthEnemy());
         mag.attackEnemy(zombie);
         System.out.println(zombie.getHealthEnemy());
-        mag.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
-        mag.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
-        mag.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
-        mag.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
         System.out.print("-------------------------------------------------------------------------------------------");
 
         Warrior warrior = new Warrior("", 0, 0);
@@ -66,12 +50,6 @@ public class ZombieResurrectionDemo {
         zombie.setHealthEnemy(100);
 
         System.out.println("\nWarrior attacks zombies.");
-        System.out.println(zombie.getHealthEnemy());
-        warrior.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
-        warrior.attackEnemy(zombie);
-        System.out.println(zombie.getHealthEnemy());
-        warrior.attackEnemy(zombie);
         System.out.println(zombie.getHealthEnemy());
         warrior.attackEnemy(zombie);
         System.out.println(zombie.getHealthEnemy());

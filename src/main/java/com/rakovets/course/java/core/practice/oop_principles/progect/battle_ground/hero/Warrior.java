@@ -34,27 +34,24 @@ public class Warrior extends Hero {
      * <li>Randomly, the warrior blocks 10 damage.
      * <li>A warrior cannot heal himself.
      *
-     * @param damage damage received.
-     * @return current health after taking damage.
+     * @param damage the warrior takes.
      */
     @Override
-    public int takeDamage(int damage) {
-        final int SHIELD_BLOCK = 10;
+    public void takeDamage(int damage) {
+        boolean block = random.nextBoolean();
 
-        int health = getHealthHero();
+        final int SHIELD_BLOCK = 10;
 
         if (isAlive()) {
             if (getHealthHero() - damage < MINIMAL_HP) {
                 setHealthHero(MINIMAL_HP);
-                health = getHealthHero();
             } else {
-                boolean block = random.nextBoolean();
                 if (block) {
                     setHealthHero(Math.min(getHealthHero() - damage + SHIELD_BLOCK, getHealthHero()));
-                    health = getHealthHero();
+                } else {
+                    setHealthHero(getHealthHero() - damage);
                 }
             }
         }
-        return health;
     }
 }

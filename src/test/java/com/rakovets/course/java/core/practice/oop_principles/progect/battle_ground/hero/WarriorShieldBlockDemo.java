@@ -22,6 +22,10 @@ public class WarriorShieldBlockDemo {
         System.out.println(warrior.getHealthHero());
         vampire.attackHero(warrior);
         System.out.println(warrior.getHealthHero());
+        vampire.attackHero(warrior);
+        System.out.println(warrior.getHealthHero());
+        vampire.attackHero(warrior);
+        System.out.println(warrior.getHealthHero());
         System.out.print("-------------------------------------------------------------------------------------------");
 
         Werewolf werewolf = new Werewolf(100, 20, 0);
@@ -76,6 +80,10 @@ public class WarriorShieldBlockDemo {
         warrior.setHealthHero(100);
 
         System.out.println("\nZombie attacks the warrior.");
+        System.out.println(warrior.getHealthHero());
+        zombie.attackHero(warrior);
+        System.out.println(warrior.getHealthHero());
+        zombie.attackHero(warrior);
         System.out.println(warrior.getHealthHero());
         zombie.attackHero(warrior);
         System.out.println(warrior.getHealthHero());

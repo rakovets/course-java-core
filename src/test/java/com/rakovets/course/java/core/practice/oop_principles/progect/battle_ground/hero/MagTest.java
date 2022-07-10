@@ -134,7 +134,8 @@ public class MagTest {
     void magTakingDamage(int health, int damage, int expected) {
         mag.setHealthHero(health);
 
-        int actual = mag.takeDamage(damage);
+        mag.takeDamage(damage);
+        int actual = mag.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -156,7 +157,8 @@ public class MagTest {
         mag.setHealthHero(health);
         vampire.setDamageEnemy(damage);
 
-        int actual = mag.takeDamage(vampire.getDamageEnemy());
+        mag.takeDamage(vampire.getDamageEnemy());
+        int actual = mag.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -178,7 +180,8 @@ public class MagTest {
         mag.setHealthHero(health);
         werewolf.setDamageEnemy(damage);
 
-        int actual = mag.takeDamage(werewolf.getDamageEnemy());
+        mag.takeDamage(werewolf.getDamageEnemy());
+        int actual = mag.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -226,7 +229,8 @@ public class MagTest {
         mag.setHealthHero(health);
         zombie.setDamageEnemy(damage);
 
-        int actual = mag.takeDamage(zombie.getDamageEnemy());
+        mag.takeDamage(zombie.getDamageEnemy());
+        int actual = mag.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }

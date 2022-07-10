@@ -67,7 +67,7 @@ public class ArcherTest {
         enemy.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        enemy.takeDamage(archer.boostedShot());
+        archer.boostedShot(enemy);
         int actual = enemy.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
@@ -111,7 +111,7 @@ public class ArcherTest {
         vampire.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        vampire.takeDamage(archer.boostedShot());
+        archer.boostedShot(vampire);
         int actual = vampire.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
@@ -155,7 +155,7 @@ public class ArcherTest {
         werewolf.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        werewolf.takeDamage(archer.boostedShot());
+        archer.boostedShot(werewolf);
         int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
@@ -197,7 +197,7 @@ public class ArcherTest {
         zombie.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        zombie.takeDamage(archer.boostedShot());
+        archer.boostedShot(zombie);
         int actual = zombie.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);
@@ -216,7 +216,8 @@ public class ArcherTest {
     void archerTakingDamage(int health, int damage, int expected) {
         archer.setHealthHero(health);
 
-        int actual = archer.takeDamage(damage);
+        archer.takeDamage(damage);
+        int actual = archer.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -237,7 +238,8 @@ public class ArcherTest {
         archer.setHealthHero(health);
         vampire.setDamageEnemy(damage);
 
-        int actual = archer.takeDamage(vampire.getDamageEnemy());
+        archer.takeDamage(vampire.getDamageEnemy());
+        int actual = archer.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -259,7 +261,8 @@ public class ArcherTest {
         archer.setHealthHero(health);
         werewolf.setDamageEnemy(damage);
 
-        int actual = archer.takeDamage(werewolf.getDamageEnemy());
+        archer.takeDamage(werewolf.getDamageEnemy());
+        int actual = archer.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -304,7 +307,8 @@ public class ArcherTest {
         archer.setHealthHero(health);
         zombie.setDamageEnemy(damage);
 
-        int actual = archer.takeDamage(zombie.getDamageEnemy());
+        archer.takeDamage(zombie.getDamageEnemy());
+        int actual = archer.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }

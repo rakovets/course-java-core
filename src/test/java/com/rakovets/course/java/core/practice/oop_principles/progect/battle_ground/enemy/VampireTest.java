@@ -155,7 +155,7 @@ public class VampireTest {
         vampire.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        vampire.takeDamage(archer.boostedShot());
+        archer.boostedShot(vampire);
         int actual = vampire.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);

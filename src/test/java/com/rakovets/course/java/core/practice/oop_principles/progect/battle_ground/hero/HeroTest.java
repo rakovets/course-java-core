@@ -41,7 +41,8 @@ public class HeroTest {
     void heroTakingDamage(int health, int damage, int expected) {
         hero.setHealthHero(health);
 
-        int actual = hero.takeDamage(damage);
+        hero.takeDamage(damage);
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -62,7 +63,8 @@ public class HeroTest {
         hero.setHealthHero(health);
         vampire.setDamageEnemy(damage);
 
-        int actual = hero.takeDamage(vampire.getDamageEnemy());
+        hero.takeDamage(vampire.getDamageEnemy());
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -84,7 +86,8 @@ public class HeroTest {
         hero.setHealthHero(health);
         werewolf.setDamageEnemy(damage);
 
-        int actual = hero.takeDamage(werewolf.getDamageEnemy());
+        hero.takeDamage(werewolf.getDamageEnemy());
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -106,7 +109,8 @@ public class HeroTest {
         hero.setHealthHero(health);
         werewolf.setDamageEnemy(damage);
 
-        int actual = hero.takeDamage(werewolf.getDamageEnemy());
+        hero.takeDamage(werewolf.getDamageEnemy());
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -151,7 +155,8 @@ public class HeroTest {
         hero.setHealthHero(health);
         zombie.setDamageEnemy(damage);
 
-        int actual = hero.takeDamage(zombie.getDamageEnemy());
+        hero.takeDamage(zombie.getDamageEnemy());
+        int actual = hero.getHealthHero();
 
         Assertions.assertEquals(expected, actual);
     }

@@ -27,12 +27,10 @@ public class Archer extends Hero {
     /**
      * Reinforced shot.
      * <p> Doubles the archer's current maximum damage.
-     *
-     * @return current damage.
      */
-    public int boostedShot() {
+    public void boostedShot(Enemy enemy) {
         final int ATTACK_MULTIPLIER = 2;
 
-        return getDamageHero() * ATTACK_MULTIPLIER;
+        enemy.takeDamage(getDamageHero() * ATTACK_MULTIPLIER);
     }
 }

@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Hero;
 
 public class Werewolf extends Enemy {
-    final int MAXIMUM_TIME = 24;
-    final int MINIMAL_TIME = 0;
+    protected final int MAXIMUM_TIME = 24;
+    protected final int MINIMAL_TIME = 0;
 
     private int time;
 
@@ -39,7 +39,7 @@ public class Werewolf extends Enemy {
     /**
      * The werewolf takes damage.
      *
-     * @param damage the damage it takes.
+     * @param damage the werewolf takes.
      */
     @Override
     public void takeDamage(int damage) {
@@ -56,7 +56,7 @@ public class Werewolf extends Enemy {
      * @param time current time.
      * @return true werewolf in second form, false werewolf not in second form.
      */
-    public boolean secondGuise(int time) {
+    protected boolean secondGuise(int time) {
         final int MIDNIGHT = 1;
         final int DAWN = 6;
 
@@ -77,7 +77,7 @@ public class Werewolf extends Enemy {
      * @return returns the current time after validation.
      */
     private boolean timeCheck(int time) {
-        return time <= MAXIMUM_TIME && time > MINIMAL_TIME;
+        return time < MAXIMUM_TIME && time > MINIMAL_TIME;
     }
 
     /**

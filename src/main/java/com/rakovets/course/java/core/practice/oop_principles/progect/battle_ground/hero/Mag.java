@@ -33,29 +33,23 @@ public class Mag extends Hero {
      * <li>When healed, the mage cannot restore more health to himself than his maximum health.
      * <li> If the mage takes damage and his health has not dropped to 50, then the healing does not work.
      *
-     * @param damage damage received.
-     * @return current health after taking damage.
+     * @param damage the mage takes.
      */
     @Override
-    public int takeDamage(int damage) {
+    public void takeDamage(int damage) {
         final int HEALING = 25;
         final int MINIMAL_HEALING = 50;
         final int PERCENTAGE = 100;
 
-        int health = getHealthHero();
 
         if (isAlive()) {
             if (getHealthHero() - damage <= MINIMAL_HP) {
                 setHealthHero(MINIMAL_HP);
-                health = getHealthHero();
             } else if (getHealthHero() * MINIMAL_HEALING / PERCENTAGE <= MINIMAL_HEALING) {
                 setHealthHero(Math.min(getHealthHero() - damage + HEALING, getHealthHero()));
-                health = getHealthHero();
             } else {
                 setHealthHero(getHealthHero() - damage);
-                health = getHealthHero();
             }
         }
-        return health;
     }
 }

@@ -4,8 +4,8 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.Mortal;
 
 public abstract class Enemy implements Mortal {
-    final int MINIMAL_HP = 0;
-    final int MINIMAL_DAMAGE = 0;
+    protected final int MINIMAL_HP = 0;
+    protected final int MINIMAL_DAMAGE = 0;
 
     private int healthEnemy;
     private int damageEnemy;
@@ -31,7 +31,7 @@ public abstract class Enemy implements Mortal {
     /**
      * The enemy takes damage.
      *
-     * @param damage the damage it takes.
+     * @param damage the enemy takes.
      */
     public void takeDamage(int damage) {
         if (this.healthEnemy - damage <= MINIMAL_HP) {

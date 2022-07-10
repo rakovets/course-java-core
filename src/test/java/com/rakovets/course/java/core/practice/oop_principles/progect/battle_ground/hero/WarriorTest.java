@@ -13,11 +13,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class WarriorTest {
+    static Enemy enemy;
+
     Warrior warrior = new Warrior("", 0, 0);
     Vampire vampire = new Vampire(0, 0);
     Werewolf werewolf = new Werewolf(0, 0, 0);
     Zombie zombie = new Zombie(0, 0);
-    static Enemy enemy;
 
     @BeforeAll
     static void beforeAll() {

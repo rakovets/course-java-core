@@ -164,7 +164,7 @@ public class WerewolfTest {
         werewolf.setHealthEnemy(health);
         archer.setDamageHero(damage);
 
-        werewolf.takeDamage(archer.boostedShot());
+        archer.boostedShot(werewolf);
         int actual = werewolf.getHealthEnemy();
 
         Assertions.assertEquals(expected, actual);

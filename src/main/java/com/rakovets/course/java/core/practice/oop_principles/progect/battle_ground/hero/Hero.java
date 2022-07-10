@@ -5,8 +5,8 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 
 public abstract class Hero implements Mortal {
     private final String name;
-    final int MINIMAL_HP = 0;
-    final int MINIMAL_DAMAGE = 0;
+    protected final int MINIMAL_HP = 0;
+    protected final int MINIMAL_DAMAGE = 0;
 
     private int damageHero;
     private int healthHero;
@@ -18,7 +18,7 @@ public abstract class Hero implements Mortal {
      * @param healthHero hero's maximum health.
      * @param damageHero hero's maximum damage.
      */
-    protected Hero(String name, int healthHero, int damageHero) {
+    public Hero(String name, int healthHero, int damageHero) {
         this.name = name;
         this.healthHero = healthHero;
         this.damageHero = damageHero;
@@ -34,14 +34,13 @@ public abstract class Hero implements Mortal {
     /**
      * The hero takes damage.
      *
-     * @param damage damage received.
-     * @return current health after taking damage.
+     * @param damage the hero takes.
      */
-    public int takeDamage(int damage) {
+    public void takeDamage(int damage) {
         if (this.healthHero - damage <= MINIMAL_HP) {
-            return this.healthHero = MINIMAL_HP;
+            this.healthHero = MINIMAL_HP;
         } else {
-            return this.healthHero -= damage;
+            this.healthHero -= damage;
         }
     }
 
