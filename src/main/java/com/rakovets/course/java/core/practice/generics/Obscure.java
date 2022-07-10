@@ -34,12 +34,13 @@ public class Obscure<T> {
         return getObject();
     }
 
-    public static <T> T of(T object) {
-        return object;
+    public static <T> Obscure of(T object) {
+        Obscure o = new Obscure(object);
+        return o;
     }
 
-    public static <T> T empty(T object) {
-        object = null;
-        return object;
+    public static Obscure empty() {
+        Obscure o = new Obscure(null);
+        return o;
     }
 }

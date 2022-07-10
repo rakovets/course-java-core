@@ -15,8 +15,6 @@ public class Pair<K, V> {
         setFirstMember((K) tempV);
         setSecondMember((V) tempK);
         //return new Pair(tempK, tempV);
-
-
     }
 
     public K getFirstMember() {

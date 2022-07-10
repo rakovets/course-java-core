@@ -7,10 +7,10 @@ public class ObscureApplication {
         Obscure obs = new Obscure<>(null);
         Obscure o = new Obscure<>(1);
 
-        System.out.println(obs.getObject());
-        System.out.println(obs.isEmpty());
+//        System.out.println(obs.getObject());
+//        System.out.println(obs.isEmpty());
 
-        //System.out.println(obs.orElse(o));
+        System.out.println(obs.orElse(o));
 
         Exception ex1 = new Exception("Object is empty");
 
@@ -20,8 +20,6 @@ public class ObscureApplication {
             System.out.println(ex.getMessage());
         }
 
-        Obscure.of(o);
-        System.out.println(Obscure.of(obs));
 
         try {
             obs.isPresent();
@@ -29,9 +27,12 @@ public class ObscureApplication {
             ex.printStackTrace();
         }
 
-        Obscure.empty(o);
+        System.out.println(Obscure.empty());
 
-        System.out.println(Obscure.empty(o));
+
+        System.out.println(Obscure.of("test"));
+
+
 
 
     }
