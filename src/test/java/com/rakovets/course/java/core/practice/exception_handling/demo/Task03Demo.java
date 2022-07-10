@@ -6,6 +6,7 @@ import com.rakovets.course.java.core.practice.exception_handling.exception.AgeEx
 public class Task03Demo {
     public static void main(String[] args) {
         String welcomeToClub;
+
         int age = 17;
 
         try {

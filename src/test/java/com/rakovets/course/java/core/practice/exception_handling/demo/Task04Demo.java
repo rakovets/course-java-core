@@ -6,7 +6,9 @@ import com.rakovets.course.java.core.practice.exception_handling.exception.Index
 public class Task04Demo {
     public static void main(String[] args) {
         int[] array = {10, 11, 12, 13, 14, 15};
+
         int index = 1;
+
         String indexArray;
 
         try {
