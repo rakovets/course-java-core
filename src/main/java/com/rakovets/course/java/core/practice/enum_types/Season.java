@@ -96,7 +96,6 @@ public enum Season {
             System.out.println(season.toString().substring(0, 1).toUpperCase()
                     + season.toString().toLowerCase().substring(1) + DOT + SPACE
                     + AVERAGE_TEMPERATURE + SPACE + season.TEMPERATURE + DOT + SPACE + season.getDescription());
-
         }
     }
 }
