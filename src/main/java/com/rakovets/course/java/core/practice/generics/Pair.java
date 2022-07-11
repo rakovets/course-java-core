@@ -9,12 +9,16 @@ public class Pair<K, V> {
         this.second = second;
     }
 
-    public Pair getSwapped() {
-        return new Pair(this.second, this.first);
+    public Pair<K, V> getSwapped() {
+        K firstNew = (K) getSecond();
+        V secondNew = (V) getFirst();
+        setFirst(firstNew);
+        setSecond(secondNew);
+        return this;
     }
 
     public static Pair swap(Pair pair) {
-        return pair.getSwapped();
+        return new Pair(pair.second, pair.first);
     }
 
     public K getFirst() {
