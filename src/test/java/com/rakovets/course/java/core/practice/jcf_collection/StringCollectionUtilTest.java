@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_collection;
 
+import com.sun.nio.sctp.AssociationChangeNotification;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,19 +11,19 @@ import java.util.List;
 
 public class StringCollectionUtilTest {
     StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
-    List <String> list = Arrays.asList("this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer");
-    List <String > listChanged = Arrays.asList("*", "is", "*", "of", "fun", "for", "every", "*", "programmer");
+    List<String> list = new ArrayList<>(Arrays.asList("this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer"));
+    List<String> listChanged =  new ArrayList<>(Arrays.asList("*", "is", "*", "of", "fun", "for", "every", "*", "programmer"));
 
     @Test
     public void testResetWordsByLength() {
-        Assertions.assertArrayEquals(listChanged.toArray(), (stringCollectionUtil.resetWordsByLength(list, 4)).toArray());
+        Assertions.assertEquals(listChanged, (stringCollectionUtil.resetWordsByLength(list, 4)));
     }
 
-    Collection <String> collection=Arrays.asList("this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer");
-    Collection <String> collectionChanged = Arrays.asList( "is", "of", "fun", "for", "every", "programmer");
+    Collection<String> collection = new ArrayList<>(Arrays.asList("this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer"));
+    Collection<String> collectionChanged = new ArrayList<>(Arrays.asList("is", "of", "fun", "for", "every", "programmer"));
 
     @Test
     public void testRemoveWordsByLength() {
-   Assertions.assertTrue (stringCollectionUtil.removeWordsByLength(collection,4));
+        Assertions.assertEquals(collectionChanged, stringCollectionUtil.removeWordsByLength(collection, 4));
     }
-}
+    }
