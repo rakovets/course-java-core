@@ -7,10 +7,6 @@ public class Obscure<T> {
         this.object = object;
     }
 
-    public T getObject() {
-        return this.object;
-    }
-
     public boolean isPresent() {
         return getObject() != null;
     }
@@ -22,7 +18,7 @@ public class Obscure<T> {
     public T orElse(T object) {
         T result;
         if (isPresent()) {
-            result = getObject();
+            result = this.object;
         } else result = object;
         return result;
     }
@@ -31,16 +27,18 @@ public class Obscure<T> {
         if (isEmpty()) {
             throw ex;
         }
-        return getObject();
+        return this.object;
     }
 
     public static <T> Obscure of(T object) {
-        Obscure o = new Obscure(object);
-        return o;
+        return new Obscure(object);
     }
 
     public static Obscure empty() {
-        Obscure o = new Obscure(null);
-        return o;
+        return new Obscure(null);
+    }
+
+    public T getObject() {
+        return this.object;
     }
 }
