@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import java.util.Set;
-
 public class Pair<K, V> {
     private K firstMember;
     private V secondMember;

@@ -16,7 +16,5 @@ public class PairApplication {
         pair.getSwapped();
         pair.getFirstMember();
         pair.getSecondMember();
-//        System.out.println(pair.getFirstMember());
-//        System.out.println(pair.getSecondMember());
     }
 }
