@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.jcf_list;
 public class Actor {
     private final String firstName;
     private final String lastName;
-    float fee;
-    int age;
+    private final float fee;
+    private final int age;
 
     public Actor(String firstName, String lastName, float fee, int age) {
         this.firstName = firstName;

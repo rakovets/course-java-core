@@ -2,9 +2,10 @@ package com.rakovets.course.java.core.practice.jcf_list;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 public class SchoolClass {
-    ArrayList<Person> students = new ArrayList<>();
+    private List<Person> students = new ArrayList<>();
 
     Comparator<Person> byAverageAnnualMark = new Comparator<>() {
         @Override
@@ -14,7 +15,6 @@ public class SchoolClass {
             return averageMarkFirst.compareTo(averageMarkSecond);
         }
     };
-
     Comparator<Person> byAge = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
@@ -23,7 +23,6 @@ public class SchoolClass {
             return ageFirst.compareTo(ageSecond);
         }
     };
-
     Comparator<Person> bySurnameName = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
@@ -37,27 +36,16 @@ public class SchoolClass {
         students.add(person);
     }
 
-    public ArrayList<Person> getStudents() {
+    public List<Person> getStudents() {
         return students;
     }
 
-    public Person getBestStudent(ArrayList<Person> students) {
+    public void setStudents(List<Person> students) {
+        this.students = students;
+    }
+
+    public Person getBestStudent(List<Person> students) {
         students.sort(byAverageAnnualMark);
         return students.get(students.size() - 1);
-    }
-
-    public ArrayList<Person> sortBySurnameName(ArrayList<Person> students) {
-        students.sort(bySurnameName);
-        return students;
-    }
-
-    public ArrayList<Person> sortByAge(ArrayList<Person> students) {
-        students.sort(byAge);
-        return students;
-    }
-
-    public ArrayList<Person> sortByAverageAnnualMark(ArrayList<Person> students) {
-        students.sort(byAverageAnnualMark);
-        return students;
     }
 }
