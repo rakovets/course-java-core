@@ -19,7 +19,7 @@ public class Task06 {
      * @throws PasswordException if the password is entered incorrectly, an error text will be displayed.
      * @throws AgeException      when entering an age under 18, it displays the error text.
      */
-    public static String checkAccount(int age, String password, String email)
+    public String checkAccount(int age, String password, String email)
             throws EmailException, PasswordException, AgeException {
         final int AGE = 18;
         final int LENGTH_PASSWORD = 15;
@@ -30,13 +30,13 @@ public class Task06 {
         int length = password.length();
 
         if (!email.endsWith(EMAIL)) {
-            throw new EmailException();
+            throw new EmailException("Invalid data input.");
         }
         if (age < AGE) {
-            throw new AgeException();
+            throw new AgeException("The user's age cannot be less than 18 years.");
         }
         if (length > LENGTH_PASSWORD) {
-            throw new PasswordException();
+            throw new PasswordException("Invalid data input.");
         }
         return ACCOUNT_CREATED;
     }

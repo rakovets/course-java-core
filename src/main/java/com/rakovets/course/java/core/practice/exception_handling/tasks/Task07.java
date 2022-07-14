@@ -10,7 +10,7 @@ public class Task07 {
      * @throws Exception Outputs text when the dividend is zero.
      *                   That the operation is pointless and the answer will not change.
      */
-    public static int division(int firstNumber, int secondNumber) throws Exception {
+    public int division(int firstNumber, int secondNumber) throws Exception {
         final int EXCEPTION_NUMBER = 0;
 
         if (secondNumber == EXCEPTION_NUMBER) {

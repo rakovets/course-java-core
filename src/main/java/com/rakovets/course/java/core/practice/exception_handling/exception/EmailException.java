@@ -4,7 +4,7 @@ public class EmailException extends Exception {
     /**
      * If the email is entered incorrectly, it will display the error text.
      */
-    public EmailException() {
-        super("Invalid data input.");
+    public EmailException(String text) {
+        super(text);
     }
 }

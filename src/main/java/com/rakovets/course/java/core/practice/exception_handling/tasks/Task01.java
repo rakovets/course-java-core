@@ -7,7 +7,7 @@ public class Task01 {
      * @param firstString the resulting string.
      * @return string length.
      */
-    public static String getStringLength(String firstString) {
+    public String getStringLength(String firstString) {
         return String.valueOf(firstString.length());
     }
 }

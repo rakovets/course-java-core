@@ -8,11 +8,12 @@ import org.junit.jupiter.api.function.Executable;
 public class Task02Test {
     @Test
     void getIndexFromArray() {
+        Task02 task02 = new Task02();
         int index = 4;
         int[] array = {1, 2, 4};
 
-        Executable actualExecutable = () -> Task02.getIndexArray(index, array);
+        Executable actualExecutable = () -> task02.getIndexArray(index, array);
 
-        Assertions.assertThrows(Exception.class, actualExecutable);
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, actualExecutable);
     }
 }

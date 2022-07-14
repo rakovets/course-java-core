@@ -16,7 +16,7 @@ public class Task05 {
      * @throws IncorrectValuesWhenWorkingWithAnArray displays the text
      *                                               about the error when the array is incorrectly processed.
      */
-    public static String getIndexArray(int index, int number) throws IncorrectValuesWhenWorkingWithAnArray {
+    public String getIndexArray(int index, int number) throws IncorrectValuesWhenWorkingWithAnArray {
         final int MAXIMUM_NEGATIVE_NUMBER = 0;
 
         int[] array;
@@ -32,7 +32,7 @@ public class Task05 {
                 array[i] = random.nextInt();
             }
         } catch (NegativeArraySizeException e) {
-            throw new IncorrectValuesWhenWorkingWithAnArray(e.getMessage());
+            throw new IncorrectValuesWhenWorkingWithAnArray("IncorrectValuesWhenWorkingWithAnArray");
         }
         return String.valueOf(array[index]);
     }

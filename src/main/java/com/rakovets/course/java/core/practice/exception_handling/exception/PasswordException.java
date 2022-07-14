@@ -4,7 +4,7 @@ public class PasswordException extends Exception {
     /**
      * If the password is entered incorrectly, an error text will be displayed.
      */
-    public PasswordException() {
-        super("Invalid data input.");
+    public PasswordException(String text) {
+        super(text);
     }
 }

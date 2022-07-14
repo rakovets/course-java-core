@@ -8,10 +8,11 @@ import org.junit.jupiter.api.function.Executable;
 public class Task01Test {
     @Test
     void getStringLength() {
+        Task01 task01 = new Task01();
         String firstString = null;
 
-        Executable actualExecutable = () -> Task01.getStringLength(firstString);
+        Executable actualExecutable = () -> task01.getStringLength(firstString);
 
-        Assertions.assertThrows(Exception.class, actualExecutable);
+        Assertions.assertThrows(NullPointerException.class, actualExecutable);
     }
 }

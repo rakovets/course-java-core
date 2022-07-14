@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.exception;
 
-public class IncorrectValuesWhenWorkingWithAnArray extends Exception {
+public class IncorrectValuesWhenWorkingWithAnArray extends RuntimeException {
     /**
      * Catches the error and displays the appropriate text.
      *

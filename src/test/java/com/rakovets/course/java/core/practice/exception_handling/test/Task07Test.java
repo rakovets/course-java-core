@@ -6,14 +6,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 public class Task07Test {
+    Task07 task07 = new Task07();
+
     @Test
     void divisionFirstTest() {
         int firstNumber = 7;
         int secondNumber = 0;
 
-        Executable actualExecutable = () -> Task07.division(firstNumber, secondNumber);
+        Executable actualExecutable = () -> task07.division(firstNumber, secondNumber);
 
-        Assertions.assertThrows(Exception.class, actualExecutable);
+        Assertions.assertThrows(ArithmeticException.class, actualExecutable);
     }
 
     @Test
@@ -21,7 +23,7 @@ public class Task07Test {
         int firstNumber = 0;
         int secondNumber = 7;
 
-        Executable actualExecutable = () -> Task07.division(firstNumber, secondNumber);
+        Executable actualExecutable = () -> task07.division(firstNumber, secondNumber);
 
         Assertions.assertThrows(Exception.class, actualExecutable);
     }

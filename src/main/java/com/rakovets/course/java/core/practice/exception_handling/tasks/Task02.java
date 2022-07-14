@@ -7,7 +7,7 @@ public class Task02 {
      * @param index array index.
      * @return value from the array under the received index.
      */
-    public static String getIndexArray(int index, int[] array) {
+    public String getIndexArray(int index, int[] array) {
         return String.valueOf(array[index]);
     }
 }
