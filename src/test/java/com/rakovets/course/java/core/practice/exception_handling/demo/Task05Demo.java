@@ -12,14 +12,11 @@ public class Task05Demo {
     public static void main(String[] args) {
         Task05 task05 = new Task05();
 
-        String indexArray;
-
         int index = 5;
         int number = -4;
 
         try {
-            indexArray = task05.getIndexArray(index, number);
-            System.out.println(indexArray);
+            System.out.println(task05.getIndexArray(index, number));
         } catch (IncorrectValuesWhenWorkingWithAnArray e) {
             logger.log(Level.SEVERE, e.getMessage());
             e.printStackTrace();
