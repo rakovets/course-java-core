@@ -15,6 +15,7 @@ public class SchoolClass {
             return averageMarkFirst.compareTo(averageMarkSecond);
         }
     };
+
     Comparator<Person> byAge = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
@@ -23,6 +24,7 @@ public class SchoolClass {
             return ageFirst.compareTo(ageSecond);
         }
     };
+
     Comparator<Person> bySurnameName = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {

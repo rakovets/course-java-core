@@ -16,6 +16,7 @@ public class Studio {
             return firstFee.compareTo(secondFee);
         }
     };
+
     public Comparator<Actor> bySurname = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -32,6 +33,7 @@ public class Studio {
             return firstAge.compareTo(secondAge);
         }
     };
+
     public Comparator<Actor> byFeeSurname = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -45,6 +47,7 @@ public class Studio {
             return firstSurname.compareTo(secondSurname);
         }
     };
+
     public Comparator<Actor> bySurnameAge = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {

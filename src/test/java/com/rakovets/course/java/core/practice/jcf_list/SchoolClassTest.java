@@ -22,7 +22,7 @@ public class SchoolClassTest {
     }
 
     @Test
-    public void testAddActor() {
+    public void testAddStudents() {
         schoolClass.addStudents(person1);
         schoolClass.addStudents(person2);
         schoolClass.addStudents(person3);

@@ -22,7 +22,7 @@ public class StudioTest {
     }
 
     @Test
-    public void testAddActor() {
+    public void testAddActors() {
         studio.addActors(actor1);
         studio.addActors(actor2);
         studio.addActors(actor3);
@@ -62,5 +62,12 @@ public class StudioTest {
         studio.getActors().sort(studio.byFeeSurname);
         List<Actor> listSortedByFeeSurname = new ArrayList<>(Arrays.asList(actor2, actor3, actor4, actor1));
         Assertions.assertEquals(listSortedByFeeSurname, studio.getActors());
+    }
+
+    @Test
+    public void testFeeComparator() {
+        studio.getActors().sort(studio.byFee);
+        List<Actor> listSortedByFee = new ArrayList<>(Arrays.asList(actor2, actor3, actor4, actor1));
+        Assertions.assertEquals(listSortedByFee, studio.getActors());
     }
 }
