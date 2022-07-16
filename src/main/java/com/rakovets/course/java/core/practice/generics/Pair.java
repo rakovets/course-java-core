@@ -54,6 +54,7 @@ public class Pair<K, V> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+
         Pair<?, ?> pair = (Pair<?, ?>) o;
 
         return firstParameter.equals(pair.firstParameter) && secondParameter.equals(pair.secondParameter);

@@ -33,7 +33,6 @@ public class Array<T> {
         this.arrayLength = arrayLength;
     }
 
-
     /**
      * Filling an array with integer values from the keyboard.
      */
@@ -218,7 +217,6 @@ public class Array<T> {
             array[i] = array[array.length - i - 1];
             array[array.length - i - 1] = sort;
         }
-
         return array;
     }
 
@@ -276,6 +274,7 @@ public class Array<T> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+
         Array<?> array1 = (Array<?>) o;
 
         return arrayLength == array1.arrayLength && Arrays.equals(array, array1.array) && scanner.equals(array1.scanner) && random.equals(array1.random);
