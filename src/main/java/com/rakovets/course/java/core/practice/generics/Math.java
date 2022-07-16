@@ -69,9 +69,9 @@ public abstract class Math {
 
     /**
      * Sorting an array using the "selection sort" method.
-     * <li> Lines 86 - 96 in cycle move the boundary of an unsorted subarray in turn.
-     * <li> Lines 88 - 92 in cycle finds the minimum element in an unsorted array
-     * <li> Lines 93 - 95 within the first cycle we do a swap of the found minimal element with the first element.
+     * <li> Lines 84 - 94 in cycle move the boundary of an unsorted subarray in turn.
+     * <li> Lines 86 - 90 in cycle finds the minimum element in an unsorted array
+     * <li> Lines 91 - 93 within the first cycle we do a swap of the found minimal element with the first element.
      * <p>
      *
      * @param array the array to be sorted.
@@ -97,15 +97,15 @@ public abstract class Math {
 
     /**
      * Method of binary search in an array using the "jumping search" algorithm.
-     * <li> Line 120 array sorting.
-     * <li> Line 123 variable jumpStep contains the size of the square root of the length of the array.
-     * <li> Lines 126 - 132 in a loop, we jump forward step by step with the value from the jumpStep variable
+     * <li> Line 118 array sorting.
+     * <li> Line 121 variable jumpStep contains the size of the square root of the length of the array.
+     * <li> Lines 124 - 130 in a loop, we jump forward step by step with the value from the jumpStep variable
      * until we find an element that is greater than or equal to the element we are looking for.
-     * <li> Lines 129 - 131 inside the loop, if we went beyond the array,
+     * <li> Lines 127 - 129 inside the loop, if we went beyond the array,
      * then the element we need is not in the array.
-     * <li> Lines 133 - 138 when array[previousStep].doubleValue() < value.doubleValue()
+     * <li> Lines 131 - 136 when array[previousStep].doubleValue() < value.doubleValue()
      * performs a linear search between array[previousStep] and array[jumpStep] or element greater than T.
-     * <li> Lines 135 - 137 if value matches array[previousStep] return the position in the array under the value T.
+     * <li> Lines 133 - 135 if value matches array[previousStep] return the position in the array under the value T.
      * <p>
      *
      * @param array array to look up the value.
