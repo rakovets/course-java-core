@@ -149,7 +149,7 @@ public class ArrayTest<T extends Number> {
 
     @Test
     void replace() {
-        Array<Integer> array = new Array<>(new Integer[]{1, 2, 3}, 3);
+        Array<Integer> array = new Array<>(new Integer[]{1, 2, 3});
 
         array.replace(2, 0);
 

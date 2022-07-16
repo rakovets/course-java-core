@@ -4,14 +4,8 @@ import java.util.Arrays;
 
 public class ArrayDemo {
     public static void main(String[] args) {
-        Array<Long> longArray = new Array<>(5);
-        Array<Integer> integerArray = new Array<>(5);
-        Array<Short> shortArray = new Array<>(5);
-        Array<Byte> byteArray = new Array<>(5);
-        Array<Double> doubleArray = new Array<>(5);
-        Array<Float> floatArray = new Array<>(5);
-
         System.out.println("-----------------------------------------------------------------------------------------");
+        Array<Long> longArray = new Array<>(5);
         System.out.println("Filling an array with integer values from the keyboard. Type Long.");
         System.out.println(longArray);
         longArray.arrayFillIntegers();
@@ -19,30 +13,35 @@ public class ArrayDemo {
         System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("Filling an array with integer values from the keyboard. Type Integer.");
+        Array<Integer> integerArray = new Array<>(5);
         System.out.println(integerArray);
         integerArray.arrayFillIntegers();
         System.out.println(integerArray);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("Filling an array with integer values from the keyboard. Type Short.");
+        Array<Short> shortArray = new Array<>(5);
         System.out.println(shortArray);
         shortArray.arrayFillIntegers();
         System.out.println(shortArray);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("Filling an array with integer values from the keyboard. Type Byte.");
+        Array<Byte> byteArray = new Array<>(5);
         System.out.println(byteArray);
         byteArray.arrayFillIntegers();
         System.out.println(byteArray);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("Filling an array with integer values from the keyboard. Type Double.");
+        Array<Double> doubleArray = new Array<>(5);
         System.out.println(doubleArray);
         doubleArray.arrayFillFloatingPoint();
         System.out.println(doubleArray);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("Filling an array with integer values from the keyboard. Type Float.");
+        Array<Float> floatArray = new Array<>(5);
         System.out.println(floatArray);
         floatArray.arrayFillFloatingPoint();
         System.out.println(floatArray);

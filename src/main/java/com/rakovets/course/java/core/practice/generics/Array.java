@@ -6,11 +6,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Array<T> {
-    private final Number[] array;
-    private final int arrayLength;
+    private final Number[] ARRAY;
 
     private final Scanner scanner = new Scanner(System.in);
     private final Random random = new Random();
+
+    private int arrayLength;
 
     /**
      * Constructor.
@@ -18,19 +19,17 @@ public class Array<T> {
      * @param arrayLength array length.
      */
     public Array(int arrayLength) {
-        array = new Number[arrayLength];
+        ARRAY = new Number[arrayLength];
         this.arrayLength = arrayLength;
     }
 
     /**
      * Additional constructor.
      *
-     * @param array       passed array.
-     * @param arrayLength array length.
+     * @param ARRAY passed array.
      */
-    public Array(T[] array, int arrayLength) {
-        this.array = (Number[]) array;
-        this.arrayLength = arrayLength;
+    public Array(T[] ARRAY) {
+        this.ARRAY = (Number[]) ARRAY;
     }
 
     /**
@@ -38,7 +37,7 @@ public class Array<T> {
      */
     public void arrayFillIntegers() {
         for (int i = 0; i < arrayLength; i++) {
-            this.array[i] = scanner.nextBigInteger();
+            this.ARRAY[i] = scanner.nextBigInteger();
         }
     }
 
@@ -47,7 +46,7 @@ public class Array<T> {
      */
     public void arrayFillFloatingPoint() {
         for (int i = 0; i < arrayLength; i++) {
-            this.array[i] = scanner.nextBigDecimal();
+            this.ARRAY[i] = scanner.nextBigDecimal();
         }
     }
 
@@ -56,7 +55,7 @@ public class Array<T> {
      */
     public void arrayFillRandomInters() {
         for (int i = 0; i < arrayLength; i++) {
-            this.array[i] = random.nextInt();
+            this.ARRAY[i] = random.nextInt();
         }
     }
 
@@ -67,7 +66,7 @@ public class Array<T> {
      */
     public void arrayFillRandomInters(int size) {
         for (int i = 0; i < arrayLength; i++) {
-            this.array[i] = random.nextInt(size);
+            this.ARRAY[i] = random.nextInt(size);
         }
     }
 
@@ -76,7 +75,7 @@ public class Array<T> {
      */
     public void arrayFillRandomFloatingPoint() {
         for (int i = 0; i < arrayLength; i++) {
-            this.array[i] = random.nextDouble();
+            this.ARRAY[i] = random.nextDouble();
         }
     }
 
@@ -86,7 +85,7 @@ public class Array<T> {
      * @return the contents of the array as a string.
      */
     public String printArray() {
-        return "array " + Arrays.toString(getArray());
+        return "array " + Arrays.toString(getARRAY());
     }
 
     /**
@@ -106,7 +105,7 @@ public class Array<T> {
      * @return maximum value.
      */
     public Number getMaximumNumber() {
-        return Math.getMaximumNumber(this.array);
+        return Math.getMaximumNumber(this.ARRAY);
     }
 
     /**
@@ -126,7 +125,7 @@ public class Array<T> {
      * @return minimum value.
      */
     public Number getMinimumNumber() {
-        return Math.getMinimumNumber(this.array);
+        return Math.getMinimumNumber(this.ARRAY);
     }
 
     /**
@@ -146,7 +145,7 @@ public class Array<T> {
      * @return arithmetical mean.
      */
     public Number getAverage() {
-        return Math.getAverage(this.array);
+        return Math.getAverage(this.ARRAY);
     }
 
     /**
@@ -166,7 +165,7 @@ public class Array<T> {
      * @return sorted array.
      */
     public Number[] sortAscending() {
-        return Math.selectionSort(this.array);
+        return Math.selectionSort(this.ARRAY);
     }
 
     /**
@@ -189,14 +188,14 @@ public class Array<T> {
      * @return sorted array.
      */
     public Number[] descendingSorting() {
-        Math.selectionSort(this.array);
+        Math.selectionSort(this.ARRAY);
 
         for (int i = 0; i < arrayLength / 2; i++) {
-            Number sort = this.array[i];
-            this.array[i] = this.array[arrayLength - i - 1];
-            this.array[arrayLength - i - 1] = sort;
+            Number sort = this.ARRAY[i];
+            this.ARRAY[i] = this.ARRAY[arrayLength - i - 1];
+            this.ARRAY[arrayLength - i - 1] = sort;
         }
-        return this.array;
+        return this.ARRAY;
     }
 
     /**
@@ -230,9 +229,9 @@ public class Array<T> {
      * then the required element is not in the array.
      */
     public int jumpSearch(Number value) {
-        Math.selectionSort(array);
+        Math.selectionSort(ARRAY);
 
-        return Math.jumpSearch(array, value);
+        return Math.jumpSearch(ARRAY, value);
     }
 
     /**
@@ -259,11 +258,11 @@ public class Array<T> {
      * @return the current array after the replacement.
      */
     public Number[] replace(Number value, int index) {
-        Math.selectionSort(array);
+        Math.selectionSort(ARRAY);
 
-        array[index] = value;
+        ARRAY[index] = value;
 
-        return array;
+        return ARRAY;
     }
 
     @Override
@@ -277,24 +276,24 @@ public class Array<T> {
 
         Array<?> array1 = (Array<?>) o;
 
-        return arrayLength == array1.arrayLength && Arrays.equals(array, array1.array)
+        return arrayLength == array1.arrayLength && Arrays.equals(ARRAY, array1.ARRAY)
                 && scanner.equals(array1.scanner) && random.equals(array1.random);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(arrayLength, scanner, random);
-        result = 31 * result + Arrays.hashCode(array);
+        result = 31 * result + Arrays.hashCode(ARRAY);
 
         return result;
     }
 
     @Override
     public String toString() {
-        return "array " + Arrays.toString(getArray());
+        return "array " + Arrays.toString(getARRAY());
     }
 
-    public Number[] getArray() {
-        return array;
+    public Number[] getARRAY() {
+        return ARRAY;
     }
 }

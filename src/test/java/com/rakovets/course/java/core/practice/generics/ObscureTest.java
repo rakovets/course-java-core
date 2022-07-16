@@ -65,6 +65,7 @@ public class ObscureTest<T> {
 
     @ParameterizedTest
     @MethodSource("orElseProviderArguments")
+    @SuppressWarnings("unchecked")
     void orElse(T object, T expected) {
         Obscure<T> obscure = new Obscure<>(object);
 
