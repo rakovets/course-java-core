@@ -79,5 +79,13 @@ public class MatrixDemo {
         doubleMatrixMinimum.printMatrixFloat();
         System.out.printf("\n%.01f", doubleMatrixMinimum.getMinimumNumberMatrixFloat());
         System.out.println("\n---------------------------------------------------------------------------------------");
+
+        System.out.println("Matrix arithmetic mean.");
+        Matrix<Integer> integerMatrixAverage = new Matrix<>(2,2);
+        integerMatrixAverage.matrixFillRandomInters(450);
+        System.out.println("\t\tMatrix");
+        integerMatrixAverage.printMatrixInteger();
+        System.out.println(integerMatrixAverage.getAverageMatrix());
+        System.out.println("-----------------------------------------------------------------------------------------");
     }
 }

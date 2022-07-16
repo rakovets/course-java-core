@@ -71,4 +71,26 @@ public class MatrixTest<T extends Number> {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    static Stream<Arguments> getAverageMatrixProviderArguments() {
+        return Stream.of(
+                Arguments.of(new Integer[][]{{10, 10}, {10, 10}}, 10),
+                Arguments.of(new Integer[][]{{0, 0}, {0, 0}}, 0),
+                Arguments.of(new Integer[][]{{450, 383}, {14587, 7894}}, 5828.5),
+                Arguments.of(new Long[][]{{457L, 4564L}, {4878L, 10L}}, 2477.25),
+                Arguments.of(new Byte[][]{{1, 2}, {3, 4}}, 2.5),
+                Arguments.of(new Short[][]{{10, 25}, {45, 78}}, 39.5),
+                Arguments.of(new Float[][]{{4578f, 457845f}, {7845f, 5654f}}, 118980.5),
+                Arguments.of(new Double[][]{{45.0, 47.0, 48.0}, {78.0, 45.0, 78.5}}, 56.916666666666664),
+                Arguments.of(new Double[][]{{1.4, 78.5}, {45.0, 6.5}}, 32.85)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getAverageMatrixProviderArguments")
+    void getAverageMatrix(T[][] numbers, double expected) {
+        double actual = Matrix.getAverageMatrix(numbers);
+
+        Assertions.assertEquals(expected, actual);
+    }
 }

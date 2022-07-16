@@ -295,6 +295,44 @@ public class Matrix<T extends Number> {
         return minimum.doubleValue();
     }
 
+    /**
+     * Finds the arithmetic mean of a matrix.
+     *
+     * @return average.
+     */
+    public double getAverageMatrix() {
+        double sum = 0;
+        int digitCount = 0;
+
+        for (Number[] elements : this.MATRIX) {
+            for (int columns = 0; columns < this.MATRIX[0].length; columns++) {
+                sum += elements[columns].doubleValue();
+                digitCount++;
+            }
+        }
+        return sum / digitCount;
+    }
+
+    /**
+     * Finds the arithmetic mean of a matrix.
+     *
+     * @param array the resulting matrix.
+     * @param <T>   generic data type.
+     * @return average.
+     */
+    public static <T extends Number> double getAverageMatrix(T[][] array) {
+        double sum = 0;
+        int digitCount = 0;
+
+        for (Number[] elements : array) {
+            for (int columns = 0; columns < array[0].length; columns++) {
+                sum += elements[columns].doubleValue();
+                digitCount++;
+            }
+        }
+        return sum / digitCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
