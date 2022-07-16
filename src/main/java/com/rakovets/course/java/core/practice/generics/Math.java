@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import java.util.Arrays;
-
 public abstract class Math {
     /**
      * Finds the maximum value (numeric) from the passed data.
@@ -12,7 +10,7 @@ public abstract class Math {
      */
     @SafeVarargs
     public static <T extends Number> T getMaximumNumber(T... numbers) {
-        Arrays.sort(numbers);
+        Math.selectionSort(numbers);
 
         return numbers[numbers.length - 1];
     }
@@ -26,7 +24,7 @@ public abstract class Math {
      */
     @SafeVarargs
     public static <T extends Number> T getMinimumNumber(T... numbers) {
-        Arrays.sort(numbers);
+        Math.selectionSort(numbers);
 
         return numbers[0];
     }
@@ -117,7 +115,7 @@ public abstract class Math {
      * then the required element is not in the array.
      */
     public static <T extends Number> int jumpSearch(T[] array, T value) {
-        selectionSort(array);
+        Math.selectionSort(array);
 
         int arrayLength = array.length;
         int jumpStep = (int) java.lang.Math.sqrt(array.length);
