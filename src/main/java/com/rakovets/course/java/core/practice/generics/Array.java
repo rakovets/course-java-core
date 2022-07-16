@@ -277,7 +277,8 @@ public class Array<T> {
 
         Array<?> array1 = (Array<?>) o;
 
-        return arrayLength == array1.arrayLength && Arrays.equals(array, array1.array) && scanner.equals(array1.scanner) && random.equals(array1.random);
+        return arrayLength == array1.arrayLength && Arrays.equals(array, array1.array)
+                && scanner.equals(array1.scanner) && random.equals(array1.random);
     }
 
     @Override
