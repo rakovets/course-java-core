@@ -94,53 +94,10 @@ public class Matrix<T extends Number> {
     /**
      * Prints an integer matrix.
      */
-    public void printMatrixInteger() {
-        for (Number[] matrix : this.MATRIX) {
-            for (Number number : matrix) {
-                System.out.printf("%4d\t", number.intValue());
-            }
-            System.out.println();
-        }
-    }
-
-    /**
-     * Prints an integer matrix.
-     * The method is not tested! Due to the use of sout.
-     *
-     * @param array the resulting matrix.
-     */
-    public void printMatrixInteger(T[][] array) {
-        for (T[] matrix : array) {
-            for (T number : matrix) {
-                System.out.printf("%4d\t", number.intValue());
-            }
-            System.out.println();
-        }
-    }
-
-    /**
-     * Prints a matrix with floating point values.
-     */
-    public void printMatrixFloat() {
-        for (Number[] matrix : this.MATRIX) {
-            for (Number number : matrix) {
-                System.out.printf("%4.01f\t", number.doubleValue());
-            }
-            System.out.println();
-        }
-    }
-
-    /**
-     * Prints a matrix with floating point values.
-     * The method is not tested! Due to the use of sout.
-     *
-     * @param array the resulting matrix.
-     */
-    public void printMatrixFloat(T[][] array) {
-        for (T[] matrix : array) {
-            for (T number : matrix) {
-                System.out.printf("%4.01f\t", number.doubleValue());
-            }
+    public void printMatrix() {
+        for (int i = 0; i < string; i++) {
+            for (int j = 0; j < column; j++)
+                System.out.printf("%.5s\t", MATRIX[i][j]);
             System.out.println();
         }
     }
@@ -333,6 +290,136 @@ public class Matrix<T extends Number> {
         return sum / digitCount;
     }
 
+    /**
+     * Performing integer matrix addition.
+     *
+     * @param secondMatrix matrix to perform addition with the first matrix.
+     * @return new matrix is the result of adding two matrices.
+     */
+    public Matrix<T> additionMatrixInteger(Matrix<T> secondMatrix) {
+        Matrix<T> firstMatrix = this;
+
+        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+
+        for (int i = 0; i < string; i++) {
+            for (int j = 0; j < column; j++) {
+                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].intValue() + secondMatrix.MATRIX[i][j].intValue();
+            }
+        }
+        return thirdMatrix;
+    }
+
+    /**
+     * Performing matrix addition with floating point values.
+     *
+     * @param secondMatrix matrix to perform addition with the first matrix.
+     * @return new matrix is the result of adding two matrices.
+     */
+    public Matrix<T> additionMatrixIFloat(Matrix<T> secondMatrix) {
+        Matrix<T> firstMatrix = this;
+
+        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+
+        for (int i = 0; i < string; i++) {
+            for (int j = 0; j < column; j++) {
+                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].doubleValue() + secondMatrix.MATRIX[i][j].doubleValue();
+            }
+        }
+        return thirdMatrix;
+    }
+
+    /**
+     * Performs a matrix integer subtraction.
+     *
+     * @param secondMatrix matrices to perform subtraction.
+     * @return result of matrix subtraction.
+     */
+    public Matrix<T> subtractionMatrixInteger(Matrix<T> secondMatrix) {
+        Matrix<T> firstMatrix = this;
+
+        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+
+        for (int i = 0; i < string; i++) {
+            for (int j = 0; j < column; j++) {
+                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].intValue() - secondMatrix.MATRIX[i][j].intValue();
+            }
+        }
+        return thirdMatrix;
+    }
+
+    /**
+     * Performs matrix subtraction on floating point numbers.
+     *
+     * @param secondMatrix matrices to perform subtraction.
+     * @return result of matrix subtraction.
+     */
+    public Matrix<T> subtractionMatrixFloat(Matrix<T> secondMatrix) {
+        Matrix<T> firstMatrix = this;
+
+        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+
+        for (int i = 0; i < string; i++) {
+            for (int j = 0; j < column; j++) {
+                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].doubleValue() - secondMatrix.MATRIX[i][j].doubleValue();
+            }
+        }
+        return thirdMatrix;
+    }
+
+    /**
+     * Matrix multiplication with floating point values.
+     *
+     * @param secondMatrix matrix to multiply.
+     */
+    public void multiplicationMatrixInteger(Matrix<T> secondMatrix) {
+        Matrix<T> firstMatrix = this;
+
+        int[][] thirdMatrix = new int[string][column];
+
+        int firstMatrixString = firstMatrix.getString();
+        int secondMatrixColumn = secondMatrix.getColumn();
+        int secondMatrixString = secondMatrix.getString();
+
+        for (int i = 0; i < firstMatrixString; i++) {
+            for (int j = 0; j < secondMatrixColumn; j++) {
+                for (int k = 0; k < secondMatrixString; k++) {
+                    thirdMatrix[i][j] += firstMatrix.MATRIX[i][k].intValue() * secondMatrix.MATRIX[k][j].intValue();
+                }
+            }
+        }
+        for (int[] matrix : thirdMatrix) {
+            for (int j = 0; j < thirdMatrix[0].length; j++)
+                System.out.printf("%.5s\t", matrix[j]);
+            System.out.println();
+        }
+    }
+
+    /**
+     * @param secondMatrix matrix to multiply.
+     */
+    public void multiplicationMatrixFloat(Matrix<T> secondMatrix) {
+        Matrix<T> firstMatrix = this;
+
+        double[][] thirdMatrix = new double[string][column];
+
+        int firstMatrixString = firstMatrix.getString();
+        int secondMatrixColumn = secondMatrix.getColumn();
+        int secondMatrixString = secondMatrix.getString();
+
+        for (int i = 0; i < firstMatrixString; i++) {
+            for (int j = 0; j < secondMatrixColumn; j++) {
+                for (int k = 0; k < secondMatrixString; k++) {
+                    thirdMatrix[i][j] += firstMatrix.MATRIX[i][k].doubleValue() * secondMatrix.MATRIX[k][j].doubleValue();
+                }
+            }
+        }
+        for (double[] matrix : thirdMatrix) {
+            for (int j = 0; j < thirdMatrix[0].length; j++)
+                System.out.printf("%.5s\t", matrix[j]);
+            System.out.println();
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -352,5 +439,13 @@ public class Matrix<T extends Number> {
         result = 31 * result + Arrays.deepHashCode(MATRIX);
 
         return result;
+    }
+
+    public int getString() {
+        return string;
+    }
+
+    public int getColumn() {
+        return column;
     }
 }
