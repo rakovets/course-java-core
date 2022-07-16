@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Array<T> {
     private final Number[] array;
     private final int arrayLength;
+
     private final Scanner scanner = new Scanner(System.in);
     private final Random random = new Random();
 
