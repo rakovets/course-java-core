@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SchoolClassTest {
-    Person person1 = new Person("Ivan", "Ivanov", 10, 3.0F);
-    Person person2 = new Person("Peter", "Petrov", 9, 3.0F);
-    Person person3 = new Person("Inna", "Innova", 10, 5.0F);
-    Person person4 = new Person("Irina", "Innova", 8, 4.0F);
-    SchoolClass schoolClass = new SchoolClass();
-    List<Person> list = new ArrayList<>(Arrays.asList(person1, person2, person3, person4));
+    private final Person person1 = new Person("Ivan", "Ivanov", 10, 3.0F);
+    private final Person person2 = new Person("Peter", "Petrov", 9, 3.0F);
+    private final Person person3 = new Person("Inna", "Innova", 10, 5.0F);
+    private final Person person4 = new Person("Irina", "Innova", 8, 4.0F);
+    private final SchoolClass schoolClass = new SchoolClass();
+    private final List<Person> list = new ArrayList<>(Arrays.asList(person1, person2, person3, person4));
 
     @BeforeEach
     public void setUp() {
@@ -38,21 +38,27 @@ public class SchoolClassTest {
     @Test
     public void testSortByAge() {
         schoolClass.getStudents().sort(schoolClass.byAge);
-        List<Person> listSortedByAge = new ArrayList<>(Arrays.asList(person4, person2, person1, person3));
-        Assertions.assertEquals(listSortedByAge, schoolClass.getStudents());
+
+        List<Person> expected = Arrays.asList(person4, person2, person1, person3);
+
+        Assertions.assertEquals(expected, schoolClass.getStudents());
     }
 
     @Test
     public void testSortBySurnameName() {
         schoolClass.getStudents().sort(schoolClass.bySurnameName);
-        List<Person> listSortedByFullSurnameName = new ArrayList<>(Arrays.asList(person3, person4, person1, person2));
-        Assertions.assertEquals(listSortedByFullSurnameName, schoolClass.getStudents());
+
+        List<Person> expected = Arrays.asList(person3, person4, person1, person2);
+
+        Assertions.assertEquals(expected, schoolClass.getStudents());
     }
 
     @Test
     public void testSortByAverageAnnualMark() {
         schoolClass.getStudents().sort(schoolClass.byAverageAnnualMark);
-        List<Person> listSortedByMarks = new ArrayList<>(Arrays.asList(person1, person2, person4, person3));
-        Assertions.assertEquals(listSortedByMarks, schoolClass.getStudents());
+
+        List<Person> expected = Arrays.asList(person1, person2, person4, person3);
+
+        Assertions.assertEquals(expected, schoolClass.getStudents());
     }
 }

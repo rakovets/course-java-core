@@ -7,30 +7,27 @@ import java.util.List;
 public class SchoolClass {
     private List<Person> students = new ArrayList<>();
 
-    Comparator<Person> byAverageAnnualMark = new Comparator<>() {
+    public Comparator<Person> byAverageAnnualMark = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
-            Float averageMarkFirst = p1.getAverageAnnualMark();
-            Float averageMarkSecond = p2.getAverageAnnualMark();
-            return averageMarkFirst.compareTo(averageMarkSecond);
+            return Float.compare(p1.getAverageAnnualMark(), p2.getAverageAnnualMark());
         }
     };
 
-    Comparator<Person> byAge = new Comparator<>() {
+    public Comparator<Person> byAge = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
-            Integer ageFirst = p1.getAge();
-            Integer ageSecond = p2.getAge();
-            return ageFirst.compareTo(ageSecond);
+            return Integer.compare(p1.getAge(), p2.getAge());
         }
     };
 
-    Comparator<Person> bySurnameName = new Comparator<>() {
+    public Comparator<Person> bySurnameName = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
-            String nameSurnameFirst = p1.getSurname() + " " + p1.getName();
-            String nameSurnameSecond = p2.getSurname() + " " + p2.getName();
-            return nameSurnameFirst.compareTo(nameSurnameSecond);
+            if (!p1.getSurname().equals(p2.getSurname())) {
+                return p1.getSurname().compareTo(p2.getSurname());
+            }
+            return p1.getName().compareTo(p2.getName());
         }
     };
 
@@ -47,7 +44,8 @@ public class SchoolClass {
     }
 
     public Person getBestStudent(List<Person> students) {
-        students.sort(byAverageAnnualMark);
-        return students.get(students.size() - 1);
+        List<Person> list = new ArrayList<>(students);
+        list.sort(byAverageAnnualMark);
+        return list.get(list.size() - 1);
     }
 }

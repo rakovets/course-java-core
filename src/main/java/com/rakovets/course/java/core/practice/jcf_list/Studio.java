@@ -11,54 +11,41 @@ public class Studio {
     public Comparator<Actor> byFee = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
-            Float firstFee = a1.getFee();
-            Float secondFee = a2.getFee();
-            return firstFee.compareTo(secondFee);
+            return Float.compare(a1.getFee(), a2.getFee());
         }
     };
 
     public Comparator<Actor> bySurname = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
-            String firstSurname = a1.getLastName();
-            String secondSurname = a2.getLastName();
-            return firstSurname.compareTo(secondSurname);
+            return a1.getLastName().compareTo(a2.getLastName());
         }
     };
+
     public Comparator<Actor> byAge = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
-            Integer firstAge = a1.getAge();
-            Integer secondAge = a2.getAge();
-            return firstAge.compareTo(secondAge);
+            return Integer.compare(a1.getAge(), a2.getAge());
         }
     };
 
     public Comparator<Actor> byFeeSurname = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
-            String firstSurname = a1.getLastName();
-            String secondSurname = a2.getLastName();
-            Float firstFee = a1.getFee();
-            Float secondFee = a2.getFee();
-            if (!firstFee.equals(secondFee)) {
-                return firstFee.compareTo(secondFee);
+            if (a1.getFee() != a2.getFee()) {
+                return Float.compare(a1.getFee(), a2.getFee());
             }
-            return firstSurname.compareTo(secondSurname);
+            return a1.getLastName().compareTo(a2.getLastName());
         }
     };
 
     public Comparator<Actor> bySurnameAge = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
-            String firstSurname = a1.getLastName();
-            String secondSurname = a2.getLastName();
-            Integer firstAge = a1.getAge();
-            Integer secondAge = a2.getAge();
-            if (!Objects.equals(firstSurname, secondSurname)) {
-                return firstSurname.compareTo(secondSurname);
+            if (!Objects.equals(a1.getLastName(), a2.getLastName())) {
+                return a1.getLastName().compareTo(a2.getLastName());
             }
-            return firstAge.compareTo(secondAge);
+            return Integer.compare(a1.getAge(), a2.getAge());
         }
     };
 
@@ -75,8 +62,10 @@ public class Studio {
     }
 
     public List<Actor> fire(List<Actor> actors) {
-        actors.sort(byFee);
-        actors.remove(actors.size() - 1);
+        List<Actor> list = new ArrayList<>(actors);
+        list.sort(byFee);
+        Actor actor = list.remove(list.size() - 1);
+        actors.remove(actor);
         return actors;
     }
 }

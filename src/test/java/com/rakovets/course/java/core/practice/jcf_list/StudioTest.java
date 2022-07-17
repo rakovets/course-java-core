@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StudioTest {
-    Actor actor1 = new Actor("Ivan", "Ivanov", 5000, 32);
-    Actor actor2 = new Actor("Peter", "Petrov", 500, 25);
-    Actor actor3 = new Actor("Inna", "Innova", 1000, 67);
-    Actor actor4 = new Actor("Yana", "Innova", 1000, 65);
-    Studio studio = new Studio();
-    List<Actor> list = new ArrayList<>(Arrays.asList(actor1, actor2, actor3, actor4));
+    private final Actor actor1 = new Actor("Ivan", "Ivanov", 5000, 32);
+    private final Actor actor2 = new Actor("Peter", "Petrov", 500, 25);
+    private final Actor actor3 = new Actor("Inna", "Innova", 1000, 67);
+    private final Actor actor4 = new Actor("Yana", "Innova", 1000, 65);
+    private final Studio studio = new Studio();
+    private final List<Actor> list = new ArrayList<>(Arrays.asList(actor1, actor2, actor3, actor4));
 
     @BeforeEach
     public void setUp() {
@@ -32,42 +32,55 @@ public class StudioTest {
 
     @Test
     public void testFire() {
-        List<Actor> listSortedByFee = new ArrayList<>(Arrays.asList(actor2, actor3, actor4));
-        Assertions.assertEquals(listSortedByFee, studio.fire(studio.getActors()));
+        List<Actor> actual = studio.fire(studio.getActors());
+
+        List<Actor> expected = Arrays.asList(actor2, actor3, actor4);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testSurnameComparator() {
+    public void testSortBySurname() {
         studio.getActors().sort(studio.bySurname);
-        List<Actor> listSortedBySurname = new ArrayList<>(Arrays.asList(actor3, actor4, actor1, actor2));
-        Assertions.assertEquals(listSortedBySurname, studio.getActors());
+
+        List<Actor> expected = Arrays.asList(actor3, actor4, actor1, actor2);
+
+        Assertions.assertEquals(expected, studio.getActors());
     }
 
     @Test
-    public void testAgeComparator() {
+    public void testSortByAge() {
         studio.getActors().sort(studio.byAge);
-        List<Actor> listSortedByAge = new ArrayList<>(Arrays.asList(actor2, actor1, actor4, actor3));
-        Assertions.assertEquals(listSortedByAge, studio.getActors());
+
+        List<Actor> expected = Arrays.asList(actor2, actor1, actor4, actor3);
+
+        Assertions.assertEquals(expected, studio.getActors());
     }
 
     @Test
-    public void testSurnameAgeComparator() {
+    public void testSortBySurnameAge() {
         studio.getActors().sort(studio.bySurnameAge);
-        List<Actor> listSortedBySurnameAge = new ArrayList<>(Arrays.asList(actor4, actor3, actor1, actor2));
-        Assertions.assertEquals(listSortedBySurnameAge, studio.getActors());
+
+        List<Actor> expected = Arrays.asList(actor4, actor3, actor1, actor2);
+
+        Assertions.assertEquals(expected, studio.getActors());
     }
 
     @Test
-    public void testFeeSurnameComparator() {
+    public void testSortByFeeSurname() {
         studio.getActors().sort(studio.byFeeSurname);
-        List<Actor> listSortedByFeeSurname = new ArrayList<>(Arrays.asList(actor2, actor3, actor4, actor1));
-        Assertions.assertEquals(listSortedByFeeSurname, studio.getActors());
+
+        List<Actor> expected = Arrays.asList(actor2, actor3, actor4, actor1);
+
+        Assertions.assertEquals(expected, studio.getActors());
     }
 
     @Test
-    public void testFeeComparator() {
+    public void testSortByFee() {
         studio.getActors().sort(studio.byFee);
-        List<Actor> listSortedByFee = new ArrayList<>(Arrays.asList(actor2, actor3, actor4, actor1));
-        Assertions.assertEquals(listSortedByFee, studio.getActors());
+
+        List<Actor> expected = Arrays.asList(actor2, actor3, actor4, actor1);
+
+        Assertions.assertEquals(expected, studio.getActors());
     }
 }
