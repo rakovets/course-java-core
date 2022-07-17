@@ -8,9 +8,8 @@ public class Task7 {
         switch (variant) {
             case 1:
                 throw new SocketException("Just SocketException");
-            case 2:
+            default:
                 arr[4] = 10;
-                break;
         }
     }
 }

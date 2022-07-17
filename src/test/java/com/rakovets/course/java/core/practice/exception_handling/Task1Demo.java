@@ -6,9 +6,8 @@ public class Task1Demo {
 
         try {
             testNullException.strToUpperCase();
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             System.out.println("Null pointer exception");
-            e.printStackTrace();
         }
     }
 }
