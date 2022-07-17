@@ -76,7 +76,6 @@ public class MathTest<T extends Number> {
         Assertions.assertEquals(expected, actual);
     }
 
-
     static Stream<Arguments> getMaximumNumberInArrayProviderArguments() {
         return Stream.of(
                 Arguments.of(new Byte[]{127, 0, -125, 4}, (byte) 127),

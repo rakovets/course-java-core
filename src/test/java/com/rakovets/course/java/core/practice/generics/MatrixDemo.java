@@ -103,6 +103,22 @@ public class MatrixDemo {
         integerMatrixFirstMatrix.multiplicationMatrixInteger(integerMatrixSecondMatrix);
         System.out.println("-----------------------------------------------------------------------------------------");
 
+        Matrix<Short> shortMatrixFirstMatrix = new Matrix<>(3, 3);
+        Matrix<Short> shortMatrixSecondMatrix = new Matrix<>(3, 3);
+        System.out.println("The first short matrix.");
+        shortMatrixFirstMatrix.matrixFillRandomInters(0, 9);
+        shortMatrixFirstMatrix.printMatrix();
+        System.out.println("\nThe second short matrix.");
+        shortMatrixSecondMatrix.matrixFillRandomInters(0, 10);
+        shortMatrixSecondMatrix.printMatrix();
+        System.out.println("\nThe third short matrix. The result of adding the first matrix and the second.");
+        shortMatrixFirstMatrix.additionMatrixInteger(shortMatrixSecondMatrix).printMatrix();
+        System.out.println("\nThe third short matrix. The result of subtracting the first matrix and the second.");
+        shortMatrixFirstMatrix.subtractionMatrixInteger(shortMatrixSecondMatrix).printMatrix();
+        System.out.println("\nThe third short matrix. The result of multiplying the first matrix and the second.");
+        shortMatrixFirstMatrix.multiplicationMatrixInteger(shortMatrixSecondMatrix);
+        System.out.println("-----------------------------------------------------------------------------------------");
+
         Matrix<Byte> byteMatrixFirstMatrix = new Matrix<>(3, 3);
         Matrix<Byte> byteMatrixSecondMatrix = new Matrix<>(3, 3);
         System.out.println("The first byte matrix.");
@@ -149,6 +165,22 @@ public class MatrixDemo {
         doubleMatrixFirstMatrix.subtractionMatrixFloat(doubleMatrixSecondMatrix).printMatrix();
         System.out.println("\nThe third double matrix. The result of multiplying the first matrix and the second.");
         doubleMatrixFirstMatrix.multiplicationMatrixFloat(doubleMatrixSecondMatrix);
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        Matrix<Float> floatMatrixFirstMatrix = new Matrix<>(3, 3);
+        Matrix<Float> floatMatrixSecondMatrix = new Matrix<>(3, 3);
+        System.out.println("The first float matrix.");
+        floatMatrixFirstMatrix.matrixFillRandomInters(0, 9);
+        floatMatrixFirstMatrix.printMatrix();
+        System.out.println("\nThe second float matrix.");
+        floatMatrixSecondMatrix.matrixFillRandomInters(0, 9);
+        floatMatrixSecondMatrix.printMatrix();
+        System.out.println("\nThe third float matrix. The result of adding the first matrix and the second.");
+        floatMatrixFirstMatrix.additionMatrixIFloat(floatMatrixSecondMatrix).printMatrix();
+        System.out.println("\nThe third float matrix. The result of subtracting the first matrix and the second.");
+        floatMatrixFirstMatrix.subtractionMatrixFloat(floatMatrixSecondMatrix).printMatrix();
+        System.out.println("\nThe third float matrix. The result of multiplying the first matrix and the second.");
+        floatMatrixFirstMatrix.multiplicationMatrixFloat(floatMatrixSecondMatrix);
         System.out.println("-----------------------------------------------------------------------------------------");
     }
 }

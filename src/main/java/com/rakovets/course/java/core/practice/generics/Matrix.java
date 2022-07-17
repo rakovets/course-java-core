@@ -88,7 +88,7 @@ public class Matrix<T extends Number> {
     }
 
     /**
-     * Prints an integer matrix.
+     * Prints matrix.
      */
     public void printMatrix() {
         for (int i = 0; i < string; i++) {
