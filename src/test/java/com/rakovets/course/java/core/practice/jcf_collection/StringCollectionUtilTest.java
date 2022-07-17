@@ -9,19 +9,19 @@ import java.util.Collection;
 import java.util.List;
 
 public class StringCollectionUtilTest {
-    StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
+    private final StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
 
     @Test
     public void testResetWordsByLength() {
         List<String> list = Arrays.asList("this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer");
-        List<String> listChanged = Arrays.asList("*", "is", "*", "of", "fun", "for", "every", "*", "programmer");
-        Assertions.assertEquals(listChanged, (stringCollectionUtil.resetWordsByLength(list, 4)));
+        List<String> expected = Arrays.asList("*", "is", "*", "of", "fun", "for", "every", "*", "programmer");
+        Assertions.assertEquals(expected, (stringCollectionUtil.resetWordsByLength(list, 4)));
     }
 
     @Test
     public void testRemoveWordsByLength() {
         Collection<String> collection = new ArrayList<>(Arrays.asList("this", "is", "lots", "of", "fun", "for", "every", "Java", "programmer"));
-        Collection<String> collectionChanged = Arrays.asList("is", "of", "fun", "for", "every", "programmer");
-        Assertions.assertEquals(collectionChanged, stringCollectionUtil.removeWordsByLength(collection, 4));
+        Collection<String> expected = Arrays.asList("is", "of", "fun", "for", "every", "programmer");
+        Assertions.assertEquals(expected, stringCollectionUtil.removeWordsByLength(collection, 4));
     }
 }
