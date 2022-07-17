@@ -97,15 +97,15 @@ public abstract class Math {
 
     /**
      * Method of binary search in an array using the "jumping search" algorithm.
-     * <li> Line 118 array sorting.
-     * <li> Line 121 variable jumpStep contains the size of the square root of the length of the array.
-     * <li> Lines 124 - 130 in a loop, we jump forward step by step with the value from the jumpStep variable
+     * <li> Sorting an array of strings 118.
+     * <li> On line 121, jumpStep contains the size of the square root of the length of the array.
+     * <li> Lines 124 - 130 in a loop, we jump forward step by step with the value from the variable jumpStep
      * until we find an element that is greater than or equal to the element we are looking for.
-     * <li> Lines 127 - 129 inside the loop, if we went beyond the array,
+     * <li>Lines 127 - 129 inside the loop, if we went beyond the array,
      * then the element we need is not in the array.
-     * <li> Lines 131 - 136 when array[previousStep].doubleValue() < value.doubleValue()
-     * performs a linear search between array[previousStep] and array[jumpStep] or element greater than T.
-     * <li> Lines 133 - 135 if value matches array[previousStep] return the position in the array under the value T.
+     * <li> Lines 131-136, when the condition is true,
+     * performs a linear search between the [previousStep] array and the [jumpStep] array or greater.
+     * <li> Lines 133-135, if the value matches array[previousStep], returns the array position of the desired element.
      * <p>
      *
      * @param array array to look up the value.
