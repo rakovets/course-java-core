@@ -180,7 +180,7 @@ public class Matrix<T extends Number> {
         double sum = 0;
         int digitCount = 0;
 
-        for (Number[] elements : this.matrix) {
+        for (T[] elements : this.matrix) {
             for (int columns = 0; columns < this.matrix[0].length; columns++) {
                 sum += elements[columns].doubleValue();
                 digitCount++;
