@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Matrix<T extends Number> {
     private final T[][] matrix;
+
     private int string;
     private int column;
 
@@ -220,7 +221,8 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue() + secondMatrix.matrix[i][j].doubleValue();
+                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue()
+                        + secondMatrix.matrix[i][j].doubleValue();
             }
         }
         return thirdMatrix;
@@ -258,7 +260,8 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue() - secondMatrix.matrix[i][j].doubleValue();
+                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue()
+                        - secondMatrix.matrix[i][j].doubleValue();
             }
         }
         return thirdMatrix;
@@ -323,9 +326,14 @@ public class Matrix<T extends Number> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Matrix)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Matrix)) {
+            return false;
+        }
         Matrix<?> matrix1 = (Matrix<?>) o;
+
         return string == matrix1.string && column == matrix1.column && Arrays.deepEquals(matrix, matrix1.matrix);
     }
 
@@ -333,6 +341,7 @@ public class Matrix<T extends Number> {
     public int hashCode() {
         int result = Objects.hash(string, column);
         result = 31 * result + Arrays.deepHashCode(matrix);
+
         return result;
     }
 

@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Array<T extends Number> {
     private final T[] array;
+
     private int arrayLength;
 
     private static final Scanner scanner = new Scanner(System.in);
