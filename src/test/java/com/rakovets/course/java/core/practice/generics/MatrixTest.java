@@ -11,31 +11,35 @@ public class MatrixTest<T extends Number> {
     static Stream<Arguments> getMaximumNumberMatrixIntegerProviderArguments() {
         return Stream.of(
                 Arguments.of(new Integer[][]{{45, 78, 6}, {79, -99, -6}}, 79),
-                Arguments.of(new Long[][]{{78L, 99L, 4L, -7L,}, {67L, 145L, -79L, -9L}}, 145),
-                Arguments.of(new Short[][]{{-78, -89, -7}, {-6, 0, -7}}, 0),
-                Arguments.of(new Byte[][]{{0, 0, 0}, {0, 0, 0}}, 0)
+                Arguments.of(new Long[][]{{78L, 99L, 4L, -7L,}, {67L, 145L, -79L, -9L}}, 145L),
+                Arguments.of(new Short[][]{{-78, -89, -7}, {-6, 4, -7}}, (short) 4),
+                Arguments.of(new Byte[][]{{0, 0, 0}, {0, 0, 0}}, (byte) 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getMaximumNumberMatrixIntegerProviderArguments")
-    void getMaximumNumberMatrixInteger(T[][] array, long expected) {
-        long actual = Matrix.getMaximumNumberMatrixInteger(array);
+    void getMaximumNumberMatrixInteger(T[][] array, T expected) {
+        Matrix<T> matrix = new Matrix<>(array);
+
+        T actual = matrix.getMaximumNumberMatrixInteger();
 
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> getMaximumNumberMatrixFloatProviderArguments() {
         return Stream.of(
-                Arguments.of(new Float[][]{{-78.5f, -79.5f, -98.5f}, {-45.5f, -98.7f, 1.5f}}, 1.5),
+                Arguments.of(new Float[][]{{-78.5f, -79.5f, -98.5f}, {-45.5f, -98.7f, 1.5f}}, 1.5f),
                 Arguments.of(new Double[][]{{78.6, 0.5, 9.8}, {145.6, 79.6, 0.4}}, 145.6)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getMaximumNumberMatrixFloatProviderArguments")
-    void getMaximumNumberMatrixFloat(T[][] array, double expected) {
-        double actual = Matrix.getMaximumNumberMatrixFloat(array);
+    void getMaximumNumberMatrixFloat(T[][] array, T expected) {
+        Matrix<T> matrix = new Matrix<>(array);
+
+        T actual = matrix.getMaximumNumberMatrixFloat();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -43,16 +47,18 @@ public class MatrixTest<T extends Number> {
     static Stream<Arguments> getMinimumNumberMatrixIntegerProviderArguments() {
         return Stream.of(
                 Arguments.of(new Integer[][]{{45, 78, 6}, {79, -99, -6}}, -99),
-                Arguments.of(new Long[][]{{78L, 99L, 4L, -7L,}, {67L, 145L, -79L, -9L}}, -79),
-                Arguments.of(new Short[][]{{-78, -89, -7}, {-6, 0, -7}}, -89),
-                Arguments.of(new Byte[][]{{0, 0, 0}, {0, 0, 0}}, 0)
+                Arguments.of(new Long[][]{{78L, 99L, 4L, -7L,}, {67L, 145L, -79L, -9L}}, (long) -79),
+                Arguments.of(new Short[][]{{-78, -89, -7}, {-6, 0, -7}}, (short) -89),
+                Arguments.of(new Byte[][]{{0, 0, 0}, {0, 0, 0}}, (byte) 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("getMinimumNumberMatrixIntegerProviderArguments")
-    void getMinimumNumberMatrixInteger(T[][] array, long expected) {
-        long actual = Matrix.getMinimumNumberMatrixInteger(array);
+    void getMinimumNumberMatrixInteger(T[][] array, T expected) {
+        Matrix<T> matrix = new Matrix<>(array);
+
+        T actual = matrix.getMinimumNumberMatrixInteger();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -66,8 +72,10 @@ public class MatrixTest<T extends Number> {
 
     @ParameterizedTest
     @MethodSource("getMinimumNumberMatrixFloatProviderArguments")
-    void getMinimumNumberMatrixFloat(T[][] array, double expected) {
-        double actual = Matrix.getMinimumNumberMatrixFloat(array);
+    void getMinimumNumberMatrixFloat(T[][] array, T expected) {
+        Matrix<T> matrix = new Matrix<>(array);
+
+        T actual = matrix.getMinimumNumberMatrixFloat();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -88,8 +96,10 @@ public class MatrixTest<T extends Number> {
 
     @ParameterizedTest
     @MethodSource("getAverageMatrixProviderArguments")
-    void getAverageMatrix(T[][] numbers, double expected) {
-        double actual = Matrix.getAverageMatrix(numbers);
+    void getAverageMatrix(T[][] array, double expected) {
+        Matrix<T> matrix = new Matrix<>(array);
+
+        double actual = matrix.getAverageMatrix();
 
         Assertions.assertEquals(expected, actual);
     }

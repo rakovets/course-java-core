@@ -27,13 +27,13 @@ public class ArrayDemo {
         System.out.println(byteArray);
         System.out.println("-----------------------------------------------------------------------------------------");
 
-        System.out.println("Filling an array with integer values from the keyboard. Type Double.");
+        System.out.println("Filling the array with floating point values from the keyboard. Type Double.");
         Array<Double> doubleArray = new Array<>(3);
         doubleArray.arrayFillFloatingPoint();
         System.out.println(doubleArray);
         System.out.println("-----------------------------------------------------------------------------------------");
 
-        System.out.println("Filling an array with integer values from the keyboard. Type Float.");
+        System.out.println("Filling the array with floating point values from the keyboard. Type Float.");
         Array<Float> floatArray = new Array<>(3);
         floatArray.arrayFillFloatingPoint();
         System.out.println(floatArray);

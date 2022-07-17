@@ -1,17 +1,15 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Scanner;
+import java.math.BigInteger;
+import java.util.*;
 
 public class Matrix<T extends Number> {
-    private final Number[][] MATRIX;
+    private final T[][] matrix;
     private int string;
     private int column;
 
-    private final Scanner scanner = new Scanner(System.in);
-    private final Random random = new Random();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Random random = new Random();
 
     /**
      * Constructor.
@@ -19,8 +17,9 @@ public class Matrix<T extends Number> {
      * @param string the number of rows in the matrix.
      * @param column the number of columns in the matrix.
      */
+    @SuppressWarnings("unchecked")
     public Matrix(int string, int column) {
-        MATRIX = new Number[string][column];
+        matrix = (T[][]) new Number[string][column];
         this.string = string;
         this.column = column;
     }
@@ -28,19 +27,20 @@ public class Matrix<T extends Number> {
     /**
      * Additional constructor.
      *
-     * @param MATRIX the resulting matrix.
+     * @param matrix the resulting matrix.
      */
-    public Matrix(Number[][] MATRIX) {
-        this.MATRIX = MATRIX;
+    public Matrix(T[][] matrix) {
+        this.matrix = matrix;
     }
 
     /**
      * Filling the matrix from the keyboard with integer values.
      */
+    @SuppressWarnings("unchecked")
     public void matrixFillInteger() {
-        for (int i = 0; i < this.MATRIX.length; i++) {
-            for (int j = 0; j < this.MATRIX[i].length; j++) {
-                this.MATRIX[i][j] = scanner.nextBigInteger();
+        for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix[i].length; j++) {
+                this.matrix[i][j] = (T) scanner.nextBigInteger();
             }
         }
     }
@@ -48,45 +48,40 @@ public class Matrix<T extends Number> {
     /**
      * Filling a matrix from the keyboard with floating point values.
      */
+    @SuppressWarnings("unchecked")
     public void matrixFillFloatingPoint() {
-        for (int i = 0; i < this.MATRIX.length; i++) {
-            for (int j = 0; j < this.MATRIX[i].length; j++) {
-                this.MATRIX[i][j] = scanner.nextBigDecimal();
+        for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix[i].length; j++) {
+                this.matrix[i][j] = (T) scanner.nextBigDecimal();
             }
         }
     }
 
     /**
      * Fills the matrix with random integers.
-     */
-    public void matrixFillRandomInters() {
-        for (int i = 0; i < this.MATRIX.length; i++) {
-            for (int j = 0; j < this.MATRIX[i].length; j++) {
-                this.MATRIX[i][j] = random.nextInt();
-            }
-        }
-    }
-
-    /**
-     * Fills the matrix with random integers from 0 to the given value.
      *
-     * @param size maximum value from 0 to size.
+     * @param maximumNumber the smallest number in the matrix.
+     * @param minimumNumber the largest number in the matrix.
      */
-    public void matrixFillRandomInters(int size) {
-        for (int i = 0; i < this.MATRIX.length; i++) {
-            for (int j = 0; j < this.MATRIX[i].length; j++) {
-                this.MATRIX[i][j] = random.nextInt(size);
-            }
-        }
-    }
+    @SuppressWarnings("unchecked")
+    public void matrixFillRandomInters(int minimumNumber, int maximumNumber) {
+        String minimum = Integer.toString(minimumNumber);
+        String maximum = Integer.toString(maximumNumber + 1);
 
-    /**
-     * Fills the matrix with random floating point numbers.
-     */
-    public void matrixFillRandomFloat() {
-        for (int i = 0; i < this.MATRIX.length; i++) {
-            for (int j = 0; j < this.MATRIX[i].length; j++) {
-                this.MATRIX[i][j] = random.nextDouble();
+        BigInteger bigIntegerMinimum = new BigInteger(minimum);
+        BigInteger bigIntegerMaximum = new BigInteger(maximum);
+
+        int length = bigIntegerMaximum.bitLength();
+
+        for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix[i].length; j++) {
+                BigInteger number = new BigInteger(length, random);
+                if (number.compareTo(bigIntegerMinimum) < 0) {
+                    number = number.add(bigIntegerMinimum);
+                } else if (number.compareTo(bigIntegerMaximum) >= 0) {
+                    number = number.mod(bigIntegerMaximum).add(bigIntegerMinimum);
+                }
+                this.matrix[i][j] = (T) number;
             }
         }
     }
@@ -97,7 +92,7 @@ public class Matrix<T extends Number> {
     public void printMatrix() {
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++)
-                System.out.printf("%.5s\t", MATRIX[i][j]);
+                System.out.printf("%.5s\t", matrix[i][j]);
             System.out.println();
         }
     }
@@ -107,33 +102,13 @@ public class Matrix<T extends Number> {
      *
      * @return maximum value from matrices.
      */
-    public long getMaximumNumberMatrixInteger() {
-        long maximum = 0;
+    public T getMaximumNumberMatrixInteger() {
+        T maximum = matrix[0][0];
 
-        for (Number[] matrix : this.MATRIX) {
-            for (int j = 0; j < this.MATRIX[0].length; j++) {
-                if (maximum < matrix[j].intValue()) {
-                    maximum = matrix[j].intValue();
-                }
-            }
-        }
-        return maximum;
-    }
-
-    /**
-     * Finds the maximum element in an integer matrix.
-     *
-     * @param array matrix to search for the maximum value.
-     * @param <T>   generic data type.
-     * @return maximum value from matrices.
-     */
-    public static <T extends Number> long getMaximumNumberMatrixInteger(T[][] array) {
-        long maximum = 0;
-
-        for (T[] matrix : array) {
-            for (int j = 0; j < array[0].length; j++) {
-                if (maximum < matrix[j].intValue()) {
-                    maximum = matrix[j].intValue();
+        for (T[] matrix : this.matrix) {
+            for (int j = 0; j < this.matrix[0].length; j++) {
+                if (maximum.intValue() < matrix[j].intValue()) {
+                    maximum = matrix[j];
                 }
             }
         }
@@ -145,33 +120,13 @@ public class Matrix<T extends Number> {
      *
      * @return maximum value from matrices.
      */
-    public double getMaximumNumberMatrixFloat() {
-        double maximum = 0;
+    public T getMaximumNumberMatrixFloat() {
+        T maximum = matrix[0][0];
 
-        for (Number[] matrix : this.MATRIX) {
-            for (int j = 0; j < this.MATRIX[0].length; j++) {
-                if (maximum < matrix[j].doubleValue()) {
-                    maximum = matrix[j].doubleValue();
-                }
-            }
-        }
-        return maximum;
-    }
-
-    /**
-     * Finds the maximum element in a floating-point matrix.
-     *
-     * @param array matrix to search for the maximum value.
-     * @param <T>   generic data type.
-     * @return maximum value from matrices.
-     */
-    public static <T extends Number> double getMaximumNumberMatrixFloat(T[][] array) {
-        double maximum = 0;
-
-        for (T[] matrix : array) {
-            for (int j = 0; j < array[0].length; j++) {
-                if (maximum < matrix[j].doubleValue()) {
-                    maximum = matrix[j].doubleValue();
+        for (T[] matrix : matrix) {
+            for (int j = 0; j < this.matrix[0].length; j++) {
+                if (maximum.doubleValue() < matrix[j].doubleValue()) {
+                    maximum = matrix[j];
                 }
             }
         }
@@ -183,73 +138,36 @@ public class Matrix<T extends Number> {
      *
      * @return minimum value from matrices.
      */
-    public long getMinimumNumberMatrixInteger() {
-        Number minimum = MATRIX[0][0];
+    public T getMinimumNumberMatrixInteger() {
+        T minimum = matrix[0][0];
 
-        for (Number[] matrix : this.MATRIX) {
-            for (int j = 0; j < this.MATRIX[0].length; j++) {
+        for (T[] matrix : this.matrix) {
+            for (int j = 0; j < this.matrix[0].length; j++) {
                 if (matrix[j].intValue() < minimum.intValue()) {
                     minimum = matrix[j];
                 }
             }
         }
-        return minimum.intValue();
+        return minimum;
     }
 
-    /**
-     * Finds the minimum element in an integer matrix.
-     *
-     * @param array matrix to search for the minimum value.
-     * @return minimum value from matrices.
-     */
-    public static <T extends Number> long getMinimumNumberMatrixInteger(T[][] array) {
-        Number minimum = array[0][0];
-
-        for (Number[] matrix : array) {
-            for (int j = 0; j < array[0].length; j++) {
-                if (matrix[j].intValue() < minimum.intValue()) {
-                    minimum = matrix[j];
-                }
-            }
-        }
-        return minimum.intValue();
-    }
 
     /**
      * Finds the minimum element in a floating-point matrix.
      *
      * @return minimum value from matrices.
      */
-    public double getMinimumNumberMatrixFloat() {
-        Number minimum = MATRIX[0][0];
+    public T getMinimumNumberMatrixFloat() {
+        T minimum = matrix[0][0];
 
-        for (Number[] matrix : this.MATRIX) {
-            for (int j = 0; j < this.MATRIX[0].length; j++) {
+        for (T[] matrix : this.matrix) {
+            for (int j = 0; j < this.matrix[0].length; j++) {
                 if (matrix[j].doubleValue() < minimum.doubleValue()) {
                     minimum = matrix[j];
                 }
             }
         }
-        return minimum.doubleValue();
-    }
-
-    /**
-     * Finds the minimum element in a floating-point matrix.
-     *
-     * @param array matrix to search for the maximum value.
-     * @return minimum value from matrices.
-     */
-    public static <T extends Number> double getMinimumNumberMatrixFloat(T[][] array) {
-        Number minimum = array[0][0];
-
-        for (Number[] matrix : array) {
-            for (int j = 0; j < array[0].length; j++) {
-                if (matrix[j].doubleValue() < minimum.doubleValue()) {
-                    minimum = matrix[j];
-                }
-            }
-        }
-        return minimum.doubleValue();
+        return minimum;
     }
 
     /**
@@ -261,28 +179,8 @@ public class Matrix<T extends Number> {
         double sum = 0;
         int digitCount = 0;
 
-        for (Number[] elements : this.MATRIX) {
-            for (int columns = 0; columns < this.MATRIX[0].length; columns++) {
-                sum += elements[columns].doubleValue();
-                digitCount++;
-            }
-        }
-        return sum / digitCount;
-    }
-
-    /**
-     * Finds the arithmetic mean of a matrix.
-     *
-     * @param array the resulting matrix.
-     * @param <T>   generic data type.
-     * @return average.
-     */
-    public static <T extends Number> double getAverageMatrix(T[][] array) {
-        double sum = 0;
-        int digitCount = 0;
-
-        for (Number[] elements : array) {
-            for (int columns = 0; columns < array[0].length; columns++) {
+        for (Number[] elements : this.matrix) {
+            for (int columns = 0; columns < this.matrix[0].length; columns++) {
                 sum += elements[columns].doubleValue();
                 digitCount++;
             }
@@ -296,14 +194,14 @@ public class Matrix<T extends Number> {
      * @param secondMatrix matrix to perform addition with the first matrix.
      * @return new matrix is the result of adding two matrices.
      */
-    public Matrix<T> additionMatrixInteger(Matrix<T> secondMatrix) {
+    public Matrix<Number> additionMatrixInteger(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].intValue() + secondMatrix.MATRIX[i][j].intValue();
+                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].intValue() + secondMatrix.matrix[i][j].intValue();
             }
         }
         return thirdMatrix;
@@ -315,14 +213,14 @@ public class Matrix<T extends Number> {
      * @param secondMatrix matrix to perform addition with the first matrix.
      * @return new matrix is the result of adding two matrices.
      */
-    public Matrix<T> additionMatrixIFloat(Matrix<T> secondMatrix) {
+    public Matrix<Number> additionMatrixIFloat(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].doubleValue() + secondMatrix.MATRIX[i][j].doubleValue();
+                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue() + secondMatrix.matrix[i][j].doubleValue();
             }
         }
         return thirdMatrix;
@@ -334,14 +232,14 @@ public class Matrix<T extends Number> {
      * @param secondMatrix matrices to perform subtraction.
      * @return result of matrix subtraction.
      */
-    public Matrix<T> subtractionMatrixInteger(Matrix<T> secondMatrix) {
+    public Matrix<Number> subtractionMatrixInteger(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].intValue() - secondMatrix.MATRIX[i][j].intValue();
+                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].intValue() - secondMatrix.matrix[i][j].intValue();
             }
         }
         return thirdMatrix;
@@ -353,21 +251,21 @@ public class Matrix<T extends Number> {
      * @param secondMatrix matrices to perform subtraction.
      * @return result of matrix subtraction.
      */
-    public Matrix<T> subtractionMatrixFloat(Matrix<T> secondMatrix) {
+    public Matrix<Number> subtractionMatrixFloat(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<T> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.MATRIX[i][j] = firstMatrix.MATRIX[i][j].doubleValue() - secondMatrix.MATRIX[i][j].doubleValue();
+                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue() - secondMatrix.matrix[i][j].doubleValue();
             }
         }
         return thirdMatrix;
     }
 
     /**
-     * Matrix multiplication with floating point values.
+     * Multiplication of integer matrices.
      *
      * @param secondMatrix matrix to multiply.
      */
@@ -383,7 +281,7 @@ public class Matrix<T extends Number> {
         for (int i = 0; i < firstMatrixString; i++) {
             for (int j = 0; j < secondMatrixColumn; j++) {
                 for (int k = 0; k < secondMatrixString; k++) {
-                    thirdMatrix[i][j] += firstMatrix.MATRIX[i][k].intValue() * secondMatrix.MATRIX[k][j].intValue();
+                    thirdMatrix[i][j] += firstMatrix.matrix[i][k].intValue() * secondMatrix.matrix[k][j].intValue();
                 }
             }
         }
@@ -395,6 +293,8 @@ public class Matrix<T extends Number> {
     }
 
     /**
+     * Matrix multiplication with floating point values.
+     *
      * @param secondMatrix matrix to multiply.
      */
     public void multiplicationMatrixFloat(Matrix<T> secondMatrix) {
@@ -409,7 +309,8 @@ public class Matrix<T extends Number> {
         for (int i = 0; i < firstMatrixString; i++) {
             for (int j = 0; j < secondMatrixColumn; j++) {
                 for (int k = 0; k < secondMatrixString; k++) {
-                    thirdMatrix[i][j] += firstMatrix.MATRIX[i][k].doubleValue() * secondMatrix.MATRIX[k][j].doubleValue();
+                    thirdMatrix[i][j] += firstMatrix.matrix[i][k].doubleValue()
+                            * secondMatrix.matrix[k][j].doubleValue();
                 }
             }
         }
@@ -422,27 +323,25 @@ public class Matrix<T extends Number> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Matrix)) {
-            return false;
-        }
-        Matrix<?> matrix = (Matrix<?>) o;
-
-        return string == matrix.string && column == matrix.column && Arrays.deepEquals(MATRIX, matrix.MATRIX);
+        if (this == o) return true;
+        if (!(o instanceof Matrix)) return false;
+        Matrix<?> matrix1 = (Matrix<?>) o;
+        return string == matrix1.string && column == matrix1.column && Arrays.deepEquals(matrix, matrix1.matrix);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(string, column);
-        result = 31 * result + Arrays.deepHashCode(MATRIX);
-
+        result = 31 * result + Arrays.deepHashCode(matrix);
         return result;
     }
 
     public int getString() {
         return string;
+    }
+
+    public void setString(int string) {
+        this.string = string;
     }
 
     public int getColumn() {

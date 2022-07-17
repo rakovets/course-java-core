@@ -8,11 +8,9 @@ import java.util.Scanner;
 
 public class Array<T extends Number> {
     private final T[] array;
-
     private int arrayLength;
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final Random random = new Random();
 
     /**
      * Constructor.
@@ -62,6 +60,8 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void arrayFillRandomInters(int minimumNumber, int maximumNumber) {
+        Random random = new Random();
+
         String minimum = Integer.toString(minimumNumber);
         String maximum = Integer.toString(maximumNumber + 1);
 
