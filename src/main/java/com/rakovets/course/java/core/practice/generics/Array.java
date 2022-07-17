@@ -1,102 +1,83 @@
 package com.rakovets.course.java.core.practice.generics;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Array<T> {
-    private final Number[] ARRAY;
-
-    private final Scanner scanner = new Scanner(System.in);
-    private final Random random = new Random();
-
+public class Array<T extends Number> {
+    private final T[] array;
     private int arrayLength;
+
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Random random = new Random();
+
+    /**
+     * Constructor.
+     *
+     * @param array received.
+     */
+    public Array(T[] array) {
+        this.array = array;
+    }
 
     /**
      * Constructor.
      *
      * @param arrayLength array length.
      */
+    @SuppressWarnings("unchecked")
     public Array(int arrayLength) {
-        ARRAY = new Number[arrayLength];
+        array = (T[]) new Number[arrayLength];
         this.arrayLength = arrayLength;
-    }
-
-    /**
-     * Additional constructor.
-     *
-     * @param ARRAY passed array.
-     */
-    public Array(T[] ARRAY) {
-        this.ARRAY = (Number[]) ARRAY;
     }
 
     /**
      * Filling an array with integer values from the keyboard.
      */
+    @SuppressWarnings("unchecked")
     public void arrayFillIntegers() {
-        for (int i = 0; i < arrayLength; i++) {
-            this.ARRAY[i] = scanner.nextBigInteger();
+        for (int i = 0; i < this.array.length; i++) {
+            this.array[i] = (T) scanner.nextBigInteger();
         }
     }
 
     /**
      * Filling an array with floating point values from the keyboard.
      */
+    @SuppressWarnings("unchecked")
     public void arrayFillFloatingPoint() {
-        for (int i = 0; i < arrayLength; i++) {
-            this.ARRAY[i] = scanner.nextBigDecimal();
+        for (int i = 0; i < this.arrayLength; i++) {
+            this.array[i] = (T) scanner.nextBigDecimal();
         }
     }
 
     /**
-     * Fills an array with random integers.
-     */
-    public void arrayFillRandomInters() {
-        for (int i = 0; i < arrayLength; i++) {
-            this.ARRAY[i] = random.nextInt();
-        }
-    }
-
-    /**
-     * Fills an array with random integers from 0 to the given value.
+     * Generates random integers ranging from minimum to maximum    .
      *
-     * @param size the maximum value is from 0 to size.
+     * @param minimumNumber the smallest number in the array.
+     * @param maximumNumber the largest number in the array.
      */
-    public void arrayFillRandomInters(int size) {
+    @SuppressWarnings("unchecked")
+    public void arrayFillRandomInters(int minimumNumber, int maximumNumber) {
+        String minimum = Integer.toString(minimumNumber);
+        String maximum = Integer.toString(maximumNumber + 1);
+
+        BigInteger bigIntegerMinimum = new BigInteger(minimum);
+        BigInteger bigIntegerMaximum = new BigInteger(maximum);
+
+        int length = bigIntegerMaximum.bitLength();
+
         for (int i = 0; i < arrayLength; i++) {
-            this.ARRAY[i] = random.nextInt(size);
+            BigInteger number = new BigInteger(length, random);
+            if (number.compareTo(bigIntegerMinimum) < 0) {
+                number = number.add(bigIntegerMinimum);
+            } else if (number.compareTo(bigIntegerMaximum) >= 0) {
+                number = number.mod(bigIntegerMaximum).add(bigIntegerMinimum);
+            }
+            this.array[i] = (T) number;
         }
-    }
-
-    /**
-     * Fills an array with random floating point numbers.
-     */
-    public void arrayFillRandomFloatingPoint() {
-        for (int i = 0; i < arrayLength; i++) {
-            this.ARRAY[i] = random.nextDouble();
-        }
-    }
-
-    /**
-     * Prints the contents of the array.
-     *
-     * @return the contents of the array as a string.
-     */
-    public String printArray() {
-        return "array " + Arrays.toString(getARRAY());
-    }
-
-    /**
-     * Prints the contents of the array.
-     *
-     * @param array array to print.
-     * @param <T>   generic data type.
-     * @return the contents of the array as a string.
-     */
-    public static <T extends Number> String printArray(T[] array) {
-        return "array " + Arrays.toString(array);
     }
 
     /**
@@ -104,19 +85,8 @@ public class Array<T> {
      *
      * @return maximum value.
      */
-    public Number getMaximumNumber() {
-        return Math.getMaximumNumber(this.ARRAY);
-    }
-
-    /**
-     * Finds the maximum value in an array.
-     *
-     * @param array for finding the maximum value.
-     * @param <T>   generic data type.
-     * @return maximum parameter.
-     */
-    public static <T extends Number> T getMaximumNumber(T[] array) {
-        return Math.getMaximumNumber(array);
+    public T getMaximumNumber() {
+        return Math.getMaximumNumber(this.array);
     }
 
     /**
@@ -124,19 +94,8 @@ public class Array<T> {
      *
      * @return minimum value.
      */
-    public Number getMinimumNumber() {
-        return Math.getMinimumNumber(this.ARRAY);
-    }
-
-    /**
-     * Finds the minimum value in an array.
-     *
-     * @param array for finding the minimum value.
-     * @param <T>   generic data type.
-     * @return minimum parameter.
-     */
-    public static <T extends Number> T getMinimumNumber(T[] array) {
-        return Math.getMinimumNumber(array);
+    public T getMinimumNumber() {
+        return Math.getMinimumNumber(this.array);
     }
 
     /**
@@ -144,19 +103,8 @@ public class Array<T> {
      *
      * @return arithmetical mean.
      */
-    public Number getAverage() {
-        return Math.getAverage(this.ARRAY);
-    }
-
-    /**
-     * Finds the arithmetic mean of the numbers in an array.
-     *
-     * @param array for finding the arithmetic mean value.
-     * @param <T>   generic data type.
-     * @return arithmetic mean of numbers from the array.
-     */
-    public static <T extends Number> double getAverage(T[] array) {
-        return Math.getAverage(array);
+    public double getAverage() {
+        return Math.getAverage(this.array);
     }
 
     /**
@@ -164,19 +112,8 @@ public class Array<T> {
      *
      * @return sorted array.
      */
-    public Number[] sortAscending() {
-        return Math.selectionSort(this.ARRAY);
-    }
-
-    /**
-     * Sorts the array in ascending order.
-     *
-     * @param array for sorting.
-     * @param <T>   generic data type.
-     * @return sorted array.
-     */
-    public static <T extends Number> T[] sortAscending(T[] array) {
-        return Math.selectionSort(array);
+    public T[] sortAscending() {
+        return Math.selectionSort(this.array);
     }
 
     /**
@@ -187,36 +124,15 @@ public class Array<T> {
      *
      * @return sorted array.
      */
-    public Number[] descendingSorting() {
-        Math.selectionSort(this.ARRAY);
+    public T[] descendingSorting() {
+        Math.selectionSort(this.array);
 
-        for (int i = 0; i < arrayLength / 2; i++) {
-            Number sort = this.ARRAY[i];
-            this.ARRAY[i] = this.ARRAY[arrayLength - i - 1];
-            this.ARRAY[arrayLength - i - 1] = sort;
+        for (int i = 0; i < this.array.length / 2; i++) {
+            T sort = this.array[i];
+            this.array[i] = this.array[this.array.length - i - 1];
+            this.array[this.array.length - i - 1] = sort;
         }
-        return this.ARRAY;
-    }
-
-    /**
-     * Sorts an array in descending order.
-     * <p>Calculates the middle of the array - array. length / 2.
-     * Iterates over the elements of the array from the beginning to the middle and simultaneously
-     * swaps the elements with index i and array. length - i - 1.
-     *
-     * @param array for sorting.
-     * @param <T>   generic data type.
-     * @return sorted array.
-     */
-    public static <T extends Number> T[] descendingSorting(T[] array) {
-        Math.selectionSort(array);
-
-        for (int i = 0; i < array.length / 2; i++) {
-            T sort = array[i];
-            array[i] = array[array.length - i - 1];
-            array[array.length - i - 1] = sort;
-        }
-        return array;
+        return this.array;
     }
 
     /**
@@ -228,23 +144,7 @@ public class Array<T> {
      * @return the position of the found element. If the return value is -1,
      * then the required element is not in the array.
      */
-    public int jumpSearch(Number value) {
-        Math.selectionSort(ARRAY);
-
-        return Math.jumpSearch(ARRAY, value);
-    }
-
-    /**
-     * Method of binary search in an array using the "jumping search" algorithm.
-     * <p> The array is being sorted.
-     * <p>See description in class Math.
-     *
-     * @param array array to look up the value.
-     * @param value the value to look up in the array.
-     * @return the position of the found element. If the return value is -1,
-     * then the required element is not in the array.
-     */
-    public static <T extends Number> int jumpSearch(T[] array, T value) {
+    public int jumpSearch(T value) {
         Math.selectionSort(array);
 
         return Math.jumpSearch(array, value);
@@ -255,14 +155,11 @@ public class Array<T> {
      *
      * @param value new value.
      * @param index value index.
-     * @return the current array after the replacement.
      */
-    public Number[] replace(Number value, int index) {
-        Math.selectionSort(ARRAY);
+    public void replace(T value, int index) {
+        Math.selectionSort(array);
 
-        ARRAY[index] = value;
-
-        return ARRAY;
+        array[index] = value;
     }
 
     @Override
@@ -270,30 +167,24 @@ public class Array<T> {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Array)) {
             return false;
         }
-
         Array<?> array1 = (Array<?>) o;
 
-        return arrayLength == array1.arrayLength && Arrays.equals(ARRAY, array1.ARRAY)
-                && scanner.equals(array1.scanner) && random.equals(array1.random);
+        return arrayLength == array1.arrayLength && Arrays.equals(array, array1.array);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(arrayLength, scanner, random);
-        result = 31 * result + Arrays.hashCode(ARRAY);
+        int result = Objects.hash(arrayLength);
+        result = 31 * result + Arrays.hashCode(array);
 
         return result;
     }
 
     @Override
     public String toString() {
-        return "array " + Arrays.toString(getARRAY());
-    }
-
-    public Number[] getARRAY() {
-        return ARRAY;
+        return "array " + Arrays.toString(array);
     }
 }

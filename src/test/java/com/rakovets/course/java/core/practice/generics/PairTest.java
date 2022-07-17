@@ -18,9 +18,9 @@ class PairTest {
 
     @Test
     void getSwapped() {
-        Pair<String, Integer> pair = new Pair<>("Java", 5);
+        Pair<Object, Object> pair = new Pair<>("Java", 5);
 
-        Pair<Integer, String> getSwapped = pair.getSwapped();
+        Pair<Object, Object> getSwapped = pair.getSwapped();
 
         assertEquals(5, getSwapped.getFirstParameter());
         assertEquals("Java", getSwapped.getSecondParameter());

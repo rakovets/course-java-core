@@ -23,7 +23,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("printArrayProviderArguments")
     void printArray(T[] array, String expected) {
-        String actual = Array.printArray(array);
+        Array<T> arrayForPrint = new Array<>(array);
+
+        String actual = arrayForPrint.toString();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -42,7 +44,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("getMaximumNumberProviderArguments")
     void getMaximumNumber(T[] array, T expected) {
-        T actual = Array.getMaximumNumber(array);
+        Array<T> arrayMaximum = new Array<>(array);
+
+        T actual = arrayMaximum.getMaximumNumber();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -61,7 +65,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("getMinimumNumberProviderArguments")
     void getMinimumNumber(T[] array, T expected) {
-        T actual = Array.getMinimumNumber(array);
+        Array<T> arrayMinimum = new Array<>(array);
+
+        T actual = arrayMinimum.getMinimumNumber();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -83,7 +89,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("getAverageProviderArguments")
     void getAverage(T[] array, double expected) {
-        double actual = Array.getAverage(array);
+        Array<T> arrayAverage = new Array<>(array);
+
+        double actual = arrayAverage.getAverage();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -102,7 +110,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("sortAscendingProviderArguments")
     void sortAscending(T[] array, T[] expectedResult) {
-        T[] actualResult = Array.sortAscending(array);
+        Array<T> arraySort = new Array<>(array);
+
+        T[] actualResult = arraySort.sortAscending();
 
         Assertions.assertArrayEquals(expectedResult, actualResult);
     }
@@ -121,7 +131,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("descendingSortingProviderArguments")
     void descendingSorting(T[] array, T[] expectedResult) {
-        T[] actualResult = Array.descendingSorting(array);
+        Array<T> arraySort = new Array<>(array);
+
+        T[] actualResult = arraySort.descendingSorting();
 
         Assertions.assertArrayEquals(expectedResult, actualResult);
     }
@@ -142,7 +154,9 @@ public class ArrayTest<T extends Number> {
     @ParameterizedTest
     @MethodSource("jumpSearchProviderArguments")
     void jumpSearch(T value, T[] array, int expected) {
-        int actual = Array.jumpSearch(array, value);
+        Array<T> arraySearch = new Array<>(array);
+
+        int actual = arraySearch.jumpSearch(value);
 
         Assertions.assertEquals(expected, actual);
     }

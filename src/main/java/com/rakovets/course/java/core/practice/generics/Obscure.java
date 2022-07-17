@@ -81,10 +81,6 @@ public class Obscure<T> {
         return new Obscure<>(null);
     }
 
-    public T getObject() {
-        return object;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -101,5 +97,9 @@ public class Obscure<T> {
     @Override
     public int hashCode() {
         return Objects.hash(object);
+    }
+
+    public T getObject() {
+        return object;
     }
 }
