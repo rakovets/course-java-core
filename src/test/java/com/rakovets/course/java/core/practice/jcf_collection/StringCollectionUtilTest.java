@@ -22,10 +22,10 @@ public class StringCollectionUtilTest {
 
     @Test
     public void testRemoveWordsByLength() {
-        Collection<String> collection = new ArrayList<>(Arrays.asList("this", "is", "this", "of", "fun", "for", "every", "this", "programmer"));
+        Collection<String> collection = new ArrayList<>(Arrays.asList("Summer", "is", "always", "a", "lot", "of", "fun", "for", "children", "!"));
 
-        Collection<String> expected = Arrays.asList("is", "of", "fun", "for", "every", "programmer");
+        Collection<String> expected = Arrays.asList("Summer", "is", "always", "a", "of", "children", "!");
 
-        Assertions.assertEquals(expected, stringCollectionUtil.removeWordsByLength(collection, 4));
+        Assertions.assertEquals(expected, stringCollectionUtil.removeWordsByLength(collection, 3));
     }
 }
