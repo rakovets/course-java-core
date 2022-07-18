@@ -4,8 +4,7 @@ public class Task3Application {
     public static void main(String[] args) {
         Task3 task3 = new Task3();
         try {
-            String result = task3.checkAge(-1);
-            System.out.println(result);
+            task3.checkAge(-1);
         } catch (Task3Exception ex) {
             ex.printStackTrace();
         }

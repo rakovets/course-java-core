@@ -22,4 +22,3 @@ public class Task7Application {
         }
     }
 }
-
