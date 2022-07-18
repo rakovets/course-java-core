@@ -21,5 +21,4 @@ public class Studio {
             actors.remove(maxFeeIndex);
             return actors;
     }
-
 }

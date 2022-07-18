@@ -25,7 +25,7 @@ public class ClassDemo {
         Comparator<Person> nameAndSurnameComparator = new nameComparator().thenComparing(new surnameComparator());
         Collections.sort(personList, nameAndSurnameComparator);
         for (Person person : personList) {
-            System.out.println(person.getName() + " " + person.getSurname());
+            System.out.println("Sort by name and surname: " + person.getName() + " " + person.getSurname());
         }
 
         Collections.sort(personList, new ageComparator());
@@ -35,7 +35,7 @@ public class ClassDemo {
 
         Collections.sort(personList, new averageMarkComparator());
         for (Person person : personList) {
-            System.out.println(person.getAverageAnnualMark());
+            System.out.println("Sort by annual mark: " + person.getAverageAnnualMark());
         }
     }
 }
