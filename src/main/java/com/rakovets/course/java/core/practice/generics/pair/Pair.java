@@ -9,6 +9,18 @@ public class Pair <K, V> {
         this.second = second;
     }
 
+    public Pair<K, V> getSwapped() {
+        K firstSwapped = (K) getSecond();
+        V secondSwapped = (V) getFirst();
+        setFirst(firstSwapped);
+        setSecond(secondSwapped);
+        return this;
+    }
+
+    public static <K,V> Pair<K,V> swap(Pair <K,V> pair) {
+        return  pair.getSwapped();
+    }
+
     public K getFirst() {
         return first;
     }
