@@ -39,9 +39,9 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void matrixFillInteger() {
-        for (int i = 0; i < this.matrix.length; i++) {
-            for (int j = 0; j < this.matrix[i].length; j++) {
-                this.matrix[i][j] = (T) scanner.nextBigInteger();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = (T) scanner.nextBigInteger();
             }
         }
     }
@@ -51,9 +51,9 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void matrixFillFloatingPoint() {
-        for (int i = 0; i < this.matrix.length; i++) {
-            for (int j = 0; j < this.matrix[i].length; j++) {
-                this.matrix[i][j] = (T) scanner.nextBigDecimal();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = (T) scanner.nextBigDecimal();
             }
         }
     }
@@ -74,15 +74,15 @@ public class Matrix<T extends Number> {
 
         int length = bigIntegerMaximum.bitLength();
 
-        for (int i = 0; i < this.matrix.length; i++) {
-            for (int j = 0; j < this.matrix[i].length; j++) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 BigInteger number = new BigInteger(length, random);
                 if (number.compareTo(bigIntegerMinimum) < 0) {
                     number = number.add(bigIntegerMinimum);
                 } else if (number.compareTo(bigIntegerMaximum) >= 0) {
                     number = number.mod(bigIntegerMaximum).add(bigIntegerMinimum);
                 }
-                this.matrix[i][j] = (T) number;
+                matrix[i][j] = (T) number;
             }
         }
     }
@@ -106,7 +106,7 @@ public class Matrix<T extends Number> {
     public T getMaximumNumberMatrixInteger() {
         T maximum = matrix[0][0];
 
-        for (T[] matrix : this.matrix) {
+        for (T[] matrix : matrix) {
             for (int j = 0; j < this.matrix[0].length; j++) {
                 if (maximum.intValue() < matrix[j].intValue()) {
                     maximum = matrix[j];
@@ -142,7 +142,7 @@ public class Matrix<T extends Number> {
     public T getMinimumNumberMatrixInteger() {
         T minimum = matrix[0][0];
 
-        for (T[] matrix : this.matrix) {
+        for (T[] matrix : matrix) {
             for (int j = 0; j < this.matrix[0].length; j++) {
                 if (matrix[j].intValue() < minimum.intValue()) {
                     minimum = matrix[j];
@@ -161,7 +161,7 @@ public class Matrix<T extends Number> {
     public T getMinimumNumberMatrixFloat() {
         T minimum = matrix[0][0];
 
-        for (T[] matrix : this.matrix) {
+        for (T[] matrix : matrix) {
             for (int j = 0; j < this.matrix[0].length; j++) {
                 if (matrix[j].doubleValue() < minimum.doubleValue()) {
                     minimum = matrix[j];
@@ -180,8 +180,8 @@ public class Matrix<T extends Number> {
         double sum = 0;
         int digitCount = 0;
 
-        for (T[] elements : this.matrix) {
-            for (int columns = 0; columns < this.matrix[0].length; columns++) {
+        for (T[] elements : matrix) {
+            for (int columns = 0; columns < matrix[0].length; columns++) {
                 sum += elements[columns].doubleValue();
                 digitCount++;
             }

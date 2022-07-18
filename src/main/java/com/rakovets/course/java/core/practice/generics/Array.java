@@ -38,8 +38,8 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void arrayFillIntegers() {
-        for (int i = 0; i < this.array.length; i++) {
-            this.array[i] = (T) scanner.nextBigInteger();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (T) scanner.nextBigInteger();
         }
     }
 
@@ -48,8 +48,8 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void arrayFillFloatingPoint() {
-        for (int i = 0; i < this.arrayLength; i++) {
-            this.array[i] = (T) scanner.nextBigDecimal();
+        for (int i = 0; i < arrayLength; i++) {
+            array[i] = (T) scanner.nextBigDecimal();
         }
     }
 
@@ -78,7 +78,7 @@ public class Array<T extends Number> {
             } else if (number.compareTo(bigIntegerMaximum) >= 0) {
                 number = number.mod(bigIntegerMaximum).add(bigIntegerMinimum);
             }
-            this.array[i] = (T) number;
+            array[i] = (T) number;
         }
     }
 
@@ -88,7 +88,7 @@ public class Array<T extends Number> {
      * @return maximum value.
      */
     public T getMaximumNumber() {
-        return Math.getMaximumNumber(this.array);
+        return Math.getMaximumNumber(array);
     }
 
     /**
@@ -97,7 +97,7 @@ public class Array<T extends Number> {
      * @return minimum value.
      */
     public T getMinimumNumber() {
-        return Math.getMinimumNumber(this.array);
+        return Math.getMinimumNumber(array);
     }
 
     /**
@@ -106,7 +106,7 @@ public class Array<T extends Number> {
      * @return arithmetical mean.
      */
     public double getAverage() {
-        return Math.getAverage(this.array);
+        return Math.getAverage(array);
     }
 
     /**
@@ -115,7 +115,7 @@ public class Array<T extends Number> {
      * @return sorted array.
      */
     public T[] sortAscending() {
-        return Math.selectionSort(this.array);
+        return Math.selectionSort(array);
     }
 
     /**
@@ -127,14 +127,14 @@ public class Array<T extends Number> {
      * @return sorted array.
      */
     public T[] descendingSorting() {
-        Math.selectionSort(this.array);
+        Math.selectionSort(array);
 
-        for (int i = 0; i < this.array.length / 2; i++) {
-            T sort = this.array[i];
-            this.array[i] = this.array[this.array.length - i - 1];
-            this.array[this.array.length - i - 1] = sort;
+        for (int i = 0; i < array.length / 2; i++) {
+            T sort = array[i];
+            array[i] = array[array.length - i - 1];
+            array[array.length - i - 1] = sort;
         }
-        return this.array;
+        return array;
     }
 
     /**

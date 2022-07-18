@@ -2,10 +2,11 @@ package com.rakovets.course.java.core.practice.generics;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class CustomArrayList<T> {
     private T[] data;
-
     private int size;
     private int capacity;
 
@@ -133,7 +134,7 @@ public class CustomArrayList<T> {
      */
     public void removeAt(int index) throws ArrayIndexOutOfBoundsException {
         if (index >= capacity || index < 0) {
-            throw new ArrayIndexOutOfBoundsException("Invalid index.");
+            throw new ArrayIndexOutOfBoundsException();
         }
         for (int i = index; i < capacity - 1; i++) {
             data[i] = data[i + 1];
@@ -223,6 +224,110 @@ public class CustomArrayList<T> {
             data[i] = null;
         }
         size = 0;
+    }
+
+    /**
+     * Checks an array for emptiness.
+     *
+     * @return true - array empty, false - array is not empty.
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
+     * The method adjusts the value of capacity to size, naturally reducing the size of the used memory.
+     */
+    @SuppressWarnings("unchecked")
+    public void trimToSize() {
+        if (size < capacity) {
+            Object[] newData = new Object[size];
+            System.arraycopy(data, 0, newData, 0, size);
+            data = (T[]) newData;
+            capacity = size;
+        }
+    }
+
+    /**
+     * Linear search from left to right for the first occurrence in the array of the specified value.
+     *
+     * @param value element to search.
+     * @return the index of the found element, and if nothing is found, returns -1.
+     */
+    public int indexOf(T value) {
+        int index = -1;
+
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == value) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    /**
+     * Reverses the order of elements in an array.
+     */
+    @SuppressWarnings("unchecked")
+    public void reverse() {
+        T[] array = (T[]) new Object[capacity];
+
+        for (int i = 0; i < size; i++) {
+            array[i] = data[size - 1 - i];
+        }
+        data = array;
+    }
+
+    /**
+     * Random shuffling of array elements.
+     */
+    public void shuffle() {
+        Random random = ThreadLocalRandom.current();
+
+        for (int i = data.length - 1; i > 0; i--) {
+            int index = random.nextInt(i + 1);
+
+            T j = data[index];
+            data[index] = data[i];
+            data[i] = j;
+        }
+    }
+
+    /**
+     * Linear search from right to left for an array entry of the specified value.
+     *
+     * @param value element to search.
+     * @return the index of the found element, and if nothing is found, returns -1.
+     */
+    public int lastIndexOf(T value) {
+        int index = -1;
+
+        for (int i = data.length - 1; i >= 0; i--) {
+            if (data[i] == value) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    /**
+     * Returns copies of the array element at the specified index, checking for array out of bounds.
+     *
+     * @param element the given element.
+     * @return the required element.
+     */
+    public T getElementAt(int element) throws IndexOutOfBoundsException {
+        if (element < 0 || element > capacity) {
+            throw new IndexOutOfBoundsException();
+        }
+        return data[element];
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override

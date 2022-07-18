@@ -11,24 +11,26 @@ import java.util.stream.Stream;
 public class CustomArrayListTest<T> {
     static Stream<Arguments> pushBackProviderArguments() {
         return Stream.of(
-                Arguments.of(0, 2, 1),
-                Arguments.of(1, "Hello", 1)
+                Arguments.of(0, new Integer[]{1, 2, 3}, 3),
+                Arguments.of(1, new String[]{"one", "two"}, 2)
         );
     }
 
     @ParameterizedTest
     @MethodSource("pushBackProviderArguments")
-    void pushBack(int capacity, T value, int expected) {
+    void pushBack(int capacity, T[] array, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
 
-        customArrayList.pushBack(value);
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
 
         Assertions.assertEquals(expected, customArrayList.getSize());
     }
 
     @Test
     void pushBackThrow() {
-        CustomArrayList<T> customArrayList = new CustomArrayList<>(1);
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
         Assertions.assertThrows(NullPointerException.class, () -> customArrayList.pushBack(null));
     }
@@ -69,7 +71,7 @@ public class CustomArrayListTest<T> {
 
     @Test
     void pushFrontThrow() {
-        CustomArrayList<T> customArrayList = new CustomArrayList<>(1);
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
         Assertions.assertThrows(NullPointerException.class, () -> customArrayList.pushFront(null));
     }
@@ -108,26 +110,28 @@ public class CustomArrayListTest<T> {
 
     @Test
     void insertNpe() {
-        CustomArrayList<T> customArrayList = new CustomArrayList<>(1);
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
         Assertions.assertThrows(NullPointerException.class, () -> customArrayList.insert(null, 0));
     }
 
     static Stream<Arguments> removeAtThrowProviderArguments() {
         return Stream.of(
-                Arguments.of(2, 2, 3),
-                Arguments.of(2, "Hello", 3)
+                Arguments.of(3, new Integer[]{1, 2, 3}, 4),
+                Arguments.of(5, new Double[]{1.0, 2.0, 3.0, 1.0, 2.0, 3.0}, -4),
+                Arguments.of(2, new String[]{"one", "two"}, 3),
+                Arguments.of(10, new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 16)
         );
     }
 
     @ParameterizedTest
     @MethodSource("removeAtThrowProviderArguments")
-    void removeAtThrow(int capacity, T value, int index) {
+    void removeAtThrow(int capacity, T[] array, int index) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
 
-        customArrayList.pushFront(value);
-        customArrayList.pushFront(value);
-        customArrayList.pushFront(value);
+        for (T value : array) {
+            customArrayList.pushFront(value);
+        }
 
         Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> customArrayList.removeAt(index));
     }
@@ -166,73 +170,69 @@ public class CustomArrayListTest<T> {
 
     static Stream<Arguments> removeProviderArguments() {
         return Stream.of(
-                Arguments.of(5, 1, 4),
-                Arguments.of(1, 1, 0)
+                Arguments.of(new Integer[]{1, 2, 2}, 2, 2),
+                Arguments.of(new String[]{"one", "two", "two", "two"}, "two", 3),
+                Arguments.of(new Integer[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8, 10)
         );
     }
 
     @ParameterizedTest
     @MethodSource("removeProviderArguments")
-    void remove(int capacity, T value, int expected) {
-        CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
+    public void remove(T[] array, T value, int expected) {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
-        customArrayList.pushFront(value);
-        customArrayList.pushFront(value);
+        for (T arrayValue : array) {
+            customArrayList.pushBack(arrayValue);
+        }
         customArrayList.remove(value);
 
-        Assertions.assertEquals(expected, capacity - customArrayList.getSize());
+        Assertions.assertEquals(expected, customArrayList.getSize());
     }
 
-    static Stream<Arguments> removeAllThrowProviderArguments() {
-        return Stream.of(
-                Arguments.of(1, null),
-                Arguments.of(1, null)
-        );
-    }
+    @Test
+    void removeAllThrow() {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
-    @ParameterizedTest
-    @MethodSource("removeAllThrowProviderArguments")
-    void removeAllThrow(int capacity, T value) {
-        CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
-
-        Assertions.assertThrows(NullPointerException.class, () -> customArrayList.removeAll(value));
+        Assertions.assertThrows(NullPointerException.class, () -> customArrayList.removeAll(null));
     }
 
     static Stream<Arguments> removeAllProviderArguments() {
         return Stream.of(
-                Arguments.of(2, "Hello", 0)
+                Arguments.of(2, new Integer[]{1, 2, 2}, 2, 1),
+                Arguments.of(3, new String[]{"one", "two", "two", "two"}, "two", 2),
+                Arguments.of(11, new Integer[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8, 4)
         );
     }
 
     @ParameterizedTest
     @MethodSource("removeAllProviderArguments")
-    void removeAll(int capacity, T value, int expected) {
+    public void removeAll(int capacity, T[] array, T value, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
 
-        customArrayList.pushFront(value);
-        System.out.println(customArrayList);
-        customArrayList.pushFront(value);
-        System.out.println(customArrayList);
-        customArrayList.pushFront(value);
-        System.out.println(customArrayList);
+        for (T arrayValue : array) {
+            customArrayList.pushBack(arrayValue);
+        }
         customArrayList.removeAll(value);
 
-        Assertions.assertEquals(expected, capacity - customArrayList.getSize());
+        Assertions.assertEquals(expected, customArrayList.getSize());
     }
 
     static Stream<Arguments> popBackProviderArguments() {
         return Stream.of(
-                Arguments.of(3, "Hello", 1)
+                Arguments.of(9, new Integer[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 10),
+                Arguments.of(0, new Short[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 10),
+                Arguments.of(2, new String[]{"Java", "Hey"}, 1)
         );
     }
 
     @ParameterizedTest
     @MethodSource("popBackProviderArguments")
-    void popBack(int capacity, T value, int expected) {
+    void popBack(int capacity, T[] array, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
 
-        customArrayList.pushFront(value);
-        customArrayList.pushFront(value);
+        for (T arrayValue : array) {
+            customArrayList.pushBack(arrayValue);
+        }
         customArrayList.popBack();
 
         Assertions.assertEquals(expected, customArrayList.getSize());
@@ -240,22 +240,125 @@ public class CustomArrayListTest<T> {
 
     static Stream<Arguments> clearProviderArguments() {
         return Stream.of(
-                Arguments.of(4, "Hello", 0)
+                Arguments.of(9, new Integer[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 0),
+                Arguments.of(0, new Short[]{1, 8, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 0),
+                Arguments.of(2, new String[]{"Java", "Hey"}, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource("clearProviderArguments")
-    void clear(int capacity, T value, int expected) {
+    void clear(int capacity, T[] array, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
 
-        customArrayList.pushBack(value);
-        customArrayList.pushBack(value);
-        customArrayList.pushBack(value);
-        customArrayList.pushBack(value);
-        customArrayList.pushBack(value);
+        for (T arrayValue : array) {
+            customArrayList.pushBack(arrayValue);
+        }
         customArrayList.clear();
 
         Assertions.assertEquals(expected, customArrayList.getSize());
+    }
+
+    static Stream<Arguments> isEmptyProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, new Integer[]{}),
+                Arguments.of(false, new String[]{"one", "two", "two", "two"}),
+                Arguments.of(true, new Integer[]{})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isEmptyProviderArguments")
+    public void isEmpty(boolean expectedSize, T[] array) {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>(10);
+
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+
+        Assertions.assertEquals(expectedSize, customArrayList.isEmpty());
+    }
+
+    static Stream<Arguments> indexOfProviderArguments() {
+        return Stream.of(
+                Arguments.of(new Integer[]{3, 2, 1}, 2, 1),
+                Arguments.of(new String[]{"Java", "two", "two", "two"}, "two", 1),
+                Arguments.of(new String[]{"Java", "Hey", "Hey", "Loki"}, "Tor", -1),
+                Arguments.of(new Integer[]{1, 0, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8, 3)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("indexOfProviderArguments")
+    public void indexOf(T[] array, T value, int expected) {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
+
+        for (T arrayValue : array) {
+            customArrayList.pushBack(arrayValue);
+        }
+
+        Assertions.assertEquals(expected, customArrayList.indexOf(value));
+    }
+
+    static Stream<Arguments> lastIndexOfProviderArguments() {
+        return Stream.of(
+                Arguments.of(new Integer[]{1, 2, 2, 8, 9}, 2, 2),
+                Arguments.of(new String[]{"Java", "two", "two", "two"}, "two", 3),
+                Arguments.of(new String[]{"Java", "Hey", "Hey", "Loki"}, "Hey", 2),
+                Arguments.of(new String[]{"Java", "Hey", "Hey", "Loki"}, "Tor", -1),
+                Arguments.of(new Integer[]{1, 0, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8, 7)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("lastIndexOfProviderArguments")
+    public void lastIndexOf(T[] array, T value, int expected) {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>(10);
+
+        for (T arrayValue : array) {
+            customArrayList.pushBack(arrayValue);
+        }
+
+        Assertions.assertEquals(expected, customArrayList.lastIndexOf(value));
+    }
+
+    static Stream<Arguments> getElementAtProviderArguments() {
+        return Stream.of(
+                Arguments.of(new Integer[]{1, 2, 3, 8, 9}, 8, 3),
+                Arguments.of(new String[]{"Java", "two", "two!", "two"}, "two", 3),
+                Arguments.of(new String[]{"Java", "Hey", "Hey", "Loki"}, "Hey", 2),
+                Arguments.of(new String[]{"Java", "Hey", "Hey", "Loki"}, "Loki", 3),
+                Arguments.of(new Integer[]{1, 0, 3, 8, 5, 8, 7, 8, 9, 10, 11}, 8, 5)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getElementAtProviderArguments")
+    public void getElementAt(T[] array, T expected, int index) {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>();
+
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+
+        Assertions.assertEquals(expected, customArrayList.getElementAt(index));
+    }
+
+    static Stream<Arguments> getElementAtThrowProviderArguments() {
+        return Stream.of(
+                Arguments.of(new Integer[]{1, 2, 3, 8, 9}, 7)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getElementAtThrowProviderArguments")
+    public void getElementAtThrow(T[] array, int index) {
+        CustomArrayList<T> customArrayList = new CustomArrayList<>(4);
+
+        for (T value : array) {
+            customArrayList.pushBack(value);
+        }
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> customArrayList.getElementAt(index));
     }
 }

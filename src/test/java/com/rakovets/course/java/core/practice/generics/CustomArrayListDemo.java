@@ -83,7 +83,7 @@ public class CustomArrayListDemo {
         }
         System.out.println("-----------------------------------------------------------------------------------------");
 
-        System.out.println("Remove one element at the specified index.");
+        System.out.println("Filling an array of shorts type.");
         CustomArrayList<Short> shortCustomArrayList = new CustomArrayList<>(5);
         System.out.println(shortCustomArrayList);
         shortCustomArrayList.pushBack((short) 1);
@@ -97,19 +97,23 @@ public class CustomArrayListDemo {
         shortCustomArrayList.pushBack((short) 5);
         System.out.println(shortCustomArrayList);
 
+        System.out.println("\nRemove one element at the specified index.");
+        System.out.println("Index 2.");
         shortCustomArrayList.removeAt(2);
         System.out.println(shortCustomArrayList);
         shortCustomArrayList.removeAt(2);
         System.out.println(shortCustomArrayList);
         shortCustomArrayList.removeAt(2);
         System.out.println(shortCustomArrayList);
+        System.out.println("\nIndex 1.");
         shortCustomArrayList.removeAt(1);
         System.out.println(shortCustomArrayList);
+        System.out.println("\nIndex 0.");
         shortCustomArrayList.removeAt(0);
         System.out.println(shortCustomArrayList);
         System.out.println("-----------------------------------------------------------------------------------------");
 
-        System.out.println("Removing a single element whose value matches the value of the passed parameter.");
+        System.out.println("Filling an array of string type.");
         CustomArrayList<String> stringCustomArrayList = new CustomArrayList<>(5);
         stringCustomArrayList.pushFront("Hello");
         System.out.println(stringCustomArrayList);
@@ -155,8 +159,57 @@ public class CustomArrayListDemo {
         System.out.println(longCustomArrayList);
         longCustomArrayList.pushBack(7L);
         System.out.println(longCustomArrayList);
-        System.out.println("Array cleaning.");
+        longCustomArrayList.pushBack(8L);
+        System.out.println(longCustomArrayList);
+
+        System.out.println("\nWe adjust the value of capacity to fit size.");
+        System.out.println(longCustomArrayList);
+        longCustomArrayList.trimToSize();
+        System.out.println(longCustomArrayList);
+
+        System.out.println("\nReversing the array.");
+        System.out.println(longCustomArrayList);
+        longCustomArrayList.reverse();
+        System.out.println(longCustomArrayList);
+
+        System.out.println("\nRandom shuffling of array elements.");
+        System.out.println(longCustomArrayList);
+        longCustomArrayList.shuffle();
+        System.out.println(longCustomArrayList);
+
+        System.out.println("\nArray cleaning.");
+        System.out.println(longCustomArrayList);
         longCustomArrayList.clear();
         System.out.println(longCustomArrayList);
+
+        System.out.println("\nChecks an array for emptiness.");
+        System.out.println(longCustomArrayList);
+        System.out.println(longCustomArrayList.isEmpty());
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("Comparing two objects of type CustomArrayList.");
+        CustomArrayList<String> stringCustomArrayListFirst = new CustomArrayList<>();
+        CustomArrayList<String> stringCustomArrayListSecond = new CustomArrayList<>();
+        stringCustomArrayListFirst.pushBack("Java");
+        stringCustomArrayListFirst.pushBack("Java");
+        stringCustomArrayListFirst.pushBack("Java");
+        stringCustomArrayListFirst.pushBack("Java");
+        stringCustomArrayListSecond.pushBack("Java");
+        stringCustomArrayListSecond.pushBack("Java");
+        stringCustomArrayListSecond.pushBack("Java");
+        stringCustomArrayListSecond.pushBack("Java");
+        System.out.println(stringCustomArrayListFirst);
+        System.out.println(stringCustomArrayListSecond);
+        System.out.println(stringCustomArrayListFirst.equals(stringCustomArrayListSecond));
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nCreate an exact copy of CustomArrayList.");
+        try {
+            System.out.println(stringCustomArrayListSecond);
+            Object clone = stringCustomArrayListSecond.clone();
+            System.out.println(clone);
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
