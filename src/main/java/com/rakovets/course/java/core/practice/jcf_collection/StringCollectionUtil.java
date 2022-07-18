@@ -11,7 +11,6 @@ public class StringCollectionUtil {
             }
         }
         return list;
-
     }
 
     public Collection <String> removeWordsByLength(Collection<String> collection, int wordSize) {
