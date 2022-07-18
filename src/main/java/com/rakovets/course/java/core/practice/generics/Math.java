@@ -101,7 +101,7 @@ public abstract class Math {
      * <li> On line 121, jumpStep contains the size of the square root of the length of the array.
      * <li> Lines 124 - 130 in a loop, we jump forward step by step with the value from the variable jumpStep
      * until we find an element that is greater than or equal to the element we are looking for.
-     * <li>Lines 127 - 129 inside the loop, if we went beyond the array,
+     * <li> Lines 127 - 129 inside the loop, if we went beyond the array,
      * then the element we need is not in the array.
      * <li> Lines 131-136, when the condition is true,
      * performs a linear search between the [previousStep] array and the [jumpStep] array or greater.

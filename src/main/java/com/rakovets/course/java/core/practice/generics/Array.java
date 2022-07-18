@@ -120,7 +120,7 @@ public class Array<T extends Number> {
 
     /**
      * Sorts an array in descending order.
-     * <p>Calculates the middle of the array - array. length / 2.
+     * <p> Calculates the middle of the array - array. length / 2.
      * Iterates over the elements of the array from the beginning to the middle and simultaneously
      * swaps the elements with index i and array. length - i - 1.
      *
@@ -140,7 +140,7 @@ public class Array<T extends Number> {
     /**
      * Method of binary search in an array using the "jumping search" algorithm.
      * <p> The array is being sorted.
-     * <p>See description in class Math.
+     * <p> See description in class Math.
      *
      * @param value the value to search.
      * @return the position of the found element. If the return value is -1,

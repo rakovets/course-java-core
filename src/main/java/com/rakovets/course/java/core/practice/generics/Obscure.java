@@ -34,8 +34,8 @@ public class Obscure<T> {
 
     /**
      * Takes an object of a generic type.
-     * <p>The method returns a generic type object that is stored in the Obscure.
-     * <p>If it doesn't exist, the method returns default object.
+     * <p> The method returns a generic type object that is stored in the Obscure.
+     * <p> If it doesn't exist, the method returns default object.
      *
      * @param defaultObject generic type object.
      * @return the result of a boolean comparison where,
