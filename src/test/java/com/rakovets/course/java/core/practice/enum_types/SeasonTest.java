@@ -42,7 +42,7 @@ public class SeasonTest {
     @ParameterizedTest
     @MethodSource("findsAFavoriteSeasonProviderArguments")
     void findsAFavoriteSeason(Season season, String expected) {
-        String actual = season.findsAFavoriteSeason(season);
+        String actual = season.findsFavoriteSeason(season);
 
         Assertions.assertEquals(expected, actual);
     }

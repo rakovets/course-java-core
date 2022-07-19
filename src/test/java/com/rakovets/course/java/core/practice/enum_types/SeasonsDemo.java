@@ -7,6 +7,6 @@ public class SeasonsDemo {
         season.getDescriptionForAllSeasons();
 
         System.out.print("-----------------------------------------------------------------------------------------");
-        System.out.print("\n" + season.findsAFavoriteSeason(season));
+        System.out.print("\n" + season.findsFavoriteSeason(season));
     }
 }
