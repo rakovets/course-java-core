@@ -58,7 +58,6 @@ public enum Season {
         String favoriteSeason = "Favorite season is";
         String space = " ";
         String dot = ".";
-
         String favoriteSeasons;
 
         switch (season) {
