@@ -12,19 +12,26 @@ public class StudioDemo {
         actors.add(new Actor("Nicole", "Kidman", 333500.0, 18));
         actors.add(new Actor("Melissa", "McCarthy", 50000.1, 40));
         actors.add(new Actor("Catherine", "Deneuve", 40000.0, 50));
-
-        Studio hollyWood = new Studio();
-
-        hollyWood.fire(actors);
-        System.out.println("List of actors after fired: " + actors);
+        actors.add(new Actor("fake_Keanu", "Reeves", 5500.0, 50));
+        actors.add(new Actor("fake_Keanu", "Reeves", 3500.0, 60));
 
         actors.sort(new FirstNameComparator());
-        System.out.println("List of actors sorted by first name: " + actors);
+        System.out.println("Sorted by first name: " + actors);
 
         actors.sort(new AgeComparator());
-        System.out.println("List of actors sorted by age: " + actors);
+        System.out.println("Sorted by age: " + actors);
 
         actors.sort(new FeeComparator());
-        System.out.println("List of actors sorted by fee: " + actors);
+        System.out.println("Sorted by fee: " + actors);
+
+        actors.sort(new LastNameAndAgeComparator());
+        System.out.println("Sorted by last name and age: " + actors);
+
+        actors.sort(new FeeAndLastNameComparator());
+        System.out.println("Sorted by fee and last name: " + actors);
+
+        Studio hollyWood = new Studio();
+        hollyWood.fire(actors);
+        System.out.println("After fired: " + actors);
     }
 }

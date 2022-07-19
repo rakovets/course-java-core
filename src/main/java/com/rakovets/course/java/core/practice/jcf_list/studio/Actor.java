@@ -13,6 +13,15 @@ public class Actor {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "name='" + firstName + " " + lastName + '\'' +
+                ", cash=" + fee +
+                ", age=" + age +
+                '}';
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -27,14 +36,5 @@ public class Actor {
 
     public double getFee() {
         return fee;
-    }
-
-    @Override
-    public String toString() {
-        return "Actor{" +
-                "name='" + firstName + " " + lastName + '\'' +
-                ", cash=" + fee +
-                ", age=" + age +
-                '}';
     }
 }
