@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.generics;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.IntStream;
@@ -10,6 +12,7 @@ public class Matrix<T extends Number> {
     private int string;
     private int column;
 
+    @SuppressFBWarnings("DM_DEFAULT_ENCODING")
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final Random RANDOM = new Random();
 
@@ -31,6 +34,7 @@ public class Matrix<T extends Number> {
      *
      * @param matrix the resulting matrix.
      */
+    @SuppressFBWarnings("EI_EXPOSE_REP2")
     public Matrix(T[][] matrix) {
         this.matrix = matrix;
     }

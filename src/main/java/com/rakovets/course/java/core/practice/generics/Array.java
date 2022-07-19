@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.generics;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Objects;
@@ -11,6 +13,7 @@ public class Array<T extends Number> {
 
     private int arrayLength;
 
+    @SuppressFBWarnings("DM_DEFAULT_ENCODING")
     private static final Scanner SCANNER = new Scanner(System.in);
 
     /**
@@ -18,6 +21,7 @@ public class Array<T extends Number> {
      *
      * @param array received.
      */
+    @SuppressFBWarnings("EI_EXPOSE_REP2")
     public Array(T[] array) {
         this.array = array;
     }
@@ -126,6 +130,7 @@ public class Array<T extends Number> {
      *
      * @return sorted array.
      */
+    @SuppressFBWarnings("EI_EXPOSE_REP")
     public T[] descendingSorting() {
         Math.selectionSort(array);
 

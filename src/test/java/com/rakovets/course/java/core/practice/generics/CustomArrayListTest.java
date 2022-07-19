@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.generics;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -350,6 +351,7 @@ public class CustomArrayListTest<T> {
         );
     }
 
+    @SuppressFBWarnings("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
     @ParameterizedTest
     @MethodSource("getElementAtThrowProviderArguments")
     public void getElementAtThrow(T[] array, int index) {
