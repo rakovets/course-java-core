@@ -11,12 +11,12 @@ public class Task07 {
      *                   That the operation is pointless and the answer will not change.
      */
     public int division(int firstNumber, int secondNumber) throws Exception {
-        final int EXCEPTION_NUMBER = 0;
+        int exceptionNumber = 0;
 
-        if (secondNumber == EXCEPTION_NUMBER) {
+        if (secondNumber == exceptionNumber) {
             throw new ArithmeticException("Divide by zero is not possible.");
         }
-        if (firstNumber == EXCEPTION_NUMBER) {
+        if (firstNumber == exceptionNumber) {
             throw new Exception("Dividing will not change the result.");
         }
         return firstNumber / secondNumber;

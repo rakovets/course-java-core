@@ -14,6 +14,7 @@ public class Task01Demo {
         String firstString = null;
 
         try {
+            assert false;
             System.out.println(task01.getStringLength(firstString));
         } catch (NullPointerException e) {
             logger.log(Level.SEVERE, "NullPointerException.");

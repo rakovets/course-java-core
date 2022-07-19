@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.test;
 
-import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArray;
+import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArrayException;
 import com.rakovets.course.java.core.practice.exception_handling.tasks.Task04;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,6 +15,6 @@ public class Task04Test {
 
         Executable actualExecutable = () -> task04.getIndexArray(index, array);
 
-        Assertions.assertThrows(IncorrectValuesWhenWorkingWithAnArray.class, actualExecutable);
+        Assertions.assertThrows(IncorrectValuesWhenWorkingWithAnArrayException.class, actualExecutable);
     }
 }

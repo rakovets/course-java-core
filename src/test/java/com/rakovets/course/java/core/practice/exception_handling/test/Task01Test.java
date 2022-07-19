@@ -9,9 +9,8 @@ public class Task01Test {
     @Test
     void getStringLength() {
         Task01 task01 = new Task01();
-        String firstString = null;
 
-        Executable actualExecutable = () -> task01.getStringLength(firstString);
+        Executable actualExecutable = () -> task01.getStringLength(null);
 
         Assertions.assertThrows(NullPointerException.class, actualExecutable);
     }

@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling.demo;
 
 import com.rakovets.course.java.core.practice.exception_handling.tasks.Task05;
-import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArray;
+import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArrayException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +17,7 @@ public class Task05Demo {
 
         try {
             System.out.println(task05.getIndexArray(index, number));
-        } catch (IncorrectValuesWhenWorkingWithAnArray e) {
+        } catch (IncorrectValuesWhenWorkingWithAnArrayException e) {
             logger.log(Level.SEVERE, e.getMessage());
             e.printStackTrace();
         }

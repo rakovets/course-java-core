@@ -11,12 +11,12 @@ public class Task03 {
      * @throws AgeException if the user is under 18, displays an error text.
      */
     public String checkAge(int age) throws AgeException {
-        final String GREETINGS = "Welcome to club.";
-        final int MINIMUM_AGE = 18;
+        String greetings = "Welcome to club.";
+        int minimalAge = 18;
 
-        if (age < MINIMUM_AGE) {
+        if (age < minimalAge) {
             throw new AgeException("The user's age cannot be less than 18 years");
         }
-        return GREETINGS;
+        return greetings;
     }
 }

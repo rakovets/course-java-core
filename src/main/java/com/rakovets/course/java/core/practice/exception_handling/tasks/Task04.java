@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.tasks;
 
-import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArray;
+import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArrayException;
 
 public class Task04 {
     /**
@@ -11,11 +11,11 @@ public class Task04 {
      * @return the number value of the received index.
      * @throws ArrayIndexOutOfBoundsException returns an error if the index is invalid.
      */
-    public String getIndexArray(int index, int[] array) throws IncorrectValuesWhenWorkingWithAnArray {
-        final int EXCEPTION_NUMBER = 0;
+    public String getIndexArray(int index, int[] array) throws IncorrectValuesWhenWorkingWithAnArrayException {
+        int exceptionNumber = 0;
 
-        if (index < EXCEPTION_NUMBER) {
-            throw new IncorrectValuesWhenWorkingWithAnArray("IncorrectValuesWhenWorkingWithAnArray");
+        if (index < exceptionNumber) {
+            throw new IncorrectValuesWhenWorkingWithAnArrayException("IncorrectValuesWhenWorkingWithAnArray");
         }
         return "numbers[" + index + "] = " + array[index];
     }

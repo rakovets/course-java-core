@@ -21,23 +21,23 @@ public class Task06 {
      */
     public String checkAccount(int age, String password, String email)
             throws EmailException, PasswordException, AgeException {
-        final int AGE = 18;
-        final int LENGTH_PASSWORD = 15;
-        final String EMAIL = ".com";
-        final String ACCOUNT_CREATED = "Account created!";
+        int minimalAge = 18;
+        int lengthPassword = 15;
+        String emailCom = ".com";
+        String accountCreate = "Account created!";
 
         email = email.trim();
         int length = password.length();
 
-        if (!email.endsWith(EMAIL)) {
+        if (!email.endsWith(emailCom)) {
             throw new EmailException("Invalid data input.");
         }
-        if (age < AGE) {
+        if (age < minimalAge) {
             throw new AgeException("The user's age cannot be less than 18 years.");
         }
-        if (length > LENGTH_PASSWORD) {
+        if (length > lengthPassword) {
             throw new PasswordException("Invalid data input.");
         }
-        return ACCOUNT_CREATED;
+        return accountCreate;
     }
 }

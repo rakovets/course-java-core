@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.tasks;
 
-import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArray;
+import com.rakovets.course.java.core.practice.exception_handling.exception.IncorrectValuesWhenWorkingWithAnArrayException;
 
 import java.util.Random;
 
@@ -13,18 +13,18 @@ public class Task05 {
      * @param index  the index of the array to display.
      * @param number received array length value.
      * @return value from the array by its index.
-     * @throws IncorrectValuesWhenWorkingWithAnArray displays the text
-     *                                               about the error when the array is incorrectly processed.
+     * @throws IncorrectValuesWhenWorkingWithAnArrayException displays the text
+     *                                                        about the error when the array is incorrectly processed.
      */
-    public String getIndexArray(int index, int number) throws IncorrectValuesWhenWorkingWithAnArray {
-        final int MAXIMUM_NEGATIVE_NUMBER = 0;
+    public String getIndexArray(int index, int number) throws IncorrectValuesWhenWorkingWithAnArrayException {
+        int maximumNegativeNumber = 0;
 
         int[] array;
 
         Random random = new Random();
 
         try {
-            if (number <= MAXIMUM_NEGATIVE_NUMBER) {
+            if (number <= maximumNegativeNumber) {
                 throw new NegativeArraySizeException();
             }
             array = new int[number];
@@ -32,7 +32,7 @@ public class Task05 {
                 array[i] = random.nextInt();
             }
         } catch (NegativeArraySizeException e) {
-            throw new IncorrectValuesWhenWorkingWithAnArray("IncorrectValuesWhenWorkingWithAnArray");
+            throw new IncorrectValuesWhenWorkingWithAnArrayException("IncorrectValuesWhenWorkingWithAnArray");
         }
         return String.valueOf(array[index]);
     }
