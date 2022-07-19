@@ -41,7 +41,6 @@ public class Mag extends Hero {
         int minimalHealing = 50;
         int percentage = 100;
 
-
         if (isAlive()) {
             if (getHealthHero() - damage <= MINIMAL_HP) {
                 setHealthHero(MINIMAL_HP);

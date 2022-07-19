@@ -5,7 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Zombie extends Enemy {
-    Random random = new Random();
+    static final Random RANDOM = new Random();
 
     /**
      * Constructor.
@@ -38,7 +38,7 @@ public class Zombie extends Enemy {
     public void takeDamage(int damage) {
         int healthDivisor = 2;
 
-        boolean live = random.nextBoolean();
+        boolean live = RANDOM.nextBoolean();
 
         if (isAlive()) {
             if (getHealthEnemy() - damage < MINIMAL_HP) {
