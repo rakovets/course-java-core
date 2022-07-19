@@ -35,15 +35,15 @@ public class Vampire extends Enemy {
      */
     @Override
     public void takeDamage(int damage) {
-        final int REGENERATION = 15;
+         int regeneration = 15;
 
         if (isAlive()) {
             if (getHealthEnemy() - damage <= MINIMAL_HP) {
                 setHealthEnemy(MINIMAL_HP);
-            } else if (getHealthEnemy() - damage + REGENERATION > getHealthEnemy()) {
+            } else if (getHealthEnemy() - damage + regeneration > getHealthEnemy()) {
                 setDamageEnemy(getDamageEnemy());
             } else {
-                setHealthEnemy(getHealthEnemy() - damage + REGENERATION);
+                setHealthEnemy(getHealthEnemy() - damage + regeneration);
             }
         }
     }

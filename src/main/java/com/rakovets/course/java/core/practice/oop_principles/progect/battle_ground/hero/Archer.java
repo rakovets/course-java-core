@@ -29,8 +29,8 @@ public class Archer extends Hero {
      * <p> Doubles the archer's current maximum damage.
      */
     public void boostedShot(Enemy enemy) {
-        final int ATTACK_MULTIPLIER = 2;
+        int attackMultiplier = 2;
 
-        enemy.takeDamage(getDamageHero() * ATTACK_MULTIPLIER);
+        enemy.takeDamage(getDamageHero() * attackMultiplier);
     }
 }

@@ -29,9 +29,9 @@ public class Siames extends Cat {
      */
     @Override
     protected String mew(Person user) {
-        final double NEGATIVE_PERCENTAGE = -15.0;
+        double negativePercentage = -15.0;
 
-        user.changeHappiness(NEGATIVE_PERCENTAGE);
+        user.changeHappiness(negativePercentage);
         user.checkDiapason(user.getHappiness());
 
         return mew();
@@ -56,9 +56,9 @@ public class Siames extends Cat {
      */
     @Override
     protected String prr(Person user) {
-        final double POSITIVE_PERCENTAGE = 15.0;
+        double positivePercentage = 15.0;
 
-        user.changeHappiness(POSITIVE_PERCENTAGE);
+        user.changeHappiness(positivePercentage);
         user.checkDiapason(user.getHappiness());
 
         return prr();

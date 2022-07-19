@@ -37,16 +37,16 @@ public class Mag extends Hero {
      */
     @Override
     public void takeDamage(int damage) {
-        final int HEALING = 25;
-        final int MINIMAL_HEALING = 50;
-        final int PERCENTAGE = 100;
+        int health = 25;
+        int minimalHealing = 50;
+        int percentage = 100;
 
 
         if (isAlive()) {
             if (getHealthHero() - damage <= MINIMAL_HP) {
                 setHealthHero(MINIMAL_HP);
-            } else if (getHealthHero() * MINIMAL_HEALING / PERCENTAGE <= MINIMAL_HEALING) {
-                setHealthHero(Math.min(getHealthHero() - damage + HEALING, getHealthHero()));
+            } else if (getHealthHero() * minimalHealing / percentage <= minimalHealing) {
+                setHealthHero(Math.min(getHealthHero() - damage + health, getHealthHero()));
             } else {
                 setHealthHero(getHealthHero() - damage);
             }

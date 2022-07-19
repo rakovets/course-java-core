@@ -40,14 +40,14 @@ public class Warrior extends Hero {
     public void takeDamage(int damage) {
         boolean block = random.nextBoolean();
 
-        final int SHIELD_BLOCK = 10;
+        int shieldBlock = 10;
 
         if (isAlive()) {
             if (getHealthHero() - damage < MINIMAL_HP) {
                 setHealthHero(MINIMAL_HP);
             } else {
                 if (block) {
-                    setHealthHero(Math.min(getHealthHero() - damage + SHIELD_BLOCK, getHealthHero()));
+                    setHealthHero(Math.min(getHealthHero() - damage + shieldBlock, getHealthHero()));
                 } else {
                     setHealthHero(getHealthHero() - damage);
                 }

@@ -27,10 +27,10 @@ public class Werewolf extends Enemy {
      */
     @Override
     public void attackHero(Hero hero) {
-        final int ATTACK_MULTIPLIER = 2;
+        int attackMultiplier = 2;
 
         if (secondGuise(time)) {
-            hero.takeDamage(getDamageEnemy() * ATTACK_MULTIPLIER);
+            hero.takeDamage(getDamageEnemy() * attackMultiplier);
         } else {
             hero.takeDamage(getDamageEnemy());
         }
@@ -57,13 +57,13 @@ public class Werewolf extends Enemy {
      * @return true werewolf in second form, false werewolf not in second form.
      */
     protected boolean secondGuise(int time) {
-        final int MIDNIGHT = 1;
-        final int DAWN = 6;
+        int midnight = 1;
+        int dawn = 6;
 
         boolean secondGuise = false;
 
         if (timeCheck(time)) {
-            secondGuise = time >= MIDNIGHT && time <= DAWN;
+            secondGuise = time >= midnight && time <= dawn;
         }
         return secondGuise;
     }

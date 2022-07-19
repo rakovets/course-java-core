@@ -29,9 +29,9 @@ public class Cat {
      * @return text "mew".
      */
     protected String mew(Person user) {
-        final double NEGATIVE_PERCENTAGE = -5.0;
+        double negativePercentage = -5.0;
 
-        user.changeHappiness(NEGATIVE_PERCENTAGE);
+        user.changeHappiness(negativePercentage);
         user.checkDiapason(user.getHappiness());
 
         return mew();
@@ -54,9 +54,9 @@ public class Cat {
      * @return text "prr".
      */
     protected String prr(Person user) {
-        final double POSITIVE_PERCENTAGE = 5.0;
+        double positivePercentage = 5.0;
 
-        user.changeHappiness(POSITIVE_PERCENTAGE);
+        user.changeHappiness(positivePercentage);
         user.checkDiapason(user.getHappiness());
 
         return prr();

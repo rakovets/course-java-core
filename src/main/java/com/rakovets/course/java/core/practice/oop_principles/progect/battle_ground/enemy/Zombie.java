@@ -36,7 +36,7 @@ public class Zombie extends Enemy {
      */
     @Override
     public void takeDamage(int damage) {
-        final int HEALTH_DIVISOR = 2;
+        int healthDivisor = 2;
 
         boolean live = random.nextBoolean();
 
@@ -45,7 +45,7 @@ public class Zombie extends Enemy {
                 setHealthEnemy(MINIMAL_HP);
             } else if (getHealthEnemy() - damage == MINIMAL_HP) {
                 if (live) {
-                    setHealthEnemy(getHealthEnemy() / HEALTH_DIVISOR);
+                    setHealthEnemy(getHealthEnemy() / healthDivisor);
                 } else {
                     setHealthEnemy(MINIMAL_HP);
                 }
