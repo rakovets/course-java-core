@@ -136,8 +136,8 @@ public class CustomArrayList<T> {
         if (index >= capacity || index < 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        for (int i = index; i < capacity - 1; i++) {
-            data[i] = data[i + 1];
+        if (capacity - 1 - index >= 0) {
+            System.arraycopy(data, index + 1, data, index, capacity - 1 - index);
         }
         data[capacity - 1] = null;
         size = capacity - 1;

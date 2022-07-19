@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.generics;
 
 import java.math.BigInteger;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Matrix<T extends Number> {
     private final T[][] matrix;
@@ -9,8 +10,8 @@ public class Matrix<T extends Number> {
     private int string;
     private int column;
 
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final Random random = new Random();
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
 
     /**
      * Constructor.
@@ -39,10 +40,8 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void matrixFillInteger() {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = (T) scanner.nextBigInteger();
-            }
+        for (T[] ts : matrix) {
+            Arrays.setAll(ts, j -> (T) SCANNER.nextBigInteger());
         }
     }
 
@@ -51,10 +50,8 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void matrixFillFloatingPoint() {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = (T) scanner.nextBigDecimal();
-            }
+        for (T[] ts : matrix) {
+            Arrays.setAll(ts, j -> (T) SCANNER.nextBigDecimal());
         }
     }
 
@@ -76,7 +73,7 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                BigInteger number = new BigInteger(length, random);
+                BigInteger number = new BigInteger(length, RANDOM);
                 if (number.compareTo(bigIntegerMinimum) < 0) {
                     number = number.add(bigIntegerMinimum);
                 } else if (number.compareTo(bigIntegerMaximum) >= 0) {
@@ -91,10 +88,15 @@ public class Matrix<T extends Number> {
      * Prints matrix.
      */
     public void printMatrix() {
-        for (int i = 0; i < string; i++) {
-            for (int j = 0; j < column; j++)
+        int i = 0;
+        while (i < string) {
+            int j = 0;
+            while (j < column) {
                 System.out.printf("%.5s\t", matrix[i][j]);
+                j++;
+            }
             System.out.println();
+            i++;
         }
     }
 
@@ -214,7 +216,7 @@ public class Matrix<T extends Number> {
      * @param secondMatrix matrix to perform addition with the first matrix.
      * @return new matrix is the result of adding two matrices.
      */
-    public Matrix<Number> additionMatrixIFloat(Matrix<T> secondMatrix) {
+    public Matrix<Number> additionMatrixFloat(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
         Matrix<Number> thirdMatrix = new Matrix<>(string, column);
@@ -281,18 +283,19 @@ public class Matrix<T extends Number> {
         int secondMatrixColumn = secondMatrix.getColumn();
         int secondMatrixString = secondMatrix.getString();
 
-        for (int i = 0; i < firstMatrixString; i++) {
+        int i = 0;
+        while (i < firstMatrixString) {
             for (int j = 0; j < secondMatrixColumn; j++) {
                 for (int k = 0; k < secondMatrixString; k++) {
                     thirdMatrix[i][j] += firstMatrix.matrix[i][k].intValue() * secondMatrix.matrix[k][j].intValue();
                 }
             }
+            i++;
         }
-        for (int[] matrix : thirdMatrix) {
-            for (int j = 0; j < thirdMatrix[0].length; j++)
-                System.out.printf("%.5s\t", matrix[j]);
+        Arrays.stream(thirdMatrix).forEach(matrix -> {
+            IntStream.range(0, thirdMatrix[0].length).forEach(j -> System.out.printf("%.5s\t", matrix[j]));
             System.out.println();
-        }
+        });
     }
 
     /**
@@ -317,11 +320,10 @@ public class Matrix<T extends Number> {
                 }
             }
         }
-        for (double[] matrix : thirdMatrix) {
-            for (int j = 0; j < thirdMatrix[0].length; j++)
-                System.out.printf("%.5s\t", matrix[j]);
+        Arrays.stream(thirdMatrix).forEach(matrix -> {
+            IntStream.range(0, thirdMatrix[0].length).forEach(j -> System.out.printf("%.5s\t", matrix[j]));
             System.out.println();
-        }
+        });
     }
 
     @Override

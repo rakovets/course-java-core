@@ -160,7 +160,7 @@ public class MatrixDemo {
         doubleMatrixSecondMatrix.matrixFillRandomInters(0, 9);
         doubleMatrixSecondMatrix.printMatrix();
         System.out.println("\nThe third double matrix. The result of adding the first matrix and the second.");
-        doubleMatrixFirstMatrix.additionMatrixIFloat(doubleMatrixSecondMatrix).printMatrix();
+        doubleMatrixFirstMatrix.additionMatrixFloat(doubleMatrixSecondMatrix).printMatrix();
         System.out.println("\nThe third double matrix. The result of subtracting the first matrix and the second.");
         doubleMatrixFirstMatrix.subtractionMatrixFloat(doubleMatrixSecondMatrix).printMatrix();
         System.out.println("\nThe third double matrix. The result of multiplying the first matrix and the second.");
@@ -176,7 +176,7 @@ public class MatrixDemo {
         floatMatrixSecondMatrix.matrixFillRandomInters(0, 9);
         floatMatrixSecondMatrix.printMatrix();
         System.out.println("\nThe third float matrix. The result of adding the first matrix and the second.");
-        floatMatrixFirstMatrix.additionMatrixIFloat(floatMatrixSecondMatrix).printMatrix();
+        floatMatrixFirstMatrix.additionMatrixFloat(floatMatrixSecondMatrix).printMatrix();
         System.out.println("\nThe third float matrix. The result of subtracting the first matrix and the second.");
         floatMatrixFirstMatrix.subtractionMatrixFloat(floatMatrixSecondMatrix).printMatrix();
         System.out.println("\nThe third float matrix. The result of multiplying the first matrix and the second.");

@@ -11,7 +11,7 @@ public class Array<T extends Number> {
 
     private int arrayLength;
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     /**
      * Constructor.
@@ -39,7 +39,7 @@ public class Array<T extends Number> {
     @SuppressWarnings("unchecked")
     public void arrayFillIntegers() {
         for (int i = 0; i < array.length; i++) {
-            array[i] = (T) scanner.nextBigInteger();
+            array[i] = (T) SCANNER.nextBigInteger();
         }
     }
 
@@ -49,7 +49,7 @@ public class Array<T extends Number> {
     @SuppressWarnings("unchecked")
     public void arrayFillFloatingPoint() {
         for (int i = 0; i < arrayLength; i++) {
-            array[i] = (T) scanner.nextBigDecimal();
+            array[i] = (T) SCANNER.nextBigDecimal();
         }
     }
 
