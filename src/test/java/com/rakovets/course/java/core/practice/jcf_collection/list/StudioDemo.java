@@ -6,7 +6,9 @@ import java.util.List;
 
 public class StudioDemo {
     public static void main(String[] args) {
+
         List<Actor> actorsStud = new ArrayList<>();
+        Studio colambia = new Studio(actorsStud);
         actorsStud.add(new Actor("Vadim", "Voropai", 1100, 35));
         actorsStud.add(new Actor("Victor", "Budre", 1000, 41));
         actorsStud.add(new Actor("Victor", "Budrev", 1000, 41));
@@ -14,8 +16,6 @@ public class StudioDemo {
         actorsStud.add(new Actor("Mangol", "Voropai", 1200, 55));
         actorsStud.add(new Actor("Ruki", "Bazuri", 2000, 35));
         System.out.println("number of actors - " + actorsStud.size());
-
-        Studio colambia = new Studio(actorsStud);
 
         Collections.sort(actorsStud);
         System.out.println("Actors who work in the studio Columbia Pictures list:");
