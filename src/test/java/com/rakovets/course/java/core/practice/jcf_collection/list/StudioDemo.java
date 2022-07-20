@@ -6,7 +6,6 @@ import java.util.List;
 
 public class StudioDemo {
     public static void main(String[] args) {
-
         List<Actor> actorsStud = new ArrayList<>();
         Studio colambia = new Studio(actorsStud);
         actorsStud.add(new Actor("Vadim", "Voropai", 1100, 35));
