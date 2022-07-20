@@ -10,8 +10,8 @@ public class Array<T extends Number> {
     private final T[] data;
 
     private int arrayLength;
-    private static final Random RANDOM = new Random();
 
+    private static final Random RANDOM = new Random();
     private static final Scanner SCANNER = new Scanner(System.in);
 
     /**
