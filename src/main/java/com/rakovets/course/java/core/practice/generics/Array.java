@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.generics;
 
-
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Objects;
