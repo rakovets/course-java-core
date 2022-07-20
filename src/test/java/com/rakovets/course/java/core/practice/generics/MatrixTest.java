@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class MatrixTest<T extends Number> {
+class MatrixTest<T extends Number> {
     static Stream<Arguments> getMaximumNumberMatrixIntegerProviderArguments() {
         return Stream.of(
                 Arguments.of(new Integer[][]{{45, 78, 6}, {79, -99, -6}}, 79),

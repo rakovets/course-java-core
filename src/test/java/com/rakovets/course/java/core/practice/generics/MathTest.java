@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class MathTest<T extends Number> {
+class MathTest<T extends Number> {
     static Stream<Arguments> getMaximumNumberProviderArguments() {
         return Stream.of(
                 Arguments.of(0, 0, 1, 1),

@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class ObscureTest<T> {
+class ObscureTest<T> {
 
     static Stream<Arguments> isPresentProviderArguments() {
         return Stream.of(

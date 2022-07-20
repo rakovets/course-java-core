@@ -61,7 +61,7 @@ public class CustomArrayList<T> {
      */
     public void pushBack(T value) throws NullPointerException {
         if (value == null) {
-            throw new NullPointerException("NullPointerException.");
+            throw new NullPointerException();
         }
         ensureCapacity();
 
@@ -87,7 +87,7 @@ public class CustomArrayList<T> {
     @SuppressWarnings("unchecked")
     public void pushFront(T value) throws NullPointerException {
         if (value == null) {
-            throw new NullPointerException("NullPointerException.");
+            throw new NullPointerException();
         }
         ensureCapacity();
 
@@ -113,7 +113,7 @@ public class CustomArrayList<T> {
      */
     public void insert(T value, int index) throws ArrayIndexOutOfBoundsException, NullPointerException {
         if (value == null) {
-            throw new NullPointerException("NullPointerException.");
+            throw new NullPointerException();
         }
         ensureCapacity();
 

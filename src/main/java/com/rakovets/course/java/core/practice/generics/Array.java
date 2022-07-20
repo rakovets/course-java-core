@@ -8,9 +8,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Array<T extends Number> {
-    private final T[] array;
+    private final T[] data;
 
     private int arrayLength;
+    private static final Random RANDOM = new Random();
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -20,7 +21,7 @@ public class Array<T extends Number> {
      * @param array received.
      */
     public Array(T[] array) {
-        this.array = array;
+        this.data = array;
     }
 
     /**
@@ -30,7 +31,7 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public Array(int arrayLength) {
-        array = (T[]) new Number[arrayLength];
+        data = (T[]) new Number[arrayLength];
         this.arrayLength = arrayLength;
     }
 
@@ -39,8 +40,8 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void arrayFillIntegers() {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (T) SCANNER.nextBigInteger();
+        for (int i = 0; i < data.length; i++) {
+            data[i] = (T) SCANNER.nextBigInteger();
         }
     }
 
@@ -50,7 +51,7 @@ public class Array<T extends Number> {
     @SuppressWarnings("unchecked")
     public void arrayFillFloatingPoint() {
         for (int i = 0; i < arrayLength; i++) {
-            array[i] = (T) SCANNER.nextBigDecimal();
+            data[i] = (T) SCANNER.nextBigDecimal();
         }
     }
 
@@ -62,8 +63,6 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void arrayFillRandomInters(int minimumNumber, int maximumNumber) {
-        Random random = new Random();
-
         String minimum = Integer.toString(minimumNumber);
         String maximum = Integer.toString(maximumNumber + 1);
 
@@ -73,13 +72,13 @@ public class Array<T extends Number> {
         int length = bigIntegerMaximum.bitLength();
 
         for (int i = 0; i < arrayLength; i++) {
-            BigInteger number = new BigInteger(length, random);
+            BigInteger number = new BigInteger(length, RANDOM);
             if (number.compareTo(bigIntegerMinimum) < 0) {
                 number = number.add(bigIntegerMinimum);
             } else if (number.compareTo(bigIntegerMaximum) >= 0) {
                 number = number.mod(bigIntegerMaximum).add(bigIntegerMinimum);
             }
-            array[i] = (T) number;
+            data[i] = (T) number;
         }
     }
 
@@ -89,7 +88,7 @@ public class Array<T extends Number> {
      * @return maximum value.
      */
     public T getMaximumNumber() {
-        return Math.getMaximumNumber(array);
+        return Math.getMaximumNumber(data);
     }
 
     /**
@@ -98,7 +97,7 @@ public class Array<T extends Number> {
      * @return minimum value.
      */
     public T getMinimumNumber() {
-        return Math.getMinimumNumber(array);
+        return Math.getMinimumNumber(data);
     }
 
     /**
@@ -107,7 +106,7 @@ public class Array<T extends Number> {
      * @return arithmetical mean.
      */
     public double getAverage() {
-        return Math.getAverage(array);
+        return Math.getAverage(data);
     }
 
     /**
@@ -116,7 +115,7 @@ public class Array<T extends Number> {
      * @return sorted array.
      */
     public T[] sortAscending() {
-        return Math.selectionSort(array);
+        return Math.selectionSort(data);
     }
 
     /**
@@ -127,16 +126,17 @@ public class Array<T extends Number> {
      *
      * @return sorted array.
      */
-    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("EI_EXPOSE_REP")
     public T[] descendingSorting() {
-        Math.selectionSort(array);
+        Math.selectionSort(data);
 
-        for (int i = 0; i < array.length / 2; i++) {
-            T sort = array[i];
-            array[i] = array[array.length - i - 1];
-            array[array.length - i - 1] = sort;
+        int divider = 2;
+
+        for (int i = 0; i < data.length / divider; i++) {
+            T sort = data[i];
+            data[i] = data[data.length - i - 1];
+            data[data.length - i - 1] = sort;
         }
-        return array;
+        return data;
     }
 
     /**
@@ -149,9 +149,9 @@ public class Array<T extends Number> {
      * then the required element is not in the array.
      */
     public int jumpSearch(T value) {
-        Math.selectionSort(array);
+        Math.selectionSort(data);
 
-        return Math.jumpSearch(array, value);
+        return Math.jumpSearch(data, value);
     }
 
     /**
@@ -161,9 +161,9 @@ public class Array<T extends Number> {
      * @param index value index.
      */
     public void replace(T value, int index) {
-        Math.selectionSort(array);
+        Math.selectionSort(data);
 
-        array[index] = value;
+        data[index] = value;
     }
 
     @Override
@@ -176,19 +176,19 @@ public class Array<T extends Number> {
         }
         Array<?> array1 = (Array<?>) o;
 
-        return arrayLength == array1.arrayLength && Arrays.equals(array, array1.array);
+        return arrayLength == array1.arrayLength && Arrays.equals(data, array1.data);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(arrayLength);
-        result = 31 * result + Arrays.hashCode(array);
+        result = 31 * result + Arrays.hashCode(data);
 
         return result;
     }
 
     @Override
     public String toString() {
-        return "array " + Arrays.toString(array);
+        return "array " + Arrays.toString(data);
     }
 }

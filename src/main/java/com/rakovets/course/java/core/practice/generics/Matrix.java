@@ -7,13 +7,15 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+import static java.lang.System.*;
+
 public class Matrix<T extends Number> {
-    private final T[][] matrix;
+    private final T[][] data;
 
     private int string;
     private int column;
 
-    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(in);
     private static final Random RANDOM = new Random();
 
     /**
@@ -24,7 +26,7 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public Matrix(int string, int column) {
-        matrix = (T[][]) new Number[string][column];
+        data = (T[][]) new Number[string][column];
         this.string = string;
         this.column = column;
     }
@@ -32,10 +34,10 @@ public class Matrix<T extends Number> {
     /**
      * Additional constructor.
      *
-     * @param matrix the resulting matrix.
+     * @param data the resulting matrix.
      */
-    public Matrix(T[][] matrix) {
-        this.matrix = matrix;
+    public Matrix(T[][] data) {
+        this.data = data;
     }
 
     /**
@@ -43,7 +45,7 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void matrixFillInteger() {
-        for (T[] ts : matrix) {
+        for (T[] ts : data) {
             Arrays.setAll(ts, j -> (T) SCANNER.nextBigInteger());
         }
     }
@@ -53,7 +55,7 @@ public class Matrix<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void matrixFillFloatingPoint() {
-        for (T[] ts : matrix) {
+        for (T[] ts : data) {
             Arrays.setAll(ts, j -> (T) SCANNER.nextBigDecimal());
         }
     }
@@ -74,15 +76,15 @@ public class Matrix<T extends Number> {
 
         int length = bigIntegerMaximum.bitLength();
 
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
                 BigInteger number = new BigInteger(length, RANDOM);
                 if (number.compareTo(bigIntegerMinimum) < 0) {
                     number = number.add(bigIntegerMinimum);
                 } else if (number.compareTo(bigIntegerMaximum) >= 0) {
                     number = number.mod(bigIntegerMaximum).add(bigIntegerMinimum);
                 }
-                matrix[i][j] = (T) number;
+                data[i][j] = (T) number;
             }
         }
     }
@@ -95,10 +97,10 @@ public class Matrix<T extends Number> {
         while (i < string) {
             int j = 0;
             while (j < column) {
-                System.out.printf("%.5s\t", matrix[i][j]);
+                out.print("\t" + data[i][j]);
                 j++;
             }
-            System.out.println();
+            out.println();
             i++;
         }
     }
@@ -109,10 +111,10 @@ public class Matrix<T extends Number> {
      * @return maximum value from matrices.
      */
     public T getMaximumNumberMatrixInteger() {
-        T maximum = matrix[0][0];
+        T maximum = data[0][0];
 
-        for (T[] matrix : matrix) {
-            for (int j = 0; j < this.matrix[0].length; j++) {
+        for (T[] matrix : data) {
+            for (int j = 0; j < this.data[0].length; j++) {
                 if (maximum.intValue() < matrix[j].intValue()) {
                     maximum = matrix[j];
                 }
@@ -127,10 +129,10 @@ public class Matrix<T extends Number> {
      * @return maximum value from matrices.
      */
     public T getMaximumNumberMatrixFloat() {
-        T maximum = matrix[0][0];
+        T maximum = data[0][0];
 
-        for (T[] matrix : matrix) {
-            for (int j = 0; j < this.matrix[0].length; j++) {
+        for (T[] matrix : data) {
+            for (int j = 0; j < this.data[0].length; j++) {
                 if (maximum.doubleValue() < matrix[j].doubleValue()) {
                     maximum = matrix[j];
                 }
@@ -145,10 +147,10 @@ public class Matrix<T extends Number> {
      * @return minimum value from matrices.
      */
     public T getMinimumNumberMatrixInteger() {
-        T minimum = matrix[0][0];
+        T minimum = data[0][0];
 
-        for (T[] matrix : matrix) {
-            for (int j = 0; j < this.matrix[0].length; j++) {
+        for (T[] matrix : data) {
+            for (int j = 0; j < this.data[0].length; j++) {
                 if (matrix[j].intValue() < minimum.intValue()) {
                     minimum = matrix[j];
                 }
@@ -164,10 +166,10 @@ public class Matrix<T extends Number> {
      * @return minimum value from matrices.
      */
     public T getMinimumNumberMatrixFloat() {
-        T minimum = matrix[0][0];
+        T minimum = data[0][0];
 
-        for (T[] matrix : matrix) {
-            for (int j = 0; j < this.matrix[0].length; j++) {
+        for (T[] matrix : data) {
+            for (int j = 0; j < this.data[0].length; j++) {
                 if (matrix[j].doubleValue() < minimum.doubleValue()) {
                     minimum = matrix[j];
                 }
@@ -185,12 +187,13 @@ public class Matrix<T extends Number> {
         double sum = 0;
         int digitCount = 0;
 
-        for (T[] elements : matrix) {
-            for (int columns = 0; columns < matrix[0].length; columns++) {
+        for (T[] elements : data) {
+            for (int columns = 0; columns < data[0].length; columns++) {
                 sum += elements[columns].doubleValue();
                 digitCount++;
             }
         }
+        assert digitCount != 0;
         return sum / digitCount;
     }
 
@@ -207,7 +210,7 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].intValue() + secondMatrix.matrix[i][j].intValue();
+                thirdMatrix.data[i][j] = firstMatrix.data[i][j].intValue() + secondMatrix.data[i][j].intValue();
             }
         }
         return thirdMatrix;
@@ -226,8 +229,8 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue()
-                        + secondMatrix.matrix[i][j].doubleValue();
+                thirdMatrix.data[i][j] = firstMatrix.data[i][j].doubleValue()
+                        + secondMatrix.data[i][j].doubleValue();
             }
         }
         return thirdMatrix;
@@ -246,7 +249,7 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].intValue() - secondMatrix.matrix[i][j].intValue();
+                thirdMatrix.data[i][j] = firstMatrix.data[i][j].intValue() - secondMatrix.data[i][j].intValue();
             }
         }
         return thirdMatrix;
@@ -265,8 +268,8 @@ public class Matrix<T extends Number> {
 
         for (int i = 0; i < string; i++) {
             for (int j = 0; j < column; j++) {
-                thirdMatrix.matrix[i][j] = firstMatrix.matrix[i][j].doubleValue()
-                        - secondMatrix.matrix[i][j].doubleValue();
+                thirdMatrix.data[i][j] = firstMatrix.data[i][j].doubleValue()
+                        - secondMatrix.data[i][j].doubleValue();
             }
         }
         return thirdMatrix;
@@ -290,14 +293,14 @@ public class Matrix<T extends Number> {
         while (i < firstMatrixString) {
             for (int j = 0; j < secondMatrixColumn; j++) {
                 for (int k = 0; k < secondMatrixString; k++) {
-                    thirdMatrix[i][j] += firstMatrix.matrix[i][k].intValue() * secondMatrix.matrix[k][j].intValue();
+                    thirdMatrix[i][j] += firstMatrix.data[i][k].intValue() * secondMatrix.data[k][j].intValue();
                 }
             }
             i++;
         }
         Arrays.stream(thirdMatrix).forEach(matrix -> {
-            IntStream.range(0, thirdMatrix[0].length).forEach(j -> System.out.printf("%.5s\t", matrix[j]));
-            System.out.println();
+            IntStream.range(0, thirdMatrix[0].length).forEach(j -> out.printf("%.5s\t", matrix[j]));
+            out.println();
         });
     }
 
@@ -318,14 +321,14 @@ public class Matrix<T extends Number> {
         for (int i = 0; i < firstMatrixString; i++) {
             for (int j = 0; j < secondMatrixColumn; j++) {
                 for (int k = 0; k < secondMatrixString; k++) {
-                    thirdMatrix[i][j] += firstMatrix.matrix[i][k].doubleValue()
-                            * secondMatrix.matrix[k][j].doubleValue();
+                    thirdMatrix[i][j] += firstMatrix.data[i][k].doubleValue()
+                            * secondMatrix.data[k][j].doubleValue();
                 }
             }
         }
         Arrays.stream(thirdMatrix).forEach(matrix -> {
-            IntStream.range(0, thirdMatrix[0].length).forEach(j -> System.out.printf("%.5s\t", matrix[j]));
-            System.out.println();
+            IntStream.range(0, thirdMatrix[0].length).forEach(j -> out.printf("%.5s\t", matrix[j]));
+            out.println();
         });
     }
 
@@ -339,13 +342,13 @@ public class Matrix<T extends Number> {
         }
         Matrix<?> matrix1 = (Matrix<?>) o;
 
-        return string == matrix1.string && column == matrix1.column && Arrays.deepEquals(matrix, matrix1.matrix);
+        return string == matrix1.string && column == matrix1.column && Arrays.deepEquals(data, matrix1.data);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(string, column);
-        result = 31 * result + Arrays.deepHashCode(matrix);
+        result = 31 * result + Arrays.deepHashCode(data);
 
         return result;
     }

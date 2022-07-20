@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class CustomArrayListTest<T> {
+class CustomArrayListTest<T> {
     static Stream<Arguments> pushBackProviderArguments() {
         return Stream.of(
                 Arguments.of(0, new Integer[]{1, 2, 3}, 3),
@@ -179,7 +178,7 @@ public class CustomArrayListTest<T> {
 
     @ParameterizedTest
     @MethodSource("removeProviderArguments")
-    public void remove(T[] array, T value, int expected) {
+    void remove(T[] array, T value, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
         for (T arrayValue : array) {
@@ -207,7 +206,7 @@ public class CustomArrayListTest<T> {
 
     @ParameterizedTest
     @MethodSource("removeAllProviderArguments")
-    public void removeAll(int capacity, T[] array, T value, int expected) {
+    void removeAll(int capacity, T[] array, T value, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(capacity);
 
         for (T arrayValue : array) {
@@ -270,7 +269,7 @@ public class CustomArrayListTest<T> {
 
     @ParameterizedTest
     @MethodSource("isEmptyProviderArguments")
-    public void isEmpty(boolean expectedSize, T[] array) {
+    void isEmpty(boolean expectedSize, T[] array) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(10);
 
         for (T value : array) {
@@ -291,7 +290,7 @@ public class CustomArrayListTest<T> {
 
     @ParameterizedTest
     @MethodSource("indexOfProviderArguments")
-    public void indexOf(T[] array, T value, int expected) {
+    void indexOf(T[] array, T value, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
         for (T arrayValue : array) {
@@ -313,7 +312,7 @@ public class CustomArrayListTest<T> {
 
     @ParameterizedTest
     @MethodSource("lastIndexOfProviderArguments")
-    public void lastIndexOf(T[] array, T value, int expected) {
+    void lastIndexOf(T[] array, T value, int expected) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(10);
 
         for (T arrayValue : array) {
@@ -335,7 +334,7 @@ public class CustomArrayListTest<T> {
 
     @ParameterizedTest
     @MethodSource("getElementAtProviderArguments")
-    public void getElementAt(T[] array, T expected, int index) {
+    void getElementAt(T[] array, T expected, int index) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>();
 
         for (T value : array) {
@@ -351,10 +350,9 @@ public class CustomArrayListTest<T> {
         );
     }
 
-    @SuppressFBWarnings("RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT")
     @ParameterizedTest
     @MethodSource("getElementAtThrowProviderArguments")
-    public void getElementAtThrow(T[] array, int index) {
+    void getElementAtThrow(T[] array, int index) {
         CustomArrayList<T> customArrayList = new CustomArrayList<>(4);
 
         for (T value : array) {

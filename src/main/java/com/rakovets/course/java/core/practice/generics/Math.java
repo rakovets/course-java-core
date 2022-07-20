@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.generics;
 
-public abstract class Math {
+public interface Math {
     /**
      * Finds the maximum value (numeric) from the passed data.
      *
@@ -9,7 +9,7 @@ public abstract class Math {
      * @return maximum parameter.
      */
     @SafeVarargs
-    public static <T extends Number> T getMaximumNumber(T... numbers) {
+    static <T extends Number> T getMaximumNumber(T... numbers) {
         Math.selectionSort(numbers);
 
         return numbers[numbers.length - 1];
@@ -23,7 +23,7 @@ public abstract class Math {
      * @return minimum parameter.
      */
     @SafeVarargs
-    public static <T extends Number> T getMinimumNumber(T... numbers) {
+    static <T extends Number> T getMinimumNumber(T... numbers) {
         Math.selectionSort(numbers);
 
         return numbers[0];
@@ -36,7 +36,7 @@ public abstract class Math {
      * @param <T>     generic data type.
      * @return arithmetical mean.
      */
-    public static <T extends Number> double getAverage(T[] numbers) {
+    static <T extends Number> double getAverage(T[] numbers) {
         double sum = 0.0;
 
         for (T number : numbers) {
@@ -52,7 +52,7 @@ public abstract class Math {
      * @param <T>     generic data type.
      * @return the maximum value in the array.
      */
-    public static <T extends Number> T getMaximumNumberInArray(T[] numbers) {
+    static <T extends Number> T getMaximumNumberInArray(T[] numbers) {
         return getMaximumNumber(numbers);
     }
 
@@ -63,13 +63,13 @@ public abstract class Math {
      * @param <T>     generic data type.
      * @return the minimum value in the array.
      */
-    public static <T extends Number> T getMinimumNumberInArray(T[] numbers) {
+    static <T extends Number> T getMinimumNumberInArray(T[] numbers) {
         return getMinimumNumber(numbers);
     }
 
     /**
      * Sorting an array using the "selection sort" method.
-     * <li> Lines 84 - 94 in cycle move the boundary of an unsorted subarray in turn.
+     * <li> Lines 84 - 94 in cycle move the boundary of an unsorted sub-array in turn.
      * <li> Lines 86 - 90 in cycle finds the minimum element in an unsorted array
      * <li> Lines 91 - 93 within the first cycle we do a swap of the found minimal element with the first element.
      * <p>
@@ -78,7 +78,7 @@ public abstract class Math {
      * @param <T>   generic data type.
      * @return sorted array.
      */
-    public static <T extends Number> T[] selectionSort(T[] array) {
+    static <T extends Number> T[] selectionSort(T[] array) {
         int arrayLength = array.length;
 
         for (int i = 0; i < arrayLength - 1; i++) {
@@ -97,15 +97,15 @@ public abstract class Math {
 
     /**
      * Method of binary search in an array using the "jumping search" algorithm.
-     * <li> Sorting an array of strings 118.
-     * <li> On line 121, jumpStep contains the size of the square root of the length of the array.
-     * <li> Lines 124 - 130 in a loop, we jump forward step by step with the value from the variable jumpStep
+     * <li> Sorting an array of strings 121.
+     * <li> On line 124, jumpStep contains the size of the square root of the length of the array.
+     * <li> Lines 127 - 133 in a loop, we jump forward step by step with the value from the variable jumpStep
      * until we find an element that is greater than or equal to the element we are looking for.
-     * <li> Lines 127 - 129 inside the loop, if we went beyond the array,
+     * <li> Lines 130 - 132 inside the loop, if we went beyond the array,
      * then the element we need is not in the array.
-     * <li> Lines 131-136, when the condition is true,
+     * <li> Lines 134-139, when the condition is true,
      * performs a linear search between the [previousStep] array and the [jumpStep] array or greater.
-     * <li> Lines 133-135, if the value matches array[previousStep], returns the array position of the desired element.
+     * <li> Lines 136-138, if the value matches array[previousStep], returns the array position of the desired element.
      * <p>
      *
      * @param array array to look up the value.
@@ -114,7 +114,7 @@ public abstract class Math {
      * @return the position of the found element. If the return value is -1,
      * then the required element is not in the array.
      */
-    public static <T extends Number> int jumpSearch(T[] array, T value) {
+    static <T extends Number> int jumpSearch(T[] array, T value) {
         Math.selectionSort(array);
 
         int arrayLength = array.length;

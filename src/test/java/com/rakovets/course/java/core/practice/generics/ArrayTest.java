@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class ArrayTest<T extends Number> {
+class ArrayTest<T extends Number> {
     static Stream<Arguments> printArrayProviderArguments() {
         return Stream.of(
                 Arguments.of(new Long[]{45L, 78L, 46L}, "array [45, 78, 46]"),
