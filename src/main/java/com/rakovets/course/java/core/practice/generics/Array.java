@@ -2,14 +2,11 @@ package com.rakovets.course.java.core.practice.generics;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Array<T extends Number> {
     private final T[] data;
-
-    private int arrayLength;
 
     private static final Random RANDOM = new Random();
     private static final Scanner SCANNER = new Scanner(System.in);
@@ -31,7 +28,6 @@ public class Array<T extends Number> {
     @SuppressWarnings("unchecked")
     public Array(int arrayLength) {
         data = (T[]) new Number[arrayLength];
-        this.arrayLength = arrayLength;
     }
 
     /**
@@ -49,7 +45,7 @@ public class Array<T extends Number> {
      */
     @SuppressWarnings("unchecked")
     public void arrayFillFloatingPoint() {
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < data.length; i++) {
             data[i] = (T) SCANNER.nextBigDecimal();
         }
     }
@@ -70,7 +66,7 @@ public class Array<T extends Number> {
 
         int length = bigIntegerMaximum.bitLength();
 
-        for (int i = 0; i < arrayLength; i++) {
+        for (int i = 0; i < data.length; i++) {
             BigInteger number = new BigInteger(length, RANDOM);
             if (number.compareTo(bigIntegerMinimum) < 0) {
                 number = number.add(bigIntegerMinimum);
@@ -170,20 +166,17 @@ public class Array<T extends Number> {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Array)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Array<?> array1 = (Array<?>) o;
+        Array<?> array = (Array<?>) o;
 
-        return arrayLength == array1.arrayLength && Arrays.equals(data, array1.data);
+        return Arrays.equals(data, array.data);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(arrayLength);
-        result = 31 * result + Arrays.hashCode(data);
-
-        return result;
+        return Arrays.hashCode(data);
     }
 
     @Override
