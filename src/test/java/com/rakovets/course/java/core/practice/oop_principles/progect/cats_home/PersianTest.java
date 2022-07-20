@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class PersianTest {
+class PersianTest {
     Persian persian = new Persian("Unknown");
     Person user = new Person(0.0);
 

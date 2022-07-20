@@ -5,7 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Warrior extends Hero {
-    Random random = new Random();
+    private static final Random RANDOM = new Random();
 
     /**
      * Constructor.
@@ -38,7 +38,7 @@ public class Warrior extends Hero {
      */
     @Override
     public void takeDamage(int damage) {
-        boolean block = random.nextBoolean();
+        boolean block = RANDOM.nextBoolean();
 
         int shieldBlock = 10;
 

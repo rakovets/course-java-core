@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class PersonTest {
+class PersonTest {
     Person person = new Person(0);
 
     static Stream<Arguments> personChangeHappinessProvideArguments() {

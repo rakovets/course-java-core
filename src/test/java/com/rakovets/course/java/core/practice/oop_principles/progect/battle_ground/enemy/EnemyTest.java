@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class EnemyTest {
+class EnemyTest {
     Archer archer = new Archer("", 0, 0);
     Mag mag = new Mag("", 0, 0);
     Warrior warrior = new Warrior("", 0, 0);

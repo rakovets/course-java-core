@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class CatTest {
+class CatTest {
     Cat cat = new Cat("Unknown");
     Person user = new Person(0.0);
 

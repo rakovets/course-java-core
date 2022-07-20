@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.progect.cats_home;
 
 public class Persian extends Cat {
+    private static final String MEW = "meau";
+    private static final String PRR = "purrr";
+
     /**
      * Constructor.
      *
@@ -17,7 +20,7 @@ public class Persian extends Cat {
      */
     @Override
     protected String mew() {
-        return "meau";
+        return MEW;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Persian extends Cat {
      */
     @Override
     protected String prr() {
-        return "purrr";
+        return PRR;
     }
 
     /**

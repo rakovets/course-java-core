@@ -4,8 +4,8 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.Mortal;
 
 public abstract class Enemy implements Mortal {
-    protected final int MINIMAL_HP = 0;
-    protected final int MINIMAL_DAMAGE = 0;
+    protected static final int MINIMAL_HP = 0;
+    protected static final int MINIMAL_DAMAGE = 0;
 
     private int healthEnemy;
     private int damageEnemy;

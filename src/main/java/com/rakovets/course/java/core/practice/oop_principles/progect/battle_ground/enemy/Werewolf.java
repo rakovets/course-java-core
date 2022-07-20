@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.battle_gro
 import com.rakovets.course.java.core.practice.oop_principles.progect.battle_ground.hero.Hero;
 
 public class Werewolf extends Enemy {
-    protected final int MAXIMUM_TIME = 24;
-    protected final int MINIMAL_TIME = 0;
+    protected static final int MAXIMUM_TIME = 24;
+    protected static final int MINIMAL_TIME = 0;
 
     private int time;
 

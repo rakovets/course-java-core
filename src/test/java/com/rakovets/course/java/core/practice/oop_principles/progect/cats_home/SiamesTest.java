@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class SiamesTest {
+class SiamesTest {
     Siames siames = new Siames("Unknown");
     Person user = new Person(0.0);
 

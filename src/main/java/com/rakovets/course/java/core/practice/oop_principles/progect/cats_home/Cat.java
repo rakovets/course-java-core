@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.oop_principles.progect.cats_home;
 
 public class Cat {
     private String name;
+    private static final String MEW = "mew";
+    private static final String PRR = "prr";
 
     /**
      * Constructor.
@@ -18,7 +20,7 @@ public class Cat {
      * @return text "mew".
      */
     protected String mew() {
-        return "mew";
+        return MEW;
     }
 
     /**
@@ -43,7 +45,7 @@ public class Cat {
      * @return text "prr".
      */
     protected String prr() {
-        return "prr";
+        return PRR;
     }
 
     /**

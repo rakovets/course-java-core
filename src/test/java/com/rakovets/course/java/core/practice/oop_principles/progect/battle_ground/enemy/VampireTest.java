@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class VampireTest {
+class VampireTest {
     Vampire vampire = new Vampire(0, 0);
     Archer archer = new Archer("", 0, 0);
     Mag mag = new Mag("", 0, 0);
@@ -94,7 +94,7 @@ public class VampireTest {
 
     static Stream<Arguments> vampireTakingDamageProviderArguments() {
         return Stream.of(
-                Arguments.of(100,1,100),
+                Arguments.of(100, 1, 100),
                 Arguments.of(100, 20, 95),
                 Arguments.of(50, 70, 0),
                 Arguments.of(0, 40, 0),

@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class WerewolfTest {
+class WerewolfTest {
     Werewolf werewolf = new Werewolf(0, 0, 0);
     Archer archer = new Archer("", 0, 0);
     Mag mag = new Mag("", 0, 0);

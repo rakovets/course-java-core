@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.progect.cats_home;
 
 public class Siames extends Cat {
+    private static final String MEW = "me-oo-w";
+    private static final String PRR = "pr";
+
     /**
      * Constructor.
      *
@@ -17,7 +20,7 @@ public class Siames extends Cat {
      */
     @Override
     protected String mew() {
-        return "me-oo-w";
+        return MEW;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Siames extends Cat {
      */
     @Override
     protected String prr() {
-        return "pr";
+        return PRR;
     }
 
     /**

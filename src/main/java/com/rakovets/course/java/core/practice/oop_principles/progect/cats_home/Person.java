@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.oop_principles.progect.cats_home;
 
 public class Person {
-    protected final double MAXIMUM_PERCENTAGE_HAPPINESS = 100.0;
-    protected final double MINIMUM_PERCENTAGE_HAPPINESS = 0.0;
+    protected static final double MAXIMUM_PERCENTAGE_HAPPINESS = 100.0;
+    protected static final double MINIMUM_PERCENTAGE_HAPPINESS = 0.0;
 
     private double happiness;
 
@@ -22,7 +22,9 @@ public class Person {
      * @return current percentage of happiness.
      */
     protected double changeHappiness(double percentHappiness) {
-        return happiness += percentHappiness;
+        happiness += percentHappiness;
+
+        return happiness;
     }
 
     /**

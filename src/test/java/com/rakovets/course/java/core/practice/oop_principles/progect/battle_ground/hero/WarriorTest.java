@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class WarriorTest {
+class WarriorTest {
     static Enemy enemy;
 
     Warrior warrior = new Warrior("", 0, 0);

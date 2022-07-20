@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.progect.cats_home;
 
 public class Sphynx extends Cat {
+    private static final String MEW = "meow";
+    private static final String PRR = "prr-rr-rr";
+
     /**
      * Constructor.
      *
@@ -17,7 +20,7 @@ public class Sphynx extends Cat {
      */
     @Override
     protected String mew() {
-        return "meow";
+        return MEW;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Sphynx extends Cat {
      */
     @Override
     protected String prr() {
-        return "prr-rr-rr";
+        return PRR;
     }
 
     /**

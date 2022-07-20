@@ -5,7 +5,7 @@ import com.rakovets.course.java.core.practice.oop_principles.progect.battle_grou
 import java.util.Random;
 
 public class Zombie extends Enemy {
-    static final Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
 
     /**
      * Constructor.
