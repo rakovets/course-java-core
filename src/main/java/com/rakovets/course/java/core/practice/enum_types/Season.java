@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
+import static java.lang.System.*;
+
 public enum Season {
     /**
      * All possible seasons.
@@ -20,7 +22,8 @@ public enum Season {
     AUTUMN(9);
 
     public static final Season MY_FAVORITE_SEASONS = Season.WINTER;
-    private final int TEMPERATURE;
+    final int temperature;
+    private static final String COLD_SEASONS = "Cold season.";
 
     /**
      * Constructor.
@@ -28,7 +31,7 @@ public enum Season {
      * @param averageTemperature typical average temperature for each season.
      */
     Season(int averageTemperature) {
-        this.TEMPERATURE = averageTemperature;
+        this.temperature = averageTemperature;
     }
 
     /**
@@ -44,7 +47,7 @@ public enum Season {
         String space = " ";
 
         return favoriteSeason + space + (MY_FAVORITE_SEASONS.toString().toLowerCase())
-                + dot + lf + descriptionFavoriteSeason + space + Season.WINTER.TEMPERATURE
+                + dot + lf + descriptionFavoriteSeason + space + Season.WINTER.temperature
                 + dot + space + Season.WINTER.getDescription();
     }
 
@@ -85,7 +88,7 @@ public enum Season {
      * @return description text.
      */
     public String getDescription() {
-        return "Cold season.";
+        return COLD_SEASONS;
     }
 
     /**
@@ -97,9 +100,9 @@ public enum Season {
         String space = " ";
 
         for (Season season : Season.values()) {
-            System.out.println(season.toString().substring(0, 1).toUpperCase()
+            out.println(season.toString().substring(0, 1).toUpperCase()
                     + season.toString().toLowerCase().substring(1) + dot + space
-                    + averageTemperature + space + season.TEMPERATURE + dot + space + season.getDescription());
+                    + averageTemperature + space + season.temperature + dot + space + season.getDescription());
         }
     }
 }

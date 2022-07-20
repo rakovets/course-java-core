@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class SeasonTest {
+class SeasonTest {
 
     static Stream<Arguments> getMyFavoriteSeasonProviderArguments() {
         return Stream.of(
