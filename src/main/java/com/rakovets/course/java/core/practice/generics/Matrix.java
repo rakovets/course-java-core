@@ -9,7 +9,6 @@ import java.util.stream.IntStream;
 import static java.lang.System.in;
 import static java.lang.System.*;
 
-
 public class Matrix<T extends Number> {
     private final T[][] data;
     private int string;
