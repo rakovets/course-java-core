@@ -164,7 +164,6 @@ public class CustomArrayList<T> {
         }
         if (index < size) {
             size--;
-
             int i = index;
             while (i < data.length - 1) {
                 array[i] = data[i + 1];
@@ -209,7 +208,6 @@ public class CustomArrayList<T> {
         if (size - 1 >= 0) {
             System.arraycopy(data, 0, newArray, 0, size - 1);
         }
-
         size--;
         data = newArray;
     }
@@ -287,7 +285,6 @@ public class CustomArrayList<T> {
 
         for (int i = data.length - 1; i > 0; i--) {
             int index = random.nextInt(i + 1);
-
             T j = data[index];
             data[index] = data[i];
             data[i] = j;
