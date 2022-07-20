@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class Task07Test {
+class Task07Test {
     Task07 task07 = new Task07();
 
     @Test

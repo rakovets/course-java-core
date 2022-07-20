@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class Task05Test {
+class Task05Test {
     @Test
     void getIndexArray() {
         Task05 task05 = new Task05();

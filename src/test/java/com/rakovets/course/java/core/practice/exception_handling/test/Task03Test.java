@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class Task03Test {
+class Task03Test {
     @Test
     void checkAge() {
         Task03 task03 = new Task03();

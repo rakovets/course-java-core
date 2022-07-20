@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class Task01Test {
+class Task01Test {
     @Test
     void getStringLength() {
         Task01 task01 = new Task01();

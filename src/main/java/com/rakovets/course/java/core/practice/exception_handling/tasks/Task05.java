@@ -5,6 +5,8 @@ import com.rakovets.course.java.core.practice.exception_handling.exception.Incor
 import java.util.Random;
 
 public class Task05 {
+    private static final Random RANDOM = new Random();
+
     /**
      * Fills an array with random numbers.
      * <li>The method gets the length value for the new array.
@@ -21,15 +23,13 @@ public class Task05 {
 
         int[] array;
 
-        Random random = new Random();
-
         try {
             if (number <= maximumNegativeNumber) {
                 throw new NegativeArraySizeException();
             }
             array = new int[number];
             for (int i = 0; i < array.length; i++) {
-                array[i] = random.nextInt();
+                array[i] = RANDOM.nextInt();
             }
         } catch (NegativeArraySizeException e) {
             throw new IncorrectValuesWhenWorkingWithAnArrayException("IncorrectValuesWhenWorkingWithAnArray");
