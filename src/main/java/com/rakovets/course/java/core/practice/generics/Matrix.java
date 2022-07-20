@@ -2,16 +2,16 @@ package com.rakovets.course.java.core.practice.generics;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+import static java.lang.System.in;
 import static java.lang.System.*;
+
 
 public class Matrix<T extends Number> {
     private final T[][] data;
-
     private int string;
     private int column;
 
@@ -94,9 +94,9 @@ public class Matrix<T extends Number> {
      */
     public void printMatrix() {
         int i = 0;
-        while (i < string) {
+        while (i < data.length) {
             int j = 0;
-            while (j < column) {
+            while (j < data[i].length) {
                 out.print("\t" + data[i][j]);
                 j++;
             }
@@ -206,10 +206,10 @@ public class Matrix<T extends Number> {
     public Matrix<Number> additionMatrixInteger(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(data.length, data[0].length);
 
-        for (int i = 0; i < string; i++) {
-            for (int j = 0; j < column; j++) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
                 thirdMatrix.data[i][j] = firstMatrix.data[i][j].intValue() + secondMatrix.data[i][j].intValue();
             }
         }
@@ -225,10 +225,10 @@ public class Matrix<T extends Number> {
     public Matrix<Number> additionMatrixFloat(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(data.length, data[0].length);
 
-        for (int i = 0; i < string; i++) {
-            for (int j = 0; j < column; j++) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
                 thirdMatrix.data[i][j] = firstMatrix.data[i][j].doubleValue()
                         + secondMatrix.data[i][j].doubleValue();
             }
@@ -245,10 +245,10 @@ public class Matrix<T extends Number> {
     public Matrix<Number> subtractionMatrixInteger(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(data.length, data[0].length);
 
-        for (int i = 0; i < string; i++) {
-            for (int j = 0; j < column; j++) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
                 thirdMatrix.data[i][j] = firstMatrix.data[i][j].intValue() - secondMatrix.data[i][j].intValue();
             }
         }
@@ -264,10 +264,10 @@ public class Matrix<T extends Number> {
     public Matrix<Number> subtractionMatrixFloat(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        Matrix<Number> thirdMatrix = new Matrix<>(string, column);
+        Matrix<Number> thirdMatrix = new Matrix<>(data.length, data[0].length);
 
-        for (int i = 0; i < string; i++) {
-            for (int j = 0; j < column; j++) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
                 thirdMatrix.data[i][j] = firstMatrix.data[i][j].doubleValue()
                         - secondMatrix.data[i][j].doubleValue();
             }
@@ -283,16 +283,12 @@ public class Matrix<T extends Number> {
     public void multiplicationMatrixInteger(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        int[][] thirdMatrix = new int[string][column];
-
-        int firstMatrixString = firstMatrix.getString();
-        int secondMatrixColumn = secondMatrix.getColumn();
-        int secondMatrixString = secondMatrix.getString();
+        int[][] thirdMatrix = new int[data.length][data[0].length];
 
         int i = 0;
-        while (i < firstMatrixString) {
-            for (int j = 0; j < secondMatrixColumn; j++) {
-                for (int k = 0; k < secondMatrixString; k++) {
+        while (i < data.length) {
+            for (int j = 0; j < secondMatrix.column; j++) {
+                for (int k = 0; k < secondMatrix.string; k++) {
                     thirdMatrix[i][j] += firstMatrix.data[i][k].intValue() * secondMatrix.data[k][j].intValue();
                 }
             }
@@ -312,15 +308,11 @@ public class Matrix<T extends Number> {
     public void multiplicationMatrixFloat(Matrix<T> secondMatrix) {
         Matrix<T> firstMatrix = this;
 
-        double[][] thirdMatrix = new double[string][column];
+        double[][] thirdMatrix = new double[data.length][data[0].length];
 
-        int firstMatrixString = firstMatrix.getString();
-        int secondMatrixColumn = secondMatrix.getColumn();
-        int secondMatrixString = secondMatrix.getString();
-
-        for (int i = 0; i < firstMatrixString; i++) {
-            for (int j = 0; j < secondMatrixColumn; j++) {
-                for (int k = 0; k < secondMatrixString; k++) {
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < secondMatrix.column; j++) {
+                for (int k = 0; k < secondMatrix.string; k++) {
                     thirdMatrix[i][j] += firstMatrix.data[i][k].doubleValue()
                             * secondMatrix.data[k][j].doubleValue();
                 }
@@ -330,38 +322,5 @@ public class Matrix<T extends Number> {
             IntStream.range(0, thirdMatrix[0].length).forEach(j -> out.printf("%.5s\t", matrix[j]));
             out.println();
         });
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Matrix)) {
-            return false;
-        }
-        Matrix<?> matrix1 = (Matrix<?>) o;
-
-        return string == matrix1.string && column == matrix1.column && Arrays.deepEquals(data, matrix1.data);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(string, column);
-        result = 31 * result + Arrays.deepHashCode(data);
-
-        return result;
-    }
-
-    public int getString() {
-        return string;
-    }
-
-    public void setString(int string) {
-        this.string = string;
-    }
-
-    public int getColumn() {
-        return column;
     }
 }
