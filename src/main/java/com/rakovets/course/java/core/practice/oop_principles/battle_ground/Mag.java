@@ -3,20 +3,16 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 import java.util.Random;
 
 public class Mag extends Hero {
-    public Mag(String name, int health) {
-        super(name, health);
+    public Mag(String name, int health, int damage) {
+        super(name, health, damage);
     }
 
     @Override
-    public void attackEnemy(Enemy enemy, int damage) {
+    public void attackEnemy(Enemy enemy) {
         if (isAlive()) {
             if (readSpell()) {
-                enemy.takeDamage(damage * PERCENT_OF_DAMAGE);
-            } else {
-                System.out.println("Nothing happened");
+                enemy.takeDamage(getDamage());
             }
-        } else {
-            System.out.println("He is dead.");
         }
     }
 
@@ -24,18 +20,13 @@ public class Mag extends Hero {
     public void takeDamage(int damage) {
         if (isAlive()) {
             setHealth(getHealth() - damage);
-        } else {
-            System.out.println("He is dead.");
         }
     }
 
-    public void healing(Hero hero, int heal) {
+    public void healing(Hero hero) {
         if (readSpell()) {
-            hero.setHealth(hero.getHealth() + (hero.getCopyHealth() / PERCENT_OF_DAMAGE * 5));
-        } else {
-            System.out.println("Nothing happened");
+            hero.setHealth(hero.getHealth() + (hero.getMaxHealth() / 5));
         }
-
     }
 
     private static boolean readSpell() {

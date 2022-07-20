@@ -1,23 +1,21 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Warrior extends Hero {
-    private int copyHealth;
+    private int maxHealth;
 
-    public Warrior(String name, int health) {
-        super(name, health);
-        this.copyHealth = health;
+    public Warrior(String name, int health, int damage) {
+        super(name, health, damage);
+        this.maxHealth = health;
     }
 
     @Override
-    public void attackEnemy(Enemy enemy, int damage) {
+    public void attackEnemy(Enemy enemy) {
         if (isAlive()) {
             if (berserkMode()) {
-                enemy.takeDamage((damage * 2) + PERCENT_OF_DAMAGE);
+                enemy.takeDamage((getDamage() * 2));
             } else {
-                enemy.takeDamage(damage + PERCENT_OF_DAMAGE);
+                enemy.takeDamage(getDamage());
             }
-        } else {
-            System.out.println("He is dead.");
         }
     }
 
@@ -29,12 +27,10 @@ public class Warrior extends Hero {
             } else {
                 setHealth(getHealth() - damage);
             }
-        } else {
-            System.out.println("He is dead.");
         }
     }
 
     public boolean berserkMode() {
-        return getHealth() < (copyHealth / 2);
+        return getHealth() < (maxHealth / 2);
     }
 }

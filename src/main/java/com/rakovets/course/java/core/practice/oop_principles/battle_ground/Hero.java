@@ -3,14 +3,14 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 public abstract class Hero implements Mortal {
     private String name;
     private int health;
-    private int copyHealth;
+    private int maxHealth;
+    private int damage;
 
-    public final int PERCENT_OF_DAMAGE = 10;
-
-    public Hero(String name, int health) {
+    public Hero(String name, int health, int damage) {
         this.name = name;
         this.health = health;
-        this.copyHealth = health;
+        this.maxHealth = health;
+        this.damage = damage;
     }
 
     @Override
@@ -18,7 +18,7 @@ public abstract class Hero implements Mortal {
         return (health > 0);
     }
 
-    public abstract void attackEnemy(Enemy enemy, int damage);
+    public abstract void attackEnemy(Enemy enemy);
 
     public abstract void takeDamage(int damage);
 
@@ -30,7 +30,11 @@ public abstract class Hero implements Mortal {
         this.health = health;
     }
 
-    public int getCopyHealth() {
-        return copyHealth;
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 }

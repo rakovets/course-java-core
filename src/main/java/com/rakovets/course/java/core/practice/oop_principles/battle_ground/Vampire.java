@@ -1,17 +1,15 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Vampire extends Enemy {
-    public Vampire(int health) {
-        super(health);
+    public Vampire(int health, int damage) {
+        super(health, damage);
     }
 
     @Override
-    public void attackHero(Hero hero, int damage) {
+    public void attackHero(Hero hero) {
         if (isAlive()) {
-            hero.takeDamage(damage);
-            stealHealth(damage);
-        } else {
-            System.out.println("He is dead.");
+            hero.takeDamage(getDamage());
+            stealHealth(getDamage());
         }
     }
 
@@ -19,12 +17,10 @@ public class Vampire extends Enemy {
     public void takeDamage(int damage) {
         if (isAlive()) {
             setHealth(getHealth() - damage);
-        } else {
-            System.out.println("He is dead");
         }
     }
 
     public void stealHealth(int damage) {
-        setHealth(getHealth() + damage / (PERCENT_OF_HEALING*2));
+        setHealth(getHealth() + damage);
     }
 }

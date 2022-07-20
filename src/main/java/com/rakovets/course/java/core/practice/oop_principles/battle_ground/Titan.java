@@ -1,16 +1,14 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Titan extends Enemy {
-    public Titan(int health) {
-        super(health);
+    public Titan(int health, int damage) {
+        super(health, damage);
     }
 
     @Override
-    public void attackHero(Hero hero, int damage) {
+    public void attackHero(Hero hero) {
         if (isAlive()) {
-            hero.takeDamage(damage);
-        } else {
-            System.out.println("He is dead.");
+            hero.takeDamage(getDamage());
         }
     }
 
@@ -19,12 +17,10 @@ public class Titan extends Enemy {
         if (isAlive()) {
             setHealth(getHealth() - damage);
             regenPerHit(damage);
-        } else {
-            System.out.println("He is dead.");
         }
     }
 
     public void regenPerHit(int damage) {
-        setHealth(getHealth() + damage / PERCENT_OF_HEALING);
+        setHealth(getHealth() + damage);
     }
 }

@@ -2,16 +2,16 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public abstract class Enemy implements Mortal {
     private int health;
+    private int damage;
 
-    public final int PERCENT_OF_HEALING = 10;
-
-    public Enemy(int health) {
+    public Enemy(int health, int damage) {
         this.health = health;
+        this.damage = damage;
     }
 
     public abstract void takeDamage(int damage);
 
-    public abstract void attackHero(Hero hero, int damage);
+    public abstract void attackHero(Hero hero);
 
     @Override
     public boolean isAlive() {
@@ -24,5 +24,9 @@ public abstract class Enemy implements Mortal {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 }

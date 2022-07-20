@@ -5,17 +5,15 @@ import com.rakovets.course.java.core.example.enum_types.model.Sunday;
 import java.util.Random;
 
 public class Archer extends Hero {
-    public Archer(String name, int health) {
-        super(name, health);
+    public Archer(String name, int health, int damage) {
+        super(name, health, damage);
     }
 
     @Override
-    public void attackEnemy(Enemy enemy, int damage) {
+    public void attackEnemy(Enemy enemy) {
         if (isAlive()) {
-            enemy.takeDamage(damage + (PERCENT_OF_DAMAGE / 5));
-            enemy.takeDamage(damage + (PERCENT_OF_DAMAGE / 5));
-        } else {
-            System.out.println("He is dead.");
+            enemy.takeDamage(getDamage() / 5);
+            enemy.takeDamage(getDamage() / 5);
         }
     }
 
@@ -25,8 +23,6 @@ public class Archer extends Hero {
             if (!dodge()) {
                 setHealth(getHealth() - damage);
             }
-        } else {
-            System.out.println("He is dead.");
         }
     }
 
