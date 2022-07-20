@@ -1,27 +1,27 @@
 package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 public class Cat {
     private String name;
+    private double givenHappinese;
 
-    public final int PERCENT_OF_HAPPINESS = 10;
-
-    Cat(String name) {
+    public Cat(String name, double givenHappinese) {
         this.name = name;
+        this.givenHappinese = givenHappinese;
     }
 
     public void mew() {
         System.out.println("meew");
     }
 
-    public void mew(Person person, double happiness) {
-        person.changeHappiness(happiness);
+    public void mew(Person person) {
+        person.changeHappiness(getGivenHappinese());
     }
 
     public void purr() {
         System.out.println("purr");
     }
 
-    public void purr(Person person, double happiness) {
-        person.changeHappiness(happiness);
+    public void purr(Person person) {
+        person.changeHappiness(getGivenHappinese());
     }
 
     public String getName() {
@@ -30,5 +30,9 @@ public class Cat {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getGivenHappinese() {
+        return givenHappinese;
     }
 }

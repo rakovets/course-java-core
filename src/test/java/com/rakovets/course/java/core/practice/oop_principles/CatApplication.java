@@ -8,9 +8,9 @@ import com.rakovets.course.java.core.practice.oop_principles.cat_home.Sphynx;
 public class CatApplication {
     public static void main(String[] args) {
         Person person = new Person(100);
-        Sphynx sphynx = new Sphynx("Irma");
-        Persian persian = new Persian("Speed");
-        Siamese siamese = new Siamese("Luck");
+        Sphynx sphynx = new Sphynx("Irma", 10);
+        Persian persian = new Persian("Speed", 5);
+        Siamese siamese = new Siamese("Luck", -10);
 
         sphynx.mew();
         persian.mew();
@@ -29,10 +29,9 @@ public class CatApplication {
 
         person.setHappiness(150);
         System.out.println(person.getHappiness());
-        sphynx.mew(person, -20);
+        sphynx.mew(person);
         System.out.println(person.getHappiness());
-        persian.purr(person, 1000);
+        persian.purr(person);
         System.out.println(person.getHappiness());
-
     }
 }
