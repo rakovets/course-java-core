@@ -57,7 +57,7 @@ class Task07 {
                 totalPriceList += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(startNumberItems * priceItem);
                 break;
             }
-            totalPriceList += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(startNumberItems * priceItem) + "\n" ;
+            totalPriceList += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(startNumberItems * priceItem) + "\n";
             startNumberItems += differentialNumberItems;
          }
         return totalPriceList;
