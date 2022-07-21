@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для фитнес браслета.
  *
@@ -36,6 +38,16 @@ class Task06 {
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        final int PERCENTAGES = 100;
+        double sumDistance = 0;
+        double distancePerDay = startDistance;
+        double  progressInFractionOfNumber = (PERCENTAGES + dailyProgressAsPercentage) / 100.0;
+
+        while (distancePerDay < finishDistance && startDistance != 0 ) {
+            distancePerDay = distancePerDay * progressInFractionOfNumber;
+            sumDistance += distancePerDay;
+        }
+
+        return NumberUtil.roundValueToTwoDigitsForMantissa(sumDistance);
     }
 }
