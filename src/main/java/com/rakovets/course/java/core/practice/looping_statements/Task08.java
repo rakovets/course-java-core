@@ -62,16 +62,18 @@ class Task08 {
         for (int i = 1; i <= sizeTotalPrice; i++) {
             discountInShares = (PERCENTAGES - discount) / PERCENTAGES;
             if (i ==sizeTotalPrice) {
-                totalPriceListAndDiscount += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(startNumberItems * priceItem * discountInShares)
-                        + " with sell " + discount + "%";
+                totalPriceListAndDiscount += addResultPrice (startNumberItems, priceItem, discountInShares, discount);
                 break;
                 }
-            totalPriceListAndDiscount += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(startNumberItems * priceItem * discountInShares)
-                    + " with sell " + discount + "%\n";
+            totalPriceListAndDiscount += addResultPrice (startNumberItems, priceItem, discountInShares, discount) + "\n";
             startNumberItems += differentialNumberItems;
             discount += differentialSell;
-            System.out.println(totalPriceListAndDiscount);
         }
         return totalPriceListAndDiscount;
+    }
+
+    protected static String addResultPrice (int startNumberItems, double priceItem, double discountInShares, double discount) {
+       return startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(startNumberItems * priceItem * discountInShares)
+        + " with sell " + discount + "%";
     }
 }
