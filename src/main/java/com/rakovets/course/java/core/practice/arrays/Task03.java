@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,16 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] averageMarks = new double[marks.length];
+        double sum = 0.0;
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                sum += marks[i][j];
+            }
+            averageMarks[i] = NumberUtil.roundValueToTwoDigitsForMantissa(sum / marks[i].length);
+            sum = 0.0;
+        }
+        return averageMarks;
     }
 
     /**
@@ -47,7 +58,17 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minRating = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int startMinMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (startMinMark > marks[i][j]) {
+                    startMinMark = marks[i][j];
+                }
+                minRating[i] = startMinMark;
+            }
+        }
+        return minRating;
     }
 
     /**
@@ -59,6 +80,16 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxRating = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int startMaxMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (startMaxMark < marks[i][j]) {
+                    startMaxMark = marks[i][j];
+                }
+                maxRating[i] = startMaxMark;
+            }
+        }
+        return maxRating;
     }
 }
