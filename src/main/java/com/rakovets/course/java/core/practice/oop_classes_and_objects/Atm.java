@@ -59,12 +59,4 @@ public class Atm {
         }
         return check;
     }
-//
-//    public int getOptionsCombinationBanknotes(int amount) {
-//
-//    }
-
-//    public void setNumberBanknotes20() {
-//        this.numberBanknotes20 = numberBanknotes20;
-//    }
 }
