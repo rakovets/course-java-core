@@ -7,24 +7,32 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 public class TaxServiceTest {
-    Penalty speedGdansk = new Penalty("Speed", "Gdansk");
-    Penalty speedGdynia = new Penalty("Speed", "Gdynia");
-    Penalty techInspectionGdynia = new Penalty("Technical Inspection", "Gdynia");
-    Penalty techInspectionGdansk = new Penalty("Technical Inspection", "Gdansk");
-    TaxService taxService = new TaxService();
+    private final Penalty speedGdansk = new Penalty("Speed", "Gdansk");
+    private final Penalty speedGdynia = new Penalty("Speed", "Gdynia");
+    private final Penalty techInspectionGdynia = new Penalty("Technical Inspection", "Gdynia");
+    private final Penalty techInspectionGdansk = new Penalty("Technical Inspection", "Gdansk");
+    private final TaxService taxService = new TaxService();
 
     @BeforeEach
     public void setUp() {
-        Map<Integer, Set<Penalty>> start = new <Integer, Set<Penalty>>HashMap();
-        start.put(25, new HashSet<>(Arrays.asList(speedGdansk, speedGdynia)));
-        start.put(35, new HashSet<>(Arrays.asList(speedGdynia, techInspectionGdansk)));
-        start.put(45, new HashSet<>(List.of(techInspectionGdynia)));
-        taxService.addMap(start);
+        Map<Integer, Set<Penalty>> taxPayers = new HashMap<>();
+        taxPayers.put(25, new HashSet<>(Arrays.asList(speedGdansk, speedGdynia)));
+        taxPayers.put(35, new HashSet<>(Arrays.asList(speedGdynia, techInspectionGdansk)));
+        taxPayers.put(45, new HashSet<>(List.of(techInspectionGdynia)));
+        taxService.addMap(taxPayers);
+    }
+
+    @Test
+    public void testUniquePenalties() {
+        Set <Penalty> set = new HashSet<>(Set.of(speedGdynia));
+        Penalty speedGdyniaRepeat = new Penalty("Speed", "Gdynia");
+        set.add(speedGdyniaRepeat);
+        Assertions.assertEquals(1,set.size());
     }
 
     @Test
     public void testAddPerson() {
-        Assertions.assertEquals(techInspectionGdansk, taxService.addPenalties(25, techInspectionGdansk));
+        Assertions.assertEquals(techInspectionGdansk, taxService.addPenalty(25, techInspectionGdansk));
         Set<Penalty> expected = Set.of(speedGdansk, speedGdynia, techInspectionGdansk);
         Assertions.assertEquals(expected, taxService.getTaxPayersByPersonalCode(25));
     }
@@ -50,13 +58,13 @@ public class TaxServiceTest {
 
     @Test
     public void testGetTaxPayersByPenaltyType() {
-        List<Penalty> expected = List.of(speedGdansk, speedGdynia, speedGdynia);
+        Map<Integer, Set<Penalty>> expected  =Map.of(25,Set.of (speedGdansk,speedGdynia),35,Set.of(speedGdynia));
         Assertions.assertEquals(expected, taxService.getTaxPayersByPenaltyType("Speed"));
     }
 
     @Test
     public void testGetTaxPayersByCity() {
-        List<Penalty> expected = List.of(speedGdansk, techInspectionGdansk);
+        Map<Integer, Set<Penalty>> expected  =Map.of(25,Set.of (speedGdansk),35,Set.of(techInspectionGdansk));
         Assertions.assertEquals(expected, taxService.getTaxPayersByCity("Gdansk"));
     }
 

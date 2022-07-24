@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.jcf_set;
 import java.util.*;
 
 public class TaxService {
-    Map<Integer, Set<Penalty>> taxPayers = new HashMap<>();
+    private final Map<Integer, Set<Penalty>> taxPayers = new HashMap<>();
 
     public Set<Penalty> addPerson(int personalCode, Set<Penalty> set) {
         if (taxPayers.containsKey(personalCode)) {
@@ -19,13 +19,13 @@ public class TaxService {
         taxPayers.putAll(map);
     }
 
-    public Penalty addPenalties(int personalCode, Penalty penalty) {
-        Set<Penalty> set = taxPayers.get(personalCode);
+    public Penalty addPenalty(int personalCode, Penalty penalty) {
+        Set<Penalty> set = getTaxPayersByPersonalCode(personalCode);
         return set.add(penalty) ? penalty : null;
     }
 
     public Set<Penalty> addPenalties(int personalCode, Set<Penalty> penalties) {
-        Set<Penalty> existing = taxPayers.get(personalCode);
+        Set<Penalty> existing = getTaxPayersByPersonalCode(personalCode);
         Set<Penalty> result = new HashSet<>();
         for (Penalty penalty : penalties) {
             if (!existing.contains(penalty)) {
@@ -44,32 +44,36 @@ public class TaxService {
         return taxPayers.get(personalCode);
     }
 
-    public List<Penalty> getTaxPayersByPenaltyType(String typePenalty) {
-        List<Penalty> penalties = new ArrayList<>();
-        for (Set<Penalty> set : taxPayers.values()) {
-            penalties.addAll(set);
-        }
-        List<Penalty> result = new ArrayList<>();
-        for (Penalty s : penalties) {
-            if (Objects.equals(s.getTypePenalty(), typePenalty)) {
-                result.add(s);
+    public Map<Integer, Set<Penalty>> getTaxPayersByPenaltyType(String typePenalty) {
+        Map<Integer, Set<Penalty>> taxPayersByTypePenalty = new HashMap<>();
+        for (Map.Entry<Integer, Set<Penalty>> entry : taxPayers.entrySet()) {
+            Set<Penalty> personPenalties = new HashSet<>();
+            for (Penalty penalty : entry.getValue()) {
+                if (Objects.equals(penalty.getTypePenalty(), typePenalty)) {
+                    personPenalties.add(penalty);
+                }
+            }
+            if (!personPenalties.isEmpty()) {
+                taxPayersByTypePenalty.put(entry.getKey(), personPenalties);
             }
         }
-        return result;
+        return taxPayersByTypePenalty;
     }
 
-    public List<Penalty> getTaxPayersByCity(String city) {
-        List<Penalty> penalties = new ArrayList<>();
-        for (Set<Penalty> set : taxPayers.values()) {
-            penalties.addAll(set);
-        }
-        List<Penalty> result = new ArrayList<>();
-        for (Penalty s : penalties) {
-            if (Objects.equals(s.getCity(), city)) {
-                result.add(s);
+    public Map<Integer, Set<Penalty>> getTaxPayersByCity(String city) {
+        Map<Integer, Set<Penalty>> taxPayersByCity = new HashMap<>();
+        for (Map.Entry<Integer, Set<Penalty>> entry : taxPayers.entrySet()) {
+            Set<Penalty> personPenalties = new HashSet<>();
+            for (Penalty penalty : entry.getValue()) {
+                if (Objects.equals(penalty.getCity(), city)) {
+                    personPenalties.add(penalty);
+                }
+            }
+            if (!personPenalties.isEmpty()) {
+                taxPayersByCity.put(entry.getKey(), personPenalties);
             }
         }
-        return result;
+        return taxPayersByCity;
     }
 
     public void removePenalty(int personalCode, Penalty penalty) {
