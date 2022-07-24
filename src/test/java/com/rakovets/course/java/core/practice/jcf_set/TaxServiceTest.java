@@ -32,15 +32,14 @@ public class TaxServiceTest {
 
     @Test
     public void testAddNewPerson() {
-        Set<Penalty> expected = Set.of(speedGdansk);
-        Assertions.assertEquals(expected, taxService.addPerson(55,Set.of(speedGdansk)));
-        Assertions.assertEquals(expected,taxService.getTaxPayersByPersonalCode(55));
+        Assertions.assertEquals(Collections.EMPTY_SET, taxService.addOrGetPersonInfo(55));
+        Assertions.assertEquals(Collections.EMPTY_SET,taxService.getTaxPayersByPersonalCode(55));
     }
 
     @Test
-    public void testAddExistingPerson() {
-        Set<Penalty> expected = Set.of(techInspectionGdynia,speedGdansk);
-        Assertions.assertEquals(expected, taxService.addPerson(45,Set.of(speedGdansk)));
+    public void testGetInfoExistingPerson() {
+        Set<Penalty> expected = Set.of(techInspectionGdynia);
+        Assertions.assertEquals(expected, taxService.addOrGetPersonInfo(45));
         Assertions.assertEquals(expected,taxService.getTaxPayersByPersonalCode(45));
     }
 

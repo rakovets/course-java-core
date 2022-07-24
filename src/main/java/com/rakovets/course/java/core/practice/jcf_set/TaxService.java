@@ -5,30 +5,19 @@ import java.util.*;
 public class TaxService {
     private final Map<Integer, Set<Penalty>> taxPayers = new HashMap<>();
 
-    public Set<Penalty> addPerson(int personalCode, Set<Penalty> penalties) {
-        if (taxPayers.containsKey(personalCode)) {
-            addPenalties(personalCode, penalties);
-        } else {
-            taxPayers.put(personalCode, penalties);
-        }
+    public Set<Penalty> addOrGetPersonInfo(int personalCode) {
+        if (!taxPayers.containsKey(personalCode)) {
+            taxPayers.put(personalCode,new HashSet<>());}
         return getTaxPayersByPersonalCode(personalCode);
     }
 
     public Penalty addPenalty(int personalCode, Penalty penalty) {
-        if (!taxPayers.containsKey(personalCode)) {
-            addPerson(personalCode, Set.of(penalty));
-            return penalty;
-        }
-        Set<Penalty> penalties = getTaxPayersByPersonalCode(personalCode);
+        Set<Penalty> penalties = addOrGetPersonInfo(personalCode);
         return penalties.add(penalty) ? penalty : null;
     }
 
     public Set<Penalty> addPenalties(int personalCode, Set<Penalty> penalties) {
-        if (!taxPayers.containsKey(personalCode)) {
-            addPerson(personalCode, penalties);
-            return penalties;
-        }
-        Set<Penalty> existingPenalties = getTaxPayersByPersonalCode(personalCode);
+        Set<Penalty> existingPenalties = addOrGetPersonInfo(personalCode);
         Set<Penalty> newPenalties = new HashSet<>();
         for (Penalty penalty : penalties) {
             if (!existingPenalties.contains(penalty)) {
@@ -80,16 +69,16 @@ public class TaxService {
     }
 
     public void removePenalty(int personalCode, Penalty penalty) {
+        Set<Penalty> penalties = getTaxPayersByPersonalCode(personalCode);
         if (!taxPayers.containsKey(personalCode)) {
             return;
         }
-        Set<Penalty> penalties = getTaxPayersByPersonalCode(personalCode);
         penalties.remove(penalty);
     }
 
     public void replacePenaltyInformation(int personalCode, Set<Penalty> penalties) {
         if (!taxPayers.containsKey(personalCode)) {
-            addPerson(personalCode,penalties);
+            addPenalties(personalCode,penalties);
             return;
         }
         taxPayers.put(personalCode, penalties);
