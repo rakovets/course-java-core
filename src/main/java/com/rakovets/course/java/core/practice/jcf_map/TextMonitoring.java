@@ -46,17 +46,18 @@ public class TextMonitoring {
         return researchText(text).get(word);
     }
 
+    public Comparator<Map.Entry<String, Integer>> comparator = new Comparator<>() {
+        @Override
+        public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+            if (!(Objects.equals(o1.getValue(), o2.getValue()))) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+            return o1.getKey().compareTo(o2.getKey());
+        }
+    };
+
     public Map<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
         List<Map.Entry<String, Integer>> list = new LinkedList<>(researchText(text).entrySet());
-        Comparator<Map.Entry<String, Integer>> comparator = new Comparator<>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                if (!(Objects.equals(o1.getValue(), o2.getValue()))) {
-                    return o1.getValue().compareTo(o2.getValue());
-                }
-                return o1.getKey().compareTo(o2.getKey());
-            }
-        };
         if (isAscendingFrequency) {
             list.sort(comparator);
         } else {
