@@ -34,11 +34,7 @@ public class SchoolClass {
 
         @Override
         public int compare(Person o1, Person o2) {
-            if (o1.getName().equals(o2.getName())) {
-                return o1.getSurname().compareTo(o2.getSurname());
-            } else {
-                return o1.getName().compareTo(o2.getName());
-            }
+            return o1.getFullName().compareTo(o2.getFullName());
         }
     }
 

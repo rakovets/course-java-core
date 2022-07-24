@@ -59,6 +59,10 @@ public class Person {
         return surname;
     }
 
+    public String getFullName() {
+        return getName() + " " + getSurname();
+    }
+
     public int getAge() {
         return age;
     }
