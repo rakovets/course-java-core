@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 public class TextMonitoringTest {
-    TextMonitoring textMonitoring = new TextMonitoring();
-    String text = "Java Java java is language... language Java";
+    private final TextMonitoring textMonitoring = new TextMonitoring();
+    private final String text = "Java Java java is language... language Java";
 
     @Test
     public void testResearch() {
