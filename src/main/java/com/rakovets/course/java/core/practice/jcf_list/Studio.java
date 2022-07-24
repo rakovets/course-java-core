@@ -6,29 +6,24 @@ import java.util.List;
 import java.util.Objects;
 
 public class Studio {
-    private List<Actor> actors = new ArrayList<>();
-
     public Comparator<Actor> byFee = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
             return Float.compare(a1.getFee(), a2.getFee());
         }
     };
-
     public Comparator<Actor> bySurname = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
             return a1.getLastName().compareTo(a2.getLastName());
         }
     };
-
     public Comparator<Actor> byAge = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
             return Integer.compare(a1.getAge(), a2.getAge());
         }
     };
-
     public Comparator<Actor> byFeeSurname = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -38,7 +33,6 @@ public class Studio {
             return a1.getLastName().compareTo(a2.getLastName());
         }
     };
-
     public Comparator<Actor> bySurnameAge = new Comparator<>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -48,6 +42,7 @@ public class Studio {
             return Integer.compare(a1.getAge(), a2.getAge());
         }
     };
+    private List<Actor> actors = new ArrayList<>();
 
     public void addActors(Actor actor) {
         actors.add(actor);

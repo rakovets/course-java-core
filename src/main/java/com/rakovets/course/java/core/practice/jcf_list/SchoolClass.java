@@ -5,22 +5,18 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SchoolClass {
-    private List<Person> students = new ArrayList<>();
-
     public Comparator<Person> byAverageAnnualMark = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
             return Float.compare(p1.getAverageAnnualMark(), p2.getAverageAnnualMark());
         }
     };
-
     public Comparator<Person> byAge = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
             return Integer.compare(p1.getAge(), p2.getAge());
         }
     };
-
     public Comparator<Person> bySurnameName = new Comparator<>() {
         @Override
         public int compare(Person p1, Person p2) {
@@ -30,6 +26,7 @@ public class SchoolClass {
             return p1.getName().compareTo(p2.getName());
         }
     };
+    private List<Person> students = new ArrayList<>();
 
     public void addStudents(Person person) {
         students.add(person);
