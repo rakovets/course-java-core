@@ -7,7 +7,8 @@ public class TaxService {
 
     public Set<Penalty> addOrGetPersonInfo(int personalCode) {
         if (!taxPayers.containsKey(personalCode)) {
-            taxPayers.put(personalCode,new HashSet<>());}
+            taxPayers.put(personalCode, new HashSet<>());
+        }
         return getTaxPayersByPersonalCode(personalCode);
     }
 
@@ -78,7 +79,7 @@ public class TaxService {
 
     public void replacePenaltyInformation(int personalCode, Set<Penalty> penalties) {
         if (!taxPayers.containsKey(personalCode)) {
-            addPenalties(personalCode,penalties);
+            addPenalties(personalCode, penalties);
             return;
         }
         taxPayers.put(personalCode, penalties);
