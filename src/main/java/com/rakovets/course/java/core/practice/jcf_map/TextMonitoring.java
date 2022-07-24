@@ -23,8 +23,8 @@ public class TextMonitoring {
         Map<String, Integer> map = researchText(text);
         Collection<Integer> collection = map.values();
         int counter = 0;
-        for (Integer repetition : collection) {
-            if (repetition == 1) {
+        for (Integer numberRepetitions : collection) {
+            if (numberRepetitions == 1) {
                 counter++;
             }
         }
