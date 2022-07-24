@@ -24,4 +24,5 @@ public class StringUtil {
     public String replaceEmodjiDance(String str, String emodjiOld, String emodjiNew) {
         return str.replace(emodjiOld, emodjiNew);
     }
+
 }
