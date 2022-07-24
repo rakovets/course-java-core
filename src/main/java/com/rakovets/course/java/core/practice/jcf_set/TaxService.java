@@ -5,35 +5,38 @@ import java.util.*;
 public class TaxService {
     private final Map<Integer, Set<Penalty>> taxPayers = new HashMap<>();
 
-    public Set<Penalty> addPerson(int personalCode, Set<Penalty> set) {
+    public Set<Penalty> addPerson(int personalCode, Set<Penalty> penalties) {
         if (taxPayers.containsKey(personalCode)) {
-            addPenalties(personalCode, set);
-            return getTaxPayersByPersonalCode(personalCode);
+            addPenalties(personalCode, penalties);
         } else {
-            taxPayers.put(personalCode, set);
-            return getTaxPayersByPersonalCode(personalCode);
+            taxPayers.put(personalCode, penalties);
         }
-    }
-
-    public void addMap(Map<Integer, Set<Penalty>> map) {
-        taxPayers.putAll(map);
+        return getTaxPayersByPersonalCode(personalCode);
     }
 
     public Penalty addPenalty(int personalCode, Penalty penalty) {
-        Set<Penalty> set = getTaxPayersByPersonalCode(personalCode);
-        return set.add(penalty) ? penalty : null;
+        if (!taxPayers.containsKey(personalCode)) {
+            addPerson(personalCode, Set.of(penalty));
+            return penalty;
+        }
+        Set<Penalty> penalties = getTaxPayersByPersonalCode(personalCode);
+        return penalties.add(penalty) ? penalty : null;
     }
 
     public Set<Penalty> addPenalties(int personalCode, Set<Penalty> penalties) {
-        Set<Penalty> existing = getTaxPayersByPersonalCode(personalCode);
-        Set<Penalty> result = new HashSet<>();
+        if (!taxPayers.containsKey(personalCode)) {
+            addPerson(personalCode, penalties);
+            return penalties;
+        }
+        Set<Penalty> existingPenalties = getTaxPayersByPersonalCode(personalCode);
+        Set<Penalty> newPenalties = new HashSet<>();
         for (Penalty penalty : penalties) {
-            if (!existing.contains(penalty)) {
-                result.add(penalty);
+            if (!existingPenalties.contains(penalty)) {
+                newPenalties.add(penalty);
             }
         }
-        existing.addAll(penalties);
-        return result;
+        existingPenalties.addAll(penalties);
+        return newPenalties;
     }
 
     public Map<Integer, Set<Penalty>> getTaxPayers() {
@@ -77,11 +80,18 @@ public class TaxService {
     }
 
     public void removePenalty(int personalCode, Penalty penalty) {
-        Set<Penalty> set = getTaxPayersByPersonalCode(personalCode);
-        set.remove(penalty);
+        if (!taxPayers.containsKey(personalCode)) {
+            return;
+        }
+        Set<Penalty> penalties = getTaxPayersByPersonalCode(personalCode);
+        penalties.remove(penalty);
     }
 
-    public void replacePenaltyInformation(int personalCode, Set<Penalty> penalty) {
-        taxPayers.put(personalCode, penalty);
+    public void replacePenaltyInformation(int personalCode, Set<Penalty> penalties) {
+        if (!taxPayers.containsKey(personalCode)) {
+            addPerson(personalCode,penalties);
+            return;
+        }
+        taxPayers.put(personalCode, penalties);
     }
 }
