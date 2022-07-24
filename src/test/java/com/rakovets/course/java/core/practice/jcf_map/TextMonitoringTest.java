@@ -32,6 +32,11 @@ public class TextMonitoringTest {
     }
 
     @Test
+    public void testGetFrequencyWordNotExist() {
+        Assertions.assertEquals(0,textMonitoring.getFrequencyWord(text,"Git"));
+    }
+
+    @Test
     public void testGetFrequencyWordsFalse() {
         Map <String,Integer> actual= textMonitoring.getFrequencyWords(text,false);
         List <String> keys = new ArrayList<>(actual.keySet());
