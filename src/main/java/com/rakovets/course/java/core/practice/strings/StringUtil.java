@@ -62,9 +62,62 @@ public class StringUtil {
         return numberMark;
     }
 
-    public boolean palindrome(String text) {
-        StringBuffer textReverse = new StringBuffer(text);
-        return text.equalsIgnoreCase(String.valueOf(textReverse));
+    public boolean stringPalindrome(String text) {
+        boolean resultCheckPalidrome;
+        if (text == null || text.isEmpty()) {
+           return false;
+        }
+
+        text = text.replace(" ", "");
+        if (text.isEmpty()) {
+            return false;
+        }
+
+        StringBuilder textReverse = new StringBuilder(text);
+        textReverse = textReverse.reverse();
+        resultCheckPalidrome = text.equalsIgnoreCase(textReverse.toString());
+
+        return resultCheckPalidrome;
+    }
+
+    public String[]  splitStringParts(String text, int n) {
+        return text.split("(?s)(?<=\\G.{" + n + "})");
+    }
+
+    public int numberStringsText(String text) {
+        if (text == null || text.isEmpty() || text == " ") {
+            return 0;
+        }
+        while (text.indexOf("  ") >= 0) {
+            text = text.replace("  ", " ");
+        }
+        String[] textDeleteExtraSpace = text.trim().split(" ");
+        return textDeleteExtraSpace.length;
+    }
+
+    public String initialsFirstLastNames(String text) {
+        while (text.indexOf("  ") >= 0) {
+            text = text.replace("  ", " ");
+        }
+        text = text.trim();
+        int lastNameIndex = text.indexOf(" ") + 1;
+        char initialFirst = text.charAt(0);
+        char initialLast = text.charAt(lastNameIndex);
+        String textInitialsFirstLastNames = (new String(new char[] {initialFirst, initialLast})).toUpperCase();
+        return textInitialsFirstLastNames;
+    }
+
+    public String returnDigitsFromString(String text) {
+        while (text.indexOf(" ") >= 0) {
+            text = text.replace(" ", "");
+        }
+        String digitsFromString = "";
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) >= '0' && text.charAt(i) <= '9') {
+                digitsFromString = digitsFromString + text.charAt(i);
+            }
+        }
+        return digitsFromString;
     }
 
 }

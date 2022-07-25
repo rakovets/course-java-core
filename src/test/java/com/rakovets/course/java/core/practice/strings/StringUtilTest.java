@@ -133,7 +133,7 @@ public class StringUtilTest {
         testCheckEqualBeginString(" *", "*", false);
     }
 
-    void testCheckEqualBeginString (String text, String word, boolean expected) {
+    void testCheckEqualBeginString(String text, String word, boolean expected) {
         boolean actual = stringUtil.checkEqualBeginString(text, word);
 
         Assertions.assertEquals(expected, actual);
@@ -149,7 +149,7 @@ public class StringUtilTest {
         testNumberVowelLetter("aAeEiIoOuUyY", 12);
     }
 
-    void testNumberVowelLetter (String text, int expected) {
+    void testNumberVowelLetter(String text, int expected) {
         int actual = stringUtil.numberVowelLetter(text);
 
         Assertions.assertEquals(expected, actual);
@@ -165,8 +165,96 @@ public class StringUtilTest {
         testNumberPunctuationMark(" /.,? ? $;:! ", 5);
     }
 
-    void testNumberPunctuationMark (String text, int expected) {
+    void testNumberPunctuationMark(String text, int expected) {
         int actual = stringUtil.numberPunctuationMark(text);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testStringPalindromePositive() {
+        testStringPalindrome("DeeD", true);
+        testStringPalindrome("Deed", true);
+        testStringPalindrome("1991 ", true);
+        testStringPalindrome("Dos So s s o d ", true);
+        testStringPalindrome(" gg O g    g ", true);
+        testStringPalindrome(" 45 U 5 4 ", true);
+
+    }
+
+    @Test
+    void testStringPalindromeNegative() {
+        testStringPalindrome("DeeDd", false);
+        testStringPalindrome("d Deed", false);
+        testStringPalindrome("195691 ", false);
+    }
+
+    @Test
+    void testStringPalindromeEmptyOrNull() {
+        testStringPalindrome(" ", false);
+        testStringPalindrome(null, false);
+    }
+
+    void testStringPalindrome(String text, boolean expected) {
+        boolean actual = stringUtil.stringPalindrome(text);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testSplitStringPartsRandom() {
+        testSplitStringParts("Hello, my friend!", 3, new String[]
+                {"Hel", "lo,", " my", " fr", "ien", "d!"});
+        testSplitStringParts(" Hard to learn, easy in Java!", 5, new String[]
+                {" Hard", " to l", "earn,", " easy", " in J", "ava!"});
+    }
+
+    void testSplitStringParts(String text, int n, String[] expected) {
+        String[] actual = stringUtil.splitStringParts(text, n);
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void testNumberStringsTextRandom() {
+        testNumberStringsText("Hello Java", 2);
+        testNumberStringsText("  He    llo     Java    ", 3);
+        testNumberStringsText("22 2    Hello  *  Java   ", 5);
+        testNumberStringsText("", 0);
+        testNumberStringsText(" ", 0);
+        testNumberStringsText(null, 0);
+    }
+
+    void testNumberStringsText(String text, int expected) {
+        int actual = stringUtil.numberStringsText(text);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testInitialsFirstLastNamesRandom() {
+        testInitialsFirstLastNames("Salenkou Andrei", "SA");
+        testInitialsFirstLastNames("salenkou andrei", "SA");
+        testInitialsFirstLastNames(" Salenkou      Andrei", "SA");
+        testInitialsFirstLastNames("   SaleNkou      andrei  ", "SA");
+        testInitialsFirstLastNames("DmitRY  rakOVets", "DR");
+    }
+
+    void testInitialsFirstLastNames(String text, String expected) {
+        String actual = stringUtil.initialsFirstLastNames(text);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testReturnDigitsFromStringRandom() {
+        testReturnDigitsFromString("12 Hello 55 Java 33", "125533");
+        testReturnDigitsFromString("   1 2 Hello 5 5 Java 3 3  ", "125533");
+        testReturnDigitsFromString("Hello Java", "");
+    }
+
+    void testReturnDigitsFromString(String text, String expected) {
+        String actual = stringUtil.returnDigitsFromString(text);
 
         Assertions.assertEquals(expected, actual);
     }
