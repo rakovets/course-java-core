@@ -67,16 +67,13 @@ public class StringUtil {
         if (text == null || text.isEmpty()) {
            return false;
         }
-
         text = text.replace(" ", "");
         if (text.isEmpty()) {
             return false;
         }
-
         StringBuilder textReverse = new StringBuilder(text);
         textReverse = textReverse.reverse();
         resultCheckPalidrome = text.equalsIgnoreCase(textReverse.toString());
-
         return resultCheckPalidrome;
     }
 
