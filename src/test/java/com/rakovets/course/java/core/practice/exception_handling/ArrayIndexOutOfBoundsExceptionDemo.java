@@ -4,8 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ArrayIndexOutOfBoundsExceptionDemo {
-    Logger logger = Logger.getLogger(ArrayIndexOutOfBoundsExceptionDemo.class.getName());
-    ArrayIndexOutOfBoundsExceptionTask task = new ArrayIndexOutOfBoundsExceptionTask();
+    private final Logger logger = Logger.getLogger(ArrayIndexOutOfBoundsExceptionDemo.class.getName());
+    private final ArrayIndexOutOfBoundsExceptionTask task = new ArrayIndexOutOfBoundsExceptionTask();
 
     public void catchArrayIndexOutOfBoundsException() {
         try {

@@ -6,8 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CustomExceptionDemo {
-    Logger logger = Logger.getLogger(CustomExceptionDemo.class.getName());
-    CustomExceptionTask task = new CustomExceptionTask();
+    private final Logger logger = Logger.getLogger(CustomExceptionDemo.class.getName());
+    private final CustomExceptionTask task = new CustomExceptionTask();
 
     public void catchArgumentNegativeException(int number) {
         try {

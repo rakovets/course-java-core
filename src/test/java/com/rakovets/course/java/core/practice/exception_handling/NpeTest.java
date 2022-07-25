@@ -5,10 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class NpeTest {
-    NpeTask task;
+    private static NpeTask task;
 
     @BeforeAll
-    public void setUp() {
+    static void setUp() {
         task = new NpeTask();
     }
 

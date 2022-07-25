@@ -6,8 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CustomRuntimeExceptionDemo {
-    Logger logger = Logger.getLogger(CustomRuntimeExceptionDemo.class.getName());
-    CustomRuntimeExceptionTask task = new CustomRuntimeExceptionTask();
+    private final Logger logger = Logger.getLogger(CustomRuntimeExceptionDemo.class.getName());
+    private final CustomRuntimeExceptionTask task = new CustomRuntimeExceptionTask();
 
     public void catchMyExceptionOnNullString(String string) {
         try {

@@ -6,8 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MixedExceptionsDemo {
-    Logger logger = Logger.getLogger(MixedExceptionsDemo.class.getName());
-    MixedExceptionsTask task = new MixedExceptionsTask();
+    private final Logger logger = Logger.getLogger(MixedExceptionsDemo.class.getName());
+    private final MixedExceptionsTask task = new MixedExceptionsTask();
 
     public void catchMixedExceptions(int number) {
         try {

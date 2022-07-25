@@ -6,8 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CustomArithmeticExceptionDemo {
-    Logger logger = Logger.getLogger(CustomArithmeticExceptionDemo.class.getName());
-    CustomArithmeticExceptionTask task = new CustomArithmeticExceptionTask();
+    private final Logger logger = Logger.getLogger(CustomArithmeticExceptionDemo.class.getName());
+    private final CustomArithmeticExceptionTask task = new CustomArithmeticExceptionTask();
 
     public void catchCustomArithmeticException(int number1, int number2) {
         try {

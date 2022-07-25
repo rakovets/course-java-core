@@ -8,8 +8,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MultiplyExceptionDemo {
-    Logger logger = Logger.getLogger(MultiplyExceptionDemo.class.getName());
-    MultiplyExceptionTask task = new MultiplyExceptionTask();
+    private final Logger logger = Logger.getLogger(MultiplyExceptionDemo.class.getName());
+    private final MultiplyExceptionTask task = new MultiplyExceptionTask();
 
     public void catchMultiplyExceptions(int number) {
         try {

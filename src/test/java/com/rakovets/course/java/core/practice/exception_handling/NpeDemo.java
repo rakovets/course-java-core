@@ -3,9 +3,9 @@ package com.rakovets.course.java.core.practice.exception_handling;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class NPEDemo {
-    Logger logger = Logger.getLogger(NPEDemo.class.getName());
-    NPETask task = new NPETask();
+public class NpeDemo {
+    private final Logger logger = Logger.getLogger(NpeDemo.class.getName());
+    private final NpeTask task = new NpeTask();
 
     public void catchNullPointerException() {
         try {
