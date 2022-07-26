@@ -12,7 +12,7 @@ java {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.6.3")
+    testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 }
 
 repositories {
