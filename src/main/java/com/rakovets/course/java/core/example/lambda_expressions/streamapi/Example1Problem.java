@@ -14,10 +14,10 @@ public class Example1Problem {
                 new Student("Alias", "White", 25, 1300)
         );
 
-        // Task: print ll students
+        // Task: print all students
         printGroup1(group);
 
-        // Task: print ll students
+        // Task: print all students
         printGroup2(group);
 
         // Task: filtered students by Criteria
