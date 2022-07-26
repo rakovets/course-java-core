@@ -1,20 +1,23 @@
 package com.rakovets.course.java.core.practice.jcf_collection;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class StringCollectionUtil {
-    public List<String> resetWordsByLength(List<String> list, int wordSize) {
-        for (String l : list) {
-            if (l.length() == wordSize) {
-                list.set(list.indexOf(l), "*");
+    public Collection<String> resetWordsByLength(Collection<String> collection, int wordSize, String replacement) {
+        Collection<String> resultCollection = new ArrayList<>();
+        for (String word : collection) {
+            if (word.length() == wordSize) {
+                resultCollection.add(replacement);
+            } else {
+                resultCollection.add(word);
             }
         }
-        return list;
+        return resultCollection;
     }
 
-    public Collection <String> removeWordsByLength(Collection<String> collection, int wordSize) {
-       collection.removeIf(s -> s.length() == wordSize);
-       return collection;
+    public Collection<String> removeWordsByLength(Collection<String> collection, int wordSize) {
+        collection.removeIf(s -> s.length() == wordSize);
+        return collection;
     }
 }
