@@ -8,19 +8,23 @@ public class Actor {
     private final double fee;
     private final int age;
 
-    /**
-     * Constructor.
-     *
-     * @param firstName actor's name.
-     * @param lastName  actor's surname.
-     * @param fee       actor's fee.
-     * @param age       actor's age.
-     */
     public Actor(String firstName, String lastName, double fee, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fee = fee;
         this.age = age;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     @Override
@@ -49,17 +53,5 @@ public class Actor {
                 ", fee=" + fee +
                 ", age=" + age +
                 '}';
-    }
-
-    public double getFee() {
-        return fee;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getAge() {
-        return age;
     }
 }

@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.jcf_list;
 
 import com.rakovets.course.java.core.practice.jcf_list.studio.Actor;
 import com.rakovets.course.java.core.practice.jcf_list.studio.Studio;
+import com.rakovets.course.java.core.practice.jcf_list.studio.comparator.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,8 +15,9 @@ import java.util.List;
 @DisplayName("Test for class Studio.")
 class StudioTest {
 
-    static List<Actor> actors;
-    static Studio studio;
+    List<Actor> actors;
+    List<Actor> actual;
+    Studio studio;
 
     @BeforeEach
     void initialize() {
@@ -26,7 +28,9 @@ class StudioTest {
                 new Actor("Brad", "Pitt", 1000.00, 57),
                 new Actor("Nikita", "Ivanov", 150.50, 19)
         ));
+
         studio = new Studio(actors);
+        actual = studio.getActors();
     }
 
     @Test
@@ -39,9 +43,9 @@ class StudioTest {
                 new Actor("Petr", "Petrov", 500.50, 37)
         );
 
-        studio.fire(actors);
+        actual = studio.fire(actors);
 
-        Assertions.assertEquals(expected, studio.getActors());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -55,9 +59,9 @@ class StudioTest {
                 new Actor("Brad", "Pitt", 1000.00, 57)
         );
 
-        actors.sort(new Studio.LastNameComparator());
+        actors.sort(new LastNameComparator());
 
-        Assertions.assertEquals(expected, studio.getActors());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -71,9 +75,9 @@ class StudioTest {
                 new Actor("Brad", "Pitt", 1000.00, 57)
         );
 
-        actors.sort(new Studio.AgeComparator());
+        actors.sort(new AgeComparator());
 
-        Assertions.assertEquals(expected, studio.getActors());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -87,9 +91,9 @@ class StudioTest {
                 new Actor("Brad", "Pitt", 1000.00, 57)
         );
 
-        actors.sort(new Studio.FeeComparator());
+        actors.sort(new FeeComparator());
 
-        Assertions.assertEquals(expected, studio.getActors());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -103,9 +107,9 @@ class StudioTest {
                 new Actor("Brad", "Pitt", 1000.00, 57)
         );
 
-        actors.sort(new Studio.LastNameAgeComparator());
+        actors.sort(new LastNameAgeComparator());
 
-        Assertions.assertEquals(expected, studio.getActors());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -119,8 +123,8 @@ class StudioTest {
                 new Actor("Brad", "Pitt", 1000.00, 57)
         );
 
-        actors.sort(new Studio.FeeLastNameComparator());
+        actors.sort(new FeeLastNameComparator());
 
-        Assertions.assertEquals(expected, studio.getActors());
+        Assertions.assertEquals(expected, actual);
     }
 }

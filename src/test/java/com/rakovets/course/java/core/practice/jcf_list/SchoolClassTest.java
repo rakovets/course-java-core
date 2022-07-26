@@ -2,6 +2,9 @@ package com.rakovets.course.java.core.practice.jcf_list;
 
 import com.rakovets.course.java.core.practice.jcf_list.clazz.Person;
 import com.rakovets.course.java.core.practice.jcf_list.clazz.SchoolClass;
+import com.rakovets.course.java.core.practice.jcf_list.clazz.comparator.AgeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.clazz.comparator.AverageAnnualMarkComparator;
+import com.rakovets.course.java.core.practice.jcf_list.clazz.comparator.NameComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,8 +16,9 @@ import java.util.List;
 
 @DisplayName("Test for class School Class.")
 class SchoolClassTest {
-    static List<Person> students;
-    static SchoolClass schoolClass;
+    List<Person> students;
+    List<Person> actual;
+    SchoolClass schoolClass;
 
     @BeforeEach
     void init() {
@@ -25,7 +29,9 @@ class SchoolClassTest {
                 new Person("Brad", "Pitt", 11, 78.0),
                 new Person("Nikita", "Ivanov", 12, 89.8)
         ));
+
         schoolClass = new SchoolClass(students);
+        actual = schoolClass.getStudents();
     }
 
     @Test
@@ -33,7 +39,9 @@ class SchoolClassTest {
     void getBestStudentTest() {
         Person expected = new Person("Nikita", "Ivanov", 12, 89.8);
 
-        Assertions.assertEquals(expected, schoolClass.getBestStudent(students));
+        Person actual = schoolClass.getBestStudent(students);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -48,9 +56,9 @@ class SchoolClassTest {
 
         ));
 
-        students.sort(new SchoolClass.NameComparator());
+        students.sort(new NameComparator());
 
-        Assertions.assertEquals(expected, schoolClass.getStudents());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -64,9 +72,9 @@ class SchoolClassTest {
                 new Person("Nikita", "Ivanov", 12, 89.8)
         ));
 
-        students.sort(new SchoolClass.AgeComparator());
+        students.sort(new AgeComparator());
 
-        Assertions.assertEquals(expected, schoolClass.getStudents());
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -80,8 +88,8 @@ class SchoolClassTest {
                 new Person("Nikita", "Ivanov", 12, 89.8)
         ));
 
-        students.sort(new SchoolClass.AverageAnnualMarkComparator());
+        students.sort(new AverageAnnualMarkComparator());
 
-        Assertions.assertEquals(expected, schoolClass.getStudents());
+        Assertions.assertEquals(expected, actual);
     }
 }

@@ -3,15 +3,15 @@ package com.rakovets.course.java.core.practice.jcf_collection;
 import java.util.ArrayList;
 import java.util.Collection;
 
-interface StringCollectionUtil {
+public class StringCollectionUtil {
     /**
      * The method replaces the original string, the length of which is equal to the size of the word, with *.
      *
      * @param collection string list.
      * @param size       word size.
-     * @return list after changes.
+     * @return edited collection.
      */
-    static Collection<String> resetWordsByLength(Collection<String> collection, int size) {
+    public Collection<String> resetWordsByLength(Collection<String> collection, int size) {
         Collection<String> stringCollection = new ArrayList<>();
 
         for (String string : collection) {
@@ -29,8 +29,10 @@ interface StringCollectionUtil {
      *
      * @param collection string list.
      * @param size       word size.
+     * @return edited collection.
      */
-    static void removeWordsByLength(Collection<String> collection, int size) {
+    public Collection<String> removeWordsByLength(Collection<String> collection, int size) {
         collection.removeIf(string -> string.length() == size);
+        return collection;
     }
 }
