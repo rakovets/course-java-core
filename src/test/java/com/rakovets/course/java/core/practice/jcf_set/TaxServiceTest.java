@@ -24,7 +24,7 @@ public class TaxServiceTest {
 
     @BeforeEach
     public void setUp() {
-        taxService=new TaxService();
+        taxService = new TaxService();
         speedGdansk = new Penalty("Speed", "Gdansk");
         speedGdynia = new Penalty("Speed", "Gdynia");
         techInspectionGdynia = new Penalty("Technical Inspection", "Gdynia");
@@ -45,17 +45,17 @@ public class TaxServiceTest {
         set.add(speedGdyniaRepeat);
         int actual = set.size();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testAddNewPerson() {
-        Set <Penalty> expected = Collections.EMPTY_SET;
+        Set<Penalty> expected = Collections.EMPTY_SET;
 
         taxService.addPerson(55);
         Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(55);
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -67,18 +67,18 @@ public class TaxServiceTest {
     public void testGetInfoExistingPerson() {
         Set<Penalty> expected = Set.of(techInspectionGdynia);
 
-        Set <Penalty> actual =  taxService.getPersonInfo(45);
+        Set<Penalty> actual = taxService.getPersonInfo(45);
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetInfoNewPerson() {
-        Set <Penalty> expected = Collections.EMPTY_SET;
+        Set<Penalty> expected = Collections.EMPTY_SET;
 
-        Set <Penalty> actual = taxService.getPersonInfo(30);
+        Set<Penalty> actual = taxService.getPersonInfo(30);
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -87,10 +87,10 @@ public class TaxServiceTest {
         Penalty expectedPenalty = techInspectionGdansk;
 
         Penalty actualPenalty = taxService.addPenalty(25, techInspectionGdansk);
-        Set <Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
-        Assertions.assertEquals(expectedPenalty,actualPenalty);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expectedPenalty, actualPenalty);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -103,59 +103,59 @@ public class TaxServiceTest {
         Set<Penalty> expected = Set.of(speedGdansk);
         Penalty expectedPenalty = speedGdansk;
 
-        Penalty actualPenalty =  taxService.addPenalty(50, speedGdansk);
-        Set <Penalty> actual = taxService.getTaxPayersByPersonalCode(50);
+        Penalty actualPenalty = taxService.addPenalty(50, speedGdansk);
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(50);
 
-        Assertions.assertEquals(expectedPenalty,actualPenalty);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expectedPenalty, actualPenalty);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testAddNewPenaltiesExistingPerson() {
         Set<Penalty> expected = Set.of(speedGdansk, speedGdynia, techInspectionGdynia);
-        Set <Penalty> expectedNewPenalties= Set.of(techInspectionGdynia);
+        Set<Penalty> expectedNewPenalties = Set.of(techInspectionGdynia);
 
-        Set <Penalty> actualNewPenalties= taxService.addPenalties(25, Set.of(techInspectionGdynia));
-        Set<Penalty> actual= taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actualNewPenalties = taxService.addPenalties(25, Set.of(techInspectionGdynia));
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
-        Assertions.assertEquals(expectedNewPenalties,actualNewPenalties);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expectedNewPenalties, actualNewPenalties);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testAddExistingPenaltiesExistingPerson() {
         Set<Penalty> expected = Set.of(speedGdansk, speedGdynia);
-        Set <Penalty> expectedNewPenalties= Collections.EMPTY_SET;
+        Set<Penalty> expectedNewPenalties = Collections.EMPTY_SET;
 
-        Set <Penalty> actualNewPenalties= taxService.addPenalties(25, Set.of(speedGdynia));
-        Set<Penalty> actual= taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actualNewPenalties = taxService.addPenalties(25, Set.of(speedGdynia));
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
-        Assertions.assertEquals(expectedNewPenalties,actualNewPenalties);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expectedNewPenalties, actualNewPenalties);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testAddExistingAndNewPenaltiesExistingPerson() {
-        Set<Penalty> expected = Set.of(speedGdansk, speedGdynia,techInspectionGdansk);
-        Set <Penalty> expectedNewPenalties= Set.of(techInspectionGdansk);
+        Set<Penalty> expected = Set.of(speedGdansk, speedGdynia, techInspectionGdansk);
+        Set<Penalty> expectedNewPenalties = Set.of(techInspectionGdansk);
 
-        Set <Penalty> actualNewPenalties= taxService.addPenalties(25, Set.of(speedGdynia,speedGdansk,techInspectionGdansk));
-        Set<Penalty> actual= taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actualNewPenalties = taxService.addPenalties(25, Set.of(speedGdynia, speedGdansk, techInspectionGdansk));
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
-        Assertions.assertEquals(expectedNewPenalties,actualNewPenalties);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expectedNewPenalties, actualNewPenalties);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testAddNewPersonWithAddPenaltiesMethod() {
         Set<Penalty> expected = Set.of(speedGdansk);
-        Set <Penalty> expectedNewPenalties= Set.of(speedGdansk);
+        Set<Penalty> expectedNewPenalties = Set.of(speedGdansk);
 
-        Set <Penalty> actualNewPenalties= taxService.addPenalties(50, Set.of(speedGdansk));
-        Set<Penalty> actual= taxService.getTaxPayersByPersonalCode(50);
+        Set<Penalty> actualNewPenalties = taxService.addPenalties(50, Set.of(speedGdansk));
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(50);
 
-        Assertions.assertEquals(expectedNewPenalties,actualNewPenalties);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expectedNewPenalties, actualNewPenalties);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -174,14 +174,14 @@ public class TaxServiceTest {
 
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetTaxPayersByPersonalCode() {
         Set<Penalty> expected = Set.of(speedGdansk, speedGdynia);
 
-        Set <Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -204,7 +204,7 @@ public class TaxServiceTest {
     public void testGetTaxPayersByPenaltyTypeNotExist() {
         Map<Integer, Set<Penalty>> expected = Collections.EMPTY_MAP;
 
-        Map<Integer, Set<Penalty>> actual=taxService.getTaxPayersByPenaltyType("Alcohol Intoxication");
+        Map<Integer, Set<Penalty>> actual = taxService.getTaxPayersByPenaltyType("Alcohol Intoxication");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -222,7 +222,7 @@ public class TaxServiceTest {
     public void testGetTaxPayersByCityNotExist() {
         Map<Integer, Set<Penalty>> expected = Collections.EMPTY_MAP;
 
-        Map<Integer, Set<Penalty>> actual=taxService.getTaxPayersByCity("Sopot");
+        Map<Integer, Set<Penalty>> actual = taxService.getTaxPayersByCity("Sopot");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -232,7 +232,7 @@ public class TaxServiceTest {
         Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia));
 
         taxService.removePenalty(25, speedGdynia);
-        Map<Integer, Set<Penalty>> actual =taxService.getTaxPayers();
+        Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -242,7 +242,7 @@ public class TaxServiceTest {
         Set<Penalty> expected = Set.of(speedGdansk, speedGdynia);
 
         taxService.removePenalty(25, techInspectionGdansk);
-        Set<Penalty> actual =taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -252,7 +252,7 @@ public class TaxServiceTest {
         Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdynia, speedGdansk), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia));
 
         taxService.removePenalty(40, techInspectionGdansk);
-        Map<Integer, Set<Penalty>> actual=taxService.getTaxPayers();
+        Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -262,9 +262,9 @@ public class TaxServiceTest {
         Set<Penalty> expected = Set.of(techInspectionGdynia);
 
         taxService.replacePenaltyInformation(25, Set.of(techInspectionGdynia));
-        Set<Penalty> actual=taxService.getTaxPayersByPersonalCode(25);
+        Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -272,7 +272,7 @@ public class TaxServiceTest {
         Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdynia, speedGdansk), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia), 40, Set.of(techInspectionGdynia));
 
         taxService.replacePenaltyInformation(40, Set.of(techInspectionGdynia));
-        Map<Integer, Set<Penalty>> actual=taxService.getTaxPayers();
+        Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
 
         Assertions.assertEquals(expected, actual);
     }
