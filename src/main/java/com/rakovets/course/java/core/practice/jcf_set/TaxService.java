@@ -1,6 +1,10 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 public class TaxService {
     private final Map<Integer, Set<Penalty>> taxPayers = new HashMap<>();
