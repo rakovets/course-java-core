@@ -36,7 +36,6 @@ public class TaxService {
             } else {
                 throw new PenaltyAlreadyExistException("This penalty has already been entered into the TaxSystem!");
             }
-
         } else {
             taxPayers.put(personalCode, Set.of(penalty));
             return penalty;
