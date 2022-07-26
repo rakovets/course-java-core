@@ -1,17 +1,15 @@
 package com.rakovets.course.java.core.practice.jcf_map;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class TextMonitoring {
-    public Comparator<Map.Entry<String, Integer>> comparator = new Comparator<>() {
-        @Override
-        public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-            if (!(Objects.equals(o1.getValue(), o2.getValue()))) {
-                return o1.getValue().compareTo(o2.getValue());
-            }
-            return o1.getKey().compareTo(o2.getKey());
-        }
-    };
 
     public Map<String, Integer> researchText(String text) {
         List<String> words = Arrays.asList(text.split("[\\pP\\s]+"));
@@ -59,9 +57,9 @@ public class TextMonitoring {
     public Map<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
         List<Map.Entry<String, Integer>> list = new LinkedList<>(researchText(text).entrySet());
         if (isAscendingFrequency) {
-            list.sort(comparator);
+            list.sort(new ByWordFrequency());
         } else {
-            list.sort(comparator.reversed());
+            list.sort(new ByWordFrequency().reversed());
         }
         Map<String, Integer> result = new LinkedHashMap<>();
         for (Map.Entry<String, Integer> e : list) {
