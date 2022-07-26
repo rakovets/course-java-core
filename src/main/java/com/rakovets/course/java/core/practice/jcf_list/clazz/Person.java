@@ -8,19 +8,31 @@ public class Person {
     private final int age;
     private final double averageAnnualMark;
 
-    /**
-     * Constructor.
-     *
-     * @param name              student's name.
-     * @param surname           last name of the student.
-     * @param age               student's age.
-     * @param averageAnnualMark average student score.
-     */
     public Person(String name, String surname, int age, double averageAnnualMark) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.averageAnnualMark = averageAnnualMark;
+    }
+
+    public String getFullName() {
+        return getName() + " " + getSurname();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getAverageAnnualMark() {
+        return averageAnnualMark;
     }
 
     @Override
@@ -49,25 +61,5 @@ public class Person {
                 ", age=" + age +
                 ", averageAnnualMark=" + averageAnnualMark +
                 '}';
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getFullName() {
-        return getName() + " " + getSurname();
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public double getAverageAnnualMark() {
-        return averageAnnualMark;
     }
 }

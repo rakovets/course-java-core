@@ -8,11 +8,6 @@ import java.util.Objects;
 public class SchoolClass {
     List<Person> students;
 
-    /**
-     * Constructor.
-     *
-     * @param students students list.
-     */
     public SchoolClass(List<Person> students) {
         this.students = students;
     }
