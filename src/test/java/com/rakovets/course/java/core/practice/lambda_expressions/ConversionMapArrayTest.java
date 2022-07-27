@@ -14,7 +14,6 @@ public class ConversionMapArrayTest {
     private String[] text;
     private Map<String, String> map;
 
-
     @BeforeEach
     public void setUp() {
         conversionMapArray = new ConversionMapArray();
