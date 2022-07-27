@@ -16,7 +16,7 @@ public class StringCollectionUtilTest {
         List<String> list = Arrays.asList("Summer", "is", "always", "a", "lot", "of", "fun", "for", "children", "!");
         List<String> expected = Arrays.asList("Summer", "is", "always", "a", "*", "of", "*", "*", "children", "!");
 
-        Collection<String> actual = stringCollectionUtil.resetWordsByLength(list, 3);
+        Collection<String> actual = stringCollectionUtil.resetWordsByLength(list, 3, "*");
 
         Assertions.assertEquals(expected, actual);
     }
