@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-
 import java.util.Arrays;
 import java.util.Random;
 
