@@ -1,0 +1,101 @@
+package com.rakovets.course.java.core.practice.jcf_set;
+
+import java.util.*;
+
+public class Person {
+    private String name;
+    private String surname;
+    private String town;
+    private int id;
+    private int totalFine;
+    private List<Fine> fines;
+
+    public Person(String name, String surname, int id, String town, Fine fine) {
+        this.name = name;
+        this.surname = surname;
+        this.id = id;
+        this.town = town;
+        this.fines = new ArrayList<>(Collections.singletonList(fine));
+        this.totalFine = fine.getAmountTheFine();
+    }
+
+    public void totalFine(Fine fine) {
+        totalFine = getTotalFine() + fine.getAmountTheFine();
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public List<Fine> getFines() {
+        return fines;
+    }
+
+    public int getTotalFine() {
+        return totalFine;
+    }
+
+    public void setTotalFine(int totalFine) {
+        this.totalFine = totalFine;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public void setFines(List<Fine> fines) {
+        this.fines = fines;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Person person = (Person) o;
+        return id == person.id && totalFine == person.totalFine && name.equals(person.name)
+                && surname.equals(person.surname) && town.equals(person.town) && fines.equals(person.fines);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, id, town, fines, totalFine);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", id=" + id +
+                ", town='" + town + '\'' +
+                ", fine=" + fines +
+                ", totalFine=" + totalFine +
+                '}';
+    }
+}
