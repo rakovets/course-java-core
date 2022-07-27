@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class StringCollectionUtil {
-    public List<String> resetWordsByLength(List<String> list, int wordSize) {
+    public Collection<String> resetWordsByLength(List<String> list, int wordSize) {
         for (String word : list) {
             if (word.length() == wordSize) {
                 list.set(list.indexOf(word), "*");

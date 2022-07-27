@@ -14,18 +14,20 @@ public class StringCollectionUtilTest {
     @Test
     public void testResetWordsByLength() {
         List<String> list = Arrays.asList("Summer", "is", "always", "a", "lot", "of", "fun", "for", "children", "!");
-
         List<String> expected = Arrays.asList("Summer", "is", "always", "a", "*", "of", "*", "*", "children", "!");
 
-        Assertions.assertEquals(expected, (stringCollectionUtil.resetWordsByLength(list, 3)));
+        Collection<String> actual = stringCollectionUtil.resetWordsByLength(list, 3);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testRemoveWordsByLength() {
         Collection<String> collection = new ArrayList<>(Arrays.asList("Summer", "is", "always", "a", "lot", "of", "fun", "for", "children", "!"));
-
         Collection<String> expected = Arrays.asList("Summer", "is", "always", "a", "of", "children", "!");
 
-        Assertions.assertEquals(expected, stringCollectionUtil.removeWordsByLength(collection, 3));
+        Collection<String> actual = stringCollectionUtil.removeWordsByLength(collection, 3);
+
+        Assertions.assertEquals(expected, actual);
     }
 }
