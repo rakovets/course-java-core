@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class Person {
     private String name;
