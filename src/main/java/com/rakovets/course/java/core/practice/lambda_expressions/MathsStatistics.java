@@ -12,19 +12,27 @@ public class MathsStatistics {
     }
 
     public long countEvenNumbers(int[] array) {
-        return Arrays.stream(array).filter(ExpressionHelper::isEven).count();
+        return Arrays.stream(array)
+                .filter(ExpressionHelper::isEven)
+                .count();
     }
 
     public long countOddNumbers(int[] array) {
-        return Arrays.stream(array).filter(ExpressionHelper::isOdd).count();
+        return Arrays.stream(array)
+                .filter(ExpressionHelper::isOdd)
+                .count();
     }
 
     public long countEqualZero(int[] array) {
-        return Arrays.stream(array).filter(ExpressionHelper::isZero).count();
+        return Arrays.stream(array)
+                .filter(ExpressionHelper::isZero)
+                .count();
     }
 
     public long countEqualNumberValue(int[] array, int number) {
-        return Arrays.stream(array).filter(i -> ExpressionHelper.isEqualNumberValue(i, number)).count();
+        return Arrays.stream(array)
+                .filter(i -> ExpressionHelper.isEqualNumberValue(i, number))
+                .count();
     }
 
 }

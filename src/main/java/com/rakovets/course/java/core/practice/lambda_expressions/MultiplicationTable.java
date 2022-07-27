@@ -13,13 +13,11 @@ public class MultiplicationTable {
 
     public void getMultiplicationTableInFiveColumns(int first, int second) {
         IntStream.range(first, second).forEach(i -> {
-            IntStream.rangeClosed(first, 5).forEach(j -> {
-                System.out.print(j + " x " + i + " = " + (i * j) + "\t");
-            });
+            IntStream.rangeClosed(first, 5)
+                    .forEach(j -> System.out.print(j + " x " + i + " = " + (i * j) + "\t"));
             System.out.println();
-            IntStream.rangeClosed(6, second).forEach(j -> {
-                System.out.print(j + " x " + i + " = " + (i * j) + "\t");
-            });
+            IntStream.rangeClosed(6, second)
+                    .forEach(j -> System.out.print(j + " x " + i + " = " + (i * j) + "\t"));
             System.out.println();
         });
     }
