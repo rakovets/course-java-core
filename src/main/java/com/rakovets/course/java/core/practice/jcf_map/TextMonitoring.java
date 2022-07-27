@@ -1,6 +1,13 @@
 package com.rakovets.course.java.core.practice.jcf_map;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Collection;
 
 public class TextMonitoring {
     public static Map<String, Integer> researchText(String text) {
