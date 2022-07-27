@@ -27,32 +27,23 @@ public class ConversionMapArrayTest {
     }
 
     @Test
-    public void testGetMapfromArray() {
+    public void testGetMapFromStringArray() {
         Map<String, String> expected = map;
 
-        Map<String, String> actual = conversionMapArray.getMap(text);
+        Map<String, String> actual = conversionMapArray.getMapFromStringArray(text);
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testGetMapfromArrayNull() {
-        Map<String, String> expected = Map.of("-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt");
-
-        Map<String, String> actual = conversionMapArray.getMap(text);
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testGetArrayStringFromMap() {
+    public void testGetStringArrayFromMap() {
         Set<Map.Entry<String, String>> expected = Set.of(
                 Map.entry("-d", "1"),
                 Map.entry("-i", "in.txt"),
                 Map.entry("-o", "out.txt"),
                 Map.entry("--limit", "40"));
 
-        String[] actualString = conversionMapArray.getArrayString(map);
+        String[] actualString = conversionMapArray.getStringArrayFromMap(map);
         Set<Map.Entry<String, String>> actual = new HashSet<>();
         IntStream.range(0, actualString.length / 2)
                 .boxed()
@@ -60,5 +51,4 @@ public class ConversionMapArrayTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
 }
