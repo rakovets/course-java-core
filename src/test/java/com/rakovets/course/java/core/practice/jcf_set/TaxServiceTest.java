@@ -13,8 +13,8 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 class TaxServiceTest {
-    static Fine pdd = new Fine(100, "PDD", 1);
-    static Fine alcohol = new Fine(250, "alcohol", 2);
+    static Fine pdd = new Fine(100, "PDD");
+    static Fine alcohol = new Fine(250, "alcohol");
     TaxService taxService;
 
     @BeforeEach

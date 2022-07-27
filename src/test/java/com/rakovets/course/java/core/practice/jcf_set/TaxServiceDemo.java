@@ -4,8 +4,8 @@ public class TaxServiceDemo {
     public static void main(String[] args) {
         TaxService taxService = new TaxService(10);
 
-        Fine pdd = new Fine(100, "PDD", 1);
-        Fine alcohol = new Fine(250, "alcohol", 2);
+        Fine pdd = new Fine(100, "PDD");
+        Fine alcohol = new Fine(250, "alcohol");
 
         Person ivan = new Person("Ivan", "Ivanov", 1, "Minsk", pdd);
         Person petr = new Person("Petr", "Petrov", 2, "Minsk", alcohol);
@@ -21,7 +21,8 @@ public class TaxServiceDemo {
         System.out.println("\n" + taxService.getNewFine(ivan, alcohol));
         System.out.println("\n" + taxService.penaltyRemoval(ivan, alcohol));
         System.out.println("\n" + taxService.penaltyRemoval(ivan, pdd));
-        System.out.println("\n" + taxService.changeInfoByPerson(ivan, 4, "Maksim", "Maksimov", "Grodno"));
+        System.out.println("\n" + taxService.changeInfoByPerson(ivan, 4, "Maksim", "Maksimov",
+                "Grodno"));
 
         System.out.println("\n" + taxService.changeFine(sveta, pdd, alcohol));
     }

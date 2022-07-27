@@ -8,7 +8,7 @@ public class Person {
     private String town;
     private int id;
     private int totalFine;
-    private List<Fine> fines;
+    private final List<Fine> fines;
 
     public Person(String name, String surname, int id, String town, Fine fine) {
         this.name = name;
@@ -19,6 +19,11 @@ public class Person {
         this.totalFine = fine.getAmountTheFine();
     }
 
+    /**
+     * Calculate the new amount of the fine.
+     *
+     * @param fine another penalty.
+     */
     public void totalFine(Fine fine) {
         totalFine = getTotalFine() + fine.getAmountTheFine();
 
@@ -27,7 +32,6 @@ public class Person {
     public String getName() {
         return name;
     }
-
 
     public int getId() {
         return id;
@@ -65,10 +69,6 @@ public class Person {
         this.town = town;
     }
 
-    public void setFines(List<Fine> fines) {
-        this.fines = fines;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -84,7 +84,7 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, id, town, fines, totalFine);
+        return Objects.hash(name, surname, town, id, totalFine, fines);
     }
 
     @Override
@@ -92,10 +92,10 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", id=" + id +
                 ", town='" + town + '\'' +
-                ", fine=" + fines +
+                ", id=" + id +
                 ", totalFine=" + totalFine +
+                ", fines=" + fines +
                 '}';
     }
 }

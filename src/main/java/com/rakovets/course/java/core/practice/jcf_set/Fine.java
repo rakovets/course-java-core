@@ -3,26 +3,16 @@ package com.rakovets.course.java.core.practice.jcf_set;
 import java.util.Objects;
 
 public class Fine {
-    private int amountTheFine;
-    private String nameFine;
-    private int idFine;
+    private final int amountTheFine;
+    private final String nameFine;
 
-    public Fine(int amountTheFine, String nameFine, int idFine) {
+    public Fine(int amountTheFine, String nameFine) {
         this.amountTheFine = amountTheFine;
         this.nameFine = nameFine;
-        this.idFine = idFine;
     }
 
     public int getAmountTheFine() {
         return amountTheFine;
-    }
-
-    public String getNameFine() {
-        return nameFine;
-    }
-
-    public int getIdFine() {
-        return idFine;
     }
 
     @Override
