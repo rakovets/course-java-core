@@ -7,52 +7,92 @@ public class MathTest {
 
     @Test
     public void testGetMaximum() {
-        Assertions.assertEquals(5, Math.getMaximum(1, 3, 5));
+        Number expected = 5;
+
+        Number actual = Math.getMaximum(1, 3, 5);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testGetMaximumDifferentTypes()  {
-        Assertions.assertEquals(2, Math.getMaximum(2, null, 0.9));
+    public void testGetMaximumDifferentTypes() {
+        Number expected = 2;
+
+        Number actual =  Math.getMaximum(2, null, 0.9);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetMinimum() {
-        Assertions.assertEquals(2, Math.getMinimum(10, 4, 5, 2, 8));
+        Number expected = 2;
+
+        Number actual =  Math.getMinimum(10, 4, 5, 2, 8);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testGetMinimumDifferentTypes()  {
-        Assertions.assertEquals(4, Math.getMinimum(10.5, 4, 5.4, null, 8));
+    public void testGetMinimumDifferentTypes() {
+        Number expected = 4;
+
+        Number actual =  Math.getMinimum(10.5, 4, 5.4, null, 8);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetAverage() {
-        Assertions.assertEquals(3.5, Math.getAverageInArray(new Double[]{5.0, 2.5, 3.0}));
+        Number expected = 3.5;
+
+        Number actual =  Math.getAverageInArray(new Double[]{5.0, 2.5, 3.0});
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetAverageWithNull() {
-        Assertions.assertEquals(2, Math.getAverageInArray(new Double[]{null, 3.0, 3.0}));
+        Number expected = 2.0;
+
+        Number actual =  Math.getAverageInArray(new Double[]{null, 3.0, 3.0});
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetMinimumInArray() {
-        Assertions.assertEquals(1.0, Math.getMinimumInArray(new Double[]{5.0, 2.5, 3.0, 1.0}));
+        Number expected = 1.0;
+
+        Number actual =  Math.getMinimumInArray(new Double[]{5.0, 2.5, 3.0, 1.0});
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetMinimumInArrayWithNull() {
-        Assertions.assertEquals(0.0, Math.getMinimumInArray(new Double[]{null, null, 1.0, 0.0, null}));
+        Number expected = 0.0;
+
+        Number actual =  Math.getMinimumInArray(new Double[]{null, null, 1.0, 0.0, null});
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetMaximumInArray() {
-        Assertions.assertEquals(5, Math.getMaximumInArray(new Integer[]{5, 2, 3}));
+        Number expected = 5;
+
+        Number actual = Math.getMaximumInArray(new Integer[]{5, 2, 3});
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetMaximumInArrayWithNull() {
-        Assertions.assertEquals(10, Math.getMaximumInArray(new Integer[]{null, 2, null, 10, null}));
+        Number expected = 10;
+
+        Number actual = Math.getMaximumInArray(new Integer[]{null, 2, null, 10, null});
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -72,6 +112,6 @@ public class MathTest {
 
     @Test
     public void testBinarySearchInArrayWithNull() {
-        Assertions.assertTrue(Math.binarySearchInArray(new Double[]{5.0, 2.5, 3.0,null}, 2.5));
+        Assertions.assertTrue(Math.binarySearchInArray(new Double[]{5.0, 2.5, 3.0, null}, 2.5));
     }
 }
