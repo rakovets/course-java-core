@@ -62,7 +62,7 @@ public class TvSellerTest {
     }
 
     @Test
-    public void testGetSortedByPriceNotAscending() {
+    public void testGetSortedByPriceDescending() {
         List<Tv> expected = List.of(tvSony1, tvLG1, tvSamsung1, tvSamsung2, tvSamsung2, tvLG2);
 
         List<Tv> actual = tvSeller.getSortedByPrice(tvs, false);
@@ -80,7 +80,7 @@ public class TvSellerTest {
     }
 
     @Test
-    public void testGetSortedBDiagonalNotAscending() {
+    public void testGetSortedBDiagonalDescending() {
         List<Tv> expected = List.of(tvSamsung1, tvSamsung2, tvSony1, tvSamsung2, tvLG1, tvLG2);
 
         List<Tv> actual = tvSeller.getSortedByDiagonal(tvs, false);
