@@ -33,5 +33,4 @@ public class MathsStatistics {
                 .filter(i -> ExpressionHelper.isEqualNumberValue(i, number))
                 .count();
     }
-
 }
