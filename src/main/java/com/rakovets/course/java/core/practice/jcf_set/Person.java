@@ -11,6 +11,7 @@ public class Person {
     private String town;
     private int id;
     private int totalFine;
+
     private final List<Fine> fines;
 
     public Person(String name, String surname, int id, String town, Fine fine) {
@@ -29,7 +30,6 @@ public class Person {
      */
     public void totalFine(Fine fine) {
         totalFine = getTotalFine() + fine.getAmountTheFine();
-
     }
 
     public String getName() {
