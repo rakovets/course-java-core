@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -10,12 +10,12 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 public class ConversionMapArrayTest {
-    private ConversionMapArray conversionMapArray;
-    private String[] text;
-    private Map<String, String> map;
+    private static ConversionMapArray conversionMapArray;
+    private static String[] text;
+    private static Map<String, String> map;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    static void setUp() {
         conversionMapArray = new ConversionMapArray();
         text = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
         map = Map.of(

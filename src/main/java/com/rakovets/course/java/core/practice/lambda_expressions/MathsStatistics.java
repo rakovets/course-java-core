@@ -12,25 +12,25 @@ public class MathsStatistics {
 
     public long countEvenNumbers(int[] array) {
         return Arrays.stream(array)
-                .filter(ExpressionHelper::isEven)
+                .filter(c -> c % 2 == 0)
                 .count();
     }
 
     public long countOddNumbers(int[] array) {
         return Arrays.stream(array)
-                .filter(ExpressionHelper::isOdd)
+                .filter(c -> c % 2 != 0)
                 .count();
     }
 
     public long countEqualZero(int[] array) {
         return Arrays.stream(array)
-                .filter(ExpressionHelper::isZero)
+                .filter(c -> c == 0)
                 .count();
     }
 
     public long countEqualNumberValue(int[] array, int number) {
         return Arrays.stream(array)
-                .filter(i -> ExpressionHelper.isEqualNumberValue(i, number))
+                .filter(c -> c == number)
                 .count();
     }
 }

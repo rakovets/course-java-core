@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,13 +9,24 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TvSellerTest {
-    private TvSeller tvSeller = new TvSeller();
-    private Tv tvSamsung1 = new Tv("Samsung", "23A", 2022, 55, 1005.00F);
-    private Tv tvSamsung2 = new Tv("Samsung", "25A", 2022, 50, 905.00F);
-    private Tv tvSony1 = new Tv("Sony", "XX", 2021, 50, 1300.00F);
-    private Tv tvLG1 = new Tv("LG", "R15", 2022, 49, 1100.00F);
-    private Tv tvLG2 = new Tv("LG", "R20", 2020, 35, 600.00F);
-    private List<Tv> tvs = new ArrayList<>(Arrays.asList(tvSamsung1, tvSamsung2, tvLG1, tvLG2, tvSony1, tvSamsung2));
+    private static TvSeller tvSeller;
+    private static Tv tvSamsung1;
+    private static Tv tvSamsung2;
+    private static Tv tvSony1;
+    private static Tv tvLG1;
+    private static Tv tvLG2;
+    private static List<Tv> tvs;
+
+    @BeforeAll
+    static void setUp() {
+        tvSeller = new TvSeller();
+        tvSamsung1 = new Tv("Samsung", "23A", 2022, 55, 1005.00F);
+        tvSamsung2 = new Tv("Samsung", "25A", 2022, 50, 905.00F);
+        tvSony1 = new Tv("Sony", "XX", 2021, 50, 1300.00F);
+        tvLG1 = new Tv("LG", "R15", 2022, 49, 1100.00F);
+        tvLG2 = new Tv("LG", "R20", 2020, 35, 600.00F);
+        tvs= new ArrayList<>(Arrays.asList(tvSamsung1, tvSamsung2, tvLG1, tvLG2, tvSony1, tvSamsung2));
+    }
 
     @Test
     public void testGetTvsOfSpecificDiagonal() {
