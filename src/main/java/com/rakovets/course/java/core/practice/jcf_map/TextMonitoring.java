@@ -10,8 +10,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class TextMonitoring {
+    private Map<String, Integer> frequencyWords = new HashMap<>();
 
-    public Map<String, Integer> researchText(String text) {
+    public Map<String, Integer> getMapFrequencyWords() {
+        return frequencyWords;
+    }
+
+    public void researchText(String text) {
         List<String> words = Arrays.asList(text.split("[\\pP\\s]+"));
         Set<String> unique = new HashSet<>(words);
         Map<String, Integer> result = new HashMap<>();
@@ -24,12 +29,12 @@ public class TextMonitoring {
             }
             result.put(word, counter);
         }
-        return result;
+        frequencyWords = result;
     }
 
-    public int getCountUniqueWords(String text) {
+    public int getCountUniqueWords() {
         int counter = 0;
-        for (Integer numberRepetitions : researchText(text).values()) {
+        for (Integer numberRepetitions : frequencyWords.values()) {
             if (numberRepetitions == 1) {
                 counter++;
             }
@@ -37,9 +42,9 @@ public class TextMonitoring {
         return counter;
     }
 
-    public Set<String> getUniqueWords(String text) {
+    public Set<String> getUniqueWords() {
         Set<String> unique = new HashSet<>();
-        for (Map.Entry<String, Integer> entry : researchText(text).entrySet()) {
+        for (Map.Entry<String, Integer> entry : frequencyWords.entrySet()) {
             if (entry.getValue() == 1) {
                 unique.add(entry.getKey());
             }
@@ -47,15 +52,15 @@ public class TextMonitoring {
         return unique;
     }
 
-    public int getFrequencyWord(String text, String word) {
-        if (!researchText(text).containsKey(word)) {
+    public int getFrequencyWord(String word) {
+        if (!frequencyWords.containsKey(word)) {
             return 0;
         }
-        return researchText(text).get(word);
+        return frequencyWords.get(word);
     }
 
-    public Map<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
-        List<Map.Entry<String, Integer>> list = new LinkedList<>(researchText(text).entrySet());
+    public Map<String, Integer> getFrequencyWords(boolean isAscendingFrequency) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(frequencyWords.entrySet());
         if (isAscendingFrequency) {
             list.sort(new ByWordFrequency());
         } else {

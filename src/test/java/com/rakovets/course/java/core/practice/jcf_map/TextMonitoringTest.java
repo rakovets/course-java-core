@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_map;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,20 +12,21 @@ import java.util.Map;
 import java.util.Set;
 
 public class TextMonitoringTest {
-    private TextMonitoring textMonitoring;
-    private String text;
+    private static TextMonitoring textMonitoring;
+    private static String text;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    static void setUp() {
         textMonitoring = new TextMonitoring();
         text = "Java Java java is language... language Java";
+        textMonitoring.researchText(text);
     }
 
     @Test
     public void testResearch() {
         Map<String, Integer> expected = new HashMap<>(Map.of("Java", 3, "is", 1, "language", 2, "java", 1));
 
-        Map<String, Integer> actual = textMonitoring.researchText(text);
+        Map<String, Integer> actual = textMonitoring.getMapFrequencyWords();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -34,7 +35,7 @@ public class TextMonitoringTest {
     public void testGetCountUniqueWords() {
         int expected = 2;
 
-        int actual = textMonitoring.getCountUniqueWords(text);
+        int actual = textMonitoring.getCountUniqueWords();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -43,7 +44,7 @@ public class TextMonitoringTest {
     public void testGetUniqueWords() {
         Set<String> expected = Set.of("java", "is");
 
-        Set<String> actual = textMonitoring.getUniqueWords(text);
+        Set<String> actual = textMonitoring.getUniqueWords();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -52,7 +53,7 @@ public class TextMonitoringTest {
     public void testGetFrequencyWord() {
         int expected = 3;
 
-        int actual = textMonitoring.getFrequencyWord(text, "Java");
+        int actual = textMonitoring.getFrequencyWord("Java");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -61,7 +62,7 @@ public class TextMonitoringTest {
     public void testGetFrequencyWordNotExist() {
         int expected = 0;
 
-        int actual = textMonitoring.getFrequencyWord(text, "Git");
+        int actual = textMonitoring.getFrequencyWord("Git");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -71,7 +72,7 @@ public class TextMonitoringTest {
         List<Integer> expectedValues = Arrays.asList(3, 2, 1, 1);
         List<String> expectedKeys = Arrays.asList("Java", "language", "java", "is");
 
-        Map<String, Integer> actual = textMonitoring.getFrequencyWords(text, false);
+        Map<String, Integer> actual = textMonitoring.getFrequencyWords(false);
         List<Integer> actualValues = new ArrayList<>(actual.values());
         List<String> actualKeys = new ArrayList<>(actual.keySet());
 
@@ -84,7 +85,7 @@ public class TextMonitoringTest {
         List<Integer> expectedValues = Arrays.asList(1, 1, 2, 3);
         List<String> expectedKeys = Arrays.asList("is", "java", "language", "Java");
 
-        Map<String, Integer> actual = textMonitoring.getFrequencyWords(text, true);
+        Map<String, Integer> actual = textMonitoring.getFrequencyWords(true);
         List<Integer> actualValues = new ArrayList<>(actual.values());
         List<String> actualKeys = new ArrayList<>(actual.keySet());
 
@@ -97,7 +98,7 @@ public class TextMonitoringTest {
         List<Integer> expectedValues = Arrays.asList(2, 1, 1, 3);
         List<String> expectedKeys = Arrays.asList("java", "is", "language", "Java");
 
-        Map<String, Integer> actual = textMonitoring.getFrequencyWords(text, true);
+        Map<String, Integer> actual = textMonitoring.getFrequencyWords(true);
         List<Integer> actualValues = new ArrayList<>(actual.values());
         List<String> actualKeys = new ArrayList<>(actual.keySet());
 
