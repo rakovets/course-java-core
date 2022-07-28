@@ -154,8 +154,8 @@ public class TaxService implements Printable {
         for (Person datum : data) {
             if (person == datum) {
                 List<Fine> fines = person.getFines();
-                for (Fine fine1 : fines) {
-                    if (fine1 == fine) {
+                for (Fine penalty : fines) {
+                    if (penalty == fine) {
                         fines.remove(fine);
                         fines.add(newFine);
                         datum.setTotalFine(newFine.getAmountTheFine());
