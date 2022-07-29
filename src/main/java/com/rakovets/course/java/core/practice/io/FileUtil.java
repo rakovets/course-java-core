@@ -7,9 +7,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FileUtil {
@@ -39,6 +44,25 @@ public class FileUtil {
         }
         return list;
     }
+
+    public List<String> getListOfWordsStartsWithVowelInLowerCase(String path) {
+        Set <Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
+        List<String> list=getListOfString(path);
+        return list.stream()
+                .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
+                .filter((c)->vowels.contains(c.charAt(0)))
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getListWordLastLetterEqualsFirstLetterNext(String path) {
+        List<String> list=getListOfString(path);
+        List <String> words = list.stream()
+                .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
+                .collect(Collectors.toList());
+        IntStream.range(0,words.size())
+    }
+
+
 }
 
 
