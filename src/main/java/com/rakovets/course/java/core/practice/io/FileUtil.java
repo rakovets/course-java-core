@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.io;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -79,5 +81,41 @@ public class FileUtil {
                         .sorted()
                         .collect(Collectors.toList())));
         return result;
+    }
+
+    public Map<String, Long> getWordsFrequencyIgnoreCase(String path) {
+        List<String> list = getListOfString(path);
+        List<String> words = list.stream()
+                .flatMap(str -> Arrays.stream(str.toLowerCase().split("[\\pP\\s]+")))
+                .collect(Collectors.toList());
+        return words.stream().collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+    }
+
+    public void getNumbersFromFileSortPutToAnotherFile(String path, String nameNewFile) {
+        List<String> list = getListOfString(path);
+        List<Integer> numbers = list.stream()
+                .flatMap(str -> Arrays.stream(str.split("[\\pP\\s]+")))
+                .map(Integer::valueOf)
+                .sorted()
+                .collect(Collectors.toList());
+        File file = new File(nameNewFile);
+        try (FileWriter fileWriter = new FileWriter(nameNewFile);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+            file.createNewFile();
+            bufferedWriter.write(String.valueOf(numbers));
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public Map<String, Double> getStudentAchievement(String path) {
+        List<String> list = getListOfString(path);
+        return list.stream()
+                .collect(Collectors.groupingBy(str -> str.split(" ")[0], Collectors.summingDouble(
+                        s -> Arrays.stream(s.replaceFirst("\\w+ ", "")
+                                        .split(","))
+                                .mapToInt(Integer::valueOf)
+                                .average()
+                                .getAsDouble())));
     }
 }

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class FileUtilTest {
     private final FileUtil fileUtil = new FileUtil();
@@ -66,6 +67,34 @@ public class FileUtilTest {
         List<List<Integer>> expected = new ArrayList<>(Arrays.asList(List.of(5, 15, 25), List.of(6, 24, 75)));
 
         List<List<Integer>> actual = fileUtil.getNumbersInTextAscending("numbers");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetWordsFrequencyIgnoreCase() {
+        Map<String, Long> expected = Map.of("java", 2L, "git", 1L, "array", 1L);
+
+        Map<String, Long> actual = fileUtil.getWordsFrequencyIgnoreCase("text");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetNumbersFromFileSortPutToAnotherFile() {
+        List<String> expected = List.of("5", "6", "15", "24", "25", "75");
+
+        fileUtil.getNumbersFromFileSortPutToAnotherFile("numbers", "numbers_");
+        List<String> actual = fileUtil.getListOfString("numbers_");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetStudentAchievement() {
+        Map<String, Double> expected = Map.of("Ivanov", 4.5, "Petrov", 4.75, "Sidorov", 7.75);
+
+        Map<String, Double> actual = fileUtil.getStudentAchievement("students");
 
         Assertions.assertEquals(expected, actual);
     }
