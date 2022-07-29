@@ -7,10 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -46,23 +45,39 @@ public class FileUtil {
     }
 
     public List<String> getListOfWordsStartsWithVowelInLowerCase(String path) {
-        Set <Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
-        List<String> list=getListOfString(path);
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
+        List<String> list = getListOfString(path);
         return list.stream()
                 .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
-                .filter((c)->vowels.contains(c.charAt(0)))
+                .filter((c) -> vowels.contains(c.charAt(0)))
                 .collect(Collectors.toList());
     }
 
-    public List<String> getListWordLastLetterEqualsFirstLetterNext(String path) {
-        List<String> list=getListOfString(path);
-        List <String> words = list.stream()
+    public List<String> getListWordLastLetterEqualsFirstLetterNextCaseIgnore(String path) {
+        List<String> list = getListOfString(path);
+        List<String> words = list.stream()
                 .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
                 .collect(Collectors.toList());
-        IntStream.range(0,words.size())
+        List<String> result = new ArrayList<>();
+        IntStream.range(0, words.size() - 1)
+                .boxed()
+                .forEach(i -> {
+                    if (words.get(i)
+                            .endsWith(String.valueOf(words.get(i + 1).charAt(0)))) {
+                        result.add(words.get(i));
+                    }
+                });
+        return result;
     }
 
-
+    public List<List<Integer>> getNumbersInTextAscending(String path) {
+        List<String> list = getListOfString(path);
+        List<List<Integer>> result = new ArrayList<>();
+        list.forEach(c ->
+                result.add(Arrays.stream(c.split("[\\pP\\s]+"))
+                        .map(Integer::valueOf)
+                        .sorted()
+                        .collect(Collectors.toList())));
+        return result;
+    }
 }
-
-

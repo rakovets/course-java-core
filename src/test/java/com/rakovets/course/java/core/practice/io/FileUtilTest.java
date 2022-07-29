@@ -4,25 +4,19 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 
 public class FileUtilTest {
-    FileUtil fileUtil = new FileUtil();
+    private final FileUtil fileUtil = new FileUtil();
 
     @AfterEach
     public void setUp() {
-        try (FileWriter fileWriter = new FileWriter("file1");
+        try (FileWriter fileWriter = new FileWriter("text");
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             bufferedWriter.write("Java\nGit\nJava\nArray");
         } catch (IOException exception) {
@@ -30,22 +24,21 @@ public class FileUtilTest {
         }
     }
 
-
     @Test
     public void testOverwriteFileContentUpperCase() {
-        List <String> expected = List.of("GIT");
+        List<String> expected = List.of("GIT");
 
-        fileUtil.overwriteFileContentUpperCase("file1", "file2");
-        List <String> actual = fileUtil.getListOfString("file1");
+        fileUtil.overwriteFileContentUpperCase("text", "fortextreplacement");
+        List<String> actual = fileUtil.getListOfString("text");
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetListOfString() {
-        List<String> expected = List.of("Java", "Git", "Java");
+        List<String> expected = List.of("Java", "Git", "Java", "Array");
 
-        List<String> actual = fileUtil.getListOfString("file1");
+        List<String> actual = fileUtil.getListOfString("text");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -54,7 +47,25 @@ public class FileUtilTest {
     public void testGetListOfWordsStartsWithVowelInLowerCase() {
         List<String> expected = List.of("array");
 
-        List<String> actual = fileUtil.getListOfWordsStartsWithVowelInLowerCase("file1");
+        List<String> actual = fileUtil.getListOfWordsStartsWithVowelInLowerCase("text");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetListWordLastLetterEqualsFirstLetterNextCaseIgnore() {
+        List<String> expected = List.of("java");
+
+        List<String> actual = fileUtil.getListWordLastLetterEqualsFirstLetterNextCaseIgnore("text");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetNumbersInTextAscending() {
+        List<List<Integer>> expected = new ArrayList<>(Arrays.asList(List.of(5, 15, 25), List.of(6, 24, 75)));
+
+        List<List<Integer>> actual = fileUtil.getNumbersInTextAscending("numbers");
 
         Assertions.assertEquals(expected, actual);
     }
