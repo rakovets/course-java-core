@@ -1,0 +1,4 @@
+public class Tv {
+private final String manufacturer;
+private final String model;
+}

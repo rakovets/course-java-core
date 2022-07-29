@@ -19,6 +19,11 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FileUtil {
+    private List<String> list;
+
+    public List<String> getList(String path) {
+        return getListOfString(path);
+    }
 
     public void overwriteFileContentUpperCase(String path1, String path2) {
         try (FileWriter fileWriter = new FileWriter(path1);
@@ -47,8 +52,8 @@ public class FileUtil {
     }
 
     public List<String> getListOfWordsStartsWithVowelInLowerCase(String path) {
-        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
         List<String> list = getListOfString(path);
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
         return list.stream()
                 .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
                 .filter((c) -> vowels.contains(c.charAt(0)))
@@ -98,14 +103,7 @@ public class FileUtil {
                 .map(Integer::valueOf)
                 .sorted()
                 .collect(Collectors.toList());
-        File file = new File(nameNewFile);
-        try (FileWriter fileWriter = new FileWriter(nameNewFile);
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            file.createNewFile();
-            bufferedWriter.write(String.valueOf(numbers));
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        createFileWriteResult(numbers, nameNewFile);
     }
 
     public Map<String, Double> getStudentAchievement(String path) {
@@ -117,5 +115,24 @@ public class FileUtil {
                                 .mapToInt(Integer::valueOf)
                                 .average()
                                 .getAsDouble())));
+    }
+
+    public void changeAccessModifierSaveResultToFile(String path, String modifierInitial, String modifierModified, String newPath) {
+        List<String> list = getListOfString(path);
+        List<String> result = list.stream()
+                .map(s -> s.replaceFirst(modifierInitial, modifierModified))
+                .collect(Collectors.toList());
+        createFileWriteResult(result, newPath);
+    }
+
+    public void createFileWriteResult(List result, String newPath) {
+        File file = new File(newPath);
+        try (FileWriter fileWriter = new FileWriter(newPath);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+            file.createNewFile();
+            bufferedWriter.write(String.valueOf(result));
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }

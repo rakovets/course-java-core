@@ -5,12 +5,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
 
 public class FileUtilTest {
     private final FileUtil fileUtil = new FileUtil();
@@ -23,6 +25,17 @@ public class FileUtilTest {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+
+        File file1 = new File("numbers_");
+        if (file1.exists()) {
+            file1.delete();
+        }
+
+        File file2 = new File("filewithjavacode_");
+        if (file2.exists()) {
+            file2.delete();
+        }
+
     }
 
     @Test
@@ -82,7 +95,7 @@ public class FileUtilTest {
 
     @Test
     public void testGetNumbersFromFileSortPutToAnotherFile() {
-        List<String> expected = List.of("5", "6", "15", "24", "25", "75");
+        List<String> expected =List.of("5", "6", "15", "24", "25", "75");
 
         fileUtil.getNumbersFromFileSortPutToAnotherFile("numbers", "numbers_");
         List<String> actual = fileUtil.getListOfString("numbers_");
@@ -98,4 +111,17 @@ public class FileUtilTest {
 
         Assertions.assertEquals(expected, actual);
     }
-}
+
+    @Test
+    public void testChangeAccessModifierSaveResultToFil() {
+
+        List<String> expected = List.of("public class Tv {", "protected final String manufacturer;",
+                "protected final String model;", "}");
+
+        fileUtil.changeAccessModifierSaveResultToFile("filewithjavacode","private",
+                "protected","filewithjavacode_");
+        List<String> actual = fileUtil.getListOfString("filewithjavacode_");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    }
