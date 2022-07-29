@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @DisplayName("String collection util test.")
 class StringCollectionUtilTest {
@@ -25,20 +26,20 @@ class StringCollectionUtilTest {
     @Test
     @DisplayName("Reset words by length.")
     void resetWordsByLength() {
-        String[] expected = new String[]{"*", "is", "*", "of", "fun", "for", "every", "*", "programmer"};
+        ArrayList<String> expected = new ArrayList<>(List.of("*", "is", "*", "of", "fun", "for", "every", "*", "programmer"));
 
         Collection<String> actual = stringCollectionUtil.resetWordsByLength(stringCollection, 4);
 
-        Assertions.assertEquals(new ArrayList<>(Arrays.asList(expected)), actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     @DisplayName("Remove words by length.")
     void removeWordsByLength() {
-        String[] str2 = new String[]{"this", "lots", "fun", "for", "every", "Java", "programmer"};
+        ArrayList<String> expected = new ArrayList<>(List.of("this", "lots", "fun", "for", "every", "Java", "programmer"));
 
         Collection<String> actual = stringCollectionUtil.removeWordsByLength(stringCollection, 2);
 
-        Assertions.assertEquals(new ArrayList<>(Arrays.asList(str2)), actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
