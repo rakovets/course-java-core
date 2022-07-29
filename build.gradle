@@ -12,6 +12,10 @@ java {
 }
 
 dependencies {
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.6.1'
+}
+
+dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 }
 
