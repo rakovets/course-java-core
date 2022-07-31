@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -9,40 +8,52 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.IntStream;
 
-public class ConversionMapArrayTest {
-    private static ConversionMapArray conversionMapArray;
-    private static String[] text;
-    private static Map<String, String> map;
+public class ArgumentValueHelperTest {
+    private final ArgumentValueHelper argumentValueHelper = new ArgumentValueHelper();
+    private String[] text;
 
-    @BeforeAll
-    static void setUp() {
-        conversionMapArray = new ConversionMapArray();
+    @Test
+    public void testGetMapFromStringArray() {
         text = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
-        map = Map.of(
+        Map<String, String> expected = Map.of(
                 "-i", "in.txt",
                 "--limit", "40",
                 "-d", "1",
                 "-o", "out.txt");
+
+        Map<String, String> actual = argumentValueHelper.getMapFromStringArray(text);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testGetMapFromStringArray() {
-        Map<String, String> expected = map;
+    public void testGetMapFromStringArrayEmptyLastArgumentValue() {
+        text = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt", "-r"};
+        Map<String, String> expected = Map.of("-i", "in.txt",
+                "--limit", "40",
+                "-d", "1",
+                "-o", "out.txt",
+                "-r", "");
 
-        Map<String, String> actual = conversionMapArray.getMapFromStringArray(text);
+        Map<String, String> actual = argumentValueHelper.getMapFromStringArray(text);
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testGetStringArrayFromMap() {
+        Map<String, String> input = Map.of(
+                "-i", "in.txt",
+                "--limit", "40",
+                "-d", "1",
+                "-o", "out.txt");
         Set<Map.Entry<String, String>> expected = Set.of(
                 Map.entry("-d", "1"),
                 Map.entry("-i", "in.txt"),
                 Map.entry("-o", "out.txt"),
                 Map.entry("--limit", "40"));
 
-        String[] actualString = conversionMapArray.getStringArrayFromMap(map);
+        String[] actualString = argumentValueHelper.getStringArrayFromMap(input);
         Set<Map.Entry<String, String>> actual = new HashSet<>();
         IntStream.range(0, actualString.length / 2)
                 .boxed()

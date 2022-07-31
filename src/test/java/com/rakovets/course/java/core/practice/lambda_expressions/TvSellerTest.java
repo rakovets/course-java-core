@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class TvSellerTest {
@@ -20,12 +21,12 @@ public class TvSellerTest {
     @BeforeAll
     static void setUp() {
         tvSeller = new TvSeller();
-        tvSamsung1 = new Tv("Samsung", "23A", 2022, 55, 1005.00F);
-        tvSamsung2 = new Tv("Samsung", "25A", 2022, 50, 905.00F);
-        tvSony1 = new Tv("Sony", "XX", 2021, 50, 1300.00F);
-        tvLG1 = new Tv("LG", "R15", 2022, 49, 1100.00F);
-        tvLG2 = new Tv("LG", "R20", 2020, 35, 600.00F);
-        tvs= new ArrayList<>(Arrays.asList(tvSamsung1, tvSamsung2, tvLG1, tvLG2, tvSony1, tvSamsung2));
+        tvSamsung1 = new Tv("Samsung", "23A", 2022, 55, 1005);
+        tvSamsung2 = new Tv("Samsung", "25A", 2022, 50, 905);
+        tvSony1 = new Tv("Sony", "XX", 2021, 50, 1300);
+        tvLG1 = new Tv("LG", "R15", 2022, 49, 1100);
+        tvLG2 = new Tv("LG", "R20", 2020, 35, 600);
+        tvs = new ArrayList<>(Arrays.asList(tvSamsung1, tvSamsung2, tvLG1, tvLG2, tvSony1, tvSamsung2));
     }
 
     @Test
@@ -38,10 +39,37 @@ public class TvSellerTest {
     }
 
     @Test
+    public void testGetTvsOfSpecificDiagonalNoDiagonal() {
+        List<Tv> expected = Collections.emptyList();
+
+        List<Tv> actual = tvSeller.getTvsOfSpecificDiagonal(tvs, 1);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetTvsOfSpecificManufacturer() {
         List<Tv> expected = List.of(tvSamsung1, tvSamsung2, tvSamsung2);
 
-        List<Tv> actual = tvSeller.getTvsOfSpecificManufacturer(tvs, "samsung");
+        List<Tv> actual = tvSeller.getTvsOfSpecificManufacturerIgnoreCase(tvs, "samsung");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTvsOfSpecificManufacturerCapitalLetter() {
+        List<Tv> expected = List.of(tvSamsung1, tvSamsung2, tvSamsung2);
+
+        List<Tv> actual = tvSeller.getTvsOfSpecificManufacturerIgnoreCase(tvs, "Samsung");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTvsOfSpecificManufacturerNoManufacturer() {
+        List<Tv> expected = Collections.emptyList();
+
+        List<Tv> actual = tvSeller.getTvsOfSpecificManufacturerIgnoreCase(tvs, "aeg");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -56,10 +84,28 @@ public class TvSellerTest {
     }
 
     @Test
+    public void testGetTvsNotOlderThanSpecificYearOfProductionNoYear() {
+        List<Tv> expected = Collections.emptyList();
+
+        List<Tv> actual = tvSeller.getTvsNotOlderThanSpecificYearOfProduction(tvs, 2100);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetTvsOfPriceRange() {
         List<Tv> expected = List.of(tvSamsung1, tvSamsung2, tvSamsung2);
 
         List<Tv> actual = tvSeller.getTvsOfPriceRange(tvs, 900, 1050);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTvsOfPriceRangeNoTvInThisRange() {
+        List<Tv> expected = Collections.emptyList();
+
+        List<Tv> actual = tvSeller.getTvsOfPriceRange(tvs, 300, 500);
 
         Assertions.assertEquals(expected, actual);
     }

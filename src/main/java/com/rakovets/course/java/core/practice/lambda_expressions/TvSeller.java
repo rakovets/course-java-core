@@ -6,13 +6,13 @@ import java.util.stream.Collectors;
 
 public class TvSeller {
 
-    public List<Tv> getTvsOfSpecificDiagonal(List<Tv> tvs, float diagonal) {
+    public List<Tv> getTvsOfSpecificDiagonal(List<Tv> tvs, double diagonal) {
         return tvs.stream()
                 .filter(c -> c.getDiagonal() == diagonal)
                 .collect(Collectors.toList());
     }
 
-    public List<Tv> getTvsOfSpecificManufacturer(List<Tv> tvs, String manufacturer) {
+    public List<Tv> getTvsOfSpecificManufacturerIgnoreCase(List<Tv> tvs, String manufacturer) {
         return tvs.stream()
                 .filter(c -> c.getManufacturer().equalsIgnoreCase(manufacturer))
                 .collect(Collectors.toList());
@@ -24,27 +24,29 @@ public class TvSeller {
                 .collect(Collectors.toList());
     }
 
-    public List<Tv> getTvsOfPriceRange(List<Tv> tvs, float lowerBound, float higherBound) {
+    public List<Tv> getTvsOfPriceRange(List<Tv> tvs, double lowerBound, double higherBound) {
         return tvs.stream()
-                .filter(c -> c.getPrice() > lowerBound && c.getPrice() < higherBound)
+                .filter(c -> c.getPrice() >= lowerBound && c.getPrice() <= higherBound)
                 .collect(Collectors.toList());
     }
 
     public List<Tv> getSortedByPrice(List<Tv> tvs, boolean isAscending) {
-        return isAscending ? tvs.stream()
-                .sorted(Comparator.comparing(Tv::getPrice))
-                .collect(Collectors.toList()) :
-                tvs.stream()
-                        .sorted(Comparator.comparing(Tv::getPrice).reversed())
-                        .collect(Collectors.toList());
+        Comparator<Tv> byPrice = Comparator.comparing(Tv::getPrice);
+        if (!isAscending) {
+            byPrice = Comparator.comparing(Tv::getPrice).reversed();
+        }
+        return tvs.stream()
+                .sorted(byPrice)
+                .collect(Collectors.toList());
     }
 
     public List<Tv> getSortedByDiagonal(List<Tv> tvs, boolean isAscending) {
-        return isAscending ? tvs.stream()
-                .sorted(Comparator.comparing(Tv::getDiagonal))
-                .collect(Collectors.toList()) :
-                tvs.stream()
-                        .sorted(Comparator.comparing(Tv::getDiagonal).reversed())
-                        .collect(Collectors.toList());
+        Comparator<Tv> byDiagonal = Comparator.comparing(Tv::getDiagonal);
+        if (!isAscending) {
+            byDiagonal = Comparator.comparing(Tv::getDiagonal).reversed();
+        }
+        return tvs.stream()
+                .sorted(byDiagonal)
+                .collect(Collectors.toList());
     }
 }

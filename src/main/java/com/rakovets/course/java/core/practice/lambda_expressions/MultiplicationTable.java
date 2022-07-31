@@ -4,21 +4,26 @@ import java.util.stream.IntStream;
 
 public class MultiplicationTable {
 
-    public void getMultiplicationTableInOneColumn(int first, int second) {
+    public String getMultiplicationTableInOneColumn(int first, int second) {
+        StringBuilder stringBuilder = new StringBuilder();
         IntStream.rangeClosed(first, second)
-                .forEach(col -> IntStream.range(first, second)
-                        .forEach(row -> System.out.println(col + " * " + row + " = " + (col * row)))
-                );
+                .forEach(i -> IntStream.rangeClosed(first, second)
+                        .forEach(j -> stringBuilder.append(i + " * " + j + " = " + (i * j) + "\n")));
+        return stringBuilder.toString();
     }
 
-    public void getMultiplicationTableInFiveColumns(int first, int second) {
-        IntStream.range(first, second).forEach(i -> {
-            IntStream.rangeClosed(first, 5)
-                    .forEach(j -> System.out.print(j + " x " + i + " = " + (i * j) + "\t"));
-            System.out.println();
-            IntStream.rangeClosed(6, second)
-                    .forEach(j -> System.out.print(j + " x " + i + " = " + (i * j) + "\t"));
-            System.out.println();
+    public String getMultiplicationTableByColumns(int first, int second, int columnCount) {
+        StringBuilder stringBuilder = new StringBuilder();
+        IntStream.rangeClosed(first, second).boxed().forEach(i -> {
+            IntStream.rangeClosed(first, second)
+                    .forEach(j -> {
+                        stringBuilder.append(i + " * " + j + " = " + (i * j) + "\t");
+                        if (j % columnCount == 0 && columnCount != Math.abs(j)) {
+                            stringBuilder.append("\n");
+                        }
+                    });
+            stringBuilder.append("\n");
         });
+        return stringBuilder.toString().replaceAll("\\n\\n", "\n");
     }
 }

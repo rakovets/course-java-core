@@ -1,18 +1,20 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
+import java.math.BigDecimal;
+
 public class Tv {
     private final String manufacturer;
     private final String model;
     private final int yearOfProduction;
-    private final float diagonal;
-    private final float price;
+    private final double diagonal;
+    private final BigDecimal price;
 
-    public Tv(String manufacturer, String model, int yearOfIssue, int diagonal, float price) {
+    public Tv(String manufacturer, String model, int yearOfIssue, double diagonal, double price) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.yearOfProduction = yearOfIssue;
         this.diagonal = diagonal;
-        this.price = price;
+        this.price = new BigDecimal(price);
     }
 
     public String getManufacturer() {
@@ -27,11 +29,11 @@ public class Tv {
         return yearOfProduction;
     }
 
-    public float getDiagonal() {
+    public double getDiagonal() {
         return diagonal;
     }
 
-    public float getPrice() {
-        return price;
+    public double getPrice() {
+        return price.doubleValue();
     }
 }

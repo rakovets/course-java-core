@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MathsStatistics {
+    private static final Random RANDOM = new Random();
 
-    public int[] getRandomNumbers(int amount) {
-        Random random = new Random();
-        return random.ints(amount).toArray();
+    public static int[] getRandomNumbers(int amount) {
+        return RANDOM.ints(amount).toArray();
     }
 
     public long countEvenNumbers(int[] array) {

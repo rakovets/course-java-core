@@ -11,17 +11,17 @@ public class CityHelper {
         return new HashSet<>(cities);
     }
 
-    public Set<String> getCitiesNamesMoreThanXLetters(List<String> cities, int amountLetters) {
+    public List<String> getCitiesNamesMoreThanXLetters(List<String> cities, int amountLetters) {
         return cities.stream()
                 .filter(c -> c.length() > amountLetters)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
-    public Set<String> getCitiesWithFirstLetter(List<String> cities, char firstLetter) {
+    public List<String> getCitiesWithFirstLetterIgnoreCase(List<String> cities, char firstLetter) {
         String ch = String.valueOf(firstLetter);
         return cities.stream()
                 .filter(c -> c.substring(0, 1).equalsIgnoreCase(ch))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
     public long getFrequencyCityInList(List<String> cities, String city) {
