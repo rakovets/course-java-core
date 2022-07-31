@@ -15,11 +15,11 @@ public class Cat {
         return "purr";
     }
 
-    public void mew(Person user) {
+    public String mew(Person user) {
         user.changeHappiness(-10);
     }
 
-    public void purr(Person user) {
+    public String purr(Person user) {
         user.changeHappiness(+10);
     }
 
