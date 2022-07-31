@@ -15,30 +15,34 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FileUtil {
 
-    public void overwriteFileContentUpperCase(String path1, String path2) {
-        try (FileWriter fileWriter = new FileWriter(path1);
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-             FileInputStream fileInputStream = new FileInputStream(path2);
-             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));) {
-
+    public void overwriteFileContentInUpperCase(String fileToChangePath, String inputFilePath) {
+        if (!Files.exists(Paths.get(inputFilePath))) {
+            throw new FileNotExistException("File doesn't exist!");
+        }
+        ;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToChangePath));
+             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFilePath)));) {
             String string;
-            while ((string = bufferedReader.readLine()) != null) {
-                bufferedWriter.write(string.toUpperCase());
-                bufferedWriter.newLine();
+            while ((string = reader.readLine()) != null) {
+                writer.write(string.toUpperCase());
+                writer.newLine();
             }
         } catch (IOException exception) {
             exception.printStackTrace();
         }
     }
 
-    public List<String> getListOfString(String path) {
-        List<String> list = null;
-        try (Stream<String> lines = Files.lines(Paths.get(path))) {
+    public List<String> getListOfString(String inputPath) {
+        if (!Files.exists(Paths.get(inputPath))) {
+            throw new FileNotExistException("File doesn't exist!");
+        }
+        ;
+        List<String> list = new ArrayList<>();
+        try (Stream<String> lines = Files.lines(Paths.get(inputPath))) {
             list = lines.collect(Collectors.toList());
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -46,59 +50,59 @@ public class FileUtil {
         return list;
     }
 
-    public List<String> getListOfWordsStartsWithVowelInLowerCase(String path) {
-        List<String> list = getListOfString(path);
+    public List<String> getListOfWordsStartsWithVowelInLowerCase(String inputPath) {
+        List<String> list = getListOfString(inputPath);
         Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
         return list.stream()
-                .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
+                .flatMap(str -> Arrays.stream(str.toLowerCase().split("[\\pP\\s]+")))
                 .filter((c) -> vowels.contains(c.charAt(0)))
                 .collect(Collectors.toList());
     }
 
-    public List<String> getListWordLastLetterEqualsFirstLetterNextCaseIgnore(String path) {
-        List<String> list = getListOfString(path);
-        List<String> words = list.stream()
-                .flatMap(str -> Arrays.stream(str.toLowerCase().split(" +")))
-                .collect(Collectors.toList());
-        List<String> result = new ArrayList<>();
-        IntStream.range(0, words.size() - 1)
-                .boxed()
-                .forEach(i -> {
-                    if (words.get(i)
-                            .endsWith(String.valueOf(words.get(i + 1).charAt(0)))) {
-                        result.add(words.get(i));
-                    }
-                });
-        return result;
-    }
-
-    public List<List<Integer>> getNumbersInTextAscending(String path) {
-        List<String> list = getListOfString(path);
-        List<List<Integer>> result = new ArrayList<>();
-        list.forEach(c ->
-                result.add(Arrays.stream(c.split("[\\pP\\s]+"))
-                        .map(Integer::valueOf)
-                        .sorted()
-                        .collect(Collectors.toList())));
-        return result;
-    }
-
-    public Map<String, Long> getWordsFrequencyIgnoreCase(String path) {
-        List<String> list = getListOfString(path);
+    public List<String> getListWordLastLetterEqualsFirstLetterNextCaseIgnore(String inputPath) {
+        List<String> list = getListOfString(inputPath);
         List<String> words = list.stream()
                 .flatMap(str -> Arrays.stream(str.toLowerCase().split("[\\pP\\s]+")))
                 .collect(Collectors.toList());
-        return words.stream().collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < words.size() - 1; i++) {
+            if (words.get(i)
+                    .endsWith(String.valueOf(words.get(i + 1).charAt(0)))) {
+                result.add(words.get(i));
+            }
+        }
+        return result;
     }
 
-    public void getNumbersFromFileSortPutToAnotherFile(String path, String nameNewFile) {
-        List<String> list = getListOfString(path);
+    public List<String> getNumbersInTextAscendingInEveryString(String inputPath) {
+        List<String> list = getListOfString(inputPath);
+        List<String> result = new ArrayList<>();
+        list.forEach(c -> {
+            StringBuilder stringBuilder = new StringBuilder();
+            List<Integer> ints = Arrays.stream(c.split("[\\pP\\s]+"))
+                    .map(Integer::valueOf)
+                    .sorted().collect(Collectors.toList());
+            ints.forEach(i ->
+                    stringBuilder.append(" ").append(i));
+            result.add(String.valueOf(stringBuilder).trim());
+        });
+        return result;
+    }
+
+    public Map<String, Long> getWordsFrequencyIgnoreCase(String inputPath) {
+        return getListOfString(inputPath).stream()
+                .flatMap(str -> Arrays.stream(str.toLowerCase().split("[\\pP\\s]+")))
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+    }
+
+    public void rewriteSortedNumbersFromFileTo(String inputPath, String newFilePath) {
+        List<String> list = getListOfString(inputPath);
         List<Integer> numbers = list.stream()
                 .flatMap(str -> Arrays.stream(str.split("[\\pP\\s]+")))
                 .map(Integer::valueOf)
                 .sorted()
                 .collect(Collectors.toList());
-        createFileWriteResult(numbers, nameNewFile);
+        writeResultToNewFile(numbers, newFilePath);
     }
 
     public Map<String, Double> getStudentAchievement(String path) {
@@ -117,15 +121,19 @@ public class FileUtil {
         List<String> result = list.stream()
                 .map(s -> s.replaceFirst(modifierInitial, modifierModified))
                 .collect(Collectors.toList());
-        createFileWriteResult(result, newPath);
+        writeResultToNewFile(result, newPath);
     }
 
-    public void createFileWriteResult(List result, String newPath) {
-        File file = new File(newPath);
-        try (FileWriter fileWriter = new FileWriter(newPath);
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            file.createNewFile();
-            bufferedWriter.write(String.valueOf(result));
+    private void writeResultToNewFile(List result, String newFilePath) {
+        File file = new File(newFilePath);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(newFilePath))) {
+           result.forEach(c-> {
+               try {
+                   bufferedWriter.write(String.valueOf(c));
+               } catch (IOException e) {
+                   throw new RuntimeException(e);
+               }
+           });
         } catch (IOException exception) {
             exception.printStackTrace();
         }

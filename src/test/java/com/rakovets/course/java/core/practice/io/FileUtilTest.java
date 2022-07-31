@@ -8,8 +8,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -18,12 +18,8 @@ public class FileUtilTest {
 
     @AfterEach
     public void setUp() {
-        try (FileWriter fileWriter = new FileWriter("./text");
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-            bufferedWriter.write("Java\nGit\nJava\nArray");
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        overwriteTextInFile("./text","Java\nGit\nJava\nArray");
+        overwriteTextInFile("./numbers","5 15 25\n6 24 75");
 
         File file1 = new File("./numbers_");
         if (file1.exists()) {
@@ -41,10 +37,16 @@ public class FileUtilTest {
     public void testOverwriteFileContentUpperCase() {
         List<String> expected = List.of("GIT");
 
-        fileUtil.overwriteFileContentUpperCase("./text", "./fortextreplacement");
+        fileUtil.overwriteFileContentInUpperCase("./text", "./fortextreplacement");
         List<String> actual = fileUtil.getListOfString("./text");
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testOverwriteFileContentUpperCaseNotExistInputFile() {
+        Assertions.assertThrows(FileNotExistException.class,
+                () -> fileUtil.overwriteFileContentInUpperCase("./text", "./r"));
     }
 
     @Test
@@ -57,8 +59,34 @@ public class FileUtilTest {
     }
 
     @Test
+    public void testGetListOfStringFileNotExist() {
+        Assertions.assertThrows(FileNotExistException.class,
+                () -> fileUtil.getListOfString("./r"));
+    }
+
+    @Test
     public void testGetListOfWordsStartsWithVowelInLowerCase() {
         List<String> expected = List.of("array");
+
+        List<String> actual = fileUtil.getListOfWordsStartsWithVowelInLowerCase("./text");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetListOfWordsStartsWithVowelDifferentPunctuation() {
+        overwriteTextInFile("./text","Java,!!!\nGit,&\nJava^^^\nArray");
+        List<String> expected = List.of("array");
+
+        List<String> actual = fileUtil.getListOfWordsStartsWithVowelInLowerCase("./text");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetListOfWordsStartsWithVowelNoWord() {
+        overwriteTextInFile("./text","Git");
+        List<String> expected = Collections.emptyList();
 
         List<String> actual = fileUtil.getListOfWordsStartsWithVowelInLowerCase("./text");
 
@@ -75,10 +103,30 @@ public class FileUtilTest {
     }
 
     @Test
-    public void testGetNumbersInTextAscending() {
-        List<List<Integer>> expected = new ArrayList<>(Arrays.asList(List.of(5, 15, 25), List.of(6, 24, 75)));
+    public void testGetListWordLastLetterEqualsFirstLetterNextCaseIgnoreNoWord() {
+        overwriteTextInFile("./text","Git\ngit");
+        List<String> expected = Collections.emptyList();
 
-        List<List<Integer>> actual = fileUtil.getNumbersInTextAscending("./numbers");
+        List<String> actual = fileUtil.getListWordLastLetterEqualsFirstLetterNextCaseIgnore("./text");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetNumbersInTextAscending() {
+        List<String> expected = Arrays.asList("5 15 25","6 24 75");
+
+        List<String> actual = fileUtil.getNumbersInTextAscendingInEveryString("./numbers");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetNumbersInTextAscendingWithPunctuation() {
+        overwriteTextInFile("./numbers","4,3,2\n5!10");
+        List<String> expected = Arrays.asList("2 3 4","5 10");
+
+        List<String> actual = fileUtil.getNumbersInTextAscendingInEveryString("./numbers");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -93,15 +141,20 @@ public class FileUtilTest {
     }
 
     @Test
-    public void testGetNumbersFromFileSortPutToAnotherFile() {
-        List<String> expected =List.of("5", "6", "15", "24", "25", "75");
+    public void testRewriteSortedNumbersFromFileTo() {
+        List<String> expected = List.of("5", "6", "15", "24", "25", "75");
 
-        fileUtil.getNumbersFromFileSortPutToAnotherFile("./numbers", "./numbers_");
+        fileUtil.rewriteSortedNumbersFromFileTo("./numbers", "./numbers_");
         List<String> actual = fileUtil.getListOfString("./numbers_");
 
         Assertions.assertEquals(expected, actual);
     }
 
+//    @Test
+//    public void testRewriteSortedNumbersFromFileToFileExist() {
+//        Assertions.assertThrows(FileExistsException.class,
+//                ()->fileUtil.rewriteSortedNumbersFromFileTo("./numbers", "./text"));
+//    }
     @Test
     public void testGetStudentAchievement() {
         Map<String, Double> expected = Map.of("Ivanov", 4.5, "Petrov", 4.75, "Sidorov", 7.75);
@@ -117,10 +170,18 @@ public class FileUtilTest {
         List<String> expected = List.of("public class Tv {", "protected final String manufacturer;",
                 "protected final String model;", "}");
 
-        fileUtil.changeAccessModifierSaveResultToFile("./filewithjavacode","private",
-                "protected","./filewithjavacode_");
+        fileUtil.changeAccessModifierSaveResultToFile("./filewithjavacode", "private",
+                "protected", "./filewithjavacode_");
         List<String> actual = fileUtil.getListOfString("./filewithjavacode_");
 
         Assertions.assertEquals(expected, actual);
     }
+
+    private void overwriteTextInFile(String fileNamePath, String text) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileNamePath))) {
+            bufferedWriter.write(text);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
+}
