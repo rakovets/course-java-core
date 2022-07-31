@@ -19,11 +19,6 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class FileUtil {
-    private List<String> list;
-
-    public List<String> getList(String path) {
-        return getListOfString(path);
-    }
 
     public void overwriteFileContentUpperCase(String path1, String path2) {
         try (FileWriter fileWriter = new FileWriter(path1);
