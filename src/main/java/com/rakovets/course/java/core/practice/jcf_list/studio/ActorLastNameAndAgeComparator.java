@@ -12,5 +12,4 @@ public class ActorLastNameAndAgeComparator implements Comparator<Actor> {
             return result;
         }
     }
-
 }

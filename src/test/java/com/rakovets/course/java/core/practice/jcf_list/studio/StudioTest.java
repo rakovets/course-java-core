@@ -1,11 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_list.studio;
 
-import com.rakovets.course.java.core.practice.jcf_list.studio.ActorAgeComparator;
-import com.rakovets.course.java.core.practice.jcf_list.studio.ActorFeeComparator;
-import com.rakovets.course.java.core.practice.jcf_list.studio.ActorFeeAndLastNameComparator;
-import com.rakovets.course.java.core.practice.jcf_list.studio.ActorLastNameAndAgeComparator;
-import com.rakovets.course.java.core.practice.jcf_list.studio.ActorLastNameComparator;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
