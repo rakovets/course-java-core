@@ -12,7 +12,7 @@ public class TvUtil {
     }
 
     public List<Tv> getTvByDiagonal(double diagonal) {
-       return this.tvCollection.stream().filter(x -> x.getDiagonal() == diagonal)
+        return this.tvCollection.stream().filter(x -> x.getDiagonal() == diagonal)
                 .collect(Collectors.toList());
     }
 
@@ -57,6 +57,4 @@ public class TvUtil {
                 .sorted((x, y) -> Double.compare(y.getDiagonal(), x.getDiagonal()))
                 .collect(Collectors.toList());
     }
-
-
 }
