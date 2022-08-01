@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Cat {
+    private static final int MEW_PERCENT_HAPPINESS = -5;
+    private static final int PURR_PERCENT_HAPPINESS = 5;
     private String name;
 
     public Cat (String name) {
@@ -16,11 +18,13 @@ public class Cat {
     }
 
     public String mew(Person user) {
-        user.changeHappiness(-10);
+        user.changeHappiness(MEW_PERCENT_HAPPINESS);
+        return mew();
     }
 
     public String purr(Person user) {
-        user.changeHappiness(+10);
+        user.changeHappiness(PURR_PERCENT_HAPPINESS);
+        return purr();
     }
 
     public String getName() {
