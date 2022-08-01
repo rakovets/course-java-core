@@ -7,7 +7,7 @@ public class MultiplicationTableTest {
     private final MultiplicationTable multiplicationTable = new MultiplicationTable();
 
     @Test
-    public void demoGetMultiplicationTableInOneColumn() {
+    public void testGetMultiplicationTableInOneColumn() {
         String expected = "1 * 1 = 1\n" +
                 "1 * 2 = 2\n" +
                 "2 * 1 = 2\n" +
@@ -19,7 +19,7 @@ public class MultiplicationTableTest {
     }
 
     @Test
-    public void demoGetMultiplicationTableInOneColumnSecondLessThanFirst() {
+    public void testGetMultiplicationTableInOneColumnSecondLessThanFirst() {
         String expected = "";
 
         String actual = multiplicationTable.getMultiplicationTableInOneColumn(2, 1);
@@ -28,7 +28,7 @@ public class MultiplicationTableTest {
     }
 
     @Test
-    public void demoGetMultiplicationTableInOneColumnNegative() {
+    public void testGetMultiplicationTableInOneColumnNegative() {
         String expected = "-1 * -1 = 1\n" +
                 "-1 * 0 = 0\n" +
                 "-1 * 1 = -1\n" +
@@ -45,7 +45,7 @@ public class MultiplicationTableTest {
     }
 
     @Test
-    public void demoGetMultiplicationTableInColumns() {
+    public void testGetMultiplicationTableInColumns() {
         String expected = "1 * 1 = 1\t1 * 2 = 2\t\n" +
                 "2 * 1 = 2\t2 * 2 = 4\t\n";
         String actual = multiplicationTable.getMultiplicationTableByColumns(1, 2, 2);
@@ -54,7 +54,7 @@ public class MultiplicationTableTest {
     }
 
     @Test
-    public void demoGetMultiplicationTableInColumnsNegative() {
+    public void testGetMultiplicationTableInColumnsNegative() {
         String expected = "-3 * -3 = 9\t-3 * -2 = 6\t-3 * -1 = 3\t\n" +
                 "-2 * -3 = 6\t-2 * -2 = 4\t-2 * -1 = 2\t\n" +
                 "-1 * -3 = 3\t-1 * -2 = 2\t-1 * -1 = 1\t\n";
