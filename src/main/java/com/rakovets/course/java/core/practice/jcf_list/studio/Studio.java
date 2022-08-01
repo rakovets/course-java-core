@@ -13,4 +13,12 @@ public class Studio {
         actors.remove(actor);
         return actors;
     }
+
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
 }
