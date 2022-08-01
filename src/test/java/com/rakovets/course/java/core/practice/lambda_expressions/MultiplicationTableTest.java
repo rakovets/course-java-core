@@ -28,7 +28,7 @@ public class MultiplicationTableTest {
     }
 
     @Test
-    public void testGetMultiplicationTableInOneColumnNegative() {
+    public void testGetMultiplicationTableInOneColumnNegativeNumbers() {
         String expected = "-1 * -1 = 1\n" +
                 "-1 * 0 = 0\n" +
                 "-1 * 1 = -1\n" +
@@ -54,7 +54,7 @@ public class MultiplicationTableTest {
     }
 
     @Test
-    public void testGetMultiplicationTableInColumnsNegative() {
+    public void testGetMultiplicationTableInColumnsNegativeNumbers() {
         String expected = "-3 * -3 = 9\t-3 * -2 = 6\t-3 * -1 = 3\t\n" +
                 "-2 * -3 = 6\t-2 * -2 = 4\t-2 * -1 = 2\t\n" +
                 "-1 * -3 = 3\t-1 * -2 = 2\t-1 * -1 = 1\t\n";
