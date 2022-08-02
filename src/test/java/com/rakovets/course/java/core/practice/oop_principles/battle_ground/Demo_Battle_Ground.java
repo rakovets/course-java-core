@@ -6,8 +6,6 @@ public class Demo_Battle_Ground {
         System.out.println(enemy.getHealth());
         enemy.setHealth(110);
         System.out.println("SetHealth: " + enemy.getHealth());
-        Hero hero = new Hero("Hero");
-        System.out.println(hero.attackEnemy(enemy));
         System.out.println(enemy.getHealth());
         Hero warrior = new Warrior("Warrior");
         System.out.println(warrior.attackEnemy(enemy));
