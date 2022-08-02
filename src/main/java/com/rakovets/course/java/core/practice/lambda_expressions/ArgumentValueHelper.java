@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ArgumentValueHelper {
     public Map<String, String> getMapFromStringArray(String[] array) {
@@ -18,11 +19,8 @@ public class ArgumentValueHelper {
     }
 
     public String[] getStringArrayFromMap(Map<String, String> map) {
-        List<String> list = new ArrayList<>();
-        map.entrySet().forEach(e -> {
-            list.add(e.getKey());
-            list.add(e.getValue());
-        });
-        return list.toArray(String[]::new);
+        return map.entrySet().stream()
+                        .flatMap(c-> Stream.of(c.getKey(),c.getValue()))
+                        .toArray(String []::new);
     }
 }
