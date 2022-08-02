@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -9,12 +10,16 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 public class ArgumentValueHelperTest {
-    private final ArgumentValueHelper argumentValueHelper = new ArgumentValueHelper();
-    private String[] text;
+    private  ArgumentValueHelper argumentValueHelper;
+
+    @BeforeEach
+    public void setUp(){
+        argumentValueHelper = new ArgumentValueHelper();
+    }
 
     @Test
     public void testGetMapFromStringArray() {
-        text = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
+        String [] text = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"};
         Map<String, String> expected = Map.of(
                 "-i", "in.txt",
                 "--limit", "40",
@@ -28,7 +33,7 @@ public class ArgumentValueHelperTest {
 
     @Test
     public void testGetMapFromStringArrayEmptyLastArgumentValue() {
-        text = new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt", "-r"};
+        String [] text =  new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt", "-r"};
         Map<String, String> expected = Map.of("-i", "in.txt",
                 "--limit", "40",
                 "-d", "1",

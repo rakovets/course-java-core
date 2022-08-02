@@ -15,9 +15,9 @@ public class CityHelperTest {
 
     @Test
     public void testGetUniqueCities() {
-        Set<String> expected = Set.of("Minsk", "Batumi", "Los Angeles", "Gdansk", "New York", "Miami");
+        List<String> expected = List.of("Minsk", "Batumi", "Los Angeles", "Gdansk", "New York", "Miami");
 
-        Set<String> actual = cityHelper.getUniqueCities(CITIES);
+        List<String> actual = cityHelper.getUniqueCities(CITIES);
 
         Assertions.assertEquals(expected, actual);
     }

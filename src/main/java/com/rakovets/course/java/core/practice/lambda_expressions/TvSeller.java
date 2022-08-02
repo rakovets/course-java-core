@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TvSeller {
-
     public List<Tv> getTvsOfSpecificDiagonal(List<Tv> tvs, double diagonal) {
         return tvs.stream()
                 .filter(c -> c.getDiagonal() == diagonal)
@@ -32,21 +31,23 @@ public class TvSeller {
 
     public List<Tv> getSortedByPrice(List<Tv> tvs, boolean isAscending) {
         Comparator<Tv> byPrice = Comparator.comparing(Tv::getPrice);
-        if (!isAscending) {
-            byPrice = Comparator.comparing(Tv::getPrice).reversed();
-        }
-        return tvs.stream()
-                .sorted(byPrice)
-                .collect(Collectors.toList());
+        return isAscending ?
+                tvs.stream()
+                        .sorted(byPrice)
+                        .collect(Collectors.toList()) :
+                tvs.stream()
+                        .sorted(byPrice.reversed())
+                        .collect(Collectors.toList());
     }
 
     public List<Tv> getSortedByDiagonal(List<Tv> tvs, boolean isAscending) {
         Comparator<Tv> byDiagonal = Comparator.comparing(Tv::getDiagonal);
-        if (!isAscending) {
-            byDiagonal = Comparator.comparing(Tv::getDiagonal).reversed();
-        }
-        return tvs.stream()
-                .sorted(byDiagonal)
-                .collect(Collectors.toList());
+        return isAscending ?
+                tvs.stream()
+                        .sorted(byDiagonal)
+                        .collect(Collectors.toList()) :
+                tvs.stream()
+                        .sorted(byDiagonal.reversed())
+                        .collect(Collectors.toList());
     }
 }

@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ArgumentValueHelper {
-
     public Map<String, String> getMapFromStringArray(String[] array) {
         Map<String, String> map = IntStream.range(0, array.length / 2)
                 .boxed()
@@ -20,10 +19,10 @@ public class ArgumentValueHelper {
 
     public String[] getStringArrayFromMap(Map<String, String> map) {
         List<String> list = new ArrayList<>();
-        map.forEach((key, value) -> {
-            list.add(key);
-            list.add(value);
+        map.entrySet().forEach(e -> {
+            list.add(e.getKey());
+            list.add(e.getValue());
         });
-        return list.toArray(new String[0]);
+        return list.toArray(String[]::new);
     }
 }

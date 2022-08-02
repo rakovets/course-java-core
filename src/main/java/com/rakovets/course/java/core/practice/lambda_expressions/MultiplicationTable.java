@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 import java.util.stream.IntStream;
 
 public class MultiplicationTable {
-
     public String getMultiplicationTableInOneColumn(int first, int second) {
         StringBuilder stringBuilder = new StringBuilder();
         IntStream.rangeClosed(first, second)

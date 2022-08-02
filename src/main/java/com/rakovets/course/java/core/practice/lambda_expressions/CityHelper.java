@@ -6,9 +6,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CityHelper {
-
-    public Set<String> getUniqueCities(List<String> cities) {
-        return new HashSet<>(cities);
+    public List <String> getUniqueCities(List<String> cities) {
+         return cities.stream()
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     public List<String> getCitiesNamesMoreThanXLetters(List<String> cities, int amountLetters) {
