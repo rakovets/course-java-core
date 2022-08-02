@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Mag extends Hero {
-
     public Mag(String name) {
         super(name);
+        setHealth(120);
     }
 
     @Override

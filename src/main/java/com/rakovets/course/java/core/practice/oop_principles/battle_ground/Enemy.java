@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Enemy {
+public class Enemy implements Mortal {
     private int health;
 
     public Enemy(int health) {
@@ -9,6 +9,10 @@ public class Enemy {
 
     public void takeDamage(int damage) {
         health -= damage;
+    }
+
+    public boolean isAlive() {
+        return health > 0;
     }
 
     public int getHealth() {
