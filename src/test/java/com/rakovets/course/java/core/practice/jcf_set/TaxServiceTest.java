@@ -60,7 +60,8 @@ public class TaxServiceTest {
 
     @Test
     public void testAddExistPerson() {
-        Assertions.assertThrows(PersonAlreadyExistsException.class, () -> taxService.addPerson(25));
+        Assertions.assertThrows(PersonAlreadyExistsException.class,
+                () -> taxService.addPerson(25));
     }
 
     @Test
@@ -95,7 +96,8 @@ public class TaxServiceTest {
 
     @Test
     public void testAddExistingPenaltyExistPerson() {
-        Assertions.assertThrows(PenaltyAlreadyExistException.class, () -> taxService.addPenalty(25, speedGdansk));
+        Assertions.assertThrows(PenaltyAlreadyExistException.class,
+                () -> taxService.addPenalty(25, speedGdansk));
     }
 
     @Test
@@ -139,7 +141,8 @@ public class TaxServiceTest {
         Set<Penalty> expected = Set.of(speedGdansk, speedGdynia, techInspectionGdansk);
         Set<Penalty> expectedNewPenalties = Set.of(techInspectionGdansk);
 
-        Set<Penalty> actualNewPenalties = taxService.addPenalties(25, Set.of(speedGdynia, speedGdansk, techInspectionGdansk));
+        Set<Penalty> actualNewPenalties = taxService.addPenalties(25,
+                Set.of(speedGdynia, speedGdansk, techInspectionGdansk));
         Set<Penalty> actual = taxService.getTaxPayersByPersonalCode(25);
 
         Assertions.assertEquals(expectedNewPenalties, actualNewPenalties);
@@ -160,7 +163,9 @@ public class TaxServiceTest {
 
     @Test
     public void testGetTaxPayers() {
-        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk, speedGdynia), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia));
+        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk, speedGdynia),
+                35, Set.of(speedGdynia, techInspectionGdansk),
+                45, Set.of(techInspectionGdynia));
 
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
 
@@ -193,7 +198,8 @@ public class TaxServiceTest {
 
     @Test
     public void testGetTaxPayersByPenaltyType() {
-        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk, speedGdynia), 35, Set.of(speedGdynia));
+        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk, speedGdynia),
+                35, Set.of(speedGdynia));
 
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayersByPenaltyType("Speed");
 
@@ -211,7 +217,8 @@ public class TaxServiceTest {
 
     @Test
     public void testGetTaxPayersByCity() {
-        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk), 35, Set.of(techInspectionGdansk));
+        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk),
+                35, Set.of(techInspectionGdansk));
 
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayersByCity("Gdansk");
 
@@ -229,7 +236,9 @@ public class TaxServiceTest {
 
     @Test
     public void testRemovePenalty() {
-        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia));
+        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdansk),
+                35, Set.of(speedGdynia, techInspectionGdansk),
+                45, Set.of(techInspectionGdynia));
 
         taxService.removePenalty(25, speedGdynia);
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
@@ -249,7 +258,9 @@ public class TaxServiceTest {
 
     @Test
     public void testRemovePenaltyNotExistPerson() {
-        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdynia, speedGdansk), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia));
+        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdynia, speedGdansk),
+                35, Set.of(speedGdynia, techInspectionGdansk),
+                45, Set.of(techInspectionGdynia));
 
         taxService.removePenalty(40, techInspectionGdansk);
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
@@ -269,7 +280,10 @@ public class TaxServiceTest {
 
     @Test
     public void testReplacePenaltyInformationNotExistPerson() {
-        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdynia, speedGdansk), 35, Set.of(speedGdynia, techInspectionGdansk), 45, Set.of(techInspectionGdynia), 40, Set.of(techInspectionGdynia));
+        Map<Integer, Set<Penalty>> expected = Map.of(25, Set.of(speedGdynia, speedGdansk),
+                35, Set.of(speedGdynia, techInspectionGdansk),
+                45, Set.of(techInspectionGdynia),
+                40, Set.of(techInspectionGdynia));
 
         taxService.replacePenaltyInformation(40, Set.of(techInspectionGdynia));
         Map<Integer, Set<Penalty>> actual = taxService.getTaxPayers();
