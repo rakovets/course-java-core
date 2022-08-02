@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Hero {
-    public final int DEFAULT_DAMAGE = 10;
     private final String name;
 
 
@@ -10,7 +9,8 @@ public class Hero {
     }
 
     public String attackEnemy(Enemy enemy) {
-        enemy.takeDamage(DEFAULT_DAMAGE);
+        int default_damage = 10;
+        enemy.takeDamage(default_damage);
         return "The " + name + " attacks the enemy";
     }
 

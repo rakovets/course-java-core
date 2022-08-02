@@ -9,7 +9,8 @@ public class Warrior extends Hero {
 
     @Override
     public String attackEnemy(Enemy enemy) {
-        enemy.takeDamage(30);
+        int default_damage = 15;
+        enemy.takeDamage(default_damage);
         return "The " + getName() + " attacks the enemy";
     }
 }
