@@ -12,5 +12,4 @@ public class Mag extends Hero {
         enemy.takeDamage(default_damage);
         return "The " + getName() + " attacks the enemy";
     }
-
 }

@@ -9,9 +9,8 @@ public class Archer extends Hero {
 
     @Override
     public String attackEnemy(Enemy enemy) {
-        int default_damage = 14;
+        int default_damage = 20;
         enemy.takeDamage(default_damage);
         return "The " + getName() + " attacks the enemy";
     }
-
 }
