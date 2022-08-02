@@ -9,11 +9,6 @@ public class MathStatisticsTest {
     private final MathsStatistics mathsStatistics = new MathsStatistics();
 
     @Test
-    public void testGetRandomNumbers() {
-        Arrays.stream(MathsStatistics.getRandomNumbers(10)).boxed().forEach(System.out::println);
-    }
-
-    @Test
     public void testCountEvenNumbers() {
         int expected = 5;
 
