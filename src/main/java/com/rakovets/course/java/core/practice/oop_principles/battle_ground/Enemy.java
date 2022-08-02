@@ -7,7 +7,9 @@ public class Enemy {
         this.health = health;
     }
 
-
+    public void takeDamage(int damage) {
+        health -= damage;
+    }
 
     public int getHealth() {
         return health;
