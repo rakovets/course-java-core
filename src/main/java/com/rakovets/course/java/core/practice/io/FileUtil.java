@@ -10,6 +10,9 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.IntStream;
 
 public final class FileUtil {
     /**
@@ -94,13 +97,40 @@ public final class FileUtil {
                 String current = scanner.next();
                 if (prev != null) {
                     if ((prev.charAt(prev.length() - 1) == current.charAt(0))) {
-                        stringCollection.add(prev + " "
-                                + current.replaceAll("[.,?!:;\\s]", ""));
+                        stringCollection.add(prev + " " + current.replaceAll("[.,?!:;\\s]", ""));
                     }
                     prev = current;
                 }
             }
         }
+        return stringCollection;
+    }
+
+    /**
+     * The method returns a list of the largest combination of digits for each string, in ascending order.
+     *
+     * @param path the path to the file.
+     * @return list of the largest combination.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
+    public Collection<String> combinations(Path path) throws IOException {
+        Collection<String> stringCollection = new ArrayList<>();
+        Collection<String> numbers = toList(path);
+
+        numbers.stream()
+                .map(number -> number.split("\\s+"))
+                .forEachOrdered(strings -> {
+                    Set<String> hashset = new TreeSet<>();
+                    IntStream.range(0, strings.length - 1)
+                            .filter(i -> Integer.parseInt(strings[i]) < Integer.parseInt(strings[i + 1]))
+                            .forEachOrdered(i -> {
+                                hashset.add(strings[i]);
+                                if (Integer.parseInt(strings[i]) < Integer.parseInt(strings[i + 1])) {
+                                    hashset.add(strings[i + 1]);
+                                }
+                            });
+                    stringCollection.add(hashset.toString().replaceAll("[,\\s]", " "));
+                });
         return stringCollection;
     }
 }

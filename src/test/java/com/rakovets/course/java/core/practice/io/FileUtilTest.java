@@ -67,7 +67,6 @@ class FileUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
     @Test
     @DisplayName("The method returns a list of words for which the last letter matches the" +
             " first letter of the word following it")
@@ -80,5 +79,13 @@ class FileUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("Test list of the largest combination.")
+    void combinations() throws IOException {
+        Collection<String> expected = new ArrayList<>(List.of("[1  2  3]", "[67  68  69]"));
 
+        Collection<String> actual = fileUtil.combinations(Path.of("resources", "text", "numbers.txt"));
+
+        Assertions.assertEquals(expected, actual);
+    }
 }

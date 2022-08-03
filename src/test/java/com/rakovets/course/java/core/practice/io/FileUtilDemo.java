@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.io;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public class FileUtilDemo {
     public static void main(String[] args) throws IOException {
