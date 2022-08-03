@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.io;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -172,6 +174,26 @@ public final class FileUtil {
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Task 8.
+     * <p /> Accepts a file path with integers and sorts the contents
+     * of the file in ascending order and saves the result to a file.
+     *
+     * @param path the path to the file.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
+    public void test(Path path) throws IOException {
+        var stringNumbers = toList(path).toString().replaceAll("\\D", " ");
+        var numbers = Arrays.stream(stringNumbers.trim().split("\\s+"))
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
+        try (var bufferedWriter = new BufferedWriter(new FileWriter(path + "_"))) {
+            bufferedWriter.write(numbers.toString().replaceAll("[^\\d.]", " "));
+            bufferedWriter.flush();
+        }
     }
 
     /**
