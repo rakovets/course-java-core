@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.io;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,18 +9,17 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @DisplayName("File util test.")
 class FileUtilTest {
-    FileUtil fileUtil;
-    Path path;
+    static FileUtil fileUtil;
 
-    @BeforeEach
-    void init() {
+    @BeforeAll
+    static void initAll() {
         fileUtil = new FileUtil();
-
-        path = Path.of("resources", "text", "poem.txt");
     }
 
     @Test
@@ -50,7 +49,7 @@ class FileUtilTest {
                 , "I took the one less traveled by,\n"
                 , "And that has made all the difference.\n"));
 
-        Collection<String> actual = fileUtil.toList(path);
+        Collection<String> actual = fileUtil.toList(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -62,7 +61,7 @@ class FileUtilTest {
                 "it", "in", "undergrowth", "other", "as", "as", "it", "and", "as", "about", "equally", "another", "on",
                 "if", "ever", "a", "ages", "and", "ages", "in", "a", "and", "one", "all"));
 
-        Collection<String> actual = fileUtil.findVowel(path);
+        Collection<String> actual = fileUtil.findVowel(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -74,7 +73,7 @@ class FileUtilTest {
         Collection<String> expected = new ArrayList<>(List.of("yellow wood", "not travel", "looked down", "that the",
                 "about the", "kept the", "how way"));
 
-        Collection<String> actual = fileUtil.findWordsByLetters(path);
+        Collection<String> actual = fileUtil.findWordsByLetters(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -85,6 +84,39 @@ class FileUtilTest {
         Collection<String> expected = new ArrayList<>(List.of("[1  2  3]", "[67  68  69]"));
 
         Collection<String> actual = fileUtil.combinations(Path.of("resources", "text", "numbers.txt"));
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void countLetters() throws IOException {
+        Map<Character, Integer> expected = new HashMap<>();
+        expected.put('a', 57);
+        expected.put('b', 12);
+        expected.put('c', 9);
+        expected.put('d', 36);
+        expected.put('e', 68);
+        expected.put('f', 8);
+        expected.put('g', 14);
+        expected.put('h', 36);
+        expected.put('i', 30);
+        expected.put('j', 1);
+        expected.put('k', 7);
+        expected.put('l', 26);
+        expected.put('m', 7);
+        expected.put('n', 37);
+        expected.put('o', 49);
+        expected.put('p', 5);
+        expected.put('q', 1);
+        expected.put('r', 32);
+        expected.put('s', 32);
+        expected.put('t', 51);
+        expected.put('u', 10);
+        expected.put('v', 8);
+        expected.put('w', 18);
+        expected.put('y', 11);
+
+        Map<Character, Integer> actual = fileUtil.countLetters(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }

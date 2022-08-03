@@ -6,13 +6,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public final class FileUtil {
     /**
@@ -133,5 +140,24 @@ public final class FileUtil {
                     stringCollection.add(hashset.toString().replaceAll("[,\\s]", " "));
                 });
         return stringCollection;
+    }
+
+    /**
+     * Task 6.
+     * <p /> The method returns the frequency of occurrence of all letters in the text, ignoring case.
+     *
+     * @param path the path to the file.
+     * @return a collection of letters with their repetition in the text.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
+    public Map<Character, Integer> countLetters(Path path) throws IOException {
+        try (Stream<String> lines = Files.lines(path, UTF_8)) {
+            return lines.map(String::chars)
+                    .flatMapToInt(Function.identity())
+                    .mapToObj(intValue -> (char) intValue)
+                    .filter(Character::isLetter)
+                    .map(Character::toLowerCase)
+                    .collect(Collectors.toMap(Function.identity(), it -> 1, Integer::sum));
+        }
     }
 }
