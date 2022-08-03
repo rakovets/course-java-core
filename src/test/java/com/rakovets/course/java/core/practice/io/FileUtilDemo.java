@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import static java.lang.System.*;
 
 public class FileUtilDemo {
-    public static void main(String[] args) throws IOException, OutOfMemoryError {
+    public static void main(String[] args) throws IOException {
         out.println("Task 1.");
         FileUtil fileUtil = new FileUtil();
         Path firsts = Path.of("resources", "text", "poem.txt");

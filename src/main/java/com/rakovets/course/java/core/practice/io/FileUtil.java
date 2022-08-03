@@ -23,7 +23,7 @@ public final class FileUtil {
      * @param second path.
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
-    public void toUpperCase(Path first, Path second) throws IOException, OutOfMemoryError {
+    public void toUpperCase(Path first, Path second) throws IOException {
         try (InputStreamReader input =
                      new InputStreamReader(new FileInputStream(first.toFile()), StandardCharsets.UTF_8);
              OutputStreamWriter output =
@@ -44,7 +44,7 @@ public final class FileUtil {
      * @return list of lines in this file.
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
-    public Collection<String> toList(Path path) throws IOException, OutOfMemoryError {
+    public Collection<String> toList(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
         try (Scanner scanner = new Scanner(path)) {
             while (scanner.hasNext()) {
@@ -62,7 +62,7 @@ public final class FileUtil {
      * @return words that begin with a vowel.
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
-    public Collection<String> findVowel(Path path) throws IOException, OutOfMemoryError {
+    public Collection<String> findVowel(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
         String vowels = "eyuoia";
         try (Scanner scanner = new Scanner(path)) {
@@ -86,7 +86,7 @@ public final class FileUtil {
      * @return list of words for which the last letter matches the first letter of the word following it.
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
-    public Collection<String> findWordsByLetters(Path path) throws IOException, OutOfMemoryError {
+    public Collection<String> findWordsByLetters(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
         try (Scanner scanner = new Scanner(path)) {
             String prev = null;
@@ -114,7 +114,7 @@ public final class FileUtil {
      * @return list of the largest combination.
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
-    public Collection<String> combinations(Path path) throws IOException, OutOfMemoryError {
+    public Collection<String> combinations(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
         Collection<String> numbers = toList(path);
 
