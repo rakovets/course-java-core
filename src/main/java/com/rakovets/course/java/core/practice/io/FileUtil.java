@@ -5,11 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -17,7 +19,6 @@ import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -31,14 +32,12 @@ public final class FileUtil {
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
     public void toUpperCase(Path first, Path second) throws IOException {
-        try (InputStreamReader input =
-                     new InputStreamReader(new FileInputStream(first.toFile()), StandardCharsets.UTF_8);
-             OutputStreamWriter output =
-                     new OutputStreamWriter(new FileOutputStream(second.toFile()), StandardCharsets.UTF_8)) {
+        try (var input = new InputStreamReader(new FileInputStream(first.toFile()), UTF_8);
+             var output = new OutputStreamWriter(new FileOutputStream(second.toFile()), UTF_8)) {
             while (input.ready()) {
-                char chLowCase = (char) input.read();
-                char chUpperCase = Character.toUpperCase(chLowCase);
-                output.write(chUpperCase);
+                var charLowCase = (char) input.read();
+                var charUpperCase = Character.toUpperCase(charLowCase);
+                output.write(charUpperCase);
             }
         }
     }
@@ -53,7 +52,7 @@ public final class FileUtil {
      */
     public Collection<String> toList(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
-        try (Scanner scanner = new Scanner(path)) {
+        try (var scanner = new Scanner(path)) {
             while (scanner.hasNext()) {
                 stringCollection.add(scanner.nextLine() + "\n");
             }
@@ -71,11 +70,11 @@ public final class FileUtil {
      */
     public Collection<String> findVowel(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
-        String vowels = "eyuoia";
-        try (Scanner scanner = new Scanner(path)) {
+        var vowels = "eyuoia";
+        try (var scanner = new Scanner(path)) {
             while (scanner.hasNext()) {
-                String word = scanner.next();
-                char first = word.charAt(0);
+                var word = scanner.next();
+                var first = word.charAt(0);
                 if (vowels.indexOf(first) != -1) {
                     stringCollection.add(word.replaceAll("[.,?!:;\\s]", ""));
                 }
@@ -95,13 +94,13 @@ public final class FileUtil {
      */
     public Collection<String> findWordsByLetters(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
-        try (Scanner scanner = new Scanner(path)) {
+        try (var scanner = new Scanner(path)) {
             String prev = null;
             if (scanner.hasNext()) {
                 prev = scanner.next();
             }
             while (scanner.hasNext()) {
-                String current = scanner.next();
+                var current = scanner.next();
                 if (prev != null) {
                     if ((prev.charAt(prev.length() - 1) == current.charAt(0))) {
                         stringCollection.add(prev + " " + current.replaceAll("[.,?!:;\\s]", ""));
@@ -123,7 +122,7 @@ public final class FileUtil {
      */
     public Collection<String> combinations(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
-        Collection<String> numbers = toList(path);
+        var numbers = toList(path);
 
         numbers.stream()
                 .map(number -> number.split("\\s+"))
@@ -151,7 +150,7 @@ public final class FileUtil {
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
     public Map<Character, Integer> countLetters(Path path) throws IOException {
-        try (Stream<String> lines = Files.lines(path, UTF_8)) {
+        try (var lines = Files.lines(path, UTF_8)) {
             return lines.map(String::chars)
                     .flatMapToInt(Function.identity())
                     .mapToObj(intValue -> (char) intValue)
@@ -159,5 +158,27 @@ public final class FileUtil {
                     .map(Character::toLowerCase)
                     .collect(Collectors.toMap(Function.identity(), it -> 1, Integer::sum));
         }
+    }
+
+    /**
+     * Task 7.
+     * <p /> The method returns the frequency of occurrence of all words in the text in ascending order
+     * of frequency of occurrence.
+     *
+     * @param path the path to the file.
+     * @return a collection of words in ascending order of their occurrences.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
+    public List<Map.Entry<String, Integer>> countWord(Path path) throws IOException {
+        Map<String, Integer> map = new HashMap<>(10);
+
+        var text = toList(path).toString().replaceAll("[^a-zA-Z ]", "").split(" ");
+
+        Arrays.stream(text).forEachOrdered(iterator -> map.put(iterator, map.getOrDefault(iterator, 0) + 1));
+
+        return map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList());
     }
 }

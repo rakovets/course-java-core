@@ -49,7 +49,7 @@ class FileUtilTest {
                 , "I took the one less traveled by,\n"
                 , "And that has made all the difference.\n"));
 
-        Collection<String> actual = fileUtil.toList(Path.of("resources", "text", "poem.txt"));
+        var actual = fileUtil.toList(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -61,7 +61,7 @@ class FileUtilTest {
                 "it", "in", "undergrowth", "other", "as", "as", "it", "and", "as", "about", "equally", "another", "on",
                 "if", "ever", "a", "ages", "and", "ages", "in", "a", "and", "one", "all"));
 
-        Collection<String> actual = fileUtil.findVowel(Path.of("resources", "text", "poem.txt"));
+        var actual = fileUtil.findVowel(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -73,7 +73,7 @@ class FileUtilTest {
         Collection<String> expected = new ArrayList<>(List.of("yellow wood", "not travel", "looked down", "that the",
                 "about the", "kept the", "how way"));
 
-        Collection<String> actual = fileUtil.findWordsByLetters(Path.of("resources", "text", "poem.txt"));
+        var actual = fileUtil.findWordsByLetters(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -83,14 +83,12 @@ class FileUtilTest {
     void combinations() throws IOException {
         Collection<String> expected = new ArrayList<>(List.of("[1  2  3]", "[67  68  69]"));
 
-        Collection<String> actual = fileUtil.combinations(Path.of("resources", "text", "numbers.txt"));
+        var actual = fileUtil.combinations(Path.of("resources", "text", "numbers.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    void countLetters() throws IOException {
-        Map<Character, Integer> expected = new HashMap<>();
+    private static void extracted(Map<Character, Integer> expected) {
         expected.put('a', 57);
         expected.put('b', 12);
         expected.put('c', 9);
@@ -115,8 +113,48 @@ class FileUtilTest {
         expected.put('v', 8);
         expected.put('w', 18);
         expected.put('y', 11);
+    }
 
-        Map<Character, Integer> actual = fileUtil.countLetters(Path.of("resources", "text", "poem.txt"));
+    @Test
+    @DisplayName("Test collection of letters with their repetition in the text.")
+    void countLetters() throws IOException {
+        Map<Character, Integer> expected = new HashMap<>();
+        extracted(expected);
+
+        var actual = fileUtil.countLetters(Path.of("resources", "text", "poem.txt"));
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    private static void extracted(List<Map.Entry<String, Integer>> expected) {
+        expected.add(Map.entry("other", 1));
+        expected.add(Map.entry("One", 1));
+        expected.add(Map.entry("nothing", 1));
+        expected.add(Map.entry("your", 1));
+        expected.add(Map.entry("two", 1));
+        expected.add(Map.entry("life", 1));
+        expected.add(Map.entry("The", 1));
+        expected.add(Map.entry("ways", 1));
+        expected.add(Map.entry("There", 1));
+        expected.add(Map.entry("are", 1));
+        expected.add(Map.entry("only", 1));
+        expected.add(Map.entry("to", 1));
+        expected.add(Map.entry("everything", 1));
+        expected.add(Map.entry("live", 1));
+        expected.add(Map.entry("a", 2));
+        expected.add(Map.entry("though", 2));
+        expected.add(Map.entry("as", 2));
+        expected.add(Map.entry("miracle", 2));
+        expected.add(Map.entry("is", 4));
+    }
+
+    @Test
+    @DisplayName("Test collection of words in ascending order of their occurrences.")
+    void countWord() throws IOException {
+        List<Map.Entry<String, Integer>> expected = new ArrayList<>();
+        extracted(expected);
+
+        var actual = fileUtil.countWord(Path.of("resources", "text", "text.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
