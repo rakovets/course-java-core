@@ -126,6 +126,7 @@ public class FileUtil {
     }
 
     private void writeResultToNewFile(List result, String newFilePath) {
+        newFilePath = verifyNamePath(newFilePath);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFilePath))) {
             result.forEach(s -> {
                 try {
@@ -137,5 +138,30 @@ public class FileUtil {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private String verifyNamePath(String newFilePath) {
+        String dirPath = newFilePath.replaceFirst("[\\w\\d]+$", "");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        String input;
+        while (Files.exists(Paths.get(newFilePath))) {
+            System.out.println("File exists! Do you want to rewrite?Enter yes,if you want to rewrite");
+            try {
+                input = bufferedReader.readLine();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            if ("yes".equalsIgnoreCase(input)) {
+                return newFilePath;
+            } else {
+                System.out.println("Enter new FilePath!");
+                try {
+                    newFilePath = dirPath + bufferedReader.readLine();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        return newFilePath;
     }
 }
