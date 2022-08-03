@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -181,23 +180,5 @@ public final class FileUtil {
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
                 .collect(Collectors.toList());
-    }
-
-    /**
-     * Task 10.
-     * <p /> The read file method changes the current modifiers to the new modifier and spits it into the new file.
-     *
-     * @param firstPath  the path to the file.
-     * @param secondPath the path to the file.
-     * @param oldValue   the current access modifier as a string.
-     * @param newValue   new access modifier as a string.
-     * @throws IOException throws an exception if the file is handled incorrectly.
-     */
-    public void replace(Path firstPath, Path secondPath, String oldValue, String newValue) throws IOException {
-        var string = Files.readString(firstPath);
-
-        var replaceString = string.replace(oldValue, newValue);
-
-        Files.write(secondPath, Collections.singleton(replaceString));
     }
 }

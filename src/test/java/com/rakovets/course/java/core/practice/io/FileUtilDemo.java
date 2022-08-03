@@ -11,5 +11,11 @@ public class FileUtilDemo {
         var second = Path.of("resources", "text", "poem2.txt");
         fileUtil.toUpperCase(firsts, second);
         System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("Task 10");
+        Path firstPath = Path.of("resources", "text", "FileUtil.java");
+        Path secondPath = Path.of("resources", "text", "FileUtil.txt");
+        fileUtil.replace(firstPath, secondPath, "public", "private");
+        System.out.println("-----------------------------------------------------------------------------------------");
     }
 }
