@@ -22,10 +22,8 @@ class FileUtilTest {
         fileUtil = new FileUtil();
     }
 
-    @Test
-    @DisplayName("The method returns a list of lines in this file.")
-    void toList() throws IOException {
-        Collection<String> expected = new ArrayList<>(List.of("Two roads diverged in a yellow wood,\n"
+    private static ArrayList<String> getExpected() {
+        return new ArrayList<>(List.of("Two roads diverged in a yellow wood,\n"
                 , "And sorry I could not travel both\n"
                 , "And be one traveler, long I stood\n"
                 , "And looked down one as far as I could\n"
@@ -48,18 +46,28 @@ class FileUtilTest {
                 , "Two roads diverged in a wood, and I—\n"
                 , "I took the one less traveled by,\n"
                 , "And that has made all the difference.\n"));
+    }
+
+    @Test
+    @DisplayName("The method returns a list of lines in this file.")
+    void toList() throws IOException {
+        Collection<String> expected = getExpected();
 
         var actual = fileUtil.toList(Path.of("resources", "text", "poem.txt"));
 
         Assertions.assertEquals(expected, actual);
     }
 
+    private static ArrayList<String> getStrings() {
+        return new ArrayList<>(List.of("in", "a", "yellow", "one", "one", "as", "as",
+                "it", "in", "undergrowth", "other", "as", "as", "it", "and", "as", "about", "equally", "another", "on",
+                "if", "ever", "a", "ages", "and", "ages", "in", "a", "and", "one", "all"));
+    }
+
     @Test
     @DisplayName("The method returns a list of lines in this file.")
     void findVowel() throws IOException {
-        Collection<String> expected = new ArrayList<>(List.of("in", "a", "yellow", "one", "one", "as", "as",
-                "it", "in", "undergrowth", "other", "as", "as", "it", "and", "as", "about", "equally", "another", "on",
-                "if", "ever", "a", "ages", "and", "ages", "in", "a", "and", "one", "all"));
+        Collection<String> expected = getStrings();
 
         var actual = fileUtil.findVowel(Path.of("resources", "text", "poem.txt"));
 

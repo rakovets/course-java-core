@@ -1,10 +1,6 @@
 package com.rakovets.course.java.core.practice.io;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -33,14 +29,11 @@ public final class FileUtil {
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
     public void toUpperCase(Path first, Path second) throws IOException {
-        try (var input = new InputStreamReader(new FileInputStream(first.toFile()), UTF_8);
-             var output = new OutputStreamWriter(new FileOutputStream(second.toFile()), UTF_8)) {
-            while (input.ready()) {
-                var charLowCase = (char) input.read();
-                var charUpperCase = Character.toUpperCase(charLowCase);
-                output.write(charUpperCase);
-            }
-        }
+        var string = Files.readString(first);
+
+        var replaceString = string.toUpperCase();
+
+        Files.write(second, Collections.singleton(replaceString));
     }
 
     /**
@@ -124,7 +117,6 @@ public final class FileUtil {
     public Collection<String> combinations(Path path) throws IOException {
         Collection<String> stringCollection = new ArrayList<>();
         var numbers = toList(path);
-
         numbers.stream()
                 .map(number -> number.split("\\s+"))
                 .forEachOrdered(strings -> {
@@ -176,7 +168,6 @@ public final class FileUtil {
         var text = toList(path).toString().replaceAll("[^a-zA-Z ]", "").split(" ");
 
         Arrays.stream(text).forEachOrdered(iterator -> map.put(iterator, map.getOrDefault(iterator, 0) + 1));
-
         return map.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
