@@ -9,24 +9,20 @@ import java.util.Queue;
 public class Producer extends Thread {
     private final Queue<Integer> queue;
 
-    public Producer(Queue <Integer> queue) {
+    public Producer(Queue<Integer> queue) {
         this.queue = queue;
     }
 
     @Override
     public void run() {
-        getInfoFromConsole();
-    }
-
-    public void getInfoFromConsole() {
         BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-        String inputString = "";
+        String inputString;
         while (true) {
             try {
-                System.out.print("Enter Integer Numbers: ");
+                System.out.print("Enter Integer Number: ");
                 inputString = bufferRead.readLine();
                 if (!inputString.matches("-?[\\d]+")) {
-                    throw new UserInputException("Enter Integer Numbers!");
+                    throw new UserInputException("Enter Integer Number!");
                 }
                 if (Objects.equals(inputString, "-1")) {
                     return;

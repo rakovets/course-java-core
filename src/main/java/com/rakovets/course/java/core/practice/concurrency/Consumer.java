@@ -1,20 +1,27 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
 public class Consumer extends Thread {
     private final Queue<Integer> queue;
-    private final BufferedWriter writer;
+    private static final BufferedWriter WRITER;
 
-    public Consumer(String name, Queue<Integer> queue, BufferedWriter writer) {
+    static {
+        try {
+            WRITER = new BufferedWriter(new FileWriter("ConsumerThread"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Consumer(String name, Queue<Integer> queue) throws IOException {
         super(name);
         this.queue = queue;
-        this.writer = writer;
     }
 
     @Override
@@ -28,24 +35,20 @@ public class Consumer extends Thread {
 
     public void getNumbersFromProducerThread() throws IOException {
         while (!Thread.currentThread().isInterrupted()) {
-            if (!queue.isEmpty()) {
-                int sec = queue.poll();
-                try {
-                    Thread.sleep(TimeUnit.SECONDS.toMillis(sec));
-                    writer.write(LocalDateTime.now() + " " + Thread.currentThread().getName() +
-                            " I slept " + sec + " seconds\n");
-                    writer.flush();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            } else {
-                writer.write(LocalDateTime.now() + " " + Thread.currentThread().getName() + "\n");
-                writer.flush();
-                try {
+            try {
+                if (!queue.isEmpty()) {
+                    int sec = queue.poll();
+                    TimeUnit.SECONDS.sleep(sec);
+                    WRITER.write(LocalDateTime.now() + " - " + Thread.currentThread().getName() +
+                            " - I slept " + sec + " seconds\n");
+                    WRITER.flush();
+                } else {
+                    WRITER.write(LocalDateTime.now() + " -  " + Thread.currentThread().getName() + "\n");
+                    WRITER.flush();
                     TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
                 }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
