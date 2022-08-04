@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
-import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DateWrapper {
@@ -14,7 +12,12 @@ public class DateWrapper {
         return localDate.plusMonths(month);
     }
 
-    public String getLocalDateFromPattern(LocalDate localDate, String pattern) {
+    public String getStringDateFromPattern(LocalDate localDate, String pattern) {
         return localDate.format(DateTimeFormatter.ofPattern(pattern));
     }
+
+    public LocalDate getLocalDateFromPattern(String date, String pattern) {
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern));
+    }
+
 }
