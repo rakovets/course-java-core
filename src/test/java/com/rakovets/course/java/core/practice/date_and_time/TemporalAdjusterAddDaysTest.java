@@ -9,7 +9,7 @@ public class TemporalAdjusterAddDaysTest {
     private final TemporalAdjusterAddDays temporalAdjuster = new TemporalAdjusterAddDays(10);
 
     @Test
-    public void test() {
+    public void testAdjustInto() {
         LocalDate localDate = LocalDate.of(2010, 3, 10);
         String expected = "2010-03-20";
 
