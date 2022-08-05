@@ -12,7 +12,6 @@ public enum SeasonEnum {
     AUTUMN(8);
 
     private final int temperature;
-
     public final static SeasonEnum summer = SeasonEnum.SUMMER;
 
     SeasonEnum(int temperature) {
