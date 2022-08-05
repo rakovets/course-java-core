@@ -24,7 +24,8 @@ public class DateWrapperDemo {
         LocalDate may2003 = LocalDate.of(2001, 5, 10);
         Period dif = Period.between(march2003, may2003);
         System.out.println(dif.get(ChronoUnit.DAYS));
-        System.out.println(dif.getDays());
+
+        System.out.println(localDate.getDifferenceInDaysBetweenLocalDates(march2003, may2003));
 
     }
 }

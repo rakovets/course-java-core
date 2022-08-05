@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class DateWrapper {
@@ -20,4 +21,7 @@ public class DateWrapper {
         return LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern));
     }
 
+    public int getDifferenceInDaysBetweenLocalDates(LocalDate localDate1, LocalDate localDate2) {
+       return Period.between(localDate1, localDate2).getDays();
+    }
 }
