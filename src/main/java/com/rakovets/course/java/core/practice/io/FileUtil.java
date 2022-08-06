@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
@@ -169,9 +170,9 @@ public final class FileUtil {
 
         var text = toList(path).toString().replaceAll("[^a-zA-Z ]", "").split(" ");
 
-        Arrays.stream(text).forEachOrdered(iterator -> map.put(iterator, map.getOrDefault(iterator, 0) + 1));
-        return map.entrySet()
-                .stream()
+        Arrays.stream(text)
+                .forEachOrdered(iterator -> map.put(iterator, map.getOrDefault(iterator, 0) + 1));
+        return map.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
                 .collect(Collectors.toList());
     }
@@ -184,7 +185,7 @@ public final class FileUtil {
      * @param path the path to the file.
      * @throws IOException throws an exception if the file is handled incorrectly.
      */
-    public void test(Path path) throws IOException {
+    public void sortedNumbers(Path path) throws IOException {
         var stringNumbers = toList(path).toString().replaceAll("\\D", " ");
         var numbers = Arrays.stream(stringNumbers.trim().split("\\s+"))
                 .map(Integer::parseInt)
@@ -194,6 +195,30 @@ public final class FileUtil {
             bufferedWriter.write(numbers.toString().replaceAll("[^\\d.]", " "));
             bufferedWriter.flush();
         }
+    }
+
+    /**
+     * Returns student performance.
+     *
+     * @param path the path to the file.
+     * @return student assessments.
+     */
+    public List<String> getStudentsMarks(Path path) throws IOException {
+        List<String> stringArrayList = new ArrayList<>();
+        for (String studentMarks : toList(path)) {
+            String[] marksString = studentMarks.replaceAll("\\D", " ").trim().split("\\s+");
+            Optional<Integer> marks;
+            marks = Arrays.stream(marksString)
+                    .map(Integer::parseInt)
+                    .reduce(Integer::sum);
+            double averageMark = 0.0;
+            if (marks.isPresent()) {
+                averageMark = (double) marks.get() / marksString.length;
+            }
+            String surname = studentMarks.replaceAll("[\\W\\d]", "");
+            stringArrayList.add(String.format("%s - average mark: %.2f", surname, averageMark));
+        }
+        return stringArrayList;
     }
 
     /**

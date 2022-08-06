@@ -14,8 +14,11 @@ public class FileUtilDemo {
         System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("Task 8");
-        fileUtil.test(Path.of("resources", "text", "numbers.txt"));
+        fileUtil.sortedNumbers(Path.of("resources", "text", "numbers.txt"));
         System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("Task 9");
+        System.out.println(fileUtil.getStudentsMarks(Path.of("resources", "text", "students.txt")));
 
         System.out.println("Task 10");
         fileUtil.replace(
