@@ -63,12 +63,12 @@ public class DateWrapperTest {
 
     @Test
     void testGetDifferenceInDaysBetweenLocalDates() {
-        LocalDate localDateFirst = LocalDate.of(2022, 8, 1);
-        LocalDate localDateSecond = LocalDate.of(2022, 8, 5);
+        LocalDate localDateFirst = LocalDate.of(2022, 1, 1);
+        LocalDate localDateSecond = LocalDate.of(2022, 12, 31);
 
-        int expected = 4;
+        long expected = 364;
 
-        int actual = dateWrapper.getDifferenceInDaysBetweenLocalDates(localDateFirst, localDateSecond);
+        long actual = dateWrapper.getDifferenceInDaysBetweenLocalDates(localDateFirst, localDateSecond);
 
         Assertions.assertEquals(expected, actual);
     }
