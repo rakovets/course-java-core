@@ -198,7 +198,8 @@ public final class FileUtil {
     }
 
     /**
-     * Returns student performance.
+     * Task 9.
+     * <p /> Returns student performance.
      *
      * @param path the path to the file.
      * @return student assessments.
@@ -207,16 +208,15 @@ public final class FileUtil {
         List<String> stringArrayList = new ArrayList<>();
         for (String studentMarks : toList(path)) {
             String[] marksString = studentMarks.replaceAll("\\D", " ").trim().split("\\s+");
-            Optional<Integer> marks;
-            marks = Arrays.stream(marksString)
+            Optional<Integer> marks = Arrays.stream(marksString)
                     .map(Integer::parseInt)
                     .reduce(Integer::sum);
             double averageMark = 0.0;
             if (marks.isPresent()) {
                 averageMark = (double) marks.get() / marksString.length;
             }
-            String surname = studentMarks.replaceAll("[\\W\\d]", "");
-            stringArrayList.add(String.format("%s - average mark: %.2f", surname, averageMark));
+            String name = studentMarks.replaceAll("[\\W\\d]", "");
+            stringArrayList.add(String.format("%s - average mark: %.2f", name, averageMark));
         }
         return stringArrayList;
     }
