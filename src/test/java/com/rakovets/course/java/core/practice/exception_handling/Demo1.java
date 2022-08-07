@@ -8,9 +8,5 @@ public class Demo1 {
         } catch (NullPointerException e) {
             System.err.println("String is null");
         }
-
-
-//
-
     }
 }
