@@ -140,7 +140,7 @@ class DateWrapperTest {
 
     @ParameterizedTest
     @MethodSource("firstJanuaryProviderArguments")
-    @DisplayName("")
+    @DisplayName("Find first January.")
     void firstJanuary(LocalDate localDate, LocalDate expected) {
         var actual = dateWrapper.adjustInto(localDate);
 
