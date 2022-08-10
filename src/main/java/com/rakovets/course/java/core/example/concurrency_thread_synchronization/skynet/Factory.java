@@ -11,10 +11,9 @@ public class Factory extends Thread {
     private final static Queue<Details> DETAILS = new ArrayDeque<>();
     private static final List<Details> DETAILS_LIST = List.of(Details.values());
     private final Random random = new Random();
-    Logger logger = Logger.getLogger("Factory");
+    private final Logger logger = Logger.getLogger("Factory");
     private int daysLeft;
     private boolean daytime = true;
-
 
     public Factory(int daysLeft) {
         this.daysLeft = daysLeft;

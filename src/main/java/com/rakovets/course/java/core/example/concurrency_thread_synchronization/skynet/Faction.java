@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Faction extends Thread {
     private final List<Details> list = new ArrayList<>();
     private final Factory factory;
-    Logger logger = Logger.getLogger(Faction.class.getName());
+    private final Logger logger = Logger.getLogger(Faction.class.getName());
 
     public Faction(Factory factory) {
         this.factory = factory;
