@@ -40,7 +40,7 @@ public class TemporalAdjusterToNearestFirstJanuaryTest {
 
     @Test
     public void testAdjustIntoMiddleOfTheYearPreviousFirstJanuary() {
-        LocalDate localDate = LocalDate.of(2010, 3, 3);
+        LocalDate localDate = LocalDate.of(2010, 7, 2);
         LocalDate expected = LocalDate.of(2010, 1, 1);
 
         LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
