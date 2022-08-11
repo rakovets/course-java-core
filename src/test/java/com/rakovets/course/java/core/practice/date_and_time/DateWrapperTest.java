@@ -10,35 +10,21 @@ public class DateWrapperTest {
 
     @Test
     void testGetLocalDate() {
+        LocalDate expected = LocalDate.of(2022, 8, 3);
+
         LocalDate actual = dataWrapper.getLocalDate(2022, 8, 3);
-        int expectedYear = 2022;
-        int expectedMonth = 8;
-        int expectedDay = 3;
 
-        int actualYear = actual.getYear();
-        int actualMonth = actual.getMonthValue();
-        int actualDay = actual.getDayOfMonth();
-
-        Assertions.assertEquals(expectedMonth,actualMonth);
-        Assertions.assertEquals(expectedDay,actualDay);
-        Assertions.assertEquals(expectedYear,actualYear);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testGetLocalDateAfterNMonths() {
         LocalDate localDate = LocalDate.of(2022, 8, 3);
-        int expectedYear = 2024;
-        int expectedMonth = 8;
-        int expectedDay = 3;
+        LocalDate expected = LocalDate.of(2024, 8, 3);
 
         LocalDate actual = dataWrapper.getLocalDateAfterNMonths(localDate, 24);
-        int actualYear = actual.getYear();
-        int actualMonth = actual.getMonthValue();
-        int actualDay = actual.getDayOfMonth();
 
-        Assertions.assertEquals(expectedMonth,actualMonth);
-        Assertions.assertEquals(expectedDay,actualDay);
-        Assertions.assertEquals(expectedYear,actualYear);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test

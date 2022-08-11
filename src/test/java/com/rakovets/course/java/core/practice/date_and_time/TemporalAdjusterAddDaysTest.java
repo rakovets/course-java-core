@@ -11,9 +11,9 @@ public class TemporalAdjusterAddDaysTest {
     @Test
     public void testAdjustInto() {
         LocalDate localDate = LocalDate.of(2010, 3, 10);
-        String expected = "2010-03-20";
+        LocalDate expected = LocalDate.of(2010, 3, 20);
 
-        String actual = temporalAdjuster.adjustInto(localDate).toString();
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
 
         Assertions.assertEquals(expected, actual);
     }

@@ -11,9 +11,9 @@ public class TemporalAdjusterToNearestFirstJanuaryTest {
     @Test
     public void testAdjustIntoPreviousFirstJanuary() {
         LocalDate localDate = LocalDate.of(2010, 3, 10);
-        String expected = "2010-01-01";
+        LocalDate expected = LocalDate.of(2010, 1, 1);
 
-        String actual = temporalAdjuster.adjustInto(localDate).toString();
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -21,9 +21,49 @@ public class TemporalAdjusterToNearestFirstJanuaryTest {
     @Test
     public void testAdjustIntoNextFirstJanuary() {
         LocalDate localDate = LocalDate.of(2010, 8, 10);
-        String expected = "2011-01-01";
+        LocalDate expected = LocalDate.of(2011, 1, 1);
 
-        String actual = temporalAdjuster.adjustInto(localDate).toString();
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAdjustIntoMiddleOfTheYearNextFirstJanuary() {
+        LocalDate localDate = LocalDate.of(2010, 7, 3);
+        LocalDate expected = LocalDate.of(2011, 1, 1);
+
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAdjustIntoMiddleOfTheYearPreviousFirstJanuary() {
+        LocalDate localDate = LocalDate.of(2010, 3, 3);
+        LocalDate expected = LocalDate.of(2010, 1, 1);
+
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAdjustIntoLastDayOfTheYear() {
+        LocalDate localDate = LocalDate.of(2010, 12, 31);
+        LocalDate expected = LocalDate.of(2011, 1, 1);
+
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAdjustIntoFirstDayOfTheYear() {
+        LocalDate localDate = LocalDate.of(2010, 1, 1);
+        LocalDate expected = LocalDate.of(2010, 1, 1);
+
+        LocalDate actual = (LocalDate) temporalAdjuster.adjustInto(localDate);
 
         Assertions.assertEquals(expected, actual);
     }
