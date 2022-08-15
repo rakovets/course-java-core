@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 import java.util.Queue;
+import java.util.logging.Logger;
 
 public class Producer extends Thread {
     private final Queue<Integer> queue;
+    Logger logger = Logger.getLogger(Producer.class.getName());
 
     public Producer(Queue<Integer> queue) {
         this.queue = queue;
@@ -15,25 +17,23 @@ public class Producer extends Thread {
 
     @Override
     public void run() {
-        BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
         String inputString;
-        while (true) {
-            try {
+        try (BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in))) {
+            while (true) {
                 System.out.print("Enter Integer Number: ");
                 inputString = bufferRead.readLine();
                 if (!inputString.matches("-?[\\d]+")) {
-                    throw new UserInputException("Enter Integer Number!");
+                    logger.severe("Only Integer Number!");
+                    continue;
                 }
                 if (Objects.equals(inputString, "-1")) {
                     return;
                 }
                 queue.add(Integer.valueOf(inputString));
                 System.out.println(queue);
-            } catch (UserInputException e) {
-                System.out.println(e.getMessage());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
