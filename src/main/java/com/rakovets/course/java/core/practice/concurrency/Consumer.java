@@ -1,21 +1,21 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.util.Queue;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Consumer implements Runnable {
     public static final Logger LOGGER = Logger.getLogger(Consumer.class.getName());
     private final Queue<Integer> queue;
+    private final Path path;
 
-    public Consumer(Queue<Integer> queue) {
+    public Consumer(Queue<Integer> queue, Path path) {
         this.queue = queue;
+        this.path = path;
     }
 
     /**
@@ -25,7 +25,7 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         try (OutputStreamWriter output = new OutputStreamWriter(
-                new FileOutputStream(Path.of("resources", "text", "test.txt").toFile()))) {
+                new FileOutputStream(path.toFile()))) {
             while (true) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 if (!(queue.isEmpty())) {
@@ -43,15 +43,11 @@ public class Consumer implements Runnable {
                 }
                 output.flush();
             }
-        } catch (FileNotFoundException e) {
-            LOGGER.log(Level.SEVERE, e.getMessage());
         } catch (IOException e) {
-            LOGGER.log(Level.WARNING, e.getMessage());
+            LOGGER.info(e.getMessage());
         } catch (InterruptedException e) {
-            LOGGER.log(Level.INFO, e.getMessage());
+            LOGGER.info(e.getMessage());
             Thread.currentThread().interrupt();
-        } catch (NullPointerException exception) {
-            LOGGER.log(Level.INFO, exception.getMessage());
         }
     }
 }

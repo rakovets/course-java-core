@@ -1,10 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
-import com.rakovets.course.java.core.practice.concurrency.exception.UserInputException;
-
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.IntStream;
 
@@ -32,18 +29,15 @@ public class Producer implements Runnable {
                     queue.add(Integer.valueOf(nextLine));
                     break;
                 } else if (!(isNumeric(nextLine))) {
-                    throw new UserInputException("Incorrect input");
+                    LOGGER.info(("Invalid line."));
                 } else {
                     queue.add(Integer.valueOf(nextLine));
                 }
-            } catch (UserInputException exception) {
-                LOGGER.log(Level.INFO, exception.getMessage());
             } catch (NumberFormatException exception) {
-                LOGGER.log(Level.WARNING, exception.getMessage());
+                LOGGER.info(exception.getMessage());
             }
         }
     }
-
 
     /**
      * Checks a string for valid input.
