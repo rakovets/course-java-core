@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.concurrency_thread_synchronization.skynet;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net;
 
 import java.util.logging.Logger;
 

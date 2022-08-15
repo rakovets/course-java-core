@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

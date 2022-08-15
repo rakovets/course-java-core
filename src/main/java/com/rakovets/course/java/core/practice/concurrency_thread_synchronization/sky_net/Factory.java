@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.example.concurrency_thread_synchronization.skynet;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class Factory extends Thread {
             try {
                 produceDetails();
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                logger.severe("Unexpected exception during Factory work: " + e.getMessage());
             }
         }
     }
