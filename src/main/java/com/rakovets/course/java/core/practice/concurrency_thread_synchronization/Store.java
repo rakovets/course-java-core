@@ -4,23 +4,36 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Store {
-    private final int STORE_SIZE = 10;
+    private final int storeSize;
+    private final Queue<Integer> integerNumbersQueue = new LinkedList<>();
 
-    private Queue<Integer> integerNumbersQueue = new LinkedList<>();
+    public Store(int storeSize) {
+        this.storeSize = storeSize;
+    }
 
-    public void produce(int number) {
-        if (isFull()) {
+    public synchronized void produce(int number) {
+        while (integerNumbersQueue.size() == storeSize) {
             System.out.println(Thread.currentThread().getName() + ", store is full!");
-        } else {
-            integerNumbersQueue.offer(number);
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        notify();
+        integerNumbersQueue.offer(number);
     }
 
     public synchronized int consume() {
+        while (integerNumbersQueue.isEmpty()) {
+            System.out.println(Thread.currentThread().getName() + ", store is empty!");
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        notify();
         return integerNumbersQueue.poll();
-    }
-
-    public boolean isFull() {
-        return integerNumbersQueue.size() == STORE_SIZE;
     }
 }
