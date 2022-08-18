@@ -5,21 +5,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class Factory {
+public class Factory implements Runnable{
     private final int maxSizeOfPartsStorage = 10;
     private List<String> partsList = new ArrayList<>(Arrays.asList("head", "torso", "hand", "feet"));
-    private List<String> partsStorage= new ArrayList<>();
+    private List<String> partsStorage = new ArrayList<>();
 
     private void produce() {
-        for (int i = 0; i < getDailyPartsPlan(); i++) {
-            partsStorage.add(partsList.get(new Random().nextInt(partsList.size())));
+        int dailyPartsPlan = new Random().nextInt(maxSizeOfPartsStorage + 1);
+        for (int i = 0; i < dailyPartsPlan; i++) {
+            int randomIndexOfPartsList = new Random().nextInt(partsList.size());
+            partsStorage.add(partsList.get(randomIndexOfPartsList));
         }
     }
 
-    private int getDailyPartsPlan() {
-        return new Random().nextInt(maxSizeOfPartsStorage + 1);
+
+    @Override
+    public void run() {
+
     }
-
-
-
 }
