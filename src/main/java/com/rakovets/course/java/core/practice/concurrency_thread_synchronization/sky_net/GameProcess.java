@@ -1,36 +1,31 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net;
 
-public class GameProcess implements Runnable {
-    private String timesOfDay = "day";
+public class GameProcess {
+    private final double halfDay = 0.5;
     private final int dayLimit;
-    private int daysCounter = 0;
-    private final int dayLength;
+    private volatile String timesOfDay = "day";
+    private double daysCounter = 0;
+    private volatile boolean isGameRunning = true;
 
-    public GameProcess(int dayLimit, int dayLength) {
+    public GameProcess(int dayLimit) {
         this.dayLimit = dayLimit;
-        this.dayLength = dayLength;
     }
 
-    private void changeTimesOfDay() {
+    public void changeTimesOfDay() {
         timesOfDay = timesOfDay.equals("day") ? "night" : "day";
         System.out.println("Now it's " + timesOfDay);
-    }
-
-    @Override
-    public void run() {
-        while (daysCounter < dayLimit) {
-            try {
-                Thread.sleep(dayLength);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            changeTimesOfDay();
-            ++daysCounter;
-            System.out.println("It's day number " + daysCounter);
+        daysCounter += halfDay;
+        if (daysCounter > dayLimit) {
+            isGameRunning = false;
+            System.out.println("Game stopped!");
         }
     }
 
     public String getTimesOfDay() {
         return timesOfDay;
+    }
+
+    public boolean isGameRunning() {
+        return isGameRunning;
     }
 }

@@ -5,10 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class Factory implements Runnable{
+public class Factory implements Runnable {
+    private final GameProcess gameProcess;
     private final int maxSizeOfPartsStorage = 10;
     private List<String> partsList = new ArrayList<>(Arrays.asList("head", "torso", "hand", "feet"));
     private List<String> partsStorage = new ArrayList<>();
+
+    public Factory(GameProcess gameProcess) {
+        this.gameProcess = gameProcess;
+    }
 
     private void produce() {
         int dailyPartsPlan = new Random().nextInt(maxSizeOfPartsStorage + 1);
@@ -18,9 +23,14 @@ public class Factory implements Runnable{
         }
     }
 
-
     @Override
     public void run() {
-
+        while (gameProcess.isGameRunning()) {
+            if (gameProcess.getTimesOfDay().equals("day")) {
+                produce();
+                gameProcess.changeTimesOfDay();
+            }
+        }
+        System.out.println(partsStorage);
     }
 }

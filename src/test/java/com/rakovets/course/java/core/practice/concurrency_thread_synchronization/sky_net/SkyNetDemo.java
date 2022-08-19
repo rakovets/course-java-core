@@ -17,9 +17,12 @@ public class SkyNetDemo {
 //        }
 //        System.out.println(partsStorage);
 
-        Thread game = new Thread(new GameProcess(5, 2000), "Game process");
+        GameProcess gameProcess = new GameProcess(2);
+//        Thread game = new Thread(gameProcess, "Game process");
+        Thread factory = new Thread(new Factory(gameProcess), "Factory");
 
-        game.start();
+//        game.start();
+        factory.start();
     }
 
 
