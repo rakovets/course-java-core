@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Fraction implements Runnable {
     private static final Logger LOGGER = Logger.getLogger("Fraction");
@@ -43,8 +45,8 @@ public class Fraction implements Runnable {
                     for (int i = 0; i < MAX_DETAIL_COUNT; i++) {
                         Detail poolDetail = details.poll();
                         if (poolDetail != null) {
-                            Queue<Detail> queue;
-                            queue = fractionDetail.computeIfAbsent(poolDetail.getDetailType(), k -> new LinkedList<>());
+                            Queue<Detail> queue = fractionDetail.computeIfAbsent(poolDetail.getDetailType(),
+                                    k -> new LinkedList<>());
                             queue.add(poolDetail);
                         }
                     }
@@ -82,20 +84,19 @@ public class Fraction implements Runnable {
      * @param fractionDetail collection of details.
      */
     public void makeArmy(Map<DetailType, Queue<Detail>> fractionDetail) {
-        List<Detail> object = new ArrayList<>();
+        List<Detail> object;
+        int maxDetails = 2;
         if (fractionDetail.size() == DetailType.values().length) {
-            if (fractionDetail.get(DetailType.FEET).size() <= 1
-                    || fractionDetail.get(DetailType.HAND).size() <= 1
+            if (fractionDetail.get(DetailType.FEET).size() <= maxDetails
+                    || fractionDetail.get(DetailType.HAND).size() <= maxDetails
                     || fractionDetail.get(DetailType.TORSO).isEmpty()
                     || fractionDetail.get(DetailType.HEAD).isEmpty()) {
                 return;
             }
-            object.add(fractionDetail.get(DetailType.HEAD).poll());
-            object.add(fractionDetail.get(DetailType.TORSO).poll());
-            object.add(fractionDetail.get(DetailType.FEET).poll());
-            object.add(fractionDetail.get(DetailType.FEET).poll());
-            object.add(fractionDetail.get(DetailType.HAND).poll());
-            object.add(fractionDetail.get(DetailType.HAND).poll());
+            object = Stream.of(DetailType.HEAD, DetailType.TORSO, DetailType.FEET,
+                            DetailType.FEET, DetailType.HAND, DetailType.HAND)
+                    .map(detailType -> fractionDetail.get(detailType).poll())
+                    .collect(Collectors.toList());
             army.add(object);
         }
     }
