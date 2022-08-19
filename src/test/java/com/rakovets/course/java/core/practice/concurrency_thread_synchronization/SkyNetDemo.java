@@ -25,12 +25,11 @@ public class SkyNetDemo {
         }
 
         System.out.println();
-        System.out.println("Army size " + fraction.getArmy().size() + " " + fraction.getName());
-        System.out.println("Army size " + fraction1.getArmy().size() + " " + fraction1.getName());
+        Arrays.asList("Army size " + fraction.getArmy().size() + " " + fraction.getName(),
+                "Army size " + fraction1.getArmy().size() + " " + fraction1.getName()).forEach(System.out::println);
 
         LOGGER.info("\nDetails fraction");
-        fraction.print(fraction.getFractionDetail());
-        fraction1.print(fraction.getFractionDetail());
+        Arrays.asList(fraction, fraction1).forEach(fraction2 -> fraction2.print(fraction.getFractionDetail()));
 
         if (fraction.getArmy().size() > fraction1.getArmy().size()) {
             System.out.println(fraction.getName() + " Winner " + fraction.getArmy().size());
