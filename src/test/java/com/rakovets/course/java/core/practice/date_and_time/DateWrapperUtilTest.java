@@ -14,12 +14,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.stream.Stream;
 
 @DisplayName("DateWrapper test.")
-class DateWrapperTest {
-    static private DateWrapper dateWrapper;
+class DateWrapperUtilTest {
+    static private DateWrapperUtil dateWrapperUtil;
 
     @BeforeAll
     static void init() {
-        dateWrapper = new DateWrapper();
+        dateWrapperUtil = new DateWrapperUtil();
     }
 
     static Stream<Arguments> getLocalDateProviderArguments() {
@@ -33,7 +33,7 @@ class DateWrapperTest {
     @MethodSource("getLocalDateProviderArguments")
     @DisplayName("Get LocalDate test.")
     void getLocalDate(int year, int month, int dayOfMonth, LocalDate expected) throws DateException {
-        var actual = dateWrapper.getLocalDate(year, month, dayOfMonth);
+        var actual = dateWrapperUtil.getLocalDate(year, month, dayOfMonth);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -54,7 +54,7 @@ class DateWrapperTest {
     @DisplayName("Get LocalDate with ChronoUnit.")
     void getLocalDateEnum(LocalDate localDate, int value, ChronoUnit chronoUnit, LocalDate expected)
             throws DateException {
-        var actual = dateWrapper.getLocaleDate(localDate, value, chronoUnit);
+        var actual = dateWrapperUtil.getLocaleDate(localDate, value, chronoUnit);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -72,7 +72,7 @@ class DateWrapperTest {
     @DisplayName("Get LocalDate with DateTimeFormatter.")
     @MethodSource("getLocalDateFormatterProviderArguments")
     void getLocalDateFormatter(LocalDate localDate, DateTimeFormatter formatter, String expected) throws DateException {
-        var actual = dateWrapper.getLocaleDate(localDate, formatter);
+        var actual = dateWrapperUtil.getLocaleDate(localDate, formatter);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -83,7 +83,7 @@ class DateWrapperTest {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM d yyyy");
         String date = "12 3 2022";
 
-        LocalDate actual = dateWrapper.getLocaleDate(date, formatter);
+        LocalDate actual = dateWrapperUtil.getLocaleDate(date, formatter);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -104,7 +104,7 @@ class DateWrapperTest {
     @DisplayName("Counts the amount of something between two dates.")
     void differenceBetween(LocalDate first, LocalDate second, ChronoUnit chronoUnit, long expected)
             throws DateException {
-        var actual = dateWrapper.differenceBetween(first, second, chronoUnit);
+        var actual = dateWrapperUtil.differenceBetween(first, second, chronoUnit);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -124,7 +124,7 @@ class DateWrapperTest {
     @MethodSource("addToDateProviderArguments")
     @DisplayName("Add to Date test.")
     void addToDate(LocalDate date, int value, ChronoUnit chronoUnit, LocalDate expected) throws DateException {
-        var actual = dateWrapper.addToDate(date, value, chronoUnit);
+        var actual = dateWrapperUtil.addToDate(date, value, chronoUnit);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -142,7 +142,7 @@ class DateWrapperTest {
     @MethodSource("firstJanuaryProviderArguments")
     @DisplayName("Find first January.")
     void firstJanuary(LocalDate localDate, LocalDate expected) {
-        var actual = dateWrapper.adjustInto(localDate);
+        var actual = dateWrapperUtil.adjustInto(localDate);
 
         Assertions.assertEquals(expected, actual);
     }

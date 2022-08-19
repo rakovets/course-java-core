@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
@@ -10,7 +8,25 @@ import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
-public class DateWrapper implements TemporalAdjuster {
+public final class DateWrapperUtil implements TemporalAdjuster {
+    private static final String INFO = "Invalid input";
+
+    /**
+     * Changes the date to the nearest (in days) January 1st
+     *
+     * @param temporal the temporal object to adjust, not null.
+     * @return modified date.
+     */
+    @Override
+    public Temporal adjustInto(Temporal temporal) {
+        int halfYear = 183;
+        if (temporal.get(ChronoField.DAY_OF_YEAR) >= halfYear) {
+            return temporal.with(TemporalAdjusters.firstDayOfNextYear());
+        } else {
+            return temporal.with(TemporalAdjusters.firstDayOfYear());
+        }
+    }
+
     /**
      * Accepts year, month, day and returns LocalDate
      *
@@ -39,7 +55,7 @@ public class DateWrapper implements TemporalAdjuster {
      */
     public LocalDate getLocaleDate(LocalDate localDate, int value, ChronoUnit chronicUnitEnum) throws DateException {
         if (localDate == null || value < 0 || chronicUnitEnum == null) {
-            throw new DateException(new Throwable("Invalid input"));
+            throw new DateException(INFO);
         } else {
             return localDate.plus(value, chronicUnitEnum);
         }
@@ -55,7 +71,7 @@ public class DateWrapper implements TemporalAdjuster {
      */
     public String getLocaleDate(LocalDate date, DateTimeFormatter formatter) throws DateException {
         if (date == null || formatter == null) {
-            throw new DateException("Invalid input..", new NullPointerException());
+            throw new DateException(INFO);
         } else {
             return date.format(formatter);
         }
@@ -71,7 +87,7 @@ public class DateWrapper implements TemporalAdjuster {
      */
     public LocalDate getLocaleDate(String date, DateTimeFormatter formatter) throws DateException {
         if (date == null || formatter == null) {
-            throw new DateException("Invalid input!", new NullPointerException());
+            throw new DateException(INFO);
         } else {
             return LocalDate.parse(date, formatter);
         }
@@ -82,49 +98,33 @@ public class DateWrapper implements TemporalAdjuster {
      *
      * @param localDateFirst  first date.
      * @param localDateSecond second date.
-     * @param chronoUnit      type of count between dates.
+     * @param unit            type of count between dates.
      * @return difference between dates.
      * @throws DateException throws an exception on invalid input.
      */
-    public long differenceBetween(LocalDate localDateFirst, LocalDate localDateSecond, ChronoUnit chronoUnit)
+    public long differenceBetween(LocalDate localDateFirst, LocalDate localDateSecond, ChronoUnit unit)
             throws DateException {
-        if (localDateFirst == null || localDateSecond == null || chronoUnit == null) {
-            throw new DateException("Invalid input.", new NullPointerException());
+        if (localDateFirst == null || localDateSecond == null || unit == null) {
+            throw new DateException(INFO);
         } else {
-            return chronoUnit.between(localDateFirst, localDateSecond);
+            return unit.between(localDateFirst, localDateSecond);
         }
     }
 
     /**
      * Adding something to the date.
      *
-     * @param localDate  received date.
-     * @param value      to change the date.
-     * @param chronoUnit change type.
+     * @param localDate received date.
+     * @param value     to change the date.
+     * @param unit      change type.
      * @return date after the change.
      * @throws DateException throws an exception on invalid input.
      */
-    public LocalDate addToDate(LocalDate localDate, int value, ChronoUnit chronoUnit) throws DateException {
-        if (localDate == null || chronoUnit == null) {
-            throw new DateException("Invalid input.", new NullPointerException());
+    public LocalDate addToDate(LocalDate localDate, int value, ChronoUnit unit) throws DateException {
+        if (localDate == null || unit == null) {
+            throw new DateException(INFO);
         } else {
-            return localDate.with(temporal -> temporal.plus(value, chronoUnit));
-        }
-    }
-
-    /**
-     * Changes the date to the nearest (in days) January 1st
-     *
-     * @param temporal the temporal object to adjust, not null.
-     * @return modified date.
-     */
-    @Override
-    public Temporal adjustInto(@NotNull Temporal temporal) {
-        int halfYear = 183;
-        if (temporal.get(ChronoField.DAY_OF_YEAR) >= halfYear) {
-            return temporal.with(TemporalAdjusters.firstDayOfNextYear());
-        } else {
-            return temporal.with(TemporalAdjusters.firstDayOfYear());
+            return localDate.with(temporal -> temporal.plus(value, unit));
         }
     }
 }
