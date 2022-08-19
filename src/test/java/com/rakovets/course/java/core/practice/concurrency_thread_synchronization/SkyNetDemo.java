@@ -21,7 +21,6 @@ public class SkyNetDemo {
         thread1.join();
         thread2.join();
 
-
         System.out.println();
         System.out.println(fraction.getArmy().size() + " " + fraction.getName());
         System.out.println(fraction1.getArmy().size() + " " + fraction1.getName());
