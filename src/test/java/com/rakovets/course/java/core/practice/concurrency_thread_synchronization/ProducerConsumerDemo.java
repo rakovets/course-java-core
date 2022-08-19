@@ -4,6 +4,8 @@ import com.rakovets.course.java.core.practice.concurrency_thread_synchronization
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.produce_consumer.ProducerTread;
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.produce_consumer.Store;
 
+import java.util.Arrays;
+
 public class ProducerConsumerDemo {
     public static void main(String[] args) throws InterruptedException {
         Store store = new Store(10);
@@ -16,19 +18,12 @@ public class ProducerConsumerDemo {
         Thread producerThread1 = new Thread(new ProducerTread(store), "producer thread 1");
         Thread producerThread2 = new Thread(new ProducerTread(store), "producer thread 2");
 
-        consumerThread.start();
-        consumerThread1.start();
-        consumerThread2.start();
-        producerThread.start();
-        producerThread1.start();
-        producerThread2.start();
+        Arrays.asList(consumerThread, consumerThread1, consumerThread2,
+                producerThread, producerThread1, producerThread2).forEach(Thread::start);
 
-        consumerThread.join();
-        consumerThread1.join();
-        consumerThread2.join();
-
-        producerThread.join();
-        producerThread1.join();
-        producerThread2.join();
+        for (Thread thread : Arrays.asList(consumerThread, consumerThread1, consumerThread2,
+                producerThread, producerThread1, producerThread2)) {
+            thread.join();
+        }
     }
 }
