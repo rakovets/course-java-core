@@ -26,6 +26,10 @@ public class Fraction implements Runnable {
         this.name = name;
     }
 
+    /**
+     * The factions go to the factory in order to get parts for the robots.
+     * <p />Each faction can carry no more than 5 parts.
+     */
     @Override
     public void run() {
         try {
@@ -59,6 +63,11 @@ public class Fraction implements Runnable {
         }
     }
 
+    /**
+     * Prints information.
+     *
+     * @param fractionDetail collection of details.
+     */
     public void print(Map<DetailType, Queue<Detail>> fractionDetail) {
         String info = "Fraction" + name;
         LOGGER.info(info);
@@ -67,21 +76,26 @@ public class Fraction implements Runnable {
                 .forEachOrdered(LOGGER::info);
     }
 
-    public void makeArmy(Map<DetailType, Queue<Detail>> fraction) {
+    /**
+     * Creation of robots.
+     *
+     * @param fractionDetail collection of details.
+     */
+    public void makeArmy(Map<DetailType, Queue<Detail>> fractionDetail) {
         List<Detail> object = new ArrayList<>();
-        if (fraction.size() == DetailType.values().length) {
-            if (fraction.get(DetailType.FEET).size() <= 1
-                    || fraction.get(DetailType.HAND).size() <= 1
-                    || fraction.get(DetailType.TORSO).isEmpty()
-                    || fraction.get(DetailType.HEAD).isEmpty()) {
+        if (fractionDetail.size() == DetailType.values().length) {
+            if (fractionDetail.get(DetailType.FEET).size() <= 1
+                    || fractionDetail.get(DetailType.HAND).size() <= 1
+                    || fractionDetail.get(DetailType.TORSO).isEmpty()
+                    || fractionDetail.get(DetailType.HEAD).isEmpty()) {
                 return;
             }
-            object.add(fraction.get(DetailType.HEAD).poll());
-            object.add(fraction.get(DetailType.TORSO).poll());
-            object.add(fraction.get(DetailType.FEET).poll());
-            object.add(fraction.get(DetailType.FEET).poll());
-            object.add(fraction.get(DetailType.HAND).poll());
-            object.add(fraction.get(DetailType.HAND).poll());
+            object.add(fractionDetail.get(DetailType.HEAD).poll());
+            object.add(fractionDetail.get(DetailType.TORSO).poll());
+            object.add(fractionDetail.get(DetailType.FEET).poll());
+            object.add(fractionDetail.get(DetailType.FEET).poll());
+            object.add(fractionDetail.get(DetailType.HAND).poll());
+            object.add(fractionDetail.get(DetailType.HAND).poll());
             army.add(object);
         }
     }

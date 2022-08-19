@@ -20,6 +20,9 @@ public class Factory implements Runnable {
         this.day = day;
     }
 
+    /**
+     * Produces resources to create robots.
+     */
     @Override
     public void run() {
         synchronized (details) {
@@ -46,6 +49,11 @@ public class Factory implements Runnable {
         }
     }
 
+    /**
+     * Randomly selects objects to create.
+     *
+     * @return random do.
+     */
     public Detail getRandomDetail() {
         DetailType[] types = DetailType.values();
         int randomTypesIndex = RandomUtil.getRandom(types.length);

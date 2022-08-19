@@ -4,6 +4,12 @@ public final class DetailFactory {
     private DetailFactory() {
     }
 
+    /**
+     * Creates an object of type detail.
+     *
+     * @param detailType enum types.
+     * @return returns a new object based on enum.
+     */
     public static Detail get(DetailType detailType) {
         switch (detailType) {
             case FEET:
