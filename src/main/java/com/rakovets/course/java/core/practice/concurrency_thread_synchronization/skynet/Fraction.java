@@ -16,6 +16,7 @@ public class Fraction implements Runnable {
     @lombok.Getter
     private final String name;
     private final Queue<Detail> details;
+    @lombok.Getter
     private final Map<DetailType, Queue<Detail>> fractionDetail = new LinkedHashMap<>();
     @lombok.Getter
     private final List<List<Detail>> army = new ArrayList<>();
@@ -53,7 +54,7 @@ public class Fraction implements Runnable {
                     day--;
                     print(fractionDetail);
                     makeArmy(fractionDetail);
-                    String info = "Army size" + army.size();
+                    String info = "Army size: " + army.size();
                     LOGGER.info(info);
                     details.notifyAll();
                     details.wait(2000L);
@@ -71,10 +72,10 @@ public class Fraction implements Runnable {
      * @param fractionDetail collection of details.
      */
     public void print(Map<DetailType, Queue<Detail>> fractionDetail) {
-        String info = "Fraction" + name;
+        String info = "Fraction " + name;
         LOGGER.info(info);
         fractionDetail.keySet().stream()
-                .map(detailType -> detailType + " size:" + fractionDetail.get(detailType).size())
+                .map(detailType -> detailType + " size: " + fractionDetail.get(detailType).size())
                 .forEachOrdered(LOGGER::info);
     }
 
@@ -85,7 +86,7 @@ public class Fraction implements Runnable {
      */
     public void makeArmy(Map<DetailType, Queue<Detail>> fractionDetail) {
         List<Detail> object;
-        int maxDetails = 2;
+        int maxDetails = 1;
         if (fractionDetail.size() == DetailType.values().length) {
             if (fractionDetail.get(DetailType.FEET).size() <= maxDetails
                     || fractionDetail.get(DetailType.HAND).size() <= maxDetails
