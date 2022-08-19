@@ -86,10 +86,10 @@ public class Fraction implements Runnable {
      */
     public void makeArmy(Map<DetailType, Queue<Detail>> fractionDetail) {
         List<Detail> object;
-        int maxDetails = 1;
+        int minDetails = 1;
         if (fractionDetail.size() == DetailType.values().length) {
-            if (fractionDetail.get(DetailType.FEET).size() <= maxDetails
-                    || fractionDetail.get(DetailType.HAND).size() <= maxDetails
+            if (fractionDetail.get(DetailType.FEET).size() <= minDetails
+                    || fractionDetail.get(DetailType.HAND).size() <= minDetails
                     || fractionDetail.get(DetailType.TORSO).isEmpty()
                     || fractionDetail.get(DetailType.HEAD).isEmpty()) {
                 return;
