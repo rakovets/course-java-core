@@ -3,6 +3,9 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.Factory;
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.Fraction;
 
+import java.util.Arrays;
+import java.util.Iterator;
+
 import static com.rakovets.course.java.core.practice.concurrency_thread_synchronization.produce_consumer.Store.LOGGER;
 
 public class SkyNetDemo {
@@ -15,13 +18,11 @@ public class SkyNetDemo {
         Thread thread1 = new Thread(fraction);
         Thread thread2 = new Thread(fraction1);
 
-        thread.start();
-        thread1.start();
-        thread2.start();
+        Arrays.asList(thread, thread1, thread2).forEach(Thread::start);
 
-        thread.join();
-        thread1.join();
-        thread2.join();
+        for (Thread thread3 : Arrays.asList(thread, thread1, thread2)) {
+            thread3.join();
+        }
 
         System.out.println();
         System.out.println("Army size " + fraction.getArmy().size() + " " + fraction.getName());
