@@ -52,7 +52,7 @@ public class Factory implements Runnable {
     /**
      * Randomly selects objects to create.
      *
-     * @return random do.
+     * @return random details.
      */
     public Detail getRandomDetail() {
         DetailType[] types = DetailType.values();
