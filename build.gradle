@@ -12,7 +12,6 @@ java {
 }
 
 dependencies {
-    implementation 'com.github.spotbugs:spotbugs-annotations:4.6.0'
     testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
 }
 
