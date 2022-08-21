@@ -2,17 +2,19 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Random;
 
 public class Factory implements Runnable {
-    private final GameProcess gameProcess;
+    private final GameController gameController;
     private final int maxSizeOfPartsStorage = 10;
-    private List<String> partsList = new ArrayList<>(Arrays.asList("head", "torso", "hand", "feet"));
-    private List<String> partsStorage = new ArrayList<>();
+    private final List<String> partsList = new ArrayList<>(Arrays.asList("head", "torso", "hand", "feet"));
+    private final Queue<String> partsStorage = new LinkedList<>();
 
-    public Factory(GameProcess gameProcess) {
-        this.gameProcess = gameProcess;
+    public Factory(GameController gameController) {
+        this.gameController = gameController;
     }
 
     private void produce() {
@@ -23,14 +25,19 @@ public class Factory implements Runnable {
         }
     }
 
+    public synchronized String getPart() {
+        return partsStorage.poll();
+    }
+
     @Override
     public void run() {
-        while (gameProcess.isGameRunning()) {
-            if (gameProcess.getTimesOfDay().equals("day")) {
+        while (gameController.isGameRunning()) {
+            if (gameController.getTimesOfDay().equals("day")) {
                 produce();
-                gameProcess.changeTimesOfDay();
+                gameController.changeTimesOfDay();
+            } else if (partsStorage.isEmpty()) {
+                gameController.changeTimesOfDay();
             }
         }
-        System.out.println(partsStorage);
     }
 }

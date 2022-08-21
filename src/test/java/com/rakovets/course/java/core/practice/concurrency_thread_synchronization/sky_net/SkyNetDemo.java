@@ -1,30 +1,34 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 public class SkyNetDemo {
-//    private static final int sizeOfPartsStorage = 10;
-//    private static List<String> partsList = new ArrayList<>(Arrays.asList("head", "torso", "hand", "feet"));
-//    private static List<String> partsStorage = new ArrayList<>();
+    public static void main(String[] args) throws InterruptedException {
+        GameController gameController = new GameController(65);
+        Factory factory = new Factory(gameController);
+        Faction world = new Faction(gameController, factory);
+        Faction wednesday = new Faction(gameController, factory);
 
-    public static void main(String[] args) {
+        Thread factoryThread = new Thread(factory, "Factory");
+        Thread worldThread = new Thread(world, "World");
+        Thread wednesdayThread = new Thread(wednesday, "Wednesday");
 
-//        for (int i = 0; i < sizeOfPartsStorage; i++) {
-//            partsStorage.add(partsList.get(new Random().nextInt(partsList.size())));
-//        }
-//        System.out.println(partsStorage);
+        factoryThread.start();
+        worldThread.start();
+        wednesdayThread.start();
 
-        GameProcess gameProcess = new GameProcess(2);
-//        Thread game = new Thread(gameProcess, "Game process");
-        Thread factory = new Thread(new Factory(gameProcess), "Factory");
+        factoryThread.join();
+        worldThread.join();
+        wednesdayThread.join();
 
-//        game.start();
-        factory.start();
+        printWinner(world, wednesday);
     }
 
-
+    private static void printWinner(Faction world, Faction wednesday) {
+        if (world.getNumberOfRobots() > wednesday.getNumberOfRobots()) {
+            System.out.println("World wins!");
+        } else if (world.getNumberOfRobots() < wednesday.getNumberOfRobots()) {
+            System.out.println("Wednesday wins!");
+        } else {
+            System.out.println("Draw!");
+        }
+    }
 }
-

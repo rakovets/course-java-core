@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
 public class ProducerConsumerDemo {
     public static void main(String[] args) {
