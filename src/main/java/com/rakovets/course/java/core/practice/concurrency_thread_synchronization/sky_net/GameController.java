@@ -5,7 +5,7 @@ public class GameController {
     private final int dayLimit;
     private volatile boolean isGameRunning = true;
     private volatile String timesOfDay = "day";
-    public double daysCounter = 0;
+    private double daysCounter = 0;
 
     public GameController(int dayLimit) {
         this.dayLimit = dayLimit;
