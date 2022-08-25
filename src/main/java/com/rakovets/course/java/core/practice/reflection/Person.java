@@ -9,15 +9,15 @@ public class Person {
         this.name = name;
     }
 
-    public void print() {
-        System.out.println(name + " " + age);
+    private void addOneYear() {
+        set(age+1);
     }
 
     public void set(int age) {
         this.age = age;
     }
 
-    private void set(String name) {
+    public void set(String name) {
         this.name = name;
     }
 

@@ -17,17 +17,17 @@ public class ReflectionUtils {
         return c.getDeclaredMethods();
     }
 
-    public Object invokeMethod(Method method, Object object) throws InvocationTargetException, IllegalAccessException {
+    public void invokeMethod(Method method, Object object) throws InvocationTargetException, IllegalAccessException {
         method.setAccessible(true);
-        return method.invoke(object);
+        method.invoke(object);
     }
 
-    public <T> void setValue(Field field, Object object, T value) throws IllegalAccessException {
+    public <T> void setValueOfField(Field field, Object object, T value) throws IllegalAccessException {
         field.setAccessible(true);
         field.set(object, value);
     }
 
-    public Method getMethodWithParameters(Class c, String methodName, Class... params)
+    public <T> Method getMethodWithParameters(Class<Person> c, String methodName, Class<String> params)
             throws NoSuchMethodException {
         return c.getDeclaredMethod(methodName, params);
     }
