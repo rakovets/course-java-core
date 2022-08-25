@@ -10,9 +10,13 @@ public class SumThread implements Runnable {
 
     @Override
     public void run() {
+        while (true){
+     sum();
+    }}
+
+    public ArrayObject sum() {
         ArrayObject arrayObject = new ArrayObject();
-        arrayObject.setArray(array);
-        arrayObject.setSum(Arrays.stream(array).sum());
-        list.add(arrayObject);
+        arrayObject.setSum(Arrays.stream(arrayObject.getArray()).sum());
+        return arrayObject;
     }
 }

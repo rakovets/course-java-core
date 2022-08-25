@@ -21,6 +21,7 @@ public class ImprovedParallelCalculator {
     public void getList(List<int[]> list, int amountThreads) {
         ExecutorService executorService = Executors.newFixedThreadPool(amountThreads);
 
+
         ArrayObject arrayObject = new ArrayObject();
     }
 
