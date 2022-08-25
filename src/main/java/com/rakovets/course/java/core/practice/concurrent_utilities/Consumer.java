@@ -7,11 +7,10 @@ public class Consumer implements Runnable{
     @Override
     public void run() {
         Common common=new Common();
-        while (true){
         try {
             common.consume();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-}}
+}
