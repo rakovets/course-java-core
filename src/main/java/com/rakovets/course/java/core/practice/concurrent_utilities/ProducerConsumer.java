@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-public class Common {
+public class ProducerConsumer {
     private static final BufferedWriter WRITER;
     private final static String SLEEP_PATTERN = "%s - %s -  slept [%s] seconds\n";
     private final static String LOG_PATTERN = "%s - %s\n";
-    static BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue(5);
+    private static final BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue(5);
+    private final Logger logger = Logger.getLogger(ProducerConsumer.class.getName());
 
     static {
         try {
@@ -25,8 +25,6 @@ public class Common {
             throw new RuntimeException(e);
         }
     }
-
-    Logger logger = Logger.getLogger(Producer.class.getName());
 
     public void produce() {
         String inputString;
@@ -49,23 +47,23 @@ public class Common {
         }
     }
 
-    public void consume() throws IOException {
+    public void consume() {
         while (true) {
             int sec;
             try {
                 if (!blockingQueue.isEmpty()) {
                     sec = blockingQueue.take();
                     System.out.println(sec);
-                    Thread.sleep(sec);
+                    Thread.sleep(sec*1000);
                     WRITER.write(String.format(SLEEP_PATTERN, LocalDateTime.now(), Thread.currentThread().getName(), sec));
                     WRITER.flush();
                 } else {
                     WRITER.write(String.format(LOG_PATTERN, LocalDateTime.now(), Thread.currentThread().getName()));
                     WRITER.flush();
-                    Thread.sleep(1);
+                    Thread.sleep(1000);
                 }
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            } catch (InterruptedException | IOException e) {
+               logger.severe(e.getMessage());
             }
         }
     }
