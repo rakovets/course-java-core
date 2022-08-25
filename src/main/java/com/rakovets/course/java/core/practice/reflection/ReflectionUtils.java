@@ -23,12 +23,8 @@ public class ReflectionUtils {
         return method.invoke(object);
     }
 
-    public void setValue(Field field1, Object object, Field field2) throws NoSuchFieldException, IllegalAccessException {
-        field1.setAccessible(true);
-        Field field = object.getClass().getDeclaredField(String.valueOf(field1));
-        field.set(field1, field2);
-
-
+    public <T> void setValue(Field field, Object object, T value) throws IllegalAccessException {
+        field.setAccessible(true);
+        field.set(object, value);
     }
-
 }
