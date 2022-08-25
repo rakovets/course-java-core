@@ -20,4 +20,3 @@ public class DateWrapperDemo {
         System.out.println("Near the first of Jenuary to date = " + task2.getNearFirstJenuary(localDate2).adjustInto(localDate2));
     }
 }
-
