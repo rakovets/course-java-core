@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 public class ImprovedParallelCalculator {
-
     public List<ArrayObject> getList(List<int[]> list) {
         ArrayObject arrayObject = new ArrayObject();
         return list.stream()
@@ -19,15 +18,11 @@ public class ImprovedParallelCalculator {
                 })
                 .collect(Collectors.toList());
     }
-
-    public List<ArrayObject> getList(List<int[]> list, int amountThreads) {
+    public void getList(List<int[]> list, int amountThreads) {
         ExecutorService executorService = Executors.newFixedThreadPool(amountThreads);
 
         ArrayObject arrayObject = new ArrayObject();
     }
 
-    public int[] createListOfArray() {
-        Random random = new Random();
-        return random.ints(1000000, 1, 300).toArray();
-    }
+
 }
