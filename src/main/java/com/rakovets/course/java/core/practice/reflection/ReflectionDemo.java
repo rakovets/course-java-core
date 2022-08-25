@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.reflection;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 public class ReflectionDemo {
     private static ReflectionUtils utils = new ReflectionUtils();
@@ -23,8 +22,9 @@ public class ReflectionDemo {
         utils.setValue(name, person, "Natasha");
         person.print();
 
-        Method method=utils.getMethodWithParameters(Person.class, "set", String.class);
+        Method method = utils.getMethodWithParameters(Person.class, "set", String.class);
 
-        utils.callMethods(method, person,"12345");
+        utils.callMethods(method, person, "Liza");
+        person.print();
     }
 }

@@ -34,6 +34,7 @@ public class ReflectionUtils {
 
     public void callMethods(Method m, Object obj, Object... args)
             throws InvocationTargetException, IllegalAccessException {
+        m.setAccessible(true);
         m.invoke(obj, args);
     }
 }
