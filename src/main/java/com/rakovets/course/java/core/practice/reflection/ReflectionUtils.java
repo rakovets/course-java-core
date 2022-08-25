@@ -5,13 +5,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionUtils {
-
-    public <T> Field getField(Class<T> c, String nameField) throws NoSuchFieldException {
-        return c.getDeclaredField(nameField);
+    public <T> Field getField(Class<T> c, String fieldName) throws NoSuchFieldException {
+        return c.getDeclaredField(fieldName);
     }
 
-    public <T> Method getMethod(Class<T> c, String nameMethod) throws NoSuchMethodException {
-        return c.getDeclaredMethod(nameMethod);
+    public <T> Method getMethod(Class<T> c, String methodName) throws NoSuchMethodException {
+        return c.getDeclaredMethod(methodName);
     }
 
     public <T> Method[] getMethodArray(Class<T> c) {
@@ -26,5 +25,15 @@ public class ReflectionUtils {
     public <T> void setValue(Field field, Object object, T value) throws IllegalAccessException {
         field.setAccessible(true);
         field.set(object, value);
+    }
+
+    public Method getMethodWithParameters(Class c, String methodName, Class... params)
+            throws NoSuchMethodException {
+        return c.getDeclaredMethod(methodName, params);
+    }
+
+    public void callMethods(Method m, Object obj, Object... args)
+            throws InvocationTargetException, IllegalAccessException {
+        m.invoke(obj, args);
     }
 }
