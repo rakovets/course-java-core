@@ -67,9 +67,10 @@ public class TaxService {
         while (iterator.hasNext()) {
             if (iterator.next().getFineId() == fineId) {
                 iterator.remove();
-                break;
+                return;
             }
         }
+        throw new NumberFormatException("Fine does not exist");
     }
 
     public void changeCitizenLocationCity(int citizenId, String city) {
