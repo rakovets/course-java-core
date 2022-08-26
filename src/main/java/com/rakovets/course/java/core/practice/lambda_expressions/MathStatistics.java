@@ -12,19 +12,19 @@ public class MathStatistics {
                     .collect(Collectors.toList());
     }
 
-    public int countEvenNumbers(Collection<Integer> collection) {
-        return (int) collection.stream().filter(x -> x % 2 == 0).count();
+    public long countEvenNumbers(Collection<Integer> collection) {
+        return collection.stream().filter(x -> x % 2 == 0).count();
     }
 
-    public int countOddNumbers(Collection<Integer> collection) {
-        return (int) collection.stream().filter(x -> x % 2 != 0).count();
+    public long countOddNumbers(Collection<Integer> collection) {
+        return collection.stream().filter(x -> x % 2 != 0).count();
     }
 
-    public int countZero(Collection<Integer> collection) {
-        return (int) collection.stream().filter(x -> x == 0).count();
+    public long countZero(Collection<Integer> collection) {
+        return collection.stream().filter(x -> x == 0).count();
     }
 
-    public int countEqualToValue(Collection<Integer> collection, int value) {
-        return (int) collection.stream().filter(x -> x == value).count();
+    public long countEqualToValue(Collection<Integer> collection, int value) {
+        return collection.stream().filter(x -> x == value).count();
     }
 }

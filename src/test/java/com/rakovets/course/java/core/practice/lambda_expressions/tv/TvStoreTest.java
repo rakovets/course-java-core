@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class TvUtilTest {
-    private static TvUtil tvUtil;
+class TvStoreTest {
+    private static TvStore tvStore;
     private static Tv tv1;
     private static Tv tv2;
     private static Tv tv3;
@@ -25,14 +25,14 @@ class TvUtilTest {
         tv4 = new Tv("LG", "L4922", 2022, 42, 850);
         tv5 = new Tv("LG", "L3520", 2020, 28, 545);
         List<Tv> tvDb = new ArrayList<>(Arrays.asList(tv1, tv2, tv3, tv4, tv5));
-        tvUtil = new TvUtil(tvDb);
+        tvStore = new TvStore(tvDb);
     }
 
     @Test
     void testGetTvByDiagonal() {
         List<Tv> expected = List.of(tv2, tv3);
 
-        List<Tv> actual = tvUtil.getTvByDiagonal(50);
+        List<Tv> actual = tvStore.getTvByDiagonal(50);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -41,7 +41,7 @@ class TvUtilTest {
     void testGetTvByDiagonalNoDiagonal() {
         List<Tv> expected = Collections.emptyList();
 
-        List<Tv> actual = tvUtil.getTvByDiagonal(65);
+        List<Tv> actual = tvStore.getTvByDiagonal(65);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -50,7 +50,7 @@ class TvUtilTest {
     void testGetTvByManufacturer() {
         List<Tv> expected = List.of(tv4, tv5);
 
-        List<Tv> actual = tvUtil.getTvByManufacturer("LG");
+        List<Tv> actual = tvStore.getTvByManufacturer("LG");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -59,7 +59,7 @@ class TvUtilTest {
     void testGetTvByManufacturerIgnoreCase() {
         List<Tv> expected = List.of(tv4, tv5);
 
-        List<Tv> actual = tvUtil.getTvByManufacturer("lg");
+        List<Tv> actual = tvStore.getTvByManufacturer("lg");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -68,7 +68,7 @@ class TvUtilTest {
     void testGetTvByManufacturerNoManufacturer() {
         List<Tv> expected = Collections.emptyList();
 
-        List<Tv> actual = tvUtil.getTvByManufacturer("TLC");
+        List<Tv> actual = tvStore.getTvByManufacturer("TLC");
 
         Assertions.assertEquals(expected, actual);
     }
@@ -77,7 +77,7 @@ class TvUtilTest {
     void testGetTvNotOlderYear() {
         List<Tv> expected = List.of(tv1, tv2, tv4);
 
-        List<Tv> actual = tvUtil.getTvNotOlderYear(2022);
+        List<Tv> actual = tvStore.getTvNotOlderYear(2022);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -86,7 +86,7 @@ class TvUtilTest {
     void testGetTvNotOlderYearNoYear() {
         List<Tv> expected = Collections.emptyList();
 
-        List<Tv> actual = tvUtil.getTvNotOlderYear(2025);
+        List<Tv> actual = tvStore.getTvNotOlderYear(2025);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -95,7 +95,7 @@ class TvUtilTest {
     void testGetTvByPriceRange() {
         List<Tv> expected = List.of(tv4, tv5);
 
-        List<Tv> actual = tvUtil.getTvByPriceRange(500, 900);
+        List<Tv> actual = tvStore.getTvByPriceRange(500, 900);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -104,7 +104,7 @@ class TvUtilTest {
     void testGetTvByPriceRangeNoTvInRange() {
         List<Tv> expected = Collections.emptyList();
 
-        List<Tv> actual = tvUtil.getTvByPriceRange(10, 300);
+        List<Tv> actual = tvStore.getTvByPriceRange(10, 300);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -113,7 +113,7 @@ class TvUtilTest {
     void testGetSortedTvByPriceAsc() {
         List<Tv> expected = List.of(tv5, tv4, tv3, tv2, tv1);
 
-        List<Tv> actual = tvUtil.getSortedTvByPriceAsc();
+        List<Tv> actual = tvStore.getSortedTvByPriceAsc();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -122,7 +122,7 @@ class TvUtilTest {
     void testGetSortedTvByPriceDesc() {
         List<Tv> expected = List.of(tv1, tv2, tv3, tv4, tv5);
 
-        List<Tv> actual = tvUtil.getSortedTvByPriceDesc();
+        List<Tv> actual = tvStore.getSortedTvByPriceDesc();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -131,7 +131,7 @@ class TvUtilTest {
     void testGetSortedTvByDiagonalAsc() {
         List<Tv> expected = List.of(tv5, tv4, tv2, tv3, tv1);
 
-        List<Tv> actual = tvUtil.getSortedTvByDiagonalAsc();
+        List<Tv> actual = tvStore.getSortedTvByDiagonalAsc();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -140,7 +140,7 @@ class TvUtilTest {
     void testGetSortedTvByDiagonalDesc() {
         List<Tv> expected = List.of(tv1, tv2, tv3, tv4, tv5);
 
-        List<Tv> actual = tvUtil.getSortedTvByDiagonalDesc();
+        List<Tv> actual = tvStore.getSortedTvByDiagonalDesc();
 
         Assertions.assertEquals(expected, actual);
     }

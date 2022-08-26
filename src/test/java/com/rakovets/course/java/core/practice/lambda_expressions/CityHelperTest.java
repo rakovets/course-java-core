@@ -1,20 +1,25 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class CityHelperTest {
-    private static List<String> cities = Arrays.asList
-            ("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
-    CityHelper cityHelper = new CityHelper();
+public class CityHelperTest {
+    private CityHelper cityHelper;
+
+    @BeforeEach
+    void initEach() {
+        cityHelper = new CityHelper();
+    }
 
     @Test
     void testGetUniqueCities() {
         List<String> expected = List.of("Minsk", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
 
         List<String> actual = cityHelper.getUniqueCities(cities);
 
@@ -24,6 +29,7 @@ class CityHelperTest {
     @Test
     void testGetCitiesNameLongerThanX() {
         List<String> expected = List.of("Vitebsk", "Mogilev");
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
 
         List<String> actual = cityHelper.getCitiesNameLongerThan(cities, 6);
 
@@ -33,6 +39,7 @@ class CityHelperTest {
     @Test
     void testGetCitiesNameLongerThanXLettersNotExist() {
         List<String> expected = Collections.emptyList();
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
 
         List<String> actual = cityHelper.getCitiesNameLongerThan(cities, 10);
 
@@ -42,6 +49,7 @@ class CityHelperTest {
     @Test
     void testGetCitiesNameStartingWithLetter() {
         List<String> expected = List.of("Minsk", "Minsk", "Mogilev");
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
 
         List<String> actual = cityHelper.getCitiesNameStartingWithLetter(cities, 'M');
 
@@ -51,6 +59,7 @@ class CityHelperTest {
     @Test
     void testGetCitiesNameStartingWithLetterNotExist() {
         List<String> expected = Collections.emptyList();
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
 
         List<String> actual = cityHelper.getCitiesNameStartingWithLetter(cities, 'I');
 
@@ -59,6 +68,7 @@ class CityHelperTest {
 
     @Test
     void testCountCity() {
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
         int expected = 2;
 
         int actual = cityHelper.countCity(cities, "Minsk");
@@ -68,6 +78,7 @@ class CityHelperTest {
 
     @Test
     void testCountCityNotExist() {
+        List<String> cities = List.of("Minsk", "Minsk", "Grodno", "Grodno", "Gomel", "Vitebsk", "Mogilev", "Brest");
         int expected = 0;
 
         int actual = cityHelper.countCity(cities, "Pinsk");

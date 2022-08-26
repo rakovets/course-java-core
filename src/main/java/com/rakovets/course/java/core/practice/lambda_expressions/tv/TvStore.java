@@ -4,10 +4,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TvUtil {
+public class TvStore {
     private Collection<Tv> tvCollection;
 
-    public TvUtil(Collection<Tv> tvCollection) {
+    public TvStore(Collection<Tv> tvCollection) {
         this.tvCollection = tvCollection;
     }
 
