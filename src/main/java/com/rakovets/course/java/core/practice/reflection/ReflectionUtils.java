@@ -32,9 +32,9 @@ public class ReflectionUtils {
         return c.getDeclaredMethod(methodName, params);
     }
 
-    public void callMethods(Method m, Object obj, Object... args)
+    public void callMethods(Method method, Object object, Object... args)
             throws InvocationTargetException, IllegalAccessException {
-        m.setAccessible(true);
-        m.invoke(obj, args);
+        method.setAccessible(true);
+        method.invoke(object, args);
     }
 }
