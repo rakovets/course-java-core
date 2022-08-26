@@ -13,8 +13,7 @@ public class Task01 {
     }
 
     public String[] convertMapToStringArray(Map<String, String> map) {
-        return map.entrySet()
-                .stream()
+        return map.entrySet().stream()
                 .flatMap(e -> Stream.of(e.getKey(), e.getValue()))
                 .toArray(String[]::new);
     }
