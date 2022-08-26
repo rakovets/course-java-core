@@ -13,15 +13,6 @@ public class Person {
         this.averageAnnualMark = averageAnnualMark;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + " " + surname + '\'' +
-                ", averageAnnualMark=" + averageAnnualMark +
-                ", age=" + age +
-                '}';
-    }
-
     public String getName() {
         return name;
     }
@@ -36,5 +27,14 @@ public class Person {
 
     public double getAverageAnnualMark() {
         return averageAnnualMark;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + " " + surname + '\'' +
+                ", averageAnnualMark=" + averageAnnualMark +
+                ", age=" + age +
+                '}';
     }
 }

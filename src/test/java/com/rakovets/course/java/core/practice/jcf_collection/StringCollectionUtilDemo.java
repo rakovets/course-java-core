@@ -5,7 +5,6 @@ import java.util.List;
 
 public class StringCollectionUtilDemo {
     public static void main(String[] args) {
-        StringCollectionUtil test = new StringCollectionUtil();
         List<String> words = new ArrayList<>();
         words.add("word");
         words.add("WorD");
@@ -17,10 +16,12 @@ public class StringCollectionUtilDemo {
         words.add("H ha");
         words.add("****");
 
-        test.resetWordsByLength(words, 4);
+        StringCollectionUtil test = new StringCollectionUtil(words);
+
+        test.resetWordsByLength(4);
         System.out.println("List after resetWordsByLength: " + words);
 
-        test.removeWordsByLength(words, 1);
+        test.removeWordsByLength(1);
         System.out.println("List after removeWordsByLength: " + words);
     }
 }
