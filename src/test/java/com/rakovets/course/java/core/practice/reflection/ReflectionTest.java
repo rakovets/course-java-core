@@ -77,7 +77,9 @@ public class ReflectionTest {
 //        String [] expected ={"addOneYear","set","set","getAge","getName"};
 //
 //        Method [] methodArray=utils.getMethodArray(Person.class);
-//        String [] actual=Arrays.stream(methodArray).map(e->e.getName()).toArray();
+//        List <String> list=new ArrayList();
+//        Arrays.stream(methodArray).forEach(e->list.add(e.getName()));
+//        String[] actual= (String[]) list.toArray();
 //
 //        Assertions.assertArrayEquals(expected, actual);
 //
