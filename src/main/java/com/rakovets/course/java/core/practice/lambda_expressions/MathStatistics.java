@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 public class MathStatistics {
     public List<Integer> getRandomNumbers(int amount, int from, int to) {
         return new Random().ints(amount, from, to)
-                .boxed().collect(Collectors.toList());
+                    .boxed()
+                    .collect(Collectors.toList());
     }
 
     public int countEvenNumbers(Collection<Integer> collection) {
