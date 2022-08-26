@@ -13,7 +13,7 @@ public class AddDaysAdjusterTest {
         LocalDate localDate = LocalDate.of(2022, 1, 1);
         String expected = "2022-01-30";
 
-        String actual = localDate.with(addDaysAdjuster).toString();
+        LocalDate actual = localDate.with(addDaysAdjuster);
 
         Assertions.assertEquals(expected, actual);
     }
