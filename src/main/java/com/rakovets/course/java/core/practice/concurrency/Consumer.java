@@ -8,6 +8,7 @@ import java.util.Queue;
 
 public class Consumer implements Runnable {
     private final int MILLIS = 1000;
+    
     private Queue<Integer> integerNumbersQueue;
 
     public Consumer(QueueOfIntegerNumbers queueOfIntegerNumbers) {
