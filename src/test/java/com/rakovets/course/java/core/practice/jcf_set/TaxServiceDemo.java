@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import java.util.*;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class TaxServiceDemo {
     public static void main(String[] args) {

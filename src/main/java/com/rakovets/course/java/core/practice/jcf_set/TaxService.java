@@ -20,7 +20,7 @@ public class TaxService {
                 return citizen;
             }
         }
-        return null;
+        throw new NumberFormatException("Citizen does not exist");
     }
 
     public Set<Citizen> getCitizensByCity(String city) {
@@ -59,7 +59,7 @@ public class TaxService {
                 return fine;
             }
         }
-        return null;
+        throw new NumberFormatException("Fine does not exist");
     }
 
     public void removeFineById(int fineId) {
