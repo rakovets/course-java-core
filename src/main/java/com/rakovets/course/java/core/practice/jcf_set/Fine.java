@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
 public class Fine implements Comparable<Fine> {
+    private final int citizenId;
+    private final int fineId;
     private double articleNumber;
     private String description;
     private double fineAmount;
     private boolean isPaid;
-    private final int citizenId;
-    private final int fineId;
 
     public Fine(double articleNumber, String description, double fineAmount, boolean isPaid, int citizenId, int fineId) {
         this.articleNumber = articleNumber;
