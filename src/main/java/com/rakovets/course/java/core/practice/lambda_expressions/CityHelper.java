@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 public class CityHelper {
     public List<String> getUniqueCities(Collection<String> collection) {
-        return collection.stream().distinct().collect(Collectors.toList());
+        return collection.stream()
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     public List<String> getCitiesNameLongerThan(Collection<String> collection, int nameLength) {
