@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
 public class Citizen implements Comparable<Citizen> {
+    private final int id;
+    private final int yearOfBirth;
     private String firstName;
     private String lastName;
     private String locationCity;
-    private final int yearOfBirth;
-    private final int id;
 
     public Citizen(String firstName, String lastName, String locationCity, int yearOfBirth, int id) {
         this.firstName = firstName;
