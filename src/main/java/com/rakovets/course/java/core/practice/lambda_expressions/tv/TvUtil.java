@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TvUtil {
-    Collection<Tv> tvCollection;
+    private Collection<Tv> tvCollection;
 
     public TvUtil(Collection<Tv> tvCollection) {
         this.tvCollection = tvCollection;
