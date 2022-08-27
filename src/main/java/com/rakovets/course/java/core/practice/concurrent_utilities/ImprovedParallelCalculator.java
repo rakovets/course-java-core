@@ -18,13 +18,13 @@ public class ImprovedParallelCalculator {
     private final List<Callable<int[]>> list = new ArrayList<>();
     private final Map<int[], Integer> map = new HashMap<>();
     private final ExecutorService executorService;
+    private final Random random = new Random();
 
     public ImprovedParallelCalculator(int amountOfThreads) {
         this.executorService = Executors.newFixedThreadPool(amountOfThreads);
     }
 
     public int[] createArray(int amountOfNumbersInArray, int bottomLine, int upperLine) {
-        Random random = new Random();
         return random.
                 ints(amountOfNumbersInArray, bottomLine, upperLine).toArray();
     }
@@ -51,8 +51,8 @@ public class ImprovedParallelCalculator {
         for (int[] ints : list) {
             executorService.submit(() -> map.put(ints, getSum(ints)));
         }
-        executorService.awaitTermination(1000, TimeUnit.MILLISECONDS);
         executorService.shutdown();
+        executorService.awaitTermination(1000, TimeUnit.MILLISECONDS);
         return map;
     }
 }

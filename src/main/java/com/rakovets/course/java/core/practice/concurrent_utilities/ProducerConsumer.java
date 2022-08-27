@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 
 public class ProducerConsumer {
     private static final BufferedWriter WRITER;
-    private final static String SLEEP_PATTERN = "%s - %s -  slept [%s] seconds\n";
-    private final static String LOG_PATTERN = "%s - %s\n";
+    private static final  String SLEEP_PATTERN = "%s - %s -  slept [%s] seconds\n";
+    private static final String LOG_PATTERN = "%s - %s\n";
     private static BlockingQueue<Integer> blockingQueue;
     private final Logger logger = Logger.getLogger(ProducerConsumer.class.getName());
 
@@ -26,8 +26,11 @@ public class ProducerConsumer {
         }
     }
 
-    public void produce(int capacity) {
-        blockingQueue = new LinkedBlockingQueue(capacity);
+    public ProducerConsumer(int capacityQueue) {
+        blockingQueue = new LinkedBlockingQueue(capacityQueue);
+    }
+
+    public void produce() {
         String inputString;
         try (BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
@@ -44,7 +47,7 @@ public class ProducerConsumer {
                 System.out.println(blockingQueue);
             }
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            logger.severe(e.getMessage());
         }
     }
 
