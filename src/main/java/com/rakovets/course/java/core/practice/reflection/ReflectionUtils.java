@@ -27,7 +27,7 @@ public class ReflectionUtils {
         field.set(object, value);
     }
 
-    public <T> Method getMethodWithParameters(Class<Person> c, String methodName, Class<String> params)
+    public Method getMethodWithParameters(Class c, String methodName, Class params)
             throws NoSuchMethodException {
         return c.getDeclaredMethod(methodName, params);
     }

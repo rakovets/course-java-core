@@ -7,9 +7,13 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class ReflectionTest {
-    private static final ReflectionUtils utils = new ReflectionUtils();
+public class ReflectionUtilsTest {
+    private static final ReflectionUtils UTILS = new ReflectionUtils();
     private static Person person;
 
     @BeforeEach
@@ -21,7 +25,7 @@ public class ReflectionTest {
     void testGetFieldPublic() throws NoSuchFieldException {
         String expected = "age";
 
-        Field field = utils.getField(Person.class, "age");
+        Field field = UTILS.getField(Person.class, "age");
         String actual = field.getName();
 
         Assertions.assertEquals(expected, actual);
@@ -31,7 +35,7 @@ public class ReflectionTest {
     void testGetFieldPrivate() throws NoSuchFieldException {
         String expected = "name";
 
-        Field field = utils.getField(Person.class, "name");
+        Field field = UTILS.getField(Person.class, "name");
         String actual = field.getName();
 
         Assertions.assertEquals(expected, actual);
@@ -39,14 +43,14 @@ public class ReflectionTest {
 
     @Test
     void testGetFieldException() {
-        Assertions.assertThrows(NoSuchFieldException.class, () -> utils.getField(Person.class, "surname"));
+        Assertions.assertThrows(NoSuchFieldException.class, () -> UTILS.getField(Person.class, "surname"));
     }
 
     @Test
     void testGetMethodPublic() throws NoSuchMethodException {
         String expected = "getAge";
 
-        Method method = utils.getMethod(Person.class, "getAge");
+        Method method = UTILS.getMethod(Person.class, "getAge");
         String actual = method.getName();
 
         Assertions.assertEquals(expected, actual);
@@ -56,7 +60,7 @@ public class ReflectionTest {
     void testGetMethodPrivate() throws NoSuchMethodException {
         String expected = "addOneYear";
 
-        Method method = utils.getMethod(Person.class, "addOneYear");
+        Method method = UTILS.getMethod(Person.class, "addOneYear");
         String actual = method.getName();
 
         Assertions.assertEquals(expected, actual);
@@ -65,27 +69,26 @@ public class ReflectionTest {
     @Test
     void testGetMethodException() {
         Assertions.assertThrows(NoSuchMethodException.class,
-                () -> utils.getMethod(Person.class, "drive"));
+                () -> UTILS.getMethod(Person.class, "drive"));
     }
 
-//    @Test
-//    void testGetMethodArray() {
-//        String [] expected ={"addOneYear","set","set","getAge","getName"};
-//
-//        Method [] methodArray=utils.getMethodArray(Person.class);
-//        List <String> list=new ArrayList();
-//        Arrays.stream(methodArray).forEach(e->list.add(e.getName()));
-//        String[] actual= (String[]) list.toArray();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//
-//    }
+    @Test
+    void testGetMethodArray() {
+        List<String> expected = List.of("addOneYear", "addTwoYears", "getAge", "getName", "set", "set");
+
+        Method[] methodArray = UTILS.getMethodArray(Person.class);
+        List<String> list = new ArrayList<>();
+        Arrays.stream(methodArray).forEach(e -> list.add(e.getName()));
+        List<String> actual = list.stream().sorted().collect(Collectors.toList());
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     void testInvokeMethodPrivate() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         int expected = 31;
 
-        utils.invokeMethod(utils.getMethod(Person.class, "addOneYear"), person);
+        UTILS.invokeMethod(UTILS.getMethod(Person.class, "addOneYear"), person);
         int actual = person.getAge();
 
         Assertions.assertEquals(expected, actual);
@@ -95,7 +98,7 @@ public class ReflectionTest {
     void testInvokeMethodPublic() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         int expected = 32;
 
-        utils.invokeMethod(utils.getMethod(Person.class, "addTwoYears"), person);
+        UTILS.invokeMethod(UTILS.getMethod(Person.class, "addTwoYears"), person);
         int actual = person.getAge();
 
         Assertions.assertEquals(expected, actual);
@@ -104,14 +107,14 @@ public class ReflectionTest {
     @Test
     void testInvokeMethodNoSuchMethodException() {
         Assertions.assertThrows(NoSuchMethodException.class,
-                () -> utils.invokeMethod(utils.getMethod(Person.class, "add"), person));
+                () -> UTILS.invokeMethod(UTILS.getMethod(Person.class, "add"), person));
     }
 
     @Test
     void testSetValueOfFieldPrivate() throws NoSuchFieldException, IllegalAccessException {
         String expected = "Liza";
 
-        utils.setValueOfField(utils.getField(Person.class, "name"), person, "Liza");
+        UTILS.setValueOfField(UTILS.getField(Person.class, "name"), person, "Liza");
         String actual = person.getName();
 
         Assertions.assertEquals(expected, actual);
@@ -121,7 +124,7 @@ public class ReflectionTest {
     void testSetValueOfFieldPublic() throws NoSuchFieldException, IllegalAccessException {
         int expected = 32;
 
-        utils.setValueOfField(utils.getField(Person.class, "age"), person, 32);
+        UTILS.setValueOfField(UTILS.getField(Person.class, "age"), person, 32);
         int actual = person.getAge();
 
         Assertions.assertEquals(expected, actual);
@@ -130,7 +133,7 @@ public class ReflectionTest {
     @Test
     void testSetValueOfFieldException() {
         Assertions.assertThrows(NoSuchFieldException.class,
-                () -> utils.setValueOfField(utils.getField(Person.class, "surname"), person, 32));
+                () -> UTILS.setValueOfField(UTILS.getField(Person.class, "surname"), person, 32));
     }
 
     @Test
@@ -138,7 +141,7 @@ public class ReflectionTest {
         Class<String> expected = String.class;
         int lengthExpected = 1;
 
-        Method method = utils.getMethodWithParameters(Person.class, "set", String.class);
+        Method method = UTILS.getMethodWithParameters(Person.class, "set", String.class);
         Class<?>[] parameterTypes = method.getParameterTypes();
         int actualLength = parameterTypes.length;
         Class<?> actual = parameterTypes[0];
@@ -148,11 +151,11 @@ public class ReflectionTest {
     }
 
     @Test
-    void testCallMethods() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void testCallMethodsPrivate() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String expected = "Liza";
 
-        utils.callMethods
-                ((utils.getMethodWithParameters(Person.class, "set", String.class)),
+        UTILS.callMethods
+                ((UTILS.getMethodWithParameters(Person.class, "set", String.class)),
                         person, "Liza");
         String actual = person.getName();
 
@@ -161,14 +164,13 @@ public class ReflectionTest {
 
     @Test
     void testCallMethodsPublic() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-//        String expected = "Liza";
+        int expected = 20;
 
-        utils.callMethods
-                ((utils.getMethodWithParameters(Person.class, "set", Integer.class)),
+        UTILS.callMethods
+                ((UTILS.getMethodWithParameters(Person.class, "set", int.class)),
                         person, 20);
-//        String actual = person.getName();
+        int actual = person.getAge();
 
-//        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
-
