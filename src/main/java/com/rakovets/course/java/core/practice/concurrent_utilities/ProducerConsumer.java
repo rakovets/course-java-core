@@ -16,6 +16,7 @@ public class ProducerConsumer {
     private final static String SLEEP_PATTERN = "%s - %s -  slept [%s] seconds\n";
     private final static String LOG_PATTERN = "%s - %s\n";
     private static BlockingQueue<Integer> blockingQueue;
+    private final Logger logger = Logger.getLogger(ProducerConsumer.class.getName());
 
     static {
         try {
@@ -24,8 +25,6 @@ public class ProducerConsumer {
             throw new RuntimeException(e);
         }
     }
-
-    private final Logger logger = Logger.getLogger(ProducerConsumer.class.getName());
 
     public void produce(int capacity) {
         blockingQueue = new LinkedBlockingQueue(capacity);
