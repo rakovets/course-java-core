@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,7 +18,16 @@ import java.util.stream.Collectors;
 
 public class ImprovedParallelCalculator {
     private final List<Callable<int[]>> list = new ArrayList<>();
-    private final Map<String, Integer> map = new HashMap<>();
+    private final Map<int[], Integer> map = new HashMap<>();
+    private static BufferedWriter WRITER;
+
+    static {
+        try {
+            WRITER= new BufferedWriter(new FileWriter("Map"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }}
+
 
     public int[] createArray() {
         Random random = new Random();
@@ -27,7 +39,7 @@ public class ImprovedParallelCalculator {
         return Arrays.stream(array).sum();
     }
 
-    public Map<String, Integer> calculate(int amountOfThreads, int amountOfArrays) throws InterruptedException {
+    public void calculate(int amountOfThreads, int amountOfArrays) throws InterruptedException, IOException {
         ExecutorService executorService = Executors.newFixedThreadPool(amountOfThreads);
         for (int i = 0; i < amountOfArrays; i++) {
             list.add(this::createArray);
@@ -41,10 +53,10 @@ public class ImprovedParallelCalculator {
             }
         }).collect(Collectors.toList());
         for (int[] ints : listOfArray) {
-            executorService.submit(() -> map.put(Arrays.toString(ints), getSum(ints)));
+            executorService.submit(() -> map.put(ints, getSum(ints)));
         }
         executorService.shutdown();
-        System.out.println(map);
-        return map;
+        WRITER.write(String.valueOf(map));
+        WRITER.flush();
     }
 }
