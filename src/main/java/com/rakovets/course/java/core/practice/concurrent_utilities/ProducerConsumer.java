@@ -15,8 +15,7 @@ public class ProducerConsumer {
     private static final BufferedWriter WRITER;
     private final static String SLEEP_PATTERN = "%s - %s -  slept [%s] seconds\n";
     private final static String LOG_PATTERN = "%s - %s\n";
-    private static final BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue(5);
-    private final Logger logger = Logger.getLogger(ProducerConsumer.class.getName());
+    private static BlockingQueue<Integer> blockingQueue;
 
     static {
         try {
@@ -26,7 +25,10 @@ public class ProducerConsumer {
         }
     }
 
-    public void produce() {
+    private final Logger logger = Logger.getLogger(ProducerConsumer.class.getName());
+
+    public void produce(int capacity) {
+        blockingQueue = new LinkedBlockingQueue(capacity);
         String inputString;
         try (BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
@@ -54,7 +56,7 @@ public class ProducerConsumer {
                 if (!blockingQueue.isEmpty()) {
                     sec = blockingQueue.take();
                     System.out.println(sec);
-                    Thread.sleep(sec*1000);
+                    Thread.sleep(sec * 1000);
                     WRITER.write(String.format(SLEEP_PATTERN, LocalDateTime.now(), Thread.currentThread().getName(), sec));
                     WRITER.flush();
                 } else {
@@ -63,7 +65,7 @@ public class ProducerConsumer {
                     Thread.sleep(1000);
                 }
             } catch (InterruptedException | IOException e) {
-               logger.severe(e.getMessage());
+                logger.severe(e.getMessage());
             }
         }
     }

@@ -17,5 +17,3 @@ public class ImprovedCalculatorTest {
         map.forEach((key, value) -> Assertions.assertEquals(Arrays.stream(key).sum(), value));
     }
 }
-
-
