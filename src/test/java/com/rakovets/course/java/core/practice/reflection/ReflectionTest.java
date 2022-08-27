@@ -7,10 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.ClientInfoStatus;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ReflectionTest {
     private static final ReflectionUtils utils = new ReflectionUtils();
@@ -96,6 +92,16 @@ public class ReflectionTest {
     }
 
     @Test
+    void testInvokeMethodPublic() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        int expected = 32;
+
+        utils.invokeMethod(utils.getMethod(Person.class, "addTwoYears"), person);
+        int actual = person.getAge();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     void testInvokeMethodNoSuchMethodException() {
         Assertions.assertThrows(NoSuchMethodException.class,
                 () -> utils.invokeMethod(utils.getMethod(Person.class, "add"), person));
@@ -152,4 +158,17 @@ public class ReflectionTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void testCallMethodsPublic() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+//        String expected = "Liza";
+
+        utils.callMethods
+                ((utils.getMethodWithParameters(Person.class, "set", Integer.class)),
+                        person, 20);
+//        String actual = person.getName();
+
+//        Assertions.assertEquals(expected, actual);
+    }
 }
+

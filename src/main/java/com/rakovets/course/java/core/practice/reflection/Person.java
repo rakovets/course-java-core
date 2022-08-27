@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.reflection;
 
 public class Person {
-    public int age;
     private String name;
+    public int age;
 
     public Person(String name, int age) {
         this.age = age;
@@ -10,7 +10,11 @@ public class Person {
     }
 
     private void addOneYear() {
-        set(age+1);
+        set(age + 1);
+    }
+
+    public void addTwoYears() {
+        set(age + 2);
     }
 
     public void set(int age) {
