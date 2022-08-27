@@ -1,8 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,49 +11,48 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class ImprovedParallelCalculator {
     private final List<Callable<int[]>> list = new ArrayList<>();
     private final Map<int[], Integer> map = new HashMap<>();
-    private static BufferedWriter WRITER;
+    private final ExecutorService executorService;
 
-    static {
-        try {
-            WRITER= new BufferedWriter(new FileWriter("Map"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }}
+    public ImprovedParallelCalculator(int amountOfThreads) {
+        this.executorService = Executors.newFixedThreadPool(amountOfThreads);
+    }
 
-
-    public int[] createArray() {
+    public int[] createArray(int amountOfNumbersInArray, int bottomLine, int upperLine) {
         Random random = new Random();
         return random.
-                ints(1000000, 1, 300).toArray();
+                ints(amountOfNumbersInArray, bottomLine, upperLine).toArray();
     }
 
     public int getSum(int[] array) {
         return Arrays.stream(array).sum();
     }
 
-    public void calculate(int amountOfThreads, int amountOfArrays) throws InterruptedException, IOException {
-        ExecutorService executorService = Executors.newFixedThreadPool(amountOfThreads);
+    public List<int[]> createListOfArrays(int amountOfArrays, int amountOfNumbersInArray, int bottomLine, int upperLine) throws InterruptedException {
         for (int i = 0; i < amountOfArrays; i++) {
-            list.add(this::createArray);
+            list.add(() -> createArray(amountOfNumbersInArray, bottomLine, upperLine));
         }
         List<Future<int[]>> result = executorService.invokeAll(list);
-        List<int[]> listOfArray = result.stream().map(e -> {
+        return result.stream().map(e -> {
             try {
                 return e.get();
             } catch (InterruptedException | ExecutionException ex) {
                 throw new RuntimeException(ex);
             }
         }).collect(Collectors.toList());
-        for (int[] ints : listOfArray) {
+    }
+
+    public Map<int[], Integer> calculate(List<int[]> list) throws InterruptedException {
+        for (int[] ints : list) {
             executorService.submit(() -> map.put(ints, getSum(ints)));
         }
+        executorService.awaitTermination(1000, TimeUnit.MILLISECONDS);
         executorService.shutdown();
-        WRITER.write(String.valueOf(map));
-        WRITER.flush();
+        return map;
     }
 }
