@@ -45,9 +45,10 @@ public class FileUtil {
         while (scanner.hasNext()) {
             String word = scanner.next();
             if (word.toLowerCase().matches("^[aeiouy].*")) {
-                wordsStartingWithVowel.add(word.replaceAll("[.,?!:;\\s]", ""));
+                wordsStartingWithVowel.add(removeAllPunctuation(word));
             }
         }
+        scanner.close();
         return wordsStartingWithVowel;
     }
 
@@ -56,15 +57,16 @@ public class FileUtil {
         Scanner scanner = new Scanner(inputFilePath);
         String previousWord = null;
         if (scanner.hasNext()) {
-            previousWord = scanner.next().replaceAll("[.,?!:;\\s]", "");
+            previousWord = removeAllPunctuation(scanner.next());
         }
         while (scanner.hasNext()) {
-            String nextWord = scanner.next().replaceAll("[.,?!:;\\s]", "");
+            String nextWord = removeAllPunctuation(scanner.next());
             if (previousWord.endsWith(String.valueOf(nextWord.charAt(0)))) {
                 words.add(previousWord + " " + nextWord);
             }
             previousWord = nextWord;
         }
+        scanner.close();
         return words;
     }
 
@@ -73,7 +75,7 @@ public class FileUtil {
         List<String> result = new ArrayList<>();
         list.forEach(x -> {
             StringBuilder stringBuilder = new StringBuilder();
-            List<Integer> ints = Arrays.stream(x.split("[.,\\s]+"))
+            List<Integer> ints = Arrays.stream(x.split("[.,\\s]"))
                     .map(Integer::valueOf)
                     .sorted().collect(Collectors.toList());
             ints.forEach(i ->
@@ -83,4 +85,7 @@ public class FileUtil {
         return result;
     }
 
+    private String removeAllPunctuation(String string) {
+        return string.replaceAll("[.,?!:;\\s]", "");
+    }
 }
