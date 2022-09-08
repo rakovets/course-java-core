@@ -36,6 +36,6 @@ class Task06 {
         m %= 60;
         int D = H / 24;
         H %= 24;
-        return "" + D + " " + H + "";
+        return "" + D + " " + H + ":" + m + ":" + s;
     }
 }
