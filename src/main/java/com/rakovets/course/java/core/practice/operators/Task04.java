@@ -8,6 +8,9 @@ package com.rakovets.course.java.core.practice.operators;
 class Task04 {
     /**
      * Скорость звука в воздушной среде 1191.6 км/ч
+     * в 1 часу 360000 милисекунд
+     * в 1 км 1000 метров
+     *1191*1000/360000
      */
     private static final float SOUND_SPEED = 1191.6f;
 
@@ -33,8 +36,7 @@ class Task04 {
      * @param milliseconds время (в миллисекундах) между срабатыванием датчика света и звука
      */
     static float getDistance(float milliseconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        float distance = SOUND_SPEED / 3600 * milliseconds;
+        return distance;
     }
 }

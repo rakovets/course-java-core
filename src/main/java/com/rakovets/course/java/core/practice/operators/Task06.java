@@ -26,10 +26,16 @@ class Task06 {
      *
      * @param playingTimeInSeconds - количество секунд проведенных пользователем в игре
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
+     * в минуте -60 сек
+     * в часе -3600 сек
+     * в дне - 86400 сек
      */
-    static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+    static String getPlayingTime(int playingTimeInSeconds){
+        int day = playingTimeInSeconds / 86400;
+        int hour = (playingTimeInSeconds - day * 86400) / 3600;
+        int minute = (playingTimeInSeconds - day * 86400 - hour * 3600) / 60;
+        int sec = (playingTimeInSeconds-day * 86400 - hour * 3600) % 60;
+
+        return (day + " " + hour + ":"+ minute+ ":"+sec);
     }
 }
