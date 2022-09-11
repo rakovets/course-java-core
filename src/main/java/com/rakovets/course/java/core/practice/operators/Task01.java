@@ -19,7 +19,7 @@ class Task01 {
         int carryingCapacity = 2;
 
         int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
-        System.out.printf("Result: %d", numberFullTrucks);
+        System.out.println("Result: %d", numberFullTrucks);
     }
 
     /**
@@ -32,5 +32,17 @@ class Task01 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return 0;
+    }
+}
+class Task01 {
+    public static void main(String[] args) {
+        int cargo = 11;
+        int carryingCapacity = 2;
+
+        int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
+        System.out.println("Result: %d", numberFullTrucks);
+    }
+    static int getNumberFullTrucks(int cargo, int carryingCapacity) {
+        return cargo/carryingCapacity;
     }
 }
