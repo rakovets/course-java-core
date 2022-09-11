@@ -15,7 +15,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int cargo = 11;
+        int cargo = 13;
         int carryingCapacity = 3;
 
         int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);

@@ -15,7 +15,7 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int depositAmount = 3;
+        int depositAmount = 7;
         int depositYears = 5;
         int depositAnnualPercentage = 10;
 
