@@ -34,7 +34,6 @@ class Task06 {
         int H = playingTimeInSeconds % (60 * 60 * 24) / 60 / 60;
         int m = playingTimeInSeconds % (60 * 60) / 60;
         int s = playingTimeInSeconds % 60;
-        String result = D + " " + H + ":" + m + ":" + s;
-        return result;
+        return D + " " + H + ":" + m + ":" + s;
     }
 }
