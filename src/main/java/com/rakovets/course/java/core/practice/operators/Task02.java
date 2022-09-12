@@ -15,8 +15,8 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int cargo = 1;
-        int carryingCapacity = 2;
+        int cargo = 79;
+        int carryingCapacity = 25;
 
         int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
         System.out.printf("Result: %d", amountRemainingCargo);
@@ -30,8 +30,7 @@ class Task02 {
      * @param carryingCapacity грузоподъемность грузовиков
      */
     static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int cargoRemain = cargo % carryingCapacity;
+        return cargoRemain;
     }
 }

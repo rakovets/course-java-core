@@ -15,7 +15,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int playingTimeInSeconds = 4567;
+        int playingTimeInSeconds = 86401;
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);
@@ -28,8 +28,15 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int s = playingTimeInSeconds % 60;
+        int min = playingTimeInSeconds/60;
+        int m = min % 60;
+        int hours = min / 60;
+        int h = hours % 24;
+        int d = hours / 24;
+
+        java.lang.String playingTime = d + " " + h + ":" + m + ":" + s;
+
+        return playingTime;
     }
 }

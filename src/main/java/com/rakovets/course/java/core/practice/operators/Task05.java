@@ -15,8 +15,8 @@ class Task05 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int height = 186;
-        int weight = 86;
+        int height = 175;
+        int weight = 71;
 
         int deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
         System.out.printf("Result: %d", deviationStandardWeight);
@@ -34,8 +34,9 @@ class Task05 {
      * @param weight - вес
      */
     static int calculateDeviationStandardWeight(int height, int weight) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        final int standardValue = 110;
+        int standardWeight = height - standardValue;
+        int overWeight = weight - standardWeight;
+        return overWeight;
     }
 }
