@@ -37,5 +37,7 @@ class Task05 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return 0;
+        int deviationStandardWeight = weight - (height - 110);
+        return deviationStandardWeight;
     }
 }
