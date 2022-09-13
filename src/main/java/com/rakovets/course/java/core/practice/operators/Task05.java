@@ -21,7 +21,6 @@ class Task05 {
         int deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
         System.out.printf("Result: %d", deviationStandardWeight);
     }
-
     /**
      * Рассчитывает избыточность веса пользователя.
      * <ul>

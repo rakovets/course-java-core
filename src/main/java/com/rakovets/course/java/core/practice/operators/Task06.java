@@ -20,7 +20,6 @@ class Task06 {
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);
     }
-
     /**
      * Высчитывает сколько времени пользователь провел в игре.
      *

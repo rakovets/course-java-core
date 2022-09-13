@@ -10,7 +10,6 @@ class Task04 {
      * Скорость звука в воздушной среде 1191.6 км/ч
      */
     private static final float SOUND_SPEED = 1191.6f;
-
     /**
      * The entry point of the task
      *

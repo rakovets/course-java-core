@@ -22,7 +22,6 @@ class Task03 {
         float totalDepositAmount = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
         System.out.printf("Result: %f", totalDepositAmount);
     }
-
     /**
      * Высчитывает конечную сумма на депозитном счете, при условии:
      * <ul>

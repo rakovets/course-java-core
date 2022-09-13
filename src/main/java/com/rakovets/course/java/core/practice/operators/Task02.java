@@ -21,7 +21,6 @@ class Task02 {
         int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
         System.out.printf("Result: %d", amountRemainingCargo);
     }
-
     /**
      * Рассчитывает количество некоторого груза, который останется на складе, после полной загрузки его в грузовики, т.е.
      * грузовики должны быть загружены полностью

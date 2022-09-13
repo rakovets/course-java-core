@@ -21,7 +21,6 @@ class Task01 {
         int numberFullTrucks = getNumberFullTrucks(cargo, carryingCapacity);
         System.out.printf("Result: %d", numberFullTrucks);
     }
-
     /**
      * Рассчитывает количество полностью загруженных грузовиков, необходимых для перевозки некоторого груза.
      *
