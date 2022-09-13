@@ -15,7 +15,7 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int cargo = 1;
+        int cargo = 17;
         int carryingCapacity = 2;
 
         int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
@@ -32,6 +32,6 @@ class Task02 {
     static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return cargo % carryingCapacity;
     }
 }
