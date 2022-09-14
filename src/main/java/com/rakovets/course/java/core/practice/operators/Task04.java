@@ -35,6 +35,8 @@ class Task04 {
     static float getDistance(float milliseconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        int convertToMeters = 3600;
+        float distanceToLighting = SOUND_SPEED * milliseconds / convertToMeters;
+        return distanceToLighting;
     }
 }
