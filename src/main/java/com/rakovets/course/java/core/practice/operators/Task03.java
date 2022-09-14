@@ -37,8 +37,7 @@ class Task03 {
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        float procent = (float) depositAmount / 100 * depositAnnualPercentage * depositYears;
-        float result = depositAmount + procent;
-        return result;
+        float percent = (float) depositAmount / 100 * depositAnnualPercentage * depositYears;
+        return depositAmount + percent;
     }
 }

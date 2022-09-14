@@ -29,9 +29,8 @@ class Task01 {
      * @param carryingCapacity грузоподъемность грузовиков
      */
     static int getNumberFullTrucks(int cargo, int carryingCapacity) {
-        int result = cargo / carryingCapacity;
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return result;
+        return cargo / carryingCapacity;
     }
 }
