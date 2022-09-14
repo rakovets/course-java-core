@@ -29,7 +29,7 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 1989;
+        int year = 2012;
 
         String monthName = getZodiacYearName(year);
         System.out.printf("Result: %s", monthName);
@@ -44,6 +44,43 @@ class Task14 {
     static String getZodiacYearName(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int counter = 1;
+        int chinaCalendarYear = 1;
+        String nameOfYear = "";
+
+        while (counter < year) {
+            counter++;
+            chinaCalendarYear++;
+            if (chinaCalendarYear > 12) {
+                chinaCalendarYear = 1;
+            }
+        }
+        if (chinaCalendarYear == 1) {
+            nameOfYear = "Rooster";
+        } else if (chinaCalendarYear == 2) {
+            nameOfYear = "Dog";
+        } else if (chinaCalendarYear == 3) {
+            nameOfYear = "Pig";
+        } else if (chinaCalendarYear == 4) {
+            nameOfYear = "Rat";
+        } else if (chinaCalendarYear == 5) {
+            nameOfYear = "Ox";
+        } else if (chinaCalendarYear == 6) {
+            nameOfYear = "Tiger";
+        } else if (chinaCalendarYear == 7) {
+            nameOfYear = "Rabbit";
+        } else if (chinaCalendarYear == 8) {
+            nameOfYear = "Dragon";
+        } else if (chinaCalendarYear == 9) {
+            nameOfYear = "Snake";
+        } else if (chinaCalendarYear == 10) {
+            nameOfYear = "Horse";
+        } else if (chinaCalendarYear == 11) {
+            nameOfYear = "Ram";
+        } else if (chinaCalendarYear == 12) {
+            nameOfYear = "Monkey";
+        }
+
+        return nameOfYear;
     }
 }

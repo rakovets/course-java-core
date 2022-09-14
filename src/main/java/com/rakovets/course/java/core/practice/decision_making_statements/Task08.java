@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import java.util.Objects;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -21,8 +23,8 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int damage = 100;
-        String typeMob = "SAINT";
+        int damage = 300;
+        String typeMob = "UNDEAD";
         boolean hasHolyAttribute = true;
 
         int totalDamage = getTotalDamage(damage, typeMob, hasHolyAttribute);
@@ -40,6 +42,18 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int totalDamage = 0;
+
+        if (hasHolyAttribute) {
+            if (Objects.equals(typeMob, "SAINT")) {
+                totalDamage += (damage / 2.0);
+            } else if (Objects.equals(typeMob, "ZOMBIE") || Objects.equals(typeMob, "UNDEAD")) {
+                totalDamage += (damage * 1.5);
+            }
+        } else {
+            totalDamage += damage;
+        }
+
+        return totalDamage;
     }
 }

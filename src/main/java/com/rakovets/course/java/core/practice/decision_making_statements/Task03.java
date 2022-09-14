@@ -18,7 +18,7 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 10;
+        int currentHealthPoint = 93;
         int maxHealthPoint = 100;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
@@ -35,8 +35,19 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double healthPrecent = (double) currentHealthPoint / (double) maxHealthPoint * 100.0;
+        String colorHealthBar = null;
+
+        if (healthPrecent >= 0 && healthPrecent < 25) {
+            colorHealthBar = "RED";
+        } else if (healthPrecent >= 25 && healthPrecent < 50) {
+            colorHealthBar = "ORANGE";
+        } else if (healthPrecent >= 50 && healthPrecent < 75) {
+            colorHealthBar = "YELLOW";
+        } else if (healthPrecent >= 75 && healthPrecent <= 100) {
+            colorHealthBar = "GREEN";
+        }
+
+        return colorHealthBar;
     }
 }
