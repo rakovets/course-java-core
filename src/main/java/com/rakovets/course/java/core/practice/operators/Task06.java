@@ -1,5 +1,10 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Character.FORMAT;
+import static java.lang.Character.codePointAt;
+
 /**
  * Разработать программу для игрового движка.
  *
@@ -15,7 +20,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int playingTimeInSeconds = 4567;
+        int playingTimeInSeconds = 86401;
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);
@@ -28,8 +33,11 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int days = playingTimeInSeconds / 86400;
+        int hours = playingTimeInSeconds % 86400 / 3600;
+        int minutes = playingTimeInSeconds % 3600 / 60;
+        int seconds = playingTimeInSeconds % 60;
+
+        return days + " " + hours + ":" + minutes + ":" + seconds;
     }
 }
