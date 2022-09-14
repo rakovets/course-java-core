@@ -38,6 +38,7 @@ class Task01 {
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        boolean youInTop = (positionPlayerByDamage <= sizeTop) ? true : false;
+        return youInTop;
     }
 }
