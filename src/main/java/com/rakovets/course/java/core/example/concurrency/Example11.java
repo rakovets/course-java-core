@@ -10,5 +10,6 @@ public class Example11 {
         Thread.sleep(1234);
         // finish useful work
         long finish = System.currentTimeMillis();
+        System.out.println((finish - start) / 1000);
     }
 }

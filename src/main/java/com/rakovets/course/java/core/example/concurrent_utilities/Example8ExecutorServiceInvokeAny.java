@@ -4,6 +4,7 @@ import com.rakovets.course.java.core.util.AnsiColorCode;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -24,12 +25,12 @@ public class Example8ExecutorServiceInvokeAny {
         });
         callables.add(new Callable<String>() {
             public String call() throws Exception {
-                return "Task 2";
+                return "Task 3";
             }
         });
         callables.add(new Callable<String>() {
             public String call() throws Exception {
-                return "Task 3";
+                return "Task 2";
             }
         });
 
