@@ -38,8 +38,6 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String unicodeChart;
 
         if ((int) symbol >= 65529 && (int) symbol <= 65333) {

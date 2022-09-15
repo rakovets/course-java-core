@@ -43,8 +43,6 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String zodiacSign;
 
         if (day >= 21 && day <= 31 && month == 3 || day >= 1 && day <= 20 && month == 4) {

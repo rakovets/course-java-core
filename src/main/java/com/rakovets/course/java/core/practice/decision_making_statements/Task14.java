@@ -42,8 +42,6 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int counter = 1;
         int chinaCalendarYear = 1;
         String nameOfYear = "";
