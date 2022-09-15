@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для банка.
  *
@@ -35,8 +38,10 @@ class Task03 {
      * @param depositAnnualPercentage ежегодный простой процент
      */
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        float commonPercentPerYear = 100;
+        float finalPercentPerYear = commonPercentPerYear + (float) depositAnnualPercentage;
+        float yearResult = ((float) depositAmount * finalPercentPerYear / commonPercentPerYear) - (float) depositAmount;
+        float sumYearResult = depositAmount + yearResult * depositYears;
+        return BigDecimal.valueOf(sumYearResult).setScale(2, RoundingMode.CEILING).floatValue();
     }
 }
