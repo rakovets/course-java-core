@@ -29,7 +29,7 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 1989;
+        int year = 2024;
 
         String monthName = getZodiacYearName(year);
         System.out.printf("Result: %s", monthName);
@@ -38,12 +38,52 @@ class Task14 {
     /**
      * Определяет названия года по китайскому календарю.
      *
-     * @param year  год дня рождения (больше 0 г. н.э.)
+     * @param year год дня рождения (больше 0 г. н.э.)
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int AMOUNT_OF_MONTH = 12;
+        String zodiacYearName = "";
+        int convertYearToZodiac = year % AMOUNT_OF_MONTH;
+
+        switch (convertYearToZodiac) {
+            case 1:
+                zodiacYearName = "Rooster";
+                break;
+            case 2:
+                zodiacYearName = "Dog";
+                break;
+            case 3:
+                zodiacYearName = "Pig";
+                break;
+            case 4:
+                zodiacYearName = "Rat";
+                break;
+            case 5:
+                zodiacYearName = "Ox";
+                break;
+            case 6:
+                zodiacYearName = "Tiger";
+                break;
+            case 7:
+                zodiacYearName = "Rabbit";
+                break;
+            case 8:
+                zodiacYearName = "Dragon";
+                break;
+            case 9:
+                zodiacYearName = "Snake";
+                break;
+            case 10:
+                zodiacYearName = "Horse";
+                break;
+            case 11:
+                zodiacYearName = "Ram";
+                break;
+            default:
+                zodiacYearName = "Monkey";
+                break;
+        }
+        return zodiacYearName;
     }
 }
