@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 21;
+        int month = 6;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -43,8 +43,97 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiacSign;
+
+        switch (month) {
+            case 1:
+                if (day < 21) {
+                    zodiacSign = "Goat";
+                } else {
+                    zodiacSign = "Water-bearer";
+                }
+                break;
+            case 2:
+                if (day < 20) {
+                    zodiacSign = "Water-bearer";
+                } else {
+                    zodiacSign = "Fish";
+                }
+                break;
+            case 3:
+                if (day < 21) {
+                    zodiacSign = "Fish";
+                } else {
+                    zodiacSign = "Ram";
+                }
+                break;
+            case 4:
+                if (day < 21) {
+                    zodiacSign = "Ram";
+                } else {
+                    zodiacSign = "Bull";
+                }
+                break;
+            case 5:
+                if (day < 21) {
+                    zodiacSign = "Bull";
+                } else {
+                    zodiacSign = "Twins";
+                }
+                break;
+            case 6:
+                if (day < 22) {
+                    zodiacSign = "Twins";
+                } else {
+                    zodiacSign = "Crab";
+                }
+                break;
+            case 7:
+                if (day < 23) {
+                    zodiacSign = "Crab";
+                } else {
+                    zodiacSign = "Lion";
+                }
+                break;
+            case 8:
+                if (day < 23) {
+                    zodiacSign = "Lion";
+                } else {
+                    zodiacSign = "Maiden";
+                }
+                break;
+            case 9:
+                if (day < 22) {
+                    zodiacSign = "Maiden";
+                } else {
+                    zodiacSign = "Scales";
+                }
+                break;
+            case 10:
+                if (day < 23) {
+                    zodiacSign = "Scales";
+                } else {
+                    zodiacSign = "Scorpion";
+                }
+                break;
+            case 11:
+                if (day < 23) {
+                    zodiacSign = "Scorpion";
+                } else {
+                    zodiacSign = "Archer";
+                }
+                break;
+            case 12:
+                if (day < 22) {
+                    zodiacSign = "Archer";
+                } else {
+                    zodiacSign = "Goat";
+                }
+                break;
+            default:
+                zodiacSign = null;
+                break;
+        }
+        return zodiacSign;
     }
 }
