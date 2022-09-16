@@ -31,6 +31,24 @@ class Task04 {
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = null;
+        if (dayOfWeekNumber == 1) {
+            result = "MONDAY";
+        } else if (dayOfWeekNumber == 2) {
+            result = "TUESDAY";
+        } else if (dayOfWeekNumber == 3) {
+            result = "WEDNESDAY";
+        } else if (dayOfWeekNumber == 4) {
+            result = "THURSDAY";
+        } else if (dayOfWeekNumber == 5) {
+            result = "FRIDAY";
+        } else if (dayOfWeekNumber == 6) {
+            result = "SATURDAY";
+        } else if (dayOfWeekNumber == 7) {
+            result = "SUNDAY";
+        } else if (dayOfWeekNumber > 7 && dayOfWeekNumber < 1) {
+            result = null;
+        }
+        return result;
     }
 }

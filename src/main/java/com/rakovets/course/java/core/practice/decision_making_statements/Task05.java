@@ -33,6 +33,32 @@ class Task05 {
     static String getMonthName(byte monthNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = null;
+        if (monthNumber == 1) {
+            result = "JANUARY";
+        } else if (monthNumber == 2) {
+            result = "FEBRUARY";
+        } else if (monthNumber == 3) {
+            result = "MARCH";
+        } else if (monthNumber == 4) {
+            result = "APRIL";
+        } else if (monthNumber == 5) {
+            result = "MAY";
+        } else if (monthNumber == 6) {
+            result = "JUNE";
+        } else if (monthNumber == 7) {
+            result = "JULY";
+        } else if (monthNumber == 8) {
+            result = "AUGUST";
+        } else if (monthNumber == 9) {
+            result = "SEPTEMBER";
+        } else if (monthNumber == 10) {
+            result = "OCTOBER";
+        } else if (monthNumber == 11) {
+            result = "NOVEMBER";
+        } else if (monthNumber == 12) {
+            result = "DECEMBER";
+        }
+        return result;
     }
 }
