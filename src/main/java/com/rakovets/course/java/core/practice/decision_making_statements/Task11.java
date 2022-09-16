@@ -40,6 +40,23 @@ class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String symbolType = "undefined";
+        final int START_CYRILLIC_SYMBOLS = 1024;
+        final int FINISH_CYRILLIC_SYMBOLS = 1123;
+        final int START_UPPER_LATIN_SYMBOLS = 65;
+        final int FINISH_UPPER_LATIN_SYMBOLS = 90;
+        final int START_LOWER_LATIN_SYMBOLS = 97;
+        final int FINISH_LOWER_LATIN_SYMBOLS = 122;
+        final int START_DIGIT_SYMBOLS = 48;
+        final int FINISH_DIGIT_SYMBOLS = 57;
+
+        if (symbol >= START_CYRILLIC_SYMBOLS && symbol <= FINISH_CYRILLIC_SYMBOLS) {
+            symbolType = "cyrillic";
+        } else if (symbol >= START_UPPER_LATIN_SYMBOLS && symbol <= FINISH_UPPER_LATIN_SYMBOLS || symbol >= START_LOWER_LATIN_SYMBOLS && symbol <= FINISH_LOWER_LATIN_SYMBOLS)  {
+            symbolType = "latin";
+        } else if (symbol >= START_DIGIT_SYMBOLS && symbol <= FINISH_DIGIT_SYMBOLS) {
+            symbolType = "digit";
+        }
+        return symbolType;
     }
 }
