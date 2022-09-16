@@ -29,7 +29,7 @@ class Task12 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int day = 12;
-        int month = 12;
+        int month = 11;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -45,6 +45,80 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiacSign = "";
+        if (month == 1) {
+            if (day < 21) {
+                zodiacSign = "Goat";
+            } else {
+                zodiacSign = "Water-bearer";
+            }
+        } else if (month == 2) {
+            if (day < 20) {
+                zodiacSign = "Water-bearer";
+            } else {
+                zodiacSign = "Fish";
+            }
+        } else if (month == 3) {
+            if (day < 21) {
+                zodiacSign = "Fish";
+            } else {
+                zodiacSign = "Ram";
+            }
+        } else if (month == 4) {
+            if (day < 21) {
+                zodiacSign = "Ram";
+            } else {
+                zodiacSign = "Bull";
+            }
+        } else if (month == 5) {
+            if (day < 21) {
+                zodiacSign = "Bull";
+            } else {
+                zodiacSign = "Twins";
+            }
+        } else if (month == 6) {
+            if (day < 22) {
+                zodiacSign = "Twins";
+            } else {
+                zodiacSign = "Crab";
+            }
+        } else if (month == 7) {
+            if (day < 23) {
+                zodiacSign = "Crab";
+            } else {
+                zodiacSign = "Lion";
+            }
+        } else if (month == 8) {
+            if (day < 23) {
+                zodiacSign = "Lion";
+            } else {
+                zodiacSign = "Maiden";
+            }
+        } else if (month == 9) {
+            if (day < 22) {
+                zodiacSign = "Maiden";
+            } else {
+                zodiacSign = "Scales";
+            }
+        } else if (month == 10) {
+            if (day < 23) {
+                zodiacSign = "Scales";
+            } else {
+                zodiacSign = "Scorpion";
+            }
+        } else if (month == 11) {
+            if (day < 23) {
+                zodiacSign = "Scorpion";
+            } else {
+                zodiacSign = "Archer";
+            }
+        } else if (month == 12) {
+            if (day < 22) {
+                zodiacSign = "Archer";
+            } else {
+                zodiacSign = "Goat";
+            }
+        }
+        return zodiacSign;
     }
 }

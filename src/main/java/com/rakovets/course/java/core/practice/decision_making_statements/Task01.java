@@ -1,5 +1,4 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
-
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -8,7 +7,7 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  *
  * @author Dmitry Rakovets
  */
-class Task01 {
+public class Task01 {
     /**
      * The entry point of the task
      *
@@ -38,6 +37,10 @@ class Task01 {
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        if (positionPlayerByDamage <= sizeTop) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

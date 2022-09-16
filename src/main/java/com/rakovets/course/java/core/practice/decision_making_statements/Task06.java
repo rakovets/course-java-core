@@ -25,7 +25,7 @@ class Task06 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int tanksKilledFirstPlayer = 2;
-        int tanksKilledSecondPlayer = 4;
+        int tanksKilledSecondPlayer = 6;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
@@ -41,6 +41,15 @@ class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int firstPlayerPoint = tanksKilledFirstPlayer * KILL_POINT;
+        int secondPlayerPoint = tanksKilledSecondPlayer * KILL_POINT;
+
+        if (tanksKilledSecondPlayer > tanksKilledFirstPlayer) {
+            secondPlayerPoint += BONUS_POINT;
+        } else if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+            firstPlayerPoint += BONUS_POINT;
+        }
+
+        return "Player 1: "+firstPlayerPoint+". Player 2: "+secondPlayerPoint;
     }
 }
