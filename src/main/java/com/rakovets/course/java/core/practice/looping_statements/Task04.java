@@ -35,6 +35,16 @@ class Task04 {
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int raidTime = 0;
+        while (healthPoints > 0) {
+            double healthPointsWithRegeneration = healthPoints + healthPoints * regenerationPercentPerHour / 100;
+            healthPoints = (int) healthPointsWithRegeneration - averageDamagePerHour;
+            raidTime++;
+            if (raidTime > 24) {
+                raidTime = -1;
+                break;
+            }
+        }
+        return raidTime;
     }
 }

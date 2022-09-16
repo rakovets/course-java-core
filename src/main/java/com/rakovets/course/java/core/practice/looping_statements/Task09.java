@@ -36,6 +36,29 @@ class Task09 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String accountingFormat = "";
+        int digitsCounter = 0;
+        long number;
+        if (amount == 0) {
+            accountingFormat = "0";
+        } else {
+            if (amount < 0) {
+                accountingFormat = "-";
+                amount *= -1;
+            }
+            for (long i = amount; i > 0; i /= 10) {
+                digitsCounter++;
+            }
+            for (int j = digitsCounter; j > 0; j--) {
+                number = (long) (amount / Math.pow(10, j-1));
+                amount -= number * Math.pow(10, j-1);
+                if (j % 3 == 1 && j != 1) {
+                    accountingFormat += number + " ";
+                } else {
+                    accountingFormat += number;
+                }
+            }
+        }
+        return accountingFormat;
     }
 }
