@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для фитнес браслета.
  *
@@ -44,7 +46,6 @@ class Task06 {
                 totalDistance += todayDistance;
             }
         }
-        double totalDistanceRound = (double) Math.round(totalDistance * 100) / 100;
-        return totalDistanceRound;
+        return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);
     }
 }
