@@ -24,7 +24,7 @@ class Task10 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startNumber = 0;
-        int finishNumber = 50;
+        int finishNumber = 100000;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -40,6 +40,23 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int numberOfPrice = 0;
+        int numberOfDivisors = 0;
+        for (int i = startNumber; i <= finishNumber; i++) {
+            for (int divisor = 1; divisor <= i; divisor++) {
+                if (i % divisor == 0) {
+                    numberOfDivisors++;
+                }
+                if (numberOfDivisors > 2) {
+                    break;
+                }
+            }
+            if (numberOfDivisors == 2) {
+                numberOfPrice++;
+            }
+            numberOfDivisors = 0;
+        }
+        return numberOfPrice;
+
     }
 }

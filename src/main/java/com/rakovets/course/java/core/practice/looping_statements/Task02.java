@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import java.text.DecimalFormat;
+
 /**
  * Разработать программу для банка.
  *
@@ -34,6 +36,12 @@ class Task02 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double depositAmountNow = depositAmount;
+        double percentageInDecimal = 1 + annualDepositPercent * 0.01;
+        for (int i = 1; i <= depositTerm; i++) {
+            depositAmountNow *= percentageInDecimal;
+        }
+        double totalProfit = Math.round(depositAmountNow * 100.0) / 100.0 ;
+        return totalProfit;
     }
 }

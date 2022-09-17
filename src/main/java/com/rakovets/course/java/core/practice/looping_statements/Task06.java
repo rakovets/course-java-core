@@ -36,6 +36,17 @@ class Task06 {
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double totalDistance = 0;
+        double dailyDistance = startDistance;
+        if (startDistance > 0) {
+            while (dailyDistance < finishDistance) {
+                dailyDistance += dailyDistance * (dailyProgressAsPercentage / 100.0);
+                totalDistance += dailyDistance;
+            }
+        } else {
+            totalDistance = 0;
+        }
+        totalDistance = Math.round(totalDistance * 100.0) / 100.0;
+        return totalDistance;
     }
 }

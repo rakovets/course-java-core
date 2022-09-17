@@ -36,6 +36,20 @@ class Task09 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        long rightSideOfTheNumber = 0;
+        String amountInAccountingFormat = "";
+        boolean minusSign = amount < 0 ? true : false;
+        rightSideOfTheNumber = Math.abs(amount % 1000);
+        amount /= 1000;
+        amountInAccountingFormat = Long.toString(rightSideOfTheNumber);
+        while (amount % 1000 != 0) {
+            rightSideOfTheNumber = Math.abs(amount % 1000);
+            amount /= 1000;
+            amountInAccountingFormat = rightSideOfTheNumber + " " + amountInAccountingFormat;
+        }
+        if (minusSign == true) {
+            amountInAccountingFormat = "-" + amountInAccountingFormat;
+        }
+        return amountInAccountingFormat;
     }
 }
