@@ -42,8 +42,47 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int REPETITIVE_YEAR_CYCLE = 12;
+        String titleChineseYear = "";
+
+        switch (year % REPETITIVE_YEAR_CYCLE) {
+            case 0:
+                titleChineseYear = "Monkey";
+                break;
+            case 1:
+                titleChineseYear = "Rooster";
+                break;
+            case 2:
+                titleChineseYear = "Dog";
+                break;
+            case 3:
+                titleChineseYear = "Pig";
+                break;
+            case 4:
+                titleChineseYear = "Rat";
+                break;
+            case 5:
+                titleChineseYear = "Ox";
+                break;
+            case 6:
+                titleChineseYear = "Tiger";
+                break;
+            case 7:
+                titleChineseYear = "Rabbit";
+                break;
+            case 8:
+                titleChineseYear = "Dragon";
+                break;
+            case 9:
+                titleChineseYear = "Snake";
+                break;
+            case 10:
+                titleChineseYear = "Horse";
+                break;
+            case 11:
+                titleChineseYear = "Ram";
+                break;
+        }
+        return titleChineseYear;
     }
 }
