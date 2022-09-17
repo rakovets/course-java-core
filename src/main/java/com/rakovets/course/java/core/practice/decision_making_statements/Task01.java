@@ -39,8 +39,5 @@ class Task01 {
         if (positionPlayerByDamage <= sizeTop) {
             return true;
         } else return false;
-        // TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        // return false;
     }
 }
