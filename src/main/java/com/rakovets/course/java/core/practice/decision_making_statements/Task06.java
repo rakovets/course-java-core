@@ -45,10 +45,8 @@ class Task06 {
             return "Player 1: " + tanksKilledFirstPlayer * KILL_POINT + ". Player 2: " + tanksKilledSecondPlayer * KILL_POINT;
         } else if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
             return "Player 1: " + (tanksKilledFirstPlayer * KILL_POINT + BONUS_POINT) + ". Player 2: " + tanksKilledSecondPlayer * KILL_POINT;
-        } else
+        } else {
             return "Player 1: " + tanksKilledFirstPlayer * KILL_POINT + ". Player 2: " + (tanksKilledSecondPlayer * KILL_POINT + BONUS_POINT);
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        //return null;
+        }
     }
 }
