@@ -31,8 +31,32 @@ class Task05 {
      * @return месяц на английском языке (UPPER CASE)
      */
     static String getMonthName(byte monthNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        switch (monthNumber) {
+            case 1:
+                return "January";
+            case 2:
+                return "February";
+            case 3:
+                return "March";
+            case 4:
+                return "April";
+            case 5:
+                return "May";
+            case 6:
+                return "June";
+            case 7:
+                return "July";
+            case 8:
+                return "August";
+            case 9:
+                return "September";
+            case 10:
+                return "October";
+            case 11:
+                return "November";
+            case 12:
+                return "December";
+        }
         return null;
     }
 }
