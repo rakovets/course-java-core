@@ -34,8 +34,12 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        String amountWithAccountingFormat = "";
+        String start = "";
+        while (amount/1000 != 0){
+
+            amountWithAccountingFormat += amount%1000 + " ";
+        }
         return null;
     }
 }
