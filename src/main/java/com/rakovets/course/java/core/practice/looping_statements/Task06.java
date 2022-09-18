@@ -34,8 +34,16 @@ class Task06 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        final int FULL_PERCENT = 100;
+        double actualDistance = startDistance;
+        double totalRun = 0.0;
+
+        while (actualDistance < finishDistance && actualDistance > 0) {
+            double progressForDay = actualDistance * (dailyProgressAsPercentage / FULL_PERCENT);
+            actualDistance += progressForDay;
+            totalRun += actualDistance;
+        }
+
+        return (double) Math.round(totalRun * 100) / 100;
     }
 }
