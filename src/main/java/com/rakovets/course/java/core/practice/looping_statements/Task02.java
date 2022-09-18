@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.example.generics.model.restrict.D;
+
 /**
  * Разработать программу для банка.
  *
@@ -32,8 +34,22 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double _totalDepositAmount = depositAmount;
+        final double DEGREE_OF_ROUNDING = 2;
+        for (int i =0; i < depositTerm; i++) {
+            _totalDepositAmount += _totalDepositAmount * annualDepositPercent / 100;
+        }
+        // Start rounding float value with accuracy till DEGREE_OF_ROUNDING after coma;
+        _totalDepositAmount *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
+        long result = (long) _totalDepositAmount;
+        if ((result % 10) < 5) {
+            result /=10;
+        } else {
+            result /= 10;
+            result ++;
+        }
+        _totalDepositAmount = result / (Math.pow(10, DEGREE_OF_ROUNDING));
+        return _totalDepositAmount;
     }
+
 }
