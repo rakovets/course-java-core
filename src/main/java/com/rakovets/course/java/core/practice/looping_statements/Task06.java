@@ -15,8 +15,8 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startDistance = 1000;
-        int finishDistance = 40000;
+        int startDistance = 13;
+        int finishDistance = 20;
         double dailyProgress = 5.0;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
@@ -34,8 +34,27 @@ class Task06 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double _totalDistance = 0;
+        double _dayDistance = (double) startDistance;
+        final int DEGREE_OF_ROUNDING = 2;
+        if (startDistance > 0) {
+            do {
+                _dayDistance += _dayDistance * (dailyProgressAsPercentage / 100);
+                _totalDistance += _dayDistance;
+            } while ((int) _dayDistance < finishDistance);
+            // make rounding value of _totalDistance
+            _totalDistance *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
+            long result = (long) _totalDistance;
+            if ((result % 10) < 5) {
+                result /=10;
+            } else {
+                result /= 10;
+                result ++;
+            }
+            _totalDistance = result / (Math.pow(10, DEGREE_OF_ROUNDING));
+        } else {
+            _totalDistance = 0;
+        }
+        return _totalDistance;
     }
 }
