@@ -1,11 +1,15 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для банка.
  *
  * @author Dmitry Rakovets
  */
 class Task02 {
+
+    final private static int One_Hundred_Percent = 100;
     /**
      * The entry point of the task
      *
@@ -22,7 +26,6 @@ class Task02 {
         double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
         System.out.printf("Result: %f", totalDepositAmount);
     }
-
     /**
      * Рассчитывает прибыль, которую получит клиент по вкладу с ежегодным перерасчетом (сложный процент).
      *
@@ -32,8 +35,12 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+
+        double percent = depositAmount;
+
+        for (int i = 0; i < depositTerm; i++) {
+            percent += percent / One_Hundred_Percent * annualDepositPercent;
+        }
+        return NumberUtil.roundValueToTwoDigitsForMantissa(percent);
     }
 }

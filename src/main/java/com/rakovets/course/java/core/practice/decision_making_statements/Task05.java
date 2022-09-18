@@ -9,6 +9,9 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * @author Dmitry Rakovets
  */
 class Task05 {
+
+    public static final String[] month = {"", "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY",
+                                         "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
     /**
      * The entry point of the task
      *
@@ -31,8 +34,10 @@ class Task05 {
      * @return месяц на английском языке (UPPER CASE)
      */
     static String getMonthName(byte monthNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        if (monthNumber <= 0 || monthNumber > 12){
+            return null;
+        }
+        return month[monthNumber];
     }
 }

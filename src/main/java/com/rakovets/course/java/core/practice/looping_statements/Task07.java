@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.looping_statements;
+import com.rakovets.course.java.core.util.NumberUtil;
 
 /**
  * Разработать программу для сети оптовых гипермаркетов.
@@ -24,10 +25,10 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 2;
-        double startPriceAllItems = 2.0;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startNumberItems = 100;
+        double startPriceAllItems = 1.15;
+        int differentialNumberItems = 1;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -45,8 +46,18 @@ class Task07 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        StringBuilder totalPriceList = new StringBuilder();
+        double costOfOneItem = startPriceAllItems / startNumberItems;
+
+        for (int i = 0; i < sizeTotalPrice; i++) {
+            totalPriceList.append(startNumberItems).append(" - ")
+                    .append(NumberUtil.roundValueToTwoDigitsForMantissa(startPriceAllItems))
+                    .append("\n");
+            startPriceAllItems += costOfOneItem * differentialNumberItems;
+            startNumberItems += differentialNumberItems;
+        }
+        totalPriceList.deleteCharAt(totalPriceList.length() - 1);
+        return totalPriceList.toString();
     }
 }
