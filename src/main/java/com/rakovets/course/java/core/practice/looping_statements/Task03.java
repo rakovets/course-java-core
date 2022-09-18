@@ -34,8 +34,10 @@ class Task03 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double _helthPointsByTime = (double) healthPoints;
+        for (int i =0; i < hoursAfterRespawn; i++) {
+            _helthPointsByTime += _helthPointsByTime * regenerationPercentFromCurrentHealth / 100;
+        }
+        return (int) _helthPointsByTime;
     }
 }
