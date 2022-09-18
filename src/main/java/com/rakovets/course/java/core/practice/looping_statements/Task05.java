@@ -32,8 +32,21 @@ class Task05 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String numbersColumn = new String();
+        int counter = 1;
+
+        if (isEnableHeaderRow) {
+            numbersColumn += "\n";
+            for (int i = 1; i < numberRows - counter; i++) {
+                numbersColumn += i + "\n";
+            }
+            numbersColumn += numberRows - counter;
+        } else {
+            for (int i = 1; i < numberRows; i++) {
+                numbersColumn += i + "\n";
+            }
+            numbersColumn += numberRows;
+        }
+        return numbersColumn;
     }
 }

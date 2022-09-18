@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +26,11 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3.0;
-        int differentialNumberItems = 5;
-        double differentialSell = 4.0;
-        int sizeTotalPrice = 6;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 3;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -49,8 +51,24 @@ class Task08 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double totalSell = 0.0;
+        String totalPriceList = startNumberItems + " - " + startPriceAllItems + " with sell " + totalSell + "%\n";
+        int initialNumberOfItems = startNumberItems;
+        double pricePerProduct = startPriceAllItems / startNumberItems;
+        int counter = 1;
+        final double COUNTER_PERCENT = 100.0;
+
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            initialNumberOfItems += differentialNumberItems;
+            totalSell += differentialSell;
+            startPriceAllItems = pricePerProduct * initialNumberOfItems;
+            double discountPrice = NumberUtil.roundValueToTwoDigitsForMantissa(startPriceAllItems - startPriceAllItems * totalSell / COUNTER_PERCENT);
+            totalPriceList += initialNumberOfItems + " - " + discountPrice + " with sell " + totalSell + "%";
+
+            if (i < sizeTotalPrice - counter) {
+                totalPriceList += "\n";
+            }
+        }
+        return totalPriceList;
     }
 }
