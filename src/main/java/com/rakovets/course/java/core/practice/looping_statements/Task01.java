@@ -29,6 +29,7 @@ class Task01 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows) {
+
         StringBuilder numbersColumn =  new StringBuilder("1");
         for (int i = 2; i <= numberRows; i++) {
             numbersColumn.append("\n").append(i);
