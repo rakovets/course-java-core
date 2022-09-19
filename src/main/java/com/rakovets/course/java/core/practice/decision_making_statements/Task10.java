@@ -39,9 +39,9 @@ class Task10 {
 
         if (firstFuelReserves < secondFuelReserves && firstFuelReserves < thirdFuelReserves) {
             firstToFuel = 1;
-        } else if (secondFuelReserves < firstFuelReserves && secondFuelReserves < thirdFuelReserves) {
+        } else if (secondFuelReserves < firstFuelReserves && secondFuelReserves <= thirdFuelReserves) {
             firstToFuel = 2;
-        } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
+        } else if (thirdFuelReserves < firstFuelReserves) {
             firstToFuel = 3;
         } else {
             firstToFuel = 1;
