@@ -31,7 +31,7 @@ class Task05 {
      * @return месяц на английском языке (UPPER CASE)
      */
     static String getMonthName(byte monthNumber) {
-        String monthName = "";
+        String monthName = null;
 
         switch (monthNumber) {
             case 1:
