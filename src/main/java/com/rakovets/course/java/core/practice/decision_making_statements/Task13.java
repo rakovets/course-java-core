@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
 /**
  * Разработать программу для сервиса доставки.
  * <p>
- * Определить номер этажа дома для текущего клиента.
+ * Определить номер этжа дома для текущего клиента.
  */
 class Task13 {
     /**
@@ -32,8 +32,14 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (apartmentNumber >= 1) {
+            if (apartmentNumber % (numberFloors * numberApartmentsPerFloor) == 0) {
+                return numberFloors;
+            } else if ((apartmentNumber % (numberFloors * numberApartmentsPerFloor)) % numberApartmentsPerFloor != 0) {
+                return (apartmentNumber % (numberFloors * numberApartmentsPerFloor)) / numberApartmentsPerFloor + 1;
+            } else
+                return (apartmentNumber % (numberFloors * numberApartmentsPerFloor) / numberApartmentsPerFloor);
+        }
         return 0;
     }
 }
