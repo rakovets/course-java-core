@@ -23,7 +23,7 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumber = 0;
+        int startNumber = 2;
         int finishNumber = 50;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
@@ -38,8 +38,19 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int _primeNumber = 0; // I'm sorry, solution is not optimal, leak of time
+        for (int i = finishNumber; i > startNumber; i--) {
+            boolean isPrime = true;
+            for (int j = i; j > 2; j--) {
+                int restOfDividing = i % (j-1);
+                if (restOfDividing == 0) {
+                    isPrime = false;
+                }
+            }
+            if (isPrime) {
+                _primeNumber++;
+            }
+        }
+        return _primeNumber;
     }
 }
