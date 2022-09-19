@@ -28,8 +28,13 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int sec = playingTimeInSeconds % 60;
+        int m = playingTimeInSeconds / 60;
+        int min = m % 60;
+        int h = m / 60;
+        int hour = h % 24;
+        int day = h / 24;
+        String time = day + " " + hour + ":" + min + ":" + sec;
+        return time;
     }
 }
