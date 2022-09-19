@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+
+
 /**
  * Разработать программу для математического калькулятора, которая находит количество простых чисел в промежутке.
  *
@@ -24,7 +26,7 @@ class Task10 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int startNumber = 0;
-        int finishNumber = 50;
+        int finishNumber = 10;
 
         int countPrimeNumber = countPrimeNumber(startNumber, finishNumber);
         System.out.printf("Result:\n%d", countPrimeNumber);
@@ -38,8 +40,26 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int countPrimeNumber = 0;
+        int rezult = 0;
+        for (int i = finishNumber; i >= startNumber; i--) {
+            if (i == 0 || i == 1) {
+                continue;
+            }
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    rezult++;
+                }
+            }
+            if (rezult == 0) {
+                countPrimeNumber++;
+            } else {
+                rezult = 0;;
+            }
+        }
+        return countPrimeNumber;
     }
 }
+
+
+

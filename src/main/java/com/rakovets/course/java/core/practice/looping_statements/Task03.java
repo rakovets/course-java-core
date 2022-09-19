@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import static java.text.NumberFormat.Field.PERCENT;
+
 /**
  * Разработать программу для игрового движка.
  * Спрогнозировать какое количество HP будет у RaidBoss (RB), который имеет неограниченное количество HP и регенерацию,
@@ -16,11 +18,10 @@ class Task03 {
     public static void main(String[] args) {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
+        // аргументов. Типы данных изменять нельзя;
         int healthPoints = 1000;
         double regenerationPercentFromCurrentHealth = 100.0;
         int hoursAfterRespawn = 10;
-
         int featureHealthPoint = calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
         System.out.printf("Result: %d", featureHealthPoint);
     }
@@ -34,8 +35,11 @@ class Task03 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        final double PERCENT = 100;
+        double featureHealthPoint = healthPoints;
+        for (int i = 0; i < hoursAfterRespawn ; i++) {
+            featureHealthPoint += (featureHealthPoint * regenerationPercentFromCurrentHealth) / PERCENT;
+        }
+        return (int) featureHealthPoint;
     }
 }
