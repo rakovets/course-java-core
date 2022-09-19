@@ -23,17 +23,20 @@ class Task09 {
         System.out.printf("Result: %s", porchNumber);
     }
 
-    /**
-     * Определяет номер подъезда дома для текущего клиента.
-     *
+    /*
+     * Определяет нмер подъезда дома для текущего клиента.
+
      * @param numberFloors             количество этажей
      * @param numberApartmentsPerFloor количество квартир на этаже
      * @param apartmentNumber          номер квартиры
      * @return номер подъезда
      */
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (apartmentNumber >= 1) {
+            if (apartmentNumber % (numberApartmentsPerFloor * numberFloors) == 0) {
+                return apartmentNumber / (numberApartmentsPerFloor * numberFloors);
+            } else return apartmentNumber / (numberApartmentsPerFloor * numberFloors) + 1;
+        }
         return 0;
     }
 }
