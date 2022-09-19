@@ -40,13 +40,13 @@ class Task11 {
     static String getSymbolType(char symbol) {
         String unicodeChart;
 
-        if ((int) symbol >= 65529 && (int) symbol <= 65333) {
+        if ((int) symbol >= '\uFFF9' && (int) symbol <= '�') {
             unicodeChart = "special";
-        } else if ((int) symbol >= 65 && (int) symbol <= 90 || (int) symbol >= 97 && (int) symbol <= 122) {
+        } else if ((int) symbol >= 'A' && (int) symbol <= 'Z' || (int) symbol >= 'a' && (int) symbol <= 'z') {
             unicodeChart = "latin";
-        } else if ((int) symbol >= 1024 && (int) symbol <= 1273) {
+        } else if ((int) symbol >= 'Ѐ' && (int) symbol <= 'ӹ') {
             unicodeChart = "cyrillic";
-        } else if ((int) symbol >= 48 && (int) symbol <= 57) {
+        } else if ((int) symbol >= '0' && (int) symbol <= '9') {
             unicodeChart = "digit";
         } else {
             unicodeChart = "undefined";
