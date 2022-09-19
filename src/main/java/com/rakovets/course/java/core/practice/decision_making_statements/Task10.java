@@ -15,9 +15,9 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int firstFuelReserves = 100;
+        int firstFuelReserves = 50;
         int secondFuelReserves = 50;
-        int thirdFuelReserves = 70;
+        int thirdFuelReserves = 50;
 
         int numberStation = getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
         System.out.printf("Result: %s", numberStation);
@@ -32,11 +32,23 @@ class Task10 {
      * @param firstFuelReserves  запасы топлива на первой заправке
      * @param secondFuelReserves запасы топлива на второй заправке
      * @param thirdFuelReserves  запасы топлива на третьей заправке
-     * @return номер заправки.
+     * @return номр заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        if (firstFuelReserves < thirdFuelReserves) {
+            if (firstFuelReserves < secondFuelReserves || firstFuelReserves == secondFuelReserves) {
+                return 1;
+            } else if (firstFuelReserves < secondFuelReserves && firstFuelReserves == thirdFuelReserves) {
+                return 1;
+            }
+        } else if (secondFuelReserves < firstFuelReserves) {
+            if (secondFuelReserves < thirdFuelReserves || secondFuelReserves == thirdFuelReserves) {
+                return 2;
+            } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
+                return 3;
+            }
+        }
+        return 1;
     }
 }
+
