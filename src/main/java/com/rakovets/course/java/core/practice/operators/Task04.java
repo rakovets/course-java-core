@@ -17,9 +17,6 @@ class Task04 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         float milliseconds = 2000f;
 
         float distance = getDistance(milliseconds);
@@ -33,8 +30,8 @@ class Task04 {
      * @param milliseconds время (в миллисекундах) между срабатыванием датчика света и звука
      */
     static float getDistance(float milliseconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        float speed = (float) (SOUND_SPEED / 3.6);
+        float time = milliseconds / 1000;
+        return speed * time;
     }
 }

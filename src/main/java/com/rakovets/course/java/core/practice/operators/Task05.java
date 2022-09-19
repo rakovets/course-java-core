@@ -12,9 +12,6 @@ class Task05 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int height = 186;
         int weight = 86;
 
@@ -34,8 +31,6 @@ class Task05 {
      * @param weight - вес
      */
     static int calculateDeviationStandardWeight(int height, int weight) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return weight - (height - 110);
     }
 }

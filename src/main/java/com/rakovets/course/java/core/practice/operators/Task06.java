@@ -12,9 +12,6 @@ class Task06 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int playingTimeInSeconds = 4567;
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
@@ -28,8 +25,14 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int seconds = playingTimeInSeconds;
+        int day = seconds / 86400;
+        seconds = seconds - day * 86400;
+        int hours = seconds / 3600;
+        seconds = seconds - hours * 3600;
+        int minutes = seconds / 60;
+        seconds = seconds - minutes * 60;
+
+        return day + " " + hours + ":" + minutes + ":" + seconds;
     }
 }

@@ -12,9 +12,6 @@ class Task02 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int cargo = 1;
         int carryingCapacity = 2;
 
@@ -30,8 +27,6 @@ class Task02 {
      * @param carryingCapacity грузоподъемность грузовиков
      */
     static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return cargo % carryingCapacity;
     }
 }
