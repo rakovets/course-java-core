@@ -44,9 +44,12 @@ class Task06 {
         if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
             matchPoints = "Player 1: " + (tanksKilledFirstPlayer * KILL_POINT + BONUS_POINT) + ". Player 2: " +
                     (tanksKilledSecondPlayer * KILL_POINT);
-        } else {
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
             matchPoints = "Player 1: " + (tanksKilledFirstPlayer * KILL_POINT) + ". Player 2: " +
                     (tanksKilledSecondPlayer * KILL_POINT + BONUS_POINT);
+        } else {
+            matchPoints = "Player 1: " + (tanksKilledFirstPlayer * KILL_POINT) + ". Player 2: " +
+                    (tanksKilledSecondPlayer * KILL_POINT);
         }
 
         return matchPoints;
