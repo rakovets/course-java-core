@@ -32,12 +32,13 @@ class Task09 {
      * @return номер подъезда
      */
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        int porchNumber = 1;
         int apartmentsPerPorch = numberFloors * numberApartmentsPerFloor;
+        int porchNumber;
 
-        while (apartmentsPerPorch < apartmentNumber) {
-            porchNumber++;
-            apartmentsPerPorch += numberFloors * numberApartmentsPerFloor;
+        if (apartmentNumber % apartmentsPerPorch != 0) {
+            porchNumber = (apartmentNumber / apartmentsPerPorch) + 1;
+        } else {
+            porchNumber = apartmentNumber / apartmentsPerPorch;
         }
 
         return porchNumber;
