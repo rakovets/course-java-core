@@ -32,14 +32,18 @@ class Task11 {
     }
 
     /**
-     * Определяет к какому типу относится данный символ.
+     * Определяет к каому типу относится данный символ.
      *
      * @param symbol символ
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (symbol >= 'A' && symbol <= 'Z' || symbol >= 'a' && symbol <= 'z') {
+            return "latin";
+        } else if (symbol >= 'А' && symbol <= 'Я' || symbol >= 'а' && symbol <= 'я') {
+            return "cyrillic";
+        } else if (symbol >= '0' && symbol <= '9') {
+            return "digit";
+        } else return "undefined";
     }
 }
