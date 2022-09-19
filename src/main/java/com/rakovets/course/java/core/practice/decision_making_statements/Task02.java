@@ -36,15 +36,22 @@ class Task02 {
      */
     static String getGreetingByHour(int hour) {
         String helloWords;
+        int dayStart = 0;
+        int sunrise = 6;
+        int midnight = 24;
+        int midday = 12;
+        int sunset = 18;
 
-        if (hour <= 11 && hour >= 6) {
+        if (hour < midday && hour >= sunrise) {
             helloWords = "Good morning";
-        } else if (hour <= 17 && hour >= 12) {
+        } else if (hour < sunset && hour >= midday) {
             helloWords = "Good day";
-        } else if (hour <= 23 && hour >= 18) {
+        } else if (hour >= sunset && hour < midnight) {
             helloWords = "Good evening";
-        } else {
+        } else if (hour >= dayStart && hour < sunrise) {
             helloWords = "Good night";
+        } else {
+            helloWords = null;
         }
 
         return helloWords;
