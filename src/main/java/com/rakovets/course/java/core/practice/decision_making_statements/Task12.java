@@ -36,15 +36,63 @@ class Task12 {
     }
 
     /**
-     * Определяет знак зодиака.
+     * Определяет зак зодиака.
      *
      * @param day   число дня рождения
      * @param month месяц дня рождения
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        if (month == 1) {
+            if (day <= 20) {
+                return "goat";
+            } else return "Water-bearer";
+        } else if (month == 2) {
+            if (day <= 19) {
+                return "Water-bearer";
+            } else return "Fish";
+        } else if (month == 3) {
+            if (day <= 20) {
+                return "Fish";
+            } else return "Ram";
+        } else if (month == 4) {
+            if (day <= 20) {
+                return "Ram";
+            } else return "Bull";
+        } else if (month == 5) {
+            if (day <= 20) {
+                return "Bull";
+            } else return "Twins";
+        } else if (month == 6) {
+            if (day <= 21) {
+                return "Twins";
+            } else return "Crab";
+        } else if (month == 7) {
+            if (day <= 22) {
+                return "Crab";
+            } else return "Lion";
+        } else if (month == 8) {
+            if (day <= 22) {
+                return "Lion";
+            } else return "Maiden";
+        } else if (month == 9) {
+            if (day <= 21) {
+                return "Maiden";
+            } else return "Scales";
+        } else if (month == 10) {
+            if (day <= 22) {
+                return "Scales";
+            } else return "Scorpion";
+        } else if (month == 11) {
+            if (day <= 22) {
+                return "Scorpion";
+            } else return "Archer";
+        } else if (month == 12) {
+            if (day <= 21) {
+                return "Archer";
+            } else return "Goat";
+        }
+        return "Undefined";
     }
+
 }
