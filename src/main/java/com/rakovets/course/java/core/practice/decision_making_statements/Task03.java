@@ -38,7 +38,7 @@ class Task03 {
         double healthPrecent = (double) currentHealthPoint / (double) maxHealthPoint * 100.0;
         String colorHealthBar = null;
 
-        if (healthPrecent >= 0 && healthPrecent < 25) {
+        if (healthPrecent > 0 && healthPrecent < 25) {
             colorHealthBar = "RED";
         } else if (healthPrecent >= 25 && healthPrecent < 50) {
             colorHealthBar = "ORANGE";
