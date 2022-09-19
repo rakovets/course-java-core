@@ -17,7 +17,7 @@ class Task13 {
         // аргументов. Типы данных изменять нельзя
         int numberFloors = 9;
         int numberApartmentsPerFloor = 4;
-        int apartmentNumber = 68;
+        int apartmentNumber = 169;
 
         int floorNumber = getFloorNumber(numberFloors, numberApartmentsPerFloor, apartmentNumber);
         System.out.printf("Result: %s", floorNumber);
@@ -32,8 +32,23 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int apartmentsPerPorch = numberFloors * numberApartmentsPerFloor;
+        int porchNumber;
+        int apartmentsNumberInClientsPorch;
+        int floorNumber;
+
+        if (apartmentNumber % apartmentsPerPorch != 0) {
+            porchNumber = (apartmentNumber / apartmentsPerPorch) + 1;
+        } else {
+            porchNumber = apartmentNumber / apartmentsPerPorch;
+        }
+        apartmentsNumberInClientsPorch = apartmentNumber - (apartmentsPerPorch * (porchNumber - 1));
+        if (apartmentsNumberInClientsPorch % numberApartmentsPerFloor != 0) {
+            floorNumber = apartmentsNumberInClientsPorch / numberApartmentsPerFloor + 1;
+        } else {
+            floorNumber = apartmentsNumberInClientsPorch / numberApartmentsPerFloor;
+        }
+
+        return floorNumber;
     }
 }
