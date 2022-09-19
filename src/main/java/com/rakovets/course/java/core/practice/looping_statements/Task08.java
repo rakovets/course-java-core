@@ -49,8 +49,24 @@ class Task08 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int i = 0;
+        String _totalPriceList = startNumberItems + " - " + startPriceAllItems + " with sell " + (differentialSell * i) + "%"; // first row
+        double _itemPrice = startPriceAllItems / startNumberItems;  // price per each item
+        final int DEGREE_OF_ROUNDING = 2;
+        for (i = 1; i < sizeTotalPrice; i++) {
+            startNumberItems += differentialNumberItems;
+            startPriceAllItems = _itemPrice * startNumberItems * ((100 - differentialSell * i) / 100);
+            startPriceAllItems *= Math.pow(10, (DEGREE_OF_ROUNDING + 1)); // better make a rounding function
+            long result = (long) startPriceAllItems;
+            if ((result % 10) < 5) {
+                result /=10;
+            } else {
+                result /= 10;
+                result ++;
+            }
+            startPriceAllItems = result / (Math.pow(10, DEGREE_OF_ROUNDING));
+            _totalPriceList += "\n" + startNumberItems + " - " + startPriceAllItems + " with sell " + (differentialSell * i) + "%";
+        }
+        return _totalPriceList;
     }
 }
