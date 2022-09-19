@@ -8,7 +8,7 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  *     <li>в 1.5 раза больше урона по “UNDEAD” и “ZOMBIE”</li>
  *     <li>в 2 раза меньше урона по “SAINT”</li>
  *     <li>без изменений по “ANIMAL”, “HUMANOID”, “PLANT”, “GHOST”</li>
- * </ul>
+ *  * </ul>
  * Определить сколько урона нанесет оружие по данному типу моба (моб - персонаж в игре управляемый компьютером).
  */
 class Task08 {
@@ -29,7 +29,7 @@ class Task08 {
         System.out.printf("Result: %s", totalDamage);
     }
 
-    /**
+    /*
      * Определяет итоговый урон оружия для данного типу моба.
      *
      * @param damage           чистый урон оружия (без атрибута)
@@ -38,8 +38,13 @@ class Task08 {
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (hasHolyAttribute) {
+            if (typeMob == "SAINT") {
+                return damage / 2;
+            } else if (typeMob == "UNDEAD" || typeMob == "ZOMBIE") {
+                return damage + (damage / 2);
+            } else return damage;
+        }
         return 0;
     }
 }
