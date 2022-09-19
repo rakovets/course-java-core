@@ -20,7 +20,7 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500L;
+        long amount = -834563456234L;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -34,8 +34,22 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        long amountCopy = amount;
+        if (amountCopy < 0) {
+            amountCopy *= -1;
+        }
+        String number = String.valueOf(amountCopy);
+        int length = number.length() - 3;
+        String output = "";
+        output += String.valueOf(amountCopy % 1000);
+        amountCopy /= 1000;
+        for (int i = length; i > 0; i -= 3) {
+            output = (amountCopy % 1000) + " " + output;
+            amountCopy /= 1000;
+        }
+        if (amount < 0) {
+            output = "-" + output;
+        }
+        return output;
     }
 }
