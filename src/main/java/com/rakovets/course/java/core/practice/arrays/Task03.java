@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -33,9 +35,20 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        double[] averageMark = new double[marks.length];
+        int count;
+        int poz = 0;
+
+        for (int[] mark : marks) {
+            count = 0;
+            for (int i : mark) {
+                count += i;
+            }
+            averageMark[poz] = NumberUtil.roundValueToTwoDigitsForMantissa((double) count / mark.length);
+            poz++;
+        }
+        return averageMark;
     }
 
     /**
@@ -45,8 +58,7 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         return null;
     }
 

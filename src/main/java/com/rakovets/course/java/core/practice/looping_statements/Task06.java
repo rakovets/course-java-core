@@ -1,11 +1,15 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для фитнес браслета.
  *
  * @author Dmitry Rakovets
  */
 class Task06 {
+
+    final private static int One_Hundred_Percent = 100;
     /**
      * The entry point of the task
      *
@@ -15,8 +19,8 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startDistance = 1000;
-        int finishDistance = 40000;
+        int startDistance = 13;
+        int finishDistance = 20;
         double dailyProgress = 5.0;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
@@ -34,8 +38,20 @@ class Task06 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+
+        if (startDistance == 0){
+            return 0.0;
+        }
+        else {
+
+            double totalDistance = 0;
+            double dailyGrowth = startDistance;
+
+            while (dailyGrowth < finishDistance){
+                dailyGrowth += dailyGrowth /One_Hundred_Percent * dailyProgressAsPercentage;
+                totalDistance += dailyGrowth;
+            }
+            return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);
+        }
     }
 }

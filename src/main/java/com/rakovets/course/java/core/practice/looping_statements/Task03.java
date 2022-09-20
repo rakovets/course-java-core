@@ -8,6 +8,8 @@ package com.rakovets.course.java.core.practice.looping_statements;
  * @author Dmitry Rakovets
  */
 class Task03 {
+
+    final private static int One_Hundred_Percent = 100;
     /**
      * The entry point of the task
      *
@@ -17,9 +19,9 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 100.0;
-        int hoursAfterRespawn = 10;
+        int healthPoints = 100;
+        double regenerationPercentFromCurrentHealth = 25.0;
+        int hoursAfterRespawn = 5;
 
         int featureHealthPoint = calculateHealthPointsByTime(healthPoints, regenerationPercentFromCurrentHealth, hoursAfterRespawn);
         System.out.printf("Result: %d", featureHealthPoint);
@@ -34,8 +36,12 @@ class Task03 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double numberHealthPoints = healthPoints;
+
+        for (int i = 0; i < hoursAfterRespawn; i++) {
+            numberHealthPoints += numberHealthPoints / One_Hundred_Percent * regenerationPercentFromCurrentHealth;
+        }
+
+        return (int) numberHealthPoints;
     }
 }
