@@ -29,8 +29,31 @@ class Task04 {
      * @return день недели на английском языке (UPPER CASE)
      */
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String number = null;
+        switch (dayOfWeekNumber) {
+            case 1:
+                number = "MONDAY";
+                break;
+            case 2:
+                number = "THURSDAY";
+                break;
+            case 3:
+                number = "WEDNESDAY";
+                break;
+            case 4:
+                number = "THURSDAY";
+                break;
+            case 5:
+                number = "FRIDAY";
+                break;
+            case 6:
+                number = "SATURDAY";
+                break;
+            case 7:
+                number = "SUNDAY";
+                break;
+        }
+        return number;
+        }
     }
-}
+
