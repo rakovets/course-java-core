@@ -12,6 +12,10 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * Определить сколько урона нанесет оружие по данному типу моба (моб - персонаж в игре управляемый компьютером).
  */
 class Task08 {
+
+    public static final String[] Good = {"ANIMAL", "HUMANOID", "PLANT", "GHOST"};
+    public static final String[] Evil = {"UNDEAD", "ZOMBIE"};
+
     /**
      * The entry point of the task
      *
@@ -22,7 +26,7 @@ class Task08 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int damage = 100;
-        String typeMob = "SAINT";
+        String typeMob = "GHOST";
         boolean hasHolyAttribute = true;
 
         int totalDamage = getTotalDamage(damage, typeMob, hasHolyAttribute);
@@ -38,8 +42,29 @@ class Task08 {
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        int totalDamage = 0;
+
+        if (hasHolyAttribute) {
+            if (!typeMob.equals("SAINT")) {
+                for (String s : Good) {
+                    if (typeMob.equals(s)) {
+                        totalDamage = damage;
+                        return totalDamage;
+                    }
+                }
+                for (String s : Evil) {
+                    if (typeMob.equals(s)) {
+                        totalDamage = damage / 2 + damage;
+                        return totalDamage;
+                    }
+                }
+            } else {
+                totalDamage = damage / 2;
+            }
+        } else {
+            totalDamage = damage;
+        }
+        return totalDamage;
     }
 }

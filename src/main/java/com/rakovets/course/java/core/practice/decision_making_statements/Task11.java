@@ -38,8 +38,19 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String monthName = "";
+        if ((symbol >= (char) 65 && symbol <= (char) 90) || symbol >= (char) 97 && symbol <= (char) 122) {
+            monthName = "latin";
+        } else if (symbol >= (char) 48 && symbol <= (char) 57) {
+            monthName = "digit";
+        } else if (symbol >= (char) 32 && symbol <= (char) 47 ||
+                symbol >= (char) 58 && symbol <= (char) 64 || symbol >= (char) 91 && symbol <= (char) 96
+                || symbol >= (char) 123 && symbol <= (char) 127) {
+            monthName = "undefined";
+        } else {
+            monthName = "cyrillic";
+        }
+        return monthName;
     }
 }
