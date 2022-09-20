@@ -32,31 +32,23 @@ class Task04 {
 
         String nameWeekday;
 
-        switch (dayOfWeekNumber) {
-            case 1:
-                nameWeekday = "MONDAY";
+            switch (dayOfWeekNumber){
+                case 1: nameWeekday = "MONDAY";
                 break;
-            case 2:
-                nameWeekday = "TUESDAY";
+                case 2: nameWeekday = "TUESDAY";
                 break;
-            case 3:
-                nameWeekday = "WEDNESDAY";
+                case 3: nameWeekday = "WEDNESDAY";
                 break;
-            case 4:
-                nameWeekday = "THURSDAY";
+                case 4: nameWeekday = "THURSDAY";
                 break;
-            case 5:
-                nameWeekday = "FRIDAY";
+                case 5: nameWeekday = "FRIDAY";
                 break;
-            case 6:
-                nameWeekday = "SATURDAY";
+                case 6: nameWeekday = "SATURDAY";
                 break;
-            case 7:
-                nameWeekday = "SUNDAY";
+                case 7: nameWeekday = "SUNDAY";
                 break;
-            default:
-                return null;
-        }
+                default: return null;
+            }
 
         return nameWeekday;
     }

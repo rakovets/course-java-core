@@ -11,8 +11,7 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
 class Task05 {
 
     public static final String[] month = {"", "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY",
-            "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
-
+                                         "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
     /**
      * The entry point of the task
      *
@@ -36,7 +35,7 @@ class Task05 {
      */
     static String getMonthName(byte monthNumber) {
 
-        if (monthNumber <= 0 || monthNumber > 12) {
+        if (monthNumber <= 0 || monthNumber > 12){
             return null;
         }
         return month[monthNumber];

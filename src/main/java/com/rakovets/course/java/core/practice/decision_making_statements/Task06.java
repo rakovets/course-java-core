@@ -43,13 +43,14 @@ class Task06 {
         int pointFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
         int pointSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
 
-        if (tanksKilledFirstPlayer != tanksKilledSecondPlayer) {
-            if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+        if (tanksKilledFirstPlayer != tanksKilledSecondPlayer){
+            if (tanksKilledFirstPlayer > tanksKilledSecondPlayer){
                 pointFirstPlayer += BONUS_POINT;
-            } else {
+            }
+            else {
                 pointSecondPlayer += BONUS_POINT;
             }
         }
-        return "Player 1: " + pointFirstPlayer + ". " + "Player 2: " + pointSecondPlayer;
+        return "Player 1: " +  pointFirstPlayer + ". " + "Player 2: " + pointSecondPlayer;
     }
 }

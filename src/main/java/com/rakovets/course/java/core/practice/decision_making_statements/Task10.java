@@ -38,17 +38,21 @@ class Task10 {
 
         int numberStation;
 
-        if (firstFuelReserves <= secondFuelReserves) {
-            if (secondFuelReserves <= thirdFuelReserves) {
-                numberStation = 1;
-            } else if (thirdFuelReserves < firstFuelReserves) {
-                numberStation = 3;
-            } else {
+        if (firstFuelReserves <= secondFuelReserves){
+            if (secondFuelReserves <= thirdFuelReserves){
                 numberStation = 1;
             }
-        } else if (secondFuelReserves <= thirdFuelReserves) {
+            else if (thirdFuelReserves < firstFuelReserves){
+                numberStation = 3;
+            }
+            else {
+                numberStation = 1;
+            }
+        }
+        else if(secondFuelReserves <= thirdFuelReserves){
             numberStation = 2;
-        } else {
+        }
+        else {
             numberStation = 3;
         }
         return numberStation;
