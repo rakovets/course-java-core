@@ -36,12 +36,11 @@ class Task09 {
         int porchNumber = 0;
         int numberApartmentsPerPorch = numberFloors * numberApartmentsPerFloor;
 
-        if (apartmentNumber > numberApartmentsPerPorch){
-            if (apartmentNumber % numberApartmentsPerPorch != 0){
+        if (apartmentNumber > numberApartmentsPerPorch) {
+            if (apartmentNumber % numberApartmentsPerPorch != 0) {
                 porchNumber = apartmentNumber / numberApartmentsPerPorch + 1;
             }
-        }
-        else {
+        } else {
             porchNumber = 1;
         }
         return porchNumber;

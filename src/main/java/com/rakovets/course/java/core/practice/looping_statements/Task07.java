@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.looping_statements;
+
 import com.rakovets.course.java.core.util.NumberUtil;
 
 /**

@@ -19,6 +19,7 @@ import com.rakovets.course.java.core.util.NumberUtil;
 class Task08 {
 
     final private static int One_Hundred_Percent = 100;
+
     /**
      * The entry point of the task
      *

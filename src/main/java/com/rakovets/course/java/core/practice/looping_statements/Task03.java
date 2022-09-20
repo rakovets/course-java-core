@@ -10,6 +10,7 @@ package com.rakovets.course.java.core.practice.looping_statements;
 class Task03 {
 
     final private static int One_Hundred_Percent = 100;
+
     /**
      * The entry point of the task
      *
@@ -36,6 +37,7 @@ class Task03 {
      * @return количество HP
      */
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
+
         double numberHealthPoints = healthPoints;
 
         for (int i = 0; i < hoursAfterRespawn; i++) {

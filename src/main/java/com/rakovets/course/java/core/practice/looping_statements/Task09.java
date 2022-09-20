@@ -38,13 +38,13 @@ class Task09 {
         String temporary = Long.toString(amount);
         StringBuilder amountWithAccountingFormat = new StringBuilder();
         long count = 0;
-        if (amount < 0){
+        if (amount < 0) {
             amountWithAccountingFormat = new StringBuilder(temporary.replace("-", ""));
             amount = Long.parseLong(amountWithAccountingFormat.toString());
             amountWithAccountingFormat = new StringBuilder();
 
             for (long i = 0; i < temporary.length() - 1; i++) {
-                if (count % 3 == 0 && count != 0){
+                if (count % 3 == 0 && count != 0) {
                     amountWithAccountingFormat.append(" ");
                 }
                 amountWithAccountingFormat.append(amount % 10);
@@ -52,10 +52,9 @@ class Task09 {
                 count++;
             }
             amountWithAccountingFormat.append("-");
-        }
-        else {
+        } else {
             for (long i = 0; i < temporary.length(); i++) {
-                if (count % 3 == 0 && count != 0){
+                if (count % 3 == 0 && count != 0) {
                     amountWithAccountingFormat.append(" ");
                 }
                 amountWithAccountingFormat.append(amount % 10);

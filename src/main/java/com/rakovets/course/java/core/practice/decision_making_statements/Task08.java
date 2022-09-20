@@ -15,6 +15,7 @@ class Task08 {
 
     public static final String[] Good = {"ANIMAL", "HUMANOID", "PLANT", "GHOST"};
     public static final String[] Evil = {"UNDEAD", "ZOMBIE"};
+
     /**
      * The entry point of the task
      *
@@ -44,8 +45,8 @@ class Task08 {
 
         int totalDamage = 0;
 
-        if (hasHolyAttribute){
-            if (!typeMob.equals("SAINT")){
+        if (hasHolyAttribute) {
+            if (!typeMob.equals("SAINT")) {
                 for (String s : Good) {
                     if (typeMob.equals(s)) {
                         totalDamage = damage;
@@ -58,12 +59,10 @@ class Task08 {
                         return totalDamage;
                     }
                 }
-            }
-            else {
+            } else {
                 totalDamage = damage / 2;
             }
-        }
-        else {
+        } else {
             totalDamage = damage;
         }
         return totalDamage;

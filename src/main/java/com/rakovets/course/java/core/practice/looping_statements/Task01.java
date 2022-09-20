@@ -30,7 +30,8 @@ class Task01 {
      */
     static String generateNumbersColumn(int numberRows) {
 
-        StringBuilder numbersColumn =  new StringBuilder("1");
+        StringBuilder numbersColumn = new StringBuilder("1");
+
         for (int i = 2; i <= numberRows; i++) {
             numbersColumn.append("\n").append(i);
         }

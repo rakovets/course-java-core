@@ -9,6 +9,7 @@ package com.rakovets.course.java.core.practice.looping_statements;
 class Task04 {
 
     final private static int One_Hundred_Percent = 100;
+
     /**
      * The entry point of the task
      *
@@ -35,14 +36,15 @@ class Task04 {
      * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
      */
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
+
         int hourOfDeath = 0;
         double respawnPercentage = healthPoints;
 
         while (respawnPercentage > 0) {
             respawnPercentage += respawnPercentage / One_Hundred_Percent * regenerationPercentPerHour;
-            respawnPercentage = respawnPercentage - (double)averageDamagePerHour;
+            respawnPercentage = respawnPercentage - (double) averageDamagePerHour;
             hourOfDeath++;
-            if (hourOfDeath > 24){
+            if (hourOfDeath > 24) {
                 return -1;
             }
         }

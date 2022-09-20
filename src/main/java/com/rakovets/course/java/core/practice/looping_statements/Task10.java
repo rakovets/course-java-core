@@ -42,14 +42,14 @@ class Task10 {
         int count;
         int countPrimeNumber = 0;
 
-        for (int i = startNumber; i <= finishNumber ; i++) {
+        for (int i = startNumber; i <= finishNumber; i++) {
             count = 0;
             for (int j = 1; j <= finishNumber; j++) {
-                if (i % j == 0 && i != 1){
+                if (i % j == 0 && i != 1) {
                     count++;
                 }
             }
-            if (count == 2){
+            if (count == 2) {
                 countPrimeNumber++;
             }
         }

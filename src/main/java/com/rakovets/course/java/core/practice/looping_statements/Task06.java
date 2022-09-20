@@ -10,6 +10,7 @@ import com.rakovets.course.java.core.util.NumberUtil;
 class Task06 {
 
     final private static int One_Hundred_Percent = 100;
+
     /**
      * The entry point of the task
      *
@@ -39,16 +40,15 @@ class Task06 {
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
 
-        if (startDistance == 0){
+        if (startDistance == 0) {
             return 0.0;
-        }
-        else {
+        } else {
 
             double totalDistance = 0;
             double dailyGrowth = startDistance;
 
-            while (dailyGrowth < finishDistance){
-                dailyGrowth += dailyGrowth /One_Hundred_Percent * dailyProgressAsPercentage;
+            while (dailyGrowth < finishDistance) {
+                dailyGrowth += dailyGrowth / One_Hundred_Percent * dailyProgressAsPercentage;
                 totalDistance += dailyGrowth;
             }
             return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);

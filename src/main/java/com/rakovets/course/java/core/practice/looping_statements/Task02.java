@@ -10,6 +10,7 @@ import com.rakovets.course.java.core.util.NumberUtil;
 class Task02 {
 
     final private static int One_Hundred_Percent = 100;
+
     /**
      * The entry point of the task
      *
@@ -26,6 +27,7 @@ class Task02 {
         double totalDepositAmount = getTotalDepositAmount(depositAmount, annualDepositPercent, depositTerm);
         System.out.printf("Result: %f", totalDepositAmount);
     }
+
     /**
      * Рассчитывает прибыль, которую получит клиент по вкладу с ежегодным перерасчетом (сложный процент).
      *
