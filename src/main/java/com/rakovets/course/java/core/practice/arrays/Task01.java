@@ -15,7 +15,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int[] marks = {1, 2, 3, 4, 5, 6};
+        int[] marks = {6, 5, 4, 3, 2, 1};
 
         double averageMark = getAverageMark(marks);
         System.out.printf("Average mark: %f\n", averageMark);
@@ -32,9 +32,23 @@ class Task01 {
      * @return средняя арифметическая отметка
      */
     static double getAverageMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        int lengthOfArroy = marks.length;
+        double averageMark = 0;
+        int DEGREE_OF_ROUNDING = 2;
+        for (int i = 0; i < lengthOfArroy; i++) {
+             averageMark += marks[i];
+        }
+        averageMark /= lengthOfArroy;
+        averageMark *= Math.pow(10, (DEGREE_OF_ROUNDING + 1)); // better make a rounding function
+        long  averageMarkRounding = (long) averageMark;
+        if ((averageMarkRounding % 10) < 5) {
+            averageMarkRounding /=10;
+        } else {
+            averageMarkRounding /= 10;
+            averageMarkRounding ++;
+        }
+        averageMark = averageMarkRounding / (Math.pow(10, DEGREE_OF_ROUNDING));
+        return averageMark;
     }
 
     /**
@@ -44,9 +58,14 @@ class Task01 {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int length = marks.length;
+        int minMark = marks[0];
+        for (int i = 0; i < (length); i++) {
+            if (marks[i] < minMark) {
+                minMark = marks[i];
+            }
+        }
+        return minMark;
     }
 
     /**
@@ -56,8 +75,13 @@ class Task01 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int length = marks.length;
+        int maxMark = marks[0];
+        for (int i = 0; i < (length); i++) {
+            if (marks[i] > maxMark) {
+                maxMark = marks[i];
+            }
+        }
+        return maxMark;
     }
 }
