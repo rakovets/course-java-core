@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -45,8 +48,18 @@ class Task07 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+       String finalPriceList = startNumberItems + " - " + startPriceAllItems;
+       double priceForOne = startPriceAllItems / startNumberItems;
+       double followingPrice = 0;
+
+       for (int a = 1; a < sizeTotalPrice; a++ ) {
+           startNumberItems += differentialNumberItems;
+           followingPrice = startNumberItems * priceForOne;
+           followingPrice = BigDecimal.valueOf(followingPrice)
+                   .setScale(2, RoundingMode.HALF_UP)
+                   .doubleValue();
+           finalPriceList += "\n" + startNumberItems + " - " + followingPrice;
+       }
+        return finalPriceList;
     }
 }

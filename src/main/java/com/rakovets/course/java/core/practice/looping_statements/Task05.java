@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import java.util.Locale;
+
 /**
  * Разработать программу для табличного процессора.
  * Программа генерирует порядковые номера для записей при создании таблицы.
@@ -32,8 +34,20 @@ class Task05 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = "";
+        int a = 1;
+
+        if (isEnableHeaderRow == true) {
+            result = "\n" + 1 + "\n";
+            numberRows--;
+        } else {
+            result = 1 + "\n";
+        }
+        while (a < numberRows - 1) {
+            a++;
+            result += a + "\n";
+        }
+        result += numberRows;
+        return result;
     }
 }

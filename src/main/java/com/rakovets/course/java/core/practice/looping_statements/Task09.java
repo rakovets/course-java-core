@@ -34,8 +34,21 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String accountFormat = "";
+        boolean minus = amount < 0 ? true: false;
+        long rightSide = 0;
+        rightSide = Math.abs(amount % 1000) ;
+        amount /= 1000;
+        accountFormat = Long.toString(rightSide);
+
+        while (amount % 1000 != 0) {
+            rightSide = Math.abs(amount % 1000);
+            amount /= 1000;
+            accountFormat = rightSide + " " + accountFormat;
+        }
+        if (minus == true) {
+            accountFormat = "-" + accountFormat;
+        }
+        return accountFormat;
     }
 }
