@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import jdk.jfr.Percentage;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -18,7 +20,7 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 10;
+        int currentHealthPoint = 50;
         int maxHealthPoint = 100;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
@@ -35,8 +37,19 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double ratioBetweenMaxAndCurrent = (double) currentHealthPoint / maxHealthPoint * 100 ;
+        System.out.println(ratioBetweenMaxAndCurrent);
+
+         if (ratioBetweenMaxAndCurrent > 0 && ratioBetweenMaxAndCurrent < 25) {
+           return "RED";
+        } else if (ratioBetweenMaxAndCurrent >= 25 && ratioBetweenMaxAndCurrent < 50) {
+           return "ORANGE";
+       } else if (ratioBetweenMaxAndCurrent >= 50 && ratioBetweenMaxAndCurrent < 75) {
+            return "YELLOW";
+       } else if (ratioBetweenMaxAndCurrent >= 75 && ratioBetweenMaxAndCurrent <= 100) {
+            return "GREEN";
+        } else {
+            return null;
+        }
     }
 }

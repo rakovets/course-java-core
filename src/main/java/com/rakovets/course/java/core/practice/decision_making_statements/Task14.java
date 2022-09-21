@@ -29,7 +29,7 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 1989;
+        int year = 2002;
 
         String monthName = getZodiacYearName(year);
         System.out.printf("Result: %s", monthName);
@@ -42,8 +42,48 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String nameOfTheYear = null;
+        int yearNumber = year - year / 12 * 12;
+        System.out.println(yearNumber);
+        switch (yearNumber) {
+            case 1:
+                nameOfTheYear = "Rooster";
+                break;
+            case 2:
+                nameOfTheYear = "Dog";
+                break;
+            case 3:
+                nameOfTheYear = "Pig";
+                break;
+            case 4:
+                nameOfTheYear = "Rat";
+                break;
+            case 5:
+                nameOfTheYear = "Ox";
+                break;
+            case 6:
+                nameOfTheYear = "Tiger";
+                break;
+            case 7:
+               nameOfTheYear = "Rabbit";
+                break;
+            case 8:
+                nameOfTheYear = "Dragon";
+                break;
+            case 9:
+                nameOfTheYear = "Snake";
+                break;
+            case 10:
+               nameOfTheYear = "Horse";
+                break;
+            case 11:
+                nameOfTheYear = "Ram";
+                break;
+            case 0:
+                nameOfTheYear = "Monkey";
+                break;
+        }
+        return nameOfTheYear;
     }
 }

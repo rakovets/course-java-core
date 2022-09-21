@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import com.sun.source.tree.ReturnTree;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -24,8 +26,8 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int tanksKilledFirstPlayer = 2;
-        int tanksKilledSecondPlayer = 4;
+        int tanksKilledFirstPlayer = 20;
+        int tanksKilledSecondPlayer = 20;
 
         String result = getResult(tanksKilledFirstPlayer, tanksKilledSecondPlayer);
         System.out.println(result);
@@ -39,8 +41,23 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int firstPlayerResult = 0;
+        int secondPlayerResult = 0;
+        if (tanksKilledFirstPlayer > 0) {
+            firstPlayerResult = tanksKilledFirstPlayer * KILL_POINT;
+            }
+        if (tanksKilledSecondPlayer > 0) {
+            secondPlayerResult = tanksKilledSecondPlayer * KILL_POINT;
+        }
+        if (firstPlayerResult > secondPlayerResult) {
+            firstPlayerResult += BONUS_POINT;
+        } else if (firstPlayerResult < secondPlayerResult) {
+            secondPlayerResult += BONUS_POINT;
+        } else if (firstPlayerResult == secondPlayerResult) {
+            final int NoBonus = 0;
+            firstPlayerResult += NoBonus;
+            secondPlayerResult += NoBonus;
+        }
+        return "Player 1: " + firstPlayerResult + ". " + "Player 2: " + secondPlayerResult;
     }
 }
