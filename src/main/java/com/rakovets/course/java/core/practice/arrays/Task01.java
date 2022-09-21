@@ -34,7 +34,14 @@ class Task01 {
     static double getAverageMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double averageMark = 0;
+        double numberOfMarks = marks.length;
+        int sumMarks = 0;
+        for (int i = 0; i < numberOfMarks; i++) {
+            sumMarks += marks[i];
+        }
+        averageMark = Math.round(sumMarks / numberOfMarks * 100.0) / 100.0;
+        return averageMark;
     }
 
     /**
@@ -46,7 +53,14 @@ class Task01 {
     static int getMinMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minMark = marks[0];
+        int numberOfMarks = marks.length;
+        for (int i = 0; i < numberOfMarks; i++) {
+            if (minMark > marks[i]) {
+                minMark = marks[i];
+            }
+        }
+        return minMark;
     }
 
     /**
@@ -58,6 +72,13 @@ class Task01 {
     static int getMaxMark(int[] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int maxMark = marks[0];
+        int numberOfMarks = marks.length;
+        for (int i = 0; i < numberOfMarks; i++) {
+            if (maxMark < marks[i]) {
+                maxMark = marks[i];
+            }
+        }
+        return maxMark;
     }
 }
