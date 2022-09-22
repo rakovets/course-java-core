@@ -33,9 +33,19 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double averageAllSubjectMarks = 0.0;
+        double[] averageAllSubjectsMarks = new double[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            double sumAllSubjectMarks = 0.0;
+            for (int j = 0; j < marks[i].length; j++) {
+                sumAllSubjectMarks += marks[i][j];
+            }
+            averageAllSubjectMarks = (double) Math.round((sumAllSubjectMarks / marks[i].length) * 100) / 100;
+            averageAllSubjectsMarks[i] += averageAllSubjectMarks;
+        }
+
+        return averageAllSubjectsMarks;
     }
 
     /**
@@ -45,9 +55,19 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minAllSubjectsMark = new int[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            int minSubjectMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (minSubjectMark > marks[i][j]) {
+                    minSubjectMark = marks[i][j];
+                }
+            }
+            minAllSubjectsMark[i] += minSubjectMark;
+        }
+
+        return minAllSubjectsMark;
     }
 
     /**
@@ -57,8 +77,18 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxAllSubjectsMark = new int[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            int maxSubjectMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (maxSubjectMark < marks[i][j]) {
+                    maxSubjectMark = marks[i][j];
+                }
+            }
+            maxAllSubjectsMark[i] += maxSubjectMark;
+        }
+
+        return maxAllSubjectsMark;
     }
 }
