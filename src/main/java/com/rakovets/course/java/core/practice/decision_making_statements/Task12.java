@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 20;
+        int month = 7;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -43,56 +43,71 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        if (month == 1) {
-            if (day <= 20) {
-                return "goat";
-            } else return "Water-bearer";
-        } else if (month == 2) {
-            if (day <= 19) {
-                return "Water-bearer";
-            } else return "Fish";
-        } else if (month == 3) {
-            if (day <= 20) {
-                return "Fish";
-            } else return "Ram";
-        } else if (month == 4) {
-            if (day <= 20) {
-                return "Ram";
-            } else return "Bull";
-        } else if (month == 5) {
-            if (day <= 20) {
-                return "Bull";
-            } else return "Twins";
-        } else if (month == 6) {
-            if (day <= 21) {
-                return "Twins";
-            } else return "Crab";
-        } else if (month == 7) {
-            if (day <= 22) {
-                return "Crab";
-            } else return "Lion";
-        } else if (month == 8) {
-            if (day <= 22) {
-                return "Lion";
-            } else return "Maiden";
-        } else if (month == 9) {
-            if (day <= 21) {
-                return "Maiden";
-            } else return "Scales";
-        } else if (month == 10) {
-            if (day <= 22) {
-                return "Scales";
-            } else return "Scorpion";
-        } else if (month == 11) {
-            if (day <= 22) {
-                return "Scorpion";
-            } else return "Archer";
-        } else if (month == 12) {
-            if (day <= 21) {
-                return "Archer";
-            } else return "Goat";
+        String zodiacSign = "Invalid data";
+        int n1 = 19, n2 = 20, n3 = 21, n4 = 22;
+        switch (month) {
+            case 1:
+                if (day <= n2) {
+                    zodiacSign = "goat";
+                } else zodiacSign = "Water-bearer";
+                break;
+            case 2:
+                if (day <= n1) {
+                    zodiacSign = "Water-bearer";
+                } else zodiacSign = "Fish";
+                break;
+            case 3:
+                if (day <= n2) {
+                    zodiacSign = "Fish";
+                } else zodiacSign = "Ram";
+                break;
+            case 4:
+                if (day <= n2) {
+                    zodiacSign = "Ram";
+                } else zodiacSign = "Bull";
+                break;
+            case 5:
+                if (day <= n2) {
+                    zodiacSign = "Bull";
+                } else zodiacSign = "Twins";
+                break;
+            case 6:
+                if (day <= n3) {
+                    zodiacSign = "Twins";
+                } else zodiacSign = "Crab";
+                break;
+            case 7:
+                if (day <= n4) {
+                    zodiacSign = "Crab";
+                } else zodiacSign = "Lion";
+                break;
+            case 8:
+                if (day <= n4) {
+                    zodiacSign = "Lion";
+                } else zodiacSign = "Maiden";
+                break;
+            case 9:
+                if (day <= n3) {
+                    zodiacSign = "Maiden";
+                } else zodiacSign = "Scales";
+                break;
+            case 10:
+                if (day <= n4) {
+                    zodiacSign = "Scales";
+                } else zodiacSign = "Scorpion";
+                break;
+            case 11:
+                if (day <= n4) {
+                    zodiacSign = "Scorpion";
+                } else zodiacSign = "Archer";
+                break;
+            case 12:
+                if (day <= n3) {
+                    zodiacSign = "Archer";
+                } else zodiacSign = "Goat";
+                break;
         }
-        return "Undefined";
+        return zodiacSign;
     }
 
 }
