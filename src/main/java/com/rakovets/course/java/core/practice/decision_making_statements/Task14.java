@@ -29,7 +29,7 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 1989;
+        int year = 1986;
 
         String monthName = getZodiacYearName(year);
         System.out.printf("Result: %s", monthName);
@@ -42,30 +42,31 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
+        final int monthNumber = 12;
         if (year > 0) {
-            if (year % 12 == 0) {
+            if (year % monthNumber == 0) {
                 return "Monkey";
-            } else if (year % 12 == 1) {
+            } else if (year % monthNumber == 1) {
                 return "Rooster";
-            } else if (year % 12 == 2) {
+            } else if (year % monthNumber == 2) {
                 return "Dog";
-            } else if (year % 12 == 3) {
+            } else if (year % monthNumber == 3) {
                 return "Pig";
-            } else if (year % 12 == 4) {
+            } else if (year % monthNumber == 4) {
                 return "Rat";
-            } else if (year % 12 == 5) {
+            } else if (year % monthNumber == 5) {
                 return "Ox";
-            } else if (year % 12 == 6) {
+            } else if (year % monthNumber == 6) {
                 return "Tiger";
-            } else if (year % 12 == 7) {
+            } else if (year % monthNumber == 7) {
                 return "Rabbit";
-            } else if (year % 12 == 8) {
+            } else if (year % monthNumber == 8) {
                 return "Dragon";
-            } else if (year % 12 == 9) {
+            } else if (year % monthNumber == 9) {
                 return "Snake";
-            } else if (year % 12 == 10) {
+            } else if (year % monthNumber == 10) {
                 return "Horse";
-            } else if (year % 12 == 11) {
+            } else if (year % monthNumber == 11) {
                 return "Ram";
             }
         }
