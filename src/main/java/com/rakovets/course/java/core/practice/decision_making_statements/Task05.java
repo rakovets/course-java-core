@@ -32,7 +32,7 @@ class Task05 {
      */
     static String getMonthName(byte monthNumber) {
         byte beginNumber = 1, endNumber = 13;
-        String monthName = " Invalid data ";
+        String monthName = " Invalid data";
         if (monthNumber >= beginNumber && monthNumber < endNumber) {
             switch (monthNumber) {
                 case 1:
