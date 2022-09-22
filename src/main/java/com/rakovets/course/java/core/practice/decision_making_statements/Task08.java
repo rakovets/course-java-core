@@ -38,12 +38,25 @@ class Task08 {
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
+        final double factor = 2;
+        double totalDamage = 0;
         if (hasHolyAttribute) {
-            if (typeMob == "SAINT") {
-                return damage / 2;
-            } else if (typeMob == "UNDEAD" || typeMob == "ZOMBIE") {
-                return damage + (damage / 2);
-            } else return damage;
+            switch (typeMob) {
+                case "SAINT":
+                    totalDamage = damage / factor;
+                    break;
+                case "UNDEAD":
+                case "ZOMBIE":
+                    totalDamage = damage + (damage / factor);
+                    break;
+                case "ANIMAL":
+                case "HUMANOID":
+                case "PLANT":
+                case "GHOST":
+                    totalDamage = damage;
+                    break;
+            }
+            return (int)totalDamage;
         }
         return 0;
     }
