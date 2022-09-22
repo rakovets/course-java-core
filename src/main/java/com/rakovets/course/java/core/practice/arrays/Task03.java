@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -33,9 +35,18 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double sumOfMarks;
+        double averageMarkForOneSubject;
+        double[] averageMarks = new double[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            sumOfMarks = 0.0;
+            for (int j = 0; j < marks[i].length; j++) {
+                sumOfMarks += marks[i][j];
+            }
+            averageMarkForOneSubject = NumberUtil.roundValueToTwoDigitsForMantissa(sumOfMarks / marks[i].length);
+            averageMarks[i] = averageMarkForOneSubject;
+        }
+        return averageMarks;
     }
 
     /**
@@ -45,9 +56,18 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMarks = new int[marks.length];
+        int minMarkForOneSubject;
+        for (int i = 0; i < marks.length; i++) {
+            minMarkForOneSubject = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < minMarkForOneSubject) {
+                    minMarkForOneSubject = marks[i][j];
+                }
+                minMarks[i] = minMarkForOneSubject;
+            }
+        }
+        return minMarks;
     }
 
     /**
@@ -57,8 +77,17 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMarks = new int[marks.length];
+        int maxMarkForOneSubject;
+        for (int i = 0; i < marks.length; i++) {
+            maxMarkForOneSubject = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > maxMarkForOneSubject) {
+                    maxMarkForOneSubject = marks[i][j];
+                }
+                maxMarks[i] = maxMarkForOneSubject;
+            }
+        }
+        return maxMarks;
     }
 }
