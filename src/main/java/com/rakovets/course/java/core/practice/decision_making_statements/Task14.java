@@ -20,6 +20,10 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * 2012 - `Dragon`
  */
 class Task14 {
+
+    public static final String[] monthName = {"", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit",
+            "Dragon", "Snake", "Horse", "Ram", "Monkey"};
+
     /**
      * The entry point of the task
      *
@@ -29,7 +33,7 @@ class Task14 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int year = 1989;
+        int year = 2012;
 
         String monthName = getZodiacYearName(year);
         System.out.printf("Result: %s", monthName);
@@ -38,12 +42,20 @@ class Task14 {
     /**
      * Определяет названия года по китайскому календарю.
      *
-     * @param year  год дня рождения (больше 0 г. н.э.)
+     * @param year год дня рождения (больше 0 г. н.э.)
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int count = 0;
+        int chineseCalendar = 0;
+
+        while (count < year) {
+            count++;
+            chineseCalendar++;
+            if (chineseCalendar > 12) {
+                chineseCalendar = 1;
+            }
+        }
+        return monthName[chineseCalendar];
     }
 }
