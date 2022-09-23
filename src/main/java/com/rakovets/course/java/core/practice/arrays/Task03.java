@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -33,9 +35,16 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int summOfArray = 0;
+        double[] averageMark = new double[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                summOfArray += marks[i][j];
+            }
+            averageMark[i] = NumberUtil.roundValueToTwoDigitsForMantissa((double) summOfArray / marks[i].length);
+            summOfArray = 0;
+        }
+        return averageMark;
     }
 
     /**
@@ -45,9 +54,18 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int minMark;
+        int[] minMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            minMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < minMark) {
+                    minMark = marks[i][j];
+                }
+            }
+            minMarks[i] = minMark;
+        }
+        return minMarks;
     }
 
     /**
@@ -57,8 +75,17 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int maxMark;
+        int[] maxMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            maxMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > maxMark) {
+                    maxMark = marks[i][j];
+                }
+            }
+            maxMarks[i] = maxMark;
+        }
+        return maxMarks;
     }
 }
