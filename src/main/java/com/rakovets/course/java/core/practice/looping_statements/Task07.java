@@ -47,6 +47,16 @@ class Task07 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String totalPriceList = "";
+        double priceByQuantity = startPriceAllItems;
+        double priceForOneItem = startPriceAllItems / startNumberItems;
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            totalPriceList += startNumberItems + " - " + priceByQuantity + "\n";
+            startNumberItems += differentialNumberItems;
+            priceByQuantity = priceForOneItem * startNumberItems;
+            priceByQuantity = Math.round(priceByQuantity * 100.0) / 100.0;
+        }
+        totalPriceList += startNumberItems + " - " + priceByQuantity;
+        return totalPriceList;
     }
 }
