@@ -15,9 +15,6 @@ class Task03 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int currentHealthPoint = 10;
         int maxHealthPoint = 100;
 
@@ -35,8 +32,18 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double percentHP = (double) (currentHealthPoint * 100 / maxHealthPoint);
+        String color = null;
+
+        if (currentHealthPoint != 0 && percentHP >= 0 && percentHP < 25) {
+            color = "RED";
+        } else if (percentHP >= 25 && percentHP < 50) {
+            color = "ORANGE";
+        } else if (percentHP >= 50 && percentHP < 75) {
+            color = "YELLOW";
+        } else if (percentHP >= 75 && percentHP <= 100) {
+            color = "GREEN";
+        }
+        return color;
     }
 }

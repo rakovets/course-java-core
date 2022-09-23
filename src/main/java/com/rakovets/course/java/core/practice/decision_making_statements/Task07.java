@@ -20,9 +20,6 @@ class Task07 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int year = 2020;
 
         boolean isLeapYear = isLeapYear(year);
@@ -36,8 +33,17 @@ class Task07 {
      * @return <code>false</code>/<code>true</code>
      */
     static boolean isLeapYear(int year) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        boolean result;
+
+        if (year % 400 == 0) {
+            result = true;
+        } else if (year % 100 == 0) {
+            result = false;
+        } else if (year % 4 == 0) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result;
     }
 }

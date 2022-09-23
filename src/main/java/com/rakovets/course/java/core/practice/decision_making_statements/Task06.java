@@ -21,9 +21,6 @@ class Task06 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int tanksKilledFirstPlayer = 2;
         int tanksKilledSecondPlayer = 4;
 
@@ -39,8 +36,14 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int pointOfFirst = tanksKilledFirstPlayer * 100;
+        int pointOfSecond = tanksKilledSecondPlayer * 100;
+
+        if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+            pointOfFirst += 500;
+        } else if (tanksKilledFirstPlayer < tanksKilledSecondPlayer) {
+            pointOfSecond += 500;
+        }
+        return "Player 1: " + pointOfFirst + ". Player 2: " + pointOfSecond;
     }
 }

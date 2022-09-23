@@ -12,9 +12,6 @@ class Task10 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int firstFuelReserves = 100;
         int secondFuelReserves = 50;
         int thirdFuelReserves = 70;
@@ -35,8 +32,15 @@ class Task10 {
      * @return номер заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int bestOption;
+
+        if (firstFuelReserves <= secondFuelReserves && firstFuelReserves <= thirdFuelReserves) {
+            bestOption = 1;
+        } else if (secondFuelReserves < firstFuelReserves && secondFuelReserves <= thirdFuelReserves) {
+            bestOption = 2;
+        } else {
+            bestOption = 3;
+        }
+        return bestOption;
     }
 }

@@ -12,9 +12,6 @@ class Task13 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int numberFloors = 9;
         int numberApartmentsPerFloor = 4;
         int apartmentNumber = 68;
@@ -32,8 +29,10 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int allApartments = numberFloors * numberApartmentsPerFloor;
+        int entrance = (apartmentNumber - 1) / allApartments  + 1 ;
+        int level = (apartmentNumber - allApartments * ( entrance -1 ) - 1) / numberApartmentsPerFloor + 1;
+
+        return level;
     }
 }

@@ -22,9 +22,6 @@ class Task11 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         char symbol = 'а';
 
         String monthName = getSymbolType(symbol);
@@ -38,8 +35,17 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int code = (int) symbol;
+        String result = "undefined";
+        System.out.println(code);
+
+        if (code >= 48 && code <= 57) {
+            result = "digit";
+        } else if ((code >= 65 && code <= 90) || (code >=97 && code <=122)) {
+            result = "latin";
+        } else if ((code >= 1040 && code <= 1103) || code == 1025 || code == 1105) {
+            result = "cyrillic";
+        }
+        return result;
     }
 }

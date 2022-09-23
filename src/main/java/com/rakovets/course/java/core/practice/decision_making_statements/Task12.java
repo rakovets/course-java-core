@@ -25,9 +25,6 @@ class Task12 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int day = 12;
         int month = 12;
 
@@ -43,8 +40,47 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result;
+        switch(month) {
+            case 1:
+                result = day <= 20 ? "Goat" : "Water-bearer";
+                break;
+            case 2:
+                result = day <= 19 ? "Water-bearer" : "Fish";
+                break;
+            case 3:
+                result = day <= 20 ? "Fish" : "Ram";
+                break;
+            case 4:
+                result = day <= 20 ? "Ram" : "Bull";
+                break;
+            case 5:
+                result = day <= 20 ? "Bull" : "Twins";
+                break;
+            case 6:
+                result = day <= 21 ? "Twins" : "Crab";
+                break;
+            case 7:
+                result = day <= 22 ? "Crab" : "Lion";
+                break;
+            case 8:
+                result = day <= 22 ? "Lion" : "Maiden";
+                break;
+            case 9:
+                result = day <= 21 ? "Maiden" : "Scales";
+                break;
+            case 10:
+                result = day <= 22 ? "Scales" : "Scorpion";
+                break;
+            case 11:
+                result = day <= 22 ? "Scorpion" : "Archer";
+                break;
+            case 12:
+                result = day <= 21 ? "Archer" : "Goat";
+                break;
+            default:
+                result = "";
+        }
+        return result;
     }
 }

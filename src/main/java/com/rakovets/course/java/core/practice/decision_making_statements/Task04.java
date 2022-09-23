@@ -13,9 +13,6 @@ class Task04 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         byte dayOfWeekNumber = 1;
 
         String nameWeekday = getDayOfWeekNumber(dayOfWeekNumber);
@@ -29,8 +26,35 @@ class Task04 {
      * @return день недели на английском языке (UPPER CASE)
      */
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String day;
+
+        switch (dayOfWeekNumber) {
+            case 1:
+                day = "MONDAY";
+                break;
+            case 2:
+                day = "TUESDAY";
+                break;
+            case 3:
+                day = "WEDNESDAY";
+                break;
+            case 4:
+                day = "THURSDAY";
+                break;
+            case 5:
+                day = "FRIDAY";
+                break;
+            case 6:
+                day = "SATURDAY";
+                break;
+            case 7:
+                day = "SUNDAY";
+                break;
+            default:
+                day = null;
+                break;
+        }
+
+        return day;
     }
 }
