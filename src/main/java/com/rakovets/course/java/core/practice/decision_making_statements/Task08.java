@@ -40,6 +40,20 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        final var COEFFICIENT_FOR_UNDEAD_AND_ZOMBIE = 1.5;
+        final var COEFFICIENT_FOR_SAINT = 0.5;
+        final var COEFFICIENT_FOR_ANIMAL_HUMANOID_PLANT_GHOST = 1;
+        int totalDamage = damage;
+
+        if (hasHolyAttribute) {
+            if (typeMob.equals("UNDEAD") || typeMob.equals("ZOMBIE")) {
+                totalDamage = (int) (damage * COEFFICIENT_FOR_UNDEAD_AND_ZOMBIE);
+            } else if (typeMob.equals("SAINT")) {
+                totalDamage = (int) (damage * COEFFICIENT_FOR_SAINT);
+            } else if (typeMob.equals("ANIMAL") || typeMob.equals("HUMANOID") || typeMob.equals("PLANT") || typeMob.equals("GHOST")) {
+                totalDamage = damage * COEFFICIENT_FOR_ANIMAL_HUMANOID_PLANT_GHOST;
+            }
+        }
+        return totalDamage;
     }
 }
