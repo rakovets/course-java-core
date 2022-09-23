@@ -20,7 +20,7 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500L;
+        long amount = -92346234;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -34,8 +34,33 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String temporary = Long.toString(amount);
+        StringBuilder amountWithAccountingFormat = new StringBuilder();
+        long count = 0;
+
+        if (amount < 0) {
+            amountWithAccountingFormat = new StringBuilder(temporary.replace("-", ""));
+            amount = Long.parseLong(amountWithAccountingFormat.toString());
+            amountWithAccountingFormat = new StringBuilder();
+            for (long i = 0; i < temporary.length() - 1; i++) {
+                if (count % 3 == 0 && count != 0) {
+                    amountWithAccountingFormat.append(" ");
+                }
+                amountWithAccountingFormat.append(amount % 10);
+                amount /= 10;
+                count++;
+            }
+            amountWithAccountingFormat.append("-");
+        } else {
+            for (long i = 0; i < temporary.length(); i++) {
+                if (count % 3 == 0 && count != 0) {
+                    amountWithAccountingFormat.append(" ");
+                }
+                amountWithAccountingFormat.append(amount % 10);
+                amount /= 10;
+                count++;
+            }
+        }
+        return new StringBuilder(amountWithAccountingFormat.toString()).reverse().toString();
     }
 }
