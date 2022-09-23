@@ -39,16 +39,19 @@ class Task01 {
              averageMark += marks[i];
         }
         averageMark /= lengthOfArroy;
-        averageMark *= Math.pow(10, (DEGREE_OF_ROUNDING + 1)); // better make a rounding function
-        long  averageMarkRounding = (long) averageMark;
-        if ((averageMarkRounding % 10) < 5) {
-            averageMarkRounding /=10;
+        return averageMark = doubleRounding(averageMark, DEGREE_OF_ROUNDING);
+    }
+
+    static double doubleRounding (double valueToBeRounded, int degreeOfValueRounding) {
+        valueToBeRounded *= Math.pow(10, (degreeOfValueRounding + 1)); // better make a rounding function
+        long  valueRounding = (long) valueToBeRounded;
+        if ((valueRounding % 10) < 5) {
+            valueRounding /=10;
         } else {
-            averageMarkRounding /= 10;
-            averageMarkRounding ++;
+            valueRounding /= 10;
+            valueRounding ++;
         }
-        averageMark = averageMarkRounding / (Math.pow(10, DEGREE_OF_ROUNDING));
-        return averageMark;
+        return valueToBeRounded = valueRounding / (Math.pow(10, degreeOfValueRounding));
     }
 
     /**
