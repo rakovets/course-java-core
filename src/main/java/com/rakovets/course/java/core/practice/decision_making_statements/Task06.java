@@ -39,14 +39,20 @@ class Task06 {
      * @return 'Player 1: ${0}. Player 2: ${1}', где ${0} - очки первого игрока, ${1} - очки второго игрока.
      */
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
-        int pointsFirstPlayer = 0;
-        int pointsSecondPlayer = 0;
-        if (tanksKilledFirstPlayer == tanksKilledSecondPlayer) {
-            return "Player 1: " + tanksKilledFirstPlayer * KILL_POINT + ". Player 2: " + tanksKilledSecondPlayer * KILL_POINT;
-        } else if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
-            return "Player 1: " + (tanksKilledFirstPlayer * KILL_POINT + BONUS_POINT) + ". Player 2: " + tanksKilledSecondPlayer * KILL_POINT;
+        int pointsFirstPlayer = tanksKilledFirstPlayer * KILL_POINT;
+        int pointsSecondPlayer = tanksKilledSecondPlayer * KILL_POINT;
+        String player1 = "Player 1: ";
+        String player2 = ". Player 2: ";
+        if (tanksKilledFirstPlayer >= 0 && tanksKilledFirstPlayer >= 0) {
+            if (tanksKilledFirstPlayer == tanksKilledSecondPlayer) {
+                return player1 + pointsFirstPlayer + player2 + pointsSecondPlayer;
+            } else if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
+                return player1 + (pointsFirstPlayer + BONUS_POINT) + player2 + pointsSecondPlayer;
+            } else {
+                return player1 + pointsFirstPlayer + player2 + (pointsSecondPlayer + BONUS_POINT);
+            }
         } else {
-            return "Player 1: " + tanksKilledFirstPlayer * KILL_POINT + ". Player 2: " + (tanksKilledSecondPlayer * KILL_POINT + BONUS_POINT);
+            return null;
         }
     }
 }
