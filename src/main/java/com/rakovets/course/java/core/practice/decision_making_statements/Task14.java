@@ -42,44 +42,45 @@ class Task14 {
      * @return название года по китайскому календарю
      */
     static String getZodiacYearName(int year) {
-        String _zodiacYearName = "Неправильно введен год рождения";
-        switch (year % 12) {
-            case (2001 % 12):
-                _zodiacYearName = "Snake";
+        String zodiacYearName = "Неправильно введен год рождения";
+        final int numberOfMonthsInYear = 12;
+        switch (year % numberOfMonthsInYear) {
+            case (2001 % numberOfMonthsInYear):
+                zodiacYearName = "Snake";
                 break;
-            case (2002 % 12):
-                _zodiacYearName = "Horse";
+            case (2002 % numberOfMonthsInYear):
+                zodiacYearName = "Horse";
                 break;
-            case (2003 % 12):
-                _zodiacYearName = "Ram";
+            case (2003 % numberOfMonthsInYear):
+                zodiacYearName = "Ram";
                 break;
-            case (2004 % 12):
-                _zodiacYearName = "Monkey";
+            case (2004 % numberOfMonthsInYear):
+                zodiacYearName = "Monkey";
                 break;
-            case (2005 % 12):
-                _zodiacYearName = "Rooster";
+            case (2005 % numberOfMonthsInYear):
+                zodiacYearName = "Rooster";
                 break;
-            case (2006 % 12):
-                _zodiacYearName = "Dog";
+            case (2006 % numberOfMonthsInYear):
+                zodiacYearName = "Dog";
                 break;
-            case (2007 % 12):
-                _zodiacYearName = "Pig";
+            case (2007 % numberOfMonthsInYear):
+                zodiacYearName = "Pig";
                 break;
-            case (2008 % 12):
-                _zodiacYearName = "Rat";
+            case (2008 % numberOfMonthsInYear):
+                zodiacYearName = "Rat";
                 break;
-            case (2009 % 12):
-                _zodiacYearName = "Ox";
+            case (2009 % numberOfMonthsInYear):
+                zodiacYearName = "Ox";
                 break;
             case (2010 % 12):
-                _zodiacYearName = "Tiger";
+                zodiacYearName = "Tiger";
                 break;
-            case (2011 % 12):
-                _zodiacYearName = "Rabbit";
+            case (2011 % numberOfMonthsInYear):
+                zodiacYearName = "Rabbit";
                 break;
-            case (2012 % 12):
-                _zodiacYearName = "Dragon";
+            case (2012 % numberOfMonthsInYear):
+                zodiacYearName = "Dragon";
                 break;
-        } return _zodiacYearName;
+        } return zodiacYearName;
     }
 }
