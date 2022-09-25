@@ -43,48 +43,35 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        String _zodiacSign = "Неправильно введена дата рождения";
+        String zodiacSign = "Неправильно введена дата рождения";
         float dateMonthDay = month + (float) day / 100;
         if (1.01f <= dateMonthDay && dateMonthDay <= 1.20f) {
-            _zodiacSign = "Goat";
-            return _zodiacSign;
+            zodiacSign = "Goat";
         } else if (1.21f <= dateMonthDay && dateMonthDay <= 2.19f) {
-            _zodiacSign = "Water-bearer";
-            return _zodiacSign;
+            zodiacSign = "Water-bearer";
         } else if (2.20f <= dateMonthDay && dateMonthDay <= 3.20f) {
-            _zodiacSign = "Fish";
-            return _zodiacSign;
+            zodiacSign = "Fish";
         } else if (3.21f <= dateMonthDay && dateMonthDay <= 4.20f) {
-            _zodiacSign = "Ram";
-            return _zodiacSign;
+            zodiacSign = "Ram";
         } else if (4.21f <= dateMonthDay && dateMonthDay <= 5.20f) {
-            _zodiacSign = "Bull";
-            return _zodiacSign;
+            zodiacSign = "Bull";
         } else if (5.21f <= dateMonthDay && dateMonthDay <= 6.21f) {
-            _zodiacSign = "Twins";
-            return _zodiacSign;
+            zodiacSign = "Twins";
         } else if (6.22f <= dateMonthDay && dateMonthDay <= 7.22f) {
-            _zodiacSign = "Crab";
-            return _zodiacSign;
+            zodiacSign = "Crab";
         } else if (7.22f <= dateMonthDay && dateMonthDay <= 8.22f) {
-            _zodiacSign = "Lion";
-            return _zodiacSign;
+            zodiacSign = "Lion";
         } else if (8.23f <= dateMonthDay && dateMonthDay <= 9.21f) {
-            _zodiacSign = "Maiden";
-            return _zodiacSign;
+            zodiacSign = "Maiden";
         } else if (9.22f <= dateMonthDay && dateMonthDay <= 10.22f) {
-            _zodiacSign = "Scales";
-            return _zodiacSign;
+            zodiacSign = "Scales";
         } else if (10.23f <= dateMonthDay && dateMonthDay <= 11.22f) {
-            _zodiacSign = "Scorpion";
-            return _zodiacSign;
+            zodiacSign = "Scorpion";
         } else if (11.23f <= dateMonthDay && dateMonthDay <= 12.21f) {
-            _zodiacSign = "Archer";
-            return _zodiacSign;
+            zodiacSign = "Archer";
         } else if (12.22f <= dateMonthDay && dateMonthDay <= 12.31f) {
-            _zodiacSign = "Goat";
-            return _zodiacSign;
+            zodiacSign = "Goat";
         }
-        return _zodiacSign;
+        return zodiacSign;
     }
 }
