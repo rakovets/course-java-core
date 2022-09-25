@@ -35,15 +35,21 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
+        String color = "";
         final int HUNDRED_PERCENTS = 100;
-        if ((float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS < 25.0f && (float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS > 0.0f) {
-            return "RED";
-        } else if ((float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS < 50.0f && (float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS >= 25.0f) {
-            return "ORANGE";
-        } else if ((float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS < 75.0f && (float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS >= 50.0f) {
-            return "YELLOW";
-        } else if ((float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS <= 100.0f && (float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS >= 75.0f) {
-            return "GREEN";
-        } else return null;
+        float currentHealthInPercents = (float) currentHealthPoint / maxHealthPoint * HUNDRED_PERCENTS;
+        if (currentHealthPoint > 0 && currentHealthPoint <= maxHealthPoint) {
+            if (currentHealthInPercents < 25.0f && currentHealthInPercents > 0.0f) {
+                color = "RED";
+            } else if (currentHealthInPercents < 50.0f && currentHealthInPercents >= 25.0f) {
+                color = "ORANGE";
+            } else if (currentHealthInPercents < 75.0f && currentHealthInPercents >= 50.0f) {
+                color = "YELLOW";
+            } else if (currentHealthInPercents <= 100.0f && currentHealthInPercents >= 75.0f) {
+                color = "GREEN";
+            } return color;
+        } else {
+            return null;
+        }
     }
 }
