@@ -38,17 +38,14 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        int codeDecimal = (int) symbol;
-        String _symbolType = "undefined";
-        if (48 <= codeDecimal && codeDecimal <= 57) {
-            _symbolType = "digit";
-        } else if ((65 <= codeDecimal && codeDecimal <= 90) || (97 <= codeDecimal && codeDecimal <= 122)) {
-            _symbolType = "latin";
-        } else if (1040 <= codeDecimal && codeDecimal <= 1103) {
-            _symbolType = "cyrillic";
-        } else {
-            _symbolType = "undefined";
+        String symbolType = "undefined";
+        if ('0' <= symbol && symbol <= '9') {
+            symbolType = "digit";
+        } else if (('a' <= symbol && symbol <= 'z') || ('A' <= symbol && symbol <= 'Z')) {
+            symbolType = "latin";
+        } else if ('А' <= symbol && symbol <= 'я') {
+            symbolType = "cyrillic";
         }
-        return _symbolType;
+        return symbolType;
     }
 }
