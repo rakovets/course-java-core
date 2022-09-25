@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -49,8 +51,21 @@ class Task08 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int x = 1;
+        double price = startPriceAllItems / startNumberItems;
+        double priceOnSale = startPriceAllItems;
+        String priceList = "";
+        double discount = 0.0;
+        double priceOfAllItems = startPriceAllItems;
+        while (x < sizeTotalPrice){
+            priceList += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(priceOnSale) + " with sell " + discount + "%" + "\n";
+            startNumberItems += differentialNumberItems;
+            discount += differentialSell;
+            priceOfAllItems = priceOfAllItems + price * differentialNumberItems;
+            priceOnSale = priceOfAllItems - priceOfAllItems * discount / 100;
+            x++;
+        }
+        priceList += startNumberItems + " - " + NumberUtil.roundValueToTwoDigitsForMantissa(priceOnSale) + " with sell " + discount + "%";
+        return priceList;
     }
 }

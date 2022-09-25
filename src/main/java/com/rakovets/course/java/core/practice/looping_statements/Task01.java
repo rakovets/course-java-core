@@ -29,8 +29,13 @@ class Task01 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int x = 1;
+        String note = "";
+        while (x < numberRows) {
+            note += x + "\n";
+            x++;
+        }
+        note += numberRows;
+        return note;
     }
 }
