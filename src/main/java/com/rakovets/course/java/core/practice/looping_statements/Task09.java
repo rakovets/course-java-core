@@ -34,8 +34,29 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String Format = "";
+        int digitsCounter = 0;
+        long number;
+        if (amount == 0) {
+            Format = "0";
+        } else {
+            if (amount < 0) {
+                Format = "-";
+                amount *= -1;
+            }
+            for (long i = amount; i > 0; i /= 10) {
+                digitsCounter++;
+            }
+            for (int j = digitsCounter; j > 0; j--) {
+                number = (long) (amount / Math.pow(10, j-1));
+                amount -= number * Math.pow(10, j-1);
+                if (j % 3 == 1 && j != 1) {
+                    Format += number + " ";
+                } else {
+                    Format += number;
+                }
+            }
+        }
+        return Format;
     }
 }

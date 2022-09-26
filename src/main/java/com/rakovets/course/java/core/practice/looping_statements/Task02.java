@@ -32,8 +32,13 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        final double PERCENT = 100;
+        double totalDepositAmount = depositAmount;
+        double profit = 0;
+        for (int i = 1; i <= depositTerm; i++) {
+            profit = totalDepositAmount * (annualDepositPercent / PERCENT);
+            totalDepositAmount += profit;
+        }
+        return totalDepositAmount;
     }
 }
