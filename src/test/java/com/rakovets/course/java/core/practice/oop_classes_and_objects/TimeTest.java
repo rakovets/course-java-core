@@ -17,5 +17,15 @@ public class TimeTest {
         assertEquals(1, test2.getMinutes());
         assertEquals(19, test2.getSeconds());
         assertEquals(3679, test2.getTotalSeconds());
+
+        Time test3 = new Time(1, 1, 1);
+
+        test3.setHours(2);
+        test3.setMinutes(2);
+        test3.setSeconds(2);
+
+        assertEquals(2, test3.getHours());
+        assertEquals(2, test3.getMinutes());
+        assertEquals(2, test3.getSeconds());
     }
 }
