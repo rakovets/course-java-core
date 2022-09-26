@@ -6,16 +6,15 @@ public class RectangleTest {
     public static void main(String[] args) {
         Point testLeftPoint = new Point(1,1);
         Point testBottomRightPoint = new Point(2,2);
+        Point newTestLeftPoint = new Point(2,2);
+        Point newTestBottomRightPoint = new Point(5,5);
         Rectangle testRectangle = new Rectangle(testLeftPoint, testBottomRightPoint);
 
-        testLeftPoint.setX(2);
-        testLeftPoint.setY(2);
-        testBottomRightPoint.setX(5);
-        testBottomRightPoint.setY(5);
+        testRectangle.setTopLeftPoint(newTestLeftPoint);
+        testRectangle.setBottomRightPoint(newTestBottomRightPoint);
 
-
-        assertEquals(testLeftPoint, testRectangle.getTopLeftPoint());
-        assertEquals(testBottomRightPoint, testRectangle.getBottomRightPoint());
+        assertEquals(newTestLeftPoint, testRectangle.getTopLeftPoint());
+        assertEquals(newTestBottomRightPoint, testRectangle.getBottomRightPoint());
         assertEquals(9, testRectangle.getArea());
         assertEquals(12, testRectangle.getPerimeter());
     }
