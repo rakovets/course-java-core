@@ -32,9 +32,13 @@ class Task01 {
      * @return средняя арифметическая отметка
      */
     static double getAverageMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double averageMark = 0;
+        double sum = 0;
+        for (int mark : marks) {
+            sum += mark;
+        }
+        averageMark = sum / marks.length;
+        return averageMark;
     }
 
     /**
@@ -44,9 +48,14 @@ class Task01 {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int i = 0;
+        int minMark = marks[0];
+        for (i = 0; i < marks.length; i++) {
+            if (marks[i] < minMark) {
+                minMark = marks[i];
+            }
+        }
+        return minMark;
     }
 
     /**
@@ -56,8 +65,13 @@ class Task01 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int i = 0;
+        int maxMark = marks[0];
+        for (i = 0; i < marks.length; i++) {
+            if (marks[i] > maxMark) {
+                maxMark = marks[i];
+            }
+        }
+        return maxMark;
     }
 }
