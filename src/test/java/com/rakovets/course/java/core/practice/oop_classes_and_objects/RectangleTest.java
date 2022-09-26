@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RectangleTest {
     public static void main(String[] args) {
         Point testLeftPoint = new Point(1,1);
-        Point testBottomRightPoint = new Point(4,4);
+        Point testBottomRightPoint = new Point(2,2);
         Rectangle testRectangle = new Rectangle(testLeftPoint, testBottomRightPoint);
 
         testLeftPoint.setX(2);
