@@ -11,5 +11,12 @@ public class PointTest {
         assertEquals(3, test1.getY());
         assertEquals(2.83, test1.getDistance(testTargetPoint));
 
+        Point test2 = new Point(1, 1);
+
+        test2.setX(2);
+        test2.setY(2);
+
+        assertEquals(2, test2.getX());
+        assertEquals(2, test2.getY());
     }
 }
