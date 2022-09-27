@@ -34,29 +34,29 @@ class Task04 {
         if (dayOfWeekNumber >= beginNumber && dayOfWeekNumber < endNumber) {
             switch (dayOfWeekNumber) {
                 case 1:
-                    nameWeekDay = "Monday";
+                    nameWeekDay = "MONDAY";
                     break;
                 case 2:
-                    nameWeekDay = "Tuesday";
+                    nameWeekDay = "TUESDAY";
                     break;
                 case 3:
-                    nameWeekDay = "Wednesday";
+                    nameWeekDay = "WEDNESDAY";
                     break;
                 case 4:
-                    nameWeekDay = "Thursday";
+                    nameWeekDay = "THURSDAY";
                     break;
                 case 5:
-                    nameWeekDay = "Friday";
+                    nameWeekDay = "FRIDAY";
                     break;
                 case 6:
-                    nameWeekDay = "Saturday";
+                    nameWeekDay = "SATURDAY";
                     break;
                 case 7:
-                    nameWeekDay = "Sunday";
+                    nameWeekDay = "SUNDAY";
                     break;
             }
             return nameWeekDay;
         }
-        return "Invalid Data";
+        return null;
     }
 }
