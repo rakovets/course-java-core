@@ -32,44 +32,44 @@ class Task05 {
      */
     static String getMonthName(byte monthNumber) {
         byte beginNumber = 1, endNumber = 13;
-        String monthName = " Invalid data";
+        String monthName = null;
         if (monthNumber >= beginNumber && monthNumber < endNumber) {
             switch (monthNumber) {
                 case 1:
-                    monthName = "January";
+                    monthName = "JANUARY";
                     break;
                 case 2:
-                    monthName = "February";
+                    monthName = "FEBRUARY";
                     break;
                 case 3:
-                    monthName = "March";
+                    monthName = "MARCH";
                     break;
                 case 4:
-                    monthName = "April";
+                    monthName = "APRIL";
                     break;
                 case 5:
-                    monthName = "May";
+                    monthName = "MAY";
                     break;
                 case 6:
-                    monthName = "June";
+                    monthName = "JUNE";
                     break;
                 case 7:
-                    monthName = "July";
+                    monthName = "JULY";
                     break;
                 case 8:
-                    monthName = "August";
+                    monthName = "AUGUST";
                     break;
                 case 9:
-                    monthName = "September";
+                    monthName = "SEPTEMBER";
                     break;
                 case 10:
-                    monthName = "October";
+                    monthName = "OCTOBER";
                     break;
                 case 11:
-                    monthName = "November";
+                    monthName = "NOVEMBER";
                     break;
                 case 12:
-                    monthName = "December";
+                    monthName = "DECEMBER";
                     break;
             }
         }
