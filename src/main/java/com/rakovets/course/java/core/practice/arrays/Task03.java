@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 /**
@@ -33,32 +35,59 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double sum = 0;
+        int oneLength = marks.length;
+        double[] averageArray = new double[oneLength];
+        double averageMark;
+        for (int i = 0; i < oneLength; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                sum += marks[i][j];
+            }
+            averageMark = sum / marks[i].length;
+            averageArray[i] = averageMark;
+            averageMark = BigDecimal.valueOf(averageMark)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue();
+        }
+        return averageArray;
     }
+        /**
+         * Возвращает минимальную отметку по предметам за весь период обучения.
+         *
+         * @param marks отметки
+         * @return минимальная отметка
+         */
 
-    /**
-     * Возвращает минимальную отметку по предметам за весь период обучения.
-     *
-     * @param marks отметки
-     * @return минимальная отметка
-     */
-    static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
-    }
+        static int[] getMinMarks ( int[][] marks){
+            int[] allMinMarks = new int[marks.length];
+            for (int i = 0; i < marks.length; i++) {
+                int minMark = marks[i][0];
+                for (int j = 0; j < marks[i].length; j++) {
+                    if (minMark > marks[i][j]) {
+                        minMark = marks[i][j];
+                    }
+                }
+                allMinMarks[i] = minMark;
+            }
+            return allMinMarks;
+        }
 
-    /**
-     * Возвращает максимальную отметку по предметам за весь период обучения.
-     *
-     * @param marks отметки
-     * @return максимальная отметка
-     */
-    static int[] getMaxMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        /**
+         * Возвращает максимальную отметку по предметам за весь период обучения.
+         *
+         * @param marks отметки
+         * @return максимальная отметка
+         */
+        static int[] getMaxMarks ( int[][] marks){
+            int[] allMaxMarks = new int[marks.length];
+            for (int i = 0; i < marks.length; i++) {
+                int maxMark = marks[i][0];
+                for (int j = 0; j < marks[i].length; j++) {
+                    if (maxMark < marks[i][j]) {
+                        maxMark = marks[i][j];
+                    }
+                }
+                allMaxMarks[i] = maxMark;
+            }
+            return allMaxMarks;
+        }
     }
-}
