@@ -49,7 +49,7 @@ class Task02 {
         } else if (hour >= hour5 && hour < hour1) {
             return "Good night";
         } else {
-            return "Invalid data";
+            return null;
         }
     }
 }
