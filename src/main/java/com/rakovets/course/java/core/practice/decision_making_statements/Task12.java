@@ -48,7 +48,7 @@ class Task12 {
         switch (month) {
             case 1:
                 if (day <= n2) {
-                    zodiacSign = "goat";
+                    zodiacSign = "Goat";
                 } else zodiacSign = "Water-bearer";
                 break;
             case 2:

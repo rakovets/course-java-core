@@ -15,9 +15,9 @@ class Task10 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int firstFuelReserves = 50;
-        int secondFuelReserves = 50;
-        int thirdFuelReserves = 50;
+        int firstFuelReserves = 0;
+        int secondFuelReserves = 0;
+        int thirdFuelReserves = 0;
 
         int numberStation = getNumberStation(firstFuelReserves, secondFuelReserves, thirdFuelReserves);
         System.out.printf("Result: %s", numberStation);
@@ -35,20 +35,20 @@ class Task10 {
      * @return номр заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-        if (firstFuelReserves < thirdFuelReserves) {
-            if (firstFuelReserves < secondFuelReserves || firstFuelReserves == secondFuelReserves) {
-                return 1;
-            } else if (firstFuelReserves < secondFuelReserves && firstFuelReserves == thirdFuelReserves) {
-                return 1;
-            }
-        } else if (secondFuelReserves < firstFuelReserves) {
-            if (secondFuelReserves < thirdFuelReserves || secondFuelReserves == thirdFuelReserves) {
-                return 2;
-            } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
-                return 3;
-            }
+        if (firstFuelReserves < secondFuelReserves && firstFuelReserves < thirdFuelReserves) {
+            return 1;
+        } else if (secondFuelReserves < firstFuelReserves && secondFuelReserves < thirdFuelReserves) {
+            return  2;
+        } else if (thirdFuelReserves < secondFuelReserves && thirdFuelReserves < firstFuelReserves) {
+            return 3;
+
+        } else if (firstFuelReserves < thirdFuelReserves && firstFuelReserves == secondFuelReserves) {
+            return 1;
+        } else if (secondFuelReserves == thirdFuelReserves && secondFuelReserves < firstFuelReserves) {
+            return 2;
+        } else if (firstFuelReserves == thirdFuelReserves && firstFuelReserves < secondFuelReserves) {
+            return 1;
         }
         return 1;
     }
 }
-
