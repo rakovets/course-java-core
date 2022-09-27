@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
+import static com.rakovets.course.java.core.practice.oop_classes_and_objects.Client.amount;
+
 public class Atm {
     private int numberBanknotes20;
     private int numberBanknotes50;
@@ -21,5 +23,19 @@ public class Atm {
 
     public void addBanknotes100(int number) {
         this.numberBanknotes100 = number;
+    }
+
+    public boolean isPossibleIssue() {
+        return amount <= (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100)
+                && amount % 20 == 0;
+    }
+
+    public int[] getOptionsCombinationBanknotes() {
+        int[] option = new int[] {1, 1, 1};
+        return option;
+    }
+
+    public void getCash() {
+
     }
 }

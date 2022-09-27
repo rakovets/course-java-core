@@ -1,20 +1,20 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Time {
-    private int hours;
-    private int minutes;
-    private int seconds;
+    private static int hours;
+    private static int minutes;
+    private static int seconds;
 
     Time(int totalSeconds) {
-        this.hours = totalSeconds / 3600;
-        this.minutes = totalSeconds % 3600 / 60;
-        this.seconds = totalSeconds % 3600 % 60 ;
+        hours = totalSeconds / 3600;
+        minutes = totalSeconds % 3600 / 60;
+        seconds = totalSeconds % 3600 % 60 ;
     }
 
     Time(int hours, int minutes, int seconds) {
-            this.hours = hours;
-            this.minutes = minutes;
-            this.seconds = seconds;
+            Time.hours = hours;
+            Time.minutes = minutes;
+            Time.seconds = seconds;
     }
 
     public int getHours() {
@@ -30,18 +30,18 @@ public class Time {
     }
 
     public void setHours(int hours) {
-        this.hours = hours;
+        Time.hours = hours;
     }
 
     public void setMinutes(int minutes) {
-        this.minutes = minutes;
+        Time.minutes = minutes;
     }
 
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
+    public static void setSeconds(int seconds) {
+        Time.seconds = seconds;
     }
 
-    public int getTotalSeconds() {
+    public static int getTotalSeconds() {
         return (hours * 3600 + minutes * 60 + seconds);
     }
 }

@@ -1,31 +1,34 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Dzmitry Krasiuk
+ */
+@DisplayName("Time")
 public class TimeTest {
-    public static void main(String[] args) {
-        Time test1 = new Time(3, 10, 16);
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(11416, 11416),
+                Arguments.of(9000, 9000),
+                Arguments.of(7000, 7000)
+        );
+    }
 
-        assertEquals(3, test1.getHours());
-        assertEquals(10, test1.getMinutes());
-        assertEquals(16, test1.getSeconds());
-        assertEquals(11416, test1.getTotalSeconds());
+    @ParameterizedTest(name = "Total seconds: {0}")
+    @MethodSource("provideArguments")
+    @DisplayName("Total seconds")
+    void getMaxMarkTest(int totalSeconds, int expected) {
+        Time.setSeconds(totalSeconds);
+        int actual = Time.getTotalSeconds();
 
-        Time test2 = new Time(3679);
-
-        assertEquals(1, test2.getHours());
-        assertEquals(1, test2.getMinutes());
-        assertEquals(19, test2.getSeconds());
-        assertEquals(3679, test2.getTotalSeconds());
-
-        Time test3 = new Time(1, 1, 1);
-
-        test3.setHours(2);
-        test3.setMinutes(2);
-        test3.setSeconds(2);
-
-        assertEquals(2, test3.getHours());
-        assertEquals(2, test3.getMinutes());
-        assertEquals(2, test3.getSeconds());
+        assertEquals(expected, actual);
     }
 }
