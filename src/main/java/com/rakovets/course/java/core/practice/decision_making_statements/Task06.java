@@ -41,13 +41,14 @@ class Task06 {
     static String getResult(int tanksKilledFirstPlayer, int tanksKilledSecondPlayer) {
         int firstPlayerPoints = tanksKilledFirstPlayer * KILL_POINT;
         int secondPlayerPoints = tanksKilledSecondPlayer * KILL_POINT;
+        String pl1 = "Player 1: ";
+        String pl2 = "Player 2: ";
         if (tanksKilledFirstPlayer > tanksKilledSecondPlayer) {
-            return "Player 1: " + (firstPlayerPoints + BONUS_POINT) + ". " + "Player 2: " + secondPlayerPoints;
+            return pl1 + (firstPlayerPoints + BONUS_POINT) + ". " + pl2 + secondPlayerPoints;
         } else if (tanksKilledSecondPlayer > tanksKilledFirstPlayer) {
-            return "Player 1: " + firstPlayerPoints + ". " + "Player 2: " + (secondPlayerPoints + BONUS_POINT);
+            return pl1 + firstPlayerPoints + ". " + pl2 + (secondPlayerPoints + BONUS_POINT);
         } else
-            return "Player 1: " + firstPlayerPoints + ". " + "Player 2: " + secondPlayerPoints;
-
+            return pl1 + firstPlayerPoints + ". " + pl2 + secondPlayerPoints;
     }
 }
 
