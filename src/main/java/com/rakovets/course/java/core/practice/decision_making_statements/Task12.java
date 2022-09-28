@@ -50,64 +50,40 @@ class Task12 {
         int n4 = 22;
         switch (month) {
             case 1:
-                if (day <= n2) {
-                    zodiacSign = "Goat";
-                } else zodiacSign = "Water-bearer";
+                zodiacSign = (day <= n2) ? "Goat" : "Water-bearer";
                 break;
             case 2:
-                if (day <= n1) {
-                    zodiacSign = "Water-bearer";
-                } else zodiacSign = "Fish";
+                zodiacSign = (day <= n1) ? "Water-bearer" : "Fish";
                 break;
             case 3:
-                if (day <= n2) {
-                    zodiacSign = "Fish";
-                } else zodiacSign = "Ram";
+                zodiacSign = (day <= n2) ? "Fish" : "Ram";
                 break;
             case 4:
-                if (day <= n2) {
-                    zodiacSign = "Ram";
-                } else zodiacSign = "Bull";
+                zodiacSign = (day <= n2) ? "Ram" : "Bull";
                 break;
             case 5:
-                if (day <= n2) {
-                    zodiacSign = "Bull";
-                } else zodiacSign = "Twins";
+                zodiacSign = (day <= n2) ? "Bull" : "Twins";
                 break;
             case 6:
-                if (day <= n3) {
-                    zodiacSign = "Twins";
-                } else zodiacSign = "Crab";
+                zodiacSign = (day <= n3) ? "Twins" : "Crab";
                 break;
             case 7:
-                if (day <= n4) {
-                    zodiacSign = "Crab";
-                } else zodiacSign = "Lion";
+                zodiacSign = (day <= n4) ? "Crab" : "Lion";
                 break;
             case 8:
-                if (day <= n4) {
-                    zodiacSign = "Lion";
-                } else zodiacSign = "Maiden";
+                zodiacSign = (day <= n4) ? "Lion" : "Maiden";
                 break;
             case 9:
-                if (day <= n3) {
-                    zodiacSign = "Maiden";
-                } else zodiacSign = "Scales";
+                zodiacSign = (day <= n3) ? "Maiden" : "Scales";
                 break;
             case 10:
-                if (day <= n4) {
-                    zodiacSign = "Scales";
-                } else zodiacSign = "Scorpion";
+                zodiacSign = (day <= n4) ? "Scales" : "Scorpion";
                 break;
             case 11:
-                if (day <= n4) {
-                    zodiacSign = "Scorpion";
-                } else zodiacSign = "Archer";
+                zodiacSign = (day <= n4) ? "Scorpion" : "Archer";
                 break;
             case 12:
-                if (day <= n3) {
-                    zodiacSign = "Archer";
-                } else zodiacSign = "Goat";
+                zodiacSign = (day <= n3) ? "Archer" : "Goat";
                 break;
         }
         return zodiacSign;
