@@ -35,9 +35,8 @@ public class Time {
         this.seconds = seconds;
     }
     public int getTotalSeconds() {
-        int totalSeconds;
         final int NUMBER_OF_SECONDS_IN_HOUR = 3600;
         final int NUMBER_OF_SECONDS_IN_MINUTE = 60;
-        return totalSeconds = hours * NUMBER_OF_SECONDS_IN_HOUR + minutes * NUMBER_OF_SECONDS_IN_MINUTE + seconds;
+        return hours * NUMBER_OF_SECONDS_IN_HOUR + minutes * NUMBER_OF_SECONDS_IN_MINUTE + seconds;
     }
 }
