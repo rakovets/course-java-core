@@ -26,3 +26,4 @@ public class Rectangle {
         return (this.bottomRightPoint.getX() - this.topLeftPoint.getX()) * (this.topLeftPoint.getY() - this.bottomRightPoint.getY());
     }
 }
+
