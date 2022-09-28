@@ -35,18 +35,18 @@ class Task02 {
      * </ul>
      */
     static String getGreetingByHour(int hour) {
-        final int hour1 = 6;
-        final int hour2 = 12;
-        final int hour3 = 18;
-        final int hour4 = 24;
-        final int hour5 = 0;
-        if (hour >= hour1 && (hour < hour2)) {
+        final int time1 = 6;
+        final int time2 = 12;
+        final int time3 = 18;
+        final int time4 = 24;
+        final int time5 = 0;
+        if (hour >= time1 && (hour < time2)) {
             return "Good morning";
-        } else if (hour >= hour2 && hour < hour3) {
+        } else if (hour >= time2 && hour < time3) {
             return "Good day";
-        } else if (hour >= hour3 && hour < hour4) {
+        } else if (hour >= time3 && hour < time4) {
             return "Good evening";
-        } else if (hour >= hour5 && hour < hour1) {
+        } else if (hour >= time5 && hour < time1) {
             return "Good night";
         } else {
             return null;
