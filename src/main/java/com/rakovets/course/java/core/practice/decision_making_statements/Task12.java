@@ -44,7 +44,10 @@ class Task12 {
      */
     static String getZodiacSign(int day, int month) {
         String zodiacSign = "Invalid data";
-        int n1 = 19, n2 = 20, n3 = 21, n4 = 22;
+        int n1 = 19;
+        int n2 = 20;
+        int n3 = 21;
+        int n4 = 22;
         switch (month) {
             case 1:
                 if (day <= n2) {
@@ -109,5 +112,4 @@ class Task12 {
         }
         return zodiacSign;
     }
-
 }
