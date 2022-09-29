@@ -16,36 +16,35 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
  * getArea() – возвращает площадь прямоугольника
  */
 public class Rectangle {
-    public int topLeftPoint;
-    public int bottomRightPoint;
+    public Point topLeftPoint;
+    public Point bottomRightPoint;
 
-    public Rectangle(int topLeftPoint, int bottomRightPoint) {
-        Point point = new Point(topLeftPoint, bottomRightPoint);
-        this.topLeftPoint = point.x;
-        this.bottomRightPoint = point.y;
+    public Rectangle(Point topLeftPoint, Point bottomRightPoint) {
+        this.topLeftPoint = new Point(topLeftPoint);
+        this.bottomRightPoint = new Point(bottomRightPoint);
     }
 
-    public int getTopLeftPoint() {
-        return topLeftPoint;
+    public Point getTopLeftPoint() {
+        return new Point(topLeftPoint);
     }
 
-    public void setTopLeftPoint(int topLeftPoint) {
-        this.topLeftPoint = topLeftPoint;
+    public void setTopLeftPoint(Point topLeftPoint) {
+        this.topLeftPoint = new Point(topLeftPoint);
     }
 
-    public int getBottomRightPoint() {
-        return bottomRightPoint;
+    public Point getBottomRightPoint() {
+        return new Point(bottomRightPoint);
     }
 
-    public void setBottomRightPoint(int bottomRightPoint) {
-        this.bottomRightPoint = bottomRightPoint;
+    public void setBottomRightPoint(Point bottomRightPoint) {
+        this.bottomRightPoint = new Point(bottomRightPoint);
     }
 
     public int getPerimeter() {
-        return (topLeftPoint + bottomRightPoint) * 2;
+        return 2 * (Math.abs(topLeftPoint.x - bottomRightPoint.x) + Math.abs(topLeftPoint.y - bottomRightPoint.y));
     }
 
     public int getArea() {
-        return topLeftPoint * bottomRightPoint;
+        return Math.abs(topLeftPoint.x - bottomRightPoint.x) * Math.abs(topLeftPoint.y - bottomRightPoint.y);
     }
 }
