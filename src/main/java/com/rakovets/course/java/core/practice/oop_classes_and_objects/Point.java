@@ -25,7 +25,7 @@ public class Point {
     public int x;
     public int y;
 
-    public Point(Point point){
+    public Point(Point point) {
         this.x = point.x;
         this.y = point.y;
     }

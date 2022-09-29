@@ -43,7 +43,7 @@ public class Atm {
     public boolean isPossibleIssue(int amount) {
         boolean isThereSuchAnAmount = false;
         int sumAtTheAtm = numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100;
-        if (sumAtTheAtm >= amount){
+        if (sumAtTheAtm >= amount) {
             isThereSuchAnAmount = true;
         }
         return isThereSuchAnAmount;
