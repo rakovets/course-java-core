@@ -37,9 +37,16 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        informationAboutStuff = informationAboutStuff.trim().replaceAll(" +", " ");
+        String[] divideInfo = informationAboutStuff.split(";");
+        String names = "";
+        for (int i = 0; i < divideInfo.length; i ++) {
+            String[] person = divideInfo[i].split(" ");
+            names += person[0] + " ";
+        }
+        names = names.trim();
+        String[] nameArray = names.split(" ");
+        return nameArray;
     }
 
     /**
@@ -49,9 +56,16 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        informationAboutStuff = informationAboutStuff.trim().replaceAll(" +", " ");
+        String[] divideInfo = informationAboutStuff.split(";");
+        String surnames = "";
+        for (int i = 0; i < divideInfo.length; i++) {
+            String[] person = divideInfo[i].split(" ");
+            surnames += person[1] + " ";
+        }
+        surnames = surnames.trim();
+        String[] surnameArray = surnames.split(" ");
+        return surnameArray;
     }
 
     /**
@@ -61,8 +75,19 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        informationAboutStuff = informationAboutStuff.trim().replaceAll(" +", " ");
+        String[] divideInfo = informationAboutStuff.split(";");
+        String salary = "";
+        for (int i = 0; i < divideInfo.length; i ++) {
+            String[] person = divideInfo[i].split(" ");
+            salary += person[2] + " ";
+        }
+        salary = salary.trim();
+        String[] salaryArray = salary.split(" ");
+        int[] parsedSalaryArray = new int[salaryArray.length];
+        for (int i = 0; i < parsedSalaryArray.length; i++) {
+            parsedSalaryArray[i] = Integer.parseInt(salaryArray[i]);
+        }
+        return parsedSalaryArray;
     }
 }
