@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
