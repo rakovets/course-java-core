@@ -1,8 +1,10 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 public class Point {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     {
         this.x = 0;
@@ -12,12 +14,12 @@ public class Point {
     Point() {
     }
 
-    Point(int x, int y) {
+    Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -25,7 +27,7 @@ public class Point {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -34,6 +36,7 @@ public class Point {
     }
 
     public double getDistance(Point secondPoint) {
-        return Math.sqrt(Math.pow(secondPoint.getX() - this.getX(), 2) + Math.pow(secondPoint.getY() - this.getY(), 2));
+        double distance = Math.sqrt(Math.pow(secondPoint.getX() - this.getX(), 2) + Math.pow(secondPoint.getY() - this.getY(), 2));
+        return NumberUtil.roundValueToTwoDigitsForMantissa(distance);
     }
 }

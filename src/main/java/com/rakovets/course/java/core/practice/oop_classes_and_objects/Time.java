@@ -10,8 +10,10 @@ public class Time {
         this.minutes = 0;
         this.seconds = 0;
     }
+
     Time() {
     }
+
     Time(int totalSeconds) {
         final int secondsInMin = 60;
         final int secondsInHour = 3600;

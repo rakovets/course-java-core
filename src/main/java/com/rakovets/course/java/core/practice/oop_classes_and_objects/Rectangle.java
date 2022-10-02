@@ -25,15 +25,15 @@ public class Rectangle {
         this.bottomRightPoint = bottomRightPoint;
     }
 
-    public int getPerimeter(Point topLeftPoint, Point bottomRightPoint) {
-        int x = bottomRightPoint.getX() - topLeftPoint.getX();
-        int y = topLeftPoint.getY() - bottomRightPoint.getY();
+    public double getPerimeter(Point topLeftPoint, Point bottomRightPoint) {
+        double x = bottomRightPoint.getX() - topLeftPoint.getX();
+        double y = topLeftPoint.getY() - bottomRightPoint.getY();
         return 2 * (x + y);
     }
 
-    public int getArea(Point topLeftPoint, Point bottomRightPoint) {
-        int x = bottomRightPoint.getX() - topLeftPoint.getX();
-        int y = topLeftPoint.getY() - bottomRightPoint.getY();
+    public double getArea(Point topLeftPoint, Point bottomRightPoint) {
+        double x = bottomRightPoint.getX() - topLeftPoint.getX();
+        double y = topLeftPoint.getY() - bottomRightPoint.getY();
         return x * y;
     }
 }

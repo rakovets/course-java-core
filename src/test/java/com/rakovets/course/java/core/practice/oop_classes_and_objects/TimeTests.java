@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class TimeTests {
 
     @Test
-    public void testGetTime() {
+    public void testGetTimeGetTotalSeconds() {
         Time time = new Time();
         Assertions.assertEquals(0, time.getHours());
         Assertions.assertEquals(0, time.getMinutes());
@@ -15,7 +15,7 @@ public class TimeTests {
     }
 
     @Test
-    public void testGetTime2() {
+    public void testGetTime2GetTotalSeconds() {
         Time time = new Time(1, 45, 34);
         Assertions.assertEquals(1, time.getHours());
         Assertions.assertEquals(45, time.getMinutes());
@@ -24,7 +24,7 @@ public class TimeTests {
     }
 
     @Test
-    public void testGetTime3() {
+    public void testGetTime3GetTotalSeconds() {
         Time time = new Time(4567);
         Assertions.assertEquals(1, time.getHours());
         Assertions.assertEquals(16, time.getMinutes());
@@ -33,7 +33,7 @@ public class TimeTests {
     }
 
     @Test
-    public void testSetTime() {
+    public void testSetTimeGetTotalSeconds() {
         Time time = new Time();
         time.setHours(2);
         time.setMinutes(15);

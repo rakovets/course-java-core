@@ -32,9 +32,24 @@ public class Atm {
         this.numberBanknotes100 += numberBanknotes100;
     }
 
+    public int getNumberBanknotes20() {
+        return numberBanknotes20;
+    }
+
+    public int getNumberBanknotes50() {
+        return numberBanknotes50;
+    }
+
+    public int getNumberBanknotes100() {
+        return numberBanknotes100;
+    }
+
     public boolean isPossibleIssue(int amount) {
         int sumOfBanknotes = this.numberBanknotes20 * 20 + this.numberBanknotes50 * 50 + this.numberBanknotes100 * 100;
         boolean isPossible;
+        if (amount < 0) {
+            return false;
+        }
         if (sumOfBanknotes < amount || amount % 10 != 0 || amount == 0) {
             isPossible = false;
         } else {
@@ -61,27 +76,5 @@ public class Atm {
             isPossible = true;
         }
         return isPossible;
-    }
-
-    public String getOptionsCombinationBanknotes(int amount) {
-        String combination = "";
-        if (amount == 0) {
-            return "0";
-        }
-        if (isPossibleIssue(amount)) {
-            int minvalue = amount;
-            if (minvalue >= 100 && amount >= 100) {
-                getOptionsCombinationBanknotes(amount - 100);
-                combination += " 100";
-            }
-            if (minvalue >= 50 && amount >= 50) {
-                getOptionsCombinationBanknotes(amount - 100);
-                combination += " 50";
-            }
-            if (amount >= 20)
-                getOptionsCombinationBanknotes(amount - 20);
-            combination += " 20";
-        }
-        return combination;
     }
 }
