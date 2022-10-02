@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-import com.rakovets.course.java.core.practice.oop_classes_and_objects.Client;
-
 import static com.rakovets.course.java.core.practice.oop_classes_and_objects.Client.amount;
 
 public class Atm {
