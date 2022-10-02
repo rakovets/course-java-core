@@ -37,9 +37,14 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] allInformationAboutStaff = informationAboutStuff.split(";");
+        String[] informationAboutOnePerson;
+        String[] names = new String[allInformationAboutStaff.length];
+        for (int i = 0; i < allInformationAboutStaff.length; i++) {
+            informationAboutOnePerson = allInformationAboutStaff[i].split(" ");
+            names[i] = informationAboutOnePerson[0];
+        }
+        return names;
     }
 
     /**
@@ -49,9 +54,16 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] allInformationAboutStaff = informationAboutStuff.split(";");
+        String oneLineFromInformation;
+        String[] surnames = new String[allInformationAboutStaff.length];
+        String[] informationAboutOnePerson;
+        for (int i = 0; i < allInformationAboutStaff.length; i++) {
+            oneLineFromInformation = allInformationAboutStaff[i].replaceAll(" +", " ");
+            informationAboutOnePerson = oneLineFromInformation.split(" ");
+            surnames[i] = informationAboutOnePerson[1];
+        }
+        return surnames;
     }
 
     /**
@@ -61,8 +73,15 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] allInformationAboutStaff = informationAboutStuff.split(";");
+        String oneLineFromInformation;
+        int[] surnames = new int[allInformationAboutStaff.length];
+        String[] informationAboutOnePerson;
+        for (int i = 0; i < allInformationAboutStaff.length; i++) {
+            oneLineFromInformation = allInformationAboutStaff[i].replaceAll(" +", " ");
+            informationAboutOnePerson = oneLineFromInformation.split(" ");
+            surnames[i] = Integer.parseInt(informationAboutOnePerson[2]);
+        }
+        return surnames;
     }
 }
