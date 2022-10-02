@@ -33,4 +33,3 @@ public class PointTest {
         assertEquals(expected, actual);
     }
 }
-
