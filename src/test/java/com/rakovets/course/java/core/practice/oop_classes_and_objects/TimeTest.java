@@ -25,7 +25,7 @@ public class TimeTest {
     @ParameterizedTest(name = "Total seconds: {0}")
     @MethodSource("provideArguments")
     @DisplayName("Total seconds")
-    void totalSecondsTest(int totalSeconds, int expected) {
+    void totalSecondsTestViaIntTotalSeconds(int totalSeconds, int expected) {
         Time test = new Time(totalSeconds);
         int actual = test.getTotalSeconds();
 
