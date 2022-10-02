@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -33,9 +34,18 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] moneyFromReport = report.split(" +");
+        ArrayList<Double> arrayMoneyString= new ArrayList<>();
+        for (int i = 0; i < moneyFromReport.length; i++) {
+            if (moneyFromReport[i].matches("\\-?\\d+\\.?\\d*\\$")) {
+                arrayMoneyString.add(Double.parseDouble(moneyFromReport[i].replace("$", "")));
+            }
+        }
+        double[] arrayMoneyFromReport = new double[arrayMoneyString.size()];
+        for (int i = 0; i < arrayMoneyFromReport.length; i++) {
+            arrayMoneyFromReport[i] = arrayMoneyString.get(i);
+        }
+        return arrayMoneyFromReport;
     }
 
     /**
@@ -45,8 +55,11 @@ class Task02 {
      * @return общую сумму всех денег
      */
     static double getSumMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double sumMoney = 0.0;
+        double[] moneyInArray = getArrayMoneyFromReport(report);
+        for (int i = 0; i < moneyInArray.length; i++) {
+            sumMoney += moneyInArray[i];
+        }
+        return sumMoney;
     }
 }
