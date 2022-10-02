@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
-import java.util.regex.Pattern;
+
 
 public class StringUtil {
     public String glue(String str1, String str2) {
@@ -63,9 +63,10 @@ public class StringUtil {
         return words[0].toUpperCase().charAt(0) + "" + words[1].toUpperCase().charAt(0);
     }
 
-    public String getAllDigitsText (String text) {
+    public String getAllDigitsText(String text) {
         return text.replaceAll("[^0-9]", "");
     }
+
     public String getUncrossedSymbols(String word1, String word2) {
         String result = "";
         char symbolsUncrossed;

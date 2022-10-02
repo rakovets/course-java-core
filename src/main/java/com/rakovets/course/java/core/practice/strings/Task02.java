@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.strings;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
