@@ -25,7 +25,7 @@ public class PointTest {
     @ParameterizedTest(name = "Distance between: {0}")
     @MethodSource("provideArguments")
     @DisplayName("Distance")
-    void totalSecondsTestViaIntTotalSeconds(int x, int y, int a, int b, double expected) {
+    void getDistanceTest(int x, int y, int a, int b, double expected) {
         Point test = new Point(x, y);
         Point target = new Point(a, b);
         double actual = test.getDistance(target);
