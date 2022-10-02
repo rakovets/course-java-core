@@ -29,11 +29,11 @@ class Task01 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows) {
-        String _numbersColumns = "";
+        String numbersColumns = "";
         for (int i = 1; i < numberRows; i++)
         {
-            _numbersColumns += i + "\n";
+            numbersColumns += i + "\n";
         }
-        return _numbersColumns += numberRows;
+        return numbersColumns += numberRows;
     }
 }
