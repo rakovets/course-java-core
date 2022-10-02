@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.strings;
 import com.rakovets.course.java.core.util.StandardInputTask;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Разработать программу для разбора (parsing) информации о персонале компании.
@@ -21,7 +22,6 @@ class Task03 extends StandardInputTask {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         String informationAboutStuff = INPUT_SCANNER.nextLine();
-
         String[] names = parseToArrayName(informationAboutStuff);
         System.out.printf("Names: %s\n", Arrays.toString(names));
         String[] surnames = parseToArraySurname(informationAboutStuff);
@@ -37,9 +37,12 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] rows = informationAboutStuff.split(";");
+        String[] result = new String[rows.length];
+        for (int i = 0; i < rows.length; i++) {
+            result[i] = rows[i].split(" +")[0];
+        }
+        return result;
     }
 
     /**
@@ -49,9 +52,12 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] rows = informationAboutStuff.split(";");
+        String[] result = new String[rows.length];
+        for (int i = 0; i < rows.length; i++) {
+            result[i] = rows[i].split(" +")[1];
+        }
+        return result;
     }
 
     /**
@@ -61,8 +67,11 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] rows = informationAboutStuff.split(";");
+        int[] result = new int[rows.length];
+        for (int i = 0; i < rows.length; i++) {
+            result[i] = Integer.parseInt(rows[i].split(" +")[2]);
+        }
+        return result;
     }
 }

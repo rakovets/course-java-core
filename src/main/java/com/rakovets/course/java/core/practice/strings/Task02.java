@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Разработать программу для разбора (parsing) банковских отчетов.
@@ -33,10 +36,22 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final Pattern pattern = Pattern.compile("-?\\d+\\.?\\d+\\$");
+        String[] bankReport = report.split(" +");
+        double[] tempResult = new double[bankReport.length];
+        int j = 0;
+        for (String value : bankReport) {
+            if (pattern.matcher(value).matches()) {
+                tempResult[j] = Double.parseDouble(value.substring(0, value.length() - 1));
+                j++;
+            }
+        }
+        double[] result = new double[j];
+
+        System.arraycopy(tempResult, 0, result, 0, j);
+        return result;
     }
+
 
     /**
      * Возвращает общую сумму всех денег, которые встречаются в отчете.
@@ -45,8 +60,10 @@ class Task02 {
      * @return общую сумму всех денег
      */
     static double getSumMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double sumMoney = 0.0;
+        for (int i = 0; i < getArrayMoneyFromReport(report).length; i++) {
+            sumMoney += getArrayMoneyFromReport(report)[i];
+        }
+        return sumMoney;
     }
 }
