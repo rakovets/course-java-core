@@ -1,22 +1,36 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Dzmitry Krasiuk
+ */
+@DisplayName("Time")
 public class PointTest {
-    public static void main(String[] args) {
-        Point test1 = new Point(2, 3);
-        Point testTargetPoint = new Point(4, 5);
+    static Stream<Arguments> provideArguments() {
+        return Stream.of(
+                Arguments.of(1, 1, 2, 2, 1.41),
+                Arguments.of(11, 21, 44, 44, 40.22),
+                Arguments.of(-1, -1, -2, -2, 1.41)
+        );
+    }
 
-        assertEquals(2, test1.getX());
-        assertEquals(3, test1.getY());
-        assertEquals(2.83, test1.getDistance(testTargetPoint));
+    @ParameterizedTest(name = "Distance between: {0}")
+    @MethodSource("provideArguments")
+    @DisplayName("Distance #1")
+    void totalSecondsTestViaIntTotalSeconds(int x, int y, int a, int b, double expected) {
+        Point test = new Point(x, y);
+        Point target = new Point(a, b);
+        double actual = test.getDistance(target);
 
-        Point test2 = new Point(1, 1);
-
-        test2.setX(2);
-        test2.setY(2);
-
-        assertEquals(2, test2.getX());
-        assertEquals(2, test2.getY());
+        assertEquals(expected, actual);
     }
 }
+
