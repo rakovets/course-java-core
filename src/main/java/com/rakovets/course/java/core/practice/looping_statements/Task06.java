@@ -46,7 +46,7 @@ class Task06 {
             // make rounding value of _totalDistance
             totalDistance *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
             long result = (long) totalDistance;
-            result = (result % 10) < 5 ? result /=10 : result / 10 + 1;
+            result = (result % 10) < 5 ? result /= 10 : result / 10 + 1;
             totalDistance = result / (Math.pow(10, DEGREE_OF_ROUNDING));
         } else {
             totalDistance = 0;
