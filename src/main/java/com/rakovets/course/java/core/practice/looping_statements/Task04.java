@@ -33,17 +33,19 @@ class Task04 {
      * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
      */
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
-        int _raidTime = 1; // first playing hour, time can't be less than 1;
-        double _сurrentHealthPoints = healthPoints + healthPoints * (regenerationPercentPerHour / 100) - averageDamagePerHour;
-        // if after first playing hour HP still exists, start to count time;
-        while (_сurrentHealthPoints > 0) {
-            _сurrentHealthPoints = _сurrentHealthPoints + _сurrentHealthPoints * (regenerationPercentPerHour / 100) - averageDamagePerHour;
-            _raidTime++;
-            if (_raidTime > 24) {
-                _сurrentHealthPoints = 0;
-                _raidTime = -1;
+        // return int according to the test wrong requirement, but should be double
+        int raidTime = 1;
+        final int HUNDRED_PERCENTS = 100;
+        final int HOURS_LIMIT = 24;
+        double сurrentHealthPoints = healthPoints + healthPoints * (regenerationPercentPerHour / HUNDRED_PERCENTS) - averageDamagePerHour;
+        while (сurrentHealthPoints > 0) {
+            сurrentHealthPoints += сurrentHealthPoints * (regenerationPercentPerHour / HUNDRED_PERCENTS) - averageDamagePerHour;
+            raidTime++;
+            if (raidTime > HOURS_LIMIT) {
+                сurrentHealthPoints = 0;
+                raidTime = -1;
             }
         }
-        return _raidTime;
+        return raidTime;
     }
 }
