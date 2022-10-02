@@ -34,25 +34,22 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        String _toAccountingFormat = "";
-        long _amount = amount;
-        if (amount < 0) {
-            _amount *= -1;
-        }
+        String toAccountingFormat = "";
+        long amountToAccountingFormat = (amount < 0) ? amount * (-1) : amount;
         int lengthOfAmount = 0;
-        int divider = 10;
+        final int NUMBERS_IN_ONE_GROUP = 3;
         do {
-            int currentNumber = (int) (_amount % divider);
-            _toAccountingFormat = currentNumber + _toAccountingFormat;
-            _amount = _amount / divider;
+            int currentNumber = (int) (amountToAccountingFormat % 10);
+            toAccountingFormat = currentNumber + toAccountingFormat;
+            amountToAccountingFormat = amountToAccountingFormat / 10;
             lengthOfAmount++;
-            if (lengthOfAmount % 3 == 0 && _amount > 0) {
-                _toAccountingFormat = " " + _toAccountingFormat;
+            if (lengthOfAmount % NUMBERS_IN_ONE_GROUP == 0 && amountToAccountingFormat > 0) {
+                toAccountingFormat = " " + toAccountingFormat;
             }
-        } while (_amount > 0);
+        } while (amountToAccountingFormat > 0);
         if (amount < 0) {
-            _toAccountingFormat = "-" + _toAccountingFormat;
+            toAccountingFormat = "-" + toAccountingFormat;
         }
-        return _toAccountingFormat;
+        return toAccountingFormat;
     }
 }
