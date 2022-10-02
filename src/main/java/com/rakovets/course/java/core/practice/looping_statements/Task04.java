@@ -37,12 +37,12 @@ class Task04 {
         int raidTime = 1;
         final int HUNDRED_PERCENTS = 100;
         final int HOURS_LIMIT = 24;
-        double сurrentHealthPoints = healthPoints + healthPoints * (regenerationPercentPerHour / HUNDRED_PERCENTS) - averageDamagePerHour;
-        while (сurrentHealthPoints > 0) {
-            сurrentHealthPoints += сurrentHealthPoints * (regenerationPercentPerHour / HUNDRED_PERCENTS) - averageDamagePerHour;
+        double currentHealthPoints = healthPoints + healthPoints * (regenerationPercentPerHour / HUNDRED_PERCENTS) - averageDamagePerHour;
+        while (currentHealthPoints > 0) {
+            currentHealthPoints += currentHealthPoints * (regenerationPercentPerHour / HUNDRED_PERCENTS) - averageDamagePerHour;
             raidTime++;
             if (raidTime > HOURS_LIMIT) {
-                сurrentHealthPoints = 0;
+                currentHealthPoints = 0;
                 raidTime = -1;
             }
         }
