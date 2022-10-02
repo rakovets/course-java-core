@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Dzmitry Krasiuk
  */
-@DisplayName("Time")
+@DisplayName("Point")
 public class PointTest {
     static Stream<Arguments> provideArguments() {
         return Stream.of(
@@ -24,7 +24,7 @@ public class PointTest {
 
     @ParameterizedTest(name = "Distance between: {0}")
     @MethodSource("provideArguments")
-    @DisplayName("Distance #1")
+    @DisplayName("Distance")
     void totalSecondsTestViaIntTotalSeconds(int x, int y, int a, int b, double expected) {
         Point test = new Point(x, y);
         Point target = new Point(a, b);
