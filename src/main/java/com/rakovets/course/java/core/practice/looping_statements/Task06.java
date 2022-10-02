@@ -34,27 +34,23 @@ class Task06 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-        double _totalDistance = 0;
-        double _dayDistance = (double) startDistance;
+        double totalDistance = 0;
+        double dayDistance = (double) startDistance;
         final int DEGREE_OF_ROUNDING = 2;
+        final int HUNDRED_PERCENTS = 100;
         if (startDistance > 0) {
             do {
-                _dayDistance += _dayDistance * (dailyProgressAsPercentage / 100);
-                _totalDistance += _dayDistance;
-            } while ((int) _dayDistance < finishDistance);
+                dayDistance += dayDistance * (dailyProgressAsPercentage / HUNDRED_PERCENTS);
+                totalDistance += dayDistance;
+            } while ((int) dayDistance < finishDistance);
             // make rounding value of _totalDistance
-            _totalDistance *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
-            long result = (long) _totalDistance;
-            if ((result % 10) < 5) {
-                result /=10;
-            } else {
-                result /= 10;
-                result ++;
-            }
-            _totalDistance = result / (Math.pow(10, DEGREE_OF_ROUNDING));
+            totalDistance *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
+            long result = (long) totalDistance;
+            result = (result % 10) < 5 ? result /=10 : result / 10 + 1;
+            totalDistance = result / (Math.pow(10, DEGREE_OF_ROUNDING));
         } else {
-            _totalDistance = 0;
+            totalDistance = 0;
         }
-        return _totalDistance;
+        return totalDistance;
     }
 }
