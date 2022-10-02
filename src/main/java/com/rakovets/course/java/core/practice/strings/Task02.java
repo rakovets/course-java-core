@@ -35,7 +35,7 @@ class Task02 {
     static double[] getArrayMoneyFromReport(String report) {
         String[] reportArray = report.split(" ");
         StringBuilder digitFromReport = new StringBuilder();
-        int count = 0;
+        int arrayLengthNumberOfDouble = 0;
 
         for (String s : reportArray) {
             if (s.contains("$") && s.endsWith("$") && !s.startsWith("t") && !s.startsWith("o")) {
@@ -43,14 +43,14 @@ class Task02 {
                 for (char c : reportCharArray) {
                     if (Character.isDigit(c) || Character.isDefined('-')) {
                         digitFromReport.append(String.valueOf(reportCharArray).replace("$", "")).append(" ");
-                        count++;
+                        arrayLengthNumberOfDouble++;
                     }
                     break;
                 }
             }
         }
         String[] finalArrayDigitFromReport = digitFromReport.toString().split(" ");
-        double[] moneyFromReport = new double[count];
+        double[] moneyFromReport = new double[arrayLengthNumberOfDouble];
         for (int i = 0; i < moneyFromReport.length; i++) {
             moneyFromReport[i] = Double.parseDouble(finalArrayDigitFromReport[i]);
         }

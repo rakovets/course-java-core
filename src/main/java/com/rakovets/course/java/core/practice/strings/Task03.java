@@ -37,9 +37,18 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder names = new StringBuilder();
+        String[] arrayOfStringsWithoutPunctuation = informationAboutStuff.split(";");
+        for (String name : arrayOfStringsWithoutPunctuation) {
+            informationAboutStuff = name.trim();
+            String[] arrayInformationAboutStuff = informationAboutStuff.split(" ");
+            for (int i = 0; i < 1; i++) {
+                names.append(arrayInformationAboutStuff[i]);
+            }
+            names.append(" ");
+        }
+        informationAboutStuff = names.toString();
+        return informationAboutStuff.split(" ");
     }
 
     /**
@@ -49,9 +58,19 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder surnames = new StringBuilder();
+        String[] arrayOfStringsWithoutPunctuation = informationAboutStuff.split(";");
+        for (String name : arrayOfStringsWithoutPunctuation) {
+            informationAboutStuff = name.trim().replaceAll("\\s", "");
+            System.out.println(informationAboutStuff);
+            String[] arrayInformationAboutStuff = informationAboutStuff.split("(?=[A-Z0-9])");
+            for (int i = 1; i < 2; i++) {
+                surnames.append(arrayInformationAboutStuff[i]);
+            }
+            surnames.append(" ");
+        }
+        informationAboutStuff = surnames.toString();
+        return informationAboutStuff.split(" ");
     }
 
     /**
@@ -61,8 +80,23 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder workaholicWages = new StringBuilder();
+        String[] arrayOfStringsWithoutPunctuation = informationAboutStuff.split(";");
+        for (String name : arrayOfStringsWithoutPunctuation) {
+            informationAboutStuff = name.trim().replaceAll("\\s", "");
+            System.out.println(informationAboutStuff);
+            String[] arrayInformationAboutStuff = informationAboutStuff.split("(?=[A-Z0-9])");
+            for (int i = 2; i < arrayInformationAboutStuff.length; i++) {
+                workaholicWages.append(arrayInformationAboutStuff[i]);
+            }
+            workaholicWages.append(" ");
+        }
+        informationAboutStuff = workaholicWages.toString();
+        String[] names = informationAboutStuff.split(" ");
+        int[] salaries = new int[names.length];
+        for (int i = 0; i < names.length; i++) {
+            salaries[i] = Integer.parseInt(names[i]);
+        }
+        return salaries;
     }
 }
