@@ -25,9 +25,9 @@ public class TimeTest {
     @ParameterizedTest(name = "Total seconds: {0}")
     @MethodSource("provideArguments")
     @DisplayName("Total seconds")
-    void getMaxMarkTest(int totalSeconds, int expected) {
-        Time.setSeconds(totalSeconds);
-        int actual = Time.getTotalSeconds();
+    void totalSecondsTest(int totalSeconds, int expected) {
+        Time test = new Time(totalSeconds);
+        int actual = test.getTotalSeconds();
 
         assertEquals(expected, actual);
     }
