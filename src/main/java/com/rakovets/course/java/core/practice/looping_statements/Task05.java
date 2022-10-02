@@ -32,17 +32,17 @@ class Task05 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        String _numbersColumns = "";
+        String numbersColumns = "";
         if (isEnableHeaderRow) {
             for (int i = 1; i < numberRows; i++) {
-            _numbersColumns += "\n" + i;
+            numbersColumns += "\n" + i;
             }
         }  else {
             for (int i = 1; i < numberRows; i++) {
-                _numbersColumns += i + "\n";
+                numbersColumns += i + "\n";
             }
-            _numbersColumns += numberRows;
+            numbersColumns += numberRows;
         }
-        return _numbersColumns;
+        return numbersColumns;
     }
 }
