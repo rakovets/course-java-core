@@ -84,4 +84,9 @@ public class StringUtil {
         }
         return result;
     }
+
+    public String getReplaceIdenticalCharacters(String text) {
+        return text.replaceAll("([a-z])\\1+", "$1");
+    }
+
 }

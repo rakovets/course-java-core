@@ -292,4 +292,22 @@ public class StringUtilTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    static Stream<Arguments> provideArgumentsGetReplaceIdenticalCharacters() {
+        return Stream.of(
+                Arguments.of("qqqwwweee", "qwe"),
+                Arguments.of("q11q22q33", "q11q22q33"),
+                Arguments.of("a", "a"),
+                Arguments.of("dddd", "d")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsGetReplaceIdenticalCharacters")
+    void testGetReplaceIdenticalCharacters(String text, String expected) {
+
+        String actual = stringUtil.getReplaceIdenticalCharacters(text);
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
