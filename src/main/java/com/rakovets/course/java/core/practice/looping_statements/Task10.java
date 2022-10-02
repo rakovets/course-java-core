@@ -38,19 +38,20 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        int _primeNumber = 0; // I'm sorry, solution is not optimal, leak of time
+        int primeNumber = 0;
+        final int FIRST_SIMPLE_NUMBER = 2;
         for (int i = finishNumber; i > startNumber; i--) {
             boolean isPrime = true;
-            for (int j = i; j > 2; j--) {
-                int restOfDividing = i % (j-1);
+            for (int j = (i / FIRST_SIMPLE_NUMBER + 1); j > FIRST_SIMPLE_NUMBER; j--) {
+                int restOfDividing = i % (j - 1);
                 if (restOfDividing == 0) {
                     isPrime = false;
                 }
             }
             if (isPrime) {
-                _primeNumber++;
+                primeNumber++;
             }
         }
-        return _primeNumber;
+        return primeNumber;
     }
 }
