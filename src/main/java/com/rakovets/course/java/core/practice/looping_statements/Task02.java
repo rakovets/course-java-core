@@ -34,22 +34,16 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        double _totalDepositAmount = depositAmount;
+        double totalDepositAmount = depositAmount;
         final double DEGREE_OF_ROUNDING = 2;
+        final int HUNDRED_PERCENTS = 100;
         for (int i =0; i < depositTerm; i++) {
-            _totalDepositAmount += _totalDepositAmount * annualDepositPercent / 100;
+            totalDepositAmount += totalDepositAmount * annualDepositPercent / HUNDRED_PERCENTS;
         }
-        // Start rounding float value with accuracy till DEGREE_OF_ROUNDING after coma;
-        _totalDepositAmount *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
-        long result = (long) _totalDepositAmount;
-        if ((result % 10) < 5) {
-            result /=10;
-        } else {
-            result /= 10;
-            result ++;
-        }
-        _totalDepositAmount = result / (Math.pow(10, DEGREE_OF_ROUNDING));
-        return _totalDepositAmount;
+        totalDepositAmount *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
+        long result = (long) totalDepositAmount;
+        result = (result % 10) < 5 ? result /=10 : result / 10 + 1;
+        totalDepositAmount = result / (Math.pow(10, DEGREE_OF_ROUNDING));
+        return totalDepositAmount;
     }
-
 }
