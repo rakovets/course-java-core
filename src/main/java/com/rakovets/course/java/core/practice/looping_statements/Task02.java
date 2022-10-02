@@ -42,7 +42,7 @@ class Task02 {
         }
         totalDepositAmount *= Math.pow(10, (DEGREE_OF_ROUNDING + 1));
         long result = (long) totalDepositAmount;
-        result = (result % 10) < 5 ? result /=10 : result / 10 + 1;
+        result = (result % 10) < 5 ? result /= 10 : result / 10 + 1;
         totalDepositAmount = result / (Math.pow(10, DEGREE_OF_ROUNDING));
         return totalDepositAmount;
     }
