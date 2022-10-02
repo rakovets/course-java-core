@@ -50,23 +50,18 @@ class Task08 {
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         int i = 0;
-        String _totalPriceList = startNumberItems + " - " + startPriceAllItems + " with sell " + (differentialSell * i) + "%"; // first row
-        double _itemPrice = startPriceAllItems / startNumberItems;  // price per each item
+        String totalPriceList = startNumberItems + " - " + startPriceAllItems + " with sell " + (differentialSell * i) + "%"; // first row
+        double itemPrice = startPriceAllItems / startNumberItems;  // price per each item
         final int DEGREE_OF_ROUNDING = 2;
         for (i = 1; i < sizeTotalPrice; i++) {
             startNumberItems += differentialNumberItems;
-            startPriceAllItems = _itemPrice * startNumberItems * ((100 - differentialSell * i) / 100);
+            startPriceAllItems = itemPrice * startNumberItems * ((100 - differentialSell * i) / 100);
             startPriceAllItems *= Math.pow(10, (DEGREE_OF_ROUNDING + 1)); // better make a rounding function
             long result = (long) startPriceAllItems;
-            if ((result % 10) < 5) {
-                result /=10;
-            } else {
-                result /= 10;
-                result ++;
-            }
+            result = (result % 10) < 5 ? result /= 10 : result / 10 + 1;
             startPriceAllItems = result / (Math.pow(10, DEGREE_OF_ROUNDING));
-            _totalPriceList += "\n" + startNumberItems + " - " + startPriceAllItems + " with sell " + (differentialSell * i) + "%";
+            totalPriceList += "\n" + startNumberItems + " - " + startPriceAllItems + " with sell " + (differentialSell * i) + "%";
         }
-        return _totalPriceList;
+        return totalPriceList;
     }
 }
