@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Создать class Point, описывающей точку в декартовой системе координат.
  * Создать Fields:
@@ -54,6 +56,6 @@ public class Point {
     public double getDistance(Point point) {
         int xNew = this.x - point.x;
         int yNew = this.y - point.y;
-        return Math.pow((Math.pow(xNew, 2) + Math.pow(yNew, 2)), 0.5);
+        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.pow((Math.pow(xNew, 2) + Math.pow(yNew, 2)), 0.5));
     }
 }
