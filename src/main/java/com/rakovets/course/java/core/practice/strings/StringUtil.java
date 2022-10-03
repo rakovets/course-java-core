@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class StringUtil {
@@ -85,8 +86,30 @@ public class StringUtil {
         return result;
     }
 
+    public Boolean getTwoArraysIdentical(String[] word1, String[] word2) {
+        Arrays.sort(word1);
+        Arrays.sort(word2);
+        return Arrays.equals(word1, word2);
+    }
+
+
     public String getReplaceIdenticalCharacters(String text) {
         return text.replaceAll("([a-z])\\1+", "$1");
     }
 
+    public boolean getMultipleAdditionOfStrings(String string1, String string2) {
+        long startTime1 = System.currentTimeMillis();
+        String str1 = "";
+        for (int i = 0; i < 100; i++) {
+            str1 = string1 + string2;
+        }
+        long endTime1 = System.currentTimeMillis();
+        long startTime2 = System.currentTimeMillis();
+        StringBuilder str2 = new StringBuilder();
+        str2 = new StringBuilder(string1 + string2);
+        str2.append(String.valueOf(str2).repeat(100));
+        long endTime2 = System.currentTimeMillis();
+        return ((endTime1 - startTime1) > (endTime2 - startTime2));
+    }
 }
+

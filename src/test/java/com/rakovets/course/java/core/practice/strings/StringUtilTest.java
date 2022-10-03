@@ -293,6 +293,24 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    static Stream<Arguments> provideArgumentsGetTwoArraysIdentical() {
+        return Stream.of(
+                Arguments.of(new String[]{"MA", "MA", "Ma"}, new String[]{"MA", "MA", "Ma"}, true),
+                Arguments.of(new String[]{"abc", "abcd", "abc"}, new String[]{"abc", "abc", "abc"}, false),
+                Arguments.of(new String[]{"abc", "abc"}, new String[]{"18", "81"}, false),
+                Arguments.of(new String[]{"abc", "ab", "abc"}, new String[]{"abc", "abc", "ab"}, true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsGetTwoArraysIdentical")
+    void testGetTwoArraysIdentical(String[] word1, String[] word2, boolean expected) {
+
+        Boolean actual = stringUtil.getTwoArraysIdentical(word1, word2);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
     static Stream<Arguments> provideArgumentsGetReplaceIdenticalCharacters() {
         return Stream.of(
                 Arguments.of("qqqwwweee", "qwe"),
@@ -307,6 +325,23 @@ public class StringUtilTest {
     void testGetReplaceIdenticalCharacters(String text, String expected) {
 
         String actual = stringUtil.getReplaceIdenticalCharacters(text);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsGetMultipleAdditionOfStrings() {
+        return Stream.of(
+                Arguments.of("123", "321", true),
+                Arguments.of("abc", "abc", false),
+                Arguments.of("18", "81", false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsGetMultipleAdditionOfStrings")
+    void testGetMultipleAdditionOfStrings(String string1, String string2, boolean expected) {
+
+        Boolean actual = stringUtil.getMultipleAdditionOfStrings(string1, string2);
 
         Assertions.assertEquals(expected, actual);
     }
