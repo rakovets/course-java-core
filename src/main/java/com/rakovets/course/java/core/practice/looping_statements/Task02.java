@@ -12,9 +12,6 @@ class Task02 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         double depositAmount = 1500.0;
         double annualDepositPercent = 7.0;
         int depositTerm = 5;
@@ -32,8 +29,11 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double result = depositAmount;
+
+        for(int i=1; i<=depositTerm; i++){
+            result = result + (result * annualDepositPercent / 100);
+        }
+        return (double) Math.round(result * 100) / 100;
     }
 }

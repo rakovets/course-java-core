@@ -13,9 +13,6 @@ class Task04 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         int healthPoints = 1000;
         double regenerationPercentFromCurrentHealth = 10.0;
         int averageDamagePerHour = 200;
@@ -33,8 +30,17 @@ class Task04 {
      * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
      */
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int time = 0;
+        int hp = healthPoints;
+
+        while(hp > 0){
+            hp = (int) ( hp + (hp * regenerationPercentPerHour/100));
+            hp = hp - averageDamagePerHour;
+            time++;
+            if(time >24) {
+                return -1;
+            }
+        }
+        return time;
     }
 }
