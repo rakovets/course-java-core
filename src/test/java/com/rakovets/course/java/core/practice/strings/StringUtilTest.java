@@ -21,12 +21,13 @@ public class StringUtilTest {
                 Arguments.of("The", null, "Thenull")
         );
     }
-        @ParameterizedTest
-        @MethodSource("provideArgumentsForConnectTwoStrings")
-        void testConnectTwoStrings(String str1, String str2, String expected) {
-            String actual = StringUtil.connectTwoStrings(str1, str2);
-            Assertions.assertEquals(expected, actual);
-        }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForConnectTwoStrings")
+    void testConnectTwoStrings(String str1, String str2, String expected) {
+        String actual = StringUtil.connectTwoStrings(str1, str2);
+        Assertions.assertEquals(expected, actual);
+    }
 
     static Stream<Arguments> provideArgumentsFindIndex() {
         return Stream.of(
@@ -36,6 +37,7 @@ public class StringUtilTest {
                 Arguments.of("fire", "F", -1)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsFindIndex")
     void testFindIndex(String str, char ch, int expected) {
@@ -50,6 +52,7 @@ public class StringUtilTest {
                 Arguments.of("Ekaterina", "", false)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsEqual")
     void testIsEqual(String str1, String str2, boolean expected) {
@@ -65,6 +68,7 @@ public class StringUtilTest {
                 Arguments.of(" katerina", "KATERINA")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForDeleteSpaseAroundTurnInUpperCase")
     void testDeleteSpaseAroundTurnInUpperCase(String str1, String expected) {
@@ -78,6 +82,7 @@ public class StringUtilTest {
                 Arguments.of("EKATERINA", 0, 5, "EKATE")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetSubstring")
     void testGetSubstring(String str, int n, int m, String expected) {
@@ -93,6 +98,7 @@ public class StringUtilTest {
                 Arguments.of(":(katerina:(", ":)katerina:)")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForReplaceEmoji")
     void testReplaceEmoji(String str, String expected) {
@@ -108,6 +114,7 @@ public class StringUtilTest {
                 Arguments.of("javais cool Java", "Java", false)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForCorrectBegin")
     void testCorrectBegin(String text, String word, boolean expected) {
@@ -123,6 +130,7 @@ public class StringUtilTest {
                 Arguments.of("dfrt", 0)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForFindNumberOfVowels")
     void testFindNumberOfVowels(String str, int expected) {
@@ -138,6 +146,7 @@ public class StringUtilTest {
                 Arguments.of("dfrt", 0)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetPunctuation")
     void testGetPunctuation(String str, int expected) {
@@ -153,6 +162,7 @@ public class StringUtilTest {
                 Arguments.of("Mntcrl", false)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsPalindrome")
     void testIsPalindrome(String str, boolean expected) {
@@ -167,6 +177,7 @@ public class StringUtilTest {
                 Arguments.of("12345", 2, new String[]{"12", "34", "5"})
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForSplitString")
     void testForSplitString(String str, int n, String[] expected) {
@@ -182,6 +193,7 @@ public class StringUtilTest {
                 Arguments.of("hfi-kjk", 1)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForCountWords")
     void testForCountWords(String str, int expected) {
@@ -197,6 +209,7 @@ public class StringUtilTest {
                 Arguments.of("hif-karab Giaveli", "HKG")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetInitials")
     void testForGetInitials(String str, String expected) {
@@ -211,6 +224,7 @@ public class StringUtilTest {
                 Arguments.of(" Jigurda", "")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForAllDigits")
     void testForAllDigits(String str, String expected) {
@@ -227,6 +241,7 @@ public class StringUtilTest {
                 Arguments.of("max", "ejr", "maxejr")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForNonMatchingChars")
     void testForNonMatchingChars(String str1, String str2, String expected) {
@@ -242,6 +257,7 @@ public class StringUtilTest {
                 Arguments.of(new String[]{"1", "2", "3", "4"}, new String[]{"1", "2", "3", "5"}, false)
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsIdentical")
     void testForIsIdentical(String[] arr1, String[] arr2, boolean expected) {
@@ -257,6 +273,7 @@ public class StringUtilTest {
                 Arguments.of("qwer", "qwer")
         );
     }
+
     @ParameterizedTest
     @MethodSource("provideArgumentsForReplaceSameSymbols")
     void testForReplaceSameSymbols(String str, String expected) {
