@@ -13,7 +13,7 @@ class Task01 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        int rows = 12;
+        int rows = 10;
 
         String numbersColumn = generateNumbersColumn(rows);
         System.out.printf("Result:\n%s", numbersColumn);
