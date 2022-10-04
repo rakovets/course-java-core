@@ -37,9 +37,19 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int FIRST_INDEX_OF_ARRAY = 0;
+        String names = "";
+        informationAboutStuff = informationAboutStuff.trim().replaceAll(" +", " ");
+        String[] dataAfterExtraction = informationAboutStuff.split(";");
+
+        for (int i = 0; i < dataAfterExtraction.length; i++) {
+            String[] person = dataAfterExtraction[i].split(" ");
+            names += person[FIRST_INDEX_OF_ARRAY] + " ";
+        }
+
+        names = names.trim();
+        String[] arrayName = names.split(" ");
+        return arrayName;
     }
 
     /**
@@ -49,9 +59,19 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int SECOND_INDEX_OF_ARRAY = 1;
+        String surnames = "";
+        informationAboutStuff = informationAboutStuff.trim().replaceAll(" +", " ");
+        String[] dataAfterExtraction = informationAboutStuff.split(";");
+
+        for (int i = 0; i < dataAfterExtraction.length; i++) {
+            String[] person = dataAfterExtraction[i].split(" ");
+            surnames += person[SECOND_INDEX_OF_ARRAY] + " ";
+        }
+
+        surnames = surnames.trim();
+        String[] arraySurname = surnames.split(" ");
+        return arraySurname;
     }
 
     /**
@@ -61,8 +81,24 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final int THIRD_INDEX_OF_ARRAY = 2;
+        String salary = "";
+        informationAboutStuff = informationAboutStuff.trim().replaceAll(" +", " ");
+        String[] dataAfterExtraction = informationAboutStuff.split(";");
+
+        for (int i = 0; i < dataAfterExtraction.length; i++) {
+            String[] person = dataAfterExtraction[i].split(" ");
+            salary += person[THIRD_INDEX_OF_ARRAY] + " ";
+        }
+
+        salary = salary.trim();
+        String[] salaryArray = salary.split(" ");
+        int[] processedSalaryArray = new int[salaryArray.length];
+
+        for (int i = 0; i < processedSalaryArray.length; i++) {
+            processedSalaryArray[i] = Integer.parseInt(salaryArray[i]);
+        }
+
+        return processedSalaryArray;
     }
 }
