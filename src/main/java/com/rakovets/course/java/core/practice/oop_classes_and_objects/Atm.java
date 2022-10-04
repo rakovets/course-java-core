@@ -28,6 +28,18 @@ public class Atm {
         this.numberBanknotes100 = numberBanknotes100;
     }
 
+    public boolean isPossibleIssue(int amount) {
+        boolean isThereSuchAnAmount = false;
+        final int amountBanknotes20 = 20;
+        final int amountBanknotes50 = 50;
+        final int amountBanknotes100 = 100;
+        int sumAtTheAtm = numberBanknotes20 * amountBanknotes20 + numberBanknotes50 * amountBanknotes50 + numberBanknotes100 * amountBanknotes100;
+        if (sumAtTheAtm >= amount) {
+            isThereSuchAnAmount = true;
+        }
+        return isThereSuchAnAmount;
+    }
+
     public void addBanknotes20(int number) {
         numberBanknotes20 += number;
     }
@@ -38,14 +50,5 @@ public class Atm {
 
     public void addBanknotes100(int number) {
         numberBanknotes100 += number;
-    }
-
-    public boolean isPossibleIssue(int amount) {
-        boolean isThereSuchAnAmount = false;
-        int sumAtTheAtm = numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100;
-        if (sumAtTheAtm >= amount) {
-            isThereSuchAnAmount = true;
-        }
-        return isThereSuchAnAmount;
     }
 }

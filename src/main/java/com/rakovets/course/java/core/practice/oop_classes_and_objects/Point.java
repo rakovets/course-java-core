@@ -37,6 +37,12 @@ public class Point {
         this.y = y;
     }
 
+    public double getDistance(Point point) {
+        int xNew = this.x - point.x;
+        int yNew = this.y - point.y;
+        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.pow((Math.pow(xNew, 2) + Math.pow(yNew, 2)), 0.5));
+    }
+
     public int getX() {
         return x;
     }
@@ -51,11 +57,5 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public double getDistance(Point point) {
-        int xNew = this.x - point.x;
-        int yNew = this.y - point.y;
-        return NumberUtil.roundValueToTwoDigitsForMantissa(Math.pow((Math.pow(xNew, 2) + Math.pow(yNew, 2)), 0.5));
     }
 }
