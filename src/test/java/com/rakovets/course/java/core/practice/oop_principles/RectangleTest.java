@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RectangleTest {
-
     @Test
     void testPerimeter() {
         Point pointA = new Point(1,5);

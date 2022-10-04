@@ -6,25 +6,25 @@ import org.junit.jupiter.api.Test;
 
 
 public class TimeTest {
-        @Test
-         void testValues() {
-            Time time = new Time(1, 40, 2);
+    @Test
+    void testValues() {
+        Time time = new Time(1, 40, 2);
 
-            Assertions.assertEquals(1, time.getHours());
-            Assertions.assertEquals(40, time.getMinutes());
-            Assertions.assertEquals(2, time.getSeconds());
-            Assertions.assertEquals(6002, time.getTotalSeconds());
-        }
+        Assertions.assertEquals(1, time.getHours());
+        Assertions.assertEquals(40, time.getMinutes());
+        Assertions.assertEquals(2, time.getSeconds());
+        Assertions.assertEquals(6002, time.getTotalSeconds());
+    }
 
-        @Test
-        void testValueTotal() {
-            Time time = new Time(6002);
+    @Test
+    void testValueTotal() {
+        Time time = new Time(6002);
 
-            Assertions.assertEquals(1, time.getHours());
-            Assertions.assertEquals(40, time.getMinutes());
-            Assertions.assertEquals(2, time.getSeconds());
-            Assertions.assertEquals(6002, time.getTotalSeconds());
-        }
+        Assertions.assertEquals(1, time.getHours());
+        Assertions.assertEquals(40, time.getMinutes());
+        Assertions.assertEquals(2, time.getSeconds());
+        Assertions.assertEquals(6002, time.getTotalSeconds());
+    }
 
     @Test
     void testValueSet() {
@@ -38,4 +38,3 @@ public class TimeTest {
         Assertions.assertEquals(2, time.getSeconds());
     }
 }
-

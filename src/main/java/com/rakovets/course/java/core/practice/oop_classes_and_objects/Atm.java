@@ -22,5 +22,4 @@ public class Atm {
     public void addBanknotes100(int number) {
         this.numberBanknotes100 -= number;
     }
-
 }
