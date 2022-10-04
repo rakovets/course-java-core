@@ -33,9 +33,14 @@ class Task01 {
      * @return имя сотрудника
      */
     static String getName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String stringTrimmed = fullName.trim();
+        StringBuffer name = new StringBuffer();
+        int currentIndexOfLetterInName = 0;
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) != ' ') {
+            name.append(stringTrimmed.charAt(currentIndexOfLetterInName));
+            currentIndexOfLetterInName++;
+        }
+        return name.toString();
     }
 
     /**
@@ -45,9 +50,20 @@ class Task01 {
      * @return фамилия сотрудника
      */
     static String getSurname(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String stringTrimmed = fullName.trim();
+        StringBuffer surname = new StringBuffer();
+        int currentIndexOfLetterInName = 0;
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) != ' ') {
+            currentIndexOfLetterInName++;
+        }
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) == ' ') {
+            currentIndexOfLetterInName++;
+        }
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) != ' ') {
+            surname.append(stringTrimmed.charAt(currentIndexOfLetterInName));
+            currentIndexOfLetterInName++;
+        }
+        return surname.toString();
     }
 
     /**
@@ -57,8 +73,21 @@ class Task01 {
      * @return полное имя сотрудника в обратном формате, т.е. '${surname} ${name}'
      */
     static String reverseFullName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String stringTrimmed = fullName.trim();
+        StringBuffer name = new StringBuffer();
+        int currentIndexOfLetterInName = 0;
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) != ' ') {
+            name.append(stringTrimmed.charAt(currentIndexOfLetterInName));
+            currentIndexOfLetterInName++;
+        }
+        StringBuffer surname = new StringBuffer();
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) == ' ') {
+            currentIndexOfLetterInName++;
+        }
+        while (currentIndexOfLetterInName < stringTrimmed.length() && stringTrimmed.charAt(currentIndexOfLetterInName) != ' ') {
+            surname.append(stringTrimmed.charAt(currentIndexOfLetterInName));
+            currentIndexOfLetterInName++;
+        }
+        return surname.toString() + " " + name.toString();
     }
 }
