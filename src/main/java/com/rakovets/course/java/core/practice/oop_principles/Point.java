@@ -2,12 +2,16 @@ package com.rakovets.course.java.core.practice.oop_principles;
 
 public class Point {
 
-    public int x;
-    public int y;
+    private int x;
+    private int y;
 
     public Point(int x1, int x2) {
         this.x = x1;
         this.y = x2;
+    }
+
+    public double getDistance() {
+        return Math.sqrt(x * x + y * y);
     }
 
     public int getX() {
@@ -25,9 +29,4 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
-
-    public double getDistance() {
-        return Math.sqrt(x * x + y * y);
-    }
 }
-
