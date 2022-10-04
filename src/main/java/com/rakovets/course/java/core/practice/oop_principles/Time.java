@@ -1,26 +1,30 @@
 package com.rakovets.course.java.core.practice.oop_principles;
 
 public class Time {
-
-    public int hours;
-    public int minutes;
-    public int seconds;
+    final int numOfsecInHour = 3600;
+    final int numOfSecInMin = 60;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
     public Time(int totalSeconds) {
-        totalSeconds = getTotalSeconds(hours, minutes, seconds);
-    }
-
-    static int getTotalSeconds(int hours, int minutes, int seconds) {
-        int totalSeconds = 0;
-        final int numOfMinOrSecPerHourOrMin = 60;
-        totalSeconds = numOfMinOrSecPerHourOrMin * (hours * numOfMinOrSecPerHourOrMin + minutes) + seconds;
-        return totalSeconds;
+        this.hours = totalSeconds / numOfsecInHour;
+        this.minutes = totalSeconds % numOfsecInHour/numOfSecInMin;
+        this.seconds = totalSeconds % numOfSecInMin;
     }
 
     public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
+    }
+
+    static int getTotalSeconds(int hours, int minutes, int seconds) {
+        int totalSeconds = 0;
+        final int numOfsecOrMinPerMinOrHour = 60;
+        if (seconds >= numOfsecOrMinPerMinOrHour) {
+            totalSeconds = numOfsecOrMinPerMinOrHour * (hours * numOfsecOrMinPerMinOrHour + minutes) + seconds;
+        } return totalSeconds;
     }
 
     public int getHours() {
