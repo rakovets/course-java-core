@@ -23,4 +23,27 @@ public class Atm {
         numberBanknotes100 += number;
     }
 
+    public int getNumberBanknotes20() {
+        return numberBanknotes20;
+    }
+
+    public void setNumberBanknotes20(int numberBanknotes20) {
+        this.numberBanknotes20 = numberBanknotes20;
+    }
+
+    public int getNumberBanknotes50() {
+        return numberBanknotes50;
+    }
+
+    public void setNumberBanknotes50(int numberBanknotes50) {
+        this.numberBanknotes50 = numberBanknotes50;
+    }
+
+    public int getNumberBanknotes100() {
+        return numberBanknotes100;
+    }
+
+    public void setNumberBanknotes100(int numberBanknotes100) {
+        this.numberBanknotes100 = numberBanknotes100;
+    }
 }
