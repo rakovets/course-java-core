@@ -88,7 +88,7 @@ public class StringUtil {
             int numbersOfWordsInString = 0;
             if (!stringTrimmed.isEmpty()) {
                 numbersOfWordsInString++;
-                for (int i = 1; i < (stringTrimmed.length() - 1); i++) {
+                for (int i = 0; i < (stringTrimmed.length()); i++) {
                     if (stringTrimmed.charAt(i) == ' ' && stringTrimmed.charAt(i - 1) != ' ') {
                         numbersOfWordsInString++;
                     }
