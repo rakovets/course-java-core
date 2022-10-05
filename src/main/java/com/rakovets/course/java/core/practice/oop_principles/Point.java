@@ -2,12 +2,12 @@ package com.rakovets.course.java.core.practice.oop_principles;
 
 public class Point {
 
-    private int x;
-    private int y;
+    public int x;
+    public int y;
 
-    public Point(int x1, int x2) {
+    public Point(int x1, int y1) {
         this.x = x1;
-        this.y = x2;
+        this.y = y1;
     }
 
     public double getDistance() {
