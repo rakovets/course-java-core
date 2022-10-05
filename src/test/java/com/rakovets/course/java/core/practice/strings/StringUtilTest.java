@@ -25,7 +25,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForConnectTwoStrings")
     void testConnectTwoStrings(String str1, String str2, String expected) {
-        String actual = StringUtil.connectTwoStrings(str1, str2);
+        String actual = stringUtil.connectTwoStrings(str1, str2);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -41,7 +42,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsFindIndex")
     void testFindIndex(String str, char ch, int expected) {
-        int actual = StringUtil.findIndex(str, ch);
+        int actual = stringUtil.findIndex(str, ch);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -56,7 +58,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsEqual")
     void testIsEqual(String str1, String str2, boolean expected) {
-        boolean actual = StringUtil.isEqual(str1, str2);
+        boolean actual = stringUtil.isEqual(str1, str2);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -72,7 +75,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForDeleteSpaseAroundTurnInUpperCase")
     void testDeleteSpaseAroundTurnInUpperCase(String str1, String expected) {
-        String actual = StringUtil.deleteSpaseAroundTurnInUpperCase(str1);
+        String actual = stringUtil.deleteSpaseAroundTurnInUpperCase(str1);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -86,7 +90,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetSubstring")
     void testGetSubstring(String str, int n, int m, String expected) {
-        String actual = StringUtil.getSubstring(str, n, m);
+        String actual = stringUtil.getSubstring(str, n, m);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -102,7 +107,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForReplaceEmoji")
     void testReplaceEmoji(String str, String expected) {
-        String actual = StringUtil.replaceEmoji(str);
+        String actual = stringUtil.replaceEmoji(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -118,7 +124,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForCorrectBegin")
     void testCorrectBegin(String text, String word, boolean expected) {
-        boolean actual = StringUtil.correctBegin(text, word);
+        boolean actual = stringUtil.correctBegin(text, word);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -134,7 +141,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForFindNumberOfVowels")
     void testFindNumberOfVowels(String str, int expected) {
-        int actual = StringUtil.findNumberOfVowels(str);
+        int actual = stringUtil.findNumberOfVowels(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -150,7 +158,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetPunctuation")
     void testGetPunctuation(String str, int expected) {
-        int actual = StringUtil.getPunctuation(str);
+        int actual = stringUtil.getPunctuation(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -166,7 +175,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsPalindrome")
     void testIsPalindrome(String str, boolean expected) {
-        boolean actual = StringUtil.isPalindrome(str);
+        boolean actual = stringUtil.isPalindrome(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -181,7 +191,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForSplitString")
     void testForSplitString(String str, int n, String[] expected) {
-        String[] actual = StringUtil.splitString(str, n);
+        String[] actual = stringUtil.splitString(str, n);
+
         Assertions.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
     }
 
@@ -197,7 +208,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForCountWords")
     void testForCountWords(String str, int expected) {
-        int actual = StringUtil.countWords(str);
+        int actual = stringUtil.countWords(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -213,7 +225,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetInitials")
     void testForGetInitials(String str, String expected) {
-        String actual = StringUtil.getInitials(str);
+        String actual = stringUtil.getInitials(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -228,7 +241,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForAllDigits")
     void testForAllDigits(String str, String expected) {
-        String actual = StringUtil.allDigits(str);
+        String actual = stringUtil.allDigits(str);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -245,7 +259,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForNonMatchingChars")
     void testForNonMatchingChars(String str1, String str2, String expected) {
-        String actual = StringUtil.nonMatchingChars(str1, str2);
+        String actual = stringUtil.nonMatchingChars(str1, str2);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -261,7 +276,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsIdentical")
     void testForIsIdentical(String[] arr1, String[] arr2, boolean expected) {
-        boolean actual = StringUtil.isIdentical(arr1, arr2);
+        boolean actual = stringUtil.isIdentical(arr1, arr2);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -277,7 +293,8 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForReplaceSameSymbols")
     void testForReplaceSameSymbols(String str, String expected) {
-        String actual = StringUtil.replaceSameSymbols(str);
+        String actual = stringUtil.replaceSameSymbols(str);
+
         Assertions.assertEquals(expected, actual);
     }
 }
