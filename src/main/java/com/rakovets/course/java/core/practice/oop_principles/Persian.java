@@ -6,6 +6,7 @@ public class Persian extends Cat {
         return "I want eat!";
     }
 
+    @Override
     public String mew(Person person) {
         person.changeHappiness(-15);
         return "Mew - Mew!";
@@ -15,6 +16,7 @@ public class Persian extends Cat {
         return "GavGav!";
     }
 
+    @Override
     public String purr(Person person){
         person.changeHappiness(+10);
         return "MrrMrrM!";

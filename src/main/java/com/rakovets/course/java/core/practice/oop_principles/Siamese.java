@@ -6,6 +6,7 @@ public class Siamese extends Cat {
         return "Mewmew - Mewmew!";
     }
 
+    @Override
     public String mew(Person person) {
         person.changeHappiness(-5);
         return "Mew - Mew!";
@@ -15,6 +16,7 @@ public class Siamese extends Cat {
         return "MrrMrrMmrrrmmrrrr!";
     }
 
+    @Override
     public String purr(Person person){
         person.changeHappiness(+5);
         return "MrrMrrM!";
