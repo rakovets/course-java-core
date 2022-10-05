@@ -55,17 +55,10 @@ public class StringUtil {
     }
 
     public boolean isPalindrome(String str) {
-        StringBuffer strBuf = new StringBuffer(str.replaceAll(" ", "").toLowerCase().replaceAll("[.,!?;:'\"]", ""));
-        String newStr = strBuf.toString();
-        char[] arr = newStr.toCharArray();
-        boolean isPol = true;
-        for (int i = 0; i < arr.length / 2; i++) {
-            if (arr[i] != arr[arr.length - 1 - i]) {
-                isPol = false;
-                break;
-            }
-        }
-        return isPol;
+        str = str.replaceAll(" ", "").toLowerCase().replaceAll("[.,!?;:'\"]", "");
+        StringBuilder sb = new StringBuilder(str);
+        String check = sb.reverse().toString();
+        return str.equals(check);
     }
 
     public String[] splitString(String str, int n) {
