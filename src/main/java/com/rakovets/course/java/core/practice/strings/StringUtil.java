@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
 
-public class StringUtil {
+    public class StringUtil {
     public String connectTwoStrings(String str1, String str2) {
         return str1 + str2;
     }
