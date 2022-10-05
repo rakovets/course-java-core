@@ -30,11 +30,9 @@ public class StringUtil {
     }
 
     public boolean searchWordInText(String text, String word) {
-        if (text.toLowerCase().indexOf(word.toLowerCase()) == 0 && text.toLowerCase().lastIndexOf(word.toLowerCase()) == text.length() - word.length()) {
-            return true;
-        } else {
-            return false;
-        }
+        return text.toLowerCase().indexOf(word.toLowerCase()) == 0
+                && text.toLowerCase().lastIndexOf(word.toLowerCase())
+                == text.length() - word.length() ? true : false;
     }
 
     public int countNumberEnglishVowels(String str) {
@@ -73,28 +71,8 @@ public class StringUtil {
         return preparedLine.equals(revers);
     }
 
-    public String splitLine(String str, int n) {
-        int lengthArray;
-        int startCut = 0;
-        int finishCut = n;
-
-        if (str.length() % n == 0) {
-            lengthArray = str.length() / n;
-        } else {
-            lengthArray = (str.length() / n) + 1;
-        }
-
-        String[] stringPartArray = new String[lengthArray];
-
-        for (int i = 0; i < stringPartArray.length; i++) {
-            if (finishCut < str.length()) {
-                stringPartArray[i] = str.substring(startCut, finishCut);
-            } else {
-                stringPartArray[i] = str.substring(startCut);
-            }
-            startCut += n;
-            finishCut += n;
-        }
+    public String splitStringApartOnNumberCharacters(String str, int n) {
+        String[] stringPartArray = str.split("(?<=\\G.{" + n + "})");
 
         return Arrays.toString(stringPartArray);
     }
@@ -103,9 +81,7 @@ public class StringUtil {
         int count = 0;
         String[] words = str.trim().split("\\s+");
         for (int i = 0; i < words.length; i++) {
-            if (words[i] == " ") {
-                continue;
-            } else {
+            if (words[i] != " ") {
                 count++;
             }
         }
