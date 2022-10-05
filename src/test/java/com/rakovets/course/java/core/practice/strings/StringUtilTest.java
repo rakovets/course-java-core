@@ -190,7 +190,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForSplitLine() {
+    static Stream<Arguments> provideArgumentsForSplitStringApartOnNumberCharacters() {
         return Stream.of(
                 Arguments.of("Change the world by being yourself", 3, "[Cha, nge,  th, e w, orl, d b, y b, ein, g y, our, sel, f]"),
                 Arguments.of("Every moment is a fresh beginning", 5, "[Every,  mome, nt is,  a fr, esh b, eginn, ing]"),
@@ -201,9 +201,9 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideArgumentsForSplitLine")
-    void testSplitLine(String str, int n, String expected) {
-        String actual = stringUtil.splitLine(str, n);
+    @MethodSource("provideArgumentsForSplitStringApartOnNumberCharacters")
+    void testSplitStringApartOnNumberCharacters(String str, int n, String expected) {
+        String actual = stringUtil.splitStringApartOnNumberCharacters(str, n);
 
         Assertions.assertEquals(expected, actual);
     }
