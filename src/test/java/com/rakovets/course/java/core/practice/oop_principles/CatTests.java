@@ -43,6 +43,7 @@ public class CatTests {
     void testMewArgument(Person person, Cat cat, double expected) {
         cat.mew(person);
         double actual = person.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -60,6 +61,7 @@ public class CatTests {
     void testPurrArgument(Person person, Cat cat, double expected) {
         cat.purr(person);
         double actual = person.getHappiness();
+
         Assertions.assertEquals(expected, actual);
     }
 }
