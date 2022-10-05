@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class StringUtilTest {
@@ -193,5 +193,67 @@ public class StringUtilTest {
         Assertions.assertEquals(expexted, actual);
     }
 
+    static Stream<Arguments> provideArgumentsSplitStr() {
+        return Stream.of(
+                Arguments.of("MyMymm", 2, new String[]{"My", "My", "mm"}),
+                Arguments.of("My name is Hanna", 4, new String[]{"My n", "ame ", "is H", "anna"}),
+                Arguments.of("My name is Hanna", 0, new String[]{"My name is Hanna"})
+        );
+    }
 
+    @ParameterizedTest
+    @MethodSource("provideArgumentsSplitStr")
+    void testGetSplitStr(String str, int n, String[] expexted) {
+        StringUtil stringUtil = new StringUtil();
+        String[] actual = stringUtil.getSplitStr(str, n);
+        Assertions.assertEquals(Arrays.toString(expexted), Arrays.toString(actual));
+    }
+
+    static Stream<Arguments> provideArgumentsNumberOfWordInText() {
+        return Stream.of(
+                Arguments.of("My My mm", 3),
+                Arguments.of("My name is  Hanna", 4),
+                Arguments.of("  My     name is Hanna       ", 4)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsNumberOfWordInText")
+    void testGetSplitStr(String str, int expexted) {
+        StringUtil stringUtil = new StringUtil();
+        int actual = stringUtil.getNumberOfWordInText(str);
+        Assertions.assertEquals(expexted, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsNameLastname() {
+        return Stream.of(
+                Arguments.of("Hanna Kavaliova", "HK"),
+                Arguments.of("hanna kavaliova", "HK"),
+                Arguments.of("Anna Kavaliova Alexandrovna", "AK")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsNameLastname")
+    void testNameLastname(String str, String expexted) {
+        StringUtil stringUtil = new StringUtil();
+        String actual = stringUtil.getNameLastname(str);
+        Assertions.assertEquals(expexted, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsDigitalInText() {
+        return Stream.of(
+                Arguments.of("Hanna12 Kavaliova", "12"),
+                Arguments.of("123hanna kavaliova345", "123345"),
+                Arguments.of("Anna0 Kavaliova4 Alexandrovna5", "045")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsDigitalInText")
+    void testDigitalInText(String str, String expexted) {
+        StringUtil stringUtil = new StringUtil();
+        String actual = stringUtil.getDigitalInText(str);
+        Assertions.assertEquals(expexted, actual);
+    }
 }

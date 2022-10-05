@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.strings;
 
-import java.util.Locale;
 
 public class StringUtil {
     String concat(String str1, String str2) {
@@ -50,11 +49,33 @@ public class StringUtil {
         return numberSymbolInStr - numberAfterReplace;
     }
 
-    public boolean getStrIsPalindrome(String str){
+    public boolean getStrIsPalindrome(String str) {
         str = str.toLowerCase().replaceAll("[.,?!; ]", "");
         String strAfterReverse = (new StringBuilder(str)).reverse().toString();
         return str.equals(strAfterReverse);
     }
 
+    public String[] getSplitStr(String str, int n) {
+        return str.split("(?<=\\G.{" + n + "})");
+    }
 
+    public int getNumberOfWordInText(String str) {
+        String[] arrayNumberOfWordInText = str.trim().split(" +");
+        int numberWorld = 0;
+        for (int i = 0; i < arrayNumberOfWordInText.length; i++) {
+            if (arrayNumberOfWordInText[i] != " ") {
+                numberWorld++;
+            }
+        }
+        return numberWorld;
+    }
+
+    public String getNameLastname(String str) {
+        String[] arrayNameLastname = str.toUpperCase().split(" ");
+        return arrayNameLastname[0].charAt(0) + arrayNameLastname[1].substring(0, 1);
+    }
+
+    public String getDigitalInText(String str) {
+        return str.replaceAll("\\D", "");
+    }
 }
