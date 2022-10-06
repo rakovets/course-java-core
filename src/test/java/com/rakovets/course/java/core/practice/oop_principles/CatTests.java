@@ -1,6 +1,10 @@
 package com.rakovets.course.java.core.practice.oop_principles;
 
 import com.rakovets.course.java.core.practice.oop_principles.cat.*;
+import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Cat;
+import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Persian;
+import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Siamese;
+import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Sphynx;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
