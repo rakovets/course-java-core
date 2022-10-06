@@ -38,8 +38,26 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int primeNumber = 0;
+        int result = 0;
+
+        for (int i = finishNumber; i >= startNumber; i--) {
+            if (i == 0 || i == 1) {
+                continue;
+            }
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    result++;
+                }
+            }
+
+            if (result == 0) {
+                primeNumber++;
+            } else {
+                result = 0;
+            }
+        }
+
+        return primeNumber;
     }
 }
