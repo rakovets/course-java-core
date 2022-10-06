@@ -34,14 +34,14 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        String Format = "";
+        String format = "";
         int digitsCounter = 0;
         long number;
         if (amount == 0) {
-            Format = "0";
+            format = "0";
         } else {
             if (amount < 0) {
-                Format = "-";
+                format = "-";
                 amount *= -1;
             }
             for (long i = amount; i > 0; i /= 10) {
@@ -51,12 +51,12 @@ class Task09 {
                 number = (long) (amount / Math.pow(10, j-1));
                 amount -= number * Math.pow(10, j-1);
                 if (j % 3 == 1 && j != 1) {
-                    Format += number + " ";
+                    format += number + " ";
                 } else {
-                    Format += number;
+                    format += number;
                 }
             }
         }
-        return Format;
+        return format;
     }
 }

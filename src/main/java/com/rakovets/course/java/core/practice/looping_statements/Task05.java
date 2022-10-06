@@ -32,12 +32,18 @@ class Task05 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        StringBuilder numbersColumn = new StringBuilder("1");
-        if (isEnableHeaderRow) {
+        int num1 =1;
+        String number = "";
+        if (isEnableHeaderRow == true) {
+            number = "\n";
             numberRows -= 1;
-            numbersColumn = new StringBuilder("\n1");
         }
-        for (int i = 2; i <= numberRows; i++) numbersColumn.append("\n").append(i);
-        return numbersColumn.toString();
+        while (num1 < numberRows){
+            number += num1 + "\n";
+            num1++;
+        }
+        number = number + numberRows;
+
+        return number;
     }
 }

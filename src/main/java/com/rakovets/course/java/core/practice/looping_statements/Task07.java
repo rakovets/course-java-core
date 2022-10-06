@@ -47,15 +47,15 @@ class Task07 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         double priseForOneItem = startPriceAllItems / startNumberItems;
         String listOfPrises = "";
-        double Prise = startPriceAllItems;
+        double prise = startPriceAllItems;
         int Number = startNumberItems;
         for (int i = 0; i < sizeTotalPrice; i++) {
             if (i == sizeTotalPrice - 1) {
-                listOfPrises += Number + " - " + Prise;
+                listOfPrises += Number + " - " + prise;
             } else {
-                listOfPrises += Number + " - " + Prise + "\n";
+                listOfPrises += Number + " - " + prise + "\n";
                 Number += differentialNumberItems;
-                Prise = Number * priseForOneItem;
+                prise = Number * priseForOneItem;
             }
         }
         return listOfPrises;

@@ -34,14 +34,14 @@ class Task06 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
-        double Distance = 0;
+        double distance = 0;
         double todayDistance = startDistance;
         if (startDistance != 0) {
             while (todayDistance <= finishDistance) {
                 todayDistance += todayDistance * dailyProgressAsPercentage / 100;
-                Distance += todayDistance;
+                distance += todayDistance;
             }
         }
-        return Distance;
+        return distance;
     }
 }
