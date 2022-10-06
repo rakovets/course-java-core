@@ -71,10 +71,8 @@ public class StringUtil {
         return preparedLine.equals(revers);
     }
 
-    public String splitStringApartOnNumberCharacters(String str, int n) {
-        String[] stringPartArray = str.split("(?<=\\G.{" + n + "})");
-
-        return Arrays.toString(stringPartArray);
+    public String[] splitStringApartOnNumberCharacters(String str, int n) {
+        return str.split("(?<=\\G.{" + n + "})");
     }
 
     public int wordCount(String str) {
