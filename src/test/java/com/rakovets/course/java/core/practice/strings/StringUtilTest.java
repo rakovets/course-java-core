@@ -203,7 +203,7 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForSplitStringApartOnNumberCharacters")
     void testSplitStringApartOnNumberCharacters(String str, int n, String expected) {
-        String actual = stringUtil.splitStringApartOnNumberCharacters(str, n);
+        String actual = Arrays.toString(stringUtil.splitStringApartOnNumberCharacters(str, n));
 
         Assertions.assertEquals(expected, actual);
     }
