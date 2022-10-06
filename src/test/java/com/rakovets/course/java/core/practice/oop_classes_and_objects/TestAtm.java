@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 public class TestAtm {
     Atm amountAtm = new Atm(20, 10, 5);
+
     static Stream<Arguments> provideArgumentsIsPossibleIssue() {
         return Stream.of(
                 Arguments.of(100, true),
@@ -25,6 +26,7 @@ public class TestAtm {
     @MethodSource("provideArgumentsIsPossibleIssue")
     void testIsPossibleIssue(Integer amount, Boolean expected) {
         boolean actual = amountAtm.isPossibleIssue(amount);
+
         Assertions.assertEquals(expected, actual);
     }
 }

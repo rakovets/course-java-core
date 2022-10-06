@@ -40,7 +40,6 @@ public class TestRectangle {
     @ParameterizedTest(name = "Rectangle area: {0}.")
     @MethodSource("provideArgumentsForArea")
     void testArea(Point topLeftPoint, Point bottomRightPoint, double expected) {
-
         Rectangle testRec = new Rectangle(topLeftPoint, bottomRightPoint);
 
         double actual = testRec.getArea();

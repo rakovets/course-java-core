@@ -24,7 +24,6 @@ public class TestPoint {
     @ParameterizedTest(name = "Distance between points: {0}.")
     @MethodSource("provideArgumentsForDistancePoint")
     void test(int x1, int y1, int x2, int y2, double expected) {
-
         Point point = new Point(x1, y1);
         Point move = new Point(x2, y2);
 

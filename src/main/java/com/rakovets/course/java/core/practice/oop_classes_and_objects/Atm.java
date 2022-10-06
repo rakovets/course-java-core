@@ -46,6 +46,7 @@ public class Atm {
     public int addBanknotes100(int number) {
         return numberBanknotes100 += number;
     }
+
     public boolean isPossibleIssue(int amount) {
         int amountBanknotes20 = getNumberBanknotes20();
         int amountBanknotes50 = getNumberBanknotes50();
