@@ -34,30 +34,21 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        long amountCopy = amount;
+        if (amountCopy < 0) {
+            amountCopy *= -1;
+        }
+        String number = String.valueOf(amountCopy);
+        int lengthAmount = number.length() - 3;
         String accountingFormat = "";
-        int digitsCounter = 0;
-        long number;
-        if (amount == 0) {
-            accountingFormat = "0";
-        } else {
-            if (amount < 0) {
-                accountingFormat = "-";
-                amount *= -1;
-            }
-            for (long i = amount; i > 0; i /= 10) {
-                digitsCounter++;
-            }
-            for (int j = digitsCounter; j > 0; j--) {
-                number = (long) (amount / Math.pow(10, j-1));
-                amount -= number * Math.pow(10, j-1);
-                if (j % 3 == 1 && j != 1) {
-                    accountingFormat += number + " ";
-                } else {
-                    accountingFormat += number;
-                }
-            }
+        accountingFormat += String.valueOf(amountCopy % 1000);
+        amountCopy /= 1000;
+        for (int i = 0; i < lengthAmount; i += 3) {
+            accountingFormat = (amountCopy % 1000) + " " + accountingFormat;
+            amountCopy /= 1000;
+        }
+        if (amount < 0) {
+            accountingFormat = "-" + accountingFormat;
         }
         return accountingFormat;
     }

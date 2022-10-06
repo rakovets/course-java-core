@@ -47,8 +47,6 @@ class Task07 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double productPrice = startPriceAllItems / startNumberItems;
         String totalPriceList = startNumberItems + " - " + startPriceAllItems + "\n";
 

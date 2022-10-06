@@ -34,15 +34,12 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double percentForYear = 1 + annualDepositPercent / 100.0;
-        double totalDepositAmount = 1;
+        double totalDepositAmount = depositAmount;
+        double profit = 0;
         for (int i = 0; i < depositTerm ; i++) {
-            totalDepositAmount *= percentForYear;
+            profit = totalDepositAmount * (annualDepositPercent / 100);
+            totalDepositAmount += profit;
         }
-        totalDepositAmount = totalDepositAmount * depositAmount;
-
         return NumberUtil.roundValueToTwoDigitsForMantissa(totalDepositAmount);
     }
 }
