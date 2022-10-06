@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 
 public class Sphynx extends Cat {
-
     public String mew() {
         return "My name Sphynx!";
     }
@@ -17,7 +16,7 @@ public class Sphynx extends Cat {
     }
 
     @Override
-    public String purr(Person person){
+    public String purr(Person person) {
         person.changeHappiness(+20);
         return "MrrMrrM!";
     }

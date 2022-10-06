@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 
 public class Persian extends Cat {
-
     public String mew() {
         return "I want eat!";
     }
@@ -17,7 +16,7 @@ public class Persian extends Cat {
     }
 
     @Override
-    public String purr(Person person){
+    public String purr(Person person) {
         person.changeHappiness(+10);
         return "MrrMrrM!";
     }
