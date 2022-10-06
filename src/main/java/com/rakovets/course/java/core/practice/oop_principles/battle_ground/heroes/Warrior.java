@@ -1,16 +1,47 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground.heroes;
 
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Enemy;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.enemies.Enemy;
 
 public class Warrior extends Hero {
+    private double armor;
     public Warrior(String name) {
         super(name);
     }
 
-    @Override
+    public Warrior(String name, double health, double armor) {
+        super(name, health);
+        this.armor = armor;
+    }
+
     public String attackEnemy(Enemy enemy) {
-        int damage = 20;
-        enemy.takeDamage(damage);
+        double damage = 20;
+        if (enemy.isAlive()) {
+            enemy.takeDamage(damage);
+        }
         return "Attacks enemy!";
+    }
+
+    @Override
+    public void takeDamage(double damage) {
+        if (isAlive()) {
+            if (armor > 0) {
+                setHealth(getHealth() - (damage / 2));
+                armor -= damage / 2;
+            } else {
+                setHealth(getHealth() - damage);
+            }
+        }
+    }
+
+    public void setArmor(double armor) {
+        this.armor = armor;
+    }
+
+    public double getArmor() {
+        return armor;
+    }
+
+    public boolean isAlive() {
+        return this.getHealth() > 0;
     }
 }

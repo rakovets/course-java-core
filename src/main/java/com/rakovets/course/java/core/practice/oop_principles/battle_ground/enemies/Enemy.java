@@ -5,9 +5,9 @@ import com.rakovets.course.java.core.practice.oop_principles.battle_ground.heroe
 
 public abstract class Enemy implements Mortal {
     private String name;
-    private int health;
+    private double health;
 
-    public Enemy(int health) {
+    public Enemy(double health) {
         this.health = health;
     }
 
@@ -15,13 +15,15 @@ public abstract class Enemy implements Mortal {
         this.name = name;
     }
 
-    public Enemy (String name, int health) {
+    public Enemy (String name, double health) {
         this.name = name;
         this.health = health;
     }
 
-    public void takeDamage(int damage) {
+    public void takeDamage(double damage) {
+        if (isAlive()) {
             this.health -= damage;
+        }
     }
 
     public abstract String attackHero(Hero hero);
@@ -32,11 +34,11 @@ public abstract class Enemy implements Mortal {
         return name;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 

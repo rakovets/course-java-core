@@ -1,21 +1,44 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground.heroes;
 
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Enemy;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.enemies.Enemy;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Mortal;
 
-public class Hero {
+public abstract class Hero implements Mortal {
     private String name;
+    private double health;
 
     public Hero(String name) {
         this.name = name;
     }
 
-    public String attackEnemy(Enemy enemy) {
-        int damage = 5;
-        enemy.takeDamage(damage);
-        return "Attacks enemy!";
+    public Hero(double health) {
+        this.health = health;
     }
+
+    public Hero(String name, double health) {
+        this.name = name;
+        this.health = health;
+    }
+
+    public void takeDamage(double damage) {
+        if (isAlive()) {
+            this.health -= damage;
+        }
+    }
+
+    public abstract String attackEnemy(Enemy enemy);
+
+    public abstract boolean isAlive();
 
     public String getName() {
         return name;
+    }
+
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
+    public double getHealth() {
+        return health;
     }
 }
