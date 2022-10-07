@@ -37,9 +37,7 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return parseToArrayResult(informationAboutStuff, 1);
     }
 
     /**
@@ -49,9 +47,7 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return parseToArrayResult(informationAboutStuff, 2);
     }
 
     /**
@@ -61,8 +57,40 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return convertToIntegerArraySalary(parseToArrayResult(informationAboutStuff, 3));
+    }
+
+    static int[] convertToIntegerArraySalary(String[] str) {
+        int[] toArraySalary = new int[str.length];
+        for (int i = 0; i < str.length; i++) {
+            toArraySalary[i] = Integer.parseInt(str[i]);
+        }
+        return toArraySalary;
+    }
+
+    static String[] parseToArrayResult(String informationAboutStuff, int positionOfRequiredArray) {
+        final int NUMBER_OF_WORDS_FOR_ONE_PERSON = 3;
+        StringBuffer informationWithSplits = new StringBuffer(informationAboutStuff);
+        for (int i = 0; i < informationWithSplits.length(); i++) {
+            if (informationWithSplits.charAt(i) == ';') {
+                informationWithSplits.setCharAt(i, ' ');
+            }
+            if (informationWithSplits.charAt(i) == ' ' && informationWithSplits.charAt(i - 1) == ' ') {
+                informationWithSplits.deleteCharAt(i);
+                i--;
+            }
+        }
+        String informationAboutStuffWithSplits = new String(informationWithSplits);
+        String[] arrayInformationOneWord = informationAboutStuffWithSplits.split(" ");
+        StringBuffer resultOnly = new StringBuffer();
+        for (int i = 0; i < arrayInformationOneWord.length; i++) {
+            if ((i + NUMBER_OF_WORDS_FOR_ONE_PERSON - positionOfRequiredArray + 1) % NUMBER_OF_WORDS_FOR_ONE_PERSON == 0) {
+                resultOnly.append(arrayInformationOneWord[i]);
+                resultOnly.append(' ');
+            }
+        }
+        String result = new String(resultOnly);
+        String[] toArrayResult = result.split(" ");
+        return toArrayResult;
     }
 }
