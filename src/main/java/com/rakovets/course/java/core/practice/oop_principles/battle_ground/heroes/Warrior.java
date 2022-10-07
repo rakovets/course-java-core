@@ -18,7 +18,7 @@ public class Warrior extends Hero {
         if (enemy.isAlive()) {
             enemy.takeDamage(damage);
         }
-        return "Attacks enemy!";
+        return "attacks enemy!";
     }
 
     @Override

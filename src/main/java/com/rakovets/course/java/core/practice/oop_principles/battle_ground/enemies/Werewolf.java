@@ -9,7 +9,7 @@ public class Werewolf extends Enemy {
         super(health);
     }
 
-    public Werewolf (String name, double health) {
+    public Werewolf(String name, double health) {
         super(name, health);
         this.maxHealth = health;
     }
@@ -19,7 +19,7 @@ public class Werewolf extends Enemy {
         if (hero.isAlive()) {
             hero.takeDamage(damage);
         }
-        return "Attacks this hero!";
+        return "attacks this hero!";
     }
 
     public String clawedHit(Hero hero) {
@@ -28,18 +28,18 @@ public class Werewolf extends Enemy {
         if (hero.isAlive()) {
             hero.takeDamage(damage);
         }
-        return "Attacks this hero with CLAWS!";
+        return "attacks this hero with CLAWS!";
     }
 
     @Override
     public void takeDamage(double damage) {
         double lowHealthPoints = maxHealth / 3;
-        double healingAbility = 3;
+        double healingAbility = 5;
         if (isAlive()) {
-                setHealth(getHealth() - damage);
-        }
-        if (getHealth() < lowHealthPoints) {
-            setHealth(getHealth() + healingAbility);
+            setHealth(getHealth() - damage);
+            if (getHealth() < lowHealthPoints) {
+                setHealth(getHealth() + healingAbility);
+            }
         }
     }
 

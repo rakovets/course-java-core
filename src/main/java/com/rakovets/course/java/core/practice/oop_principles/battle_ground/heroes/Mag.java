@@ -20,7 +20,7 @@ public class Mag extends Hero {
             enemy.takeDamage(damage);
             this.mana += returnMana;
         }
-        return "Attacks enemy!";
+        return "attacks enemy!";
     }
 
     public void makeHealingSpell() {
@@ -29,8 +29,24 @@ public class Mag extends Hero {
         if (isAlive()) {
             if (mana > healingPriseInMana) {
                 setHealth(getHealth() + healthPoints);
+                this.mana -= healingPriseInMana;
             }
         }
+    }
+
+    public void makeHealingSpell(Hero hero) {
+        double healingPriseInMana = 10;
+        double healthPoints = 10;
+        if (hero.isAlive()) {
+            if (mana > healingPriseInMana) {
+                hero.setHealth(hero.getHealth() + healthPoints);
+                this.mana -= healingPriseInMana;
+            }
+        }
+    }
+
+    public double getMana() {
+        return mana;
     }
 
     public boolean isAlive() {

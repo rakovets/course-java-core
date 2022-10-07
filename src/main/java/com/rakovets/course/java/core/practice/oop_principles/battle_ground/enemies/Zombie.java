@@ -9,22 +9,25 @@ public class Zombie extends Enemy{
         super(health);
     }
 
-    public Zombie (String name, double health) {
+    public Zombie (String name, double health, int chanceToBeAlive) {
         super(name, health);
+        this.chanceToBeAlive = chanceToBeAlive;
         this.maxHealth = health;
     }
 
     public String attackHero(Hero hero) {
-        double damage = 10;
+        double damage = 15;
         if (hero.isAlive()) {
             hero.takeDamage(damage);
         }
-        return "Attacks this hero!";
+        return "attacks this hero!";
     }
 
     public void getAlive() {
-        chanceToBeAlive = 2;
         if (!isAlive() && chanceToBeAlive > 0) {
+            if (getHealth() < 0) {
+                setHealth(0);
+            }
             setHealth(maxHealth / 2);
             chanceToBeAlive -= 1;
         }

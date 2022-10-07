@@ -3,9 +3,14 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground.enem
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.heroes.Hero;
 
 public class Demon extends Enemy{
-    private int chanceToUseSuperAttack = 2;
+    private int chanceToUseSuperAttack;
     public Demon(double health) {
         super(health);
+    }
+
+    public Demon (String name, double health, int chanceToUseSuperAttack) {
+        super(name, health);
+        this.chanceToUseSuperAttack = chanceToUseSuperAttack;
     }
 
     public String attackHero(Hero hero) {
@@ -13,7 +18,7 @@ public class Demon extends Enemy{
         if (hero.isAlive()) {
             hero.takeDamage(damage);
         }
-        return "Attacks this hero!";
+        return "attacks this hero!";
     }
 
     public String attackWithHellfire(Hero hero) {
