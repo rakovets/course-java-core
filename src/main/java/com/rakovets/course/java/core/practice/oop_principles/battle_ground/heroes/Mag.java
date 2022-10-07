@@ -13,6 +13,7 @@ public class Mag extends Hero {
         this.mana = mana;
     }
 
+    @Override
     public String attackEnemy(Enemy enemy) {
         double damage = 10;
         double returnMana = 5;

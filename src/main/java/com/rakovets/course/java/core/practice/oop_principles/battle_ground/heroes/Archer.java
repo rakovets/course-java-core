@@ -13,6 +13,7 @@ public class Archer extends Hero {
         this.fireArrowsNumber = fireArrowsNumber;
     }
 
+    @Override
     public String attackEnemy(Enemy enemy) {
         double damage = 13;
         if (enemy.isAlive()) {

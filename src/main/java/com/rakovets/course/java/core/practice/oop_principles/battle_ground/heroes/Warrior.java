@@ -13,6 +13,7 @@ public class Warrior extends Hero {
         this.armor = armor;
     }
 
+    @Override
     public String attackEnemy(Enemy enemy) {
         double damage = 20;
         if (enemy.isAlive()) {

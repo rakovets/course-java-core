@@ -15,6 +15,7 @@ public class Zombie extends Enemy{
         this.maxHealth = health;
     }
 
+    @Override
     public String attackHero(Hero hero) {
         double damage = 15;
         if (hero.isAlive()) {

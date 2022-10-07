@@ -13,6 +13,7 @@ public class Demon extends Enemy{
         this.chanceToUseSuperAttack = chanceToUseSuperAttack;
     }
 
+    @Override
     public String attackHero(Hero hero) {
         double damage = 30;
         if (hero.isAlive()) {
