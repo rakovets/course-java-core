@@ -87,10 +87,10 @@ class Task02 {
      */
     static double getSumMoneyFromReport(String report) {
         double[] arrayDouble = getArrayMoneyFromReport(report);
-        double sum = 0;
+        double sumMoneyFromReport = 0;
         for (int i = 0; i < arrayDouble.length; i++) {
-            sum += arrayDouble[i];
+            sumMoneyFromReport += arrayDouble[i];
         }
-        return sum;
+        return sumMoneyFromReport;
     }
 }
