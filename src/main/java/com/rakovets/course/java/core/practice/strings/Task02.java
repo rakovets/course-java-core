@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
 
+import static java.lang.Double.valueOf;
+
 /**
  * Разработать программу для разбора (parsing) банковских отчетов.
  *
@@ -18,8 +20,7 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        String bankReport = "Remaining 10$  12$ essentially 13$ unchanged.";
-
+        String bankReport = "typetypesetting 100$ -12$remaining the 1960s with -12$ the release -36$ of Letraset Lorem";
         double[] moneyFromReport = getArrayMoneyFromReport(bankReport);
         System.out.printf("Money from the report: %s\n", Arrays.toString(moneyFromReport));
         double sumMoneyFromReport = getSumMoneyFromReport(bankReport);
@@ -33,9 +34,49 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuffer bufferReport = new StringBuffer(report.length());
+        bufferReport.append(' ').reverse().append(' ').reverse();
+        for (int i = 1; i < report.length(); ) {
+            if ((report.charAt(i) >= '0' && report.charAt(i) <= '9' || report.charAt(i) =='-') && report.charAt(i - 1) == ' ') {
+                while (report.charAt(i) != ' ') {
+                    bufferReport.append(report.charAt(i));
+                    i++;
+                }
+                bufferReport.append(' ');
+            } else {
+                i++;
+            }
+        }
+        bufferReport.reverse();
+        StringBuffer bufferReportFinal = new StringBuffer();
+        for (int i = 1; i < bufferReport.length(); ) {
+            if (bufferReport.charAt(i) == '$' && bufferReport.charAt(i - 1) == ' ') {
+                while (bufferReport.charAt(i) != ' ') {
+                    bufferReportFinal.append(bufferReport.charAt(i));
+                    i++;
+                }
+                bufferReportFinal.append(' ');
+            } else {
+                i++;
+            }
+        }
+        bufferReportFinal.reverse();
+        for (int i = 0; i < bufferReportFinal.length(); i++) {
+            if(bufferReportFinal.charAt(i) == '$') {
+                bufferReportFinal.deleteCharAt(i);
+            }
+        }
+        String reportFinal = new String(bufferReportFinal).trim();
+        double[] arrayMoneyFromReportDouble;
+        if (reportFinal.length() > 0) {
+            String[] arrayStringDouble = reportFinal.split(" ");
+            arrayMoneyFromReportDouble = new double[arrayStringDouble.length];
+            for (int i = 0; i < arrayStringDouble.length; i++) {
+                arrayStringDouble[i].trim();
+                arrayMoneyFromReportDouble[i] = Double.parseDouble(arrayStringDouble[i]);
+            }
+        } else arrayMoneyFromReportDouble = new double[] {};
+        return arrayMoneyFromReportDouble;
     }
 
     /**
@@ -45,8 +86,11 @@ class Task02 {
      * @return общую сумму всех денег
      */
     static double getSumMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double[] arrayDouble = getArrayMoneyFromReport(report);
+        double sum = 0;
+        for (int i = 0; i < arrayDouble.length; i++) {
+            sum += arrayDouble[i];
+        }
+        return sum;
     }
 }
