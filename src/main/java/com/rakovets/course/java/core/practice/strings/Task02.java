@@ -35,7 +35,7 @@ class Task02 {
      */
     static double[] getArrayMoneyFromReport(String report) {
         StringBuffer bufferReport = new StringBuffer(report.length());
-        bufferReport.append(' ').reverse().append(' ').reverse();
+        bufferReport.append(' ').insert(0, ' ');
         for (int i = 1; i < report.length(); ) {
             if ((report.charAt(i) >= '0' && report.charAt(i) <= '9' || report.charAt(i) =='-') && report.charAt(i - 1) == ' ') {
                 while (report.charAt(i) != ' ') {
