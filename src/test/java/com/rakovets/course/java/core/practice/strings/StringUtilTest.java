@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class StringUtilTest {
+    StringUtil stringUtil = new StringUtil();
     static Stream<Arguments> provideArgumentsForGlueStrings() {
         return Stream.of(
                 Arguments.of("012345", "678910", "012345678910"),
@@ -24,8 +25,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGlueStrings")
     public void testGlueStrings(String string1, String string2, String expected) {
-        StringUtil stringUtil = new StringUtil();
-
         String actual = stringUtil.glueStrings(string1, string2);
 
         Assertions.assertEquals(expected, actual);
@@ -48,8 +47,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetIndexOfSymbolOfSymbolInString")
     public void testGetIndexOfSymbolInString(String string, char symbol, int expected) {
-        StringUtil stringUtil = new StringUtil();
-
         int actual = stringUtil.getIndexOfSymbolInString(string, symbol);
 
         Assertions.assertEquals(expected, actual);
@@ -72,8 +69,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsStringsTheSame")
     public void testIsStringsTheSame(String string1, String string2, boolean expected) {
-        StringUtil stringUtil = new StringUtil();
-
         boolean actual = stringUtil.isStringsTheSame(string1, string2);
 
         Assertions.assertEquals(expected, actual);
@@ -97,8 +92,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForTrimStringAndUpperCase")
     public void testTrimStringAndUpperCase(String string, String expected) {
-        StringUtil stringUtil = new StringUtil();
-
         String actual = stringUtil.trimStringAndUpperCase(string);
 
         Assertions.assertEquals(expected, actual);
@@ -118,8 +111,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForExtractSubstringFromSymbolToSymbol")
     public void testExtractSubstringFromSymbolToSymbol(String string, char symbolStart, char symbolEnd, String expected) {
-        StringUtil stringUtil = new StringUtil();
-
         String actual = stringUtil.extractSubstringFromSymbolToSymbol(string, symbolStart, symbolEnd);
 
         Assertions.assertEquals(expected, actual);
@@ -141,7 +132,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForReplaceEmojiInString")
     public void testReplaceEmojiInString(String beforeReplacement, String expected) {
-        StringUtil stringUtil = new StringUtil();
 
         String actual = stringUtil.replaceEmojiInString(beforeReplacement);
 
@@ -165,7 +155,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsStringStartsWithThisWord")
     public void testIsStringStartsWithThisWord(String string, String word, boolean expected) {
-        StringUtil stringUtil = new StringUtil();
 
         boolean actual = stringUtil.isStringStartsWithThisWord(string, word);
 
@@ -189,7 +178,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetNumberOfEnglishVowels")
     public void testGetNumberOfEnglishVowels(String string, int expected) {
-        StringUtil stringUtil = new StringUtil();
 
         int actual = stringUtil.getNumberOfEnglishVowels(string);
 
@@ -213,7 +201,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetNumberOfPunctuationMarks")
     public void testGetNumberOfPunctuationMarks(String string, int expected) {
-        StringUtil stringUtil = new StringUtil();
 
         int actual = stringUtil.getNumberOfPunctuationMarks(string);
 
@@ -224,19 +211,16 @@ public class StringUtilTest {
         return Stream.of(
                 Arguments.of(" ", true),
                 Arguments.of("abcd", false),
-                Arguments.of(".abba.", true),
-                Arguments.of("! abba ?", false),
-                Arguments.of(" abcd. tt .dcba ", true),
-                Arguments.of(" abcd. !t .dcba ", false),
-                Arguments.of(null, false)
+                Arguments.of(".abba .", true),
+                Arguments.of("!  a bba ?", false),
+                Arguments.of(" a Bcd.tt  .  dcba", true),
+                Arguments.of(" abcd. !t .dCba ", false)
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForIsStringPalindrome")
     public void testIsStringPalindrome(String string, boolean expected) {
-        StringUtil stringUtil = new StringUtil();
-
         boolean actual = stringUtil.isStringPalindrome(string);
 
         Assertions.assertEquals(expected, actual);
@@ -259,8 +243,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForSplitStringForEqualParts")
     public void testSplitStringForEqualParts(String string, int numberOfSymbols, int numberOfWord, String expected) {
-        StringUtil stringUtil = new StringUtil();
-
         String[] stringArray = stringUtil.splitStringForEqualParts(string, numberOfSymbols);
         String actual = new String(stringArray[numberOfWord]);
 
@@ -269,20 +251,17 @@ public class StringUtilTest {
 
     static Stream<Arguments> provideArgumentsForGetNumbersOfWordsInString() {
         return Stream.of(
-                Arguments.of(" aba   aaaaaaa  ataa ", 3),
-                Arguments.of(" aba a ", 2),
-                Arguments.of(" ataa ", 1),
+                Arguments.of(" aba,    aaaaaaa  ataa.", 3),
+                Arguments.of(" aba A   h;", 3),
+                Arguments.of(" ataa!", 1),
                 Arguments.of("", 0),
-                Arguments.of(" Xaba   aaaaaAa  atDa ", 3),
-                Arguments.of(null, -1)
+                Arguments.of(" Xaba   aaaaaAa  atDa?", 3)
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetNumbersOfWordsInString")
     public void testGetNumbersOfWordsInString(String string, int expected) {
-        StringUtil stringUtil = new StringUtil();
-
         int actual = stringUtil.getNumbersOfWordsInString(string);
 
         Assertions.assertEquals(expected, actual);
@@ -295,17 +274,13 @@ public class StringUtilTest {
                 Arguments.of(" Victor Polonnikov 2022", "VP"),
                 Arguments.of("victor Polonnikov", "VP"),
                 Arguments.of("Victor polonnikov", "VP"),
-                Arguments.of("victor polonnikov", "VP"),
-                Arguments.of("VictorPolonnikov", "V"),
-                Arguments.of("   ", "")
+                Arguments.of("victor polonnikov", "VP")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetFirstLettersOfNameAndSurname")
     public void testGetFirstLettersOfNameAndSurname(String string, String expected) {
-        StringUtil stringUtil = new StringUtil();
-
         String actual = stringUtil.getFirstLettersOfNameAndSurname(string);
 
         Assertions.assertEquals(expected, actual);
@@ -324,8 +299,6 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetOnlyNumberFromString")
     public void testGetOnlyNumberFromString(String string, String expected) {
-        StringUtil stringUtil = new StringUtil();
-
         String actual = stringUtil.getOnlyNumberFromString(string);
 
         Assertions.assertEquals(expected, actual);
