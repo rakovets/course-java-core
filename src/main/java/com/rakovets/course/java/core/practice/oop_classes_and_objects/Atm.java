@@ -22,4 +22,16 @@ public class Atm {
     public void addBanknotes100(int number) {
         this.numberBanknotes100 -= number;
     }
+
+    public int getNumberBanknotes20() {
+        return this.numberBanknotes20;
+    }
+
+    public int getNumberBanknotes50() {
+        return this.numberBanknotes50;
+    }
+
+    public int getNumberBanknotes100() {
+        return this.numberBanknotes100;
+    }
 }
