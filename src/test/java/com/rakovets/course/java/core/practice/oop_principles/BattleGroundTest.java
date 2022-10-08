@@ -56,6 +56,22 @@ public class BattleGroundTest {
         System.out.println(zombie.getName() + " health: " + zombie.getHealth());
     }
 
+    static Stream<Arguments> provideArgumentsForIsAlive() {
+        return Stream.of(
+                Arguments.of(new Warrior("Gingo", 300, 50), true),
+                Arguments.of(new Archer("Sam", 0, 5), false),
+                Arguments.of(new Mag("Herald", -2, 30), false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsAlive")
+    void testIsAlive(Hero hero, boolean expected) {
+        boolean actual = hero.isAlive();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
     static Stream<Arguments> provideArgumentsForAttackEnemy() {
         return Stream.of(
                 Arguments.of(new Warrior("Gingo", 300, 50), new Demon("Baltazar", 400, 2), 380.0),
