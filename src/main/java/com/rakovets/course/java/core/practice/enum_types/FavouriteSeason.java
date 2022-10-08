@@ -1,13 +1,17 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
 public class FavouriteSeason {
-    private final Season favoriteSeason = Season.SUMMER;
+    private final Season favoriteSeason;
+
+    public FavouriteSeason(Season favoriteSeason) {
+        this.favoriteSeason = favoriteSeason;
+    }
 
     public String favourite() {
         String result = "";
         switch (favoriteSeason) {
             case WINTER:
-                result  = "I love winter";
+                result = "I love winter";
                 break;
             case SPRING:
                 result = "I love spring";
@@ -22,11 +26,28 @@ public class FavouriteSeason {
         return result;
     }
 
-    public Season getFavoriteSeason() {
-        return favoriteSeason;
+    public String getDescription() {
+        String result = "";
+        switch (favoriteSeason) {
+            case WINTER:
+            case SPRING:
+            case AUTUMN:
+                result = "cold time of the year";
+                break;
+            case SUMMER:
+                result = "hot time of the year";
+                break;
+        }
+        return result;
     }
 
-    public String print() {
-        return favoriteSeason.getDescription();
+    @Override
+    public String toString() {
+        return "The average temperature of " + getFavoriteSeason() + " is " +
+                favoriteSeason.getTemperature() + ". This is " + getDescription();
+    }
+
+    public Season getFavoriteSeason() {
+        return favoriteSeason;
     }
 }

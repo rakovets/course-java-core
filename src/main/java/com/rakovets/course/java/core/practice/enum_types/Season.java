@@ -1,17 +1,17 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
 public enum Season {
-    WINTER("Winter is very cold"),
-    SPRING("Spring is always wet and dirty"),
-    SUMMER("Summer is hot and sunny"),
-    AUTUMN("Autumn is rainy and windy");
-    private final String description;
+    WINTER("-15C"),
+    SPRING("+15C"),
+    SUMMER("+25C"),
+    AUTUMN("+12");
+    private final String temperature;
 
-    Season(String description) {
-        this.description = description;
+    Season(String temperature) {
+        this.temperature = temperature;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTemperature() {
+        return temperature;
     }
 }
