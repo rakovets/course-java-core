@@ -39,11 +39,10 @@ class Task06 {
         double result = 0;
         double currDistance = startDistance;
 
-        if(startDistance == 0) {
+        if (startDistance == 0) {
             return 0;
         }
-
-        while(currDistance <= finishDistance) {
+        while (currDistance <= finishDistance) {
             currDistance = currDistance + (currDistance * dailyProgressAsPercentage / 100);
             result = result + currDistance;
         }

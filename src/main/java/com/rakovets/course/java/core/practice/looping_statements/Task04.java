@@ -33,11 +33,11 @@ class Task04 {
         int time = 0;
         int hp = healthPoints;
 
-        while(hp > 0){
-            hp = (int) ( hp + (hp * regenerationPercentPerHour/100));
+        while (hp > 0) {
+            hp = (int) (hp + (hp * regenerationPercentPerHour / 100));
             hp = hp - averageDamagePerHour;
             time++;
-            if(time >24) {
+            if (time > 24) {
                 return -1;
             }
         }

@@ -34,13 +34,13 @@ class Task09 {
         long partNumber = Math.abs(amount);
         String result = "";
 
-        while(partNumber % 1000 != 0) {
+        while (partNumber % 1000 != 0) {
             result = partNumber % 1000 + (result.equals("") ? "" : " ") + result;
             partNumber = partNumber / 1000;
         }
-        if(amount < 0) {
+        if (amount < 0) {
             result = "-" + result;
-        } else if(amount == 0) {
+        } else if (amount == 0) {
             result = "0";
         }
         return result;

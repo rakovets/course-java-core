@@ -31,7 +31,7 @@ class Task02 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         double result = depositAmount;
 
-        for(int i=1; i<=depositTerm; i++){
+        for (int i = 1; i <= depositTerm; i++) {
             result = result + (result * annualDepositPercent / 100);
         }
         return (double) Math.round(result * 100) / 100;

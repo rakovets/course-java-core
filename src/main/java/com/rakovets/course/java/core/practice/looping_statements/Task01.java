@@ -28,7 +28,7 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         String columns = "";
 
-        for (int i=1; i<=numberRows; i++) {
+        for (int i = 1; i <= numberRows; i++) {
             if(i == numberRows) {
                 columns = columns + i;
             } else {

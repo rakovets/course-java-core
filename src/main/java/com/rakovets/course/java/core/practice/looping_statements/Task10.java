@@ -37,11 +37,11 @@ class Task10 {
     static int countPrimeNumber(int startNumber, int finishNumber) {
         int countNumber = 0;
 
-        if(startNumber < 2) {
+        if (startNumber < 2) {
             startNumber = 2;
         }
-        for(int i = startNumber; i <= finishNumber; i++) {
-            if(checkSimple(i)) {
+        for (int i = startNumber; i <= finishNumber; i++) {
+            if (checkSimple(i)) {
                 countNumber++;
             }
         }
@@ -49,8 +49,8 @@ class Task10 {
     }
 
     static boolean checkSimple(int number) {
-        for(int i = 2; i * i <= number; i++) {
-            if(number % i == 0) {
+        for (int i = 2; i * i <= number; i++) {
+            if (number % i == 0) {
                 return false;
             }
         }
