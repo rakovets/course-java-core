@@ -1,10 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Enemy implements Mortal {
+public abstract class Enemy implements Mortal {
     private int health;
 
     public Enemy() {
-
     }
 
     public Enemy(int health) {
@@ -19,9 +18,7 @@ public class Enemy implements Mortal {
         return health > 0;
     }
 
-    public void attackHero(Hero hero){
-        hero.takeDamageHero(2);
-    }
+    public abstract void attackHero(Hero hero);
 
     public int getHealth() {
         return health;

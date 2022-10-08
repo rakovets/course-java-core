@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 
 public class Sphynx extends Cat {
     public String mew() {
-        return "My name Sphynx!";
+        return "My name is Sphynx!";
     }
 
     @Override
