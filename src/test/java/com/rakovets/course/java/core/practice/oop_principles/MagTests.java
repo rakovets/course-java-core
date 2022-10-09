@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class MagTests {
     Mag mag = new Mag("Jonh");
+    Enemy enemy = new Enemy(200);
 
     @Test
     public void testMag(){
@@ -15,5 +16,11 @@ public class MagTests {
     public void testMagAttackEnemy() {
         mag.attackEnemy();
         System.out.println("Mag attacks enemy");
+    }
+
+    @Test
+    public void testMagAttackEnemyAndDamage() {
+        mag.attackEnemy(enemy);
+        Assertions.assertEquals(185, enemy.getHealth());
     }
 }

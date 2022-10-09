@@ -3,8 +3,10 @@ package com.rakovets.course.java.core.practice.oop_principles;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class HeroTests {
+public class HeroTests {}
+/*
     Hero hero = new Hero("Peter");
+    Enemy enemy = new Enemy(100);
 
     @Test
     public void testHero() {
@@ -16,4 +18,10 @@ public class HeroTests {
         hero.attackEnemy();
         System.out.println("Hero attacks enemy");
     }
-}
+
+    @Test
+    public void testHeroAttackEnemyAndDamage() {
+        hero.attackEnemy(enemy);
+        Assertions.assertEquals(95, enemy.getHealth());
+    }
+}*/

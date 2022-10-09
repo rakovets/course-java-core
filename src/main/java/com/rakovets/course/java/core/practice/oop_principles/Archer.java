@@ -9,4 +9,9 @@ public class Archer extends  Hero {
     public void attackEnemy() {
         System.out.println("Archer attacks enemy");
     }
+
+    @Override
+    public void attackEnemy(Enemy enemy) {
+        enemy.takeDamage(20);
+    }
 }

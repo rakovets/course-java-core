@@ -9,4 +9,9 @@ public class Mag extends Hero {
     public void attackEnemy() {
         System.out.println("Mag attacks enemy");
     }
+
+    @Override
+    public void attackEnemy(Enemy enemy) {
+        enemy.takeDamage(15);
+    }
 }

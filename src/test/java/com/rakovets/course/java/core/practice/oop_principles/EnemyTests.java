@@ -22,4 +22,10 @@ public class EnemyTests {
         enemy.setHealth(200);
         Assertions.assertEquals(200, enemy.getHealth());
     }
+
+    @Test
+    public void testIsAlive() {
+        enemy.setHealth(0);
+        Assertions.assertEquals(false, enemy.isAlive());
+    }
 }

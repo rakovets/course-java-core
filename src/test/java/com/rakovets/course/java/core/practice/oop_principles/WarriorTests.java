@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class WarriorTests {
     Warrior warrior = new Warrior("Alex");
+    Enemy enemy = new Enemy(150);
 
     @Test
     public void testWarrior() {
@@ -15,5 +16,11 @@ public class WarriorTests {
     public void testWarriorAttackEnemy() {
         warrior.attackEnemy();
         System.out.println("Warrior attacks enemy");
+    }
+
+    @Test
+    public void testWarriorAttackEnemyAndDamage() {
+        warrior.attackEnemy(enemy);
+        Assertions.assertEquals(140, enemy.getHealth());
     }
 }
