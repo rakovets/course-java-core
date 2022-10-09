@@ -21,7 +21,8 @@ class Task10Test {
                 Arguments.of(1, 10, 4),
                 Arguments.of(10, 20, 4),
                 Arguments.of(1, 50, 15),
-                Arguments.of(50, 120, 15)
+                Arguments.of(50, 120, 15),
+                Arguments.of(1, 1_000_000, 78_492)
         );
     }
 
