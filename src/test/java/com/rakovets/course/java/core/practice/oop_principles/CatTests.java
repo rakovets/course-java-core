@@ -13,11 +13,13 @@ public class CatTests {
 
     @Test
     public void testMew() {
+        cat.mew();
         System.out.println("mjau");
     }
 
     @Test
     public void testPurr() {
+        cat.purr();
         System.out.println("murr");
     }
 
