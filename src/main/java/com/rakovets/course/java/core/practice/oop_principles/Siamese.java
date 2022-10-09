@@ -9,4 +9,9 @@ public class Siamese extends Cat {
     public void mew() {
         System.out.println("mjauSiamese");
     }
+
+    @Override
+    public  void purr() {
+        System.out.println("murrSiamese");
+    }
 }

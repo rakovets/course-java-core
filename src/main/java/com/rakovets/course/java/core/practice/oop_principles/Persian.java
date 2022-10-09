@@ -10,4 +10,9 @@ public class Persian extends Cat {
     public void mew() {
         System.out.println("mjauPersian");
     }
+
+    @Override
+    public  void purr() {
+        System.out.println("murrPersian");
+    }
 }

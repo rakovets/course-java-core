@@ -9,4 +9,9 @@ public class Sphynx extends Cat {
     public void mew() {
         System.out.println("mjauSphynx");
     }
+
+    @Override
+    public  void purr() {
+        System.out.println("murrSphynx");
+    }
 }
