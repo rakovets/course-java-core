@@ -1,43 +1,53 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Atm {
+    final int VALUE_BANKNOTES_20 = 20;
+    final int VALUE_BANKNOTES_50 = 50;
+    final int VALUE_BANKNOTES_100 = 100;
+
     private int numberBanknotes20;
     private int numberBanknotes50;
     private int numberBanknotes100;
     private int currentIssueAmount;
+
     {
         currentIssueAmount = 0;
     }
-    final int VALUE_BANKNOTES_20 = 20;
-    final int VALUE_BANKNOTES_50 = 50;
-    final int VALUE_BANKNOTES_100 = 100;
 
     public Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
         this.numberBanknotes20 = numberBanknotes20;
         this.numberBanknotes50 = numberBanknotes50;
         this.numberBanknotes100 = numberBanknotes100;
     }
+
     public void addBanknotes20(int numberBanknotes20) {
         this.numberBanknotes20 += numberBanknotes20;
     }
+
     public void addBanknotes50(int numberBanknotes50) {
         this.numberBanknotes50 += numberBanknotes50;
     }
+
     public void addBanknotes100(int numberBanknotes100) {
         this.numberBanknotes100 += numberBanknotes100;
     }
+
     public int getNumberBanknotes20() {
         return this.numberBanknotes20;
     }
+
     public int getNumberBanknotes50() {
         return this.numberBanknotes50;
     }
+
     public int getNumberBanknotes100() {
         return this.numberBanknotes100;
     }
+
     public int getCurrentIssueAmount() {
         return this.currentIssueAmount;
     }
+
     public boolean isPossibleIssue(int amount) {
         boolean isPossibleIssue = false;
         int totalAmountInAtm = numberBanknotes20 * VALUE_BANKNOTES_20 + numberBanknotes50 * VALUE_BANKNOTES_50 + numberBanknotes100 * VALUE_BANKNOTES_100;
@@ -95,6 +105,7 @@ public class Atm {
         }
         return optionsCombinationBanknotes;
     }
+
     public int[] getCash(int number) {
         int[][] optionsOfCombinations = this.getOptionsCombinationBanknotes(currentIssueAmount);
         int[] chosenOption = new int[optionsOfCombinations[0].length];
