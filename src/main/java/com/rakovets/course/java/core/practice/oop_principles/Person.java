@@ -1,0 +1,23 @@
+package com.rakovets.course.java.core.practice.oop_principles;
+
+public class Person {
+    public int percentHappiness;
+    private int happiness;
+    public Cat cat;
+
+    public Person(int happiness) {
+        this.happiness = happiness;
+    }
+
+    public int changeHappiness(int percentHappiness) {
+        return happiness = happiness + happiness * percentHappiness / 100;
+    }
+
+    public int getHappiness() {
+        return happiness;
+    }
+
+    public void setHappiness(int happiness) {
+        this.happiness = happiness;
+    }
+}
