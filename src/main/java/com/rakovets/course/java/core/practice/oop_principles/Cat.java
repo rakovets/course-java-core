@@ -9,8 +9,18 @@ public class Cat {
 
     public void mew() { System.out.println("mjau"); }
 
+    public void mew(Person person) {
+        person.changeHappiness(-1);
+        this.mew();
+    }
+
     public void purr() {
         System.out.println("murr");
+    }
+
+    public void purr(Person person) {
+        person.changeHappiness(1);
+        this.purr();
     }
 
     public String getName() {

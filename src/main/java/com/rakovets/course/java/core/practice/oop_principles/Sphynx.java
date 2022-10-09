@@ -11,7 +11,19 @@ public class Sphynx extends Cat {
     }
 
     @Override
+    public void mew(Person person) {
+        person.changeHappiness(-4);
+        this.mew();
+    }
+
+    @Override
     public  void purr() {
         System.out.println("murrSphynx");
+    }
+
+    @Override
+    public void purr (Person person) {
+        person.changeHappiness(4);
+        this.purr();
     }
 }

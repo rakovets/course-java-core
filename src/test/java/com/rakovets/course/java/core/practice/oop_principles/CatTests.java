@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class CatTests {
     Cat cat = new Cat("Tosha");
+    Person person = new Person(200);
 
     @Test
     public void testCat() {
@@ -18,9 +19,21 @@ public class CatTests {
     }
 
     @Test
+    public void testMewPerson() {
+        cat.mew(person);
+        Assertions.assertEquals(198, person.getHappiness());
+    }
+
+    @Test
     public void testPurr() {
         cat.purr();
         System.out.println("murr");
+    }
+
+    @Test
+    public void testPurrPerson() {
+        cat.purr(person);
+        Assertions.assertEquals(202, person.getHappiness());
     }
 
     @Test
