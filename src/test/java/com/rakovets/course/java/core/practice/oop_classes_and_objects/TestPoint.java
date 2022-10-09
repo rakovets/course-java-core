@@ -17,7 +17,7 @@ public class TestPoint {
         );
     }
 
-    @ParameterizedTest(name = "Result: {0}.")
+    @ParameterizedTest(name = "Result: {4}.")
     @MethodSource("provideArgumentsForDistancePoint")
     void test(int x, int y, int x1, int y1, double expected) {
 

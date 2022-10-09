@@ -14,17 +14,14 @@ public class TestAtm {
                 Arguments.of(2, 8, 3, 5000, false),
                 Arguments.of(0, 0, 0, 22, false),
                 Arguments.of(10, 20, 31, 45, true));
-
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Have money?: {4}")
     @MethodSource("provideArgumentsForAtm")
     void test(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100, int amount, boolean expected) {
-
-
         Atm atm = new Atm(numberBanknotes20, numberBanknotes50, numberBanknotes100);
+
         boolean actual = atm.isPossibleIssue(amount);
         Assertions.assertEquals(expected, actual);
-
     }
 }
