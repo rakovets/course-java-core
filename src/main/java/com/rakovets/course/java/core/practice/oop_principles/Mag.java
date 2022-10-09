@@ -1,13 +1,12 @@
 package com.rakovets.course.java.core.practice.oop_principles;
 
-public class Warrior extends Hero {
-
-    Warrior (String name) {
+public class Mag extends Hero {
+    Mag(String name) {
         super(name);
     }
 
     @Override
     public void attackEnemy() {
-        System.out.println("Warrior attacks enemy");
+        System.out.println("Mag attacks enemy");
     }
 }

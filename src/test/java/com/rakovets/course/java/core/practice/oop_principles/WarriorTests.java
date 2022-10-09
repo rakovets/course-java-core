@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 public class WarriorTests {
     Warrior warrior = new Warrior("Alex");
 
-
     @Test
     public void testWarrior() {
         Assertions.assertEquals("Alex", warrior.getName());
