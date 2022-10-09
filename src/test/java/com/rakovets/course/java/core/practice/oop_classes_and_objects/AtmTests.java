@@ -4,17 +4,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AtmTests {
+    Atm atm = new Atm(15, 10, 5);
+
     @Test
     public void testAtm() {
-        Atm atm = new Atm(15, 10, 5);
         Assertions.assertEquals(15, atm.getNumberBanknotes20());
         Assertions.assertEquals(10, atm.getNumberBanknotes50());
         Assertions.assertEquals(5, atm.getNumberBanknotes100());
         Assertions.assertEquals(0, atm.getCurrentIssueAmount());
     }
+
     @Test
     public void testAddBanknotes20() {
-        Atm atm = new Atm(15, 10, 5);
         atm.addBanknotes20(1);
         Assertions.assertEquals(16, atm.getNumberBanknotes20());
         atm.addBanknotes20(10);
@@ -22,7 +23,6 @@ public class AtmTests {
     }
     @Test
     public void testAddBanknotes50() {
-        Atm atm = new Atm(15, 10, 5);
         atm.addBanknotes50(1);
         Assertions.assertEquals(11, atm.getNumberBanknotes50());
         atm.addBanknotes50(10);
@@ -30,7 +30,6 @@ public class AtmTests {
     }
     @Test
     public void testAddBanknotes100() {
-        Atm atm = new Atm(15, 10, 5);
         atm.addBanknotes100(1);
         Assertions.assertEquals(6, atm.getNumberBanknotes100());
         atm.addBanknotes100(10);
@@ -38,7 +37,6 @@ public class AtmTests {
     }
     @Test
     public void testIsPossibleIssueFalse() {
-        Atm atm = new Atm(15, 10, 5);
         Assertions.assertEquals(false, atm.isPossibleIssue(1320));
         Assertions.assertEquals(false, atm.isPossibleIssue(1290));
         Assertions.assertEquals(false, atm.isPossibleIssue(30));
@@ -46,7 +44,6 @@ public class AtmTests {
     }
     @Test
     public void testIsPossibleIssueTrue() {
-        Atm atm = new Atm(15, 10, 5);
         Assertions.assertEquals(true, atm.isPossibleIssue(1300));
         Assertions.assertEquals(true, atm.isPossibleIssue(1280));
         Assertions.assertEquals(true, atm.isPossibleIssue(280));
@@ -54,7 +51,6 @@ public class AtmTests {
     }
     @Test
     public void testGetOptionsCombinationBanknotes() {
-        Atm atm = new Atm(15, 10, 5);
         int[][] optionsCombinationBanknotes280 = atm.getOptionsCombinationBanknotes(280);
         for (int i = 0; i < optionsCombinationBanknotes280.length; i++) {
             System.out.print("Вариант " + (i + 1) + ": ");
@@ -73,7 +69,6 @@ public class AtmTests {
     }
     @Test
     public void testGetCash() {
-        Atm atm = new Atm(15, 10, 5);
         if (atm.isPossibleIssue(280)) {
             int[] chosenOption = atm.getCash(6);
             System.out.println("Получите деньги по выбранному Вами варианту: ");
