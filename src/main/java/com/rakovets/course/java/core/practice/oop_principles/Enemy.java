@@ -8,7 +8,7 @@ public class Enemy implements Mortal {
     }
 
     public void takeDamage(int damage) {
-        health -= damage;
+        this.health -= damage;
     }
 
     public void setHealth (int health) {
