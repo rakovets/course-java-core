@@ -7,9 +7,9 @@ public class DemoArrayIndexOutOfBoundsException {
     public static void main(String[] args) {
         ArrayIndexOutOfBoundsExceptionTest arrayIndexOutOfBoundsExceptionTest = new ArrayIndexOutOfBoundsExceptionTest();
         try {
-            arrayIndexOutOfBoundsExceptionTest.firstMethod(2);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            final Logger logger = Logger.getLogger(DemoStringNull.class.getName());
+            arrayIndexOutOfBoundsExceptionTest.firstMethod();
+        } catch (ArrayIndexOutOfBoundsException ignored) {
+            final Logger logger = Logger.getLogger(DemoArrayIndexOutOfBoundsException.class.getName());
             logger.log(Level.WARNING, "You're doing something wrong");
         }
     }
