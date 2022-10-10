@@ -16,6 +16,7 @@ public class ZombieTests {
 
     @Test
     public void testZombieStartNewLife() {
+        zombie.setHealth(0);
         zombie.startNewLife();
         Assertions.assertEquals(100, zombie.getHealth());
     }

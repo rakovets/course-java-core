@@ -10,6 +10,8 @@ public class Zombie extends Enemy {
     }
 
     public void startNewLife() {
-        setHealth(100);
+        if (!isAlive()) {
+            setHealth(100);
+        }
     }
 }
