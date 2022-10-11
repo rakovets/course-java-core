@@ -47,11 +47,12 @@ public abstract class Hero {
     public Hero() {
     }
 
+    public abstract void attackEnemy(Enemy enemy);
+    
     public void takeDamageHero(int damage) {
         health -= damage;
     }
 
-    public abstract void attackEnemy(Enemy enemy);
 
     public String getName() {
         return name;
