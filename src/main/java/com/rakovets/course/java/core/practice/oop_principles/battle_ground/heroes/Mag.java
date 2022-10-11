@@ -4,6 +4,7 @@ import com.rakovets.course.java.core.practice.oop_principles.battle_ground.enemi
 
 public class Mag extends Hero {
     private double mana;
+
     public Mag(String name) {
         super(name);
     }
@@ -48,9 +49,5 @@ public class Mag extends Hero {
 
     public double getMana() {
         return mana;
-    }
-
-    public boolean isAlive() {
-        return this.getHealth() > 0;
     }
 }

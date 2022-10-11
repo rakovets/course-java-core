@@ -43,8 +43,4 @@ public class Werewolf extends Enemy {
             }
         }
     }
-
-    public boolean isAlive() {
-        return this.getHealth() > 0;
-    }
 }

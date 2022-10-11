@@ -28,7 +28,9 @@ public abstract class Hero implements Mortal {
 
     public abstract String attackEnemy(Enemy enemy);
 
-    public abstract boolean isAlive();
+    public boolean isAlive() {
+        return this.getHealth() > 0;
+    }
 
     public String getName() {
         return name;

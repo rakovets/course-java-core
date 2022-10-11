@@ -4,6 +4,7 @@ import com.rakovets.course.java.core.practice.oop_principles.battle_ground.enemi
 
 public class Archer extends Hero {
     private int fireArrowsNumber;
+
     public Archer(String name) {
         super(name);
     }
@@ -31,10 +32,6 @@ public class Archer extends Hero {
             this.fireArrowsNumber -= 1;
         }
         return "attacks enemy with fire!";
-    }
-
-    public boolean isAlive() {
-        return this.getHealth() > 0;
     }
 
     public int getFireArrowsNumber() {

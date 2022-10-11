@@ -15,7 +15,7 @@ public abstract class Enemy implements Mortal {
         this.name = name;
     }
 
-    public Enemy (String name, double health) {
+    public Enemy(String name, double health) {
         this.name = name;
         this.health = health;
     }
@@ -28,7 +28,9 @@ public abstract class Enemy implements Mortal {
 
     public abstract String attackHero(Hero hero);
 
-    public abstract boolean isAlive();
+    public boolean isAlive() {
+        return this.getHealth() > 0;
+    }
 
     public String getName() {
         return name;
@@ -41,6 +43,4 @@ public abstract class Enemy implements Mortal {
     public double getHealth() {
         return health;
     }
-
-
 }

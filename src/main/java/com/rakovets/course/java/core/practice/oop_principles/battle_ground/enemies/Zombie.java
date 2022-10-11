@@ -2,14 +2,15 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground.enem
 
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.heroes.Hero;
 
-public class Zombie extends Enemy{
+public class Zombie extends Enemy {
     private double maxHealth;
     private int chanceToBeAlive;
+
     public Zombie(double health) {
         super(health);
     }
 
-    public Zombie (String name, double health, int chanceToBeAlive) {
+    public Zombie(String name, double health, int chanceToBeAlive) {
         super(name, health);
         this.chanceToBeAlive = chanceToBeAlive;
         this.maxHealth = health;
@@ -32,9 +33,5 @@ public class Zombie extends Enemy{
             setHealth(maxHealth / 2);
             chanceToBeAlive -= 1;
         }
-    }
-
-    public boolean isAlive() {
-        return this.getHealth() > 0;
     }
 }

@@ -2,13 +2,14 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground.enem
 
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.heroes.Hero;
 
-public class Demon extends Enemy{
+public class Demon extends Enemy {
     private int chanceToUseSuperAttack;
+
     public Demon(double health) {
         super(health);
     }
 
-    public Demon (String name, double health, int chanceToUseSuperAttack) {
+    public Demon(String name, double health, int chanceToUseSuperAttack) {
         super(name, health);
         this.chanceToUseSuperAttack = chanceToUseSuperAttack;
     }
@@ -30,9 +31,5 @@ public class Demon extends Enemy{
             this.chanceToUseSuperAttack -= 1;
         }
         return "SUPER HELLFIRE ATTACK!";
-    }
-
-    public boolean isAlive() {
-        return this.getHealth() > 0;
     }
 }

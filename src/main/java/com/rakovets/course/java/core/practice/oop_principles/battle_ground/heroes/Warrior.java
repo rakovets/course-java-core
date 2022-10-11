@@ -4,6 +4,7 @@ import com.rakovets.course.java.core.practice.oop_principles.battle_ground.enemi
 
 public class Warrior extends Hero {
     private double armor;
+
     public Warrior(String name) {
         super(name);
     }
@@ -40,9 +41,5 @@ public class Warrior extends Hero {
 
     public double getArmor() {
         return armor;
-    }
-
-    public boolean isAlive() {
-        return this.getHealth() > 0;
     }
 }
