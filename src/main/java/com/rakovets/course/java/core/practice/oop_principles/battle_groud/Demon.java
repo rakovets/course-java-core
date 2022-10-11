@@ -16,7 +16,6 @@ public class Demon extends Enemy {
             damage += (damage * CURSE_EFFECT_PERCENT) / 100;
         }
 
-        System.out.println("Demon attacks!");
         return hero.takeDamage(damage);
     }
 }
