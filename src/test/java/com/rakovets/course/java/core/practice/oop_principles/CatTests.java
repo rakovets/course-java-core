@@ -6,7 +6,6 @@ import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Persian;
 import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Siamese;
 import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Sphynx;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
