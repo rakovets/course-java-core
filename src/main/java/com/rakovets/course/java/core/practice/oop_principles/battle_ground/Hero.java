@@ -35,7 +35,7 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
  * Дать героям уникальные способности.
  */
 
-abstract public class Hero {
+public abstract class Hero {
     private String name;
     private int health;
 
