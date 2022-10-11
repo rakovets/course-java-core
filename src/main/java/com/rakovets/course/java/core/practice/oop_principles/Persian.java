@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles;
 
 public class Persian extends Cat{
-    final int humanExposureFactor = 2;
+    final int HUMAN_EXPOSURE_FACTOR = 2;
 
     public Persian(String name) {
         super(name);
@@ -9,13 +9,11 @@ public class Persian extends Cat{
 
     @Override
     public int mew(Person user){
-        user.percentHappiness = -(user.percentHappiness * humanExposureFactor);
-        return user.changeHappiness(user.percentHappiness);
+        return user.changeHappiness(-10) * HUMAN_EXPOSURE_FACTOR;
     }
 
     @Override
     public int purr(Person user){
-        user.percentHappiness = user.percentHappiness * humanExposureFactor;
-        return user.changeHappiness(user.percentHappiness);
+        return user.changeHappiness(10) * HUMAN_EXPOSURE_FACTOR;
     }
 }

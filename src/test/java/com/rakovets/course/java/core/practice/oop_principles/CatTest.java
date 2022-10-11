@@ -11,12 +11,11 @@ import java.util.stream.Stream;
 
 public class CatTest {
     Cat cat = new Cat("Persian");
-    Person user = new Person( 80);
+    Person user = new Person(80);
 
     static Stream<Arguments> provideArgumentsForMew() {
         return Stream.of(
                 Arguments.of(15, 65)
-
         );
     }
 
@@ -26,9 +25,9 @@ public class CatTest {
         //Given
 
         //When
-        int actual = user.changeHappiness(user.percentHappiness);
+        int actual = user.changeHappiness(-10);
 
         //Then
-        Assertions.assertEquals(user.changeHappiness(user.percentHappiness), actual);
+        Assertions.assertEquals(user.changeHappiness(-10), actual);
     }
 }

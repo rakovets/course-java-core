@@ -1,9 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles;
 
 public class Person {
-    public int percentHappiness;
     private int happiness;
-    public Cat cat;
 
     public Person(int happiness) {
         this.happiness = happiness;
