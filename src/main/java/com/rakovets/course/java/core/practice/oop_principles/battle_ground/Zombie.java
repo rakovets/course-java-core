@@ -16,6 +16,5 @@ public class Zombie extends Enemy {
         Zombie zombie = new Zombie(50);
         mag.attackEnemy(zombie);
         return zombie.getHealth() / 2;
-
     }
 }
