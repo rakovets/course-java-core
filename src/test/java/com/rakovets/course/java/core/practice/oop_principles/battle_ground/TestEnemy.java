@@ -11,7 +11,6 @@ public class TestEnemy {
     Archer archer = new Archer("Archer", 50);
     Warrior warrior = new Warrior("Warrior", 50);
 
-
     @Test
     public void testEnemyZombie() {
         //WHEN
