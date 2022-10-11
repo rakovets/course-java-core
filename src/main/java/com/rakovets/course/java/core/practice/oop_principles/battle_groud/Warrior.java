@@ -19,7 +19,6 @@ public class Warrior extends Hero {
             numberPulseBleeding -= PULSE_BLEEDING;
         }
 
-        System.out.println("Warrior attacks!");
         return enemy.takeDamage(damage);
     }
 }
