@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 
 public class Siamese extends Cat {
+    @Override
     public String mew() {
         return "Mewmew - Mewmew!";
     }
@@ -11,6 +12,7 @@ public class Siamese extends Cat {
         return "Mew - Mew!";
     }
 
+    @Override
     public String purr() {
         return "MrrMrrMmrrrmmrrrr!";
     }

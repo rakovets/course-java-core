@@ -11,7 +11,6 @@ public class TestEnemy {
     Archer archer = new Archer("Archer", 50);
     Warrior warrior = new Warrior("Warrior", 50);
 
-
     @Test
     public void testEnemyZombie() {
         //WHEN
@@ -19,7 +18,6 @@ public class TestEnemy {
 
         //THEN
         Assertions.assertEquals(24, actual);
-
     }
 
     @Test
@@ -30,7 +28,6 @@ public class TestEnemy {
 
         //THEN
         Assertions.assertEquals(30, actual);
-
     }
 
     @Test
@@ -41,7 +38,6 @@ public class TestEnemy {
 
         //THEN
         Assertions.assertEquals(49, actual);
-
     }
 
     @Test
@@ -63,7 +59,6 @@ public class TestEnemy {
 
         //THEN
         Assertions.assertEquals(41, actual);
-
     }
 
     @Test
@@ -74,6 +69,5 @@ public class TestEnemy {
 
         //THEN
         Assertions.assertTrue(actual);
-
     }
 }

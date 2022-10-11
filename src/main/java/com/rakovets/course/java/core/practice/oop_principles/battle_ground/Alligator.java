@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Alligator extends Enemy {
-
     public Alligator(int health) {
         super(health);
     }
@@ -12,12 +11,6 @@ public class Alligator extends Enemy {
     }
 
     public String screams() {
-        String cry = "";
-        if (isAlive()) {
-            cry = "I will finish you";
-        } else {
-            cry = "I will back";
-        }
-        return cry;
+        return isAlive() ? "I will finish you" : "I will back";
     }
 }

@@ -19,7 +19,6 @@ public class TestHero {
 
         //THEN
         Assertions.assertEquals(40, actual);
-
     }
 
     @Test
@@ -39,7 +38,6 @@ public class TestHero {
 
         //THEN
         Assertions.assertEquals(48, actual);
-
     }
 
     @Test
@@ -50,7 +48,6 @@ public class TestHero {
 
         //THEN
         Assertions.assertEquals(41, actual);
-
     }
 
     @Test
@@ -61,6 +58,5 @@ public class TestHero {
 
         //THEN
         Assertions.assertEquals(30, actual);
-
     }
 }

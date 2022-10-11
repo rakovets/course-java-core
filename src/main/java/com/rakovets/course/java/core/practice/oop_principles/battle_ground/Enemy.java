@@ -10,6 +10,8 @@ public abstract class Enemy implements Mortal {
         this.health = health;
     }
 
+    public abstract void attackHero(Hero hero);
+
     public void takeDamage(int damage) {
         health -= damage;
     }
@@ -17,8 +19,6 @@ public abstract class Enemy implements Mortal {
     public boolean isAlive() {
         return health > 0;
     }
-
-    public abstract void attackHero(Hero hero);
 
     public int getHealth() {
         return health;
@@ -28,4 +28,3 @@ public abstract class Enemy implements Mortal {
         this.health = health;
     }
 }
-

@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.cat_home;
 
 public class Persian extends Cat {
+    @Override
     public String mew() {
         return "I want eat!";
     }
@@ -11,6 +12,7 @@ public class Persian extends Cat {
         return "Mew - Mew!";
     }
 
+    @Override
     public String purr() {
         return "GavGav!";
     }
