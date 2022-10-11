@@ -10,7 +10,6 @@ public class Werewolf extends Enemy {
 
         int damage = 85;
 
-        System.out.println("Werewolf attacks!");
         return hero.takeDamage(damage * DOUBLE_ATTACK);
     }
 }
