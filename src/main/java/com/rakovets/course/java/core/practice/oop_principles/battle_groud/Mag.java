@@ -15,7 +15,6 @@ public class Mag extends Hero {
             damage += (damage * PERCENT_FIRE) / 100;
         }
 
-        System.out.println("Mage attacks!");
         return enemy.takeDamage(damage);
     }
 }
