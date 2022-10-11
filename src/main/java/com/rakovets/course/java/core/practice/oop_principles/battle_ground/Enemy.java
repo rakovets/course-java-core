@@ -28,4 +28,3 @@ public abstract class Enemy implements Mortal {
         this.health = health;
     }
 }
-
