@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
-class Cat {
+public class Cat {
     private String name;
 
     public Cat(String name) {
