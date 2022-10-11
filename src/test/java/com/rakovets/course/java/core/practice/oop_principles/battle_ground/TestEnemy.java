@@ -19,7 +19,6 @@ public class TestEnemy {
 
         //THEN
         Assertions.assertEquals(24, actual);
-
     }
 
     @Test
