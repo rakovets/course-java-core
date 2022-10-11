@@ -10,7 +10,6 @@ public class Archer extends Hero {
         final int CRITICAL_ARROW = 3;
         int damage = 60;
 
-        System.out.println("Archer attacks!");
         return enemy.takeDamage(damage * CRITICAL_ARROW);
     }
 }
