@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_groud;
 
-public class Enemy implements Mortal {
+public abstract class Enemy implements Mortal {
     private int health;
 
     public Enemy(int health) {
@@ -18,9 +18,7 @@ public class Enemy implements Mortal {
         return getHealth() > 0;
     }
 
-    public int attackHero(Hero hero) {
-        return attackHero(hero);
-    }
+    public abstract int attackHero(Hero hero);
 
     public int getHealth() {
         return health;
