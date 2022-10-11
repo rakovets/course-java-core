@@ -4,6 +4,8 @@ import com.rakovets.course.java.core.practice.oop_principles.cat.Person;
 import com.rakovets.course.java.core.practice.oop_principles.cat.cats.Cat;
 
 public class Persian extends Cat {
+    private final double percentSadness = -7;
+    private final double percentHappiness = 20;
 
     public Persian(String name) {
         super(name);
@@ -16,8 +18,7 @@ public class Persian extends Cat {
 
     @Override
     public void mew(Person man) {
-        double percentHappiness = -7;
-        man.changeHappiness(percentHappiness);
+        man.changeHappiness(percentSadness);
     }
 
     @Override
@@ -27,7 +28,16 @@ public class Persian extends Cat {
 
     @Override
     public void purr(Person man) {
-        double percentHappiness = 20;
         man.changeHappiness(percentHappiness);
+    }
+
+    @Override
+    public double getPercentSadness() {
+        return percentSadness;
+    }
+
+    @Override
+    public double getPercentHappiness() {
+        return percentHappiness;
     }
 }

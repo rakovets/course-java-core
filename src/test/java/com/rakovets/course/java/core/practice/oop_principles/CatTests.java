@@ -16,21 +16,38 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CatTests {
-
-    @Test
-    void mew() {
-        assertEquals("mew-mew", new Cat("Bob").mew());
-        assertEquals("Miaau-miaau", new Siamese("Sim").mew());
-        assertEquals("Mya-mya-mya", new Persian("Pers").mew());
-        assertEquals("Meww-meww-mewww", new Sphynx("Nix").mew());
+    static Stream<Arguments> provideArgumentsForMew() {
+        return Stream.of(
+                Arguments.of(new Cat("Bob"), "mew-mew"),
+                Arguments.of(new Siamese("Sim"), "Miaau-miaau"),
+                Arguments.of(new Persian("Pers"), "Mya-mya-mya"),
+                Arguments.of(new Sphynx("Nix"), "Meww-meww-mewww")
+        );
     }
 
-    @Test
-    void pur() {
-        assertEquals("purrr-purrr-purrr", new Cat("Bob").purr());
-        assertEquals("prr-prr-prr", new Siamese("Sim").purr());
-        assertEquals("murr-murr-murr", new Persian("Pers").purr());
-        assertEquals("prr-mrr-prr-mrr", new Sphynx("Nix").purr());
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForMew")
+    void testMew(Cat cat, String expected) {
+        String actual = cat.mew();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> provideArgumentsForPurr() {
+        return Stream.of(
+                Arguments.of(new Cat("Bob"), "purrr-purrr-purrr"),
+                Arguments.of(new Siamese("Sim"), "prr-prr-prr"),
+                Arguments.of(new Persian("Pers"), "murr-murr-murr"),
+                Arguments.of(new Sphynx("Nix"), "prr-mrr-prr-mrr")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForPurr")
+    void testPurr(Cat cat, String expected) {
+        String actual = cat.purr();
+
+        Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgumentsForMewArgument() {
