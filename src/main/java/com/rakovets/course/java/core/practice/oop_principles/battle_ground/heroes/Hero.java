@@ -20,13 +20,13 @@ public abstract class Hero implements Mortal {
         this.health = health;
     }
 
+    public abstract String attackEnemy(Enemy enemy);
+
     public void takeDamage(double damage) {
         if (isAlive()) {
             this.health -= damage;
         }
     }
-
-    public abstract String attackEnemy(Enemy enemy);
 
     public boolean isAlive() {
         return this.getHealth() > 0;
