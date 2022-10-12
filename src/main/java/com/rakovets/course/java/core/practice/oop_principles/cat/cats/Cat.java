@@ -3,8 +3,8 @@ package com.rakovets.course.java.core.practice.oop_principles.cat.cats;
 import com.rakovets.course.java.core.practice.oop_principles.cat.Person;
 
 public class Cat {
-    private final double percentSadness = -4;
-    private final double percentHappiness = 5;
+    private final double PERCENT_SADNESS = -4;
+    private final double PERCENT_HAPPINESS = 5;
     private String name;
 
     public Cat(String name) {
@@ -16,7 +16,7 @@ public class Cat {
     }
 
     public void mew(Person man) {
-        man.changeHappiness(percentSadness);
+        man.changeHappiness(PERCENT_SADNESS);
     }
 
     public String purr() {
@@ -24,7 +24,7 @@ public class Cat {
     }
 
     public void purr(Person man) {
-        man.changeHappiness(percentHappiness);
+        man.changeHappiness(PERCENT_HAPPINESS);
     }
 
     public String getName() {
@@ -36,10 +36,10 @@ public class Cat {
     }
 
     public double getPercentHappiness() {
-        return percentHappiness;
+        return PERCENT_HAPPINESS;
     }
 
     public double getPercentSadness() {
-        return percentSadness;
+        return PERCENT_SADNESS;
     }
 }
