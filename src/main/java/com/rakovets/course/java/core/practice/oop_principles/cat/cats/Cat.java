@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.oop_principles.cat.cats;
 import com.rakovets.course.java.core.practice.oop_principles.cat.Person;
 
 public class Cat {
-    private final double percentSadness = -5;
+    private final double percentSadness = -4;
     private final double percentHappiness = 5;
     private String name;
 
