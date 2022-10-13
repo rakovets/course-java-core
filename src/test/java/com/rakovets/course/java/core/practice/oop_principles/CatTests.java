@@ -51,7 +51,7 @@ public class CatTests {
 
     static Stream<Arguments> provideArgumentsForMewByPerson() {
         return Stream.of(
-                Arguments.of(new Person(50.0), new Cat("Bob"), 45.0),
+                Arguments.of(new Person(50.0), new Cat("Bob"), 46.0),
                 Arguments.of(new Person(50.0), new Siamese("Sim"), 39.5),
                 Arguments.of(new Person(6.0), new Persian("Pers"), -1.0),
                 Arguments.of(new Person(50.0), new Sphynx("Nix"), 25.0)
