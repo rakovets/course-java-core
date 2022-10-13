@@ -7,7 +7,7 @@ public class Godzilla extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamageHero(10);
+        hero.takeDamage(10);
     }
 
     public void resurrection(Enemy enemy) {

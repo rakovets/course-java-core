@@ -14,7 +14,7 @@ public class TestEnemy {
     @Test
     public void testEnemyZombie() {
         //WHEN
-        int actual = zombie.attackMag();
+        int actual = zombie.attackEnemyOfMag(mag, zombie);
 
         //THEN
         Assertions.assertEquals(24, actual);

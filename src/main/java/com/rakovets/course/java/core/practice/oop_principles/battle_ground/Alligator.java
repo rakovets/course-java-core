@@ -7,7 +7,7 @@ public class Alligator extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamageHero(15);
+        hero.takeDamage(15);
     }
 
     public String screams() {
