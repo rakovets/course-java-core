@@ -1,6 +1,8 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home_test;
 
 
+import com.rakovets.course.java.core.practice.oop_principles.cats_home.Cat;
+import com.rakovets.course.java.core.practice.oop_principles.cats_home.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

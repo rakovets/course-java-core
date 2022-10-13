@@ -1,6 +1,6 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
-public class Persian extends Cat{
+public class Persian extends Cat {
     final int HUMAN_EXPOSURE_FACTOR = 2;
 
     public Persian(String name) {

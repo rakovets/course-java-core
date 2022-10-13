@@ -1,4 +1,7 @@
-package com.rakovets.course.java.core.practice.oop_principles;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
+
+import com.rakovets.course.java.core.practice.oop_principles.cats_home.Cat;
+import com.rakovets.course.java.core.practice.oop_principles.cats_home.Person;
 
 public class Sphynx extends Cat {
     final int HUMAN_EXPOSURE_FACTOR = 2;
