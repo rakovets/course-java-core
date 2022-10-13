@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.exception_handling;
+package com.rakovets.course.java.core.practice.exception_handling.task02;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.exception_handling;
+package com.rakovets.course.java.core.practice.exception_handling.task01;
 
 import java.util.Locale;
 
@@ -9,8 +9,8 @@ public class StringNull {
         this.str = str;
     }
 
-    public String anyMethod(String str) {
-        str = null;
+    public String anyMethod() {
+        String str = null;
         return str.toLowerCase(Locale.ROOT);
     }
 }
