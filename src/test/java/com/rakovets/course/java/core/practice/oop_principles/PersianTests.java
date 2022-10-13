@@ -15,8 +15,7 @@ public class PersianTests {
 
     @Test
     public void testMew() {
-        catPersian.mew();
-        System.out.println("mjauPersian");
+        Assertions.assertEquals("mjauPersian", catPersian.mew());
     }
 
     @Test
@@ -27,8 +26,7 @@ public class PersianTests {
 
     @Test
     public void testPurr() {
-        catPersian.purr();
-        System.out.println("murrPersian");
+        Assertions.assertEquals("murrPersian", catPersian.purr());
     }
 
     @Test

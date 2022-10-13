@@ -14,8 +14,7 @@ public class WarriorTests {
 
     @Test
     public void testWarriorAttackEnemy() {
-        warrior.attackEnemy();
-        System.out.println("Warrior attacks enemy");
+        Assertions.assertEquals("Warrior attacks enemy but missed", warrior.attackEnemy());
     }
 
     @Test

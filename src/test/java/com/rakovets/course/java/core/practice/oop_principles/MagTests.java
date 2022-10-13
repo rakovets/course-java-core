@@ -8,14 +8,13 @@ public class MagTests {
     Enemy enemy = new Enemy(200);
 
     @Test
-    public void testMag(){
+    public void testMag() {
         Assertions.assertEquals("Jonh", mag.getName());
     }
 
     @Test
     public void testMagAttackEnemy() {
-        mag.attackEnemy();
-        System.out.println("Mag attacks enemy");
+        Assertions.assertEquals("Mag attacks enemy but missed", mag.attackEnemy());
     }
 
     @Test

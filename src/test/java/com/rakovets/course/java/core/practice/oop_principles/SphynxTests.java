@@ -14,8 +14,7 @@ public class SphynxTests {
 
     @Test
     public void testMew() {
-        catSphynx.mew();
-        System.out.println("mjauSphynx");
+        Assertions.assertEquals("mjauSphynx", catSphynx.mew());
     }
 
     @Test
@@ -26,8 +25,7 @@ public class SphynxTests {
 
     @Test
     public void testPurr() {
-        catSphynx.purr();
-        System.out.println("murrSphynx");
+        Assertions.assertEquals("murrSphynx", catSphynx.purr());
     }
 
     @Test

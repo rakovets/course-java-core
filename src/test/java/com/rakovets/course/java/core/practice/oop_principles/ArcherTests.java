@@ -14,8 +14,7 @@ public class ArcherTests {
 
     @Test
     public void testArcherAttackEnemy() {
-        archer.attackEnemy();
-        System.out.println("Archer attacks enemy");
+        Assertions.assertEquals("Archer attacks enemy but missed", archer.attackEnemy());
     }
 
     @Test
@@ -47,5 +46,4 @@ public class ArcherTests {
         enemy.attackHeroes(archer);
         Assertions.assertEquals(190, archer.getHealth());
     }
-
 }

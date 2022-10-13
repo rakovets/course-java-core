@@ -14,8 +14,7 @@ public class CatTests {
 
     @Test
     public void testMew() {
-        cat.mew();
-        System.out.println("mjau");
+        Assertions.assertEquals("mjau", cat.mew());
     }
 
     @Test
@@ -26,8 +25,8 @@ public class CatTests {
 
     @Test
     public void testPurr() {
-        cat.purr();
-        System.out.println("murr");
+        //cat.purr();
+        Assertions.assertEquals("murr",cat.purr());
     }
 
     @Test

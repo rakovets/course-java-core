@@ -3,12 +3,20 @@ package com.rakovets.course.java.core.practice.oop_principles;
 public class Enemy implements Mortal {
     private int health;
 
-    Enemy(int health) {
+    public Enemy(int health) {
         this.health = health;
+    }
+
+    public boolean isAlive() {
+        return (health > 0);
     }
 
     public void takeDamage(int damage) {
         this.health -= damage;
+    }
+
+    public void attackHeroes(Hero hero) {
+        hero.takeDamage(10);
     }
 
     public void setHealth (int health) {
@@ -17,13 +25,5 @@ public class Enemy implements Mortal {
 
     public int getHealth () {
         return health;
-    }
-
-    public boolean isAlive() {
-        return (health > 0);
-    }
-
-    public void attackHeroes(Hero hero) {
-        hero.takeDamage(10);
     }
 }

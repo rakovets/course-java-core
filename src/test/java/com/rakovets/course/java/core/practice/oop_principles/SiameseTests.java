@@ -14,8 +14,7 @@ public class SiameseTests {
 
     @Test
     public void testMew() {
-        catSiamese.mew();
-        System.out.println("mjauSiamese");
+        Assertions.assertEquals("mjauSiamese", catSiamese.mew());
     }
 
     @Test
@@ -26,8 +25,7 @@ public class SiameseTests {
 
     @Test
     public void testPurr() {
-        catSiamese.purr();
-        System.out.println("murrSiamese");
+        Assertions.assertEquals("murrSiamese", catSiamese.purr());
     }
 
     @Test
