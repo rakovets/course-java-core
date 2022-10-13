@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.exception_handling.exeption;
 
-public class ExceptionNegativeNumber extends RuntimeException {
+public class DivisionTwoNumbersExcepton extends RuntimeException{
     private String message;
 
-    public ExceptionNegativeNumber(String message) {
+    public DivisionTwoNumbersExcepton(String message){
         super(message);
     }
 }

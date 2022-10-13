@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-import com.rakovets.course.java.core.practice.exception_handling.exeption.ExceptionAge;
+import com.rakovets.course.java.core.practice.exception_handling.exeption.AgeException;
 
 public class Task03Demo {
     public static void main(String[] args) {
@@ -8,8 +8,9 @@ public class Task03Demo {
         String result = "";
         try {
             result += task03.adult(17);
-        } catch (ExceptionAge e) {
+        } catch (AgeException e) {
             result += e.getMessage();
+            e.printStackTrace();
         }
         System.out.println(result);
     }

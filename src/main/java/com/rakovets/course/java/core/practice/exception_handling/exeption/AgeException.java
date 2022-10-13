@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.exception_handling.exeption;
 
-public class ExceptionAge extends Exception {
+public class AgeException extends Exception {
     private int age;
 
-    public ExceptionAge(String message, int age) {
+    public AgeException(String message, int age) {
         super(message);
     }
 }

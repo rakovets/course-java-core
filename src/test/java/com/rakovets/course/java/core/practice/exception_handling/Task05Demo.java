@@ -1,14 +1,14 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-import com.rakovets.course.java.core.practice.exception_handling.exeption.NegativeNumberException;
+import com.rakovets.course.java.core.practice.exception_handling.exeption.DivisionTwoNumbersExcepton;
 
-public class Task04Demo {
+public class Task05Demo {
     public static void main(String[] args) {
-        Task04 task04 = new Task04();
+        Task05 task05 = new Task05();
         String result = "";
         try {
-            result += task04.numberIsNegativeException(-2);
-        } catch (NegativeNumberException e) {
+            result += task05.divisionTwoNumber(2, 0);
+        } catch (DivisionTwoNumbersExcepton e) {
             result += e.getMessage();
             e.printStackTrace();
         }
