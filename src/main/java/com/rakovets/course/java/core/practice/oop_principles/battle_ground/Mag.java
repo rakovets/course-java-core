@@ -1,13 +1,12 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Mag extends Hero{
+public class Mag extends Hero {
     public Mag(String name, int health) {
         super(name, health);
     }
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        System.out.println("Mag attack the enemy");
         enemy.takeDamage(40);
     }
 

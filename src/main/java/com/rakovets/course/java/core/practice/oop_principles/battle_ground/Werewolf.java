@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Werewolf extends Enemy{
+public class Werewolf extends Enemy {
     public Werewolf(int health) {
         super(health);
     }
@@ -10,7 +10,7 @@ public class Werewolf extends Enemy{
         hero.takeDamage(35);
     }
 
-    public void inWolfBody() {
+    public void transformToWolfBody() {
         this.setHealth(this.getHealth() + 15);
     }
 }

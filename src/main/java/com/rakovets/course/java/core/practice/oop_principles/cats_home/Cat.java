@@ -14,6 +14,7 @@ public class Cat {
     public void mew(Person person) {
         person.changeHappiness(-10);
     }
+
     public String purr() {
         return "Мурр";
     }
