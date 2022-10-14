@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Разработать программу для разбора (parsing) банковских отчетов.
@@ -33,10 +34,20 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] stringsFromReport = report.split(" +");
+        ArrayList<Double> stringOfArrayMoney = new ArrayList<>();
+        for (String s : stringsFromReport) {
+            if (s.matches("\\-?\\d+\\.?\\d*\\$")) {
+                stringOfArrayMoney.add(Double.parseDouble(s.replace("$", "")));
+            }
+        }
+        double[] arrayMoneyFromReport = new double[stringOfArrayMoney.size()];
+        for (int i = 0; i < arrayMoneyFromReport.length; i++) {
+            arrayMoneyFromReport[i] = stringOfArrayMoney.get(i);
+        }
+        return arrayMoneyFromReport;
     }
+
 
     /**
      * Возвращает общую сумму всех денег, которые встречаются в отчете.
@@ -45,8 +56,11 @@ class Task02 {
      * @return общую сумму всех денег
      */
     static double getSumMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double[] arrayMoneyFromReport = getArrayMoneyFromReport(report);
+        double sumMoneyFromReport = 0.0;
+        for (Double moneyFromReport : arrayMoneyFromReport) {
+            sumMoneyFromReport += moneyFromReport;
+        }
+        return sumMoneyFromReport;
     }
 }

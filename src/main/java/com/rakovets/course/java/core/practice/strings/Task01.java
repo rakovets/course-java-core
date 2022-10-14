@@ -6,7 +6,7 @@ package com.rakovets.course.java.core.practice.strings;
  * @author Dmitry Rakovets
  */
 @SuppressWarnings("unused")
-class Task01 {
+public class Task01 {
     /**
      * The entry point of the task
      *
@@ -33,9 +33,9 @@ class Task01 {
      * @return имя сотрудника
      */
     static String getName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] nameSurname = fullName.split(" ");
+        String name = nameSurname[0];
+        return name;
     }
 
     /**
@@ -45,9 +45,9 @@ class Task01 {
      * @return фамилия сотрудника
      */
     static String getSurname(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] nameSurname = fullName.split(" ");
+        String surname = nameSurname[1];
+        return surname;
     }
 
     /**
@@ -57,8 +57,10 @@ class Task01 {
      * @return полное имя сотрудника в обратном формате, т.е. '${surname} ${name}'
      */
     static String reverseFullName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] nameSurname = fullName.split(" ");
+        String name = nameSurname[0];
+        String surname = nameSurname[1];
+        String reverseFullName = String.join(" ", surname, name);
+        return reverseFullName;
     }
 }
