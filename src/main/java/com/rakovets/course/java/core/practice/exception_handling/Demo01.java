@@ -18,8 +18,9 @@ public class Demo01 {
             Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
             logger.warning(e.getMessage());
             if (e.getMessage() == null) {
+                logger.warning(e.toString());
+                logger.log(Level.SEVERE, "Null pointer Exception in method");
                 logger.info("В методе не задано имя, с которым сравнивается длина данного имени");
-                logger.log(Level.SEVERE, "Null pointer Exception");
             }
             e.printStackTrace();
         }
