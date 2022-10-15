@@ -4,8 +4,4 @@ import java.util.logging.Logger;
 
 public class JavaUtilLogging01 {
     public static final Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
-
-    public void printSevereLog() {
-        logger.severe(toString());
-    }
 }
