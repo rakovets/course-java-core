@@ -23,7 +23,7 @@ public class TaskSeasonEnum {
 
         MySeasonEnum[] seasons = MySeasonEnum.values();
         for (MySeasonEnum s : seasons) {
-            System.out.println(s + " " + s.printDescriptionOfSeason() + " со средней температурой " + s.getMiddleTemperatureOfSeason());
+            System.out.println(s + " " + s.printDescriptionOfSeason() + " со средней температурой " + s.getAverageTemperatureOfSeason());
         }
     }
 }

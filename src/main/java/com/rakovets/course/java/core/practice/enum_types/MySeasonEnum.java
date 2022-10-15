@@ -2,40 +2,47 @@ package com.rakovets.course.java.core.practice.enum_types;
 
 public enum MySeasonEnum {
     Зима(-5) {
+        private final String DESCRIPTION_OF_SEASON = "холодное время года";
+
         @Override
         public String printDescriptionOfSeason() {
-            return "холодное время года";
+            return DESCRIPTION_OF_SEASON;
         }
     },
     Весна(15) {
+        private final String DESCRIPTION_OF_SEASON = "красивое время года";
+
         @Override
         public String printDescriptionOfSeason() {
-            return "красивое время года";
+            return DESCRIPTION_OF_SEASON;
         }
     },
-
     Лето(25) {
+        private final String DESCRIPTION_OF_SEASON = "теплое время года";
+
         @Override
         public String printDescriptionOfSeason() {
-            return "теплое время года";
+            return DESCRIPTION_OF_SEASON;
         }
     },
     Осень(10) {
+        private final String DESCRIPTION_OF_SEASON = "дождливое время года";
+
         @Override
         public String printDescriptionOfSeason() {
-            return "дождливое время года";
+            return DESCRIPTION_OF_SEASON;
         }
     };
 
-    private int middleTemperatureOfSeason;
+    private int averageTemperatureOfSeason;
 
     MySeasonEnum(int middleTemperatureOfSeason) {
-        this.middleTemperatureOfSeason = middleTemperatureOfSeason;
-    }
-
-    public int getMiddleTemperatureOfSeason() {
-        return middleTemperatureOfSeason;
+        this.averageTemperatureOfSeason = middleTemperatureOfSeason;
     }
 
     public abstract String printDescriptionOfSeason();
+
+    public int getAverageTemperatureOfSeason() {
+        return averageTemperatureOfSeason;
+    }
 }
