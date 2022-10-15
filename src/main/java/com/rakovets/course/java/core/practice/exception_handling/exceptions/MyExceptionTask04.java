@@ -16,6 +16,4 @@ public class MyExceptionTask04 extends RuntimeException {
     public String getDebugMessage() {
         return debugMessage;
     }
-
-    public String getMessage() { return super.getMessage(); };
 }
