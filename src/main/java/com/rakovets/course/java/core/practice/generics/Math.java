@@ -23,7 +23,7 @@ public abstract class Math<T extends Number> {
         return getMaxArray(new Number[]{a, b, c});
     }
 
-    public static <T extends Number> Number getMinArgument(T a, T b, T c, T d, T e) {
+    public static <T extends Number> Number getMinArgumentUseArray(T a, T b, T c, T d, T e) {
         return getMinArray(new Number[]{a, b, c, d, e});
     }
 
