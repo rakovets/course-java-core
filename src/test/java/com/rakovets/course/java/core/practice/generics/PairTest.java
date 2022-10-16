@@ -22,7 +22,7 @@ public class PairTest {
         Pair pairNew = pair.getSwapped();
         String actual = pairNew.getKey() + " " + pairNew.getValue();
 
-                Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgumentsForSwap() {
