@@ -7,10 +7,6 @@ public class Obscure<T> {
         this.id = id;
     }
 
-    public T get() {
-        return id;
-    }
-
     public Boolean isPresent() {
         return id != null;
     }
@@ -42,5 +38,9 @@ public class Obscure<T> {
     public static <T> T empty() {
         T t = null;
         return t;
+    }
+
+    public T get() {
+        return id;
     }
 }
