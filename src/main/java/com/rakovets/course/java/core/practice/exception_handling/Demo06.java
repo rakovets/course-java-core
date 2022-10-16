@@ -6,12 +6,12 @@ import java.util.logging.Logger;
 
 public class Demo06 {
     public static void main(String[] args) {
-        int parameter1 = 4;
-        int parameter2 = 0;
-        int parameter3 = 0;
-        String parameter4 = "q";
+        int sizeOfArray = 4;
+        int startToPrintArray = 0;
+        int dividerOfArrayMembers = 0;
+        String numberOfArrayMemberToSeparatePrint = "q";
         try {
-            printArray(parameter1, parameter2, parameter3, parameter4);
+            printArray(sizeOfArray, startToPrintArray, dividerOfArrayMembers, numberOfArrayMemberToSeparatePrint);
         } catch (MyExceptionTask06 e) {
             Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
             logger.warning(e.getMessage());

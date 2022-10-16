@@ -4,15 +4,15 @@ import com.rakovets.course.java.core.practice.exception_handling.exceptions.MyEx
 import java.util.logging.Logger;
 
 public class Task06 {
-    public static void printArray(int par1, int par2, int par3, String par4) throws MyExceptionTask06 {
+    public static void printArray(int sizeOfArray, int startToPrintArray, int dividerOfArrayMembers, String numberOfArrayMemberToSeparatePrint) throws MyExceptionTask06 {
         try {
-            int[] array = new int[par1];
-            for (int i = par2; i < par1; i++) {
+            int[] array = new int[sizeOfArray];
+            for (int i = startToPrintArray; i < sizeOfArray; i++) {
                 array[i] += i + 1;
-                array[i] /= par3;
-                System.out.println(array[i]);
+                array[i] /= dividerOfArrayMembers;
+                System.out.print(array[i] + " ");
             }
-            System.out.println(array[Integer.parseInt(par4)]);
+            System.out.println(array[Integer.parseInt(numberOfArrayMemberToSeparatePrint)]);
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
             Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
             logger.warning(e.toString());
