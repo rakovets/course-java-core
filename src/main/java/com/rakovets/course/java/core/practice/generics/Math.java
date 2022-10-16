@@ -21,14 +21,21 @@ public abstract class Math<T extends Number> {
         return max;
     }
 
-    public static <T extends Number> T getMaxOfFive(T obj1, T obj2, T obj3, T obj4, T obj5) {
-        T max = getMaxOfThree(obj1, obj2, obj3);
-        if (obj4.doubleValue() > max.doubleValue() && obj4.doubleValue() > obj5.doubleValue()) {
-            max = obj4;
-        } else if (obj5.doubleValue() > max.doubleValue() && obj5.doubleValue() > obj4.doubleValue()) {
-            max = obj5;
+    public static <T extends Number> T getMinOfFive(T obj1, T obj2, T obj3, T obj4, T obj5) {
+        T result = obj1;
+        if(result.doubleValue() > obj2.doubleValue()) {
+            result = obj2;
         }
-        return max;
+        if(result.doubleValue() > obj3.doubleValue()) {
+            result = obj3;
+        }
+        if(result.doubleValue() > obj4.doubleValue()) {
+            result = obj4;
+        }
+        if(result.doubleValue() > obj5.doubleValue()) {
+            result = obj5;
+        }
+        return result;
     }
 
     public static <T extends Number> double getAverage(T[] arr) {

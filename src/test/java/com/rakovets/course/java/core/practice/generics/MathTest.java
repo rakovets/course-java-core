@@ -25,19 +25,19 @@ public class MathTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForGetMaxOfFive() {
+    static Stream<Arguments> provideArgumentsForGetMinOfFive() {
         return Stream.of(
-                Arguments.of(3, 30, 300, 330, 333, 333),
-                Arguments.of(0, 0, 1, 0, 2, 2),
-                Arguments.of(6, 6, 4, 3, 6, 6),
-                Arguments.of(-1, -1, -1, 0, -1, 0)
+                Arguments.of(3, 30, 300, 330, 333, 3),
+                Arguments.of(0, 0, 1, 0, 2, 0),
+                Arguments.of(6, 6, 4, 3, 6, 3),
+                Arguments.of(-1, -1, -1, 0, -1, -1)
         );
     }
 
     @ParameterizedTest
-    @MethodSource("provideArgumentsForGetMaxOfFive")
-    void testGetMaxOfFive(Integer obj1, Integer obj2, Integer obj3, Integer obj4, Integer obj5, Integer expected) {
-        Integer actual = Math.getMaxOfFive(obj1, obj2, obj3, obj4, obj5);
+    @MethodSource("provideArgumentsForGetMinOfFive")
+    void testGetMinOfFive(Integer obj1, Integer obj2, Integer obj3, Integer obj4, Integer obj5, Integer expected) {
+        Integer actual = Math.getMinOfFive(obj1, obj2, obj3, obj4, obj5);
 
         Assertions.assertEquals(expected, actual);
     }
