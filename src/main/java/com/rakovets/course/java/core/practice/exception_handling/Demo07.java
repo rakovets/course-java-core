@@ -7,17 +7,17 @@ import java.util.logging.Logger;
 
 public class Demo07 {
     public static void main(String[] args) {
-        int parameter1 = 11;
-        int parameter2 = 1;
-        int parameter3 = 10;
+        int sizeOfArray = 11;
+        int startToPrintArray = 1;
+        int endToPrintArray = 10;
         try {
-            printArray(parameter1, parameter2, parameter3);
+            printArray(sizeOfArray, startToPrintArray, endToPrintArray);
         } catch (MyExeptionTask07 e) {
             Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
             logger.warning(e.toString());
         } finally {
-            parameter1 = 10;
-            printArray2(parameter1, parameter2, parameter3);
+            sizeOfArray = 10;
+            printArray2(sizeOfArray, startToPrintArray, endToPrintArray);
         }
     }
 }
