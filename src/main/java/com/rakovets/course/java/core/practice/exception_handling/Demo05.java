@@ -13,9 +13,9 @@ public class Demo05 {
             printAllLettersInWord(string);
         } catch (MyExceptionTask05 e) {
             Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
-            logger.warning(e.toString());
             logger.warning(e.getMessage());
             logger.warning(e.getDebugMessage());
+            logger.warning(e.getMessage() + " " + e.getDebugMessage());
         }
     }
 }
