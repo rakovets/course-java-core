@@ -6,26 +6,13 @@ public class Pair<K, V> {
     private K left;
     private V right;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pair<?, ?> pair = (Pair<?, ?>) o;
-        return left.equals(pair.left) && right.equals(pair.right);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(left, right);
-    }
-
     public Pair(K left, V right) {
         this.left = left;
         this.right = right;
     }
 
-    public <K, V> Pair<V,K> getSwapped() {
-        return new Pair<>((V) right,(K) left);
+    public <K, V> Pair<V, K> getSwapped() {
+        return new Pair<>((V) right, (K) left);
     }
 
     public static <K, V> Pair<K, V> swap(Pair<K, V> reverse) {
@@ -46,5 +33,18 @@ public class Pair<K, V> {
 
     public void setRight(V right) {
         this.right = right;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pair<?, ?> pair = (Pair<?, ?>) o;
+        return left.equals(pair.left) && right.equals(pair.right);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(left, right);
     }
 }
