@@ -1,22 +1,22 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Rectangle {
-    private Point  topLeftPoint = 0;
-    private Point bottomRightPoint = 0;
-    public Rectangle(Point topLeftPoint, Point bottomRightPoint) {
+    private double  topLeftPoint;
+    private double bottomRightPoint;
+    public Rectangle(double topLeftPoint, double bottomRightPoint) {
         this.topLeftPoint = topLeftPoint;
         this.bottomRightPoint = bottomRightPoint;
     }
-    public double getTopLeftPoint() {
+    public double getTopLeftPoint(double topLeftPoint) {
         return topLeftPoint;
     }
-    public void setTopLeftPoint(Point topLeftPoint) {
+    public void setTopLeftPoint(double topLeftPoint) {
         this.topLeftPoint = topLeftPoint;
     }
-    public double getBottomRightPoint() {
+    public double getBottomRightPoint(double bottomRightPoint) {
         return bottomRightPoint;
     }
-    public void setBottomRightPoint(Point bottomRightPoint) {
+    public void setBottomRightPoint(double bottomRightPoint) {
         this.bottomRightPoint = bottomRightPoint;
     }
     public double getPerimeter(Point topLeftPoint, Point bottomRightPoint) {
