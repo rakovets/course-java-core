@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-
 import com.rakovets.course.java.core.util.NumberUtil;
 
 public class Point {
