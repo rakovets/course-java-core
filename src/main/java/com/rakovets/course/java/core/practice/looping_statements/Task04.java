@@ -45,6 +45,6 @@ class Task04 {
         if (raidTime > 24) {
             raidTime = -1;
         }
-            return raidTime;
+        return raidTime;
         }
     }

@@ -35,9 +35,9 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-      double totalDepositAmount = 0;
+        double totalDepositAmount = 0;
         totalDepositAmount = depositAmount * Math.pow(1 + annualDepositPercent / 100, depositTerm);
-        Double getTotalDepositAmount = BigDecimal.valueOf(totalDepositAmount)
+        double getTotalDepositAmount = BigDecimal.valueOf(totalDepositAmount)
                 .setScale(2, RoundingMode.HALF_UP).doubleValue();
         return getTotalDepositAmount;
     }

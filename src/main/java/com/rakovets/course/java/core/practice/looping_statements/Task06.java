@@ -47,7 +47,7 @@ class Task06 {
         } else {
             totalDistance = 0;
         }
-         totalDistance = BigDecimal.valueOf(totalDistance)
+        totalDistance = BigDecimal.valueOf(totalDistance)
                 .setScale(2, RoundingMode.HALF_UP).doubleValue();
         return totalDistance;
     }
