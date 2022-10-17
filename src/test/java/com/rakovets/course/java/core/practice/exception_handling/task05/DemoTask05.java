@@ -10,7 +10,6 @@ public class DemoTask05 {
         try {
             inputNumber.inputExampleMethod();
         } catch (NotNumberException e) {
-            e.printStackTrace();
             logger.warning("Error: ".concat(e.getMessage()));
         }
     }

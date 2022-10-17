@@ -10,7 +10,6 @@ public class ThreeExceptions {
             throw new IllegalArgumentException();
         } else if (digit == 2) {
             throw new IndexOutOfBoundsException();
-
         } else if (digit == 3) {
             throw new SecurityException();
         } else {

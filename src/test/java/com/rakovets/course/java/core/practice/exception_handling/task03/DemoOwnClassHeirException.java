@@ -9,7 +9,6 @@ public class DemoOwnClassHeirException {
         try {
             car.carCheck();
         } catch (OwnClassHeirException check) {
-            check.printStackTrace();
             final Logger logger = Logger.getLogger(DemoOwnClassHeirException.class.getName());
             logger.log(Level.WARNING, "You're doing something wrong");
         }

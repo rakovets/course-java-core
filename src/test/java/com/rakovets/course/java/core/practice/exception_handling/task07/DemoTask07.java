@@ -11,7 +11,6 @@ public class DemoTask07 {
         try {
             task07.stringToDigit(str);
         } catch (StringToNumber | NumberFormatException e) {
-            e.printStackTrace();
             logger.warning(e.getMessage());
         } finally {
             logger.info("Program is end");

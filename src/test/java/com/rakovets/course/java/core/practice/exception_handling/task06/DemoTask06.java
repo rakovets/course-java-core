@@ -11,10 +11,8 @@ public class DemoTask06 {
         try {
             threeExceptions.getSomeExceptions(1);
         } catch (SecurityException | IndexOutOfBoundsException e) {
-            e.printStackTrace();
             logger.info("The following exceptions are handled: SecurityException, IndexOutOfBoundsException");
         } catch (IllegalArgumentException err) {
-            err.printStackTrace();
             logger.info("The following exceptions are handled: IllegalArgumentException");
         }
     }

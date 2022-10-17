@@ -9,7 +9,6 @@ public class DemoOwnClass {
         try {
             man.whatDoesAPersonDo();
         } catch (OwnClass ignored) {
-            ignored.printStackTrace();
             final Logger logger = Logger.getLogger(OwnClass.class.getName());
             logger.log(Level.WARNING, "You're doing something wrong");
         }
