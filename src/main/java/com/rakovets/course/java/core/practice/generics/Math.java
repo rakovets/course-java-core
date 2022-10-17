@@ -92,4 +92,3 @@ public abstract class Math<T extends Number> {
         return -1;
     }
 }
-

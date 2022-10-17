@@ -103,7 +103,7 @@ public class MathTest {
     void testSortArray(Double[] arr, Double[] expected) {
         Double[] actual = Math.sortArray(arr);
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgumentsForSortBinaryArray() {
