@@ -5,5 +5,4 @@ public class Task1 {
         String str = null;
         return str.toLowerCase().trim();
     }
-
 }
