@@ -9,7 +9,7 @@ public class Argument {
             }
         } catch (IllegalArgumentException e) {
             errMessage = e.getMessage();
+            throw new ArgumentException(errMessage);
         }
-        throw new ArgumentException(errMessage);
     }
 }

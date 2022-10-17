@@ -4,7 +4,7 @@ public class Task6 {
     private int index = 0;
     private final RuntimeException[] exceptions = {new RuntimeException(), new ArithmeticException(), new NullPointerException()};
 
-    public void getException() throws RuntimeException {
+    public void getException() {
         RuntimeException exception = null;
         if (this.index == exceptions.length) {
             index = 0;

@@ -1,15 +1,12 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Demo6 {
     public static final Logger logger = Logger.getLogger(Demo6.class.getName());
 
-    @Test
-    public void testDemoException() {
+    public static void main(String[] args) {
         Task6 task = new Task6();
         int index = 6;
         for (int i = 0; i < index; i++) {

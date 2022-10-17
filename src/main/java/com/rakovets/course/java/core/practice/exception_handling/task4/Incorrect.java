@@ -7,7 +7,7 @@ public class Incorrect {
         this.text = text;
     }
 
-    public void getIncorrectValue() throws IncorrectException {
+    public void getIncorrectValue() {
         throw new IncorrectException(text);
     }
 }
