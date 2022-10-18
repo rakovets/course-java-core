@@ -10,7 +10,7 @@ public class DemoTask07 {
         Task07 task07 = new Task07();
         try {
             task07.stringToDigit(str);
-        } catch (StringToNumber | NumberFormatException e) {
+        } catch (StringToNumber e) {
             logger.warning(e.getMessage());
         } finally {
             logger.info("Program is end");

@@ -8,7 +8,7 @@ public class DemoStringNull {
         StringNull stringNull = new StringNull();
         try {
             stringNull.anyMethod();
-        } catch (NullPointerException ignored) {
+        } catch (NullPointerException e) {
             final Logger logger = Logger.getLogger(DemoStringNull.class.getName());
             logger.log(Level.WARNING, "You're doing something wrong");
         }
