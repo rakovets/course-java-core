@@ -10,15 +10,13 @@ public class Task06Demo {
         int averageScoreInExams = 59;
         boolean ageOver17 = true;
         boolean unionMember = true;
-        String result = "";
         try {
-            result += task06.universityEnrollment(averageScoreInExams, ageOver17, unionMember);
+             task06.universityEnrollment(averageScoreInExams, ageOver17, unionMember);
         } catch (AverageAgeException | UnionMemberException e) {
-            result += e.getMessage();
+             e.getMessage();
         } catch (AverageScoreException e) {
             e.printStackTrace();
-            result += e.getMessage();
+             e.getMessage();
         }
-        System.out.println(result);
     }
 }

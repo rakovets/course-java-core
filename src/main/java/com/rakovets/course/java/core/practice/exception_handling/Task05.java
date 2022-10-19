@@ -8,7 +8,7 @@ public class Task05 {
     private int firstNumber;
     private int secondNumber;
 
-    public int divisionTwoNumber(int firstNumber, int secondNumber) throws DivisionTwoNumbersExcepton {
+    public int divisionTwoNumber(int firstNumber, int secondNumber) {
         int result;
         try {
             result = firstNumber / secondNumber;

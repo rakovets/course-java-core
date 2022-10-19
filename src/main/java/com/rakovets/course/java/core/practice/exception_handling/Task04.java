@@ -5,7 +5,7 @@ import com.rakovets.course.java.core.practice.exception_handling.exeption.Negati
 public class Task04 {
     private int number;
 
-    public int numberIsNegativeException(int number) throws NegativeNumberException {
+    public int numberIsNegativeException(int number) {
         if (number < 0) {
             throw new NegativeNumberException("It is negative number");
         }
