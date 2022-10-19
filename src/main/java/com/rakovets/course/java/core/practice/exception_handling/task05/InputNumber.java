@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputNumber {
-    public void inputExampleMethod() throws NotNumberException {
+    public void inputExampleMethod() {
         Scanner sc = new Scanner(System.in);
         try {
             sc.nextInt();
