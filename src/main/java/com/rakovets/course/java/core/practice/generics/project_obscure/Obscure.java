@@ -1,15 +1,12 @@
 package com.rakovets.course.java.core.practice.generics.project_obscure;
 
+import java.util.logging.Logger;
 
 public class Obscure <T> {
-    private final T item;
+    private T item;
 
     public Obscure(T item) {
         this.item = item;
-    }
-
-    public T getItem() {
-        return item;
     }
 
     public boolean isPresent() {
@@ -20,8 +17,8 @@ public class Obscure <T> {
         return getItem() == null;
     }
 
-    public T orElse(T item) {
-        return this.isPresent() ? getItem() : item;
+    public T orElse(T defaultIem) {
+        return this.isPresent() ? getItem() : defaultIem;
     }
 
     public T orElseThrow(MyException e) throws MyException {
@@ -32,11 +29,21 @@ public class Obscure <T> {
         }
     }
 
-    public static <T>Obscure<T> of(T ob) {
-        return new Obscure<>(ob);
+    public static <T>Obscure<T> of(T anotherItem) {
+        return new Obscure<>(anotherItem);
     }
 
     public static <T>Obscure<T> empty() {
         return new Obscure<>(null);
+    }
+
+    public static final Logger logger = Logger.getLogger(Obscure.class.getName());
+
+    public T getItem() {
+        return item;
+    }
+
+    public void setItem(T item) {
+        this.item = item;
     }
 }

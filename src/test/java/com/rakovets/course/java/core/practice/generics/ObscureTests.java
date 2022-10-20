@@ -13,25 +13,25 @@ public class ObscureTests {
     @Test
     public void testGetItem() {
         Assertions.assertEquals(5, obscureInteger.getItem());
-        Assertions.assertEquals(null, ObscureIntegerNull.getItem());
+        Assertions.assertNull(ObscureIntegerNull.getItem());
         Assertions.assertEquals("John", obscureString.getItem());
-        Assertions.assertEquals(null, obscureStringNull.getItem());
+        Assertions.assertNull(obscureStringNull.getItem());
     }
 
     @Test
     public void testIsPresent() {
-        Assertions.assertEquals(true, obscureInteger.isPresent());
-        Assertions.assertEquals(false, ObscureIntegerNull.isPresent());
-        Assertions.assertEquals(true, obscureString.isPresent());
-        Assertions.assertEquals(false, obscureStringNull.isPresent());
+        Assertions.assertTrue(obscureInteger.isPresent());
+        Assertions.assertFalse(ObscureIntegerNull.isPresent());
+        Assertions.assertTrue(obscureString.isPresent());
+        Assertions.assertFalse(obscureStringNull.isPresent());
     }
 
     @Test
     public void testIsEmpty() {
-        Assertions.assertEquals(false, obscureInteger.isEmpty());
-        Assertions.assertEquals(true, ObscureIntegerNull.isEmpty());
-        Assertions.assertEquals(false, obscureString.isEmpty());
-        Assertions.assertEquals(true, obscureStringNull.isEmpty());
+        Assertions.assertFalse(obscureInteger.isEmpty());
+        Assertions.assertTrue(ObscureIntegerNull.isEmpty());
+        Assertions.assertFalse(obscureString.isEmpty());
+        Assertions.assertTrue(obscureStringNull.isEmpty());
     }
 
     @Test
@@ -45,16 +45,13 @@ public class ObscureTests {
     @Test
     public void testOf() {
         Assertions.assertEquals(3, Obscure.of(3).getItem());
-        Assertions.assertEquals(null, Obscure.of(null).getItem());
+        Assertions.assertNull(Obscure.of(null).getItem());
         Assertions.assertEquals("Bob", Obscure.of("Bob").getItem());
-        Assertions.assertEquals(null, Obscure.of(null).getItem());
+        Assertions.assertNull(Obscure.of(null).getItem());
     }
 
     @Test
     public void testEmpty() {
-        Assertions.assertEquals(null, Obscure.empty().getItem());
-        Assertions.assertEquals(null, Obscure.empty().getItem());
-        Assertions.assertEquals(null, Obscure.empty().getItem());
-        Assertions.assertEquals(null, Obscure.empty().getItem());
+        Assertions.assertNull(Obscure.empty().getItem());
     }
 }

@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.generics.project_obscure;
 import java.util.logging.Logger;
 
 public class DemoObscure {
-    public static <e> void main(String[] args) throws MyException {
+    public static void main(String[] args) throws MyException {
         final String EXCEPTION_MESSAGE_1 = "Object does not present.";
         final String EXCEPTION_MESSAGE_2 = "First create an object.";
 
