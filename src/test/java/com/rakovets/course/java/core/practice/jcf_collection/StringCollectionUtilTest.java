@@ -1,9 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_collection;
 
-import com.rakovets.course.java.core.practice.jcf_list.school.Person;
-import com.rakovets.course.java.core.practice.jcf_list.school.SchoolClass;
-import com.rakovets.course.java.core.practice.jcf_list.studio.Actor;
-import com.rakovets.course.java.core.practice.jcf_list.studio.Studio;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
