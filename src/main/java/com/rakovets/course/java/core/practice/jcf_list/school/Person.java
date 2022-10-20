@@ -3,10 +3,10 @@ package com.rakovets.course.java.core.practice.jcf_list.school;
 import java.util.Objects;
 
 public class Person {
-    private String name;
-    private String surname;
-    private int age;
-    private double averageAnnualMark;
+    private final String name;
+    private final String surname;
+    private final int age;
+    private final double averageAnnualMark;
 
     public Person(String name, String surname, int age, double averageAnnualMark) {
         this.name = name;

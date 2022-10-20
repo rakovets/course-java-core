@@ -3,10 +3,10 @@ package com.rakovets.course.java.core.practice.jcf_list.studio;
 import java.util.Objects;
 
 public class Actor {
-    private String firstName;
-    private String lastName;
-    private int fee;
-    private int age;
+    private final String firstName;
+    private final String lastName;
+    private final int fee;
+    private final int age;
 
     public Actor(String firstName, String lastName, int fee, int age) {
         this.firstName = firstName;

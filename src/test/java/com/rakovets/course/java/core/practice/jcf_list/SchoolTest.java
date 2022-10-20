@@ -51,7 +51,7 @@ public class SchoolTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForCompareByAge")
-    void getCompareByAge(List<Person> students, List<Person>  expected) {
+    void getCompareByAge(List<Person> students, List<Person> expected) {
         students.sort(new CompareByAge());
 
         List<Person> actual = new ArrayList<>(students);
@@ -74,7 +74,7 @@ public class SchoolTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForCompareByAverageMark")
-    void getCompareByAverageMark(List<Person> students, List<Person>  expected) {
+    void getCompareByAverageMark(List<Person> students, List<Person> expected) {
         students.sort(new CompareByAverageMark());
 
         List<Person> actual = new ArrayList<>(students);
@@ -97,7 +97,7 @@ public class SchoolTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForCompareByFullName")
-    void getCompareByFullName(List<Person> students, List<Person>  expected) {
+    void getCompareByFullName(List<Person> students, List<Person> expected) {
         students.sort(new CompareByFullName());
 
         List<Person> actual = new ArrayList<>(students);

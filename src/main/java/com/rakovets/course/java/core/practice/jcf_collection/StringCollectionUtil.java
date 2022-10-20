@@ -16,7 +16,7 @@ public class StringCollectionUtil {
         return newCollection;
     }
 
-    public static  Collection<String> removeWordsByLength(Collection<String> coll, int length) {
+    public static Collection<String> removeWordsByLength(Collection<String> coll, int length) {
         coll.removeIf(str -> str.length() == length);
         return coll;
     }
