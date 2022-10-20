@@ -29,6 +29,7 @@ public class StudioTest {
         actors.add(new Actor("Kyle", "MacLachlan", 1_500_000, 63));
         actors.add(new Actor("Elijah", "Wood", 1_250_000, 41));
         Studio studio = new Studio(actors);
+
         List<Actor> actual = new ArrayList<>(studio.fire(actors));
 
         assertEquals(expected, actual);
