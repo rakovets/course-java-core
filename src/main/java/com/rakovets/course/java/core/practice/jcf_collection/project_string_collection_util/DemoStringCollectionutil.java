@@ -8,10 +8,10 @@ public class DemoStringCollectionutil {
         final int LENGTH_OF_WORDS_TO_BE_RESET = 4;
         final int LENGTH_OF_WORDS_TO_BE_REMOVE = 4;
 
-        List<String> wordlist = new ArrayList<>(List.of("333", "4444", "55555", "4444"));
-        System.out.println(wordlist);
+        List<String> wordList = new ArrayList<>(List.of("333", "4444", "55555", "4444"));
+        System.out.println(wordList);
 
-        StringCollectionUtil myList = new StringCollectionUtil(wordlist);
+        StringCollectionUtil myList = new StringCollectionUtil(wordList);
         myList.resetWordsByLength(myList.getArrayList(), LENGTH_OF_WORDS_TO_BE_RESET);
         myList.printMyArrayList(myList.getArrayList());
         System.out.println(myList.getArrayList());
