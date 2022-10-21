@@ -11,11 +11,11 @@ public class StringCollectionUtil {
     }
 
     public void resetWordsByLength(List<String> wordArrayList, int wordLength) {
-        String stringForReset = "*";
+        final String STRING_FOR_RESET = "*";
         ListIterator<String> listIterator = wordArrayList.listIterator();
         while (listIterator.hasNext()) {
             if (listIterator.next().length() == wordLength) {
-                listIterator.set(stringForReset);
+                listIterator.set(STRING_FOR_RESET);
             }
         }
     }
