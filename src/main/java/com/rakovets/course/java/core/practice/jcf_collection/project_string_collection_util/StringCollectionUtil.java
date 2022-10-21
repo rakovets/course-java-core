@@ -10,7 +10,7 @@ public class StringCollectionUtil {
         this.arrayList = arrayList;
     }
 
-    public void resetWordsByLength(List<String> wordArrayList, int wordLength) {
+    public List<String> resetWordsByLength(List<String> wordArrayList, int wordLength) {
         final String STRING_FOR_RESET = "*";
         ListIterator<String> listIterator = wordArrayList.listIterator();
         while (listIterator.hasNext()) {
@@ -18,10 +18,12 @@ public class StringCollectionUtil {
                 listIterator.set(STRING_FOR_RESET);
             }
         }
+        return wordArrayList;
     }
 
-    public void removeWordsByLength(List<String> wordArrayList, int wordLength) {
+    public List<String> removeWordsByLength(List<String> wordArrayList, int wordLength) {
         wordArrayList.removeIf(s -> s.length() == wordLength);
+        return wordArrayList;
     }
 
     public void printMyArrayList(List<String> arrayList) {

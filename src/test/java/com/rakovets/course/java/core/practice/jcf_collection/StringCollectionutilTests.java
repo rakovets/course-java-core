@@ -8,18 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringCollectionutilTests {
-    public static void main(String[] args) {
-
-    final int LENGTH_OF_WORDS_TO_BE_RESET = 4;
-    final int LENGTH_OF_WORDS_TO_BE_REMOVE = 4;
-
-    List<String> wordList = new ArrayList<>(List.of("333", "4444", "55555", "4444"));
-    StringCollectionUtil myList = new StringCollectionUtil(wordList);
-    List<String> wordListExpected = new ArrayList<>(List.of("333", "*", "55555", "*"));
+    StringCollectionUtil wordList = new StringCollectionUtil(new ArrayList<>(List.of("333", "4444", "55555", "4444")));
+    List<String> wordListResetWordsExpected = new ArrayList<>(List.of("333", "*", "55555", "*"));
+    List<String> wordListRemoveWordsExpected = new ArrayList<>(List.of("333", "55555"));
 
     @Test
     public void testResetWordsByLength() {
-        Assertions.assertEquals();
+        Assertions.assertEquals(wordListResetWordsExpected, wordList.resetWordsByLength(wordList.getArrayList(), 4));
     }
+
+    @Test
+    public void testRemoveWordsByLength() {
+        Assertions.assertEquals(wordListRemoveWordsExpected, wordList.removeWordsByLength(wordList.getArrayList(), 4));
     }
 }
