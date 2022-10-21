@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringCollectionutilTests {
+    public static void main(String[] args) {
+
     final int LENGTH_OF_WORDS_TO_BE_RESET = 4;
     final int LENGTH_OF_WORDS_TO_BE_REMOVE = 4;
 
@@ -16,4 +18,8 @@ public class StringCollectionutilTests {
     List<String> wordListExpected = new ArrayList<>(List.of("333", "*", "55555", "*"));
 
     @Test
+    public void testResetWordsByLength() {
+        Assertions.assertEquals();
+    }
+    }
 }
