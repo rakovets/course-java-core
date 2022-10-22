@@ -22,7 +22,12 @@ public class StringCollectionUtil {
     }
 
     public List<String> removeWordsByLength(List<String> wordArrayList, int wordLength) {
-        wordArrayList.removeIf(s -> s.length() == wordLength);
+        ListIterator<String> listIterator = wordArrayList.listIterator();
+        while (listIterator.hasNext()) {
+            if (listIterator.next().length() == wordLength) {
+                listIterator.remove();
+            }
+        }
         return wordArrayList;
     }
 
