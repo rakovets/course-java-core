@@ -12,20 +12,20 @@ import java.util.Comparator;
 
 public class ActorsCollectionTests {
     List<Actor> actorsActual = new ArrayList<>(List.of(
-            new Actor("Victor", "Polonnikov", 100.5, 40),
-            new Actor("Andrew", "Airsmith", 101.5, 30),
-            new Actor("John", "Turbey", 101.5, 20),
-            new Actor("Bob", "Polonnikov", 90.5, 50)
+        new Actor("Victor", "Polonnikov", 100.5, 40),
+        new Actor("Andrew", "Airsmith", 101.5, 30),
+        new Actor("John", "Turbey", 101.5, 20),
+        new Actor("Bob", "Polonnikov", 90.5, 50)
     ));
     Studio studioActual = new Studio(actorsActual);
 
     @Test
-    public void testConstructors() {
+    public void testToString() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Andrew", "Airsmith", 101.5, 30),
-                new Actor("John", "Turbey", 101.5, 20),
-                new Actor("Bob", "Polonnikov", 90.5, 50)
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Andrew", "Airsmith", 101.5, 30),
+            new Actor("John", "Turbey", 101.5, 20),
+            new Actor("Bob", "Polonnikov", 90.5, 50)
         ));
         Studio studioExpected = new Studio(actorsExpected);
 
@@ -35,10 +35,10 @@ public class ActorsCollectionTests {
     @Test
     public void testComparatorLastName() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("Andrew", "Airsmith", 101.5, 30),
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Bob", "Polonnikov", 90.5, 50),
-                new Actor("John", "Turbey", 101.5, 20)
+            new Actor("Andrew", "Airsmith", 101.5, 30),
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Bob", "Polonnikov", 90.5, 50),
+            new Actor("John", "Turbey", 101.5, 20)
         ));
         Studio studioExpected = new Studio(actorsExpected);
         Comparator<Actor> comparatorLastName = new ActorsLastNameComparator();
@@ -50,10 +50,10 @@ public class ActorsCollectionTests {
     @Test
     public void testComparatorAge() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("John", "Turbey", 101.5, 20),
-                new Actor("Andrew", "Airsmith", 101.5, 30),
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Bob", "Polonnikov", 90.5, 50)
+            new Actor("John", "Turbey", 101.5, 20),
+            new Actor("Andrew", "Airsmith", 101.5, 30),
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Bob", "Polonnikov", 90.5, 50)
         ));
         Studio studioExpected = new Studio(actorsExpected);
         Comparator<Actor> comparatorAge = new ActorsAgeComparator();
@@ -65,10 +65,10 @@ public class ActorsCollectionTests {
     @Test
     public void testComparatorFee() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("Bob", "Polonnikov", 90.5, 50),
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Andrew", "Airsmith", 101.5, 30),
-                new Actor("John", "Turbey", 101.5, 20)
+            new Actor("Bob", "Polonnikov", 90.5, 50),
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Andrew", "Airsmith", 101.5, 30),
+            new Actor("John", "Turbey", 101.5, 20)
         ));
         Studio studioExpected = new Studio(actorsExpected);
         Comparator<Actor> comparatorFee = new ActorsFeeComparator();
@@ -80,10 +80,10 @@ public class ActorsCollectionTests {
     @Test
     public void testComparatorLastNameAndAge() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("Andrew", "Airsmith", 101.5, 30),
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Bob", "Polonnikov", 90.5, 50),
-                new Actor("John", "Turbey", 101.5, 20)
+            new Actor("Andrew", "Airsmith", 101.5, 30),
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Bob", "Polonnikov", 90.5, 50),
+            new Actor("John", "Turbey", 101.5, 20)
         ));
         Studio studioExpected = new Studio(actorsExpected);
         Comparator<Actor> comparatorLastNameAndAge = new ActorsLastNameAndAgeComparator();
@@ -95,10 +95,10 @@ public class ActorsCollectionTests {
     @Test
     public void testComparatorFeeAndLastName() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("Bob", "Polonnikov", 90.5, 50),
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Andrew", "Airsmith", 101.5, 30),
-                new Actor("John", "Turbey", 101.5, 20)
+            new Actor("Bob", "Polonnikov", 90.5, 50),
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Andrew", "Airsmith", 101.5, 30),
+            new Actor("John", "Turbey", 101.5, 20)
         ));
         Studio studioExpected = new Studio(actorsExpected);
         Comparator<Actor> comparatorFeeAndLastName = new ActorsFeeAndLastNameComparator();
@@ -110,8 +110,8 @@ public class ActorsCollectionTests {
     @Test
     public void testFire() {
         List<Actor> actorsExpected = new ArrayList<>(List.of(
-                new Actor("Victor", "Polonnikov", 100.5, 40),
-                new Actor("Bob", "Polonnikov", 90.5, 50)
+            new Actor("Victor", "Polonnikov", 100.5, 40),
+            new Actor("Bob", "Polonnikov", 90.5, 50)
         ));
         Studio studioExpected = new Studio(actorsExpected);
         studioActual.fire(studioActual.getActors());
