@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_collection.school_class;
+package com.rakovets.course.java.core.practice.jcf_list.school_class;
 
 import java.util.List;
 

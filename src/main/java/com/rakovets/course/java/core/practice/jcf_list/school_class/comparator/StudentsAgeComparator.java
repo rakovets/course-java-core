@@ -1,6 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_collection.school_class.comparator;
+package com.rakovets.course.java.core.practice.jcf_list.school_class.comparator;
 
-import com.rakovets.course.java.core.practice.jcf_collection.school_class.Person;
+import com.rakovets.course.java.core.practice.jcf_list.school_class.Person;
 
 import java.util.Comparator;
 
