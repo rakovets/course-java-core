@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_list.comparator;
 
-import com.rakovets.course.java.core.practice.jcf_list.Actor;
+import com.rakovets.course.java.core.practice.jcf_list.life_of_actors.Actor;
 import java.util.Comparator;
 
 public class FeeComparator implements Comparator<Actor> {

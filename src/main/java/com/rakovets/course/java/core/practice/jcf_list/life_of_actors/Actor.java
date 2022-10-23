@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list.life_of_actors;
 
 public class Actor {
     private final String firstName;
@@ -34,3 +34,4 @@ public class Actor {
         return firstName;
     }
 }
+
