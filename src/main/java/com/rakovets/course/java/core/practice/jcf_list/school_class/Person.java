@@ -37,6 +37,5 @@ public class Person {
                 "Age: " + getAge() + "; " +
                 "Average annual mark: " + getAverageAnnualMark() +
                 "}";
-
     }
 }
