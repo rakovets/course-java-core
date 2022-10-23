@@ -1,7 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_list.life_of_class;
 
 import com.rakovets.course.java.core.practice.jcf_list.comparatot_for_class.AverageAnnualMarkComparator;
-
 import java.util.Comparator;
 import java.util.List;
 

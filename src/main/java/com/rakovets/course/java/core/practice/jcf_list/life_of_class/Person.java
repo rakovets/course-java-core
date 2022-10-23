@@ -6,15 +6,15 @@ public class Person {
     private final int age;
     private final double averageAnnualMark;
 
-
     public Person(String name, String surname, int age, double averageAnnualMark) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.averageAnnualMark = averageAnnualMark;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return name + " " + surname + " " + age + " " + averageAnnualMark;
     }
 
