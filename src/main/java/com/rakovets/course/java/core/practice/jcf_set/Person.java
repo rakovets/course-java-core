@@ -66,6 +66,7 @@ public class Person {
 
     /**
      * Adding a new fine for an existing Person
+     *
      * @param fine
      * @param peopleDB
      */
@@ -79,6 +80,7 @@ public class Person {
 
     /**
      * Removing fine
+     *
      * @param idFine
      * @param peopleDB
      */
