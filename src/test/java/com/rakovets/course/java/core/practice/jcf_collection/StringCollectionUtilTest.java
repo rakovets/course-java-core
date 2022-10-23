@@ -25,9 +25,10 @@ public class StringCollectionUtilTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForResetWordsByLength")
-    void getResetWordsByLength(Collection<String> coll, int length, Collection<String> expected) {
+    void getResetWordsByLength(ArrayList<String> list, int length, Collection<String> expected) {
+        StringCollectionUtil coll = new StringCollectionUtil();
 
-        Collection<String> actual = new ArrayList<>(StringCollectionUtil.resetWordsByLength(coll, length));
+        Collection<String> actual = coll.resetWordsByLength(list, length);
 
         assertEquals(expected, actual);
     }
@@ -45,9 +46,10 @@ public class StringCollectionUtilTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForRemoveWordsByLength")
-    void getRemoveWordsByLength(Collection<String> coll, int length, Collection<String> expected) {
+    void getRemoveWordsByLength(ArrayList<String> list, int length, Collection<String> expected) {
+        StringCollectionUtil coll = new StringCollectionUtil();
 
-        Collection<String> actual = new ArrayList<>(StringCollectionUtil.removeWordsByLength(coll, length));
+        Collection<String> actual = coll.removeWordsByLength(list, length);
 
         assertEquals(expected, actual);
     }

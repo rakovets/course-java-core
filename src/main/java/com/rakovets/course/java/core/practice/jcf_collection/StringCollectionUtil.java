@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class StringCollectionUtil {
-    public static Collection<String> resetWordsByLength(Collection<String> coll, int length) {
+    public Collection<String> resetWordsByLength(Collection<String> coll, int length) {
         Collection<String> newCollection = new ArrayList<>();
         for (String str : coll) {
             if (str.length() == length) {
@@ -16,7 +16,7 @@ public class StringCollectionUtil {
         return newCollection;
     }
 
-    public static Collection<String> removeWordsByLength(Collection<String> coll, int length) {
+    public Collection<String> removeWordsByLength(Collection<String> coll, int length) {
         coll.removeIf(str -> str.length() == length);
         return coll;
     }
