@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_collection;
 
 import com.rakovets.course.java.core.practice.jcf_collection.string_collection_util.StringCollectionUtil;
 import org.junit.jupiter.api.Assertions;

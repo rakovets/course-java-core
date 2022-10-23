@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.jcf_list;
 
-import com.rakovets.course.java.core.practice.jcf_collection.studio.Actor;
-import com.rakovets.course.java.core.practice.jcf_collection.studio.Studio;
-import com.rakovets.course.java.core.practice.jcf_collection.studio.comparator.*;
+import com.rakovets.course.java.core.practice.jcf_list.studio.Actor;
+import com.rakovets.course.java.core.practice.jcf_list.studio.Studio;
+import com.rakovets.course.java.core.practice.jcf_list.studio.comparator.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

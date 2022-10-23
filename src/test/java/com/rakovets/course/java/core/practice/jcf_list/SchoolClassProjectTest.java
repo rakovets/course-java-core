@@ -1,10 +1,10 @@
 package com.rakovets.course.java.core.practice.jcf_list;
 
-import com.rakovets.course.java.core.practice.jcf_collection.school_class.Person;
-import com.rakovets.course.java.core.practice.jcf_collection.school_class.SchoolClass;
-import com.rakovets.course.java.core.practice.jcf_collection.school_class.comparator.StudentsAgeComparator;
-import com.rakovets.course.java.core.practice.jcf_collection.school_class.comparator.StudentsAverageAnnualMarkComparator;
-import com.rakovets.course.java.core.practice.jcf_collection.school_class.comparator.StudentsFullNameComparator;
+import com.rakovets.course.java.core.practice.jcf_list.school_class.Person;
+import com.rakovets.course.java.core.practice.jcf_list.school_class.SchoolClass;
+import com.rakovets.course.java.core.practice.jcf_list.school_class.comparator.StudentsAgeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.school_class.comparator.StudentsAverageAnnualMarkComparator;
+import com.rakovets.course.java.core.practice.jcf_list.school_class.comparator.StudentsFullNameComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
