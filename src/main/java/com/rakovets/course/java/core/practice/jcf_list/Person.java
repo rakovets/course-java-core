@@ -6,11 +6,11 @@ import java.util.Set;
 public class Person {
     private final String fullName;
     private final City city;
-    private final Set<FineType> fineType;
+    private final List<FineType> fineType;
 
     private final int id;
 
-    public Person(String fullName, City city, Set<FineType> fineType, int id){
+    public Person(String fullName, City city, List<FineType> fineType, int id){
         this.fullName = fullName;
         this.city = city;
         this.fineType = fineType;
@@ -25,7 +25,7 @@ public class Person {
         getFineType().remove(oldFine);
     }
 
-    public Set<FineType> getFineType() {
+    public List<FineType> getFineType() {
         return fineType;
     }
 
