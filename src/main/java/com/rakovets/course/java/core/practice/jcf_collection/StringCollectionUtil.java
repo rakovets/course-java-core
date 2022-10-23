@@ -3,13 +3,12 @@ package com.rakovets.course.java.core.practice.jcf_collection;
 import java.util.List;
 
 public class StringCollectionUtil {
-    public List<String> resetWordsByLength(List<String> word, int n) {
+    public void resetWordsByLength(List<String> word, int n) {
         for (int i = 0; i < word.size(); i++) {
             if (word.get(i).length() == n) {
                 word.set(i, "*");
             }
         }
-        return word;
     }
 
     public void removeWordsByLength(List<String> words, int n) {
