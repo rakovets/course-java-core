@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class TestActor {
+public class DemoActor {
     public static void main(String[] args) {
         List<Actor> actors = new ArrayList<>();
         actors.add(new Actor("Oleg", "Aleksashov", 1000, 20));
