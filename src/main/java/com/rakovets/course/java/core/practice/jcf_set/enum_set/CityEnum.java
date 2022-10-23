@@ -8,4 +8,3 @@ public enum CityEnum {
     GOMEL,
     MOGILEV;
 }
-
