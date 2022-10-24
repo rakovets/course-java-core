@@ -31,6 +31,14 @@ public class TaxService {
         }
     }
 
+    public void updateInfoAboutTaxPayer(int idTaxPayer, City city, LinkedHashSet<Person> database) {
+        for (Person person : database) {
+            if (person.getId() == idTaxPayer) {
+                person.setCity(city);
+            }
+        }
+    }
+
     public Person showByID(int id) {
         for (Person taxPayer : database) {
             if (taxPayer.getId() == id) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Person {
     private final String fullName;
-    private final City city;
+    private City city;
     private final List<FineType> fineType;
 
     private final int id;
@@ -27,6 +27,10 @@ public class Person {
 
     public City getCity() {
         return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public int getId() {

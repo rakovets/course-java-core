@@ -26,5 +26,7 @@ public class TaxServiceDemo {
         System.out.println(kate);
         taxService.addFineType(FineType.FINE1814, 8022000);
         System.out.println(liza);
+        taxService.updateInfoAboutTaxPayer(8022000, City.Grodno, taxService.getDatabase());
+        System.out.println(liza);
     }
 }
