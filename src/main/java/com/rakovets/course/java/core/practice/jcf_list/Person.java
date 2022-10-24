@@ -11,7 +11,7 @@ public class Person {
 
     private final int id;
 
-    public Person(String fullName, City city, List<FineType> fineType, int id){
+    public Person(String fullName, City city, List<FineType> fineType, int id) {
         this.fullName = fullName;
         this.city = city;
         this.fineType = fineType;
