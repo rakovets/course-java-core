@@ -22,7 +22,7 @@ public class TaxServiceDemo {
         System.out.println("Show by city");
         System.out.println(taxService.showByCity(City.Minsk));
         System.out.println(taxService.getInfoAboutTaxPayer(liza));
-        kate.deleteFineType(1, taxPayer);
-        System.out.println(kate);
+        taxService.addFineType(FineType.FINE1814, 8022000);
+        System.out.println(liza);
     }
 }

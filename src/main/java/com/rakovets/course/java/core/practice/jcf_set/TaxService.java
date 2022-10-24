@@ -15,6 +15,22 @@ public class TaxService {
         database.add(taxPayer);
     }
 
+    public void addFineType(FineType fine, int idTaxPayer) {
+        for (Person person : database) {
+            if (person.getId() == idTaxPayer) {
+                person.getFineType().add(fine);
+            }
+        }
+    }
+
+    public void deleteFineType(FineType fine, int idTaxPayer) {
+        for (Person person : database) {
+            if (person.getId() == idTaxPayer) {
+                person.getFineType().remove(fine);
+            }
+        }
+    }
+
     public Person showByID(int id) {
         for (Person taxPayer : database) {
             if (taxPayer.getId() == id) {

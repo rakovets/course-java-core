@@ -17,21 +17,6 @@ public class Person {
         this.id = id;
     }
 
-    public void addFineType(FineType fine, LinkedHashSet<Person> database) {
-        for (Person person : database) {
-            if (person.getId() == id) {
-                fineType.add(fine);
-            }
-        }
-    }
-
-    public void deleteFineType(int idFine, LinkedHashSet<Person> database) {
-        database.forEach(person -> {
-            person.getFineType()
-                    .removeIf(fine -> fine.getIdFine() == idFine);
-        });
-    }
-
     public List<FineType> getFineType() {
         return fineType;
     }
