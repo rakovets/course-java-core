@@ -5,6 +5,10 @@ import java.util.LinkedHashSet;
 public class TaxService {
     private LinkedHashSet<Person> database;
 
+    public TaxService(LinkedHashSet<Person> database) {
+        this.database = database;
+    }
+
     public void addNewTaxPayer(Person taxPayer) {
         database.add(taxPayer);
     }

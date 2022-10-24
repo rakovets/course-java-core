@@ -37,12 +37,12 @@ public class Person {
         return city;
     }
 
-    @Override
-    public String toString() {
-        return "Name: " + fullName + ", City: " + city + ", Fine type: " + fineType;
-    }
-
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + id + ", name: " + fullName + ", City: " + city + ", Fine type: " + fineType;
     }
 }

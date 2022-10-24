@@ -25,8 +25,9 @@ public enum FineType {
         return fineCost;
     }
 
+
     @Override
     public String toString() {
-        return "Fine type: " + type + ", fine cost: " + fineCost + ".";
+        return "Fine type: " + type + ", fine cost: " + fineCost + " BYN";
     }
 }
