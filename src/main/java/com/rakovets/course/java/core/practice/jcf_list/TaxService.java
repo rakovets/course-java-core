@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.jcf_list;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 public class TaxService {
     private LinkedHashSet<Person> database;
@@ -22,29 +24,36 @@ public class TaxService {
         return null;
     }
 
-    public Person showByFineType(FineType fineType) {
+    public List<Person> showByFineType(FineType fineType) {
+        List<Person> listOfTaxPayer = new ArrayList<>();
         for (Person taxPayer : database) {
             if (taxPayer.getFineType() != null) {
                 for (FineType fine : taxPayer.getFineType()) {
                     if (fine.equals(fineType)) {
-                        return taxPayer;
+                        listOfTaxPayer.add(taxPayer);
                     }
                 }
             }
         }
-        return null;
+        return listOfTaxPayer;
     }
 
-    public Person showByCity(City city) {
+    public List<Person> showByCity(City city) {
+        List<Person> listOfTaxPayer = new ArrayList<>();
         for (Person taxPayer : database) {
             if (taxPayer.getCity().equals(city))
-                return taxPayer;
+                listOfTaxPayer.add(taxPayer);
         }
-        return null;
+        return listOfTaxPayer;
     }
 
-    public String getInfoAboutTaxPayer(Person taxPayer) {
-        return taxPayer.toString();
+    public Person getInfoAboutTaxPayer(Person taxPayer) {
+        for (Person payer : database) {
+            if (payer.equals(taxPayer)) {
+                return taxPayer;
+            }
+        }
+        return null;
     }
 
     public String getInfoAboutFinesOfPayer(Person taxPayer) {

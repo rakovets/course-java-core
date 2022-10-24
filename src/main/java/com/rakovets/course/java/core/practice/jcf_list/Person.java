@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_list;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -17,12 +18,24 @@ public class Person {
         this.id = id;
     }
 
-    public void addFineType(FineType newFine) {
-        fineType.add(newFine);
+    public void addFineType(FineType newFine, LinkedHashSet<Person> taxPayer) {
+        for (Person pers : taxPayer) {
+            if (pers.getId() == id) {
+                fineType.add(newFine);
+            }
+        }
     }
 
-    public void deleteFineType(FineType oldFine) {
-        getFineType().remove(oldFine);
+    public void deleteFineType(FineType oldFine, Set<Person> allPayers) {
+        for (Person taxPayer : allPayers) {
+            if (taxPayer.getFineType() != null) {
+                for (FineType fine : taxPayer.getFineType()) {
+                    if (fine == (oldFine)) {
+                        taxPayer.getFineType().remove(oldFine);
+                    }
+                }
+            }
+        }
     }
 
     public List<FineType> getFineType() {
