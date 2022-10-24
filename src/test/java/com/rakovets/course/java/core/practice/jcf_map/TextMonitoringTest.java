@@ -1,8 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_map;
 
-import com.rakovets.course.java.core.practice.jcf_list.City;
-import com.rakovets.course.java.core.practice.jcf_list.FineType;
-import com.rakovets.course.java.core.practice.jcf_list.Person;
 import com.rakovets.course.java.core.practice.jcf_map.words_monitoring.TextMonitoring;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

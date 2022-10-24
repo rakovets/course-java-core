@@ -1,10 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import com.rakovets.course.java.core.practice.jcf_list.City;
-import com.rakovets.course.java.core.practice.jcf_list.FineType;
-import com.rakovets.course.java.core.practice.jcf_list.Person;
-import com.rakovets.course.java.core.practice.jcf_list.TaxService;
-
 import java.util.*;
 
 public class TaxServiceDemo {

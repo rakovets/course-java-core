@@ -1,7 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_set;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
