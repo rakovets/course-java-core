@@ -27,7 +27,7 @@ public class TaxServiceDemo {
         System.out.println("Show by city");
         System.out.println(taxService.showByCity(City.Minsk));
         System.out.println(taxService.getInfoAboutTaxPayer(liza));
-        georg.addFineType(FineType.FINE1812, taxPayer);
-        System.out.println(georg);
+        kate.deleteFineType(1, taxPayer);
+        System.out.println(kate);
     }
 }

@@ -18,24 +18,19 @@ public class Person {
         this.id = id;
     }
 
-    public void addFineType(FineType newFine, LinkedHashSet<Person> taxPayer) {
-        for (Person pers : taxPayer) {
-            if (pers.getId() == id) {
-                fineType.add(newFine);
+    public void addFineType(FineType fine, LinkedHashSet<Person> database) {
+        for (Person person : database) {
+            if (person.getId() == id) {
+                fineType.add(fine);
             }
         }
     }
 
-    public void deleteFineType(FineType oldFine, Set<Person> allPayers) {
-        for (Person taxPayer : allPayers) {
-            if (taxPayer.getFineType() != null) {
-                for (FineType fine : taxPayer.getFineType()) {
-                    if (fine == (oldFine)) {
-                        taxPayer.getFineType().remove(oldFine);
-                    }
-                }
-            }
-        }
+    public void deleteFineType(int idFine, LinkedHashSet<Person> database) {
+        database.forEach(person -> {
+            person.getFineType()
+                    .removeIf(fine -> fine.getIdFine() == idFine);
+        });
     }
 
     public List<FineType> getFineType() {
