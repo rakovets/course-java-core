@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.jcf_set;
 
 import com.rakovets.course.java.core.practice.jcf_set.enums.CityName;
 import com.rakovets.course.java.core.practice.jcf_set.enums.FineType;
-import com.rakovets.course.java.core.practice.jcf_set.models.Fine;
 import com.rakovets.course.java.core.practice.jcf_set.models.Payer;
 import com.rakovets.course.java.core.practice.jcf_set.models.TaxBase;
 
@@ -19,8 +18,8 @@ public class DemoTaxService {
 
         taxBase.addPayer("0001AB7", "Sergey Belov", CityName.MINSK, "25102022_7_001", FineType.FINE_5);
         System.out.println(taxBase.getTaxBase());
-        taxBase.addFine("0001AB7", "25102022_7_002", FineType.FINE_1);
 
+        taxBase.addFine("0001AB7", "25102022_7_002", FineType.FINE_1);
         taxBase.addPayer("0001AB4", "Victor Belov", CityName.GRODNO, "25102022_4_001", FineType.FINE_1);
         taxBase.addFine("0001AB4", "25102022_4_002", FineType.FINE_1);
         taxBase.addFine("0001AB4", "25102022_4_002", FineType.FINE_2);
