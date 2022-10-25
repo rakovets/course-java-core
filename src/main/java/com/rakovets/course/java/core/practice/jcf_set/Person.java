@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.jcf_set;
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class Person {
     private final String fullName;
@@ -40,5 +41,18 @@ public class Person {
     @Override
     public String toString() {
         return "Id: " + id + ", name: " + fullName + ", City: " + city + ", Fine type: " + fineType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

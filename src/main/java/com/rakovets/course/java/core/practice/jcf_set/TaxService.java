@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.jcf_set;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class TaxService {
     private LinkedHashSet<Person> database;
@@ -80,11 +81,24 @@ public class TaxService {
         return null;
     }
 
-    public String getInfoAboutFinesOfPayer(Person taxPayer) {
-        return taxPayer.getFineType().toString();
+    public List getInfoAboutFinesOfPayer(Person taxPayer) {
+        return taxPayer.getFineType();
     }
 
     public LinkedHashSet<Person> getDatabase() {
         return database;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaxService taxService = (TaxService) o;
+        return database == taxService.database;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(database);
     }
 }
