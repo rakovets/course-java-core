@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 

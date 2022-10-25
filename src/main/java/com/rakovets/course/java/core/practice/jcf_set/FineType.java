@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import java.util.Set;
-
 public enum FineType {
     FINE181(1, "Intentional blocking of transport communication", 160),
     FINE1811(2, "Violation of the rules for operating a vehicle", 36),
