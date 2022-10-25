@@ -11,13 +11,11 @@ import java.util.HashSet;
 public class DemoTaxService {
     public static void main(String[] args) {
         TaxBase taxBase = new TaxBase(new HashSet<Payer>());
-        boolean addPayer = taxBase.addPayer("0001AB5", "Andrew Belov", CityName.MINSK_REGION, "25102022_5_001", FineType.FINE_4);
+        taxBase.addPayer("0001AB5", "Andrew Belov", CityName.MINSK_REGION, "25102022_5_001", FineType.FINE_4);
         System.out.println(taxBase.getTaxBase());
-        System.out.println(addPayer);
 
-        boolean addFine = taxBase.addFine("0001AB5", "25102022", FineType.FINE_1);
+        taxBase.addFine("0001AB5", "25102022", FineType.FINE_1);
         System.out.println(taxBase.getTaxBase());
-        System.out.println(addFine);
 
         taxBase.addPayer("0001AB7", "Sergey Belov", CityName.MINSK, "25102022_7_001", FineType.FINE_5);
         System.out.println(taxBase.getTaxBase());
@@ -36,7 +34,7 @@ public class DemoTaxService {
         taxBase.showAllTaxBase();
         taxBase.updatePayerId("0002AB4", "0003AB4");
         taxBase.showTaxBaseByPayerId("0003AB4");
-        taxBase.updatePayerSurname("0003AB4", "Pavel Chernov");
+        taxBase.updatePayerName_Surname("0003AB4", "Pavel Chernov");
         taxBase.showTaxBaseByPayerId("0003AB4");
         taxBase.updatePayerCityName("0003AB4", CityName.MINSK);
         taxBase.showTaxBaseByPayerId("0003AB4");

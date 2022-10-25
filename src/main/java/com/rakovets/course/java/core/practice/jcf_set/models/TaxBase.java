@@ -15,18 +15,18 @@ public class TaxBase {
         this.taxBase = taxBase;
     }
 
-    public boolean addPayer(String payerId, String name_Surname, CityName cityName, String protocolId, FineType fineType) {
-        return taxBase.add(new Payer(payerId, name_Surname, cityName, new HashSet<Fine>(List.of(new Fine(protocolId, fineType)))));
+    public Set<Payer> addPayer(String payerId, String name_Surname, CityName cityName, String protocolId, FineType fineType) {
+        taxBase.add(new Payer(payerId, name_Surname, cityName, new HashSet<Fine>(List.of(new Fine(protocolId, fineType)))));
+        return taxBase;
     }
 
-    public boolean addFine(String payerId, String protocolId, FineType fineType) {
-        boolean addFine = false;
+    public Set<Payer> addFine(String payerId, String protocolId, FineType fineType) {
         for (Payer p : taxBase) {
             if (p.getPayerId() == payerId) {
-                addFine = p.getFines().add(new Fine(protocolId, fineType));
+                p.getFines().add(new Fine(protocolId, fineType));
             }
         }
-        return addFine;
+        return taxBase;
     }
 
     public Set<Payer> showTaxBaseByPayerId(String payerId) {
@@ -42,21 +42,22 @@ public class TaxBase {
         return payers;
     }
 
-    public void showTaxBaseByFineType(FineType fineType) {
+    public Set<Payer> showTaxBaseByFineType(FineType fineType) {
         Set<Payer> payers = new HashSet<>();
         payers.addAll(taxBase);
         for (Payer p : payers) {
             Iterator<Fine>iterator = p.getFines().iterator();
             while (iterator.hasNext()) {
-                if (iterator.next().getFineType() != FineType.FINE_1) {
+                if (iterator.next().getFineType() != fineType) {
                     iterator.remove();
                 }
             }
         }
         System.out.println(payers);
+        return payers;
     }
 
-    public void showTaxBaseByCityName(CityName cityName) {
+    public Set<Payer> showTaxBaseByCityName(CityName cityName) {
         Set<Payer> payers = new HashSet<>();
         payers.addAll(taxBase);
         Iterator<Payer> iterator = payers.iterator();
@@ -66,10 +67,12 @@ public class TaxBase {
             }
         }
         System.out.println(payers);
+        return payers;
     }
 
-    public void showAllTaxBase() {
+    public Set<Payer> showAllTaxBase() {
         System.out.println(taxBase);
+        return taxBase;
     }
 
     public void updatePayerId(String payerCurrentId, String payerNewId) {
@@ -80,10 +83,10 @@ public class TaxBase {
         }
     }
 
-    public void updatePayerSurname(String payerID, String newPayerSurname) {
+    public void updatePayerName_Surname(String payerID, String newPayerName_Surname) {
         for (Payer p : taxBase) {
             if (p.getPayerId() == payerID) {
-                p.setName_Surname(newPayerSurname);
+                p.setName_Surname(newPayerName_Surname);
             }
         }
     }
