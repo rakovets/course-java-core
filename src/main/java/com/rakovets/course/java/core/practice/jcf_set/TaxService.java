@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class TaxService {
-    private LinkedHashSet<Person> database;
+    private final LinkedHashSet<Person> database;
 
     public TaxService(LinkedHashSet<Person> database) {
         this.database = database;
