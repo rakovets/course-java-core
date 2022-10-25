@@ -10,7 +10,7 @@ public class DemoMonitoring {
         System.out.println(map);
         System.out.println(textMonitoring.getCountUniqueWords(map));
         System.out.println(textMonitoring.getUniqueWords(map));
-        System.out.println(textMonitoring.getFrequencyWord(map));
+        System.out.println(textMonitoring.getFrequencyWord(map, "cat"));
         System.out.println(textMonitoring.getFrequencyWords(map, true));
         System.out.println(textMonitoring.getFrequencyWords(map, false));
     }
