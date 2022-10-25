@@ -29,7 +29,7 @@ public class TaxBase {
         return addFine;
     }
 
-    public void showTaxBaseByPayerId(String payerId) {
+    public Set<Payer> showTaxBaseByPayerId(String payerId) {
         Set<Payer> payers = new HashSet<>();
         payers.addAll(taxBase);
         Iterator<Payer> iterator = payers.iterator();
@@ -39,6 +39,7 @@ public class TaxBase {
             }
         }
         System.out.println(payers);
+        return payers;
     }
 
     public void showTaxBaseByFineType(FineType fineType) {
