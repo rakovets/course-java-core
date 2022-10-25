@@ -3,6 +3,8 @@ package com.rakovets.course.java.core.practice.jcf_map;
 import java.util.*;
 
 public class TextMonitoring {
+    Map<String, Integer> words;
+
     public Map<String, Integer> researchText(String line) {
         String[] text = line.replaceAll("\\W", " ").trim().split(" +");
         HashMap<String, Integer> words = new HashMap<>();
@@ -24,12 +26,11 @@ public class TextMonitoring {
         return words.keySet();
     }
 
-    public Collection<Integer> getFrequencyWord(Map<String, Integer> words) {
-        return words.values();
+    public int getFrequencyWord(Map<String, Integer> words, String word) {
+        return words.get(word);
     }
 
-    public SortedMap<String, Integer> getFrequencyWords(Map<String, Integer> words, boolean isAscendingFrequency) {
-        Map<String, Integer> sortedMap = new TreeMap<>();
+    public NavigableMap<String, Integer> getFrequencyWords(Map<String, Integer> words, boolean isAscendingFrequency) {
         NavigableMap<String, Integer> map = new TreeMap<>(words);
         return isAscendingFrequency ? map : map.descendingMap();
     }
