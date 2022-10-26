@@ -2,19 +2,20 @@ package com.rakovets.course.java.core.practice.jcf_map.project_word_monitoring;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class DemoTextMonitoring {
     public static void main(String[] args) {
-        String text = " a a a aa?  aa .aaa, b bb! bbb c cc ccc d d d d dd& ddd/ ddd! .";
+        String text = " a a a aa?   aa .aaa, b d bb! bbb c cc ccc d d d dd& ddd/ ddd! d.";
+        System.out.println(text);
         String textWithoutPunctuations = text.replaceAll("\\p{Punct}", "");
         System.out.println(textWithoutPunctuations);
-        String textWithoutStartAndEndSpaces = textWithoutPunctuations.trim();
-        System.out.println(textWithoutStartAndEndSpaces);
-        String[] wordArray = textWithoutStartAndEndSpaces.split(" ");
-        System.out.println(wordArray);
+        String[] wordArray = textWithoutPunctuations.split(" ");
         for (String s : wordArray) {
-            System.out.println(s);
+            System.out.print(s + ',');
         }
+        System.out.println();
         Map<String, Integer> uniqueWords = new HashMap<>();
         for (String s : wordArray) {
             if (!s.isBlank()) {
@@ -27,10 +28,15 @@ public class DemoTextMonitoring {
             }
         }
         for (Map.Entry m : uniqueWords.entrySet()) {
-            System.out.println(m.getKey() + " " + m.getValue());
+            System.out.print(m.getKey() + " " + m.getValue() + "\t");
         }
-        System.out.println(uniqueWords.size());
-        System.out.println(uniqueWords.get("d"));
+        System.out.println("\nВ строке " + uniqueWords.size() + " уникальных слов");
+        System.out.println("Слово d встречается в строке " + uniqueWords.get("d") + " раз");
         System.out.println(uniqueWords.keySet());
+        System.out.println(uniqueWords.entrySet());
+
+        SortedMap<String, Integer> sortedUniqueWords = new TreeMap<>();
+        sortedUniqueWords.putAll(uniqueWords);
+        System.out.println(sortedUniqueWords);
     }
 }
