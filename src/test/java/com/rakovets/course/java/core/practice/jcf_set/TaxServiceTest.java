@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Set;
 
 public class TaxServiceTest {
-
     @Test
     public void testAddPayer() {
         TaxBase taxBaseActual = new TaxBase(new HashSet<Payer>());
