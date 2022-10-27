@@ -6,15 +6,15 @@ import java.util.*;
 
 public class DemoTextMonitoring {
     public static void main(String[] args) {
-        TextMonitoring textMonitoring = new TextMonitoring();
-        String text = " a a a aa? word  aa .aaa, b d bb! bbb word word c cc ccc d d d dd& ddd/ ddd! d.";
-        Map<String, Integer> mapWords = new HashMap<>(textMonitoring.researchText(text));
-        textMonitoring.toPrintMapInMyFormat(mapWords);
+        final String TEXT = " a a a aa? word  aa .aaa, b d bb! bbb word word c cc ccc d d d dd& ddd/ ddd! d.";TextMonitoring textMonitoring = new TextMonitoring();
+
+        Map<String, Integer> mapWords = new HashMap<>(textMonitoring.researchText(TEXT));
+        textMonitoring.printMapInMyFormat(mapWords);
         System.out.println(mapWords.entrySet());
-        System.out.println(textMonitoring.getCountUniqueWords(text));
-        System.out.println(textMonitoring.getUniqueWords(text));
-        System.out.println(textMonitoring.getFrequencyWord(text, "word"));
-        System.out.println(textMonitoring.getFrequencyWords(text, false));
-        System.out.println(textMonitoring.getFrequencyWords(text, true));
+        System.out.println(textMonitoring.getCountUniqueWords(TEXT));
+        System.out.println(textMonitoring.getUniqueWords(TEXT));
+        System.out.println(textMonitoring.getFrequencyWord(TEXT, "word"));
+        System.out.println(textMonitoring.getFrequencyWords(TEXT, false));
+        System.out.println(textMonitoring.getFrequencyWords(TEXT, true));
     }
 }

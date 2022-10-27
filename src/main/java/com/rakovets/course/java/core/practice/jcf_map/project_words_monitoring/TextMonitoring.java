@@ -43,7 +43,7 @@ public class TextMonitoring {
         }
     }
 
-    public void toPrintMapInMyFormat(Map<String, Integer> map) {
+    public void printMapInMyFormat(Map<String, Integer> map) {
         for (Map.Entry m : map.entrySet()) {
             System.out.print(m.getKey() + " " + m.getValue() + ", ");
         }
