@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
 public class Task4 {
-    public static String[] getArray(String str) throws NullStringException {
+    public String[] getArray(String str) {
         if (str == null) {
             throw new NullStringException("Строка пустая");
         }

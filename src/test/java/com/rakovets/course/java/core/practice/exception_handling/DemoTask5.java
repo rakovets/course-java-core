@@ -6,8 +6,9 @@ public class DemoTask5 {
     public static final Logger logger = Logger.getLogger(DemoTask5.class.getName());
 
     public static void main(String[] args) {
+        Task5 task = new Task5();
         try {
-            Task5.getArray("");
+            task.getArray("");
         } catch (NullStringException e) {
             logger.info(e.getMessage());
         }

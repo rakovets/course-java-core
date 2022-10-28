@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
 public class Task5 {
-    public static String[] getArray(String namesList) throws NullStringException {
+    public String[] getArray(String namesList) throws NullStringException {
         String[] names;
         try {
             names = namesList.split(" ");

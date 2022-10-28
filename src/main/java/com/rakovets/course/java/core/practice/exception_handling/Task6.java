@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
 public class Task6 {
-    public static int getAverageMarkForExams(String[] marks) throws NullStringException, MissExamException, FailExamException {
+    public int getAverageMarkForExams(String[] marks) throws NullStringException, MissExamException, FailExamException {
         int sumMarks = 0;
         int counter = 0;
         for (int i = 0; i < marks.length; i++) {
