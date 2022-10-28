@@ -13,7 +13,7 @@ public class Demo06 {
         try {
             printArray(sizeOfArray, startToPrintArray, dividerOfArrayMembers, numberOfArrayMemberToSeparatePrint);
         } catch (MyExceptionTask06 e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
+            Logger logger = Logger.getLogger(Demo06.class.getName());
             logger.warning(e.getMessage());
             logger.warning(e.getDebugMessage());
             logger.warning(e.getMessage() + " " + e.getDebugMessage());

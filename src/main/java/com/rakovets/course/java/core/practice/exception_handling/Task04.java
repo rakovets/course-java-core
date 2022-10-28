@@ -7,17 +7,12 @@ public class Task04 {
     final int MINIMUM_AMOUNT_TO_OPEN_ACCOUNT = 100;
 
     private int accountAmount;
-
-    {
-        accountAmount = 0;
-    }
-
-    public void openAccount(int amountToOpenAccount, int ageOfClient) throws MyExceptionTask04 {
+    public void openAccount(int amountToOpenAccount, int ageOfClient) {
         if (amountToOpenAccount < MINIMUM_AMOUNT_TO_OPEN_ACCOUNT) {
-            throw new MyExceptionTask04("Счет не может быть открыт. ","Минимальная сумма для открытия счета " + MINIMUM_AMOUNT_TO_OPEN_ACCOUNT);
+            throw new MyExceptionTask04("Счет не может быть открыт. Минимальная сумма для открытия счета " + MINIMUM_AMOUNT_TO_OPEN_ACCOUNT);
         }
         if (ageOfClient < MINIMUM_AGE_OF_CLIENT) {
-            throw new MyExceptionTask04("Счет не может быть открыт.", "Возраст клиента " + ageOfClient + " лет не позволяет открыть счет." );
+            throw new MyExceptionTask04("Счет не может быть открыт. Возраст клиента " + ageOfClient + " лет не позволяет открыть счет." );
         }
         accountAmount += amountToOpenAccount;
     }

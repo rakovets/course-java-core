@@ -10,11 +10,9 @@ public class Demo04 {
         try {
             currentAccount.openAccount(180, 15);
         } catch (MyExceptionTask04 e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
+            Logger logger = Logger.getLogger(Demo04.class.getName());
             logger.warning(e.toString());
-            logger.warning(e.getMessage());
-            logger.warning(e.getDebugMessage());
+            e.printStackTrace();
         }
-        System.out.printf("Сумма счета после его открытия составляет: %d", currentAccount.getAccountAmount());
     }
 }

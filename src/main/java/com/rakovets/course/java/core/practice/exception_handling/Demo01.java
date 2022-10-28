@@ -14,8 +14,8 @@ public class Demo01 {
             }
             System.out.println("Более длинных имен уже " + counter);
             System.out.println("Введите следующее имя для сравнения его длины с заданным именем");
-        } catch (Exception e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
+        } catch (NullPointerException e) {
+            Logger logger = Logger.getLogger(Demo01.class.getName());
             logger.warning(e.getMessage());
             if (e.getMessage() == null) {
                 logger.warning(e.toString());

@@ -14,11 +14,11 @@ public class Task06 {
             }
             System.out.println(array[Integer.parseInt(numberOfArrayMemberToSeparatePrint)]);
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
+            Logger logger = Logger.getLogger(Demo01.class.getName());
             logger.warning(e.toString());
             throw new MyExceptionTask06(e.getMessage(), "Ошибка при обработке массива чисел");
         } catch (ArithmeticException e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
+            Logger logger = Logger.getLogger(Demo01.class.getName());
             logger.warning(e.toString());
             throw new MyExceptionTask06(e.getMessage(), "Деление на ноль");
         }

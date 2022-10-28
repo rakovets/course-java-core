@@ -10,9 +10,8 @@ public class Demo02 {
         int num = 6;
         try {
             int sum = getSumOfFirstNumbersOfArray(array, num);
-            System.out.printf("сумма первых %d чисел массива составляет %d", num, sum);
         } catch (ArrayIndexOutOfBoundsException e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging02.class.getName());
+            Logger logger = Logger.getLogger(Double.class.getName());
             logger.warning(e.toString());
             e.printStackTrace();
         }

@@ -11,7 +11,7 @@ public class Task05 {
                 System.out.println(a);
             }
         } catch (Exception e) {
-            Logger logger = Logger.getLogger(JavaUtilLogging01.class.getName());
+            Logger logger = Logger.getLogger(Demo01.class.getName());
             logger.warning(e.toString());
             throw new MyExceptionTask05(e.getMessage(), "this is my exception");
         }
