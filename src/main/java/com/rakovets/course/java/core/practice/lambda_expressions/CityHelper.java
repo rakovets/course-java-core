@@ -14,14 +14,12 @@ public final class CityHelper {
         return cities.stream()
                 .distinct()
                 .collect(Collectors.toList());
-
     }
 
     public List<String> getNameCityLength() {
         return cities.stream()
                 .filter(city -> city.length() > 6)
                 .collect(Collectors.toList());
-
     }
 
     public List<String> getNameFirstLetter(final char firstLetter) {

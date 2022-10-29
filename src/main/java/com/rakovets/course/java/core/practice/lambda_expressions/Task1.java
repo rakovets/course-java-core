@@ -10,7 +10,6 @@ public class Task1 {
                 .collect(Collectors.toMap(
                         x -> lines[x],
                         x -> lines[x + 1]));
-
     }
 
     public String[] convertMapToArray(Map<String, String> string) {
