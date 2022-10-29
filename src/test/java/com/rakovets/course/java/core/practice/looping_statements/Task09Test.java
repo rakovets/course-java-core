@@ -20,6 +20,10 @@ class Task09Test {
                 Arguments.of(-92346234L, "-92 346 234"),
                 Arguments.of(123456453456L, "123 456 453 456"),
                 Arguments.of(-834563456234L, "-834 563 456 234"),
+                Arguments.of(1000000, "1 000 000"),
+                Arguments.of(-1000000, "-1 000 000"),
+                Arguments.of(100, "100"),
+                Arguments.of(-100, "-100"),
                 Arguments.of(0, "0"),
                 Arguments.of(123, "123"),
                 Arguments.of(-123, "-123")
