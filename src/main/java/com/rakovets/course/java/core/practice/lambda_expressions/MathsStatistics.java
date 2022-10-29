@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public final class MathsStatistics {
+public class MathsStatistics {
+    private final List<Integer> list = MathsStatistics.random();
+
+    public MathsStatistics() {
+    }
 
     public static List<Integer> random() {
         return new Random()
@@ -13,25 +17,25 @@ public final class MathsStatistics {
                 .collect(Collectors.toList());
     }
 
-    public static long getEvenNumbers(List<Integer> list) {
+    public long getEvenNumbers(List<Integer> list) {
         return list.stream()
                 .filter(c -> c % 2 == 0)
                 .count();
     }
 
-    public static long getOddNumbers(List<Integer> list) {
+    public long getOddNumbers(List<Integer> list) {
         return list.stream()
                 .filter(c -> c % 2 != 0)
                 .count();
     }
 
-    public static long getNumbersNull(List<Integer> list) {
+    public long getNumbersNull(List<Integer> list) {
         return list.stream()
                 .filter(c -> c == 0)
                 .count();
     }
 
-    public static long getNumbers(List<Integer> list, int number) {
+    public long getNumbers(List<Integer> list, int number) {
         return list.stream()
                 .filter(c -> c == number)
                 .count();

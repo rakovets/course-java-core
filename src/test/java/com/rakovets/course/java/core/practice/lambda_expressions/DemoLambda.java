@@ -20,12 +20,13 @@ public class DemoLambda {
         System.out.println("---------------------------------------------------");
         task2.tableInFiveColumn();
         System.out.println("-------------MathsStatistics-----------------------");
+        MathsStatistics math = new MathsStatistics();
         List<Integer> list = MathsStatistics.random();
         System.out.println(list);
-        System.out.println(MathsStatistics.getEvenNumbers(list));
-        System.out.println(MathsStatistics.getOddNumbers(list));
-        System.out.println(MathsStatistics.getNumbersNull(list));
-        System.out.println(MathsStatistics.getNumbers(list, 2));
+        System.out.println(math.getEvenNumbers(list));
+        System.out.println(math.getOddNumbers(list));
+        System.out.println(math.getNumbersNull(list));
+        System.out.println(math.getNumbers(list,2));
         System.out.println("-------------CityHelper-----------------------");
         CityHelper city =  new CityHelper(Arrays.asList("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin", "Oslo", "Minsk"));
         System.out.println(city.getUniqueCities());
