@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.example.jcf.model;
 
-public class Student implements Comparable {
-    private String name;
+public class Student implements Comparable<Student> {
+    private final String name;
     private double fee;
 
     public Student(String name) {
@@ -34,8 +34,7 @@ public class Student implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        Student student = (Student) o;
-        return Double.compare(this.getFee(), student.getFee());
+    public int compareTo(Student o) {
+        return Double.compare(this.getFee(), o.getFee());
     }
 }
