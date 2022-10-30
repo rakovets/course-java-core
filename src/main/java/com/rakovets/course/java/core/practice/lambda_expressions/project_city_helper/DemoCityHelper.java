@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class DemoCityHelper {
     public static void main(String[] args) {
+
         List<String> cities = new ArrayList<>(List.of(
                 "Минск", "Киев", "Одесса", "Харьков", "Изюм", "Херсон", "Варшава",
                 "Минск", "Херсон", "Мариуполь", "Гомель", "Мариуполь", "Варшава", "Киев", "Одесса", "Харьков", "Изюм", "Херсон", "Варшава",
