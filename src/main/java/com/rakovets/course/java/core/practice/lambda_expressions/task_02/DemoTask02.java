@@ -6,7 +6,7 @@ public class DemoTask02 {
     public static void main(String[] args) {
         final int START_NUMBER = 1;
         final int END_NUMBER = 10;
-        final int NUMBER_OF_COLUMNS = 1;
+        final int NUMBER_OF_COLUMNS = 5;
 
         switch (NUMBER_OF_COLUMNS) {
             case 1 :
@@ -34,6 +34,8 @@ public class DemoTask02 {
                                             System.out.printf(("%d * %d = %d\t"), x, y, x*y));
                             System.out.println();
                         });
+                break;
+            default: System.out.println("Выберите один из возможных вариантов вывода таблицы умножения: в 1 или в 5 столбцов.");
         }
     }
 }
