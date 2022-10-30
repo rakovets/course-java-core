@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -19,7 +18,7 @@ public class Task1Test {
 
     @ParameterizedTest
     @MethodSource("ConvertArrayToMapArguments")
-    public void convertArrayToMap(String[] lines, Map<String, Integer> expected) {
+    public void convertArrayToMap(String[] lines, Map<String, String> expected) {
         Task1 task1 = new Task1();
 
         Map<String, String> actual = task1.convertArrayToMap(lines);
