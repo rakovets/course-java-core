@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_list.school;
 
-
 import java.util.Comparator;
 
 public class NameWithSurnameComparator implements Comparator<Person> {
