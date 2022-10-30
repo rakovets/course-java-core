@@ -3,7 +3,6 @@ package com.rakovets.course.java.core.practice.jcf_map;
 import java.util.*;
 
 public class TextMonitoring {
-    Map<String, Integer> words;
 
     public Map<String, Integer> researchText(String line) {
         String[] text = line.replaceAll("\\W", " ").trim().split(" +");
