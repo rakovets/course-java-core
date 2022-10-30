@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class StudioTest {
-
     static Stream<Arguments> deleteMaxFeeArguments() {
         return Stream.of(
                 Arguments.of(new ArrayList<>(List.of(new Actor("Johnny", "Depp", 1000000, 59),
@@ -87,7 +86,7 @@ public class StudioTest {
                                 new Actor("Leonardo", "DiCaprio", 1500000, 47),
                                 new Actor("Charles", "Hunnam", 900000, 42),
                                 new Actor("Jensen", "Ackles", 800000, 44))),
-                        new ArrayList<>(List.of( new Actor("Jensen", "Ackles", 800000, 44),
+                        new ArrayList<>(List.of(new Actor("Jensen", "Ackles", 800000, 44),
                                 new Actor("Johnny", "Depp", 800000, 59),
                                 new Actor("Charles", "Hunnam", 900000, 42),
                                 new Actor("Leonardo", "DiCaprio", 1500000, 47)))

@@ -7,10 +7,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class DemoActor {
-
     public static void main(String[] args) {
         List<Actor> actors = new ArrayList<>();
-
         Actor johnny = new Actor("Johnny", "Depp", 1000000, 59);
         Actor leo = new Actor("Leonardo", "DiCaprio", 1500000, 47);
         Actor charly = new Actor("Charles", "Hunnam", 900000, 42);

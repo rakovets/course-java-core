@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Demo {
-
     public static void main(java.lang.String[] args) {
-
         String mama = new String("mama");
         String count = new String("123");
         String number = new String("4567");
@@ -15,7 +13,6 @@ public class Demo {
         String sunny = new String("Sunny");
         String kitty = new String("Kitty");
         String sun = new String("Sun");
-
         ArrayList<String> line = new ArrayList<>(Arrays.asList(mama, count, number, dad,
                 maksim, sunny, kitty, sun));
         System.out.println(line);

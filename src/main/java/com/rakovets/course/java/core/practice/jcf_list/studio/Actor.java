@@ -8,7 +8,6 @@ public class Actor {
     private double fee;
     private int age;
 
-
     public Actor(String firstName, String lastName, double fee, int age) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -9,7 +9,6 @@ import java.util.List;
 public class DemoStudents {
     public static void main(String[] args) {
         List<Person> students = new ArrayList<>();
-
         Person michel = new Person("Michel", "Williams", 15, 9.8);
         Person mishel = new Person("Mishel", "Willi", 15, 9.8);
         Person garry = new Person("Garry", "Peters", 16, 7.9);

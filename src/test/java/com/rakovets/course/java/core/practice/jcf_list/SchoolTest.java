@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class SchoolTest {
-
     static Stream<Arguments> bestStudentArguments() {
         return Stream.of(
                 Arguments.of(new ArrayList<>(List.of(new Person("Michel", "Williams", 16, 9.9),
