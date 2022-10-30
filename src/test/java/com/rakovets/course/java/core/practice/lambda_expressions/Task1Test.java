@@ -35,11 +35,14 @@ public class Task1Test {
 
     @ParameterizedTest
     @MethodSource("ConvertMapToArrayArguments")
-    public void convertMapToArray(TreeMap<String, String> map, String[] expected) {
+    public void convertMapToArray(Map<String, String> map, String[] expected) {
         Task1 task1 = new Task1();
 
         String[] actual = task1.convertMapToArray(map);
 
-        Assertions.assertEquals(expected, actual);
+        Arrays.sort(expected);
+        Arrays.sort(actual);
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
