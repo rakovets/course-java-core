@@ -8,7 +8,6 @@ public class DemoTask02 {
         final int END_NUMBER = 10;
         final int NUMBER_OF_COLUMNS = 1;
 
-
         switch (NUMBER_OF_COLUMNS) {
             case 1 :
                 IntStream.range(START_NUMBER, END_NUMBER + 1)
