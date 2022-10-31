@@ -6,13 +6,14 @@ public class Television {
     private int yearOfProduction;
     private int diagonalSize;
     private double price;
-    Television(String producerCompany, String modelName, int yearOfProduction, int diagonalSize, double price) {
+    public Television(String producerCompany, String modelName, int yearOfProduction, int diagonalSize, double price) {
         this.producerCompany = producerCompany;
         this.modelName = modelName;
         this.yearOfProduction = yearOfProduction;
         this.diagonalSize = diagonalSize;
         this.price = price;
     }
+
     @Override
     public String toString() {
         return producerCompany + " " + modelName + " " + yearOfProduction + " " + diagonalSize + " " +  price;

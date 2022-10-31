@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.lambda_expressions.project_tv;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DemoTelevision {
     public static void main(String[] args) {
@@ -21,22 +20,60 @@ public class DemoTelevision {
                 new Television("Philips", "313", 2022, 80, 2205.0),
                 new Television("Sony", "411", 2022, 80, 3205.0)
         ));
-        televisionList.stream()
-                //.filter(x -> x.getDiagonalSize() == 50)
-                //.filter(x -> x.getProducerCompany() == "Sony")
-                //.filter(x -> x.getYearOfProduction() >= 2022)
-                //.filter(x -> x.getPrice() > 1500 && x.getPrice() < 2000)
-                //.sorted((a, b) -> (int) (a.getPrice() - b.getPrice()))
-                //.sorted((a, b) -> (int) (b.getPrice() - a.getPrice()))
-                //.sorted((a, b) -> (int) (a.getDiagonalSize() - b.getDiagonalSize()))
-                //.sorted((a, b) -> (int) (b.getDiagonalSize() - a.getDiagonalSize()))
-                //.sorted((a, b) -> a.getProducerCompany().compareTo(b.getProducerCompany()))
-                .sorted((a, b) -> b.getProducerCompany().compareTo(a.getProducerCompany()))
-                .forEach(System.out::println);
+        TelevisionUtility televisionUtility = new TelevisionUtility();
+        List<Television> televisionsWithSpecifiedDiagonal = televisionUtility.getTelevisionByDiagonal(televisionList, 50);
+        televisionsWithSpecifiedDiagonal.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
 
-        List<Television> distinct_Televisions = televisionList.stream()
-                .distinct()
-                .collect(Collectors.toCollection(ArrayList::new));
-        System.out.println(distinct_Televisions);
+        List<Television> televisionsWithSpecifiedModelName = televisionUtility.getTelevisionByModel(televisionList, "313");
+        televisionsWithSpecifiedModelName.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsWithSpecifiedProducerCompany = televisionUtility.getTelevisionByProducerCompany(televisionList, "Philips");
+        televisionsWithSpecifiedProducerCompany.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsProducedNotEarlierThenYear = televisionUtility.getTelevisionByYearOfProduction(televisionList, 2022);
+        televisionsProducedNotEarlierThenYear.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsInPriceRange = televisionUtility.getTelevisionBypPriceRange(televisionList, 1400, 1800);
+        televisionsInPriceRange.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsSortedBypPriceUp = televisionUtility.sortTelevisionBypPriceUp(televisionList);
+        televisionsSortedBypPriceUp.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsSortedBypPriceDown = televisionUtility.sortTelevisionBypPriceDown(televisionList);
+        televisionsSortedBypPriceDown.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsSortedBypDiagonalUp = televisionUtility.sortTelevisionBypDiagonalUp(televisionList);
+        televisionsSortedBypDiagonalUp.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsSortedBypDiagonalDown = televisionUtility.sortTelevisionBypDiagonalDown(televisionList);
+        televisionsSortedBypDiagonalDown.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsSortedByProducerCompanyUp = televisionUtility.sortTelevisionByProducerCompanyUp(televisionList);
+        televisionsSortedByProducerCompanyUp.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
+
+        List<Television> televisionsSortedByProducerCompanyDown = televisionUtility.sortTelevisionByProducerCompanyDown(televisionList);
+        televisionsSortedByProducerCompanyDown.stream()
+                .forEach(t -> System.out.println(t));
+        System.out.println();
     }
 }
