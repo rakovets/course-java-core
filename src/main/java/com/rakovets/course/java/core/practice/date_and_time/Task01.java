@@ -18,7 +18,8 @@ public class Task01 {
         return localDate.format(dtf);
     }
 
-    public LocalDate getLocalDateFromPattern(String date, DateTimeFormatter dtf) {
+    public LocalDate getLocalDateFromPattern(String date, String pattern) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern, Locale.US);
         return LocalDate.parse(date, dtf);
     }
 

@@ -6,8 +6,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -75,15 +73,15 @@ public class Task01Test {
 
     static Stream<Arguments> provideArgumentsGetLocalDateFromPattern() {
         return Stream.of(
-                Arguments.of("1999.10 September", "dd.M.yyyy", LocalDate.of(1999, 9, 10)),
-                Arguments.of("08.02.2000", "MMMM dd yyyy", LocalDate.of(2000, 2, 8)),
-                Arguments.of("October 30.2022", "yyyy dd MMMM", LocalDate.of(2022, 10, 30))
+                Arguments.of("1999.10 September", "yyyy.dd MMMM", LocalDate.of(1999, 9, 10)),
+                Arguments.of("08.02.2000", "dd.MM.yyyy", LocalDate.of(2000, 2, 8)),
+                Arguments.of("October 30.2022", "MMMM dd.yyyy", LocalDate.of(2022, 10, 30))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsGetLocalDateFromPattern")
-    void getLocalDateFromPattern(String date, DateTimeFormatter dtf, LocalDate expected) {
+    void getLocalDateFromPattern(String date, String dtf, LocalDate expected) {
         Task01 task01 = new Task01();
 
         LocalDate actual = task01.getLocalDateFromPattern(date, dtf);
