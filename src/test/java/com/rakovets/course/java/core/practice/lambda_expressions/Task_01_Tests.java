@@ -4,7 +4,6 @@ import com.rakovets.course.java.core.practice.lambda_expressions.task_01.Argumen
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
