@@ -5,7 +5,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalDate;
-import java.time.temporal.Temporal;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,10 +23,10 @@ public class Task02_2Test {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsFirstJanuary")
-    void testFirstJanuary(LocalDate date, Temporal expected) {
+    void testFirstJanuary(LocalDate date, LocalDate expected) {
         Task02_2 task02_2 = new Task02_2();
 
-        Temporal actual = task02_2.adjustInto(date);
+        LocalDate actual = (LocalDate) task02_2.adjustInto(date);
 
         assertEquals(expected, actual);
     }

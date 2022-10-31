@@ -1,10 +1,13 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -72,20 +75,20 @@ public class Task01Test {
 
     static Stream<Arguments> provideArgumentsGetLocalDateFromPattern() {
         return Stream.of(
-                Arguments.of("1999-10 September", "dd M yyyy", "10-09-1999"),
-                Arguments.of("08-2-2000", "MMMM dd yyyy", LocalDate.of(2000, 2, 8)),
-                Arguments.of("October 30-2022", "yyyy dd MMMM", LocalDate.of(2022, 10, 30))
+                Arguments.of("1999.10 September", "dd.M.yyyy", LocalDate.of(1999, 9, 10)),
+                Arguments.of("08.02.2000", "MMMM dd yyyy", LocalDate.of(2000, 2, 8)),
+                Arguments.of("October 30.2022", "yyyy dd MMMM", LocalDate.of(2022, 10, 30))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsGetLocalDateFromPattern")
-    void getLocalDateFromPattern(String date, String pattern, LocalDate expected) {
+    void getLocalDateFromPattern(String date, DateTimeFormatter dtf, LocalDate expected) {
         Task01 task01 = new Task01();
 
-        LocalDate actual = task01.getLocalDateFromPattern(date, pattern);
+        LocalDate actual = task01.getLocalDateFromPattern(date, dtf);
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgumentsGetDaysBetween() {

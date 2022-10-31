@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.date_and_time;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -19,8 +18,7 @@ public class Task01 {
         return localDate.format(dtf);
     }
 
-    public LocalDate getLocalDateFromPattern(String date, String pattern) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern, Locale.US);
+    public LocalDate getLocalDateFromPattern(String date, DateTimeFormatter dtf) {
         return LocalDate.parse(date, dtf);
     }
 

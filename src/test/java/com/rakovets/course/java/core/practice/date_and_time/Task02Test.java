@@ -17,7 +17,7 @@ public class Task02Test {
                 Arguments.of(LocalDate.of(2022, 10, 30), 3,
                         LocalDate.of(2022, 11, 2)),
                 Arguments.of(LocalDate.of(2000, 2, 8), 1200,
-                        LocalDate.of(2003, 05, 23))
+                        LocalDate.of(2003, 5, 23))
         );
     }
 
