@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.lambda_expressions.project_city_h
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DemoCityHelper {
     public static void main(String[] args) {
@@ -11,28 +10,23 @@ public class DemoCityHelper {
                 "Минск", "Херсон", "Мариуполь", "Гомель", "Мариуполь", "Варшава", "Киев", "Одесса", "Харьков", "Изюм", "Херсон", "Варшава",
                 "Минск", "Херсон", "Мариуполь"
         ));
-        cities.stream()
-                .forEach(x -> System.out.printf("%s, ", x));
-        System.out.println();
-        List<String> uniqueCities = cities.stream()
-                .distinct()
-                .collect(Collectors.toList());
-
-        System.out.println();
-        List<String> nameLonger6WordsCities = cities.stream()
-                .filter(x-> x.length() > 6)
-                .collect(Collectors.toList());
-
-        System.out.println();
-        List<String> withSpecifiedFirstWordInNameCities = cities.stream()
-                .filter(x-> x.charAt(0) == 'М')
-                .distinct()
-                .collect(Collectors.toList());
-
+        CityHelper cityHelper = new CityHelper();
+        ArrayList<String> uniqueCities = cityHelper.getUniqueCities(cities);
+        uniqueCities.stream()
+                .forEach(x -> System.out.printf("%s ", x));
         System.out.println();
 
-        long countOfSpecifiedCity = cities.stream()
-                .filter(x-> x == "Минск")
-                .count();
+        ArrayList<String> nameLengthCities = cityHelper.getCitiesWithSpecifiedLengthOfName(cities, 6);
+        nameLengthCities.stream()
+                .forEach(x -> System.out.printf("%s ", x));
+        System.out.println();
+
+        ArrayList<String> nameFirstLetterCities = cityHelper.getCitiesWithSpecifiedFirstLetterInName(cities, 'М');
+        nameFirstLetterCities.stream()
+                .forEach(x -> System.out.printf("%s ", x));
+        System.out.println();
+
+        long countWithWithSpecified = cityHelper.getCitiesWithSpecifiedName(cities, "Минск");
+        System.out.println(countWithWithSpecified);
     }
 }
