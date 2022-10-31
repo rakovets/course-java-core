@@ -25,5 +25,3 @@ public class DateWrapperDemo {
         System.out.println(localDate2.with(new ChangeDateFirstDayOfYear()));
     }
 }
-
-
