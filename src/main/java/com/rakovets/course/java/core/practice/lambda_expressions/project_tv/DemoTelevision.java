@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.lambda_expressions.project_tv;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DemoTelevision {
     public static void main(String[] args) {
@@ -32,5 +33,10 @@ public class DemoTelevision {
                 //.sorted((a, b) -> a.getProducerCompany().compareTo(b.getProducerCompany()))
                 .sorted((a, b) -> b.getProducerCompany().compareTo(a.getProducerCompany()))
                 .forEach(System.out::println);
+
+        List<Television> distinct_Televisions = televisionList.stream()
+                .distinct()
+                .collect(Collectors.toCollection(ArrayList::new));
+        System.out.println(distinct_Televisions);
     }
 }

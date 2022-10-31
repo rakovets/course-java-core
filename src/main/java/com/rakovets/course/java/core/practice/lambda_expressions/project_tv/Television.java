@@ -15,7 +15,7 @@ public class Television {
     }
     @Override
     public String toString() {
-        return this.producerCompany + "\t\t" + this.modelName + "\t\t" + this.yearOfProduction + "\t\t" + this.diagonalSize + "\t\t"+  this.price;
+        return producerCompany + " " + modelName + " " + yearOfProduction + " " + diagonalSize + " " +  price;
     }
 
     public String getProducerCompany() {
