@@ -17,6 +17,12 @@ public class DateWrapperDemo {
         System.out.println(date.getLocalDateFormatterString(date1, DateTimeFormatter.ofPattern("MMMM dd yyyy", Locale.US)));
         System.out.println(date.getStringFormatterLocalDate("11.3.2022","MM.d.yyyy"));
         System.out.println(date.getCountDaysBetweenLocalDates(date1, date2));
+        System.out.println("_____________ADD_DAYS_ADJUSTER_______________");
+        LocalDate localDate = LocalDate.of(2022, 10, 31);
+        System.out.println(localDate.with(new AddDaysAdjuster(6)));
+        System.out.println("__________Change_Date_FirstDay_Of_Year_________");
+        LocalDate localDate2 = LocalDate.of(2020, 1, 1);
+        System.out.println(localDate2.with(new ChangeDateFirstDayOfYear()));
     }
 }
 

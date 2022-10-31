@@ -11,6 +11,8 @@ import java.util.Locale;
 import java.util.stream.Stream;
 
 public class DateWrapperTest {
+    DateWrapper wrapper = new DateWrapper();
+
     static Stream<Arguments> LocalDateArguments() {
         return Stream.of(
                 Arguments.of(2022, 11, 3, LocalDate.of(2022, 11, 3)),
@@ -22,8 +24,6 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("LocalDateArguments")
     public void getLocalDate(int year, int month, int day, LocalDate expected) {
-        DateWrapper wrapper = new DateWrapper();
-
         LocalDate actual = wrapper.getLocalDate(year, month, day);
 
         Assertions.assertEquals(expected, actual);
@@ -40,8 +40,6 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("LocalDateBeforeNMonthArguments")
     public void getLocalDateBeforeNMonth(LocalDate date, int plusNMonth, LocalDate expected) {
-        DateWrapper wrapper = new DateWrapper();
-
         LocalDate actual = wrapper.getLocalDateBeforeNMonth(date, plusNMonth);
 
         Assertions.assertEquals(expected, actual);
@@ -58,8 +56,6 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("LocalDateFormatterStringArguments")
     public void getLocalDateFormatterString(LocalDate date, DateTimeFormatter formatter, String expected) {
-        DateWrapper wrapper = new DateWrapper();
-
         String actual = wrapper.getLocalDateFormatterString(date, formatter);
 
         Assertions.assertEquals(expected, actual);
@@ -76,8 +72,6 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("StringFormatterLocalDateArguments")
     public void getStringFormatterLocalDate(String date, String formatter, LocalDate expected) {
-        DateWrapper wrapper = new DateWrapper();
-
         LocalDate actual = wrapper.getStringFormatterLocalDate(date, formatter);
 
         Assertions.assertEquals(expected, actual);
@@ -94,8 +88,6 @@ public class DateWrapperTest {
     @ParameterizedTest
     @MethodSource("CountDaysBetweenLocalDatesArguments")
     public void getCountDaysBetweenLocalDates(LocalDate date, LocalDate date1, long expected) {
-        DateWrapper wrapper = new DateWrapper();
-
         long actual = wrapper.getCountDaysBetweenLocalDates(date, date1);
 
         Assertions.assertEquals(expected, actual);
