@@ -17,7 +17,7 @@ public class CityHelperTests {
 
     @Test
     public void testGetUniqueCities() {
-        ArrayList<String> uniqueCities = cityHelper.getUniqueCities(cities);
+        List<String> uniqueCities = cityHelper.getUniqueCities(cities);
         String[] arrayActual = new String[uniqueCities.size()];
         uniqueCities.toArray(arrayActual);
         String stringActual = String.join(" ", arrayActual);
@@ -28,7 +28,7 @@ public class CityHelperTests {
 
     @Test
     public void testGetCitiesWithSpecifiedLengthOfName() {
-        ArrayList<String> uniqueCities = cityHelper.getCitiesWithSpecifiedLengthOfName(cities, 6);
+        List<String> uniqueCities = cityHelper.getCitiesWithSpecifiedLengthOfName(cities, 6);
         String[] arrayActual = new String[uniqueCities.size()];
         uniqueCities.toArray(arrayActual);
         String stringActual = String.join(" ", arrayActual);
@@ -39,7 +39,7 @@ public class CityHelperTests {
 
     @Test
     public void testGetCitiesWithSpecifiedFirstLetterInName() {
-        ArrayList<String> uniqueCities = cityHelper.getCitiesWithSpecifiedFirstLetterInName(cities, 'М');
+        List<String> uniqueCities = cityHelper.getCitiesWithSpecifiedFirstLetterInName(cities, 'М');
         String[] arrayActual = new String[uniqueCities.size()];
         uniqueCities.toArray(arrayActual);
         String stringActual = String.join(" ", arrayActual);
@@ -49,18 +49,10 @@ public class CityHelperTests {
     }
 
     @Test
-    public void testGetCitiesWithSpecifiedName_RightName() {
+    public void testGetCitiesWithSpecifiedName() {
         long count = cityHelper.getCitiesWithSpecifiedName(cities, "Минск");
         System.out.println(count);
 
         Assertions.assertEquals(3, count);
-    }
-
-    @Test
-    public void testGetCitiesWithSpecifiedName_WrongName() {
-        long count = cityHelper.getCitiesWithSpecifiedName(cities, "Менск");
-        System.out.println(count);
-
-        Assertions.assertEquals(-1, count);
     }
 }

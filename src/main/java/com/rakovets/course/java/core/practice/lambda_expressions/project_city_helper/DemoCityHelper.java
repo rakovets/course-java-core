@@ -11,17 +11,17 @@ public class DemoCityHelper {
                 "Минск", "Херсон", "Мариуполь"
         ));
         CityHelper cityHelper = new CityHelper();
-        ArrayList<String> uniqueCities = cityHelper.getUniqueCities(cities);
+        List<String> uniqueCities = cityHelper.getUniqueCities(cities);
         uniqueCities.stream()
                 .forEach(x -> System.out.printf("%s ", x));
         System.out.println();
 
-        ArrayList<String> nameLengthCities = cityHelper.getCitiesWithSpecifiedLengthOfName(cities, 6);
+        List<String> nameLengthCities = cityHelper.getCitiesWithSpecifiedLengthOfName(cities, 6);
         nameLengthCities.stream()
                 .forEach(x -> System.out.printf("%s ", x));
         System.out.println();
 
-        ArrayList<String> nameFirstLetterCities = cityHelper.getCitiesWithSpecifiedFirstLetterInName(cities, 'М');
+        List<String> nameFirstLetterCities = cityHelper.getCitiesWithSpecifiedFirstLetterInName(cities, 'М');
         nameFirstLetterCities.stream()
                 .forEach(x -> System.out.printf("%s ", x));
         System.out.println();
