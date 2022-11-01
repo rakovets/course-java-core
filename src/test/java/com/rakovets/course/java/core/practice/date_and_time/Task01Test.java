@@ -11,6 +11,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task01Test {
+    Task01 task01 = new Task01();
+
     static Stream<Arguments> provideArgumentsGetLocalDate() {
         return Stream.of(
                 Arguments.of(1999, 9, 10, LocalDate.of(1999, 9, 10)),
@@ -22,8 +24,6 @@ public class Task01Test {
     @ParameterizedTest
     @MethodSource("provideArgumentsGetLocalDate")
     void getLocalDate(int year, int month, int day, LocalDate expected) {
-        Task01 task01 = new Task01();
-
         LocalDate actual = task01.getLocalDate(year, month, day);
 
         assertEquals(expected, actual);
@@ -35,6 +35,8 @@ public class Task01Test {
                         LocalDate.of(1999, 12, 10)),
                 Arguments.of(LocalDate.of(2000, 2, 8), 6,
                         LocalDate.of(2000, 8, 8)),
+                Arguments.of(LocalDate.of(2000, 2, 8), -1,
+                        LocalDate.of(2000, 1, 8)),
                 Arguments.of(LocalDate.of(2022, 10, 30), 0,
                         LocalDate.of(2022, 10, 30))
         );
@@ -43,8 +45,6 @@ public class Task01Test {
     @ParameterizedTest
     @MethodSource("provideArgumentsDateAfterNMonths")
     void dateAfterNMonths(LocalDate localDate, int nMonths, LocalDate expected) {
-        Task01 task01 = new Task01();
-
         LocalDate actual = task01.dateAfterNMonths(localDate, nMonths);
 
         assertEquals(expected, actual);
@@ -64,8 +64,6 @@ public class Task01Test {
     @ParameterizedTest
     @MethodSource("provideArgumentsGetStringFromPattern")
     void getStringFromPattern(LocalDate localDate, String pattern, String expected) {
-        Task01 task01 = new Task01();
-
         String actual = task01.getStringFromPattern(localDate, pattern);
 
         assertEquals(expected, actual);
@@ -82,8 +80,6 @@ public class Task01Test {
     @ParameterizedTest
     @MethodSource("provideArgumentsGetLocalDateFromPattern")
     void getLocalDateFromPattern(String date, String dtf, LocalDate expected) {
-        Task01 task01 = new Task01();
-
         LocalDate actual = task01.getLocalDateFromPattern(date, dtf);
 
         Assertions.assertEquals(expected, actual);
@@ -103,8 +99,6 @@ public class Task01Test {
     @ParameterizedTest
     @MethodSource("provideArgumentsGetDaysBetween")
     void getDaysBetween(LocalDate localDate1, LocalDate localDate2, int expected) {
-        Task01 task01 = new Task01();
-
         int actual = task01.getDaysBetween(localDate1, localDate2);
 
         assertEquals(expected, actual);
