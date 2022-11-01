@@ -14,7 +14,7 @@ public class Producer extends Thread {
             if (l == -1) {
                 break;
             }
-            x.add(l);
+             x.add(l);
             System.out.println(l);
         }
     }
