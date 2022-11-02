@@ -16,7 +16,7 @@ public class UtilityCityHelper {
                 .collect(Collectors.toList());
     }
 
-    public List<String> getNameCityLength() {
+    public List<String> getCityNameMoreThenSix() {
         return cities.stream()
                 .distinct()
                 .filter(city -> city.length() > 6)

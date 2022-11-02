@@ -29,7 +29,7 @@ public class CityHelperTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> provideArgumentsForLongCities() {
+    static Stream<Arguments> provideArgumentsForCityNameMoreThenSix() {
         return Stream.of(
                 Arguments.of(List.of("Minsk", "Minsk", "Moskow", "Vitebsk", "Grodno", "Moskow"),
                         List.of("Vitebsk")),
@@ -39,11 +39,11 @@ public class CityHelperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideArgumentsForLongCities")
-    public void getNameCityLength(List<String> cities, List<String> expected) {
+    @MethodSource("provideArgumentsForCityNameMoreThenSix")
+    public void getCityNameMoreThenSix(List<String> cities, List<String> expected) {
         UtilityCityHelper utility = new UtilityCityHelper(cities);
 
-        List<String> actual = utility.getNameCityLength();
+        List<String> actual = utility.getCityNameMoreThenSix();
 
         Assertions.assertEquals(expected, actual);
     }
