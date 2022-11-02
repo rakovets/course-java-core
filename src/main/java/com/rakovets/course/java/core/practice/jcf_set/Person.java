@@ -7,7 +7,6 @@ public class Person {
     private final String fullName;
     private City city;
     private final List<FineType> fineType;
-
     private final int id;
 
     public Person(String fullName, City city, List<FineType> fineType, int id) {
