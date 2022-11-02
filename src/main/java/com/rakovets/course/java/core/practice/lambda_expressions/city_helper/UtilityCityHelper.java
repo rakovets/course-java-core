@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UtilityCityHelper {
-    public List<String> cities;
+    private final List<String> cities;
 
     public UtilityCityHelper(List<String> cities) {
         this.cities = cities;
