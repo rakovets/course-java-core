@@ -23,7 +23,7 @@ public class MathStatisticsTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForEvenNumbers")
     public void getEvenNumber(List<Integer> list, int expected) {
-        int actual = util.getEvenNumber(list);
+        long actual = util.getEvenNumber(list);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -38,7 +38,7 @@ public class MathStatisticsTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetOddNumber")
     public void getOddNumber(List<Integer> list, int expected) {
-        int actual = util.getOddNumber(list);
+        long actual = util.getOddNumber(list);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -53,7 +53,7 @@ public class MathStatisticsTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForNulls")
     public void getNumberOfNulls(List<Integer> list, int expected) {
-        int actual = util.getNumberOfNulls(list);
+        long actual = util.getNumberOfNulls(list);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -68,7 +68,7 @@ public class MathStatisticsTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForNumber")
     public void getNumber(List<Integer> list, int myNum, int expected) {
-        int actual = util.getNumber(list, myNum);
+        long actual = util.getNumber(list, myNum);
 
         Assertions.assertEquals(expected, actual);
     }

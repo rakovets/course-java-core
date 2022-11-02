@@ -16,26 +16,26 @@ public class Utility {
         return list;
     }
 
-    public int getEvenNumber(List<Integer> list) {
-        return (int) list.stream()
+    public long getEvenNumber(List<Integer> list) {
+        return list.stream()
                 .filter(number -> number % 2 == 0)
                 .count();
     }
 
-    public int getOddNumber(List<Integer> list) {
-        return (int) list.stream()
+    public long getOddNumber(List<Integer> list) {
+        return list.stream()
                 .filter(number -> number % 2 != 0)
                 .count();
     }
 
-    public int getNumberOfNulls(List<Integer> list) {
-        return (int) list.stream()
+    public long getNumberOfNulls(List<Integer> list) {
+        return list.stream()
                 .filter(number -> number == 0)
                 .count();
     }
 
-    public int getNumber(List<Integer> list, int myNumber) {
-        return (int) list.stream()
+    public long getNumber(List<Integer> list, int myNumber) {
+        return list.stream()
                 .filter(number -> number == myNumber)
                 .count();
     }
