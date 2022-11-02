@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import java.util.*;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

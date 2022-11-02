@@ -40,10 +40,10 @@ public class CityHelperTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForLongCities")
-    public void getLongCities(List<String> cities, List<String> expected) {
+    public void getNameCityLength(List<String> cities, List<String> expected) {
         UtilityCityHelper utility = new UtilityCityHelper(cities);
 
-        List<String> actual = utility.getLongCities();
+        List<String> actual = utility.getNameCityLength();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -76,10 +76,10 @@ public class CityHelperTest {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForNumberOfOneCity")
-    public void getNumberOfOneCity(List<String> cities, String city, int expected) {
+    public void getNumberOfOneCity(List<String> cities, String city, long expected) {
         UtilityCityHelper utility = new UtilityCityHelper(cities);
 
-        int actual = utility.getNumberOfOneCity(city);
+        long actual = utility.getNumberOfOneCity(city);
 
         Assertions.assertEquals(expected, actual);
     }

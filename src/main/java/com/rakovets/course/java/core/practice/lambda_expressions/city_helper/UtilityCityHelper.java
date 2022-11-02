@@ -16,10 +16,10 @@ public class UtilityCityHelper {
                 .collect(Collectors.toList());
     }
 
-    public List<String> getLongCities() {
+    public List<String> getNameCityLength() {
         return cities.stream()
                 .distinct()
-                .filter(word -> word.length() > 6)
+                .filter(city -> city.length() > 6)
                 .collect(Collectors.toList());
     }
 
@@ -30,8 +30,8 @@ public class UtilityCityHelper {
                 .collect(Collectors.toList());
     }
 
-    public int getNumberOfOneCity(String city) {
-        return (int) cities.stream()
+    public long getNumberOfOneCity(String city) {
+        return cities.stream()
                 .filter(word -> word.equals(city))
                 .count();
     }

@@ -5,14 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TVInfo {
+public class TvInfo {
     private LinkedList<TV> allTVs;
 
-    public TVInfo(LinkedList<TV> allTVs) {
+    public TvInfo(LinkedList<TV> allTVs) {
         this.allTVs = allTVs;
     }
 
-    public TVInfo() {
+    public TvInfo() {
     }
 
     public List<TV> getTVByDiagonal(double diagonal) {
