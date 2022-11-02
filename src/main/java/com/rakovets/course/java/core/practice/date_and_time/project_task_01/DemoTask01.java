@@ -61,17 +61,6 @@ public class DemoTask01 {
             logger.warning(e.getMessage());
         }
 
-        try {
-            LocalDate localDate = LocalDate.of(2022, 7, 3);
-            TemporalAdjuster myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear = (TemporalAdjuster) dtu.adjustInto(localDate);
-            LocalDate localDate1 = localDate.with(myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear);
-            logger.info(localDate1.toString());
-        }
-        catch (DateTimeException e) {
-            logger.info("Вы неправильно ввели дату");
-            logger.warning(e.getMessage());
-        }
-
         LocalDate localDate = LocalDate.of(2022, 7, 3);
 
         dtu.setDaysPlus(0);
