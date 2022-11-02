@@ -11,6 +11,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task01Test {
+    Task01 task1 = new Task01();
+
     static Stream<Arguments> provideArgumentsForGetToMap() {
         return Stream.of(
                 Arguments.of(new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"},
@@ -23,9 +25,7 @@ public class Task01Test {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetToMap")
     void getToMap(String[] args, Map<String, String> expected) {
-        Task01 task = new Task01();
-
-        Map<String, String> actual = task.getToMap(args);
+        Map<String, String> actual = task1.getToMap(args);
 
         assertEquals(expected, actual);
     }
@@ -38,14 +38,13 @@ public class Task01Test {
     }
 
     @ParameterizedTest
-    @MethodSource("ConvertMapToArrayArguments")
+    @MethodSource("convertMapToArrayArguments")
     public void convertMapToArray(Map<String, String> map, String[] expected) {
-        Task01 task1 = new Task01();
+        Arrays.sort(expected);
 
         String[] actual = task1.mapToArray(map);
-        Arrays.sort(expected);
-        Arrays.sort(actual);
 
+        Arrays.sort(actual);
         Assertions.assertArrayEquals(expected, actual);
     }
 }
