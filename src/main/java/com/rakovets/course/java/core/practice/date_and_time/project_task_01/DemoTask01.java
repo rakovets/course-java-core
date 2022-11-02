@@ -4,7 +4,9 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Locale;
 import java.util.logging.Logger;
 
@@ -70,16 +72,23 @@ public class DemoTask01 {
             logger.warning(e.getMessage());
         }
 
-        try {
-            LocalDate localDate = LocalDate.of(2022, 7, 3);
-            dtu.setDaysPlus(1);
-            TemporalAdjuster myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear = (TemporalAdjuster) dtu.adjustInto(localDate);
-            LocalDate localDate1 = localDate.with(myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear);
-            logger.info(localDate1.toString());
-        }
-        catch (DateTimeException e) {
-            logger.info("Вы неправильно ввели дату");
-            logger.warning(e.getMessage());
-        }
+        LocalDate localDate = LocalDate.of(2022, 7, 3);
+
+        dtu.setDaysPlus(0);
+        LocalDate localDate1 = localDate.with(dtu::adjustInto);
+        logger.info(localDate1.toString());
+
+        dtu.setDaysPlus(10);
+        LocalDate localDate2 = localDate.with(dtu::adjustInto);
+        logger.info(localDate2.toString());
+
+        LocalDate localDate3 = localDate.with(x -> x.plus(10, ChronoUnit.DAYS));
+        logger.info(localDate3.toString());
+
+        LocalDate localDate4 = localDate.with(x -> x.with(TemporalAdjusters.firstDayOfNextYear()));
+        logger.info(localDate4.toString());
+
+        LocalDate localDate5 = localDate.with(x -> x.with(TemporalAdjusters.firstDayOfYear()));
+        logger.info(localDate5.toString());
     }
 }
