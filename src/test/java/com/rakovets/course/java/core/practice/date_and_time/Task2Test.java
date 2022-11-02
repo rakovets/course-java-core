@@ -22,7 +22,9 @@ public class Task2Test {
     @MethodSource("provideArgsForTask2")
     void getTask2(LocalDate localDate, int days, LocalDate expected) {
         Task2 task2 = new Task2(days);
+
         LocalDate actual = (LocalDate) task2.adjustInto(localDate);
+
         Assertions.assertEquals(expected, actual);
     }
 }

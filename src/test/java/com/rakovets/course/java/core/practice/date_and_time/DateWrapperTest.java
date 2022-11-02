@@ -27,6 +27,7 @@ public class DateWrapperTest {
     @MethodSource("provideArgsForLocalDate")
     public void getLocalDate(int year, Month month, int day, LocalDate expected) {
         LocalDate actual = dateWrapper.yearMonthDay(year, month, day);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -42,6 +43,7 @@ public class DateWrapperTest {
     @MethodSource("provideArgsForAddMonth")
     public void getAddMonth(LocalDate yearMonthDay, int monthsAmount, LocalDate expected) {
         LocalDate actual = dateWrapper.addMonth(yearMonthDay,monthsAmount);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -57,6 +59,7 @@ public class DateWrapperTest {
     @MethodSource("provideArgsForFormatLocalDateWithString")
     public void getFormatLdWithString(LocalDate localDate, DateTimeFormatter formatter, String expected) {
         String actual = dateWrapper.formatLocalDateWithString(localDate, formatter);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -72,6 +75,7 @@ public class DateWrapperTest {
     @MethodSource("provideArgsForFormatLocalDateWithLocalDate")
     public void getFormatLocalDateWithLocalDate(String localDate, DateTimeFormatter formatter, LocalDate expected) {
         LocalDate actual = dateWrapper.formatLocalDateWithLocalDate(localDate, formatter);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -87,6 +91,7 @@ public class DateWrapperTest {
     @MethodSource("provideArgsForDayAmountBetweenTwoDates")
     public void getDayAmountBetweenTwoDates(LocalDate firstDate, LocalDate secondDate, Period expected) {
         Period actual = dateWrapper.dayAmountBetweenTwoDates(firstDate, secondDate);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -102,6 +107,7 @@ public class DateWrapperTest {
     @MethodSource("provideArgsCountDaysBetweenTwoDates")
     public void getCountDays(LocalDate firstDate, LocalDate secondDate, long expected) {
         long actual = dateWrapper.countDaysBetweenTwoDates(firstDate, secondDate);
+
         Assertions.assertEquals(expected, actual);
     }
 }
