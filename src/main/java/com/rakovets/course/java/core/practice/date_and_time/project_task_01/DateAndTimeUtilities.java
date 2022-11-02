@@ -5,9 +5,30 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.UnsupportedTemporalTypeException;
+import java.time.temporal.*;
 
-public class DateAndTimeUtilities {
+public class DateAndTimeUtilities implements TemporalAdjuster {
+    private int daysPlus;
+
+    public DateAndTimeUtilities() {
+        this.daysPlus = 0;
+    }
+    public DateAndTimeUtilities(int daysPlus) {
+        this.daysPlus = daysPlus;
+    }
+
+    @Override
+    public Temporal adjustInto(Temporal localDate) {
+        if (daysPlus > 0) {
+            return localDate.plus(daysPlus, ChronoUnit.DAYS);
+        } else {
+            return ChronoUnit.DAYS.between(localDate.with(TemporalAdjusters.firstDayOfNextYear()), localDate)
+                    > ChronoUnit.DAYS.between(localDate, localDate.with(TemporalAdjusters.firstDayOfYear()))
+                    ? localDate.with(TemporalAdjusters.firstDayOfNextYear())
+                    : localDate.with(TemporalAdjusters.firstDayOfYear());
+        }
+    }
+
     public LocalDate getLocalDate(int year, int months, int day) throws DateTimeException {
         return LocalDate.of(year, months, day);
     }
@@ -26,5 +47,13 @@ public class DateAndTimeUtilities {
 
     public Period getPeriodBetweenTwoLocaleDate(LocalDate localDateEarlier, LocalDate localDateLater) {
         return Period.between(localDateEarlier, localDateLater);
+    }
+
+    public int getDaysPlus() {
+        return daysPlus;
+    }
+
+    public void setDaysPlus(int daysPlus) {
+        this.daysPlus = daysPlus;
     }
 }

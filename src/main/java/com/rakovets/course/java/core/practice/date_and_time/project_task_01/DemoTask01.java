@@ -4,6 +4,7 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjuster;
 import java.util.Locale;
 import java.util.logging.Logger;
 
@@ -54,6 +55,29 @@ public class DemoTask01 {
             Period period = dtu.getPeriodBetweenTwoLocaleDate(localDate1, localDate2);
             logger.info(period.toString());
         } catch (DateTimeException e) {
+            logger.info("Вы неправильно ввели дату");
+            logger.warning(e.getMessage());
+        }
+
+        try {
+            LocalDate localDate = LocalDate.of(2022, 7, 3);
+            TemporalAdjuster myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear = (TemporalAdjuster) dtu.adjustInto(localDate);
+            LocalDate localDate1 = localDate.with(myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear);
+            logger.info(localDate1.toString());
+        }
+        catch (DateTimeException e) {
+            logger.info("Вы неправильно ввели дату");
+            logger.warning(e.getMessage());
+        }
+
+        try {
+            LocalDate localDate = LocalDate.of(2022, 7, 3);
+            dtu.setDaysPlus(1);
+            TemporalAdjuster myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear = (TemporalAdjuster) dtu.adjustInto(localDate);
+            LocalDate localDate1 = localDate.with(myTemporalAdjusterPlusDaysOrToTheNearestFirstDayOfYear);
+            logger.info(localDate1.toString());
+        }
+        catch (DateTimeException e) {
             logger.info("Вы неправильно ввели дату");
             logger.warning(e.getMessage());
         }
