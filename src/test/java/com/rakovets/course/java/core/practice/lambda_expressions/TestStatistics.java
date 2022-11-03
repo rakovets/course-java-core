@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class TestStatistics {
+    ProjectMathsStatistics projectMathsStatistics = new ProjectMathsStatistics();
+
     static Stream<Arguments> provideFromGetEven() {
         return Stream.of(Arguments.of(List.of(2, 2, 5, 6, 8, 1, 0, 99), 5));
     }
 
     @ParameterizedTest
     @MethodSource("provideFromGetEven")
-    public void getEven(List<Integer> list, long expected) {
-        ProjectMathsStatistics projectMathsStatistics = new ProjectMathsStatistics();
-
+    public void getTestEven(List<Integer> list, long expected) {
         long actual = projectMathsStatistics.getEven(list);
 
         Assertions.assertEquals(expected, actual);
@@ -30,9 +30,7 @@ public class TestStatistics {
 
     @ParameterizedTest
     @MethodSource("provideFromGetNotEven")
-    public void getNotEven(List<Integer> list, long expected) {
-        ProjectMathsStatistics projectMathsStatistics = new ProjectMathsStatistics();
-
+    public void getTestNotEven(List<Integer> list, long expected) {
         long actual = projectMathsStatistics.getNotEven(list);
 
         Assertions.assertEquals(expected, actual);
@@ -44,9 +42,7 @@ public class TestStatistics {
 
     @ParameterizedTest
     @MethodSource("provideFromGetEqualsZero")
-    public void getEqualsZero(List<Integer> list, long expected) {
-        ProjectMathsStatistics projectMathsStatistics = new ProjectMathsStatistics();
-
+    public void getTestEqualsZero(List<Integer> list, long expected) {
         long actual = projectMathsStatistics.getEqualsZero(list);
 
         Assertions.assertEquals(expected, actual);
@@ -58,9 +54,7 @@ public class TestStatistics {
 
     @ParameterizedTest
     @MethodSource("provideFromGetSomethingValue")
-    public void getSomethingValue(List<Integer> list, long y, long expected) {
-        ProjectMathsStatistics projectMathsStatistics = new ProjectMathsStatistics();
-
+    public void getTestSomethingValue(List<Integer> list, long y, long expected) {
         long actual = projectMathsStatistics.getSomethingValue(list, y);
 
         Assertions.assertEquals(expected, actual);

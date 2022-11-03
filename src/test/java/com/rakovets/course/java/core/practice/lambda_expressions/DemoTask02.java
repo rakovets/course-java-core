@@ -6,8 +6,8 @@ public class DemoTask02 {
     public static void main(String[] args) {
         Task02 task02 = new Task02();
 
-        task02.one();
+        task02.printingTableWithOneColumn();
         System.out.println("----------------------------------------------------------");
-        task02.five();
+        task02.printingTableWithFiveColumn();
     }
 }

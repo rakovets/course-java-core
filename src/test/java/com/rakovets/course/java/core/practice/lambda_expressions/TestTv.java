@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import com.rakovets.course.java.core.practice.lambda_expressions.TV.ProjectTV;
-import com.rakovets.course.java.core.practice.lambda_expressions.TV.TV;
+import com.rakovets.course.java.core.practice.lambda_expressions.TV.ProjectTv;
+import com.rakovets.course.java.core.practice.lambda_expressions.TV.Tv;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,10 +10,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class TestTV {
-    static ProjectTV tv = new ProjectTV("Vityz", "G10", 1988, 17, 100);
-    static ProjectTV tv01 = new ProjectTV("Horizont", "F11", 1989, 19, 110);
-    static ProjectTV tv02 = new ProjectTV("Everest", "P007", 1990, 17, 250);
+public class TestTv {
+    static ProjectTv tv = new ProjectTv("Vityz", "G10", 1988, 17, 100);
+    static ProjectTv tv01 = new ProjectTv("Horizont", "F11", 1989, 19, 110);
+    static ProjectTv tv02 = new ProjectTv("Everest", "P007", 1990, 17, 250);
 
     static Stream<Arguments> provideFromGetTVDiagonal() {
         return Stream.of(Arguments.of((List.of(tv, tv02, tv01)), 17, List.of(tv, tv02)));
@@ -21,10 +21,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetTVDiagonal")
-    public void getTVDiagonal(List<ProjectTV> listAll, Integer diagonal, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getTVDiagonal(List<ProjectTv> listAll, Integer diagonal, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getTVDiagonal(listAll, diagonal);
+        List<ProjectTv> actual = tv.getTVDiagonal(listAll, diagonal);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -36,10 +36,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetManufacture")
-    public void getManufacture(List<ProjectTV> listAll, String manufacture, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getManufacture(List<ProjectTv> listAll, String manufacture, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getManufacture(listAll, manufacture);
+        List<ProjectTv> actual = tv.getManufacture(listAll, manufacture);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -51,10 +51,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetNotOlder")
-    public void getNotOlder(List<ProjectTV> listAll, Integer year, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getNotOlder(List<ProjectTv> listAll, Integer year, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getNotOlder(listAll, year);
+        List<ProjectTv> actual = tv.getNotOlder(listAll, year);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -66,10 +66,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetRangePrice")
-    public void getRangePrice(List<ProjectTV> listAll, Integer minPrice, Integer maxPrice, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getRangePrice(List<ProjectTv> listAll, Integer minPrice, Integer maxPrice, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getRangePrice(listAll, minPrice, maxPrice);
+        List<ProjectTv> actual = tv.getRangePrice(listAll, minPrice, maxPrice);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -80,10 +80,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetSortedInAscendingOrder")
-    public void getSortedInAscendingOrder(List<ProjectTV> listAll, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getSortedInAscendingOrder(List<ProjectTv> listAll, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getSortedInAscendingOrder(listAll);
+        List<ProjectTv> actual = tv.getSortedInAscendingOrder(listAll);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -94,10 +94,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetSortedInDescendingOrder")
-    public void getSortedInDescendingOrder(List<ProjectTV> listAll, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getSortedInDescendingOrder(List<ProjectTv> listAll, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getSortedInDescendingOrder(listAll);
+        List<ProjectTv> actual = tv.getSortedInDescendingOrder(listAll);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -108,10 +108,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetDiagonalSortedInAscendingOrder")
-    public void getDiagonalSortedInAscendingOrder(List<ProjectTV> listAll, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getDiagonalSortedInAscendingOrder(List<ProjectTv> listAll, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getDiagonalSortedInAscendingOrder(listAll);
+        List<ProjectTv> actual = tv.getDiagonalSortedInAscendingOrder(listAll);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -122,10 +122,10 @@ public class TestTV {
 
     @ParameterizedTest
     @MethodSource("provideFromGetDiagonalSortedInDescendingOrder")
-    public void getDiagonalSortedInDescendingOrder(List<ProjectTV> listAll, List<ProjectTV> expected) {
-        TV tv = new TV(listAll);
+    public void getDiagonalSortedInDescendingOrder(List<ProjectTv> listAll, List<ProjectTv> expected) {
+        Tv tv = new Tv(listAll);
 
-        List<ProjectTV> actual = tv.getDiagonalSortedInDescendingOrder(listAll);
+        List<ProjectTv> actual = tv.getDiagonalSortedInDescendingOrder(listAll);
 
         Assertions.assertEquals(expected, actual);
     }

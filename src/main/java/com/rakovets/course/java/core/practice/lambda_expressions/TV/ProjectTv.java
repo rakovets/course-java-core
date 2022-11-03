@@ -1,13 +1,13 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.TV;
 
-public class ProjectTV {
+public class ProjectTv {
     private String manufacture;
     private String modelName;
     private Integer yearOfRelease;
     private Integer diagonal;
     private Integer price;
 
-    public ProjectTV(String manufacture, String modelName, Integer yearOfRelease, Integer diagonal, Integer price) {
+    public ProjectTv(String manufacture, String modelName, Integer yearOfRelease, Integer diagonal, Integer price) {
         this.manufacture = manufacture;
         this.modelName = modelName;
         this.yearOfRelease = yearOfRelease;
