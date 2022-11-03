@@ -1,72 +1,90 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
 public class UtilityCityHelperTest {
+    UtilityCityHelper utilityCityHelper;
+
+    @BeforeEach
+    public void cityNames() {
+        List<String> cities = new ArrayList<>();
+        utilityCityHelper = new UtilityCityHelper(cities);
+        cities.add("Istanbul");
+        cities.add("Istanbul");
+        cities.add("Bursa");
+        cities.add("Ankara");
+        cities.add("Ankara");
+        cities.add("Bursa");
+        cities.add("Trabzon");
+        cities.add("Rize");
+        cities.add("Trabzon");
+        cities.add("Antalya");
+        cities.add("Alanya");
+    }
+
     static Stream<Arguments> provideArsForGetUniqueCities() {
         return Stream.of(
-                Arguments.of(List.of("Istanbul", "Bursa", "Ankara", "Ankara", "Bursa", "Trabzon", "Rize", "Trabzon"),
-                        List.of("Istanbul", "Bursa", "Ankara", "Trabzon", "Rize"))
+                Arguments.of(
+                        List.of("Istanbul", "Bursa", "Ankara", "Trabzon", "Rize", "Antalya", "Alanya"))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArsForGetUniqueCities")
-    public void getUniqueCities(List<String> cities, List<String> expected) {
-        UtilityCityHelper utilityCityHelper = new UtilityCityHelper(cities);
+    public void testGetUniqueCities(List<String> expected) {
         List<String> actual = utilityCityHelper.getUniqueCities();
-        Assertions.assertEquals(expected, actual);
 
+        Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArsForTheLongestNames() {
         return Stream.of(
-                Arguments.of(List.of("Istanbul", "Bursa", "Ankara", "Ankara", "Bursa", "Trabzon", "Rize", "Trabzon"),
-                        List.of("Istanbul", "Trabzon"))
+                Arguments.of( 6,
+                        List.of("Istanbul", "Trabzon", "Antalya"))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArsForTheLongestNames")
-    public void getTheLongestCities(List<String> cities, List<String> expected) {
-        UtilityCityHelper utilityCityHelper = new UtilityCityHelper(cities);
-        List<String> actual = utilityCityHelper.theLongestNames();
+    public void testGetTheLongestCities(int nameLength, List<String> expected) {
+        List<String> actual = utilityCityHelper.getTheLongestNames(nameLength);
+
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgsForStartWithChosenLetter() {
         return Stream.of(
-                Arguments.of(List.of("Istanbul", "Bursa", "Ankara", "Ankara", "Bursa", "Trabzon", "Rize", "Trabzon", "Antalya", "Alanya"),
+                Arguments.of("A",
                         List.of("Ankara", "Antalya", "Alanya"))
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgsForStartWithChosenLetter")
-    public void getCitiesByFirstLetter(List<String> cities, List<String> expected) {
-        UtilityCityHelper utilityCityHelper = new UtilityCityHelper(cities);
-        List<String> actual = utilityCityHelper.startWithChosenWord("A");
+    public void testGetCitiesByFirstLetter(String firstLetter, List<String> expected) {
+        List<String> actual = utilityCityHelper.startWithChosenWord(firstLetter);
+
         Assertions.assertEquals(expected, actual);
     }
 
     static Stream<Arguments> provideArgsForCountName() {
         return Stream.of(
-                Arguments.of(List.of("Istanbul", "Bursa", "Ankara", "Ankara", "Bursa", "Trabzon", "Rize", "Trabzon", "Antalya", "Alanya"), 2
-                ));
+                Arguments.of("Ankara", 2));
     }
 
     @ParameterizedTest
     @MethodSource("provideArgsForCountName")
-    public void getCountName(List<String> cities, long expected) {
-        UtilityCityHelper utilityCityHelper = new UtilityCityHelper(cities);
-        long actual = utilityCityHelper.countName("Ankara");
+    public void testGetCountName(String chosenCity, long expected) {
+        long actual = utilityCityHelper.countName(chosenCity);
+
         Assertions.assertEquals(expected, actual);
     }
 }

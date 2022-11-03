@@ -12,6 +12,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task1Test {
+    Task1 task1 = new Task1();
+
     static Stream<Arguments> provideArgumentsConvertToMap() {
         return Stream.of(
                 Arguments.of(new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "-out.txt"},
@@ -23,28 +25,30 @@ public class Task1Test {
 
     @ParameterizedTest
     @MethodSource("provideArgumentsConvertToMap")
-    public void convertToMap(String[] args, Map<String, String> expected) {
-        Task1 task1 = new Task1();
+    public void testConvertArrayToMap(String[] args, Map<String, String> expected) {
         Map<String, String> actual = task1.convertToMap(args);
+
         assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> ConvertMapToArrayArguments() {
+    static Stream<Arguments> provideArgumentsConvertFromMapToArray() {
         return Stream.of(
-                Arguments.of((Map.of("-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt")),
-                        new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "out.txt"}),
+                Arguments.of((Map.of("-i", "in.txt", "--limit", "40", "-d", "1", "-o", "-out.txt")),
+                        new String[]{"-i", "in.txt", "--limit", "40", "-d", "1", "-o", "-out.txt"}),
                 Arguments.of((Map.of("1", "Nik", "2", "Jim", "3", "Tom", "4", "Ann", "5", "Elif")),
                         new String[]{"1", "Nik", "2", "Jim", "3", "Tom", "4", "Ann", "5", "Elif"})
         );
     }
 
     @ParameterizedTest
-    @MethodSource("ConvertMapToArrayArguments")
-    public void convertToArray(Map<String, String> map, String[] expected) {
-        Task1 task1 = new Task1();
-        String[] actual = task1.convertToArray(map);
-        Arrays.sort(actual);
+    @MethodSource("provideArgumentsConvertFromMapToArray")
+    public void testConvertMapToArray(Map<String, String> map, String[] expected) {
         Arrays.sort(expected);
+
+        String[] actual = task1.convertToArray(map);
+
+        Arrays.sort(actual);
+
         Assertions.assertArrayEquals(expected, actual);
     }
 }

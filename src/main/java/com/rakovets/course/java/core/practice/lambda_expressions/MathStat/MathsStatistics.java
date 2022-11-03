@@ -1,15 +1,21 @@
-package com.rakovets.course.java.core.practice.lambda_expressions;
+package com.rakovets.course.java.core.practice.lambda_expressions.MathStat;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
 
 public class MathsStatistics {
-    public static List<Integer> getRandomNumbers(int minValue, int maxValue, int streamSize) {
-        return new Random()
-                .ints(streamSize, minValue, maxValue)
-                .boxed()
-                .collect(Collectors.toList());
+    private final Randomizer randomizer;
+
+    public MathsStatistics(Randomizer randomizer) {
+        this.randomizer = randomizer;
+    }
+
+    public List<Integer> getRandomNumber(int size, int randomNumberOrigin, int randomNumberBound) {
+        List<Integer> result = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            result.add(i, randomizer.getRandomValue(randomNumberBound, randomNumberOrigin));
+        }
+        return result;
     }
 
     public long getEvenNumbers(List<Integer> numbers) {

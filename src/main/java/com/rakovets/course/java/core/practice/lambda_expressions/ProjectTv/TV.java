@@ -3,11 +3,11 @@ package com.rakovets.course.java.core.practice.lambda_expressions.ProjectTv;
 import java.util.Objects;
 
 public class TV {
-    String manufacturer;
-    String model;
-    int year;
-    double diagonal;
-    double price;
+    private final String manufacturer;
+    private final String model;
+    private final int year;
+    private final double diagonal;
+    private final double price;
 
     public TV(String manufacturer, String model, int year, double diagonal, double price) {
         this.manufacturer = manufacturer;

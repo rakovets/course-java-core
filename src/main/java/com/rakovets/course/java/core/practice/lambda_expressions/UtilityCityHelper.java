@@ -16,10 +16,10 @@ public class UtilityCityHelper {
                 .collect(Collectors.toList());
     }
 
-    public List<String> theLongestNames() {
+    public List<String> getTheLongestNames(int nameLength) {
         return cities.stream()
                 .distinct()
-                .filter(name -> name.length() > 6)
+                .filter(name -> name.length() > nameLength)
                 .collect(Collectors.toList());
     }
 
