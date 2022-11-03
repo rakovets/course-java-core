@@ -5,13 +5,9 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class MathsStatistics {
-
-    public MathsStatistics() {
-    }
-
-    public static List<Integer> getRandomNumbers() {
+    public static List<Integer> getRandomNumbers(int minValue, int maxValue, int streamSize) {
         return new Random()
-                .ints(100, 10,1001)
+                .ints(streamSize, minValue, maxValue)
                 .boxed()
                 .collect(Collectors.toList());
     }
