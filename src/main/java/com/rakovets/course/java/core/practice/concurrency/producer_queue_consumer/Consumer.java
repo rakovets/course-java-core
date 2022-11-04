@@ -1,26 +1,40 @@
 package com.rakovets.course.java.core.practice.concurrency.producer_queue_consumer;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Queue;
 
 public class Consumer extends Thread {
-    private Queue<Integer> numbers;
+    private final int MILLS = 1000;
+    private final Queue<Integer> numbers;
 
-    public Consumer(Queue<Integer> numbers) {
-        this.numbers = numbers;
+    public Consumer(Container queue) {
+        this.numbers = queue.getQueue();
     }
 
     @Override
     public void run() {
-        int seconds = 0;
-        for (int i = 0; i < numbers.size() - 1; i++) {
-            seconds = numbers.peek();
-            numbers.remove();
-            try {
-                Thread.sleep(seconds * 1000);
-                System.out.println(getName() +" - I slept " + seconds + " seconds");
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+        try {
+            FileWriter writer = new FileWriter("D://filewriter/ProducerConsumer.txt", true);
+            while (!Thread.currentThread().isInterrupted()) {
+                if (!numbers.isEmpty()) {
+                    long seconds = numbers.poll();
+                    Thread.sleep(seconds * MILLS);
+                    writer.write(LocalDateTime.now() + "-" + Thread.currentThread().getName() + "- I slept " +
+                            seconds + " seconds.\n");
+                    writer.flush();
+                } else {
+                    writer.write(LocalDateTime.now() + "-" + Thread.currentThread().getName() + "- ...\n");
+                    writer.flush();
+                    Thread.sleep(MILLS);
+                    break;
+                }
             }
+        } catch (NullPointerException | IOException | InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
