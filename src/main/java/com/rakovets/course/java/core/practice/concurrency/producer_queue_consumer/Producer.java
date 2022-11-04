@@ -5,16 +5,20 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Producer extends Thread {
+    private final Queue<Integer> queue;
+
+    public Producer(Queue<Integer> queue) {
+        this.queue = queue;
+    }
+
     public void run() {
         Scanner sc = new Scanner(System.in);
-        Queue<Integer> x = new LinkedList<>();
         while (true) {
-
             int l = sc.nextInt();
+            queue.add(l);
             if (l == -1) {
                 break;
             }
-             x.add(l);
             System.out.println(l);
         }
     }
