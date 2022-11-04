@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.lambda_expressions;
 
-import com.rakovets.course.java.core.example.generics.model.restrict.A;
 import com.rakovets.course.java.core.practice.lambda_expressions.specification_task_1.Task01;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
