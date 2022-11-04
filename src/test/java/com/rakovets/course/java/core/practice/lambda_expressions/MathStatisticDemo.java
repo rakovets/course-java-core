@@ -10,7 +10,7 @@ public class MathStatisticDemo {
 
     public static void main(String[] args) {
         MathsStatistics statistics = new MathsStatistics();
-        List<Integer> listNumber =  statistics.creationSetRandomNumbers();
+        List<Integer> listNumber =  statistics.getListRandomNumbers(10, 0, 10);
         int number = 5;
 
         logger.info("Random numbers: " + listNumber);

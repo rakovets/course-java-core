@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class TelevisionTest {
+    InformationSystemTv infoTv = new InformationSystemTv();
+
     static Stream<Arguments> provideArgumentsForConstructor() {
         return Stream.of(
                 Arguments.of("Panasonic", "AKV-1200", 2020, 45.0, 700.0,
@@ -83,7 +85,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionGivenDiagonal")
     void testGetTelevisionGivenDiagonal(ArrayList<Television> televisions, double diagonal, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionGivenDiagonal(televisions, diagonal);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -105,7 +106,7 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionGivenManufacturer")
     void testGetTelevisionGivenManufacturer(ArrayList<Television> televisions, String manufacturer, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
+        InformationSystemTv infoTv = new InformationSystemTv();
         List<Television> actual = infoTv.getTelevisionGivenManufacturer(televisions, manufacturer);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -129,7 +130,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionGivenMinYearOfProduction")
     void testGetTelevisionGivenMinYearOfProduction(List<Television> televisions, int yearOfProduction, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionGivenMinYearOfProduction(televisions, yearOfProduction);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -155,7 +155,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionGivenRangePrice")
     void testGetTelevisionGivenRangePrice(List<Television> televisions, double minPrice, double maxPrice, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionGivenRangePrice(televisions, minPrice, maxPrice);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -185,7 +184,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionSortedMinMaxPrice")
     void testGetTelevisionSortedMinMaxPrice(List<Television> televisions, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionSortedMinMaxPrice(televisions);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -215,7 +213,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionSortedMaxMinPrice")
     void testGetTelevisionSortedMaxMinPrice(List<Television> televisions, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionSortedMaxMinPrice(televisions);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -245,7 +242,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionSortedMinMaxDiagonal")
     void testGetTelevisionSortedMinMaxDiagonal(List<Television> televisions, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionSortedMinMaxDiagonal(televisions);
 
         Assertions.assertEquals(expected, actual.toString());
@@ -275,7 +271,6 @@ public class TelevisionTest {
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetTelevisionSortedMaxMinDiagonal")
     void testGetTelevisionSortedMaxMinDiagonal(List<Television> televisions, String expected) {
-        InformationSystemTv infoTv = new InformationSystemTv(televisions);
         List<Television> actual = infoTv.getTelevisionSortedMaxMinDiagonal(televisions);
 
         Assertions.assertEquals(expected, actual.toString());

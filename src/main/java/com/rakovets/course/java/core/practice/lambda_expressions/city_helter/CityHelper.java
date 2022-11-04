@@ -10,9 +10,9 @@ public class CityHelper {
                 .collect(Collectors.toList());
     }
 
-    public List<String> getCityNamesGivenLength(List<String> listCities) {
+    public List<String> getCityNamesGivenMinLengthCityNames(List<String> listCities, int minLengthCityNames) {
         return listCities.stream()
-                .filter(x -> x.length() > 6)
+                .filter(x -> x.length() > minLengthCityNames)
                 .collect(Collectors.toList());
     }
 

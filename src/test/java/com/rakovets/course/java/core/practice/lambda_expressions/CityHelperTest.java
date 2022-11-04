@@ -35,18 +35,18 @@ public class CityHelperTest {
 
         return Stream.of(
                 Arguments.of(List.of("New York", "Los Angeles", "Chicago", "Houston", "New York", "Chicago"),
-                        "[New York, Los Angeles, Chicago, Houston, New York, Chicago]"),
+                        6, "[New York, Los Angeles, Chicago, Houston, New York, Chicago]"),
                 Arguments.of(List.of("San Antonio", "San Diego", "San Jose", "San Jose", "Charlotte", "San Francisco"),
-                        "[San Antonio, San Diego, San Jose, San Jose, Charlotte, San Francisco]"),
+                        6, "[San Antonio, San Diego, San Jose, San Jose, Charlotte, San Francisco]"),
                 Arguments.of(List.of("Seattle", "Denver", "Seattle", "Denver", "Seattle"),
-                        "[Seattle, Seattle, Seattle]")
+                        6, "[Seattle, Seattle, Seattle]")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForGetCityNamesGivenLength")
-    void testGetCityNamesGivenLength(List<String> listCities, String expected) {
-        List<String> actual = city.getCityNamesGivenLength(listCities);
+    void testGetCityNamesGivenLength(List<String> listCities, int minLengthCityNames, String expected) {
+        List<String> actual = city.getCityNamesGivenMinLengthCityNames(listCities, minLengthCityNames);
 
         Assertions.assertEquals(expected, actual.toString());
     }

@@ -14,5 +14,11 @@ public class Task01Demo {
 
         logger.info(task01.convertArrayInMap(array).toString());
         logger.info(Arrays.toString(task01.convertMapInArray(map)));
+
+        String[] strings = {"--limit", "40", "-d", "1", "-i", "in.txt", "-o", "out.txt"};
+
+        System.out.println(strings.equals(task01.convertMapInArray(map)));
+
+
     }
 }

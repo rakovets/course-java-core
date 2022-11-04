@@ -12,6 +12,8 @@ public class Task01 {
 
     public String[] convertMapInArray(Map<String, String> map) {
         return map.entrySet().stream()
-                .flatMap(m -> Stream.of(m.getKey(), m.getValue())).toArray(String[]::new);
+                .sorted(Map.Entry.comparingByKey())
+                .flatMap(m -> Stream.of(m.getKey(), m.getValue()))
+                .toArray(String[]::new);
     }
 }

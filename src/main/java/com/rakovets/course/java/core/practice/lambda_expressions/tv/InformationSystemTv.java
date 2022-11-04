@@ -5,12 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class InformationSystemTv {
-    public List<Television> televisions;
-
-    public InformationSystemTv(List<Television> televisions) {
-        this.televisions = televisions;
-    }
-
     public List<Television> getTelevisionGivenDiagonal(List<Television> televisions, double diagonal) {
         return televisions.stream()
                 .filter(d -> d.getDiagonal() == diagonal)
