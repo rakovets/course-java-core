@@ -40,7 +40,7 @@ public class StudioTest {
     public void testSortByLastName() {
         List<Actor> expected = Arrays.asList(actor1, actor2, actor4, actor3);
 
-        List<Actor> actual =studio.getActors();
+        List<Actor> actual = studio.getActors();
         actual.sort(new LastNameComparator());
 
         Assertions.assertEquals(expected, actual);
@@ -50,18 +50,17 @@ public class StudioTest {
     public void testSortByAge() {
         List<Actor> expected = Arrays.asList(actor3, actor4, actor1, actor2);
 
-        List<Actor> actual =studio.getActors();
+        List<Actor> actual = studio.getActors();
         actual.sort(new AgeComparator());
 
         Assertions.assertEquals(expected, actual);
     }
 
-
     @Test
     public void testSortByFee() {
         List<Actor> expected = Arrays.asList(actor1, actor2, actor3, actor4);
 
-        List<Actor> actual=studio.getActors();
+        List<Actor> actual = studio.getActors();
         actual.sort(new FeeComparator());
 
         Assertions.assertEquals(expected, actual);
