@@ -10,16 +10,17 @@ public class Consumer extends Thread {
         this.integerQueue = integerQueue;
     }
 
+    @Override
     public void run() {
         while (true) {
             try {
                 int f = integerQueue.remove();
-                if (f == -1){
+                if (f == -1) {
                     break;
                 }
                 System.out.println("Consumer = " + f);
-                sleep(f * 1000);
-            }catch (NoSuchElementException x){
+                sleep(f * 1000L);
+            } catch (NoSuchElementException ignored) {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

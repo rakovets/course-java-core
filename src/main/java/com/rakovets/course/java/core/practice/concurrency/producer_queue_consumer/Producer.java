@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrency.producer_queue_consumer;
 
-import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -11,6 +10,7 @@ public class Producer extends Thread {
         this.queue = queue;
     }
 
+    @Override
     public void run() {
         Scanner sc = new Scanner(System.in);
         while (true) {
