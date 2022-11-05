@@ -14,14 +14,15 @@ public class TestCityHelperUtility {
 
     static Stream<Arguments> provideArgumentsGetUniqueCities() {
         return Stream.of(
-                Arguments.of(List.of("Paris", "Warsaw", "Paris"), "[Warsaw, Paris]")
+                Arguments.of(List.of("Paris", "Warsaw", "Paris"), "[Paris, Warsaw]"),
+                Arguments.of(List.of("Minsk", "Toronto"), "[Minsk, Toronto]")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsGetUniqueCities")
     void testGetUniqueCities(List<String> cities, String expected) {
-        Set<String> actual = utility.getUniqueCities(cities);
+        List<String> actual = utility.getUniqueCities(cities);
 
         Assertions.assertEquals(expected, actual.toString());
     }
@@ -35,7 +36,7 @@ public class TestCityHelperUtility {
     @ParameterizedTest
     @MethodSource("provideArgumentsGetUniqueCitiesWithLengthMoreThan6Letters")
     void testGetUniqueCitiesWithLengthMoreThan6Letters(List<String> cities, String expected) {
-        Set<String> actual = utility.getUniqueCitiesWithLengthMoreThan6Letters(cities);
+        List<String> actual = utility.getUniqueCitiesWithLengthMoreThan6Letters(cities);
 
         Assertions.assertEquals(expected, actual.toString());
     }
@@ -49,7 +50,7 @@ public class TestCityHelperUtility {
     @ParameterizedTest
     @MethodSource("provideArgumentsGetUniqueCitiesStartWithSetLetter")
     void testGetUniqueCitiesStartWithSetLetter(List<String> cities, String setLetter, String expected) {
-        Set<String> actual = utility.getUniqueCitiesStartWithSetLetter(cities, setLetter);
+        List<String> actual = utility.getUniqueCitiesStartWithSetLetter(cities, setLetter);
 
         Assertions.assertEquals(expected, actual.toString());
     }

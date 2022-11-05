@@ -15,18 +15,26 @@ public class Utility {
     }
 
     public long countEvenNumber(int[] array) {
-        return IntStream.of(array).filter(number -> number % 2 == 0).count();
+        return IntStream.of(array)
+                .filter(number -> number % 2 == 0)
+                .count();
     }
 
     public long countOddNumber(int[] array) {
-        return IntStream.of(array).filter(number -> number % 2 != 0).count();
+        return IntStream.of(array)
+                .filter(number -> number % 2 != 0)
+                .count();
     }
 
     public long countNumbersEqualZero(int[] array) {
-        return IntStream.of(array).filter(number -> number == 0).count();
+        return IntStream.of(array)
+                .filter(number -> number == 0)
+                .count();
     }
 
     public long countNumbersEqualSetValue(int[] array, int setValue) {
-        return IntStream.of(array).filter(number -> number == setValue).count();
+        return IntStream.of(array)
+                .filter(number -> number == setValue)
+                .count();
     }
 }

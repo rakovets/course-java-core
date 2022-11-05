@@ -15,17 +15,6 @@ public class Televisor {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Televisor{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", modelName='" + modelName + '\'' +
-                ", yearOfIssue=" + yearOfIssue +
-                ", diagonal=" + diagonal +
-                ", price=" + price +
-                '}';
-    }
-
     public String getManufacturer() {
         return manufacturer;
     }
@@ -64,5 +53,16 @@ public class Televisor {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Televisor{" +
+                "manufacturer='" + manufacturer + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", yearOfIssue=" + yearOfIssue +
+                ", diagonal=" + diagonal +
+                ", price=" + price +
+                '}';
     }
 }

@@ -3,27 +3,32 @@ package com.rakovets.course.java.core.practice.lambda_expressions.city_helper;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Utility {
-    public Set<String> getUniqueCities(List<String> cities) {
-        Set<String> uniqueCities = new HashSet<>();
-        cities.stream().forEach(s -> uniqueCities.add(s));
-        return uniqueCities;
+    public List<String> getUniqueCities(List<String> cities) {
+        return cities.stream()
+                .distinct()
+                .collect(Collectors.toList());
     }
 
-    public Set<String> getUniqueCitiesWithLengthMoreThan6Letters(List<String> cities) {
-        Set<String> uniqueCities = new HashSet<>();
-        cities.stream().filter(s -> s.length() > 6).forEach(s -> uniqueCities.add(s));
-        return uniqueCities;
+    public List<String> getUniqueCitiesWithLengthMoreThan6Letters(List<String> cities) {
+        return cities.stream()
+                .distinct()
+                .filter(city -> city.length() > 6)
+                .collect(Collectors.toList());
     }
 
-    public Set<String> getUniqueCitiesStartWithSetLetter(List<String> cities, String setLetter) {
-        Set<String> uniqueCities = new HashSet<>();
-        cities.stream().filter(s -> s.startsWith(setLetter)).forEach(s -> uniqueCities.add(s));
-        return uniqueCities;
+    public List<String> getUniqueCitiesStartWithSetLetter(List<String> cities, String setLetter) {
+        return cities.stream()
+                .distinct()
+                .filter(word -> word.startsWith(setLetter))
+                .collect(Collectors.toList());
     }
 
     public long getCountSetCityFromList(List<String> cities, String setCity) {
-        return cities.stream().filter(s -> s.equals(setCity)).count();
+        return cities.stream()
+                .filter(s -> s.equals(setCity))
+                .count();
     }
 }

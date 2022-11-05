@@ -13,7 +13,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorWithSetDiagonal() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2000, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2001, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -31,7 +32,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorWithSetManufacturer() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2000, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2001, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -49,7 +51,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorWithLimitYearOfIssue() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2001, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2000, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -67,7 +70,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorWithPriceRange() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2001, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2000, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -85,7 +89,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorSortedPriceAscending() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2001, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2000, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -104,7 +109,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorSortedPriceDescending() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2001, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2000, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -123,7 +129,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorSortedDiagonalAscending() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2001, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2000, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
@@ -142,7 +149,8 @@ public class TestTvTelevisorUtility {
 
     static Stream<Arguments> provideArgumentsGetTelevisorSortedDiagonalDescending() {
         return Stream.of(
-                Arguments.of(List.of(
+                Arguments.of(
+                        List.of(
                                 new Televisor("LG", "Model1", 2001, 5.0, 100.0),
                                 new Televisor("Philips", "Model2", 2000, 5.5, 105.0),
                                 new Televisor("Xiaomi", "Model3", 2002, 6.0, 110.0)),
