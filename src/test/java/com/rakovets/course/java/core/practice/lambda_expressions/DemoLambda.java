@@ -14,17 +14,16 @@ public class DemoLambda {
         Task1 task1 = new Task1();
         Map<String, String> map = task1.convertArrayToMap(lines);
         System.out.println(map);
-        System.out.println("------------------TASK1----------------------------");
         String[] linesConvert = task1.convertMapToArray(map);
         System.out.println(Arrays.toString(task1.convertMapToArray(map)));
+        System.out.println();
 
-        System.out.println("------------------TASK2----------------------------");
         Task2 task2 = new Task2();
         task2.printMultiplicationTableInOneColumn();
-        System.out.println("---------------------------------------------------");
+        System.out.println();
         task2.printMultiplicationTableInFiveColumn();
+        System.out.println();
 
-        System.out.println("-------------MathsStatistics-----------------------");
         MathsStatistics math = new MathsStatistics();
         List<Integer> list = MathsStatistics.random();
         System.out.println(list);
@@ -32,15 +31,15 @@ public class DemoLambda {
         System.out.println(math.getOddNumbers(list));
         System.out.println(math.getNumbersNull(list));
         System.out.println(math.getNumbers(list, 2));
+        System.out.println();
 
-        System.out.println("-------------CityHelper-----------------------");
         CityHelper city = new CityHelper(Arrays.asList("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin", "Oslo", "Minsk"));
         System.out.println(city.getUniqueCities());
         System.out.println(city.getNameCityLength(6));
         System.out.println(city.getNameFirstLetter('M'));
         System.out.println(city.getCountNameCity("Minsk"));
+        System.out.println();
 
-        System.out.println("-------------ProjectTV-----------------------");
         List<Television> tv = new ArrayList<>(List.of(
                 new Television("LG", "NanoCell", 2022, 50, 2027.4),
                 new Television("Xiaomi MI", "P1", 2021, 50, 1420.0),
@@ -49,12 +48,19 @@ public class DemoLambda {
         ));
         ProjectTv television = new ProjectTv(tv);
         System.out.println(television.getListDiagonal(50));
+        System.out.println();
         System.out.println(television.getListManufacturer("LG"));
+        System.out.println();
         System.out.println(television.getListLessThanYear(2022));
+        System.out.println();
         System.out.println(television.getListPriceRange(1300, 1700));
+        System.out.println();
         System.out.println(television.getListSortedByPriceAscending());
+        System.out.println();
         System.out.println(television.getListSortedByPriceDescending());
+        System.out.println();
         System.out.println(television.getListSortedByDiagonalAscending());
+        System.out.println();
         System.out.println(television.getListSortedByDiagonalDescending());
     }
 }

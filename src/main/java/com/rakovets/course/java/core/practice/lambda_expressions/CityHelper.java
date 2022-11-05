@@ -28,8 +28,8 @@ public final class CityHelper {
                 .collect(Collectors.toList());
     }
 
-    public long getCountNameCity(final String city) {
+    public long getCountNameCity(final String cityName) {
         return cities.stream()
-                .filter(c -> c.equals(city)).count();
+                .filter(city -> city.equals(cityName)).count();
     }
 }
