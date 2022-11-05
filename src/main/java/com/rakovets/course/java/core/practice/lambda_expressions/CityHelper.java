@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public final class CityHelper {
-    List<String> cities;
+    private final List<String> cities;
 
     public CityHelper(List<String> cities) {
         this.cities = cities;
@@ -16,9 +16,9 @@ public final class CityHelper {
                 .collect(Collectors.toList());
     }
 
-    public List<String> getNameCityLength() {
+    public List<String> getNameCityLength(int length) {
         return cities.stream()
-                .filter(city -> city.length() > 6)
+                .filter(city -> city.length() > length)
                 .collect(Collectors.toList());
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class CityHelperTest {
-    static Stream<Arguments> UniqueCities() {
+    static Stream<Arguments> uniqueCitiesArguments() {
         return Stream.of(
                 Arguments.of(List.of("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin", "Oslo", "Minsk"),
                         List.of("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin")),
@@ -19,7 +19,7 @@ public class CityHelperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("UniqueCities")
+    @MethodSource("uniqueCitiesArguments")
     public void getUniqueCities(List<String> cities, List<String> expected) {
         CityHelper city = new CityHelper(cities);
 
@@ -28,7 +28,7 @@ public class CityHelperTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> NameCityLength() {
+    static Stream<Arguments> nameCityLengthArguments() {
         return Stream.of(
                 Arguments.of(List.of("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin", "Oslo", "Minsk"),
                         List.of("New-York", "Antalya", "Vilnius")),
@@ -38,16 +38,16 @@ public class CityHelperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("NameCityLength")
+    @MethodSource("nameCityLengthArguments")
     public void getNameCityLength(List<String> cities, List<String> expected) {
         CityHelper city = new CityHelper(cities);
 
-        List<String> actual = city.getNameCityLength();
+        List<String> actual = city.getNameCityLength(6);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> NameFirstLetter() {
+    static Stream<Arguments> nameFirstLetterArguments() {
         return Stream.of(
                 Arguments.of(List.of("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin", "Oslo", "Minsk"),
                         List.of("Minsk", "Minsk")),
@@ -57,7 +57,7 @@ public class CityHelperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("NameFirstLetter")
+    @MethodSource("nameFirstLetterArguments")
     public void getNameFirstLetter(List<String> cities, List<String> expected) {
         CityHelper city = new CityHelper(cities);
 
@@ -66,7 +66,7 @@ public class CityHelperTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> CountNameCity() {
+    static Stream<Arguments> countNameCityArguments() {
         return Stream.of(
                 Arguments.of(List.of("Minsk", "New-York", "Antalya", "Oslo", "Batumi", "Vilnius", "Dublin", "Oslo", "Minsk"), 2),
                 Arguments.of(List.of("Brest", "Mogilev", "Gomel", "Brest", "Moscow", "Moscow", "Minsk", "Brest", "Minsk"), 2)
@@ -74,7 +74,7 @@ public class CityHelperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("CountNameCity")
+    @MethodSource("countNameCityArguments")
     public void getCountNameCity(List<String> cities, long expected) {
         CityHelper city = new CityHelper(cities);
 

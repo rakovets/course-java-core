@@ -7,9 +7,6 @@ import java.util.stream.Collectors;
 public class MathsStatistics {
     private final List<Integer> list = MathsStatistics.random();
 
-    public MathsStatistics() {
-    }
-
     public static List<Integer> random() {
         return new Random()
                 .ints(30, 0, 10)
@@ -19,25 +16,25 @@ public class MathsStatistics {
 
     public long getEvenNumbers(List<Integer> list) {
         return list.stream()
-                .filter(c -> c % 2 == 0)
+                .filter(number -> number % 2 == 0)
                 .count();
     }
 
     public long getOddNumbers(List<Integer> list) {
         return list.stream()
-                .filter(c -> c % 2 != 0)
+                .filter(number -> number % 2 != 0)
                 .count();
     }
 
     public long getNumbersNull(List<Integer> list) {
         return list.stream()
-                .filter(c -> c == 0)
+                .filter(number -> number == 0)
                 .count();
     }
 
-    public long getNumbers(List<Integer> list, int number) {
+    public long getNumbers(List<Integer> list, int givenNumber) {
         return list.stream()
-                .filter(c -> c == number)
+                .filter(number -> number == givenNumber)
                 .count();
     }
 }

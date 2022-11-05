@@ -2,12 +2,13 @@ package com.rakovets.course.java.core.practice.lambda_expressions.tv;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class ProjectTV {
-    List<Television> tv;
+public class ProjectTv {
+    private final List<Television> tv;
 
-    public ProjectTV(List<Television> tv) {
+    public ProjectTv(List<Television> tv) {
         this.tv = tv;
     }
 
@@ -19,7 +20,7 @@ public class ProjectTV {
 
     public List<Television> getListManufacturer(String manufacturer) {
         return tv.stream()
-                .filter(television -> television.getManufacturer() == manufacturer)
+                .filter(television -> Objects.equals(television.getManufacturer(), manufacturer))
                 .collect(Collectors.toList());
     }
 
