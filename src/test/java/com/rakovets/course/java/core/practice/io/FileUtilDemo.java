@@ -10,6 +10,8 @@ public class FileUtilDemo {
         Path inputFilePath = Path.of("text_files", "text.txt");
         Path outputFilePath = Path.of("text_files", "textcopy.txt");
         Path numbersFilePath = Path.of("text_files", "numbers.txt");
+        Path studentsFilePath = Path.of("text_files", "studentsProgress.txt");
+        Path codeFilePath = Path.of("text_files", "javacode.txt");
         System.out.println("Task1");
         fileUtil.rewriteOneFileToAnother(inputFilePath, outputFilePath);
         System.out.println("\n Task2");
@@ -24,5 +26,9 @@ public class FileUtilDemo {
         System.out.println(fileUtil.getWordsFrequency(inputFilePath));
         System.out.println("\n Task8");
         fileUtil.writeSortedNumbers(numbersFilePath);
+        System.out.println("\n Task9");
+        System.out.println(fileUtil.getStudentProgress(studentsFilePath));
+        System.out.println("\n Task10");
+        fileUtil.changeAccess(codeFilePath, "public", "private");
     }
 }

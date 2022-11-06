@@ -1,0 +1,3 @@
+Komleva, 8, 9, 10
+Flurick, 5, 8, 7
+Belka, 4, 9, 6

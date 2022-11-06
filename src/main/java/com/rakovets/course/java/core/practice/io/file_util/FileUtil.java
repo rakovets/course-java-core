@@ -1,11 +1,14 @@
 package com.rakovets.course.java.core.practice.io.file_util;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.file.Path;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -41,9 +44,9 @@ public class FileUtil {
         List<String> output = new LinkedList<>();
         String[] arrayWords = getListOfStrings(inputFilePath).toString()
                 .replaceAll("[,.\\]\\[]", "").split(" ");
-                Arrays.stream(arrayWords)
-                        .filter(i -> i.matches("^[aeiouyAEIOUY].*"))
-                        .forEach(output::add);
+        Arrays.stream(arrayWords)
+                .filter(i -> i.matches("^[aeiouyAEIOUY].*"))
+                .forEach(output::add);
         return output;
     }
 
@@ -63,7 +66,7 @@ public class FileUtil {
                 previousWord = nextWord;
             }
             sc.close();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return output;
@@ -111,6 +114,39 @@ public class FileUtil {
                             .collect(Collectors.toList());
                     writer.write(sorted.toString());
                 }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Map<String, Double> getStudentProgress(Path inputFilePath) {
+        Map<String, Double> result = new LinkedHashMap<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath.toFile()))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(inputFilePath + "_"))) {
+                String str;
+                while ((str = reader.readLine()) != null) {
+                    String[] array = str.replaceAll(" ", "").trim().split(",");
+                    double averageMark = 0.0;
+                    int count = 0;
+                    for (int i = 1; i < array.length; i++) {
+                        averageMark += Integer.parseInt(array[i]);
+                        count++;
+                    }
+                    result.put(array[0], NumberUtil.roundValueToTwoDigitsForMantissa(averageMark / count));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public void changeAccess(Path inputFilePath, String x, String y) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(inputFilePath + "_"))) {
+            List<String> list = getListOfStrings(inputFilePath);
+            for (String str : list) {
+                writer.write(str.replaceAll(x, y) + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

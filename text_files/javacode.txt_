@@ -1,0 +1,17 @@
+private class Student {
+    private final String name;
+    private final int iq;
+
+    private Student(String name, int iq) {
+        this.name = name;
+        this.iq = iq;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private int getIq() {
+        return iq;
+    }
+}
