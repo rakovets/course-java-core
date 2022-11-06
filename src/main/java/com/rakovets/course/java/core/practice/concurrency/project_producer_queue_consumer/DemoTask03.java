@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class DemoTask03 {
+
     public static void main(String[] args) throws InterruptedException {
         Logger logger = Logger.getLogger(DemoTask03.class.getName());
         Queue<Integer> queue = new ArrayDeque<>();
