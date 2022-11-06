@@ -10,6 +10,7 @@ public class FileUtilDemo {
         Path inputFilePath = Path.of("text_files", "text.txt");
         Path outputFilePath = Path.of("text_files", "textcopy.txt");
         Path numbersFilePath = Path.of("text_files", "numbers.txt");
+        Path numbers5FilePath = Path.of("text_files", "numbers5.txt");
         Path studentsFilePath = Path.of("text_files", "studentsProgress.txt");
         Path codeFilePath = Path.of("text_files", "javacode.txt");
         System.out.println("Task1");
@@ -20,6 +21,8 @@ public class FileUtilDemo {
         System.out.println(fileUtil.getWordsStartsWithVowel(inputFilePath));
         System.out.println("\n Task4");
         System.out.println(fileUtil.getWordsFirstCharEqualLastCharNextWord(inputFilePath));
+        System.out.println("\n Task5");
+        System.out.println(fileUtil.getlistOfLargestNumberCombination(numbers5FilePath));
         System.out.println("\n Task6");
         System.out.println(fileUtil.getAllLettersFrequency(inputFilePath));
         System.out.println("\n Task7");

@@ -72,6 +72,40 @@ public class FileUtil {
         return output;
     }
 
+    public String getlistOfLargestNumberCombination(Path inputFilePath) {
+        List<String> list = getListOfStrings(inputFilePath);
+        List<Integer> numbers = new ArrayList<>();
+        for (String str : list)
+            numbers.add(Integer.parseInt(str));
+        List<List<Integer>> listOfNumbers = new ArrayList<>();
+        int lastNumInd = 0;
+        if (list.size() > 1) {
+            for (int i = 1; i < numbers.size(); i++) {
+                if (numbers.get(i - 1) >= numbers.get(i)) {
+                    listOfNumbers.add(numbers.subList(lastNumInd, i));
+                    lastNumInd = i;
+                }
+            }
+            listOfNumbers.add(numbers.subList(lastNumInd, numbers.size()));
+        } else
+            return list.get(0);
+        int size = listOfNumbers.get(0).size();
+        int max = size;
+        int index = 0;
+        for (int i = 1; i < listOfNumbers.size(); i++) {
+            size = listOfNumbers.get(i).size();
+            if (max < size) {
+                max = size;
+                index = i;
+            }
+        }
+        StringBuilder result = new StringBuilder();
+        for (Integer number : listOfNumbers.get(index)) {
+            result.append(number).append(" ");
+        }
+        return result.toString().trim();
+    }
+
     public Map<Character, Integer> getAllLettersFrequency(Path inputFilePath) {
         Map<Character, Integer> output = new HashMap<>();
         String letters = getListOfStrings(inputFilePath).toString().toLowerCase().replaceAll("[^a-z]", "");
