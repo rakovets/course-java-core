@@ -1,0 +1,3 @@
+Petrov,8,9,8
+Sidirov,7,9,6
+Kotov,9,3,5

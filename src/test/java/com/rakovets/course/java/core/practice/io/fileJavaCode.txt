@@ -1,0 +1,9 @@
+public class Person {
+    private final String name;
+    private final transient double height;
+
+    public Person(String name, double height) {
+        this.name = name;
+        this.height = height;
+    }
+}
