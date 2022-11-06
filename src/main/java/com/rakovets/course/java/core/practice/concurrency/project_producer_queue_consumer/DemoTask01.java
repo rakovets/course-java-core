@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class DemoTask01 {
+
     public static void main(String[] args) throws InterruptedException {
         Logger logger = Logger.getLogger(DemoTask01.class.getName());
         Scanner scanner = new Scanner(System.in);

@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class DemoTask04 {
+
     public static void main(String[] args) throws MyException {
         Logger logger = Logger.getLogger(DemoTask04.class.getName());
         Queue<Integer> queue = new ArrayDeque<>();
