@@ -3,29 +3,30 @@ package com.rakovets.course.java.core.practice.concurrency.project_producer_queu
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class DemoTask03 {
     public static void main(String[] args) throws InterruptedException {
+        Logger logger = Logger.getLogger(DemoTask03.class.getName());
         Queue<Integer> queue = new ArrayDeque<>();
         Scanner scanner = new Scanner(System.in);
         Runnable producerRun = () -> {
-            System.out.println("Thread Producer started");
+            logger.info("Thread Producer started\n");
             while (scanner.hasNext()) {
                 if (scanner.hasNextInt()) {
                     int i = scanner.nextInt();
                     if (i != -1) {
                         queue.offer(i);
-                        System.out.println("Entered value to queue: " + queue.peek());
-                        System.out.println("Removed from queue: " + queue.poll());
+                        logger.info("Last entered value to queue: " + i);
                     } else {
-                        System.out.println("Entering is ended.");
+                        logger.info("Thread Producer is ended by entering -1.");
                         break;
                     }
                 } else {
                     scanner.next();
                 }
+                logger.info(queue.toString());
             }
-            System.out.println("Thread Producer finished");
         };
         Thread producer = new Thread(producerRun, "Producer");
         producer.start();

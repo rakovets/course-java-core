@@ -3,23 +3,24 @@ package com.rakovets.course.java.core.practice.concurrency.project_producer_queu
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class DemoTask04 {
     public static void main(String[] args) throws MyException {
+        Logger logger = Logger.getLogger(DemoTask04.class.getName());
         Queue<Integer> queue = new ArrayDeque<>();
         Scanner scanner = new Scanner(System.in);
         Runnable producerRun = () -> {
-            System.out.println("Thread Producer started");
+            logger.info("Thread Producer started");
             while (scanner.hasNext()) {
                 try {
                     if (scanner.hasNextInt()) {
                         int i = scanner.nextInt();
                         if (i != -1) {
                             queue.offer(i);
-                            System.out.println(Thread.currentThread().getName() + " entered to queue: " + queue.peek());
-                            System.out.println(Thread.currentThread().getName() + " removed from queue: " + queue.poll());
+                            logger.info(Thread.currentThread().getName() + " entered to queue: " + i);
                         } else {
-                            System.out.println("Entering is ended.");
+                            logger.info("Thread Producer is ended by entering -1.");
                             break;
                         }
                     } else {
@@ -27,10 +28,10 @@ public class DemoTask04 {
                         throw new MyException("Неправильный ввод данных. Ввведите целочисленное значение");
                     }
                 } catch (MyException e) {
-                    System.out.println(e.getMessage());
+                    logger.info(e.getMessage());
                 }
+                logger.info(queue.toString());
             }
-            System.out.println("Thread Producer finished");
         };
         Thread producer = new Thread(producerRun, "Producer");
         producer.start();

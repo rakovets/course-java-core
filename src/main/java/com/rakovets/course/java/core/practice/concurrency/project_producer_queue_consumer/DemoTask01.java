@@ -1,22 +1,21 @@
 package com.rakovets.course.java.core.practice.concurrency.project_producer_queue_consumer;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class DemoTask01 {
     public static void main(String[] args) throws InterruptedException {
+        Logger logger = Logger.getLogger(DemoTask01.class.getName());
         Scanner scanner = new Scanner(System.in);
         Runnable producerRun = () -> {
-            System.out.println("Thread Producer started");
+            logger.warning("Thread Producer started\n");
             while (scanner.hasNext()) {
                 if (scanner.hasNextInt()) {
-                    System.out.println("Entered value to queue: " + scanner.next());
+                    logger.info("User entered value: " + scanner.next());
                 } else {
                     scanner.next();
                 }
             }
-            System.out.println("Thread Producer finished");
         };
         Thread producer = new Thread(producerRun, "Producer");
         producer.start();

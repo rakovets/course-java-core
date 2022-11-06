@@ -1,88 +1,71 @@
 package com.rakovets.course.java.core.practice.concurrency.project_producer_queue_consumer;
 
+import java.sql.Timestamp;
 import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class DemoTask07 {
     public static void main(String[] args) throws DemoTask04.MyException {
-        Deque<Integer> queue = new ArrayDeque<>();
+        Logger logger = Logger.getLogger(DemoTask07.class.getName());
+        Queue<Integer> queue = new ArrayDeque<>();
         Scanner scanner = new Scanner(System.in);
         Runnable producerRun = () -> {
-            synchronized (queue) {
-                System.out.println("Thread Producer started");
-                while (scanner.hasNext()) {
-                    try {
-                        if (scanner.hasNextInt()) {
-                            int i = scanner.nextInt();
-                            if (i != -1) {
-                                if (queue.offerLast(i)) {
-                                    System.out.println(Thread.currentThread().getName() + " entered to queue: " + i);
-                                }
-                            } else {
-                                System.out.println("Entering is ended.");
-                                try {
-                                    Thread.currentThread().getThreadGroup().interrupt();
-                                } catch (IllegalThreadStateException e) {
-                                    System.out.println("Группа потоков разрушена");
-                                }
-                                break;
-                            }
+            logger.info("Thread Producer started");
+            while (scanner.hasNext()) {
+                try {
+                    if (scanner.hasNextInt()) {
+                        int i = scanner.nextInt();
+                        if (i != -1) {
+                            queue.offer(i);
+                            logger.info(Thread.currentThread().getName() + " entered to queue: " + i);
                         } else {
-                            scanner.next();
-                            throw new DemoTask04.MyException("Неправильный ввод данных. Ввведите целочисленное значение");
+                            logger.info("Thread Producer is ended by entering -1.");
+                            Thread.currentThread().getThreadGroup().interrupt();
+                            logger.info("Все потоки в группе переведены в состояние interrupt.");
+                            break;
                         }
-                    } catch (DemoTask04.MyException e) {
-                        System.out.println(e.getMessage());
+                    } else {
+                        scanner.next();
+                        throw new DemoTask04.MyException("Неправильный ввод данных. Ввведите целочисленное значение");
                     }
+                } catch (DemoTask04.MyException e) {
+                    logger.info(e.getMessage());
                 }
-                System.out.println("Thread Producer finished");
+                logger.info("В очереди сейчас следующие цифры: " + queue.toString());
             }
         };
         Runnable consumerRun = () -> {
-            System.out.println("Thread Consumer started");
-            while (!Thread.currentThread().getThreadGroup().isDestroyed()) {
-                if (queue.peekFirst() != null) {
-                    int i = queue.pollFirst();
-                    System.out.println(Thread.currentThread().getName() + " получил из очереди цифру " + i);
+            logger.info("Thread Consumer started");
+            while (!Thread.currentThread().isInterrupted()) {
+                if (queue.peek() != null) {
+                    int i = queue.poll();
+                    logger.info(Thread.currentThread().getName() + " получил из очереди цифру " + i);
+                    logger.info("В очереди сейчас следующие цифры: " + queue.toString());
                     try {
-                        Thread.sleep(i * 1000);
-                        System.out.println(Thread.currentThread().getName() + " спал " + i + " секунд.");
+                        Thread.sleep(i *1000);
+                        logger.info( new Timestamp(System.currentTimeMillis()).toString() + " - " + Thread.currentThread().getName() + " - " + "I slept " + i + " seconds");
                     } catch (InterruptedException e) {
-                        System.out.println("Сон потока Consumer прерван.");
+                        logger.info("В очереди остались следующие цифры: " + queue.toString());
                         Thread.currentThread().interrupt();
-                        if (Thread.currentThread().isInterrupted()) {
-                            System.out.println("Thread Consumer finished");
-                            break;
-                        }
                     }
-                } else if (Thread.currentThread().isInterrupted()) {
-                    System.out.println("Thread Consumer finished");
-                    break;
-                    } else {
-                        System.out.println("...");
-                        try {
-                            Thread.sleep(5000);
-                        } catch (InterruptedException e) {
-                            System.out.println("Сон потока Consumer прерван.");
-                            Thread.currentThread().interrupt();
-                            if (Thread.currentThread().isInterrupted()) {
-                                System.out.println("Thread Consumer finished");
-                                break;
-                            }
-                        }
-                }
-                if (Thread.currentThread().isInterrupted()) {
-                    System.out.println("Thread Consumer finished");
-                    break;
+                } else {
+                    try {
+                        Thread.sleep( 5000);
+                        logger.info( new Timestamp(System.currentTimeMillis()).toString() + " - " + Thread.currentThread().getName() + " - " +"...");
+                    } catch (InterruptedException e) {
+                        logger.info("В очереди остались следующие цифры: " + queue.toString());
+                        Thread.currentThread().interrupt();
+                    }
                 }
             }
+            logger.info("Thread Consumer also finished");
         };
         ThreadGroup threadGroup = new ThreadGroup("Thread group 1");
         Thread producer = new Thread(threadGroup, producerRun, "Producer");
         Thread consumer = new Thread(threadGroup, consumerRun, "Consumer");
         producer.start();
         consumer.start();
-        System.out.println("Main is finished.");
     }
 }

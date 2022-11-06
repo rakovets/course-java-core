@@ -1,29 +1,29 @@
 package com.rakovets.course.java.core.practice.concurrency.project_producer_queue_consumer;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class DemoTask05 {
     public static void main(String[] args) throws DemoTask04.MyException {
-        Deque<Integer> queue = new ArrayDeque<>();
+        Logger logger = Logger.getLogger(DemoTask05.class.getName());
+        Queue<Integer> queue = new ArrayDeque<>();
         Scanner scanner = new Scanner(System.in);
         Runnable producerRun = () -> {
             synchronized (queue) {
-                System.out.println("Thread Producer started");
+                logger.info("Thread Producer started");
                 while (scanner.hasNext()) {
                     try {
                         if (scanner.hasNextInt()) {
                             int i = scanner.nextInt();
                             if (i != -1) {
-                                if (queue.offerLast(i)) {
-                                    System.out.println(Thread.currentThread().getName() + " entered to queue: " + i);
-                                }
+                                queue.offer(i);
+                                logger.info(Thread.currentThread().getName() + " entered to queue: " + i);
                             } else {
-                                System.out.println("Entering is ended.");
+                                logger.info("Thread Producer is ended by entering -1.");
                                 Thread.currentThread().getThreadGroup().interrupt();
-                                System.out.println("Все потоки в группе остановлены.");
+                                logger.info("Все потоки в группе переведены в состояние interrupt.");
                                 break;
                             }
                         } else {
@@ -31,32 +31,33 @@ public class DemoTask05 {
                             throw new DemoTask04.MyException("Неправильный ввод данных. Ввведите целочисленное значение");
                         }
                     } catch (DemoTask04.MyException e) {
-                        System.out.println(e.getMessage());
+                        logger.info(e.getMessage());
                     }
+                    logger.info("В очереди сейчас следующие цифры: " + queue.toString());
                 }
-                System.out.println("Thread Producer finished");
             }
         };
         Runnable consumerRun = () -> {
-            System.out.println("Thread Consumer started");
-            while (!Thread.currentThread().getThreadGroup().isDestroyed()) {
-                if (queue.peekFirst() != null) {
-                    int i = queue.pollFirst();
-                    System.out.println(Thread.currentThread().getName() + " получил из очереди цифру " + i);
+            logger.info("Thread Consumer started");
+            while (!Thread.currentThread().isInterrupted()) {
+                if (queue.peek() != null) {
+                    int i = queue.poll();
+                    logger.info(Thread.currentThread().getName() + " получил из очереди цифру " + i);
                     try {
                         Thread.sleep(i * 1000);
+                        logger.info("Consumer slept: " + i + " millis");
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        logger.info("В очереди остались следующие цифры: " + queue.toString());
                     }
                 }
             }
-            System.out.println("Thread Consumer finished");
+            logger.info("Thread Consumer also finished");
         };
         ThreadGroup threadGroup = new ThreadGroup("Thread group 1");
         Thread producer = new Thread(threadGroup, producerRun, "Producer");
         Thread consumer = new Thread(threadGroup, consumerRun, "Consumer");
         producer.start();
         consumer.start();
-        System.out.println("Main is finished.");
+        logger.info("Main is finished.");
     }
 }
