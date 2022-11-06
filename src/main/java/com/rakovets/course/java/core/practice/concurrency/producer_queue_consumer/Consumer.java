@@ -18,7 +18,8 @@ public class Consumer extends Thread {
     @Override
     public void run() {
         try {
-            FileWriter writer = new FileWriter("D://filewriter/ProducerConsumer.txt", true);
+            FileWriter writer = new FileWriter("D://IT/Courses IT Academy/course-java-core/src/main/java/com/rakovets/course/java/core/practice/concurrency/ProducerConsumer.txt",
+                    true);
             while (!Thread.currentThread().isInterrupted()) {
                 if (!numbers.isEmpty()) {
                     long seconds = numbers.poll();

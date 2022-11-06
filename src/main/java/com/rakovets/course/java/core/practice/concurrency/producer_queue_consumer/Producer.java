@@ -2,9 +2,11 @@ package com.rakovets.course.java.core.practice.concurrency.producer_queue_consum
 
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Producer extends Thread {
     private final Queue<Integer> numbers;
+    private final Logger logger = Logger.getLogger(Producer.class.getName());
 
     public Producer(Container queue) {
         this.numbers = queue.getQueue();
@@ -13,6 +15,7 @@ public class Producer extends Thread {
     @Override
     public void run() {
         Scanner sc = new Scanner(System.in);
+        logger.info("Enter positive number: ");
         int x = 0;
         while (x != -1) {
                 try {
@@ -23,7 +26,7 @@ public class Producer extends Thread {
                         numbers.add(x);
                     }
                 } catch (UserInputException | IllegalArgumentException e) {
-                    System.out.println("Error: Incorrect input. " + e.getMessage());
+                    logger.severe("Error: Incorrect input. " + e.getMessage());
                     x = 0;
                 }
         }
