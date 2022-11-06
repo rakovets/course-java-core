@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.concurrency.project_producer_queue_consumer;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -7,7 +10,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class DemoTask06 {
-    public static void main(String[] args) throws DemoTask04.MyException {
+    public static void main(String[] args) throws DemoTask04.MyException, IOException {
         Logger logger = Logger.getLogger(DemoTask06.class.getName());
         Queue<Integer> queue = new ArrayDeque<>();
         Scanner scanner = new Scanner(System.in);
@@ -43,12 +46,16 @@ public class DemoTask06 {
                     int i = queue.poll();
                     logger.info(Thread.currentThread().getName() + " получил из очереди цифру " + i);
                     logger.info("В очереди сейчас следующие цифры: " + queue.toString());
-                    try {
-                        Thread.sleep(i * 1000);
-                        logger.info( new Timestamp(System.currentTimeMillis()).toString() + " - " + Thread.currentThread().getName() + " - " + "I slept " + i + " seconds");
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\MyDir\\" + Thread.currentThread().getName(), true))) {
+                        Thread.sleep(Math.abs(i) * 1000);
+                        String textToFile = new Timestamp(System.currentTimeMillis()).toString() + " - " + Thread.currentThread().getName() + " - " + "I slept " + Math.abs(i) + " seconds\n";
+                        logger.info(textToFile);
+                        bw.write(textToFile);
                     } catch (InterruptedException e) {
                         logger.info("В очереди остались следующие цифры: " + queue.toString());
                         Thread.currentThread().interrupt();
+                    } catch (IOException ex) {
+                        logger.info(ex.getMessage());
                     }
                 }
             }
