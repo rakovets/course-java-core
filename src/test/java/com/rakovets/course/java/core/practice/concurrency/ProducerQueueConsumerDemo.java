@@ -9,10 +9,12 @@ public class ProducerQueueConsumerDemo {
         Container queueOfNumbers = new Container();
         Thread producer = new Thread(new Producer(queueOfNumbers), "Producer");
         producer.start();
-        Thread.sleep(6000);
+        Thread.sleep(10000);
         Thread consumer1 = new Thread(new Consumer(queueOfNumbers), "Consumer1");
         Thread consumer2 = new Thread(new Consumer(queueOfNumbers), "Consumer2");
+        Thread consumer3 = new Thread(new Consumer(queueOfNumbers), "Consumer3");
         consumer1.start();
         consumer2.start();
+        consumer3.start();
     }
 }
