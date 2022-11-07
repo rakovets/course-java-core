@@ -11,21 +11,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TvTest {
-    private static ProjectTv television;
-    private static Television lg;
-    private static Television xiaomiMi;
-    private static Television samsung;
-    private static Television sony;
-    private static List<Television> tv;
+    private ProjectTv television;
+    private Television lg;
+    private Television xiaomiMi;
+    private Television samsung;
+    private Television sony;
+    private List<Television> tv;
 
     @BeforeEach
     void setUp() {
-        television = new ProjectTv(tv);
+
         lg = new Television("LG", "NanoCell", 2022, 50, 2027.4);
         xiaomiMi = new Television("Xiaomi MI", "P1", 2021, 50, 1420.0);
         samsung = new Television("Samsung", "UE32T5300AU", 2020, 32, 1151.30);
         sony = new Television("Sony", "XR-55X9OJ", 2022, 55, 2800.0);
         tv = new ArrayList<>((Arrays.asList(lg, xiaomiMi, samsung, sony)));
+        television = new ProjectTv(tv);
     }
 
     @Test
