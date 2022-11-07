@@ -72,38 +72,43 @@ public class FileUtil {
         return output;
     }
 
-    public String getlistOfLargestNumberCombination(Path inputFilePath) {
-        List<String> list = getListOfStrings(inputFilePath);
-        List<Integer> numbers = new ArrayList<>();
-        for (String str : list)
-            numbers.add(Integer.parseInt(str));
-        List<List<Integer>> listOfNumbers = new ArrayList<>();
-        int lastNumInd = 0;
-        if (list.size() > 1) {
-            for (int i = 1; i < numbers.size(); i++) {
-                if (numbers.get(i - 1) >= numbers.get(i)) {
-                    listOfNumbers.add(numbers.subList(lastNumInd, i));
-                    lastNumInd = i;
+    public List<String> getListOfLargestNumberCombination(Path inputFilePath) {
+        List<String> numbersOrders = new ArrayList<>();
+        List<Integer> tempBiggest = new ArrayList<>();
+        List<Integer> tempCurrent = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFilePath.toFile()))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] listOfNumber = line.split(" ");
+                tempCurrent.add(Integer.parseInt(listOfNumber[0]));
+                for (int i = 1; i < listOfNumber.length; i++) {
+                    if (Integer.parseInt(listOfNumber[i]) >= Integer.parseInt(listOfNumber[i - 1])) {
+                        tempCurrent.add(Integer.parseInt(listOfNumber[i]));
+                    } else {
+                        if (tempCurrent.size() > tempBiggest.size()) {
+                            tempBiggest.clear();
+                            tempBiggest.addAll(tempCurrent);
+                        }
+                        tempCurrent.clear();
+                        tempCurrent.add(Integer.parseInt(listOfNumber[i]));
+                    }
                 }
+                if (tempCurrent.size() > tempBiggest.size()) {
+                    tempBiggest.clear();
+                    tempBiggest.addAll(tempCurrent);
+                }
+                String lineOfNumbers = "";
+                for (Integer number : tempBiggest) {
+                    lineOfNumbers += number + " ";
+                }
+                numbersOrders.add(lineOfNumbers);
+                tempBiggest.clear();
+                tempCurrent.clear();
             }
-            listOfNumbers.add(numbers.subList(lastNumInd, numbers.size()));
-        } else
-            return list.get(0);
-        int size = listOfNumbers.get(0).size();
-        int max = size;
-        int index = 0;
-        for (int i = 1; i < listOfNumbers.size(); i++) {
-            size = listOfNumbers.get(i).size();
-            if (max < size) {
-                max = size;
-                index = i;
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        StringBuilder result = new StringBuilder();
-        for (Integer number : listOfNumbers.get(index)) {
-            result.append(number).append(" ");
-        }
-        return result.toString().trim();
+        return numbersOrders;
     }
 
     public Map<Character, Integer> getAllLettersFrequency(Path inputFilePath) {
@@ -157,18 +162,16 @@ public class FileUtil {
     public Map<String, Double> getStudentProgress(Path inputFilePath) {
         Map<String, Double> result = new LinkedHashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath.toFile()))) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(inputFilePath + "_"))) {
-                String str;
-                while ((str = reader.readLine()) != null) {
-                    String[] array = str.replaceAll(" ", "").trim().split(",");
-                    double averageMark = 0.0;
-                    int count = 0;
-                    for (int i = 1; i < array.length; i++) {
-                        averageMark += Integer.parseInt(array[i]);
-                        count++;
-                    }
-                    result.put(array[0], NumberUtil.roundValueToTwoDigitsForMantissa(averageMark / count));
+            String str;
+            while ((str = reader.readLine()) != null) {
+                String[] array = str.replaceAll(" ", "").trim().split(",");
+                double averageMark = 0.0;
+                int count = 0;
+                for (int i = 1; i < array.length; i++) {
+                    averageMark += Integer.parseInt(array[i]);
+                    count++;
                 }
+                result.put(array[0], NumberUtil.roundValueToTwoDigitsForMantissa(averageMark / count));
             }
         } catch (IOException e) {
             e.printStackTrace();
