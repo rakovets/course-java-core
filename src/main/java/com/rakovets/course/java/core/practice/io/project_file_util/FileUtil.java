@@ -49,6 +49,7 @@ public class FileUtil {
                 .flatMap(x ->
                         Arrays.stream(x.split(" "))
                 )
+                .map(x -> x.replaceAll("\\p{Punct}", ""))
                 .filter(x ->
                         x.charAt(0) == 'a' ||
                         x.charAt(0) == 'e' ||
