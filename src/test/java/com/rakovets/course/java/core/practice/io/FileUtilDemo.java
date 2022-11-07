@@ -7,12 +7,12 @@ import java.nio.file.Path;
 public class FileUtilDemo {
     public static void main(String[] args) {
         FileUtil fileUtil = new FileUtil();
-        Path inputFilePath = Path.of("text_files", "text.txt");
-        Path outputFilePath = Path.of("text_files", "textcopy.txt");
-        Path numbersFilePath = Path.of("text_files", "numbers.txt");
-        Path numbers5FilePath = Path.of("text_files", "numbers5.txt");
-        Path studentsFilePath = Path.of("text_files", "studentsProgress.txt");
-        Path codeFilePath = Path.of("text_files", "javacode.txt");
+        Path inputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "text.txt");
+        Path outputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "textcopy.txt");
+        Path numbersFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "numbers.txt");
+        Path numbers5FilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "numbers5.txt");
+        Path studentsFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "studentsProgress.txt");
+        Path codeFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "javacode.txt");
         System.out.println("Task 1");
         fileUtil.rewriteOneFileToAnother(inputFilePath, outputFilePath);
         System.out.println("\n Task 2");
