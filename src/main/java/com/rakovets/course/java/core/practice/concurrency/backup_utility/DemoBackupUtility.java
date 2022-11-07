@@ -8,8 +8,17 @@ public class DemoBackupUtility {
         Logger logger = Logger.getLogger(DemoBackupUtility.class.getName());
         BackupUtility backupUtility = new BackupUtility();
         try {
-            backupUtility.backupDir("C:\\MyDir");
+            String nameOfCopyDirectory = backupUtility.backupDir("C:\\MyDir");
             logger.info("Directory is copied? " + String.valueOf(String.valueOf(backupUtility.getIsCopied())));
+            logger.info("Name of cope directory is: " + nameOfCopyDirectory);
+        } catch (NullPointerException e) {
+            logger.info("Неправильно введено имя копиркуемого директория");
+        }
+
+        try {
+            String nameOfCopyDirectory = backupUtility.backupDirByByte("C:\\MyDir");
+            logger.info("Directory is copied? " + String.valueOf(String.valueOf(backupUtility.getIsCopiedByByte())));
+            logger.info("Name of cope directory is: " + nameOfCopyDirectory);
         } catch (NullPointerException e) {
             logger.info("Неправильно введено имя копиркуемого директория");
         }

@@ -27,4 +27,24 @@ public class BackupUtiliteTests {
 
         Assertions.assertEquals(sizeOfAllFilesExpected, sizeOfAllFilesActual);
     }
+
+    @Test
+    public void testBackupDirByByte() {
+        String dirName = "C:\\MyDir";
+        File dir = new File(dirName);
+        long sizeOfAllFilesExpected = 0L;
+        for (File item : dir.listFiles()) {
+            sizeOfAllFilesExpected += item.length();
+        }
+        System.out.println(sizeOfAllFilesExpected);
+
+        String copyDirName = backupUtility.backupDirByByte(dirName);
+        File copyDir = new File(copyDirName);
+        long sizeOfAllFilesActual = 0L;
+        for (File item : copyDir.listFiles()) {
+            sizeOfAllFilesActual += item.length();
+        }
+
+        Assertions.assertEquals(sizeOfAllFilesExpected, sizeOfAllFilesActual);
+    }
 }
