@@ -8,7 +8,8 @@ public class DemoBackupUtility {
         Logger logger = Logger.getLogger(DemoBackupUtility.class.getName());
         BackupUtility backupUtility = new BackupUtility();
         try {
-            logger.info("Directory is copied? " + String.valueOf(backupUtility.backupDir("C:\\MyDir")));
+            backupUtility.backupDir("C:\\MyDir");
+            logger.info("Directory is copied? " + String.valueOf(String.valueOf(backupUtility.getIsCopied())));
         } catch (NullPointerException e) {
             logger.info("Неправильно введено имя копиркуемого директория");
         }

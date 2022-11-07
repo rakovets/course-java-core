@@ -9,7 +9,11 @@ public class BackupUtility {
         this.isCopied = true;
     }
 
-    public boolean backupDir(String dirName) throws NullPointerException {
+    public boolean getIsCopied() {
+        return isCopied;
+    }
+
+    public String backupDir(String dirName) throws NullPointerException {
         String addToCopyName = "_copy";
         File dir = new File(dirName);
         File copyDir = new File(dirName.concat(addToCopyName));
@@ -19,13 +23,13 @@ public class BackupUtility {
                  BufferedWriter bw = new BufferedWriter(new FileWriter(item.getParent().concat(addToCopyName) + "\\" + item.getName().concat(addToCopyName)))) {
                 String s;
                 while ((s = br.readLine()) != null) {
-                    bw.write(s);
+                    bw.write(s + "\n");
                 }
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
                 this.isCopied = false;
             }
         }
-        return this.isCopied;
+        return copyDir.getAbsolutePath();
     }
 }
