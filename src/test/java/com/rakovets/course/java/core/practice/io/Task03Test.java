@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class Task02Test {
+public class Task03Test {
     FileUtil fileUtil = new FileUtil();
     @Test
-    public void testGetStringListFromFile() {
-        String pathToFile = "C:\\MyDir\\task02.txt";
+    public void testGetStringListOfWordsStartingWithVowelsFromFile() {
+        String pathToFile = "C:\\MyDir\\task03.txt";
 
-        List<String> stringList = fileUtil.getStringListFromFile(pathToFile);
+        List<String> stringList = fileUtil.getStringListOfWordsStartingWithVowelsFromFile(pathToFile);
         String[] array = new String[stringList.size()];
         stringList.toArray(array);
         String actual = String.join("", array);
-        String expected = "Text 1." + "Text 2." + "Text 3.";
+        String expected = "Any" + "any" + "ooy" + "ide" + "usw" + "ak" + "op";
 
         Assertions.assertEquals(expected, actual);
     }
