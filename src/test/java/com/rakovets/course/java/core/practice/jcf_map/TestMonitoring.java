@@ -5,13 +5,16 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.*;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Stream;
 
 public class TestMonitoring {
     TextMonitoring textMonitoring = new TextMonitoring();
 
-    static Stream<Arguments> CountUniqueWordsArguments() {
+    static Stream<Arguments> countUniqueWordsArguments() {
         return Stream.of(
                 Arguments.of("Sun sun. My cat line... Cat cat, dog cat Sun & dog! Hi sun? fine!!! AND sun YoU)", 11),
                 Arguments.of("Cat cat Dog Dog  Dog HI hi HI hi ooo oooo oooo", 7)
@@ -19,7 +22,7 @@ public class TestMonitoring {
     }
 
     @ParameterizedTest
-    @MethodSource("CountUniqueWordsArguments")
+    @MethodSource("countUniqueWordsArguments")
     public void getCountUniqueWords(String line, int expected) {
         Map<String, Integer> map = textMonitoring.researchText(line);
 
@@ -28,7 +31,7 @@ public class TestMonitoring {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> UniqueWordsArguments() {
+    static Stream<Arguments> uniqueWordsArguments() {
         return Stream.of(
                 Arguments.of("Sun sun. My cat line... Cat cat, dog cat Sun & dog! Hi sun? fine!!! AND sun YoU)",
                         Set.of("Hi", "fine", "line", "cat", "Cat", "AND", "My", "Sun", "sun", "dog", "YoU"),
@@ -38,7 +41,7 @@ public class TestMonitoring {
     }
 
     @ParameterizedTest
-    @MethodSource("UniqueWordsArguments")
+    @MethodSource("uniqueWordsArguments")
     public void getUniqueWords(String line, Set<String> expected) {
         Map<String, Integer> map = textMonitoring.researchText(line);
 
@@ -47,13 +50,13 @@ public class TestMonitoring {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> FrequencyWordArguments() {
+    static Stream<Arguments> frequencyWordArguments() {
         return Stream.of(
                 Arguments.of("Sun sun. My cat line... Cat cat, dog cat Sun & dog! Hi sun? fine!!! AND sun YoU)", 3));
     }
 
     @ParameterizedTest
-    @MethodSource("FrequencyWordArguments")
+    @MethodSource("frequencyWordArguments")
     public void getFrequencyWord(String line, int expected) {
         Map<String, Integer> map = textMonitoring.researchText(line);
 
@@ -62,7 +65,7 @@ public class TestMonitoring {
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> FrequencyWordsArgumentsTrue() {
+    static Stream<Arguments> frequencyWordsArgumentsTrue() {
         return Stream.of(
                 Arguments.of("Sun. My cat line... Cat cat, dog cat Sun & dog! Hi? fine!!! AND YoU)",
                         new TreeMap<String, Integer>(Map.of("AND", 1, "Cat", 1, "Hi", 1, "My", 1, "Sun", 2, "YoU", 1, "cat", 3, "dog", 2, "fine", 1, "line", 1))//, "sun", 3))
@@ -70,7 +73,7 @@ public class TestMonitoring {
     }
 
     @ParameterizedTest
-    @MethodSource("FrequencyWordsArgumentsTrue")
+    @MethodSource("frequencyWordsArgumentsTrue")
     public void getFrequencyWordsTrue(String line, NavigableMap<String, Integer> expected) {
         Map<String, Integer> map = textMonitoring.researchText(line);
 
