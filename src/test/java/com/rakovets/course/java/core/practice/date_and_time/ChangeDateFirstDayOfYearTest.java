@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.stream.Stream;
 
 public class ChangeDateFirstDayOfYearTest {
-    static Stream<Arguments> ChangeDateFirstDayOfYearArguments() {
+    static Stream<Arguments> changeDateFirstDayOfYearArguments() {
         return Stream.of(
                 Arguments.of(LocalDate.of(2022, 11, 3), LocalDate.of(2023, 1, 1)),
                 Arguments.of(LocalDate.of(2034, 12, 3), LocalDate.of(2035, 1, 1)),
@@ -18,7 +18,7 @@ public class ChangeDateFirstDayOfYearTest {
     }
 
     @ParameterizedTest
-    @MethodSource("ChangeDateFirstDayOfYearArguments")
+    @MethodSource("changeDateFirstDayOfYearArguments")
     public void adjustInto(LocalDate localDate, LocalDate expected) {
         LocalDate actual = localDate.with(new ChangeDateFirstDayOfYear());
 

@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class DateWrapperTest {
     DateWrapper wrapper = new DateWrapper();
 
-    static Stream<Arguments> LocalDateArguments() {
+    static Stream<Arguments> localDateArguments() {
         return Stream.of(
                 Arguments.of(2022, 11, 3, LocalDate.of(2022, 11, 3)),
                 Arguments.of(2034, 12, 3, LocalDate.of(2034, 12, 3)),
@@ -22,14 +22,14 @@ public class DateWrapperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("LocalDateArguments")
+    @MethodSource("localDateArguments")
     public void getLocalDate(int year, int month, int day, LocalDate expected) {
         LocalDate actual = wrapper.getLocalDate(year, month, day);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> LocalDateBeforeNMonthArguments() {
+    static Stream<Arguments> localDateBeforeNMonthArguments() {
         return Stream.of(
                 Arguments.of(LocalDate.of(2022, 11, 3), 5, LocalDate.of(2023, 4, 3)),
                 Arguments.of(LocalDate.of(2034, 12, 3), 1, LocalDate.of(2035, 1, 3)),
@@ -38,14 +38,14 @@ public class DateWrapperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("LocalDateBeforeNMonthArguments")
+    @MethodSource("localDateBeforeNMonthArguments")
     public void getLocalDateBeforeNMonth(LocalDate date, int plusNMonth, LocalDate expected) {
         LocalDate actual = wrapper.getLocalDateBeforeNMonth(date, plusNMonth);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> LocalDateFormatterStringArguments() {
+    static Stream<Arguments> localDateFormatterStringArguments() {
         return Stream.of(
                 Arguments.of(LocalDate.of(2022, 11, 3), DateTimeFormatter.ofPattern("MMMM dd yyyy", Locale.US), "November 03 2022"),
                 Arguments.of(LocalDate.of(2020, 9, 11), DateTimeFormatter.ofPattern("dd, MM, yyyy"), "11, 09, 2020"),
@@ -54,14 +54,14 @@ public class DateWrapperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("LocalDateFormatterStringArguments")
+    @MethodSource("localDateFormatterStringArguments")
     public void getLocalDateFormatterString(LocalDate date, DateTimeFormatter formatter, String expected) {
         String actual = wrapper.getLocalDateFormatterString(date, formatter);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> StringFormatterLocalDateArguments() {
+    static Stream<Arguments> stringFormatterLocalDateArguments() {
         return Stream.of(
                 Arguments.of("11.3.2022", "MM.d.yyyy", LocalDate.of(2022, 11, 3)),
                 Arguments.of("11, 09, 2020", "dd, MM, yyyy", LocalDate.of(2020, 9, 11)),
@@ -70,14 +70,14 @@ public class DateWrapperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("StringFormatterLocalDateArguments")
+    @MethodSource("stringFormatterLocalDateArguments")
     public void getStringFormatterLocalDate(String date, String formatter, LocalDate expected) {
         LocalDate actual = wrapper.getStringFormatterLocalDate(date, formatter);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    static Stream<Arguments> CountDaysBetweenLocalDatesArguments() {
+    static Stream<Arguments> countDaysBetweenLocalDatesArguments() {
         return Stream.of(
                 Arguments.of(LocalDate.of(2022, 11, 3), LocalDate.of(2020, 11, 3), -730),
                 Arguments.of(LocalDate.of(2020, 9, 11), LocalDate.of(2020, 11, 11), 61),
@@ -86,7 +86,7 @@ public class DateWrapperTest {
     }
 
     @ParameterizedTest
-    @MethodSource("CountDaysBetweenLocalDatesArguments")
+    @MethodSource("countDaysBetweenLocalDatesArguments")
     public void getCountDaysBetweenLocalDates(LocalDate date, LocalDate date1, long expected) {
         long actual = wrapper.getCountDaysBetweenLocalDates(date, date1);
 

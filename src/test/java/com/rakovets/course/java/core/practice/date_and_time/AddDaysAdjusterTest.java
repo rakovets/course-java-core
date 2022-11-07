@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.stream.Stream;
 
 public class AddDaysAdjusterTest {
-    static Stream<Arguments> AddDaysAdjusterArguments() {
+    static Stream<Arguments> addDaysAdjusterArguments() {
         return Stream.of(
                 Arguments.of(LocalDate.of(2022, 11, 3), 6, LocalDate.of(2022, 11, 9)),
                 Arguments.of(LocalDate.of(2034, 12, 3), 31, LocalDate.of(2035, 1, 3)),
@@ -18,7 +18,7 @@ public class AddDaysAdjusterTest {
     }
 
     @ParameterizedTest
-    @MethodSource("AddDaysAdjusterArguments")
+    @MethodSource("addDaysAdjusterArguments")
     public void adjustInto(LocalDate localDate, int days, LocalDate expected) {
         LocalDate actual = localDate.with(new AddDaysAdjuster(days));
 
