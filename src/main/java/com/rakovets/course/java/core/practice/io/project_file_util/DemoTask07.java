@@ -12,7 +12,7 @@ public class DemoTask07 {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToFile))) {
             String text1 = "Any yo any.    text 1.\n";
             String text2 = "ooy ide? ust text 2.\n";
-            String text3 = "gy ako   op text 3.\n";
+            String text3 = "gy ako  any op text 3.\n";
             bw.write(text1);
             bw.write(text2);
             bw.write(text3);
@@ -37,26 +37,22 @@ public class DemoTask07 {
                 .filter(x -> (!x.isBlank()))
                 .collect(Collectors.toList());
         logger.info(stringList2.toString());
-        SortedMap<String, Integer> sortedUniqueWords = new TreeMap<>();
+        Map<String, Integer> unsortedUniqueWords = new HashMap();
         for (String s : stringList2) {
             Integer i = 1;
-            Integer j = sortedUniqueWords.put(s, i);
+            Integer j = unsortedUniqueWords.put(s, i);
             if (j != null) {
                 j++;
-                sortedUniqueWords.put(s, j);
+                unsortedUniqueWords.put(s, j);
             }
         }
-        logger.info(sortedUniqueWords.entrySet().toString());
-        //SortedMap<String, Integer> sortedUniqueWords2 = sortedUniqueWords.entrySet().stream()
-        //        .sorted()
-
-
-        String[] array = sortedUniqueWords.entrySet().toString().split(" ");
-        /*public void printMapInMyFormat(Map<String, Integer> map) {
-            for (Map.Entry m : map.entrySet()) {
-                System.out.print(m.getKey() + " " + m.getValue() + ", ");
-            }
-            System.out.println();
-        }*/
+        logger.info(unsortedUniqueWords.entrySet().toString());
+        List<Map.Entry> list = new LinkedList<>(unsortedUniqueWords.entrySet());
+        Collections.sort(list, new MyComparatorTask07());
+        Map sortedUniqueWords = new LinkedHashMap();
+        for (Map.Entry entry : list) {
+            sortedUniqueWords.put(entry.getKey(), entry.getValue());
+        }
+        logger.info(sortedUniqueWords.toString());
     }
 }

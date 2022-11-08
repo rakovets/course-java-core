@@ -103,10 +103,19 @@ public class FileUtil {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        List<String> stringList2 = new ArrayList<>();
-        for (String s : stringList) {
-            String[] arrayString = new String[s.length()];
-            arrayString = s.split(" ");
+        List<String> stringList2 = stringList.stream()
+                .map(x -> x.replaceAll("\\p{Punct}", ""))
+                .map(x -> x.toUpperCase())
+                .map(x -> x.replaceAll("[A-Z]", ""))
+                .map(x -> x.replaceAll("[А-Я]", ""))
+                .map(x -> x.replaceAll("  ", " "))
+                .filter(x -> (!x.isBlank()))
+                .collect(Collectors.toList());
+        List<String> stringList3 = new ArrayList<>();
+        for (String s : stringList2) {
+            //s.replaceAll("[^0-9]", "");
+            //String ss = s.replaceAll("[^0-9]", "");
+            String[] arrayString = s.split(" ");
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(arrayString[0]);
             int max = Integer.parseInt(arrayString[0]);
@@ -118,9 +127,9 @@ public class FileUtil {
                 }
             }
             String stringToList = stringBuffer.toString();
-            stringList2.add(stringToList);
+            stringList3.add(stringToList);
         }
-        return stringList2;
+        return stringList3;
     }
 
     public Map<Character, Integer> getUniqueLettersFromFileAndCountThem(String pathToFile) {

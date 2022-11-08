@@ -9,8 +9,8 @@ public class DemoTask05 {
         Logger logger = Logger.getLogger(DemoTask05.class.getName());
         String pathToFile = "C:\\MyDir\\task05.txt";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToFile))) {
-            String text1 = "1 2 1 66 2 3\n";
-            String text2 = "67 68 69 23 101 1\n";
+            String text1 = "1 г2 r1 66 2 3\n";
+            String text2 = "67 ф68 vv 69 23  e101 1\n";
             bw.write(text1);
             bw.write(text2);
         } catch (IOException ex) {
