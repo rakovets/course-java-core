@@ -1,9 +1,7 @@
 package com.rakovets.course.java.core.practice.io.project_file_util;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FileUtil {
@@ -123,5 +121,32 @@ public class FileUtil {
             stringList2.add(stringToList);
         }
         return stringList2;
+    }
+
+    public Map<Character, Integer> getUniqueLettersFromFileAndCountThem(String pathToFile) {
+        List<String> stringList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                stringList.add(s.toLowerCase());
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        String str = stringList.toString();
+        String str2 = str.replaceAll("\\p{Punct}", "");
+        String str3 = str2.replaceAll(" ", "");
+        Map<Character, Integer> uniqueLetters = new HashMap<>();
+        for (int i = 0; i < str3.length() - 1; i++) {
+            if (str3.charAt(i) < '0' || str3.charAt(i) > '9' ) {
+                Integer ii = 1;
+                Integer jj = uniqueLetters.put(str3.charAt(i), ii);
+                if (jj != null) {
+                    jj++;
+                    uniqueLetters.put(str3.charAt(i), jj);
+                }
+            }
+        }
+        return uniqueLetters;
     }
 }
