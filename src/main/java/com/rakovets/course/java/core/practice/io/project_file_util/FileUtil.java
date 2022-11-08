@@ -94,4 +94,34 @@ public class FileUtil {
         }
         return stringList3;
     }
+
+    public List<String> getOnlyIncreasingValuesfromFile(String pathToFile) {
+        List<String> stringList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                stringList.add(s);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        List<String> stringList2 = new ArrayList<>();
+        for (String s : stringList) {
+            String[] arrayString = new String[s.length()];
+            arrayString = s.split(" ");
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(arrayString[0]);
+            int max = Integer.parseInt(arrayString[0]);
+            for (int i = 1; i < arrayString.length; i++) {
+                if (Integer.parseInt(arrayString[i]) > max) {
+                    max = Integer.parseInt(arrayString[i]);
+                    stringBuffer.append(" ");
+                    stringBuffer.append(arrayString[i]);
+                }
+            }
+            String stringToList = stringBuffer.toString();
+            stringList2.add(stringToList);
+        }
+        return stringList2;
+    }
 }
