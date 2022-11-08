@@ -46,9 +46,12 @@ public class DemoTask07 {
                 sortedUniqueWords.put(s, j);
             }
         }
-        sortedUniqueWords.comparator();
         logger.info(sortedUniqueWords.entrySet().toString());
+        //SortedMap<String, Integer> sortedUniqueWords2 = sortedUniqueWords.entrySet().stream()
+        //        .sorted()
 
+
+        String[] array = sortedUniqueWords.entrySet().toString().split(" ");
         /*public void printMapInMyFormat(Map<String, Integer> map) {
             for (Map.Entry m : map.entrySet()) {
                 System.out.print(m.getKey() + " " + m.getValue() + ", ");
