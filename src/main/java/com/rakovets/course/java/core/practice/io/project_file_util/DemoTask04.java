@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class DemoTask04 {
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger(com.rakovets.course.java.core.practice.io.DemoTask04.class.getName());
+        Logger logger = Logger.getLogger(DemoTask04.class.getName());
         FileUtil fileUtil = new FileUtil();
         String pathToFile = "C:\\MyDir\\task04.txt";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToFile))) {
