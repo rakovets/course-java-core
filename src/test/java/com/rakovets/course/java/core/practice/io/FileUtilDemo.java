@@ -26,7 +26,7 @@ public class FileUtilDemo {
         System.out.println("\n Task 6");
         System.out.println(fileUtil.getAllLettersFrequency(inputFilePath));
         System.out.println("\n Task 7");
-        System.out.println(fileUtil.getWordsFrequency(inputFilePath));
+        System.out.println(fileUtil.getWordsFrequency(codeFilePath));
         System.out.println("\n Task 8");
         fileUtil.writeSortedNumbers(numbersFilePath);
         System.out.println("\n Task 9");
