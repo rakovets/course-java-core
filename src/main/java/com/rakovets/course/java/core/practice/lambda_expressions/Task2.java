@@ -3,12 +3,7 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 import java.util.stream.IntStream;
 
 public class Task2 {
-    public static void main(String[] args) {
-        oneColumnMultiplicationTable();
-        fiveColumnMultiplicationTable();
-    }
-
-    public static void oneColumnMultiplicationTable() {
+    public void printOneColumnMultiplicationTable() {
         IntStream.rangeClosed(1, 10)
                 .forEach(i -> {
                     IntStream.rangeClosed(1, 10)
@@ -17,7 +12,7 @@ public class Task2 {
                 });
     }
 
-    public static void fiveColumnMultiplicationTable() {
+    public void printFiveColumnMultiplicationTable() {
         IntStream.rangeClosed(1, 10)
                 .forEach(i -> {
                     IntStream.rangeClosed(1, 5)

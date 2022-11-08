@@ -1,67 +1,55 @@
 package com.rakovets.course.java.core.practice.lambda_expressions.project_tv;
 
-import com.rakovets.course.java.core.practice.lambda_expressions.project_tv.comparator.DiagonalAscendingComparator;
-import com.rakovets.course.java.core.practice.lambda_expressions.project_tv.comparator.DiagonalDescendingComparator;
-import com.rakovets.course.java.core.practice.lambda_expressions.project_tv.comparator.PriceAscendingComparator;
-import com.rakovets.course.java.core.practice.lambda_expressions.project_tv.comparator.PriceDescendingComparator;
-
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProjectTv {
     public List<Television> getTvWithSpecialDiagonal(List<Television> televisionList, int diagonal) {
-        List<Television> result = televisionList.stream()
+        return televisionList.stream()
                 .filter(s -> s.getDiagonal() == diagonal)
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvOfSpecialManufacturer(List<Television> televisionList, Manufacturer manufacturer) {
-        List<Television> result = televisionList.stream()
+       return televisionList.stream()
                 .filter(s -> s.getManufacturer().equals(manufacturer))
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvUnderYear(List<Television> televisionList, int year) {
-        List<Television> result = televisionList.stream()
+        return televisionList.stream()
                 .filter(s -> s.getYear() >= year)
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvInDiapasonPrice(List<Television> televisionList, int lowerPrice, int higherPrice) {
-        List<Television> result = televisionList.stream()
+        return televisionList.stream()
                 .filter(s -> s.getPrice() >= lowerPrice && s.getPrice() <= higherPrice)
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvSortByPriceAscending(List<Television> televisionList) {
-        List<Television> result = televisionList.stream()
-                .sorted(new PriceAscendingComparator())
+        return televisionList.stream()
+                .sorted(Comparator.comparing(Television::getPrice))
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvSortByPriceDescending(List<Television> televisionList) {
-        List<Television> result = televisionList.stream()
-                .sorted(new PriceDescendingComparator())
+        return televisionList.stream()
+                .sorted(Comparator.comparing(Television::getPrice).reversed())
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvSortByDiagonalAscending(List<Television> televisionList) {
-        List<Television> result = televisionList.stream()
-                .sorted(new DiagonalAscendingComparator())
+        return televisionList.stream()
+                .sorted(Comparator.comparing(Television::getDiagonal))
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Television> getTvSortByDiagonalDescending(List<Television> televisionList) {
-        List<Television> result = televisionList.stream()
-                .sorted(new DiagonalDescendingComparator())
+       return televisionList.stream()
+                .sorted(Comparator.comparing(Television::getDiagonal).reversed())
                 .collect(Collectors.toList());
-        return result;
     }
 }
