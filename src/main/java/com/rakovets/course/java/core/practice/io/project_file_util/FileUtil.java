@@ -108,13 +108,12 @@ public class FileUtil {
                 .map(x -> x.toUpperCase())
                 .map(x -> x.replaceAll("[A-Z]", ""))
                 .map(x -> x.replaceAll("[А-Я]", ""))
+                .map(x -> x.replaceAll("   ", " "))
                 .map(x -> x.replaceAll("  ", " "))
                 .filter(x -> (!x.isBlank()))
                 .collect(Collectors.toList());
         List<String> stringList3 = new ArrayList<>();
         for (String s : stringList2) {
-            //s.replaceAll("[^0-9]", "");
-            //String ss = s.replaceAll("[^0-9]", "");
             String[] arrayString = s.split(" ");
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(arrayString[0]);
