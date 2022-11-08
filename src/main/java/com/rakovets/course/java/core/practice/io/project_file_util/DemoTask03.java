@@ -10,9 +10,9 @@ public class DemoTask03 {
         FileUtil fileUtil = new FileUtil();
         String pathToFile = "C:\\MyDir\\task03.txt";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToFile))) {
-            String text1 = "Any to any. text 1.\n";
+            String text1 = "Any to any.    text 1.\n";
             String text2 = "ooy ide? usw text 2.\n";
-            String text3 = "gy ak op text 3.\n";
+            String text3 = "gy ak   op text 3.\n";
             bw.write(text1);
             bw.write(text2);
             bw.write(text3);

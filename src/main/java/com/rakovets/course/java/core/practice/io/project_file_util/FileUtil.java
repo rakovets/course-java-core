@@ -50,6 +50,7 @@ public class FileUtil {
                         Arrays.stream(x.split(" "))
                 )
                 .map(x -> x.replaceAll("\\p{Punct}", ""))
+                .filter(x -> (!x.isBlank()))
                 .filter(x ->
                         x.charAt(0) == 'a' ||
                         x.charAt(0) == 'e' ||
@@ -64,5 +65,33 @@ public class FileUtil {
                         x.charAt(0) == 'Y')
                 .collect(Collectors.toList());
         return stringList2;
+    }
+
+    public List<String> getStringListOfWordsEndsWithLetterNextWordStatsFromFile(String pathToFile) {
+        List<String> stringList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                stringList.add(s);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        List<String> stringList2 = stringList.stream()
+                .flatMap(x ->
+                        Arrays.stream(x.split(" "))
+                )
+                .map(x -> x.replaceAll("\\p{Punct}", ""))
+                .filter(x -> (!x.isBlank()))
+                .collect(Collectors.toList());
+        String[] array = new String[stringList2.size()];
+        stringList2.toArray(array);
+        List<String> stringList3 = new ArrayList<>();
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i].endsWith(String.valueOf(array[i + 1].charAt(0)))) {
+                stringList3.add(array[i]);
+            }
+        }
+        return stringList3;
     }
 }
