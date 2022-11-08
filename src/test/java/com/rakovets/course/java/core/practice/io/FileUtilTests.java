@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 
 public class FileUtilTests {
     FileUtil fileUtil = new FileUtil();
+
     static Stream<Arguments> provideArgumentsGetListOfStrings() {
         return Stream.of(
                 Arguments.of(Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "numbers.txt"),
@@ -65,6 +66,7 @@ public class FileUtilTests {
     void getAllLettersFrequencyTest() {
         Path inputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "text.txt");
         String expected = "{a=32, b=6, c=11, d=15, e=53, f=4, g=7, h=1, i=48, l=32, m=26, n=22, o=18, p=15, q=3, r=24, s=35, t=30, u=33, v=7}";
+
         Map<Character, Integer> actual = fileUtil.getAllLettersFrequency(inputFilePath);
 
         Assertions.assertEquals(actual.toString(), expected);
