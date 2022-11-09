@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FileUtil {
-    public boolean fileTextToUpperCase(String fileNameFirst, String fileNameSecond) {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileNameFirst));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameSecond))) {
+    public void fileTextToUpperCase(String fileNameFirst, String fileNameSecond) {
+        String fileNameFirstUni = fileNameFirst.replaceAll("//", File.separator);
+        String fileNameSecondUni = fileNameSecond.replaceAll("//", File.separator);
+        try (BufferedReader br = new BufferedReader(new FileReader(fileNameFirstUni));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameSecondUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 System.out.println(s);
@@ -16,14 +18,13 @@ public class FileUtil {
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-            return false;
         }
-        return true;
     }
 
     public List<String> getStringListFromFile(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFileUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 stringList.add(s);
@@ -35,8 +36,9 @@ public class FileUtil {
     }
 
     public List<String> getStringListOfWordsStartingWithVowelsFromFile(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFileUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 stringList.add(s);
@@ -67,8 +69,9 @@ public class FileUtil {
     }
 
     public List<String> getStringListOfWordsEndsWithLetterNextWordStatsFromFile(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFileUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 stringList.add(s);
@@ -95,8 +98,9 @@ public class FileUtil {
     }
 
     public List<String> getOnlyIncreasingValuesfromFile(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFileUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 stringList.add(s);
@@ -133,8 +137,9 @@ public class FileUtil {
     }
 
     public Map<Character, Integer> getUniqueLettersFromFileAndCountThem(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFileUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 stringList.add(s.toLowerCase());
@@ -160,8 +165,9 @@ public class FileUtil {
     }
 
     public Map getFrequencyOfUniqueWordsFromFile(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
         List<String> stringList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFileUni))) {
             String s;
             while ((s = br.readLine()) != null) {
                 stringList.add(s);
@@ -196,9 +202,10 @@ public class FileUtil {
     }
 
     public int[] getReversedIntArrayFromFile(String pathToFile) throws IOException {
-        int arraySize = new FileInputStream(pathToFile).available() / 4;
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
+        int arraySize = new FileInputStream(pathToFileUni).available() / 4;
         int[] outArray = new int[arraySize];
-        try (DataInputStream dos = new DataInputStream(new FileInputStream(pathToFile))) {
+        try (DataInputStream dos = new DataInputStream(new FileInputStream(pathToFileUni))) {
             for (int i = 0; i < arraySize; i++) {
                 outArray[i] = dos.readInt();
             }
@@ -208,7 +215,7 @@ public class FileUtil {
         int[] finalArray = IntStream.of(outArray)
                 .sorted()
                 .toArray();
-        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(pathToFile))) {
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(pathToFileUni))) {
             for (int i = 0; i < arraySize; i++) {
                 dos.writeInt(finalArray[i]);
             }

@@ -11,10 +11,10 @@ public class DemoTask04 {
         Logger logger = Logger.getLogger(DemoTask04.class.getName());
         FileUtil fileUtil = new FileUtil();
         String pathToFile = "C:\\MyDir\\task04.txt";
+        String text1 = "Any yo any.    text 1.\n";
+        String text2 = "ooy ide? ust text 2.\n";
+        String text3 = "gy ako   op text 3.\n";
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToFile))) {
-            String text1 = "Any yo any.    text 1.\n";
-            String text2 = "ooy ide? ust text 2.\n";
-            String text3 = "gy ako   op text 3.\n";
             bw.write(text1);
             bw.write(text2);
             bw.write(text3);

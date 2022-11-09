@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 public class Task04Test {
-
     FileUtil fileUtil = new FileUtil();
     @Test
     public void testGetStringListOfWordsEndsWithLetterNextWordStatsFromFile() {

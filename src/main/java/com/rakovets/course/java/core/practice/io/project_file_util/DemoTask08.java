@@ -1,9 +1,6 @@
 package com.rakovets.course.java.core.practice.io.project_file_util;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.logging.Logger;
-import java.util.stream.IntStream;
 
 public class DemoTask08 {
     public static void main(String[] args) throws IOException {
