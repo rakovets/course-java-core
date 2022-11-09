@@ -18,7 +18,7 @@ public class Consumer extends Thread {
 
     @Override
     public void run() {
-        try (Writer fw = new FileWriter(Files.OUTPUT_FILE, true)) {
+        try (Writer fw = new FileWriter(MyFile.OUTPUT_FILE, true)) {
             for (int digitFromProducer : integerQueue) {
                 try {
                     Thread.sleep(digitFromProducer * 1000L);

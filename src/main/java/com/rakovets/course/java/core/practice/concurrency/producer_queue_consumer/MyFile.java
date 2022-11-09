@@ -2,7 +2,7 @@ package com.rakovets.course.java.core.practice.concurrency.producer_queue_consum
 
 import java.io.File;
 
-public abstract class Files {
+public abstract class MyFile {
     public static File OUTPUT_FILE = new File("src" + File.separator
             + "test" + File.separator
             + "java" + File.separator
