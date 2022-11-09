@@ -157,4 +157,40 @@ public class FileUtil {
         }
         return uniqueLetters;
     }
+
+    public Map getFrequencyOfUniqueWordsFromFile(String pathToFile) {
+        List<String> stringList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+            String s;
+            while ((s = br.readLine()) != null) {
+                stringList.add(s);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        List<String> stringList2 = stringList.stream()
+                .flatMap(x ->
+                        Arrays.stream(x.split(" "))
+                )
+                .map(x -> x.replaceAll("\\p{Punct}", ""))
+                .map(x -> x.replaceAll("\\d",""))
+                .filter(x -> (!x.isBlank()))
+                .collect(Collectors.toList());
+        Map<String, Integer> unsortedUniqueWords = new HashMap();
+        for (String s : stringList2) {
+            Integer i = 1;
+            Integer j = unsortedUniqueWords.put(s, i);
+            if (j != null) {
+                j++;
+                unsortedUniqueWords.put(s, j);
+            }
+        }
+        List<Map.Entry> list = new LinkedList<>(unsortedUniqueWords.entrySet());
+        list.sort((a, b) -> (int) a.getValue() - (int) b.getValue());//(new MyComparatorTask07());
+        Map sortedUniqueWords = new LinkedHashMap();
+        for (Map.Entry entry : list) {
+            sortedUniqueWords.put(entry.getKey(), entry.getValue());
+        }
+        return sortedUniqueWords;
+    }
 }
