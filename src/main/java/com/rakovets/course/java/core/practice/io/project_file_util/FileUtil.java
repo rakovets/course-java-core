@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.io.project_file_util;
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class FileUtil {
     public boolean fileTextToUpperCase(String fileNameFirst, String fileNameSecond) {
@@ -192,5 +193,28 @@ public class FileUtil {
             sortedUniqueWords.put(entry.getKey(), entry.getValue());
         }
         return sortedUniqueWords;
+    }
+
+    public int[] getReversedIntArrayFromFile(String pathToFile) throws IOException {
+        int arraySize = new FileInputStream(pathToFile).available() / 4;
+        int[] outArray = new int[arraySize];
+        try (DataInputStream dos = new DataInputStream(new FileInputStream(pathToFile))) {
+            for (int i = 0; i < arraySize; i++) {
+                outArray[i] = dos.readInt();
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        int[] finalArray = IntStream.of(outArray)
+                .sorted()
+                .toArray();
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(pathToFile))) {
+            for (int i = 0; i < arraySize; i++) {
+                dos.writeInt(finalArray[i]);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return finalArray;
     }
 }
