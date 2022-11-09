@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 public class Consumer extends Thread {
     public static final Logger logger = Logger.getLogger(Consumer.class.getName());
+
     private final Queue<Integer> integerQueue;
 
     public Consumer(Container queue1) {
@@ -20,7 +21,7 @@ public class Consumer extends Thread {
         try (Writer fw = new FileWriter(Files.OUTPUT_FILE, true)) {
             for (int digitFromProducer : integerQueue) {
                 try {
-                    Thread.sleep(1000L);
+                    Thread.sleep(digitFromProducer * 1000L);
                     fw.write(String.format("%s - %s - I slept %d seconds\n"
                             , LocalDateTime.now()
                             , Thread.currentThread().getName()

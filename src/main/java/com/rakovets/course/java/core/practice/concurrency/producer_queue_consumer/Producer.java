@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 public class Producer extends Thread {
     public static final Logger logger = Logger.getLogger(Producer.class.getName());
+
     private final Queue<Integer> digits;
 
     public Producer(Container queue1) {
@@ -25,7 +26,7 @@ public class Producer extends Thread {
                 }
                 logger.log(Level.INFO, String.format("%d", digitOfUserEnter));
             } catch (UserInputException e) {
-                logger.log(Level.SEVERE, "Error" + e);
+                logger.log(Level.SEVERE, "Error " + e);
             }
         }
     }
