@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class Consumer implements Runnable {
     public static final Logger LOGGER = Logger.getLogger(Consumer.class.getName());
-    private static Queue<Integer> queue = new LinkedList<>();
+    private Queue<Integer> queue = new LinkedList<>();
     private final Path path;
 
     public Consumer(Queue<Integer> queue, Path path) {
@@ -32,7 +32,7 @@ public class Consumer implements Runnable {
                     if (queue.peek() == -1) {
                         break;
                     }
-                    value = queue.poll();
+                    value = getItem();
                     Thread.sleep(value * 1000L);
                     output.write(String.format("${%s} - ${%s} - I slept ${%d} seconds \n", LocalDateTime.now(), Thread.currentThread().getName(), value));
                 } else {
