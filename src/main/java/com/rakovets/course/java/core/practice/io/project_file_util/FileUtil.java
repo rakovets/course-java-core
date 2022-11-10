@@ -2,10 +2,12 @@ package com.rakovets.course.java.core.practice.io.project_file_util;
 
 import java.io.*;
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FileUtil {
+    Logger logger = Logger.getLogger(FileUtil.class.getName());
     public void fileTextToUpperCase(String fileNameFirst, String fileNameSecond) {
         String fileNameFirstUni = fileNameFirst.replaceAll("//", File.separator);
         String fileNameSecondUni = fileNameSecond.replaceAll("//", File.separator);
@@ -13,11 +15,10 @@ public class FileUtil {
              BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameSecondUni))) {
             String s;
             while ((s = br.readLine()) != null) {
-                System.out.println(s);
                 bw.write(s.toUpperCase());
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
     }
 
@@ -30,7 +31,7 @@ public class FileUtil {
                 stringList.add(s);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         return stringList;
     }
@@ -44,7 +45,7 @@ public class FileUtil {
                 stringList.add(s);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         List<String> stringList2 = stringList.stream()
                 .flatMap(x ->
@@ -77,7 +78,7 @@ public class FileUtil {
                 stringList.add(s);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         List<String> stringList2 = stringList.stream()
                 .flatMap(x ->
@@ -106,7 +107,7 @@ public class FileUtil {
                 stringList.add(s);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         List<String> stringList2 = stringList.stream()
                 .map(x -> x.replaceAll("\\p{Punct}", ""))
@@ -145,7 +146,7 @@ public class FileUtil {
                 stringList.add(s.toLowerCase());
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         String str = stringList.toString();
         String str2 = str.replaceAll("\\p{Punct}", "");
@@ -173,7 +174,7 @@ public class FileUtil {
                 stringList.add(s);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         List<String> stringList2 = stringList.stream()
                 .flatMap(x ->
@@ -193,7 +194,7 @@ public class FileUtil {
             }
         }
         List<Map.Entry> list = new LinkedList<>(unsortedUniqueWords.entrySet());
-        list.sort((a, b) -> (int) a.getValue() - (int) b.getValue());//(new MyComparatorTask07());
+        list.sort((a, b) -> (int) a.getValue() - (int) b.getValue());
         Map sortedUniqueWords = new LinkedHashMap();
         for (Map.Entry entry : list) {
             sortedUniqueWords.put(entry.getKey(), entry.getValue());
@@ -210,7 +211,7 @@ public class FileUtil {
                 outArray[i] = dos.readInt();
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         int[] finalArray = IntStream.of(outArray)
                 .sorted()
@@ -220,8 +221,55 @@ public class FileUtil {
                 dos.writeInt(finalArray[i]);
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            logger.info(ex.getMessage());
         }
         return finalArray;
+    }
+
+    public List<String> getNameAndAverageMarksFromFile(String pathToFile) {
+        String pathToFileUni = pathToFile.replaceAll("//", File.separator);
+        List<String> stringList = this.getStringListFromFile(pathToFile);
+        List<String> listWithNamesAndAverageMarks = new ArrayList<>();
+        for (String str : stringList) {
+            String[] array = str.split(",");
+            String name = array[0];
+            double averageMark = Arrays.stream(array)
+                    .skip(1)
+                    .map(x -> x.trim())
+                    .collect(Collectors.averagingInt((Integer::parseInt)));
+            String nameWithAverageMark = name.trim() + ", average mark: " + averageMark + "\n";
+            listWithNamesAndAverageMarks.add(nameWithAverageMark);
+        }
+        return listWithNamesAndAverageMarks;
+    }
+
+    public void convertAccessModifierInJavaFile(String modifierOld, String modifierNew, String pathToModifiedFile) {
+        File thisFile = new File(pathToModifiedFile);
+        String fileName = thisFile.getName();
+        String[] ar = fileName.split("\\.");
+        List<String> listStringsFromModifiedFile = this.getStringListFromFile(pathToModifiedFile);
+        List<String> listStringsToModifiedJavaFile = new ArrayList<>();
+        for (String str : listStringsFromModifiedFile) {
+            String s = "";
+            if (!str.contains(" class ") && !str.contains(ar[0])) {//if (!str.contains(" class ") && !str.contains(ar[0]))
+                s = str.replaceAll(modifierOld, modifierNew);
+            } else {
+                s = str;
+            }
+            listStringsToModifiedJavaFile.add(s);
+        }
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToModifiedFile, false))) {
+            bw.write("");
+        } catch (IOException ex) {
+            logger.info(ex.getMessage());
+        }
+        listStringsToModifiedJavaFile.stream()
+                .forEach(x -> {
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToModifiedFile, true))) {
+                        bw.write(x + "\n");
+                    } catch (IOException ex) {
+                        logger.info(ex.getMessage());
+                    }
+                });
     }
 }
