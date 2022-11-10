@@ -5,8 +5,8 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
-    private final Queue<Integer> numbers;
     private final Logger logger = Logger.getLogger(Producer.class.getName());
+    private final Queue<Integer> numbers;
 
     public Producer(Container queue) {
         this.numbers = queue.getQueue();
@@ -15,7 +15,7 @@ public class Producer extends Thread {
     @Override
     public void run() {
         Scanner sc = new Scanner(System.in);
-        logger.info("Enter positive number: ");
+        logger.info("Enter positive numbers. The end of queue is -1: ");
         int x = 0;
         while (x != -1) {
                 try {

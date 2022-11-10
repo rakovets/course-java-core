@@ -1,14 +1,27 @@
 package com.rakovets.course.java.core.practice.concurrency.backup_utility;
 
+import com.rakovets.course.java.core.practice.concurrency.producer_queue_consumer.Producer;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.logging.Logger;
 
-public class Backup {
-    public void copy(String mainDirectory, String copiedDirectory) {
+public class Backup extends Thread{
+    private final Logger logger = Logger.getLogger(Backup.class.getName());
+    private final String mainDirectory;
+    private final String copiedDirectory;
+
+    public Backup(String mainDirectory, String copiedDirectory) {
+        this.mainDirectory = mainDirectory;
+        this.copiedDirectory = copiedDirectory;
+    }
+
+    @Override
+    public void run() {
         try {
             File main = new File(mainDirectory);
             File[] listOfFiles = main.listFiles();
@@ -18,8 +31,8 @@ public class Backup {
                     Files.copy(file.toPath(), copiedDir.resolve(file.getName()), StandardCopyOption.REPLACE_EXISTING);
                 }
             }
-        }catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            logger.severe("Error: " + e.getMessage());
         }
     }
 }

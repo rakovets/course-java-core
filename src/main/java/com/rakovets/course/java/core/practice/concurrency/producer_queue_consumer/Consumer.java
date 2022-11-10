@@ -6,20 +6,23 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Queue;
+import java.util.logging.Logger;
 
 public class Consumer extends Thread {
+    private final Logger logger = Logger.getLogger(Consumer.class.getName());
     private final int MILLS = 1000;
     private final Queue<Integer> numbers;
+    private final String filePath;
 
-    public Consumer(Container queue) {
+    public Consumer(Container queue, String filePath) {
         this.numbers = queue.getQueue();
+        this.filePath = filePath;
     }
 
     @Override
     public void run() {
         try {
-            FileWriter writer = new FileWriter("D://IT/Courses IT Academy/course-java-core/src/main/java/com/rakovets/course/java/core/practice/concurrency/ProducerConsumer.txt",
-                    true);
+            FileWriter writer = new FileWriter(filePath, true);
             while (!Thread.currentThread().isInterrupted()) {
                 if (!numbers.isEmpty()) {
                     long seconds = numbers.poll();
@@ -34,8 +37,8 @@ public class Consumer extends Thread {
                     break;
                 }
             }
-        } catch (NullPointerException | IOException | InterruptedException e) {
-            e.printStackTrace();
+        } catch (IOException | InterruptedException e) {
+            logger.severe("Error: " + e.getMessage());
         }
     }
 }
