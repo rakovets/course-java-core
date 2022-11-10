@@ -1,12 +1,13 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
+import java.nio.file.Path;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Producer_Queue_ConsumerDemo {
+public class ProducerQueueConsumerDemo {
     public static void main(String[] args) {
-        String fileName = "src/test/java/com/rakovets/course/java/core/practice/concurrency/testFile.txt";
-        Container numbers = new Container();
+        Path fileName = Path.of("D:\\OKomlik\\course-java-core\\src\\test\\resources\\testFile.txt");
+        Queue<Integer> numbers = new LinkedList<>();
         Thread producerThread = new Producer(numbers);
         Thread consumer1 = new Consumer(numbers, fileName);
         Thread consumer2 = new Consumer(numbers, fileName);
@@ -15,7 +16,7 @@ public class Producer_Queue_ConsumerDemo {
         try {
             producerThread.join();
         } catch (InterruptedException e) {
-            System.out.println(e);;
+            System.out.println(e);
         }
         consumer1.start();
         consumer2.start();

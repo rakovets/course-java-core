@@ -5,13 +5,14 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
+    private static final Logger logger = Logger.getLogger(Producer.class.getName());
     private final Queue<Integer> numbers;
 
-    public Producer(Container queue) {
-        this.numbers = queue.getQueue();
+    public Producer(Queue<Integer> numbers) {
+        this.numbers = numbers;
     }
 
-    public static final Logger logger = Logger.getLogger(Producer.class.getName());
+
 
    @Override
    public void run() {
@@ -24,5 +25,6 @@ public class Producer extends Thread {
         } catch (UserInputException e) {
             logger.info(e.getMessage());
         }
+        sc.close();
     }
 }
