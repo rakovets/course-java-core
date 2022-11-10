@@ -6,12 +6,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
-    public static final Logger logger = Logger.getLogger(Producer.class.getName());
+    private static final Logger logger = Logger.getLogger(Producer.class.getName());
 
     private final Queue<Integer> digits;
 
-    public Producer(Container queue1) {
-        this.digits = queue1.getQueue();
+    public Producer(Container queue) {
+        this.digits = queue.getQueue();
     }
 
     @Override
@@ -25,6 +25,7 @@ public class Producer extends Thread {
                     break;
                 }
                 logger.log(Level.INFO, String.format("%d", digitOfUserEnter));
+                sc.close();
             } catch (UserInputException e) {
                 logger.log(Level.SEVERE, "Error " + e);
             }

@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.logging.Logger;
 
 public class Consumer extends Thread {
-    public static final Logger logger = Logger.getLogger(Consumer.class.getName());
+    private static final Logger logger = Logger.getLogger(Consumer.class.getName());
 
     private final Queue<Integer> integerQueue;
 
