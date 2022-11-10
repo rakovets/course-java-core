@@ -3,6 +3,7 @@ package com.rakovets.course.java.core.practice.io;
 import com.rakovets.course.java.core.util.NumberUtil;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -10,9 +11,9 @@ import java.util.stream.Collectors;
 public class FileUtil {
     public static final Logger logger = Logger.getLogger(FileUtil.class.getName());
 
-    public void copyToUpperCase(String fileInput, String fileOutput) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput));
-             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileOutput))) {
+    public void copyToUpperCase(Path fileInput, Path fileOutput) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput.toFile()));
+             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileOutput.toFile()))) {
             String text;
             while ((text = bufferedReader.readLine()) != null) {
                 bufferedWriter.write(text.toUpperCase() + "\n");
@@ -22,9 +23,9 @@ public class FileUtil {
         }
     }
 
-    public List<String> getLinesFromFile(String fileInput) {
+    public List<String> getLinesFromFile(Path fileInput) {
         List<String> result = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput.toFile()))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 result.add(line);
@@ -35,7 +36,7 @@ public class FileUtil {
         return result;
     }
 
-    public List<String> getWordsStartsWithVowel(String fileInput) {
+    public List<String> getWordsStartsWithVowel(Path fileInput) {
         List<String> result = new ArrayList<>();
         for (String str : getLinesFromFile(fileInput)) {
             Arrays.stream(str.split(" +"))
@@ -45,7 +46,7 @@ public class FileUtil {
         return result;
     }
 
-    public List<String> getWordsEndWithSameLetterNextWordStartWith(String fileInput) {
+    public List<String> getWordsEndWithSameLetterNextWordStartWith(Path fileInput) {
         List<String> words = new ArrayList<>();
         List<String> result = new ArrayList<>();
         for (String str : getLinesFromFile(fileInput)) {
@@ -59,7 +60,7 @@ public class FileUtil {
         return result;
     }
 
-    public List<String> getNumberCombination(String fileInput) {
+    public List<String> getNumberCombination(Path fileInput) {
         List<String> result = new ArrayList<>();
         for (String str : getLinesFromFile(fileInput)) {
             String[] words = str.split(" ");
@@ -81,9 +82,9 @@ public class FileUtil {
         return result;
     }
 
-    public Map<String, Integer> getLetterFrequency(String fileInput) {
+    public Map<String, Integer> getLetterFrequency(Path fileInput) {
         List<String> letters = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput.toFile()))) {
             int c;
             while ((c = bufferedReader.read()) != -1) {
                 char letter = Character.toLowerCase((char) c);
@@ -110,7 +111,7 @@ public class FileUtil {
         return result;
     }
 
-    public List<String> getWordFrequency(String fileInput) {
+    public List<String> getWordFrequency(Path fileInput) {
         List<String> words = new ArrayList<>();
         for (String str : getLinesFromFile(fileInput)) {
             words.addAll(Arrays.asList(str.replaceAll("[.,!?;:'\"]", "").split(" +")));
@@ -132,10 +133,10 @@ public class FileUtil {
         return result;
     }
 
-    public void sortAndCopy(String fileInput, String fileOutput) {
+    public void sortAndCopy(Path fileInput, Path fileOutput) {
         List<Integer> numbers = new ArrayList<>();
-        try (BufferedReader bufReader = new BufferedReader(new FileReader(fileInput));
-             BufferedWriter bufWriter = new BufferedWriter(new FileWriter(fileOutput))) {
+        try (BufferedReader bufReader = new BufferedReader(new FileReader(fileInput.toFile()));
+             BufferedWriter bufWriter = new BufferedWriter(new FileWriter(fileOutput.toFile()))) {
             String s;
             while ((s = bufReader.readLine()) != null) {
                 for (String n : s.split(" ")) {
@@ -149,7 +150,7 @@ public class FileUtil {
         }
     }
 
-    public Map<String, Double> getAverageMark(String fileInput) {
+    public Map<String, Double> getAverageMark(Path fileInput) {
         List<String> lines = getLinesFromFile(fileInput);
         Map<String, Double> result = new HashMap<>();
         for (String line : lines) {
@@ -163,13 +164,15 @@ public class FileUtil {
         return result;
     }
 
-    public void changeAccessModifier(String fileInput, String fileOutput, String modifier, String changeModifier) {
+    public void changeAccessModifier(Path fileInput, Path fileOutput, String modifier, String changeModifier) {
         List<String> lines = getLinesFromFile(fileInput);
-        List<String> result = new ArrayList<>();
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileOutput))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileOutput.toFile()))) {
             for (String str : lines) {
-                result.add(str.replaceAll(modifier, changeModifier));
-                bw.write(str.replaceAll(modifier, changeModifier) + "\n");
+                if (str.contains("class")) {
+                    bw.write(str + "\n");
+                } else {
+                    bw.write(str.replaceAll(modifier, changeModifier) + "\n");
+                }
             }
         } catch (IOException e) {
             logger.info(e.getMessage());

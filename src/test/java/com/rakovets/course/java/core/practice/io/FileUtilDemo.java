@@ -1,11 +1,13 @@
 package com.rakovets.course.java.core.practice.io;
 
+import java.nio.file.Path;
+
 public class FileUtilDemo {
-    public static String fileInput = "src/test/java/com/rakovets/course/java/core/practice/io/testInput.txt";
-    public static String fileWithNumbers = "src/test/java/com/rakovets/course/java/core/practice/io/numbers.txt";
-    public static String fileOutput = "src/test/java/com/rakovets/course/java/core/practice/io/testOutput.txt";
-    public static String fileStudents = "src/test/java/com/rakovets/course/java/core/practice/io/testStudents.txt";
-    public static String fileJavaCode = "src/test/java/com/rakovets/course/java/core/practice/io/fileJavaCode.txt";
+    public static Path fileInput = Path.of("D:\\OKomlik\\course-java-core\\src\\test\\resources\\practice.io\\testInput.txt");
+    public static Path fileWithNumbers = Path.of("D:\\OKomlik\\course-java-core\\src\\test\\resources\\practice.io\\numbers.txt");
+    public static Path fileOutput = Path.of("D:\\OKomlik\\course-java-core\\src\\test\\resources\\practice.io\\testOutput.txt");
+    public static Path fileStudents = Path.of("D:\\OKomlik\\course-java-core\\src\\test\\resources\\practice.io\\testStudents.txt");
+    public static Path fileJavaCode = Path.of("D:\\OKomlik\\course-java-core\\src\\test\\resources\\practice.io\\fileJavaCode.txt");
     public static String modifier = "public";
     public static String changeModifier = "private";
 
@@ -22,6 +24,4 @@ public class FileUtilDemo {
         System.out.println(testFile.getAverageMark(fileStudents));
         testFile.changeAccessModifier(fileJavaCode, fileOutput, modifier, changeModifier);
     }
-
-
 }
