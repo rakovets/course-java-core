@@ -244,6 +244,7 @@ public class FileUtil {
     }
 
     public void convertAccessModifierInJavaFile(String modifierOld, String modifierNew, String pathToModifiedFile) {
+        String pathToFileUni = pathToModifiedFile.replaceAll("//", File.separator);
         File thisFile = new File(pathToModifiedFile);
         String fileName = thisFile.getName();
         String[] ar = fileName.split("\\.");
