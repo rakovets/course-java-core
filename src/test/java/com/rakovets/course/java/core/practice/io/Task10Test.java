@@ -21,7 +21,6 @@ public class Task10Test {
         String pathToByHandModifiedFile = "C:\\Users\\андрей\\dev\\course-java-core\\src\\test\\resources\\practice.io\\MyComparatorTask07_byHand.java";
         String modifierOld = "public";
         String modifierNew = "private";
-        FileUtil fileUtil = new FileUtil();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathToModifiedFile, false))) {
             bw.write("");
         } catch (IOException ex) {
