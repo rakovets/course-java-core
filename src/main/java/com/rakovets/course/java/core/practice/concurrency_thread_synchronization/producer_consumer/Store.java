@@ -14,7 +14,7 @@ public class Store {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                logger.severe(e.getMessage());
             }
         }
         int addedNumber = rnd.nextInt(100);
