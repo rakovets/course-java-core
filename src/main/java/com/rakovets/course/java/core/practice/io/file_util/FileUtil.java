@@ -183,7 +183,11 @@ public class FileUtil {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(inputFilePath + "_"))) {
             List<String> list = getListOfStrings(inputFilePath);
             for (String str : list) {
-                writer.write(str.replaceAll(x, y) + "\n");
+                if (str.contains("class")) {
+                    writer.write(str + "\n");
+                } else {
+                    writer.write(str.replaceAll(x, y) + "\n");
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
