@@ -27,6 +27,7 @@ public class Producer extends Thread {
                         logger.info(Thread.currentThread().getName() + " entered to queue: " + i);
                     } else {
                         logger.info("Thread Producer is ended by entering -1.");
+                        scanner.close();
                         break;
                     }
                 } else {

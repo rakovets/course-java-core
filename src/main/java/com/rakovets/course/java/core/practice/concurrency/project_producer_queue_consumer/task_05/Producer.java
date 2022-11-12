@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
-    private CommonQueue commonQueue;
+    private final CommonQueue commonQueue;
     public Producer(ThreadGroup threadGroup, String name, CommonQueue commonQueue) {
         super(threadGroup, name);
         this.commonQueue = commonQueue;
@@ -26,6 +26,7 @@ public class Producer extends Thread {
                         logger.info(Thread.currentThread().getName() + " entered to queue: " + i);
                     } else {
                         logger.info("Thread Producer is ended by entering -1.");
+                        scanner.close();
                         Thread.currentThread().getThreadGroup().interrupt();
                         logger.info("Все потоки в группе переведены в состояние interrupt.");
                         break;

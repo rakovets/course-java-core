@@ -24,6 +24,7 @@ public class Producer extends Thread {
                     logger.info("Last entered value to queue: " + i);
                 } else {
                     logger.info("Thread Producer is ended by entering -1.");
+                    scanner.close();
                     break;
                 }
             } else {

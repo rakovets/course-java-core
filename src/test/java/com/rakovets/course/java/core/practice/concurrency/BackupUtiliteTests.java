@@ -6,40 +6,25 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+
 public class BackupUtiliteTests {
-    BackupUtility backupUtility = new BackupUtility();
+    BackupUtility backupUtility = new BackupUtility("BackupUtility");
+
     @Test
-    public void testBackupDir() {
+    public void testBackupUtility() {
+        //backupUtility.start();
         String dirName = "C:\\MyDir";
+        String copyDirName = "C:\\MyDir_copy";
         File dir = new File(dirName);
+        dir.mkdir();
         long sizeOfAllFilesExpected = 0L;
         for (File item : dir.listFiles()) {
             sizeOfAllFilesExpected += item.length();
         }
         System.out.println(sizeOfAllFilesExpected);
 
-        String copyDirName = backupUtility.backupDir(dirName);
         File copyDir = new File(copyDirName);
-        long sizeOfAllFilesActual = 0L;
-        for (File item : copyDir.listFiles()) {
-            sizeOfAllFilesActual += item.length();
-        }
-
-        Assertions.assertEquals(sizeOfAllFilesExpected, sizeOfAllFilesActual);
-    }
-
-    @Test
-    public void testBackupDirByByte() {
-        String dirName = "C:\\MyDir";
-        File dir = new File(dirName);
-        long sizeOfAllFilesExpected = 0L;
-        for (File item : dir.listFiles()) {
-            sizeOfAllFilesExpected += item.length();
-        }
-        System.out.println(sizeOfAllFilesExpected);
-
-        String copyDirName = backupUtility.backupDirByByte(dirName);
-        File copyDir = new File(copyDirName);
+        copyDir.mkdir();
         long sizeOfAllFilesActual = 0L;
         for (File item : copyDir.listFiles()) {
             sizeOfAllFilesActual += item.length();

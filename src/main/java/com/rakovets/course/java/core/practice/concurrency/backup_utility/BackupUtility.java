@@ -1,59 +1,26 @@
 package com.rakovets.course.java.core.practice.concurrency.backup_utility;
 
-import java.io.*;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.logging.Logger;
 
-public class BackupUtility {
-    private boolean isCopied;
-
-    private boolean isCopiedByByte;
-
-    public BackupUtility() {
-        this.isCopied = true;
-        this.isCopiedByByte = true;
+public class BackupUtility extends Thread {
+    public BackupUtility(String name) {
+        super(name);
     }
-
-    public boolean getIsCopied() {
-        return isCopied;
-    }
-
-    public boolean getIsCopiedByByte() { return isCopiedByByte; }
-
-    public String backupDir(String dirName) throws NullPointerException {
-        String addToCopyName = "_copy";
-        File dir = new File(dirName);
-        File copyDir = new File(dirName.concat(addToCopyName));
-        copyDir.mkdir();
-        for (File item : dir.listFiles()) {
-            try (BufferedReader br = new BufferedReader(new FileReader(item.getAbsolutePath()));
-                 BufferedWriter bw = new BufferedWriter(new FileWriter(item.getParent().concat(addToCopyName) + "\\" + item.getName().concat(addToCopyName)))) {
-                String s;
-                while ((s = br.readLine()) != null) {
-                    bw.write(s + "\n");
-                }
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                this.isCopied = false;
-            }
+    @Override
+    public void run() {
+        Logger logger = Logger.getLogger(BackupUtility.class.getName());
+        Queue<String> queue = new ArrayDeque<>();
+        CommonStringQueue commonStringQueue = new CommonStringQueue(queue);
+        ThreadGroup threadGroup = new ThreadGroup("Thread group 1");
+        Thread scannerReader = new ScannerReader(threadGroup, "ScannerReader", commonStringQueue);
+        Thread directoryCopier = new DirectoryCopier(threadGroup, "DirectoryCopier", commonStringQueue);
+        try {
+            scannerReader.start();
+            directoryCopier.start();
+        } catch (NullPointerException e) {
+            logger.info("Неправильно введено имя директория");
         }
-        return copyDir.getAbsolutePath();
-    }
-
-    public String backupDirByByte(String dirName) throws NullPointerException {
-        String addToCopyName = "_copy2";
-        File dir = new File(dirName);
-        File copyDir = new File(dirName.concat(addToCopyName));
-        copyDir.mkdir();
-        for (File item : dir.listFiles()) {
-            try (BufferedInputStream fin = new BufferedInputStream(new FileInputStream(item.getAbsolutePath()));
-                 BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(item.getParent().concat(addToCopyName) + "\\" + item.getName().concat(addToCopyName)))) {
-                byte[] buffer = new byte[fin.available()];
-                fin.read(buffer, 0, buffer.length);
-                fos.write(buffer, 0, buffer.length);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-                this.isCopiedByByte = false;
-            }
-        }
-        return copyDir.getAbsolutePath();
     }
 }
