@@ -1,12 +1,14 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
 import java.util.logging.Logger;
 
 public class Store {
     private final Logger logger = Logger.getLogger(Store.class.getName());
     private final Queue<Integer> numbers = new LinkedList<>();
-    private Random rnd = new Random();
+    private final Random rnd = new Random();
 
     public synchronized void produce() {
         while (numbers.size() >= 10) {
