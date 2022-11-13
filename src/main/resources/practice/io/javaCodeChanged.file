@@ -1,0 +1,17 @@
+public class Cat {
+    private final name;
+    private final age;
+
+    private Cat (String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private int getAge() {
+        return age;
+    }
+}
