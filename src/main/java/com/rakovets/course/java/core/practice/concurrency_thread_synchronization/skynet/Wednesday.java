@@ -12,7 +12,8 @@ public class Wednesday extends Fraction implements Runnable {
     public void run() {
         while (getFactory().getDaysTerm() > 0) {
             obtainDetails();
+            createRobot();
         }
-        logger.info("World has " + getRobotsAry() + "robots.");
+        logger.info("Wednesday has " + getRobotsAry() + " robots.");
     }
 }

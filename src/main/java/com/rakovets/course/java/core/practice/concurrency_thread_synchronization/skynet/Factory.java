@@ -27,23 +27,27 @@ public class Factory {
         }
         for (int i = 1; i <= 10; i++) {
             int detailNumber = random.nextInt(4);
+            String getDetail = "";
             switch (detailNumber) {
+                case 0:
+                    getDetail = "head";
+                    break;
                 case 1:
-                    repository.add("head");
+                    getDetail = "torso";
                     break;
                 case 2:
-                    repository.add("torso");
+                    getDetail = "hand";
                     break;
                 case 3:
-                    repository.add("hand");
-                    break;
-                case 4:
-                    repository.add("feet");
+                    getDetail = "feet";
                     break;
             }
+            repository.add(getDetail);
+            logger.info(Thread.currentThread().getName() + " " + getDetail + " was created");
         }
         if (repository.size() == 10) {
             dayTime = false;
+            logger.info("The night has begun");
             daysTerm--;
             notifyAll();
         }
@@ -60,9 +64,10 @@ public class Factory {
         String detail = "garbage";
         if (repository.isEmpty()) {
             dayTime = true;
+            logger.info("The day has begun");
             notifyAll();
         } else {
-            detail =  repository.poll();
+            detail = repository.poll();
         }
         return detail;
     }
