@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.concurrency.producer_queue_consumer;
 
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Queue;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Consumer extends Thread {
@@ -38,7 +38,7 @@ public class Consumer extends Thread {
                 }
             }
         } catch (IOException | InterruptedException e) {
-            logger.severe("Error: " + e.getMessage());
+            logger.log(Level.WARNING, "StackTrace " + Arrays.toString(e.getStackTrace()));
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.rakovets.course.java.core.practice.concurrency.backup_utility;
 
-import com.rakovets.course.java.core.practice.concurrency.producer_queue_consumer.Producer;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Backup extends Thread{
@@ -32,7 +32,7 @@ public class Backup extends Thread{
                 }
             }
         } catch (IOException e) {
-            logger.severe("Error: " + e.getMessage());
+            logger.log(Level.WARNING, "StackTrace " + Arrays.toString(e.getStackTrace()));
         }
     }
 }
