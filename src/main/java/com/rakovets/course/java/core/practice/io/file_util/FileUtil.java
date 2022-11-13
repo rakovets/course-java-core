@@ -1,9 +1,13 @@
 package com.rakovets.course.java.core.practice.io.file_util;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileUtil {
     public static final Logger logger = Logger.getLogger(FileUtil.class.getName());
@@ -96,12 +100,16 @@ public class FileUtil {
         return largestCombinationNumbers;
     }
 
-    public Map<Character, Integer> getFrequencyRepetitionAllLettersText(String way) {
-        Map<Character, Integer> map = new HashMap<>();
-        String letters = getListStringFromFile(way).toString().toLowerCase().replaceAll("[^a-z]", "");
-        for (int i = 0; i < letters.length(); i++) {
-            map.put(letters.charAt(i), map.getOrDefault(letters.charAt(i), 0) + 1);
+    public Map<Character, Integer> getCountCharFrequency(String fileName) throws IOException {
+        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+            return lines
+                    .flatMapToInt((String s) -> s.chars())
+                    .mapToObj(c -> (char) c)
+                    .filter(Character::isLetter)
+                    .collect(Collectors.groupingBy(
+                            Character::toLowerCase,
+                            Collectors.summingInt(c -> 1)
+                    ));
         }
-        return map;
     }
 }

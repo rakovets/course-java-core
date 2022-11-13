@@ -8,6 +8,7 @@ public class DemoStringUtil {
     private static String text = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\text.txt";
     private static String text2 = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\text2.txt";
     private static String wayNumber = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\way.txt";
+    private static String text3 = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\text3.txt";
 
     public static void main(String[] args) throws IOException {
         FileUtil fileUtil = new FileUtil();
@@ -18,7 +19,7 @@ public class DemoStringUtil {
         System.out.println(fileUtil.getListStringVowel(text));
         System.out.println(fileUtil.getListWordWithSameLetters(text));
         System.out.println(fileUtil.getLargestCombinationNumbers(wayNumber));
-        System.out.println(fileUtil.getFrequencyRepetitionAllLettersText(text));
-
+        System.out.println(fileUtil.getCountCharFrequency(text));
+        //System.out.println(fileUtil.getCountOfWordFrequency(text3));
     }
 }
