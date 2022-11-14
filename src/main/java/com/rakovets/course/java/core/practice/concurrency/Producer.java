@@ -1,22 +1,15 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Producer implements Runnable {
     private final static Logger logger = Logger.getLogger(Producer.class.getName());
-    private Queue<Integer> queue = new LinkedList<>();
+    private final QueueContainer queueContainer;
 
-    public Producer(Queue<Integer> queue) {
-        this.queue = queue;
-    }
-
-
-    public synchronized boolean addItem(Integer item) {
-        return queue.add(item);
+    public Producer(QueueContainer queueContainer) {
+        this.queueContainer = queueContainer;
     }
 
     @Override
@@ -29,7 +22,7 @@ public class Producer implements Runnable {
                 int number = sc.nextInt();
                 try {
                     if (number != -1) {
-                        addItem(Math.abs(number));
+                        queueContainer.addItem(number);
                     } else {
                         logger.log(Level.INFO, "Producer was closed ");
                         sc.close();
