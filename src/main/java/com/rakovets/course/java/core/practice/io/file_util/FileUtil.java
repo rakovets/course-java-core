@@ -138,4 +138,19 @@ public class FileUtil {
                 .collect(Collectors
                         .toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
+
+    public void getSortInAscendingOrder(String way) {
+        List<String> list = getListStringFromFile(way);
+        List<Integer> integerList = list.stream()
+                .flatMap(line -> Arrays.stream(line.split(" ")))
+                .map(Integer::valueOf)
+                .sorted()
+                .collect(Collectors.toList());
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(way + "_"))) {
+            bufferedWriter.write(integerList.toString());
+            bufferedWriter.flush();
+        } catch (IOException e) {
+            logger.log(Level.WARNING, e.getMessage());
+        }
+    }
 }
