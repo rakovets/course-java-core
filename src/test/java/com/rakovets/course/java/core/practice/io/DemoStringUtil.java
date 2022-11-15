@@ -20,6 +20,6 @@ public class DemoStringUtil {
         System.out.println(fileUtil.getListWordWithSameLetters(text));
         System.out.println(fileUtil.getLargestCombinationNumbers(wayNumber));
         System.out.println(fileUtil.getCountCharFrequency(text));
-        //System.out.println(fileUtil.getCountOfWordFrequency(text3));
+        System.out.println(fileUtil.getCountOfWordsCharFrequency(text3));
     }
 }

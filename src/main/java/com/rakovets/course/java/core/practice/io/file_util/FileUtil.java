@@ -112,4 +112,30 @@ public class FileUtil {
                     ));
         }
     }
+
+    public Map<String, Integer> getCountOfWordsCharFrequency(String way) {
+        Map<String, Integer> map = new HashMap<>();
+        List<String> list = getListStringFromFile(way);
+
+        Integer value;
+
+        for (String stringOfWord : list) {
+            String[] text = stringOfWord.split(" ");
+            for (String word : text) {
+                value = map.get(word);
+                if (value == null) {
+                    map.put(word.toLowerCase(), 1);
+                } else {
+                    map.put(word.toLowerCase(), value + 1);
+                }
+            }
+        }
+
+        return map
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors
+                        .toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+    }
 }
