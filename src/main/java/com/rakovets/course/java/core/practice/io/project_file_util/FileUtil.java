@@ -1,24 +1,38 @@
 package com.rakovets.course.java.core.practice.io.project_file_util;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FileUtil {
-    Logger logger = Logger.getLogger(FileUtil.class.getName());
-    public void fileTextToUpperCase(String fileNameFirst, String fileNameSecond) {
-        String fileNameFirstUni = fileNameFirst.replaceAll("//", File.separator);
-        String fileNameSecondUni = fileNameSecond.replaceAll("//", File.separator);
-        try (BufferedReader br = new BufferedReader(new FileReader(fileNameFirstUni));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(fileNameSecondUni))) {
+    private static final Logger logger = Logger.getLogger(FileUtil.class.getName());
+
+    public void copyInUpperCase(String sourceFilename, String targetFilename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(sourceFilename));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(targetFilename))) {
             String s;
             while ((s = br.readLine()) != null) {
-                bw.write(s.toUpperCase());
+                bw.write(s.toUpperCase() + "\n");
             }
         } catch (IOException ex) {
-            logger.info(ex.getMessage());
+            logger.warning(ex.getMessage());
         }
     }
 
@@ -55,16 +69,16 @@ public class FileUtil {
                 .filter(x -> (!x.isBlank()))
                 .filter(x ->
                         x.charAt(0) == 'a' ||
-                        x.charAt(0) == 'e' ||
-                        x.charAt(0) == 'i' ||
-                        x.charAt(0) == 'o' ||
-                        x.charAt(0) == 'u' ||
-                        x.charAt(0) == 'y' ||
-                        x.charAt(0) == 'A' ||
-                        x.charAt(0) == 'E' ||
-                        x.charAt(0) == 'O' ||
-                        x.charAt(0) == 'U' ||
-                        x.charAt(0) == 'Y')
+                                x.charAt(0) == 'e' ||
+                                x.charAt(0) == 'i' ||
+                                x.charAt(0) == 'o' ||
+                                x.charAt(0) == 'u' ||
+                                x.charAt(0) == 'y' ||
+                                x.charAt(0) == 'A' ||
+                                x.charAt(0) == 'E' ||
+                                x.charAt(0) == 'O' ||
+                                x.charAt(0) == 'U' ||
+                                x.charAt(0) == 'Y')
                 .collect(Collectors.toList());
         return stringList2;
     }
@@ -153,7 +167,7 @@ public class FileUtil {
         String str3 = str2.replaceAll(" ", "");
         Map<Character, Integer> uniqueLetters = new HashMap<>();
         for (int i = 0; i < str3.length() - 1; i++) {
-            if (str3.charAt(i) < '0' || str3.charAt(i) > '9' ) {
+            if (str3.charAt(i) < '0' || str3.charAt(i) > '9') {
                 Integer ii = 1;
                 Integer jj = uniqueLetters.put(str3.charAt(i), ii);
                 if (jj != null) {
@@ -181,7 +195,7 @@ public class FileUtil {
                         Arrays.stream(x.split(" "))
                 )
                 .map(x -> x.replaceAll("\\p{Punct}", ""))
-                .map(x -> x.replaceAll("\\d",""))
+                .map(x -> x.replaceAll("\\d", ""))
                 .filter(x -> (!x.isBlank()))
                 .collect(Collectors.toList());
         Map<String, Integer> unsortedUniqueWords = new HashMap();
