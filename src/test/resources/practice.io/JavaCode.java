@@ -119,7 +119,7 @@ public class FileUtil {
         return map;
     }
 
-    public Map<String, Integer> getRepetitionRateWordsInText(Path fileReader) {
+    public Map<String, Integer> getRepetitionRateWordsInText(Path fileReader) throws IOException {
         Map<String, Integer> map = new HashMap<>();
         Map<String, Integer> sortedMap = new LinkedHashMap<>();
         try {
@@ -201,7 +201,7 @@ public class FileUtil {
                 }
             }
         } catch (IOException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }

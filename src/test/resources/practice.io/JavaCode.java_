@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class FileUtil {
-    public void upperCaseConversion(Path fileReader, Path fileWriter) {
+    private void upperCaseConversion(Path fileReader, Path fileWriter) {
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()));
              BufferedWriter fileWrite = new BufferedWriter(new FileWriter(fileWriter.toFile()))) {
             String str;
@@ -19,7 +19,7 @@ public class FileUtil {
         }
     }
 
-    public List<String> getRowList(Path fileReader) {
+    private List<String> getRowList(Path fileReader) {
         List<String> rowList = new ArrayList<>();
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {
             String str;
@@ -32,7 +32,7 @@ public class FileUtil {
         return rowList;
     }
 
-    public List<String> getListWordsFirstVowel(Path fileReader) {
+    private List<String> getListWordsFirstVowel(Path fileReader) {
         List<String> list = new ArrayList<>();
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {
             String str;
@@ -47,7 +47,7 @@ public class FileUtil {
         return list;
     }
 
-    public List<String> getListWordsLastLetterWordCoincidesFirstLetterNextWord(Path fileReader) {
+    private List<String> getListWordsLastLetterWordCoincidesFirstLetterNextWord(Path fileReader) {
         List<String> list = new ArrayList<>();
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {
             String str;
@@ -68,7 +68,7 @@ public class FileUtil {
         return list;
     }
 
-    public List<String> getListGreatestCombinationNumbersAscendingOrder(Path fileReader) {
+    private List<String> getListGreatestCombinationNumbersAscendingOrder(Path fileReader) {
         List<String> list2 = new ArrayList<>();
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {
             String str;
@@ -104,7 +104,7 @@ public class FileUtil {
         return list2;
     }
 
-    public Map<Character, Integer> getRepetitionRateLetterInTextIgnoreCase(Path fileReader) {
+    private Map<Character, Integer> getRepetitionRateLetterInTextIgnoreCase(Path fileReader) {
         Map<Character, Integer> map = new HashMap<>();
         try {
             String strFromFile = Files.readString(fileReader)
@@ -119,7 +119,7 @@ public class FileUtil {
         return map;
     }
 
-    public Map<String, Integer> getRepetitionRateWordsInText(Path fileReader) {
+    private Map<String, Integer> getRepetitionRateWordsInText(Path fileReader) throws IOException {
         Map<String, Integer> map = new HashMap<>();
         Map<String, Integer> sortedMap = new LinkedHashMap<>();
         try {
@@ -140,7 +140,7 @@ public class FileUtil {
         return sortedMap;
     }
 
-    public void sortedNumbersInFile(Path fileReader) {
+    private void sortedNumbersInFile(Path fileReader) {
         try {
             String strFromFile = Files.readString(fileReader)
                     .replaceAll("[^0-9]", " ");
@@ -161,7 +161,7 @@ public class FileUtil {
         }
     }
 
-    public Map<String, Double> getStudentsPerformance(Path fileReader) {
+    private Map<String, Double> getStudentsPerformance(Path fileReader) {
         Map<String, Double> performance = new HashMap<>();
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {
             String str;
@@ -187,7 +187,7 @@ public class FileUtil {
         return performance;
     }
 
-    public void codeEditor(Path fileReader, String modifierBefore, String modifierAfter) {
+    private void codeEditor(Path fileReader, String modifierBefore, String modifierAfter) {
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()));
              BufferedWriter fileWriter = new BufferedWriter(new FileWriter(fileReader + "_"))) {
             String str;
@@ -201,7 +201,7 @@ public class FileUtil {
                 }
             }
         } catch (IOException e) {
-        e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }
