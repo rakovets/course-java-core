@@ -6,7 +6,7 @@ import com.rakovets.course.java.core.practice.concurrency_thread_synchronization
 
 public class ProducerConsumerDemo {
     public static void main(String[] args) {
-        Store store = new Store();
+        Store store = new Store(10);
         ProducerThread producer1 = new ProducerThread(store);
         ProducerThread producer2 = new ProducerThread(store);
         ConsumerThread consumer1 = new ConsumerThread(store);

@@ -8,10 +8,14 @@ import java.util.logging.Logger;
 public class Store {
     private final Logger logger = Logger.getLogger(Store.class.getName());
     private final Queue<Integer> numbers = new LinkedList<>();
-    private final Random rnd = new Random();
+    private final int storeCapacity;
 
-    public synchronized void produce() {
-        while (numbers.size() >= 10) {
+    public Store(int storeCapacity) {
+        this.storeCapacity = storeCapacity;
+    }
+
+    public synchronized void produce(Random rnd) {
+        while (numbers.size() >= storeCapacity) {
             logger.info(Thread.currentThread().getName() + ", store is full!");
             try {
                 wait();
@@ -40,7 +44,7 @@ public class Store {
         notify();
     }
 
-    public Queue<Integer> getNumbers() {
-        return numbers;
+    public int getStoreCapacity() {
+        return storeCapacity;
     }
 }

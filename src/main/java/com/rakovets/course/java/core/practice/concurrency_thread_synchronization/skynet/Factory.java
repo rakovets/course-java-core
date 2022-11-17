@@ -7,72 +7,61 @@ import java.util.logging.Logger;
 
 public class Factory {
     private final Logger logger = Logger.getLogger(Factory.class.getName());
-    private boolean dayTime;
-    private int daysTerm;
-    private final Queue<String> repository = new LinkedList<>();
-    private final Random random = new Random();
+    private final DeadlineTimer timer;
+    private final Queue<String> repository;
+    private final Random random;
+    private final int factoryCapacityPerDay;
 
-    public Factory(int daysTerm) {
-        this.daysTerm = daysTerm;
-        dayTime = true;
+    public Factory(DeadlineTimer timer, int factoryCapacityPerDay, Queue<String> repository, Random random) {
+        this.timer = timer;
+        this.factoryCapacityPerDay = factoryCapacityPerDay;
+        this.repository = repository;
+        this.random = random;
+    }
+
+    public Factory(DeadlineTimer timer, int factoryCapacityPerDay) {
+        this.timer = timer;
+        this.factoryCapacityPerDay = factoryCapacityPerDay;
+        repository = new LinkedList<>();
+        random = new Random();
     }
 
     public synchronized void create() {
-        while (!dayTime) {
+        while (timer.getTimeOfDay().equals("day")) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 logger.severe(e.getMessage());
             }
         }
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= factoryCapacityPerDay; i++) {
             int detailNumber = random.nextInt(4);
-            String getDetail = "";
+            String detail = "";
             switch (detailNumber) {
                 case 0:
-                    getDetail = "head";
+                    detail = "head";
                     break;
                 case 1:
-                    getDetail = "torso";
+                    detail = "torso";
                     break;
                 case 2:
-                    getDetail = "hand";
+                    detail = "hand";
                     break;
                 case 3:
-                    getDetail = "feet";
+                    detail = "feet";
                     break;
             }
-            repository.add(getDetail);
-            logger.info(Thread.currentThread().getName() + " " + getDetail + " was created");
+            repository.add(detail);
+            logger.info(Thread.currentThread().getName() + " " + detail + " was created");
         }
-        if (repository.size() == 10) {
-            dayTime = false;
-            logger.info("The night has begun");
-            daysTerm--;
-            notifyAll();
-        }
+        notifyAll();
     }
 
     public synchronized String getDetails() {
-        while (dayTime) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                logger.severe(e.getMessage());
-            }
-        }
-        String detail = "garbage";
-        if (repository.isEmpty()) {
-            dayTime = true;
-            logger.info("The day has begun");
-            notifyAll();
-        } else {
-            detail = repository.poll();
-        }
-        return detail;
+        return repository.poll();
     }
 
-    public int getDaysTerm() {
-        return daysTerm;
+    public Queue<String> getRepository() {
+        return repository;
     }
 }

@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -7,11 +8,11 @@ import java.util.logging.Logger;
 public class Fraction {
     private final Logger logger = Logger.getLogger(Fraction.class.getName());
     private final Map<String, Integer> robotDetails = new HashMap<>();
-    private final Factory factory;
+    private final String fractionName;
     private int robotsAry;
 
-    public Fraction(Factory factory) {
-        this.factory = factory;
+    public Fraction(String fractionName) {
+        this.fractionName = fractionName;
         robotsAry = 0;
         robotDetails.put("head", 0);
         robotDetails.put("torso", 0);
@@ -19,36 +20,31 @@ public class Fraction {
         robotDetails.put("feet", 0);
     }
 
-    public void obtainDetails() {
+    public void obtainDetails(Factory factory) {
         for (int i = 1; i <= 5; i++) {
             String detail = factory.getDetails();
-            if (!detail.equals("garbage")) {
-                robotDetails.put(detail, robotDetails.get(detail) + 1);
-                logger.info(Thread.currentThread().getName() + " fraction obtained " + detail);
+            robotDetails.put(detail, robotDetails.get(detail) + 1);
+            logger.info(Thread.currentThread().getName() + " fraction obtained " + detail);
+        }
+    }
+
+    public void createRobots() {
+        Collection<Integer> allDetails = robotDetails.values();
+        int min = Integer.MAX_VALUE;
+        for (int numberOfDetail : allDetails) {
+            if (numberOfDetail < min) {
+                min = numberOfDetail;
             }
         }
-    }
-
-    public void createRobot() {
-        if (robotDetails.get("head") >= 1 && robotDetails.get("torso") >= 1 && robotDetails.get("hand") >= 1 && robotDetails.get("feet") >= 1) {
-            robotsAry++;
-            robotDetails.replace("head", robotDetails.get("head") - 1);
-            robotDetails.replace("torso", robotDetails.get("torso") - 1);
-            robotDetails.replace("hand", robotDetails.get("hand") - 1);
-            robotDetails.replace("feet", robotDetails.get("feet") - 1);
-            logger.info(Thread.currentThread().getName() + " one robot was created");
-        }
-    }
-
-    public Factory getFactory() {
-        return factory;
+        robotsAry = min;
+        logger.info(getFractionName() + " has " + robotsAry + " robots.");
     }
 
     public int getRobotsAry() {
         return robotsAry;
     }
 
-    public Map<String, Integer> getRobotDetails() {
-        return robotDetails;
+    public String getFractionName() {
+        return fractionName;
     }
 }
