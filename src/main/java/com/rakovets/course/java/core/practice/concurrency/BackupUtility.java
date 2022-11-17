@@ -8,10 +8,18 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.logging.Logger;
 
-public class BackupUtility {
+public class BackupUtility extends Thread {
     private static final Logger logger = Logger.getLogger(BackupUtility.class.getName());
+    private final String mainDirectory;
+    private final String copiedDirectory;
 
-    public void copy(String mainDirectory, String copiedDirectory) {
+    public BackupUtility(String mainDirectory, String copiedDirectory) {
+        this.mainDirectory = mainDirectory;
+        this.copiedDirectory = copiedDirectory;
+    }
+
+    @Override
+    public void run() {
         try {
             File main = new File(mainDirectory);
             File[] listOfFiles = main.listFiles();

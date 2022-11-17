@@ -4,9 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Container {
-    private Queue<Integer> queue = new LinkedList<>();
+    private final Queue<Integer> queue = new LinkedList<>();
 
-    public Queue<Integer> getQueue() {
-        return queue;
+    public void addItem(Integer item) {
+        queue.add(item);
+    }
+
+    public Integer getItem() {
+        return queue.poll();
     }
 }
