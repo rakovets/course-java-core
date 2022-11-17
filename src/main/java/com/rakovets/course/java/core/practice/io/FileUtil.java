@@ -1,9 +1,20 @@
 package com.rakovets.course.java.core.practice.io;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class FileUtil {
     public void upperCaseConversion(Path fileReader, Path fileWriter) {
@@ -20,7 +31,8 @@ public class FileUtil {
     }
 
     public List<String> getRowList(Path fileReader) {
-        List<String> rowList = new ArrayList<>();
+        List<String> rowList;
+        rowList = new ArrayList<>();
         try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {
             String str;
             while ((str = fileRead.readLine()) != null) {

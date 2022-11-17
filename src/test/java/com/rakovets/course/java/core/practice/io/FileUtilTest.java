@@ -6,6 +6,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
@@ -14,10 +16,7 @@ import java.util.stream.Stream;
 public class FileUtilTest {
     FileUtil fileUtil = new FileUtil();
 
-    static String path = "D:" + File.separator
-            + "JavaProjects" + File.separator
-            + "course-java-core" + File.separator
-            + "src" + File.separator
+    static String path = "src" + File.separator
             + "test" + File.separator
             + "resources" + File.separator
             + "practice.io" + File.separator;
@@ -26,17 +25,26 @@ public class FileUtilTest {
         return Stream.of(
                 Arguments.of(Path.of(path, "NormalText.txt"),
                         Path.of(path, "UpperCaseText.txt"),
-                        272)
+                        "ONE, EAT YOUR BUN!\n" +
+                        "TWO, LOOK AT THE KANGAROO!\n" +
+                        "THREE, LOOK AT THE BEE!\n" +
+                        "FOUR, OPEN THE DOOR!\n" +
+                        "FIVE, TAKE THE KNIFE!\n" +
+                        "SIX, TAKE THE STICKS!\n" +
+                        "SEVEN, COUNT TO ELEVEN!\n" +
+                        "EIGHT, STOP AND WAIT!\n" +
+                        "NINE, YOU ARE FINE!\n" +
+                        "TEN, SAY IT ALL AGAIN!\n" +
+                        "ELEVEN AND TWELVE, WE ARE VERY WELL!")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsOfUpperCaseConversion")
-    void testUpperCaseConversion(Path reader, Path writer, long expected) {
+    void testUpperCaseConversion(Path reader, Path writer, String expected) throws IOException {
         fileUtil.upperCaseConversion(reader, writer);
 
-        File actualFile = new File(String.valueOf(writer));
-        long actual = actualFile.length();
+        String actual = String.join("\n", Files.readAllLines(writer));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -173,17 +181,16 @@ public class FileUtilTest {
     static Stream<Arguments> provideArgumentsForSortedNumbersInFile() {
         return Stream.of(
                 Arguments.of(Path.of(path, "Numbers.txt"),
-                        67)
+                        "[1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 12, 12, 22, 23, 34, 35, 43]")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForSortedNumbersInFile")
-    void testSortedNumbersInFile(Path reader, long expected) {
+    void testSortedNumbersInFile(Path reader, String expected) throws IOException {
         fileUtil.sortedNumbersInFile(reader);
 
-        File actualFile = new File(path, "Numbers.txt_");
-        long actual = actualFile.length();
+        String actual = String.join("", Files.readAllLines(Path.of(path, "Numbers.txt_")));
 
         Assertions.assertEquals(expected, actual);
     }
@@ -207,17 +214,56 @@ public class FileUtilTest {
     static Stream<Arguments> provideArgumentsForCodeEditor() {
         return Stream.of(
                 Arguments.of(Path.of(path, "JavaCode.java"), "public", "private",
-                        8458)
+                        "public class FileUtil {\n" +
+                        "    private void upperCaseConversion(Path fileReader, Path fileWriter) {\n" +
+                        "        try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()));\n" +
+                        "             BufferedWriter fileWrite = new BufferedWriter(new FileWriter(fileWriter.toFile()))) {\n" +
+                        "            String str;\n" +
+                        "            while ((str = fileRead.readLine()) != null) {\n" +
+                        "                fileWrite.write(str.toUpperCase());\n" +
+                        "                fileWrite.newLine();\n" +
+                        "            }\n" +
+                        "        } catch (IOException e) {\n" +
+                        "            e.printStackTrace();\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "\n" +
+                        "    private List<String> getRowListt(Path fileReader) {\n" +
+                        "        List<String> rowList = new ArrayList<>();\n" +
+                        "        try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {\n" +
+                        "            String str;\n" +
+                        "            while ((str = fileRead.readLine()) != null) {\n" +
+                        "                rowList.add(str);\n" +
+                        "            }\n" +
+                        "        } catch (IOException e) {\n" +
+                        "            e.printStackTrace();\n" +
+                        "        }\n" +
+                        "        return rowList;\n" +
+                        "    }\n" +
+                        "\n" +
+                        "    private List<String> getListWordsFirstVowell(Path fileReader) {\n" +
+                        "        List<String> list = new ArrayList<>();\n" +
+                        "        try (BufferedReader fileRead = new BufferedReader(new FileReader(fileReader.toFile()))) {\n" +
+                        "            String str;\n" +
+                        "            while ((str = fileRead.readLine()) != null) {\n" +
+                        "                Arrays.stream(str.split(\"(\\\\W+)\"))\n" +
+                        "                        .filter(i -> i.substring(0, 1).matches(\"(?i:[aeiouy])\"))\n" +
+                        "                        .forEach(list::add);\n" +
+                        "            }\n" +
+                        "        } catch (IOException e) {\n" +
+                        "            e.printStackTrace();\n" +
+                        "        }\n" +
+                        "        return list;\n" +
+                        "    }")
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideArgumentsForCodeEditor")
-    void testCodeEditor(Path reader, String modifierBefore, String modifierAfter, long expected) {
+    void testCodeEditor(Path reader, String modifierBefore, String modifierAfter, String expected) throws IOException {
         fileUtil.codeEditor(reader, modifierBefore, modifierAfter);
 
-        File actualFile = new File(path, "JavaCode.java_");
-        long actual = actualFile.length();
+        String actual = String.join("\n", Files.readAllLines(Path.of(path, "JavaCode.java_")));
 
         Assertions.assertEquals(expected, actual);
     }
