@@ -1,9 +1,20 @@
 package com.rakovets.course.java.core.practice.io.file_util;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -103,7 +114,7 @@ public class FileUtil {
     public Map<Character, Integer> getCountCharFrequency(String fileName) throws IOException {
         try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
             return lines
-                    .flatMapToInt((String s) -> s.chars())
+                    .flatMapToInt(String::chars)
                     .mapToObj(c -> (char) c)
                     .filter(Character::isLetter)
                     .collect(Collectors.groupingBy(
@@ -130,27 +141,40 @@ public class FileUtil {
                 }
             }
         }
-
         return map
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
-                .collect(Collectors
-                        .toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1, LinkedHashMap::new));
     }
 
-    public void getSortInAscendingOrder(String way) {
+    public void getSortInAscendingOrder(String way, String pattern) {
         List<String> list = getListStringFromFile(way);
         List<Integer> integerList = list.stream()
                 .flatMap(line -> Arrays.stream(line.split(" ")))
                 .map(Integer::valueOf)
                 .sorted()
                 .collect(Collectors.toList());
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(way + "_"))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(way.concat(pattern)))) {
             bufferedWriter.write(integerList.toString());
             bufferedWriter.flush();
         } catch (IOException e) {
             logger.log(Level.WARNING, e.getMessage());
         }
+    }
+
+    public List<String> getStudentPerformance(String students) {
+        List<String> list = getListStringFromFile(students);
+        Map<String, Integer> map = new HashMap<>();
+        for (String lineWithMarks : list) {
+            String[] stringsOfStudent = lineWithMarks.replace("\\D", "").trim().split(",");
+            for (String mark : stringsOfStudent) {
+
+            }
+        }
+        return list;
     }
 }
