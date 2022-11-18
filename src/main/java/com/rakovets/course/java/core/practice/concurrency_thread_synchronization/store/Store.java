@@ -38,5 +38,3 @@ public class Store {
         return result;
     }
 }
-
-

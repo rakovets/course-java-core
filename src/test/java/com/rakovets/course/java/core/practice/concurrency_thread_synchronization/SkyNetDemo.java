@@ -1,13 +1,14 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
 
-import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.Fraction;
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.Factory;
+import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.Fraction;
 
 import java.util.logging.Logger;
 
 public class SkyNetDemo {
+    public static final Logger logger = Logger.getLogger(SkyNetDemo.class.getName());
+
     public static void main(String[] args) throws InterruptedException {
-        Logger logger = Logger.getLogger("Robots");
         Factory factory = new Factory(2);
         factory.setName("Factory");
         Fraction world = new Fraction(factory);
