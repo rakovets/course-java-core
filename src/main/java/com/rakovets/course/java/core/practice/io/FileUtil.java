@@ -2,11 +2,22 @@ package com.rakovets.course.java.core.practice.io;
 
 import com.rakovets.course.java.core.util.NumberUtil;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class FileUtil {
     public static final Logger logger = Logger.getLogger(FileUtil.class.getName());
@@ -63,14 +74,7 @@ public class FileUtil {
     public List<String> getNumberCombination(Path fileInput) {
         List<String> result = new ArrayList<>();
         for (String str : getLinesFromFile(fileInput)) {
-            String[] words = str.split(" ");
-            int[] numbers = new int[words.length];
-            for (int i = 0; i < words.length; i++) {
-                numbers[i] = Integer.parseInt(words[i]);
-            }
-            int[] sorted = Arrays.stream(numbers).distinct()
-                    .sorted()
-                    .toArray();
+            int[] sorted = getSortedArray(str);
             List<Integer> oneLine = new ArrayList<>();
             for (int i = 0; i < sorted.length - 1; i++) {
                 if (sorted[i + 1] - sorted[i] == 1 || sorted[i] - sorted[i - 1] == 1) {
@@ -82,55 +86,40 @@ public class FileUtil {
         return result;
     }
 
-    public Map<String, Integer> getLetterFrequency(Path fileInput) {
-        List<String> letters = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileInput.toFile()))) {
-            int c;
-            while ((c = bufferedReader.read()) != -1) {
-                char letter = Character.toLowerCase((char) c);
-                letters.add(String.valueOf(letter));
-            }
-        } catch (IOException e) {
-            logger.info(e.getMessage());
+    public int[] getSortedArray(String str) {
+        String[] words = str.split(" ");
+        int[] numbers = new int[words.length];
+        for (int i = 0; i < words.length; i++) {
+            numbers[i] = Integer.parseInt(words[i]);
         }
-        List<String> uniqueLetters = letters.stream()
-                .filter(s -> s.matches("[a-z]"))
-                .distinct()
-                .collect(Collectors.toList());
-        System.out.println(uniqueLetters);
-        Map<String, Integer> result = new HashMap<>();
-        for (String s : uniqueLetters) {
-            int frequency = 0;
-            for (String value : letters) {
-                if (s.equalsIgnoreCase(value)) {
-                    frequency++;
-                }
-            }
-            result.put(s, frequency);
-        }
-        return result;
+        return Arrays.stream(numbers).distinct()
+                .sorted()
+                .toArray();
     }
 
-    public List<String> getWordFrequency(Path fileInput) {
-        List<String> words = new ArrayList<>();
-        for (String str : getLinesFromFile(fileInput)) {
-            words.addAll(Arrays.asList(str.replaceAll("[.,!?;:'\"]", "").split(" +")));
+    public Map<Character, Integer> getLetterFrequency(Path fileInput) {
+        Map<Character, Integer> map = new HashMap<>();
+        String letters = getLinesFromFile(fileInput).toString().toLowerCase().replaceAll("[^a-z]", "");
+        for (char letter : letters.toCharArray()) {
+            map.put(letter, map.getOrDefault(letter, 0) + 1);
         }
-        List<String> uniqueWords = words.stream()
-                .distinct()
-                .collect(Collectors.toList());
-        List<String> result = new ArrayList<>();
-        for (String word : uniqueWords) {
-            int frequency = 0;
-            for (String value : words) {
-                if (word.equals(value)) {
-                    frequency++;
-                }
+        return map;
+    }
+
+    public Map<String, Integer> getSortedWordFrequency(Path fileInput) {
+        Map<String, Integer> map = new HashMap<>();
+        String wordsFromFile = getLinesFromFile(fileInput).toString().toLowerCase().replaceAll("\\W", " ");
+        String[] words = wordsFromFile.trim().split("\\s+");
+        for (String word : words) {
+            if (word != null) {
+                map.put(word, map.getOrDefault(word, 0) + 1);
             }
-            result.add(frequency + " - " + word);
         }
-        Collections.sort(result);
-        return result;
+        Map<String, Integer> sortedMap = new LinkedHashMap<>();
+        map.entrySet().stream()
+                .sorted(Comparator.comparing(Map.Entry::getValue))
+                .forEach(entry -> sortedMap.put(entry.getKey(), entry.getValue()));
+        return sortedMap;
     }
 
     public void sortAndCopy(Path fileInput, Path fileOutput) {

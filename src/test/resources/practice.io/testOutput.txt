@@ -1,7 +1,9 @@
-HELLO WORLD
-DAY, YEAR
-MY NAME IS OLGA
-I AM THIRTY YEARS OLD
-LOVE LOVE LOVE
-TOO TOO
-MY WORLD
+public class Person {
+    private final String name;
+    private final transient double height;
+
+    private Person(String name, double height) {
+        this.name = name;
+        this.height = height;
+    }
+}
