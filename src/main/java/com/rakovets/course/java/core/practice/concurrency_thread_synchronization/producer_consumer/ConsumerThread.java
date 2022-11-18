@@ -1,10 +1,10 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConsumerThread implements Runnable {
+    private static final int MAX_NUMBER = 10;
     private final Logger logger = Logger.getLogger(ConsumerThread.class.getName());
     private final Store store;
     private final String name;
@@ -16,11 +16,11 @@ public class ConsumerThread implements Runnable {
 
     @Override
     public void run() {
-        int g = 0;
-        while (g < 10){
+        int numberOfIterations = 0;
+        while (numberOfIterations < MAX_NUMBER){
             try {
                 logger.log(Level.INFO, name + " " + store.consumer());
-                g++;
+                numberOfIterations++;
             } catch (UserInputException e){
                 try {
                     Thread.sleep(50);

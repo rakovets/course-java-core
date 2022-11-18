@@ -1,16 +1,13 @@
-package com.rakovets.course.java.core.practice.concurrency_thread_synchronization;
+package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.logging.Logger;
 
 public class Store {
-    private final Logger logger = Logger.getLogger(Store.class.getName());
     private final Queue<Integer> digits = new LinkedList<>();
     private static final int MAX_NUMBER = 10;
 
     public Store() {
-
     }
 
     public synchronized void produce(int number) {
