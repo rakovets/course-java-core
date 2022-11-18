@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.io.file_util;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -166,15 +168,34 @@ public class FileUtil {
         }
     }
 
-    public List<String> getStudentPerformance(String students) {
+    public Map<String, Double> getStudentPerformance(String students) {
         List<String> list = getListStringFromFile(students);
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Double> map = new HashMap<>();
         for (String lineWithMarks : list) {
-            String[] stringsOfStudent = lineWithMarks.replace("\\D", "").trim().split(",");
-            for (String mark : stringsOfStudent) {
-
+            String[] stringsOfStudent = lineWithMarks.split(",");
+            double sum = 0.0;
+            for (int i = 1; i < stringsOfStudent.length; i++) {
+                sum += Double.parseDouble(stringsOfStudent[i]);
             }
+            map.put(stringsOfStudent[0], NumberUtil.roundValueToTwoDigitsForMantissa(sum / (stringsOfStudent.length - 1)));
         }
-        return list;
+        return map;
+    }
+
+    public void replaceModifier(String way, String startModifier, String finishModifier) {
+        List<String> list = getListStringFromFile(way);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(way + "_"))) {
+            for (String line : list) {
+                if (line.contains("class")) {
+                    bufferedWriter.write((line) + "\n");
+                } else {
+                    bufferedWriter.write((line.replaceAll(startModifier, finishModifier)) + "\n");
+                    bufferedWriter.flush();
+                }
+            }
+        } catch (IOException exception) {
+            logger.info(exception.getMessage());
+        }
     }
 }
+

@@ -12,6 +12,7 @@ public class DemoStringUtil {
     private static final String numbers = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\numbers.txt";
     private static final String studentsMarks = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\studentsMarks.txt";
     private static final String pattern = "_";
+    private static final String code = "C:\\Users\\User\\IdeaProjects\\untitled\\course-java-core\\src\\test\\resources\\practice.io\\Code";
 
     public static void main(String[] args) throws IOException {
         FileUtil fileUtil = new FileUtil();
@@ -26,8 +27,7 @@ public class DemoStringUtil {
         System.out.println(fileUtil.getCountOfWordsCharFrequency(text3));
         fileUtil.getSortInAscendingOrder(numbers, pattern);
         System.out.println(fileUtil.getStudentPerformance(studentsMarks));
+        fileUtil.replaceModifier(code, "public", "private");
     }
 }
-//Smirnov,4,6,8,9,9,2
-//        Sobovev,5,2,5,8,9,8
-//        Koba,2,5,4,5,3,5
+

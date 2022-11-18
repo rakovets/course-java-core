@@ -1,0 +1,21 @@
+public class Store{
+   public Map<String, Integer> getWordFrequencies(String path) throws IOException {
+       try (Stream<String> input = Files.lines(Paths.get(path))) {
+           return input
+               .flatMap(str -> Arrays.stream(str.split("\\P{L}+"))) // поток слов
+               .collect(Collectors.groupingBy(
+                   word -> word,
+                   Collectors.summingInt(word -> 1)
+               )) // Map<String, Integer>
+               .entrySet()
+               .stream()
+               .sorted(Map.Entry.comparingByValue())
+               .collect(Collectors.toMap(
+                   Map.Entry::getKey,
+                   Map.Entry::getValue,
+                   (v1, v2) -> v1,
+                   LinkedHashMap::new
+               ));
+       }
+   }
+}
