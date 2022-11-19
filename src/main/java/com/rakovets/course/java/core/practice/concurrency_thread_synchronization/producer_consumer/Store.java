@@ -4,11 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Store {
-    private final Queue<Integer> digits = new LinkedList<>();
     private static final int MAX_NUMBER = 10;
+    private final Queue<Integer> digits = new LinkedList<>();
 
-    public Store() {
-    }
 
     public synchronized void produce(int number) {
         if (digits.size() <= MAX_NUMBER) {

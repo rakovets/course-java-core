@@ -2,8 +2,8 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 
 import java.util.logging.Logger;
 
-public class World implements Runnable {
-    private final Logger logger = Logger.getLogger(World.class.getName());
+public class Factory implements Runnable {
+    private final Logger logger = Logger.getLogger(Factory.class.getName());
 
     @Override
     public void run() {
