@@ -1,13 +1,12 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.store;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Random;
 
-import static com.rakovets.course.java.core.practice.concurrency_thread_synchronization.store.RandomNumbers.getRandom;
+public class ProducerThread implements Runnable{
 
-public class ProducerThread implements Runnable {
-    public static final Logger logger = Logger.getLogger(ProducerThread.class.getName());
     private final Store store;
+    private final Random rand = new Random();
+    private final static int WAIT_WRITE_TIME = 2;
 
     public ProducerThread(Store store) {
         this.store = store;
@@ -15,14 +14,17 @@ public class ProducerThread implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-            store.produce();
-            try {
-                store.wait(getRandom());
-            } catch (InterruptedException e) {
-                logger.log(Level.WARNING, e.getMessage());
-            }
-            store.notify();
+        while(true) {
+            int item = rand.nextInt(10);
+            boolean result;
+            do {
+                result = store.produce(item);
+                try {
+                    Thread.sleep(1000 * WAIT_WRITE_TIME);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            } while (!result);
         }
     }
 }

@@ -1,12 +1,10 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.store;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Optional;
 
 public class ConsumerThread implements Runnable {
-    public static final Logger logger = Logger.getLogger(ConsumerThread.class.getName());
-
     private final Store store;
+    private final static int WAIT_READ_TIME = 3;
 
     public ConsumerThread(Store store) {
         this.store = store;
@@ -15,15 +13,12 @@ public class ConsumerThread implements Runnable {
     @Override
     public void run() {
         while (true) {
-            store.consume();
-            if (store.consume() != null) {
-                try {
-                    store.wait();
-                } catch (InterruptedException e) {
-                    logger.log(Level.WARNING, e.getMessage());
-                }
+            try {
+                Thread.sleep(1000 * WAIT_READ_TIME);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-            store.notify();
+            Optional<Integer> result = store.consume();
         }
     }
 }
