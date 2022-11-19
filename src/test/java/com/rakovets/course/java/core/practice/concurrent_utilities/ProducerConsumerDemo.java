@@ -4,21 +4,22 @@ import com.rakovets.course.java.core.practice.concurrent_utilities.producer_cons
 import com.rakovets.course.java.core.practice.concurrent_utilities.producer_consumer.Container;
 import com.rakovets.course.java.core.practice.concurrent_utilities.producer_consumer.Producer;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class ProducerConsumerDemo {
     public static void main(String[] args) throws InterruptedException {
-        Container container = new Container();
-        ReentrantLock lock = new ReentrantLock();
-        Thread producer = new Thread(new Producer(container.container,lock));
-        Thread consumer1 = new Thread(new Consumer(container.container, lock));
-        Thread consumer2 = new Thread(new Consumer(container.container, lock));
+        Container queueOfNumbers = new Container();
         ExecutorService executorService = Executors.newFixedThreadPool(3);
+        Thread producer = new Thread(new Producer(queueOfNumbers), "Producer");
         executorService.submit(producer);
+        Thread.sleep(10000);
+        Thread consumer1 = new Thread(new Consumer(queueOfNumbers), "Consumer1");
+        Thread consumer2 = new Thread(new Consumer(queueOfNumbers), "Consumer2");
+        Thread consumer3 = new Thread(new Consumer(queueOfNumbers), "Consumer3");
         executorService.submit(consumer1);
         executorService.submit(consumer2);
+        executorService.submit(consumer3);
+        executorService.shutdown();
     }
 }

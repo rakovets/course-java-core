@@ -1,7 +1,12 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.producer_consumer;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Container extends ConcurrentLinkedQueue<Integer> {
-    public ConcurrentLinkedQueue<Integer> container = new ConcurrentLinkedQueue<>();
+public class Container {
+    private Queue<Integer> queue = new LinkedList<>();
+
+    public Queue<Integer> getQueue() {
+        return queue;
+    }
 }
