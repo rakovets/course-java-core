@@ -39,7 +39,6 @@ public class ImprovedParallelCalculator {
                             .filter(ImprovedParallelCalculator::isPrime)
                             .boxed().collect(Collectors.toList())
             ).get();
-            System.out.println(list1);
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         } finally {
