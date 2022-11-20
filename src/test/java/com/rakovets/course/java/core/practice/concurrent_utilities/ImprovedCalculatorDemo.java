@@ -10,7 +10,7 @@ public class ImprovedCalculatorDemo {
         ImprovedParallelCalculator calculator = new ImprovedParallelCalculator();
         List<int[]> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            int[] array = new int[new Random().nextInt(1000000)];
+            int[] array = new int[new Random().nextInt(3)];
             for (int x = 0; x < array.length; x++) {
                 array[x] = new Random().nextInt(300);
             }
