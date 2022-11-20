@@ -4,6 +4,7 @@ import com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calc
 import com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator.ParallelCalculatorThread;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
@@ -12,9 +13,9 @@ import java.util.logging.Logger;
 
 public class ParallelCalculatorDemo {
     public static final Logger logger = Logger.getLogger(ParallelCalculatorDemo.class.getName());
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Queue<Integer[]> inputArray = new LinkedList<>();
-        int numberOfThreads = 2;
+        int numberOfThreads = 5;
         for (int i = 0; i < 10; i++) {
             Integer[] array = new Integer[1000000];
             for (int x = 0; x < array.length; x++) {
@@ -22,7 +23,7 @@ public class ParallelCalculatorDemo {
             }
             inputArray.add(array);
         }
-        Map<Integer[], Integer> finalList = null;
+        Map<Integer[], Integer> finalList = new HashMap<>();
         ParallelCalculator calculator = new ParallelCalculator(finalList);
        logger.info(LocalDateTime.now() + " threads start working");
         for(int i = 0; i < numberOfThreads; i++) {
@@ -30,6 +31,7 @@ public class ParallelCalculatorDemo {
             thread.setName("Thread "+ i);
             thread.start();
         }
+        Thread.sleep(1000);
         logger.info(LocalDateTime.now() + " threads stop working");
         logger.info(finalList.toString());
     }
