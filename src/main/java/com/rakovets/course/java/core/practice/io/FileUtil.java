@@ -1,18 +1,31 @@
 package com.rakovets.course.java.core.practice.io;
 
-import com.rakovets.course.java.core.practice.io.Files.Files;
-
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.LinkedList;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 
 public class FileUtil {
-    public void convertingStringToUpperCase() {
-        try (Reader reader = new FileReader(Files.INPUT_FILE);
+    private static final Logger LOGGER = Logger.getLogger(FileUtil.class.getName());
+
+    public void convertingStringToUpperCase(String sourceFile, String targetFile) {
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
-            try (Writer writer = new FileWriter(Files.OUTPUT_FILE);
+            try (Writer writer = new FileWriter(targetFile);
                  Writer bufferedWriter = new BufferedWriter(writer)) {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
@@ -21,27 +34,27 @@ public class FileUtil {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
     }
 
-    public List<String> printList() {
+    public List<String> printList(String sourceFile) {
         List<String> list = new LinkedList<>();
-        try (Reader reader = new FileReader(Files.INPUT_FILE);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
         return list;
     }
 
-    public List<String> printListOfStringStartedWithVowels() {
+    public List<String> printListOfStringStartedWithVowels(String sourceFile) {
         List<String> list = new ArrayList<>();
-        try (Reader reader = new FileReader(Files.INPUT_FILE);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -50,85 +63,71 @@ public class FileUtil {
                         .forEach(list::add);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
         return list;
     }
 
-    public List<String> printListOfWordsLastLetterSimilarToFirstLetterOfNewWord() {
+    public List<String> printListOfWordsLastLetterSimilarToFirstLetterOfNewWord(String sourceFile) {
         List<String> list = new ArrayList<>();
-        try (Reader reader = new FileReader(Files.INPUT_FILE)) {
-            Scanner scanner = new Scanner(reader);
-            String previousWord = null;
-            String nextWord;
-            if (scanner.hasNext()) {
-                previousWord = scanner.next().replaceAll("[,.?!;]", "").toLowerCase();
-            }
-            while (scanner.hasNext()) {
-                nextWord = scanner.next().replaceAll("[,.?!;]", "").toLowerCase();
-                if (previousWord.endsWith(String.valueOf(nextWord.charAt(0)))) {
-                    list.add(previousWord + " - " + nextWord);
-                }
-                previousWord = nextWord;
-            }
-            scanner.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-    public List<String> printTheBiggestSetOfNumbers() {
-        List<String> list = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        List<Integer> biggest = new ArrayList<>();
-        try (Reader reader = new FileReader(Files.NUMBERS_SET);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                String[] numbers = line.split(" ");
-                current.add(Integer.parseInt(numbers[0]));
-                for (int i = 1; i < numbers.length; i++) {
-                    if (Integer.parseInt(numbers[i]) >= Integer.parseInt(numbers[i - 1])) {
-                        current.add(Integer.parseInt(numbers[i]));
-                    } else {
-                        if (current.size() > biggest.size()) {
-                            biggest.clear();
-                            biggest.addAll(current);
-                        }
-                        current.clear();
-                        current.add(Integer.parseInt(numbers[i]));
+                String[] strings = line.toLowerCase().replaceAll("\\.W", "").split(" ");
+                for (int i = 0; i < strings.length - 1; i++) {
+                    if (strings[i].charAt(strings[i].length() - 1) == strings[i + 1].charAt(0)) {
+                        list.add(strings[i]);
                     }
                 }
-                if (current.size() > biggest.size()) {
-                    biggest.clear();
-                    biggest.addAll(current);
-                }
-                StringBuilder numbersStr = new StringBuilder();
-                for (Integer integer : biggest) {
-                    numbersStr.append(integer).append(" ");
-                }
-                list.add(numbersStr.toString());
-                biggest.clear();
-                current.clear();
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.warning(e.getMessage());
         }
         return list;
     }
 
-    public Map<Character, Integer> printLettersFrequency() {
+    public List<String> printTheBiggestSetOfNumbers(String sourceFile) {
+        List<String> numberList = new ArrayList<>();
+        List<String>  lineList = printList(sourceFile);
+        for (String line : lineList) {
+            String[] strings = line.trim().split(" +");
+            int number = Integer.parseInt(strings[0]);
+            String comb = strings[0];
+            Map<String, Integer> map = new HashMap<>();
+            int count = 1;
+            map.put(comb, count);
+            for (int i = 1; i < strings.length; i++) {
+                if (Integer.parseInt(strings[i]) > number) {
+                    comb += " " + strings[i];
+                    count += 1;
+                } else {
+                    count = 1;
+                    comb = strings[i];
+                }
+                number = Integer.parseInt(strings[i]);
+                map.put(comb, count);
+            }
+            map.entrySet().stream()
+                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                    .limit(1)
+                    .map(Map.Entry::getKey)
+                    .forEach(numberList::add);
+        }
+      return numberList;
+    }
+
+    public Map<Character, Integer> printLettersFrequency(String sourceFile) {
         Map<Character, Integer> map = new HashMap<>();
         List<String> list = new ArrayList<>();
-        try (Reader reader = new FileReader(Files.INPUT_FILE);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
         String letter = list.toString().toLowerCase().replaceAll("[^a-z]", "");
         char[] strArray = letter.toCharArray();
@@ -142,19 +141,19 @@ public class FileUtil {
         return map;
     }
 
-    public Map printWordsFrequency() {
+    public Map printWordsFrequencyByOrder(String sourceFile) {
         String text;
         Map<String, Integer> map = new HashMap<>();
         final Map[] result = new Map[]{new HashMap<>()};
         List<String> list = new ArrayList<>();
-        try (Reader reader = new FileReader(Files.INPUT_FILE);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
         text = list.toString().toLowerCase().replaceAll("[^a-z ]", "");
         asList(text.split(" ")).forEach(s -> {
@@ -164,19 +163,18 @@ public class FileUtil {
             } else {
                 map.put(s, 1);
             }
-            result[0] = map.entrySet()
-                    .stream()
-                    .sorted(Map.Entry.comparingByValue())
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-        });
-        return result[0];
+    });
+        return result[0] = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
-    public void printSortedNumbers() {
+    public void printSortedNumbers(String sourceFile, String targetFile) {
         String[] numbers;
-        try (Reader reader = new FileReader(Files.NUMBERS);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
-            try (Writer writer = new FileWriter(Files.SORTED_NUMBERS);
+            try (Writer writer = new FileWriter(targetFile);
                  Writer bufferedWriter = new BufferedWriter(writer)) {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
@@ -190,17 +188,17 @@ public class FileUtil {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
     }
 
-    public Map<String, Double> printStudentGrades() {
+    public Map<String, Double> printStudentGrades(String sourceFile) {
         Map<String, Double> map = new LinkedHashMap<>();
         String[] studentsAndGrades;
         double averageGrade;
         double sumOfGrades = 0;
         int count = 0;
-        try (Reader reader = new FileReader(Files.STUDENTS);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
@@ -213,16 +211,16 @@ public class FileUtil {
                     map.put(studentsAndGrades[0],averageGrade);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.warning(e.getMessage());
         }
         return map;
     }
 
-    public void printChangedJavaCode(String oldAccessMod, String newAccessMod) {
+    public void printChangedJavaCode(String sourceFile, String targetFile, String oldAccessMod, String newAccessMod) {
         List<String> list = new LinkedList<>();
-        try (Reader reader = new FileReader(Files.JAVA_CODE);
+        try (Reader reader = new FileReader(sourceFile);
              BufferedReader bufferedReader = new BufferedReader(reader)) {
-            try (Writer writer = new FileWriter(Files.JAVA_CODE_CHANGED);
+            try (Writer writer = new FileWriter(targetFile);
                 Writer bufferedWriter = new BufferedWriter(writer)) {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
@@ -239,7 +237,7 @@ public class FileUtil {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warning(e.getMessage());
         }
     }
 }
