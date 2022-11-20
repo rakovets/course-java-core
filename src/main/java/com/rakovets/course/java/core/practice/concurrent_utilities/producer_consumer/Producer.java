@@ -5,11 +5,11 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
-    private final Logger logger = Logger.getLogger(Producer.class.getName());
-    private final Queue<Integer> numbers;
+    private static final Logger logger = Logger.getLogger(Producer.class.getName());
+    private final Container numbers;
 
     public Producer(Container queue) {
-        this.numbers = queue.getQueue();
+        this.numbers = queue;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Producer extends Thread {
                 if (x < -1) {
                     throw new UserInputException("Try only positive number");
                 } else {
-                    numbers.add(x);
+                    numbers.addNumber(x);
                 }
             } catch (UserInputException | IllegalArgumentException e) {
                 logger.severe("Error: Incorrect input. " + e.getMessage());

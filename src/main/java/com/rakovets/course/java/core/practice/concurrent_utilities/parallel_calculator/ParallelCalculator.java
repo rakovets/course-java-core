@@ -1,13 +1,19 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator;
 
+import com.rakovets.course.java.core.practice.concurrent_utilities.producer_consumer.Container;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class ParallelCalculator {
-    public Map<Integer[], Integer> oneThreadCalculation(Queue<Integer[]> arrays) {
+    private final Map<Integer[], Integer> finalList;
+
+    public ParallelCalculator(Map<Integer[], Integer> finalList) {
+        this.finalList = finalList;
+    }
+
+    public Map<Integer[], Integer> oneCalculation(Queue<Integer[]> arrays) {
         Map<Integer[], Integer> result = new HashMap<>();
         for (Integer[] array : arrays) {
             int sum = 0;
@@ -19,20 +25,22 @@ public class ParallelCalculator {
         return result;
     }
 
-    public ConcurrentHashMap<Integer[], Integer> multiThreadsCalculation(Queue<Integer[]> arrays, int numberOfThreads) {
-        for (int i = 0; i < numberOfThreads; i++) {
-            Thread thread = new Thread();
-            thread.setName("Thread" + i);
-            thread.start();
+    public Map<Integer[], Integer> multiThreadCalculation(Queue<Integer[]> arrays, int numberOfThreads) {
+        int arraysOnOneThread = arrays.size() / numberOfThreads;
+        Queue<Integer[]> arraysForThisThread = null;
+        for (int i = 0; i < arraysOnOneThread; i++) {
+            Integer[] oneArray = arrays.poll();
+            arraysForThisThread.add(oneArray);
         }
-        ConcurrentHashMap<Integer[], Integer> result = new ConcurrentHashMap<>();
-        for (Integer[] array : arrays) {
-            int sum = 0;
-            for (int num : array) {
-                sum += num;
+        if (arraysForThisThread != null) {
+            for (Integer[] array : arraysForThisThread) {
+                int sum = 0;
+                for (int num : array) {
+                    sum += num;
+                }
+                finalList.put(array, sum);
             }
-            result.put(array, sum);
         }
-        return result;
+        return finalList;
     }
 }

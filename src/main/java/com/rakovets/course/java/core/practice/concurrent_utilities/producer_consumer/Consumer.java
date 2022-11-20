@@ -12,12 +12,12 @@ import java.util.logging.Logger;
 
 public class Consumer extends Thread {
     private final Logger logger = Logger.getLogger(Consumer.class.getName());
-    private final int MILLS = 1000;
-    private final Queue<Integer> numbers;
     private final Path filePath = Paths.get("src", "test", "resources", "practice.concurrent_utilities", "Producer-Consumer.txt");
+    private final Container numbers;
+    private final int MILLS = 1000;
 
     public Consumer(Container queue) {
-        this.numbers = queue.getQueue();
+        this.numbers = queue;
     }
 
     @Override
@@ -25,8 +25,8 @@ public class Consumer extends Thread {
         try {
             FileWriter writer = new FileWriter(filePath.toString(), true);
             while (!Thread.currentThread().isInterrupted()) {
-                if (!numbers.isEmpty()) {
-                    long seconds = numbers.poll();
+                if (!numbers.getQueue().isEmpty()) {
+                    long seconds = numbers.getItem();
                     Thread.sleep(seconds * MILLS);
                     writer.write(LocalDateTime.now() + "-" + Thread.currentThread().getName() + " - I slept " +
                             seconds + " seconds.\n");
