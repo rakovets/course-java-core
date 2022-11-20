@@ -2,11 +2,15 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 
 public class Demo {
     public static void main(String[] args) {
-        final int TIME_OF_WORK_IN_MINUTES = 10;
+        final int TIME_OF_WORK_IN_MINUTES = 2;
+        final int NUMBER_OF_PERMISSIONS_TO_PRODUCE_SPEARS_FOR_FACTORY = 10;
+        String NAME_OF_FACTORY_STARTER_THREAD = "FactoryStarter";
+        String NAME_OF_FACTORY_THREAD = "Factory";
+        String NAME_OF_FRACTION_OF_ROBOTS_STARTER_THREAD = "FractionOfRobotsStarter";
 
-        FactoryStore factoryStore = new FactoryStore(TIME_OF_WORK_IN_MINUTES);
-        Thread factoryStarter = new FactoryStarter("FactoryStarter", factoryStore);
-        Thread fractionOfRobotsStarter = new FractionOfRobotsStarter("FractionOfRobotsStarter", factoryStore);
+        FactoryStore factoryStore = new FactoryStore(TIME_OF_WORK_IN_MINUTES, NUMBER_OF_PERMISSIONS_TO_PRODUCE_SPEARS_FOR_FACTORY);
+        Thread factoryStarter = new FactoryStarter(NAME_OF_FACTORY_STARTER_THREAD, NAME_OF_FACTORY_THREAD, factoryStore);
+        Thread fractionOfRobotsStarter = new FractionOfRobotsStarter(NAME_OF_FRACTION_OF_ROBOTS_STARTER_THREAD, factoryStore);
         factoryStarter.start();
         fractionOfRobotsStarter.start();
     }
