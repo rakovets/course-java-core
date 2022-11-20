@@ -6,9 +6,11 @@ import java.util.stream.IntStream;
 public class Factory extends Thread {
     private final static Logger logger = Logger.getLogger(Factory.class.getName());
     private final FactoryStore factoryStore;
-    public Factory(String name, FactoryStore factoryStore) {
+    private final SpeedType high;
+    public Factory(String name, FactoryStore factoryStore, SpeedType high) {
         super(name);
         this.factoryStore = factoryStore;
+        this.high = high;
     }
 
     @Override
@@ -19,7 +21,7 @@ public class Factory extends Thread {
         while (System.currentTimeMillis() - START_TIME <= factoryStore.getTimeOfWorkInDays() * SECONDS_IN_MINUTE * MILLIS_IN_SECOND) {
             factoryStore.produceOneSpearPartToFactoryStore();
             try {
-                sleep(MILLIS_IN_SECOND * 1);
+                sleep(MILLIS_IN_SECOND * high.getSpeed());
             } catch (InterruptedException e) {
                 logger.info(e.getMessage());
             }

@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.project_sky_net.task_01;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.IntStream;
 
@@ -9,12 +11,11 @@ public class FactoryStore {
     private final static Logger logger = Logger.getLogger(FactoryStore.class.getName());
     private final int SECONDS_IN_MINUTE = 60;
     private final int MILLIS_IN_SECOND = 1000;
-    //private final int MAX_ALLOWED_SPEARS_PRODUCE_BY_DAY = 10;
-    private final int MAX_ALLOWED_SPEARS_TAKEN_BY_DAY = 10;
-
     private final int[] arrayOfSpears = new int[4];
     private final int timeOfWorkInDays;
     private final int maxNumberOfSpearsAllowedToProduceFactoryPerDay;
+    private final Map<String, Integer> namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay;
+    private final Map<String, Integer> namesOfRobotsThreadAndNumberOfSpearsTakenPerDay = new HashMap<>();
     private int numbersOfSpearsProducedByOneDay;
     private int numbersOfSpearsTakenByOneNight;
     private boolean factoryIsAwaiting;
@@ -24,9 +25,17 @@ public class FactoryStore {
         factoryIsAwaiting = true;
     }
 
-    public FactoryStore(int timeOfWorkInDays, int maxNumberOfSpearsAllowedToProduceFactoryPerDay) {
+    public FactoryStore(int timeOfWorkInDays, int maxNumberOfSpearsAllowedToProduceFactoryPerDay, Map<String, Integer> namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay) {
         this.timeOfWorkInDays = timeOfWorkInDays;
         this.maxNumberOfSpearsAllowedToProduceFactoryPerDay = maxNumberOfSpearsAllowedToProduceFactoryPerDay;
+        this.namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay = namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay;
+        for (Map.Entry<String, Integer> item : namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay.entrySet()) {
+            namesOfRobotsThreadAndNumberOfSpearsTakenPerDay.put(item.getKey(), 0);
+        }
+    }
+
+    public Map<String, Integer> getNamesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay() {
+        return this.namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay;
     }
 
     public void setTimeIsOver(boolean timeIsOver) {
@@ -111,6 +120,7 @@ public class FactoryStore {
         logger.info(Thread.currentThread().getName() + " хочет получить деталь");
         while (!this.isNightTime()) {
             numbersOfSpearsTakenByOneNight = 0;
+            namesOfRobotsThreadAndNumberOfSpearsTakenPerDay.put(Thread.currentThread().getName(), 0);
             logger.info("Сейчас день, роботы должны спать");
             if (timeIsOver) {
                 logger.info("Время работы вышло, поток прекращает работу");
@@ -142,7 +152,8 @@ public class FactoryStore {
             return -1;
         }
         int typeOfSpears = 0;
-        if (numbersOfSpearsTakenByOneNight < MAX_ALLOWED_SPEARS_TAKEN_BY_DAY && IntStream.of(arrayOfSpears).sum() > 0) {
+        int j = namesOfRobotsThreadAndNumberOfSpearsTakenPerDay.get(Thread.currentThread().getName());
+        if (namesOfRobotsThreadAndNumberOfSpearsTakenPerDay.get(Thread.currentThread().getName()) < namesOfRobotsThreadAndNumberOfSpearsAllowedToTakePerDay.get(Thread.currentThread().getName()) && IntStream.of(arrayOfSpears).sum() > 0) {
             boolean spearIsNotChosen = true;
             while (spearIsNotChosen) {
                 int i = (int) (Math.random() * arrayOfSpears.length);
@@ -150,9 +161,15 @@ public class FactoryStore {
                     arrayOfSpears[i]--;
                     spearIsNotChosen = false;
                     typeOfSpears = i;
+                    j++;
+                    namesOfRobotsThreadAndNumberOfSpearsTakenPerDay.put(Thread.currentThread().getName(), j);
                     numbersOfSpearsTakenByOneNight++;
                     logger.info(Thread.currentThread().getName() + " забрал деталь, позиция: " + i);
-                    logger.info("Роботы забрали за ночь деталей ВСЕГО: " + numbersOfSpearsTakenByOneNight);
+                    logger.info("Роботы забрали за ночь деталей ВСЕГО, данные из переменной-счетчика: " + numbersOfSpearsTakenByOneNight);
+                    int sum = namesOfRobotsThreadAndNumberOfSpearsTakenPerDay.entrySet().stream()
+                            .map(x -> x.getValue())
+                            .reduce(0, (x, y) -> x + y);
+                    logger.info("Роботы забрали за ночь деталей ВСЕГО, данные из мапы: " + sum);
                 }
             }
         } else {
@@ -160,6 +177,7 @@ public class FactoryStore {
                 logger.info("Склад пуст, забирать нечего. Роботы ждут, пока на складе появятся детали");
             }
             try {
+                logger.info(Thread.currentThread().getName() + " заснул до конца ночи");
                 sleep(this.restOfNightToSleep());
             } catch (InterruptedException e) {
                 logger.info(e.getMessage());

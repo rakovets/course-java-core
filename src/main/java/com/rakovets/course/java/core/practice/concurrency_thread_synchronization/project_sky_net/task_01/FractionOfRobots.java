@@ -7,9 +7,11 @@ public class FractionOfRobots extends Thread {
     private final static Logger logger = Logger.getLogger(FractionOfRobots.class.getName());
     private final int[] arrayOfSpears = new int[4];
     private final FactoryStore factoryStore;
-    public FractionOfRobots(String name, FactoryStore factoryStore) {
+    private final SpeedType middle;
+    public FractionOfRobots(String name, FactoryStore factoryStore, SpeedType middle) {
         super(name);
         this.factoryStore = factoryStore;
+        this.middle = middle;
     }
 
     @Override
@@ -25,7 +27,7 @@ public class FractionOfRobots extends Thread {
             }
             arrayOfSpears[i]++;
             try {
-                sleep(MILLIS_IN_SECOND * 2);
+                sleep(MILLIS_IN_SECOND * middle.getSpeed());
             } catch (InterruptedException e) {
                 logger.info(e.getMessage());
             }
