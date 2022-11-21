@@ -4,8 +4,12 @@ import com.rakovets.course.java.core.practice.concurrency_thread_synchronization
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.Wednesday;
 import com.rakovets.course.java.core.practice.concurrency_thread_synchronization.skynet.World;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class DemoProjectSkyNet {
     private static final Integer DAY_OF_HARD_WORK = 5;
+    private static final Logger logger = Logger.getLogger(DemoProjectSkyNet.class.getCanonicalName());
 
     public static void main(String[] args) throws InterruptedException {
         Factory factory = Factory.getInstance();
@@ -24,7 +28,7 @@ public class DemoProjectSkyNet {
             worldThread.join();
             factory.getIsDay().set(true);
         }
-        System.out.println(wednesday.getCacheSize());
-        System.out.println(world.getCacheSize());
+        logger.log(Level.INFO, String.valueOf(wednesday.getCacheSize()));
+        logger.log(Level.INFO, String.valueOf(world.getCacheSize()));
     }
 }
