@@ -13,10 +13,6 @@ public class Factory implements Runnable {
     private final AtomicBoolean isDay = new AtomicBoolean(true);
     Lock lock = new ReentrantLock(true);
 
-    private Factory() {
-
-    }
-
     @Override
     public void run() {
         int countDetails = new Random().nextInt(COUNT_OF_DETAILS);
@@ -38,7 +34,6 @@ public class Factory implements Runnable {
         } finally {
             lock.unlock();
         }
-
         return null;
     }
 

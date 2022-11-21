@@ -2,17 +2,11 @@ package com.rakovets.course.java.core.practice.concurrency_thread_synchronizatio
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Wednesday implements Runnable {
     private static final Integer COUNT_OF_DETAILS = 5;
-    private final Logger logger = Logger.getLogger(Wednesday.class.getName());
     List<PathOfBody> data = new ArrayList<>();
     private final Factory factory = Factory.getInstance();
-
-    private Wednesday() {
-
-    }
 
     @Override
     public void run() {

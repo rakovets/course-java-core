@@ -8,10 +8,6 @@ public class World implements Runnable {
     List<PathOfBody> data = new ArrayList<>();
     private final Factory factory = Factory.getInstance();
 
-    private World() {
-
-    }
-
     @Override
     public void run() {
         for (int i = 0; i < COUNT_OF_DETAILS; i++) {
