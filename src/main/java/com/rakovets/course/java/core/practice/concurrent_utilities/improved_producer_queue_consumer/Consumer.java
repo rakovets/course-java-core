@@ -19,14 +19,16 @@ public class Consumer extends Thread {
 
     public void run() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))) {
+            Integer number;
             while (true) {
-                Integer number = numbers.getItem();
+                number = numbers.getItem();
                 if (number != null) {
                     Thread.sleep(number * 1000);
                     bw.write(String.format("%s - %s - I slept %d seconds\n", LocalDateTime.now(), Thread.currentThread().getName(), number));
                 } else {
                     Thread.sleep(1000);
                     bw.write(String.format("%s - %s - ...\n", LocalDateTime.now(), Thread.currentThread().getName()));
+                    break;
                 }
             }
         } catch (IOException | InterruptedException e) {

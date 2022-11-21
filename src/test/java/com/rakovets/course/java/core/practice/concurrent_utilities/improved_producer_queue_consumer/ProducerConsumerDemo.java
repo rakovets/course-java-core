@@ -12,7 +12,7 @@ public class ProducerConsumerDemo {
         ExecutorService poolTreads = Executors.newFixedThreadPool(4);
         Thread producerThread = new Thread(new Producer(queueContainer), "Producer");
         poolTreads.submit(producerThread);
-        Thread.sleep(1000);
+        Thread.sleep(10000);
         Thread consumer1 = new Thread(new Consumer(queueContainer, outputFileName), "Consumer1");
         Thread consumer2 = new Thread(new Consumer(queueContainer, outputFileName), "Consumer2");
         Thread consumer3 = new Thread(new Consumer(queueContainer, outputFileName), "Consumer3");
