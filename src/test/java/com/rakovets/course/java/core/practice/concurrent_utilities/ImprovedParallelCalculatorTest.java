@@ -39,18 +39,24 @@ public class ImprovedParallelCalculatorTest {
         List<Pair> listExpected = new ArrayList<>();
         Pair firstArrayPair = new Pair(3, firstArray);
         Pair secondArrayPair = new Pair(9, secondArray);
-        Pair thirdArrayPair = new Pair(1, thirdArray);
+        Pair thirdArrayPair = new Pair(11, thirdArray);
         listExpected.add(firstArrayPair);
         listExpected.add(secondArrayPair);
         listExpected.add(thirdArrayPair);
 
-        List<Pair> listActual = calculator.getArraySumAndAcceptingCountOfThreads(list, 1);
-        List<Pair> listActual2 = calculator.getArraySumAndAcceptingCountOfThreads(list, 2);
-        List<Pair> listActual5 = calculator.getArraySumAndAcceptingCountOfThreads(list, 5);
-        List<Pair> listActual10 = calculator.getArraySumAndAcceptingCountOfThreads(list, 10);
+        List<Pair> listActual = calculator.getArraySumAndAcceptingCountOfThreads(list, 10);
         Assertions.assertEquals(listExpected, listActual);
-        Assertions.assertEquals(listExpected, listActual2);
-        Assertions.assertEquals(listExpected, listActual5);
-        Assertions.assertEquals(listExpected, listActual10);
+    }
+
+    @Test
+    public void getSumWithThreadsTest() {
+        ImprovedParallelCalculator calculator = new ImprovedParallelCalculator();
+        System.out.println(calculator.getArraySumAndAcceptingCountOfThreads(List.of(
+                new int[] {1, 2, 3},
+                new int[] {4, 2, 6},
+                new int[] {3, 2, 2},
+                new int[] {1, 7, 8},
+                new int[] {10, 20, 30}
+        ), 10));
     }
 }

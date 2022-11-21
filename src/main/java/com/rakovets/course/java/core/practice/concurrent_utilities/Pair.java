@@ -7,6 +7,11 @@ public class Pair {
     private long sum;
     private int[] array;
 
+    public Pair(long sum, int[] array) {
+        this.sum = sum;
+        this.array = array;
+    }
+
     public long getSum() {
         return sum;
     }

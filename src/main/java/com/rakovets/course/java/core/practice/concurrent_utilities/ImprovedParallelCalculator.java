@@ -1,6 +1,8 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,21 +14,14 @@ public class ImprovedParallelCalculator {
 
     public List<Pair> getArrayAndSum(List<int[]> list) {
         List<Pair> pairs = new ArrayList<>();
-        for (int[] array : list) {
-            long sum = 0;
-            for (int number : array) {
-                sum += number;
-            }
-            Pair pair = new Pair();
-            pair.setSum(sum);
-            pair.setArray(array);
-            pairs.add(pair);
+        for (int[] ints : list) {
+            pairs.add(new Pair(Arrays.stream(ints).sum(), ints));
         }
         return pairs;
     }
 
     public List<Pair> getArraySumAndAcceptingCountOfThreads(List<int[]> list, int countThread) {
-        List<Pair> pairs = new ArrayList<>();
+        List<Pair> pairs = Collections.synchronizedList(new ArrayList<>(list.size()));
         List<int[]> listCopy = new ArrayList<>(list);
         long startTime = System.currentTimeMillis();
         ReentrantLock lock = new ReentrantLock();
@@ -36,14 +31,9 @@ public class ImprovedParallelCalculator {
             if (!listCopy.isEmpty()) {
                 int[] array = listCopy.remove(0);
                 lock.unlock();
-                long sum = 0;
-                for (int number : array) {
-                    sum += number;
+                for (int[] ints : list) {
+                    pairs.add(new Pair(Arrays.stream(ints).sum(), ints));
                 }
-                Pair pair = new Pair();
-                pair.setSum(sum);
-                pair.setArray(array);
-                pairs.add(pair);
             } else {
                 lock.unlock();
             }
