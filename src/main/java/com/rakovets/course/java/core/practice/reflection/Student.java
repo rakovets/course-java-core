@@ -1,9 +1,5 @@
 package com.rakovets.course.java.core.practice.reflection;
 
-import com.rakovets.course.java.core.example.reflection.model.Excludable;
-import com.rakovets.course.java.core.example.reflection.model.Group;
-import com.rakovets.course.java.core.example.reflection.model.User;
-
 public class Student {
     private final String name;
     private final String surname;

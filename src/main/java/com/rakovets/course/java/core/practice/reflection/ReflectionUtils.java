@@ -32,7 +32,7 @@ public class ReflectionUtils {
         method.setAccessible(true);
         Object obj1 = null;
         try {
-           obj1 = method.invoke(obj);
+            obj1 = method.invoke(obj);
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
