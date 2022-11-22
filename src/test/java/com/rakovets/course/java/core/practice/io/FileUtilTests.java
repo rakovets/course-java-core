@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.io;
 
-import com.rakovets.course.java.core.practice.io.file_util.FileUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,6 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -17,9 +17,9 @@ public class FileUtilTests {
 
     static Stream<Arguments> provideArgumentsGetListOfStrings() {
         return Stream.of(
-                Arguments.of(Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "numbers.txt"),
+                Arguments.of(Paths.get("src", "test", "resources", "practice.io", "numbers.txt"),
                         List.of("34 7 8 38 1 3", "8 7 6 5 4 3 1", "87 45 76 35 75 24")),
-                Arguments.of(Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "studentsProgress.txt"),
+                Arguments.of(Paths.get("src", "test", "resources", "practice.io", "studentsProgress.txt"),
                         List.of("Komleva, 8, 9, 10", "Flurick, 5, 8, 7", "Belka, 4, 9, 6"))
         );
     }
@@ -34,7 +34,7 @@ public class FileUtilTests {
 
     @Test
     void getWordsStartsWithVowelTest() {
-        Path inputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "text.txt");
+        Path inputFilePath = Paths.get("src", "test", "resources", "practice.io", "text.txt");
 
         List<String> actual = fileUtil.getWordsStartsWithVowel(inputFilePath);
 
@@ -45,7 +45,7 @@ public class FileUtilTests {
 
     @Test
     void getWordsFirstCharEqualLastCharNextWordTest() {
-        Path inputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "text.txt");
+        Path inputFilePath = Paths.get("src", "test", "resources", "practice.io", "text.txt");
 
         List<String> actual = fileUtil.getWordsFirstCharEqualLastCharNextWord(inputFilePath);
 
@@ -64,7 +64,7 @@ public class FileUtilTests {
 
     @Test
     void getAllLettersFrequencyTest() {
-        Path inputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "text.txt");
+        Path inputFilePath = Paths.get("src", "test", "resources", "practice.io", "text.txt");
         String expected = "{a=32, b=6, c=11, d=15, e=53, f=4, g=7, h=1, i=48, l=32, m=26, n=22, o=18, p=15, q=3, r=24, s=35, t=30, u=33, v=7}";
 
         Map<Character, Integer> actual = fileUtil.getAllLettersFrequency(inputFilePath);
@@ -74,9 +74,9 @@ public class FileUtilTests {
 
     @Test
     void getWordsFrequencyTest() {
-        Path codeFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "javacode.txt");
+        Path codeFilePath = Paths.get("src", "test", "resources", "practice.io", "javacode.txt");
 
-        Map<String, Integer> actual = fileUtil.getWordsFrequency(codeFilePath);
+        Map<String, Integer> actual = fileUtil.getAscendingSortedWordsFrequency(codeFilePath);
 
         Assertions.assertEquals(actual.get("int"), 3);
         Assertions.assertEquals(actual.get("student"), 1);
@@ -84,7 +84,7 @@ public class FileUtilTests {
 
     @Test
     void getStudentProgressTest() {
-        Path studentsFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "studentsProgress.txt");
+        Path studentsFilePath = Paths.get("src", "test", "resources", "practice.io", "studentsProgress.txt");
 
         Map<String, Double> actual = fileUtil.getStudentProgress(studentsFilePath);
 

@@ -1,18 +1,18 @@
 package com.rakovets.course.java.core.practice.io;
 
-import com.rakovets.course.java.core.practice.io.file_util.FileUtil;
-
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileUtilDemo {
     public static void main(String[] args) {
         FileUtil fileUtil = new FileUtil();
-        Path inputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "text.txt");
-        Path outputFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "textcopy.txt");
-        Path numbersFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "numbers.txt");
-        Path numbers5FilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "numbers5.txt");
-        Path studentsFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "studentsProgress.txt");
-        Path codeFilePath = Path.of("D://IT/Courses IT Academy/course-java-core/src/test/resources/practice.io", "javacode.txt");
+        Path filePath = Paths.get("src", "test", "resources", "practice.io");
+        Path inputFilePath = Paths.get(filePath.toString(), "text.txt");
+        Path outputFilePath = Paths.get(filePath.toString(), "textcopy.txt");
+        Path numbersFilePath = Paths.get(filePath.toString(), "numbers.txt");
+        Path numbers5FilePath = Paths.get(filePath.toString(), "numbers5.txt");
+        Path studentsFilePath = Paths.get(filePath.toString(), "studentsProgress.txt");
+        Path codeFilePath = Paths.get(filePath.toString(), "javacode.txt");
         System.out.println("Task 1");
         fileUtil.rewriteOneFileToAnother(inputFilePath, outputFilePath);
         System.out.println("\n Task 2");
@@ -26,9 +26,9 @@ public class FileUtilDemo {
         System.out.println("\n Task 6");
         System.out.println(fileUtil.getAllLettersFrequency(inputFilePath));
         System.out.println("\n Task 7");
-        System.out.println(fileUtil.getWordsFrequency(codeFilePath));
+        System.out.println(fileUtil.getAscendingSortedWordsFrequency(codeFilePath));
         System.out.println("\n Task 8");
-        fileUtil.writeSortedNumbers(numbersFilePath);
+        fileUtil.writeAscendingSortedNumbers(numbersFilePath, "_");
         System.out.println("\n Task 9");
         System.out.println(fileUtil.getStudentProgress(studentsFilePath));
         System.out.println("\n Task 10");
