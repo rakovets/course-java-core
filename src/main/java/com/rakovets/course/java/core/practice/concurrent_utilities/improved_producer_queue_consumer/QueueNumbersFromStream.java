@@ -5,30 +5,21 @@ import java.util.Queue;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class QueueNumbersFromStream {
-    private Queue<Integer> queueNumbers = new ArrayDeque();
-    private ReentrantLock lock = new ReentrantLock();
+    private final Queue<Integer> queueNumbers = new ArrayDeque<>();
+    private final ReentrantLock lock = new ReentrantLock();
 
     public void addQueueNumbers(int number) {
-        try {
-            lock.lock();
-            this.queueNumbers.add(number);
-        } finally {
-            lock.unlock();
-        }
+        this.queueNumbers.add(number);
     }
 
-    public Queue getQueueNumbers() {
+    public Queue<Integer> getQueueNumbers() {
         return queueNumbers;
     }
 
     public int getQueueNumber() {
-        int number;
-        try {
-            lock.lock();
-            number = queueNumbers.poll();
-        } finally {
-            lock.unlock();
-        }
+        lock.lock();
+        int number = queueNumbers.poll();
+        lock.unlock();
         return number;
     }
 }
