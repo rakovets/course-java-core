@@ -9,6 +9,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
 public class ParallelCalculatorDemo {
@@ -23,15 +26,20 @@ public class ParallelCalculatorDemo {
             }
             inputArray.add(array);
         }
+
         Map<Integer[], Integer> finalList = new HashMap<>();
-        ParallelCalculator calculator = new ParallelCalculator(finalList);
+        ReentrantLock locker = new ReentrantLock();
+        ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
+        ParallelCalculator calculator = new ParallelCalculator(finalList, locker);
+
        logger.info(LocalDateTime.now() + " threads start working");
         for(int i = 0; i < numberOfThreads; i++) {
             Thread thread = new Thread(new ParallelCalculatorThread(calculator, finalList, inputArray, numberOfThreads));
             thread.setName("Thread "+ i);
-            thread.start();
+            executor.execute(thread);
         }
-        Thread.sleep(1000);
+        executor.shutdown();
+        Thread.sleep(2000);
         logger.info(LocalDateTime.now() + " threads stop working");
         logger.info(finalList.toString());
     }
