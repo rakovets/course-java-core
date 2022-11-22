@@ -11,7 +11,7 @@ public class DemoParallelCalculator {
     public static void main(String[] args) {
         ParallelCalculator parallelCalculator = new ParallelCalculator();
         List<int[]> inputArray = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < new Random().nextInt(5); i++) {
             int[] array = new int[new Random().nextInt(ARRAY_LENGTH)];
             for (int j = 0; j < array.length; j++) {
                 array[j] = new Random().nextInt(CONTAINS_ARRAY_NUMBERS);
