@@ -3,13 +3,19 @@ package com.rakovets.course.java.core.practice.concurrency.producer_queue_consum
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Timestamp;
 
 public class Consumer extends Thread {
+    private final int MILLS_IN_SECOND = 1000;
+
     private Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     private QueueNumbersFromStream queue;
-
-    private final int MILLS_IN_SECOND = 1000;
+    private Path filePath = Path.of("src",
+            "test",
+            "resources",
+            "practice.concurrency",
+            "Report.txt");
 
     public Consumer(String name, QueueNumbersFromStream queue) {
         super(name);
@@ -20,10 +26,8 @@ public class Consumer extends Thread {
     public void run() {
         try {
             BufferedWriter writer = new BufferedWriter(
-                    new FileWriter("D://JavaProjects/course-java-core" +
-                            "/src/main/java/com/rakovets/course/java/core/practice" +
-                            "/concurrency/producer_queue_consumer/Report.txt", true));
-            while (!queue.getQueueNumbers().isEmpty()) {
+                    new FileWriter(filePath.toFile(), true));
+            while (!Thread.currentThread().isInterrupted()) {
                 if (!queue.getQueueNumbers().isEmpty()) {
                     int numberQueue = (int)queue.getQueueNumbers().poll();
                     Thread.sleep(numberQueue * MILLS_IN_SECOND);
@@ -39,9 +43,10 @@ public class Consumer extends Thread {
                     writer.newLine();
                     writer.flush();
                     Thread.sleep(MILLS_IN_SECOND);
+                    break;
                 }
             }
-        } catch (IOException | InterruptedException | NullPointerException e) {
+        } catch (IOException | InterruptedException e) {
             e.getStackTrace();
         }
     }
