@@ -1,9 +1,10 @@
 package com.rakovets.course.java.core.practice.reflection;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 public class ReflectionDemo {
-    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException {
+    public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         ReflectionUnits reflectionUnits = new ReflectionUnits();
 
         Class<Cat> bob = Cat.class;
