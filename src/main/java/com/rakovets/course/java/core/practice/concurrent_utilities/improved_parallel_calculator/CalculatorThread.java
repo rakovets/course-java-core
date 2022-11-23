@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.improved_parallel_calculator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -29,8 +30,10 @@ public class CalculatorThread extends Thread {
     @Override
     public void run() {
         try {
+            List<int[]> myPartOfList;
+            myPartOfList = intArrayList.subList(start, end);
             sem.acquire();
-            intArrayList.subList(start, end).stream()
+            myPartOfList.stream()
                     .forEach(x -> {
                         mapMadeByThreads.put(x, Arrays.stream(x).sum());
                     });
