@@ -25,6 +25,5 @@ public class DemoParallelCalculator {
         calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 3));
         calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 5));
         calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 10));
-
     }
 }
