@@ -1,13 +1,15 @@
 package com.rakovets.course.java.core.practice.concurrency;
 
-public class Demo {
+import java.nio.file.Path;
+
+public class ProducerConsumerDemo {
 
     public static void main(String[] args) throws InterruptedException {
 
-        String path = "D:\\JAVA\\dev\\first program\\course-java-core\\src\\test\\resources\\test.txt";
+        Path path = Path.of("src", "test", "resources", "test.txt");
 
         FileHelper fileHelper = new FileHelper();
-        fileHelper.setFilename(path);
+        fileHelper.setFilename(String.valueOf(path));
 
         QueueContainer queueContainer = new QueueContainer();
 
