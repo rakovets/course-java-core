@@ -36,7 +36,6 @@ public class FileUtil {
 
     public List<String> getListLines(Path file) {
         List<String> listLine = new ArrayList<>();
-
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file.toFile()))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
