@@ -9,6 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Factory implements Runnable {
     private static final Integer COUNT_OF_DETAILS = 10;
+    private static final Integer COUNT_PATH_OF_BODY = 4;
     private static final List<PathOfBody> data = new ArrayList<>();
     private final AtomicBoolean isDay = new AtomicBoolean(true);
     Lock lock = new ReentrantLock(true);
@@ -17,7 +18,7 @@ public class Factory implements Runnable {
     public void run() {
         int countDetails = new Random().nextInt(COUNT_OF_DETAILS);
         for (int i = 0; i < countDetails; i++) {
-            PathOfBody pathOfBody = PathOfBody.values()[new Random().nextInt(4)];
+            PathOfBody pathOfBody = PathOfBody.values()[new Random().nextInt(COUNT_PATH_OF_BODY)];
             data.add(pathOfBody);
         }
         isDay.set(false);
