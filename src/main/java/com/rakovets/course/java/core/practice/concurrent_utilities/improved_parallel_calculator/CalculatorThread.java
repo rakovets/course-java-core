@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.improved_parallel_calculator;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -8,16 +7,15 @@ import java.util.concurrent.Phaser;
 import java.util.concurrent.Semaphore;
 
 public class CalculatorThread extends Thread {
-    private String name;
-    private Semaphore sem;
+    private final Semaphore sem;
     private final Map<int[], Integer> mapMadeByThreads;
     private final List<int[]> intArrayList;
-    private int start;
-    private int end;
-    private Phaser phaser;
+    private final int start;
+    private final int end;
+    private final Phaser phaser;
 
     public CalculatorThread(String name, Semaphore sem, Map<int[], Integer> mapMadeByThreads, List<int[]> intArrayList, int start, int end, Phaser phaser) {
-        this.name = name;
+        super(name);
         this.sem = sem;
         this.mapMadeByThreads = mapMadeByThreads;
         this.intArrayList = intArrayList;
@@ -30,10 +28,8 @@ public class CalculatorThread extends Thread {
     @Override
     public void run() {
         try {
-            List<int[]> myPartOfList;
-            myPartOfList = intArrayList.subList(start, end);
             sem.acquire();
-            myPartOfList.stream()
+            intArrayList.stream()
                     .forEach(x -> {
                         mapMadeByThreads.put(x, Arrays.stream(x).sum());
                     });

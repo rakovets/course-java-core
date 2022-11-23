@@ -23,9 +23,9 @@ public class Demo {
         final int MIN_VALUE_IN_ARRAY = 1;
         final int MAX_VALUE_IN_ARRAY = 300;
         final int MIN_SIZE_OF_ARRAY = 1;
-        final int MAX_SIZE_OF_ARRAY = 10;
+        final int MAX_SIZE_OF_ARRAY = 1_000_000;
         final int NUMBER_OF_ARRAY_IN_LIST = 10;
-        final int NUMBER_OF_THREADS = 2;
+        final int NUMBER_OF_THREADS = 3;
 
         Phaser phaser = new Phaser(1);
         ArrayListCreator creator = new ArrayListCreator();
