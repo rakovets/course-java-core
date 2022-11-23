@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ImprovedParallelCalculatorTest {
+    public static final Logger logger = Logger.getLogger(ImprovedParallelCalculatorTest.class.getName());
 
     @Test
     public void getSumNumbersInArraysTest() {
@@ -51,7 +53,7 @@ public class ImprovedParallelCalculatorTest {
     @Test
     public void getSumWithThreadsTest() {
         ImprovedParallelCalculator calculator = new ImprovedParallelCalculator();
-        System.out.println(calculator.getArraySumAndAcceptingCountOfThreads(List.of(
+        logger.info("result" + calculator.getArraySumAndAcceptingCountOfThreads(List.of(
                 new int[] {1, 2, 3},
                 new int[] {4, 2, 6},
                 new int[] {3, 2, 2},

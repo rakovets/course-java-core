@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
 public class ImprovedParallelCalculator {
     public static final Logger logger = Logger.getLogger(ImprovedParallelCalculator.class.getName());
+    private final Lock lock = new ReentrantLock();
 
     public List<Pair> getArrayAndSum(List<int[]> list) {
         List<Pair> pairs = new ArrayList<>();
@@ -22,29 +25,22 @@ public class ImprovedParallelCalculator {
 
     public List<Pair> getArraySumAndAcceptingCountOfThreads(List<int[]> list, int countThread) {
         List<Pair> pairs = Collections.synchronizedList(new ArrayList<>(list.size()));
-        List<int[]> listCopy = new ArrayList<>(list);
-        long startTime = System.currentTimeMillis();
-        ReentrantLock lock = new ReentrantLock();
-
-        Runnable calculatorWithThread = () -> {
+        try {
             lock.lock();
-            if (!listCopy.isEmpty()) {
-                int[] array = listCopy.remove(0);
-                lock.unlock();
-                for (int[] ints : list) {
+            CountDownLatch latch = new CountDownLatch(list.size());
+            ExecutorService es = Executors.newFixedThreadPool(countThread);
+            for (int[] ints : list) {
+                es.execute(() -> {
                     pairs.add(new Pair(Arrays.stream(ints).sum(), ints));
-                }
-            } else {
-                lock.unlock();
+                    latch.countDown();
+                });
             }
-            logger.info("Thread " + countThread + " - " + (System.currentTimeMillis() - startTime));
-        };
-
-        ExecutorService executor = Executors.newFixedThreadPool(countThread);
-        for (int i = 1; i <= countThread; i++) {
-            executor.execute(calculatorWithThread);
+            latch.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } finally {
+            lock.unlock();
         }
-        executor.shutdown();
         return pairs;
     }
 }
