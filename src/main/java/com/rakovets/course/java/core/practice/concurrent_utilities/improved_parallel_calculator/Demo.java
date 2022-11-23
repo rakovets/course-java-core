@@ -6,20 +6,23 @@ import java.util.*;
 import java.util.concurrent.Phaser;
 import java.util.logging.Logger;
 
+/**
+ * MAX_SIZE_OF_ARRAY = 10 is the best option to show that both LinkedHashMaps are equal.
+ * The bigger array, the higher effect of usage of several threads. MAX_SIZE_OF_ARRAY = 1_000_000 show the advantages of several threads
+ * NUMBER_OF_THREADS = 2 gives the best speed, in 2 times faster, then by 1 thread
+ * NUMBER_OF_THREADS = 5 gives the middle speed
+ * NUMBER_OF_THREADS = 10 gives the worst speed, sometimes even slower than 1 thread
+ */
+
 public class Demo {
     public static void main(String[] args) {
         Logger logger = Logger.getLogger(Demo.class.getName());
         final int MIN_VALUE_IN_ARRAY = 1;
         final int MAX_VALUE_IN_ARRAY = 300;
         final int MIN_SIZE_OF_ARRAY = 1;
-        final int MAX_SIZE_OF_ARRAY = 10;
-        /**
-         * MAX_SIZE_OF_ARRAY = 10 is best option for Demo version.
-         * Sure, You may enter 1_000_000 according to the specification.
-         * It will work, I've checked
-         */
+        final int MAX_SIZE_OF_ARRAY = 1_000_000;
         final int NUMBER_OF_ARRAY_IN_LIST = 10;
-        final int NUMBER_OF_THREADS = 3;
+        final int NUMBER_OF_THREADS = 10;
 
         Phaser phaser = new Phaser(1);
         ArrayListCreator creator = new ArrayListCreator();
@@ -30,8 +33,7 @@ public class Demo {
         } catch (NegativeArraySizeException e) {
             e.getMessage();
         }
-
-        ArrayListImprovedCalculator calculator = new ArrayListImprovedCalculator();
+        ArrayListImprovedCalculator calculator = new ArrayListImprovedCalculator(phaser);
         Map<int[], Integer> mapOfIntArraysAndTheirsSum = new LinkedHashMap<>();
         Instant start1 = Instant.now();
         try {
@@ -43,11 +45,10 @@ public class Demo {
         mapOfIntArraysAndTheirsSum.entrySet().stream()
                 .forEach(x -> System.out.println(x.getValue() + " " + Arrays.toString(x.getKey())));
         System.out.println();
-
         Map<int[], Integer> mapMadeByThreads = new LinkedHashMap<>();
         Instant start2 = Instant.now();
         try {
-            mapMadeByThreads = calculator.getMapOfIntArrayAndTheirsSumMadeByThreads(intArrayList, NUMBER_OF_THREADS, phaser);
+            mapMadeByThreads = calculator.getMapOfIntArrayAndTheirsSumMadeByThreads(intArrayList, NUMBER_OF_THREADS);
         } catch (NullPointerException e) {
             e.getMessage();
         }
