@@ -19,5 +19,12 @@ public class DemoParallelCalculator {
             inputArray.add(array);
         }
         parallelCalculator.getMap(parallelCalculator.getListArraysAndSumOfArraysDigit(inputArray));
+
+        ParallelCalculatorTread calculatorTread = new ParallelCalculatorTread();
+        calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 1));
+        calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 3));
+        calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 5));
+        calculatorTread.getMap1(calculatorTread.getListArraysAndSumOfArraysDigitTread(inputArray, 10));
+
     }
 }

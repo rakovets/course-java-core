@@ -8,8 +8,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ParallelCalculatorTread {
+    private static final Logger logger = Logger.getLogger(ParallelCalculatorTread.class.getCanonicalName());
+
     public Map<String, Integer> getListArraysAndSumOfArraysDigitTread(List<int[]> listOfArray, int numberTread) {
         Map<String, Integer> map = new HashMap<>();
         Lock lock = new ReentrantLock();
@@ -28,5 +32,11 @@ public class ParallelCalculatorTread {
         }
         executor.shutdown();
         return map;
+    }
+
+    public void getMap1(Map<String, Integer> map) {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            logger.log(Level.INFO, entry.getKey() + " " + entry.getValue());
+        }
     }
 }
