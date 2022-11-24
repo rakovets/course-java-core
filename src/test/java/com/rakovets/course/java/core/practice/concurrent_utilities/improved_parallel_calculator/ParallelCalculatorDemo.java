@@ -18,7 +18,7 @@ public class ParallelCalculatorDemo {
 
         parallelCalculator.printPairs(parallelCalculator.getNumbersAndSum(arrays));
 
-        int countOfThread = 5;
+        int countOfThread = 10;
 
         parallelCalculator.printPairs(parallelCalculator.getNumbersAndSumWithSomeThreads(arrays, countOfThread));
     }

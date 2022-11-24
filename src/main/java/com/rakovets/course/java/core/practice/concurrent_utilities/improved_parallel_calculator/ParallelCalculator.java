@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.concurrent_utilities.improved_par
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,7 +23,7 @@ public class ParallelCalculator {
     }
 
     public List<Pair> getNumbersAndSumWithSomeThreads(List<int[]> arrays, int countOfThread) {
-        List<Pair> pairs = new ArrayList<>();
+        List<Pair> pairs = Collections.synchronizedList(new ArrayList<>());
         long startTime = System.currentTimeMillis();
         try {
             locker.lock();
