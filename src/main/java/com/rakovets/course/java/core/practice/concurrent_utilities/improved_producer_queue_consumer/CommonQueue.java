@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.concurrent_utilities.improved_pro
 import java.util.Queue;
 
 public class CommonQueue {
-    private Queue<Integer> queue;
+    private final Queue<Integer> queue;
     public CommonQueue(Queue<Integer> queue) {
         this.queue = queue;
     }
@@ -14,14 +14,6 @@ public class CommonQueue {
 
     public void addIntToQueue(int i) {
         queue.offer(i);
-    }
-
-    public int checkIntInQueue() throws NullPointerException {
-        if (queue.peek() == null) {
-            return -1;
-        } else {
-            return queue.peek();
-        }
     }
 
     public int removeIntFromQueue() throws NullPointerException {
