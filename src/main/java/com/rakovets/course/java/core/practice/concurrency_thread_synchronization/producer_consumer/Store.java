@@ -1,27 +1,27 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
-import java.util.List;
-import java.util.Random;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.logging.Logger;
 
 public class Store {
     private static final Logger logger = Logger.getLogger(Store.class.getName());
-    private Random rd = new Random();
-    private List<Integer> numbers;
+    private final Queue<Integer> numbers = new LinkedList<>();
+    private final int storeCapacity;
 
-    public Store(List<Integer> numbers) {
-        this.numbers = numbers;
+    public Store(int storeCapacity) {
+        this.storeCapacity = storeCapacity;
     }
 
-    public synchronized void produce() {
-        while (numbers.size() >= 10) {
+    public synchronized void produce(int number) {
+        while (numbers.size() >= storeCapacity) {
+            logger.info(Thread.currentThread().getName() + " wait: store is full!");
             try {
                 wait();
             } catch (InterruptedException e) {
-                logger.info(e.getMessage());
+                logger.severe(e.getMessage());
             }
         }
-        int number = rd.nextInt(100);
         numbers.add(number);
         System.out.printf("%s add number %s\n", Thread.currentThread().getName(), number);
         System.out.printf("Numbers in Store: %s\n ", numbers.size());
@@ -36,9 +36,13 @@ public class Store {
                 logger.info(e.getMessage());
             }
         }
-        int number = numbers.remove(0);
+        int number = numbers.poll();
         System.out.printf("%s remove number %s\n", Thread.currentThread().getName(), number);
         System.out.printf("Numbers in Store: %s\n ", numbers.size());
         notify();
+    }
+
+    public int getStoreCapacity() {
+        return storeCapacity;
     }
 }

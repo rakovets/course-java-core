@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.producer_consumer;
 
 public class ConsumerThread implements Runnable {
-    private Store store;
+    private final Store store;
 
     public ConsumerThread(Store store) {
         this.store = store;
@@ -9,7 +9,7 @@ public class ConsumerThread implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < store.getStoreCapacity(); i++) {
             store.consume();
         }
     }

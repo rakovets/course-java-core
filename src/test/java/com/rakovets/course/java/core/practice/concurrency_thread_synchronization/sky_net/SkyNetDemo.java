@@ -1,20 +1,19 @@
 package com.rakovets.course.java.core.practice.concurrency_thread_synchronization.sky_net;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SkyNetDemo {
-    public static void main(String[] args) {
-        List<String> details = new ArrayList<>();
-        Factory factory = new Factory(details);
-        Producer producer = new Producer(factory);
-        List<String> worldStock = new ArrayList<>();
-        World world = new World(factory, worldStock);
-        List<String> wednesdayStock = new ArrayList<>();
-        Wednesday wednesday = new Wednesday(factory, wednesdayStock);
-        SkyNet skyNet = new SkyNet();
-
-        skyNet.dayInSkyNet(producer, wednesday, world, 3);
-        System.out.println("The stronger army: " + skyNet.getStrongerArmy(world, wednesday));
+    public static void main(String[] args) throws InterruptedException {
+        Factory factory = new Factory(3);
+        factory.setName("Factory");
+        Fraction wednesday = new Fraction(factory, 5);
+        wednesday.setName("Wednesday");
+        Fraction world = new Fraction(factory, 5);
+        world.setName("World");
+        factory.start();
+        wednesday.start();
+        world.start();
+        factory.join();
+        wednesday.join();
+        world.join();
+        System.out.println(wednesday.getWinnerFraction(world));
     }
 }
