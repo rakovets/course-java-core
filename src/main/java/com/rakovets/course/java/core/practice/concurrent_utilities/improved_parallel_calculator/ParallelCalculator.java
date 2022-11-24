@@ -39,9 +39,9 @@ public class ParallelCalculator {
                 logger.info("waiting for threads ending");
             }
             logger.info("Thread " + countOfThread + " ends with Mils: " + (System.currentTimeMillis() - startTime));
-            } finally {
-                locker.unlock();
-            }
+        } finally {
+            locker.unlock();
+        }
         return pairs;
     }
 
