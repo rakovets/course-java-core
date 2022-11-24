@@ -16,11 +16,10 @@ public class ParallelCalculatorDemo {
             arrays.add(array);
         }
 
-        parallelCalculator.getNumbersAndSum(arrays);
+        parallelCalculator.printPairs(parallelCalculator.getNumbersAndSum(arrays));
 
-        parallelCalculator.getNumbersAndSumWithSomeThreads(arrays, 1);
-        parallelCalculator.getNumbersAndSumWithSomeThreads(arrays, 2);
-        parallelCalculator.getNumbersAndSumWithSomeThreads(arrays, 5);
-        parallelCalculator.getNumbersAndSumWithSomeThreads(arrays, 10);
+        int countOfThread = 5;
+
+        parallelCalculator.printPairs(parallelCalculator.getNumbersAndSumWithSomeThreads(arrays, countOfThread));
     }
 }

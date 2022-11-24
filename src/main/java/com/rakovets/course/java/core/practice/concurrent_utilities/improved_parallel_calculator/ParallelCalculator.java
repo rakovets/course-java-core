@@ -8,46 +8,45 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
+
 public class ParallelCalculator {
     private static final Logger logger = Logger.getLogger(ParallelCalculator.class.getName());
+    private final ReentrantLock locker = new ReentrantLock();
 
     public List<Pair> getNumbersAndSum(List<int[]> arrays) {
         List<Pair> pairs = new ArrayList<>();
         for (int[] array : arrays) {
-            Pair pair = new Pair();
-            pair.setSum(Arrays.stream(array).sum());
-            pair.setArray(array);
-            pairs.add(pair);
+            pairs.add(new Pair(array, Arrays.stream(array).sum()));
         }
         return pairs;
     }
 
     public List<Pair> getNumbersAndSumWithSomeThreads(List<int[]> arrays, int countOfThread) {
         List<Pair> pairs = new ArrayList<>();
-        List<int[]> arraysCopy = new ArrayList<>();
         long startTime = System.currentTimeMillis();
-        ReentrantLock locker = new ReentrantLock();
-
-        Runnable threadCalculator = () -> {
+        try {
             locker.lock();
-            if (!arraysCopy.isEmpty()) {
-                int[] array = arraysCopy.remove(0);
-                locker.unlock();
-                Pair pair = new Pair();
-                pair.setSum(Arrays.stream(array).sum());
-                pair.setArray(array);
-                pairs.add(pair);
-            } else {
+            ExecutorService poolThread = Executors.newFixedThreadPool(countOfThread);
+            for (int[] array : arrays) {
+                poolThread.execute(() -> {
+                    pairs.add(new Pair(array, Arrays.stream(array).sum()));
+                    logger.info("Thread " + Thread.currentThread().getName() + " add pair");
+                });
+            }
+            poolThread.shutdown();
+            while (!poolThread.isTerminated()) {
+                logger.info("waiting for threads ending");
+            }
+            logger.info("Thread " + countOfThread + " ends with Mils: " + (System.currentTimeMillis() - startTime));
+            } finally {
                 locker.unlock();
             }
-            logger.info("Thread " + countOfThread + " worked time: " + (System.currentTimeMillis() - startTime));
-        };
-
-        ExecutorService poolThread = Executors.newFixedThreadPool(countOfThread);
-        for (int i = 1; i < countOfThread; i++) {
-            poolThread.execute(threadCalculator);
-        }
-        poolThread.shutdown();
         return pairs;
+    }
+
+    public void printPairs(List<Pair> pairs) {
+        for (Pair pair : pairs) {
+            System.out.println(pair.toString());
+        }
     }
 }

@@ -7,23 +7,8 @@ public class Pair {
     private long sum;
     private int[] array;
 
-    public long getSum() {
-        return sum;
-    }
-
-    public void setSum(long sum) {
+    public Pair(int[] array, long sum) {
         this.sum = sum;
-    }
-
-    public void setSum(int sum) {
-        this.sum = sum;
-    }
-
-    public int[] getArray() {
-        return array;
-    }
-
-    public void setArray(int[] array) {
         this.array = array;
     }
 
