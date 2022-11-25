@@ -1,20 +1,22 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-import static com.rakovets.course.java.core.practice.exception_handling.JavaUtilLogging.JavaUtilLogging.logger;
+import java.util.logging.Logger;
 
 public class Task06Demo {
+    public static final Logger logger = Logger.getLogger(Task06Demo.class.getName());
+
     public static void main(String[] args) {
         Task06 task = new Task06();
+        int processingNumber = 2;
 
-        String[] array = {"2", "0", "6", "a", null};
-        String processingNumber = array[1];
-
-        try {
-            task.checkCorrectEnteredNumber(processingNumber);
-        } catch (ArithmeticException | NumberFormatException ex) {
-            logger.severe(ex.getMessage());
-        } catch (NullPointerException ex) {
-            logger.severe(ex.getMessage());
+        for (int i = 0; i <= processingNumber; i++) {
+            try {
+                task.invokingDifferentExceptions(i);
+            } catch (ArithmeticException | NumberFormatException ex) {
+                logger.severe("Passed value is incorrect!");
+            } catch (NullPointerException ex) {
+                logger.severe(ex.getMessage());
+            }
         }
     }
 }

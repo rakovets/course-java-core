@@ -1,10 +1,11 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
 import java.io.FileNotFoundException;
-
-import static com.rakovets.course.java.core.practice.exception_handling.JavaUtilLogging.JavaUtilLogging.logger;
+import java.util.logging.Logger;
 
 public class Task07Demo {
+    public static final Logger logger = Logger.getLogger(Task07Demo.class.getName());
+
     public static void main(String[] args) {
         Task07 task = new Task07();
 

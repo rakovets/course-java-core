@@ -1,8 +1,10 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-import static com.rakovets.course.java.core.practice.exception_handling.JavaUtilLogging.JavaUtilLogging.logger;
+import java.util.logging.Logger;
 
 public class Task01Demo {
+    public static final Logger logger = Logger.getLogger(Task01Demo.class.getName());
+
     public static void main(String[] args) {
         Task01 task = new Task01();
 
