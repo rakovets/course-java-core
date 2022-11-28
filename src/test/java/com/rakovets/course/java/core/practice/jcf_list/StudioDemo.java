@@ -1,10 +1,16 @@
 package com.rakovets.course.java.core.practice.jcf_list;
 
-import com.rakovets.course.java.core.practice.jcf_list.Studio.Comparators.*;
+import com.rakovets.course.java.core.practice.jcf_list.Studio.Comparators.AgeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.Studio.Comparators.LastNameAndAgeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.Studio.Comparators.FeeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.Studio.Comparators.LastNameComparator;
+import com.rakovets.course.java.core.practice.jcf_list.Studio.Comparators.FeeAndLastNameComparator;
 import com.rakovets.course.java.core.practice.jcf_list.Studio.Models.Actor;
 import com.rakovets.course.java.core.practice.jcf_list.Studio.Models.Studio;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class StudioDemo {
     public static void main(String[] args) {

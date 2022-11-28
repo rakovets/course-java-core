@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_collection;
 
-import java.util.*;
+import java.util.List;
+import java.util.ListIterator;
 
 public class StringCollectionUtil {
     private final List<String> list;
