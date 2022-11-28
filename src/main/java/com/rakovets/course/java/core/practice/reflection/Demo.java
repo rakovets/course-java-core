@@ -11,7 +11,7 @@ public class Demo {
         ReflectionUtils rf = new ReflectionUtils();
         Person person = new Person("Victor", "Polonnikov", "man", 43);
 
-        Field field;
+        Field field = null;
         try {
             field = rf.getFieldFromClassAndFieldName(Person.class, "age");
             logger.info(field.toString());
