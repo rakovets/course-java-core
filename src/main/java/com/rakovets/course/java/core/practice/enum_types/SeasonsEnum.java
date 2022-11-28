@@ -11,49 +11,17 @@ public enum SeasonsEnum {
     },
     AUTUMN(7);
 
-    int averageTemperature;
+    private final int AVERAGE_TEMPERATURE;
 
-    SeasonsEnum(int averageTemperature) {
-        this.averageTemperature = averageTemperature;
+    SeasonsEnum(int AVERAGE_TEMPERATURE) {
+        this.AVERAGE_TEMPERATURE = AVERAGE_TEMPERATURE;
+    }
+
+    public int getAVERAGE_TEMPERATURE() {
+        return AVERAGE_TEMPERATURE;
     }
 
     public String getDescription() {
         return "Cold seasons";
-    }
-
-    public String favoriteSeason(SeasonsEnum favoriteSeason) {
-        String infoSeason = "UnknownSeason";
-
-        switch (favoriteSeason) {
-            case WINTER:
-                infoSeason = "I love winter!";
-                break;
-            case SPRING:
-                infoSeason = "I love spring!";
-                break;
-            case SUMMER:
-                infoSeason = "I love summer!";
-                break;
-            case AUTUMN:
-                infoSeason = "I love autumn!";
-                break;
-            default:
-                break;
-        }
-
-        return infoSeason;
-    }
-
-    public static void main(String[] args) {
-        SeasonsEnum favoriteSeason = SeasonsEnum.SUMMER;
-
-        System.out.println(favoriteSeason + " " + favoriteSeason.averageTemperature + " "
-                + favoriteSeason.getDescription());
-
-        System.out.println(favoriteSeason.favoriteSeason(favoriteSeason));
-
-        for (SeasonsEnum season : SeasonsEnum.values()) {
-            System.out.println(season + " " + season.averageTemperature + " " + season.getDescription());
-        }
     }
 }
