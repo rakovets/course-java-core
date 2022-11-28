@@ -1,21 +1,16 @@
 package com.rakovets.course.java.core.practice.jcf_list.Class.Models;
 
 public class Person {
-    String name;
-    String surname;
-    int age;
-    double averageAnnualMark;
+    private String name;
+    private final String surname;
+    private int age;
+    private final double averageAnnualMark;
 
     public Person(String name, String surname, int age, double averageAnnualMark) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.averageAnnualMark = averageAnnualMark;
-    }
-
-    @Override
-    public String toString() {
-        return "Student {" + "full name: " + name + " " + surname + " age: " + age + " average annual mark: " + averageAnnualMark + "}";
     }
 
     public String getName() {
@@ -30,7 +25,6 @@ public class Person {
         return surname;
     }
 
-
     public int getAge() {
         return age;
     }
@@ -41,5 +35,10 @@ public class Person {
 
     public double getAverageAnnualMark() {
         return averageAnnualMark;
+    }
+
+    @Override
+    public String toString() {
+        return "Student {" + "full name: " + name + " " + surname + " age: " + age + " average annual mark: " + averageAnnualMark + "}";
     }
 }
