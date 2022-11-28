@@ -1,23 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-/**
- * Создать class Time.
- * Создать Fields:
- * hours - - возможные значения 0+
- * minutes - возможные значения 0-59
- * seconds - возможные значения 0-59
- * Создать Constructors:
- * Time(totalSeconds) - принимает общее время в секундах, возможные значения 0+
- * Time(hours, minutes, seconds)
- * Создать Methods:
- * getHours()
- * setHours(hours)
- * getMinutes()
- * setMinutes(minutes)
- * getSeconds()
- * setSeconds()
- * getTotalSeconds() - возвращает общее время в секундах
- */
 public class Time {
     public int hours;
     public int minutes;
