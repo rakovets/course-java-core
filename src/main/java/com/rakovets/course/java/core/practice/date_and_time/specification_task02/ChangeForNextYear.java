@@ -5,7 +5,7 @@ import java.time.temporal.ChronoField;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjuster;
 
-public class Second implements TemporalAdjuster {
+public class ChangeForNextYear implements TemporalAdjuster {
     @Override
     public Temporal adjustInto(Temporal temporal) {
         LocalDate localDate = LocalDate.now();

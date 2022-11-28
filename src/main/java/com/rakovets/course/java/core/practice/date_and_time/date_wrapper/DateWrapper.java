@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.date_and_time.date_wrapper;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class DateWrapper {
@@ -13,8 +15,8 @@ public class DateWrapper {
         return now.plusMonths(severalMonth);
     }
 
-    public String getFormatPattern(LocalDate localDate, DateTimeFormatter formatter){
-        return localDate.format(formatter);
+    public String getFormatPattern(LocalDate localDate, String pattern){
+        return localDate.format(DateTimeFormatter.ofPattern(pattern, Locale.ENGLISH));
     }
 
     public LocalDate getStringFormat(String time, DateTimeFormatter formatter){

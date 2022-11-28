@@ -62,17 +62,17 @@ public class TestDateWrapper {
 
     static Stream<Arguments> provideFromGetFormatPattern() {
         return Stream.of(Arguments.of(LocalDate.of(2014, 4, 25),
-                        DateTimeFormatter.ofPattern("MMMM, dd, yyyy"), "апреля, 25, 2014"),
+                        "MMMM, dd, yyyy", "April, 25, 2014"),
                 Arguments.of(LocalDate.of(2017, 5, 12),
-                        DateTimeFormatter.ofPattern("dd, M, yyyy"), "12, 5, 2017"));
+                        "dd, M, yyyy", "12, 5, 2017"));
     }
 
     @ParameterizedTest
     @MethodSource("provideFromGetFormatPattern")
-    public void getFormatPattern(LocalDate localDate, DateTimeFormatter dateTimeFormatter, String expected) {
+    public void getFormatPattern(LocalDate localDate, String pattern, String expected) {
         DateWrapper dateWrapper = new DateWrapper();
 
-        String actual = dateWrapper.getFormatPattern(localDate, dateTimeFormatter);
+        String actual = dateWrapper.getFormatPattern(localDate, pattern);
 
         Assertions.assertEquals(expected, actual);
     }
