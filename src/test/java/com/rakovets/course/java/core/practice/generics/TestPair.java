@@ -11,7 +11,6 @@ public class TestPair {
     static Stream<Arguments> provideArgumentsForGetSwapped() {
         return Stream.of(
                 Arguments.of("Yes", "No", "No", "Yes")
-
         );
     }
 

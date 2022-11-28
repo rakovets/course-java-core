@@ -16,14 +16,10 @@ public class Obscure<T> {
     }
 
     public T orElse(T t) {
-        if (isPresent()) {
-            return id;
-        } else {
-            return t;
-        }
+        return isPresent() ? id : t;
     }
 
-    public T orElseThrow(NullPointerException e) throws NullPointerException {
+    public T orElseThrow(Exception e) throws Exception {
         if (isPresent()) {
             return id;
         } else {

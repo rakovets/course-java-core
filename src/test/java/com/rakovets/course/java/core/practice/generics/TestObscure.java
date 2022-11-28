@@ -71,7 +71,7 @@ public class TestObscure {
 
     @ParameterizedTest(name = "The result of the method 'orElseThrow': {1}.")
     @MethodSource("provideArgumentsForOrElseThrow")
-    void testOrElseThrow(String id, String expected) throws NullPointerException {
+    void testOrElseThrow(String id, String expected) throws Exception {
         Obscure<String> obscure = new Obscure<>(id);
 
         String actual = obscure.orElseThrow(new NullPointerException());

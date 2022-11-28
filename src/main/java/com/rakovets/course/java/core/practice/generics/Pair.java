@@ -9,12 +9,12 @@ public class Pair<K, T> {
         this.orNotAtHome = orNotAtHome;
     }
 
-    public Pair getSwapped() {
-        return new Pair<>(this.orNotAtHome, this.atHome);
+    public <K, T> Pair<T, K> getSwapped() {
+        return new Pair<T, K>((T) getOrNotAtHome(), (K) getAtHome());
     }
 
-    public static Pair swap(Pair pair) {
-        return pair.getSwapped();
+    static public <K, T> Pair<T, K> swap(Pair<K, T> pair) {
+        return new Pair<T, K>(pair.getOrNotAtHome(), pair.getAtHome());
     }
 
     public K getAtHome() {
