@@ -64,17 +64,16 @@ public class FileUtil {
 
     public List<String> getListWordWithSameLetters(String way) {
         List<String> list = new ArrayList<>();
+        String word = " ";
+        char c;
         for (String text : getListStringFromFile(way)) {
-            String[] nj = text.split(" ");
-            for (int i = 0; i < nj.length - 1; i++) {
-                String[] nm = nj[i].split("");
-                for (int j = 0; j < nm.length - 1; j++) {
-                    String temp = nm[nm.length - 1];
-                    if (nj[i + 1].startsWith(temp)) {
-                        list.add(nj[i]);
-                        break;
-                    }
+            String[] arrayText = text.split(" ");
+            for (String s : arrayText) {
+                c = word.charAt(word.length() - 1);
+                if (c == s.charAt(0)) {
+                    list.add(word);
                 }
+                word = s;
             }
         }
         return list;
