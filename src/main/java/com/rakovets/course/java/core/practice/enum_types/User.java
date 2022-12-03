@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
-public class FavouriteSeason {
+public class User {
     private final Season favoriteSeason;
 
-    public FavouriteSeason(Season favoriteSeason) {
+    public User(Season favoriteSeason) {
         this.favoriteSeason = favoriteSeason;
     }
 
@@ -44,7 +44,7 @@ public class FavouriteSeason {
     @Override
     public String toString() {
         return "The average temperature of " + getFavoriteSeason() + " is " +
-                favoriteSeason.getTemperature() + ". This is " + getDescription();
+                favoriteSeason.getTemperature() + " " + favoriteSeason.getMeasurement() + ". This is " + getDescription();
     }
 
     public Season getFavoriteSeason() {
