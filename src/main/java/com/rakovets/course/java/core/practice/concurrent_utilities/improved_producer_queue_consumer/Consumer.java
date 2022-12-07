@@ -1,14 +1,16 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.improved_producer_queue_consumer;
 
-import java.util.Queue;
+import java.time.LocalDateTime;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Consumer extends Thread {
     private static final Logger logger = Logger.getLogger(Consumer.class.getName());
 
-    private final Queue<Integer> number;
+    private final ConcurrentLinkedQueue<Integer> number;
 
-    public Consumer(Queue<Integer> number) {
+    public Consumer(ConcurrentLinkedQueue<Integer> number) {
         this.number = number;
     }
 
@@ -16,8 +18,18 @@ public class Consumer extends Thread {
     public void run() {
         while (true) {
             if (!number.isEmpty()) {
-                int c = number.peek();
-
+                try {
+                    int c = number.poll();
+                    Thread.sleep(c * 1000L);
+                    logger.log(Level.INFO,
+                            String.format("${%s} - ${%s} - I slept ${%s} seconds\n",
+                                    LocalDateTime.now(),
+                                    Thread.currentThread().getName(), c));
+                } catch (UserInputException e) {
+                    logger.log(Level.INFO, "Error");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

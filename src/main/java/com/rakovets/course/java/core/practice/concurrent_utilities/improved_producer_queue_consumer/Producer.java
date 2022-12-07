@@ -1,23 +1,23 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.improved_producer_queue_consumer;
 
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
     private static final Logger logger = Logger.getLogger(Producer.class.getName());
 
-    private final Queue<Integer> numbers;
+    private final ConcurrentLinkedQueue<Integer> numbers;
 
-    public Producer(Queue<Integer> numbers) {
+    public Producer(ConcurrentLinkedQueue<Integer> numbers) {
         this.numbers = numbers;
     }
 
     @Override
     public void run() {
         Scanner sc = new Scanner(System.in);
-        int digitOfUserEnter = 0;
+        int digitOfUserEnter;
         while (true) {
             try {
                 try {
@@ -31,7 +31,7 @@ public class Producer extends Thread {
                 }
                 logger.log(Level.INFO, String.format("%d", digitOfUserEnter));
             } catch (UserInputException e) {
-                logger.log(Level.SEVERE, "Error " + e);
+                logger.log(Level.SEVERE, "Error try again" + e);
             }
         }
         sc.close();
