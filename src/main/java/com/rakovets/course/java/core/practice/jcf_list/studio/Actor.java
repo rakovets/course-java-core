@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.jcf_list.studio;
 
 public class Actor implements Comparable<Actor> {
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
     private int fee;
     private int age;
 

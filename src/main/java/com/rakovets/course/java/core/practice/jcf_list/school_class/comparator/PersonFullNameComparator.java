@@ -7,11 +7,7 @@ import java.util.Comparator;
 public class PersonFullNameComparator implements Comparator<Person> {
     @Override
     public int compare(Person a, Person b) {
-        int result = a.getName().compareTo(b.getName());
-        if (result == 0) {
-            return a.getSurname().compareTo(b.getSurname());
-        } else {
-            return result;
-        }
+        return a.getName().compareTo(b.getName()) == 0 ?
+                a.getSurname().compareTo(b.getSurname()) : a.getName().compareTo(b.getName());
     }
 }

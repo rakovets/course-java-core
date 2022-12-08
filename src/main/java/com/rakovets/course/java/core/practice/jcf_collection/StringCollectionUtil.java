@@ -23,18 +23,5 @@ public class StringCollectionUtil {
         return list;
     }
 
-    public List<String> makeList() {
-        List<String> list = new ArrayList<>();
-        list.add("This");
-        list.add("is");
-        list.add("lots");
-        list.add("of");
-        list.add("fun");
-        list.add("for");
-        list.add("every");
-        list.add("Java");
-        list.add("programmer");
 
-        return list;
-    }
 }

@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.jcf_list.school_class;
 
 public class Person {
-    private String name;
-    private String surname;
+    private final String name;
+    private final String surname;
     private int age;
     private double averageAnnualMark;
 

@@ -16,4 +16,3 @@ public class ActorAgeComparator implements Comparator<Actor> {
         return result;
     }
 }
-
