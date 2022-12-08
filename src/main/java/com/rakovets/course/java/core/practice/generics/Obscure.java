@@ -1,31 +1,31 @@
 package com.rakovets.course.java.core.practice.generics;
 
 public class Obscure<T> {
-    private T id;
+    private T value;
 
-    public Obscure(T id) {
-        this.id = id;
+    public Obscure(T value) {
+        this.value = value;
     }
 
-    public T getId() {
-        return id;
+    public T getValue() {
+        return value;
     }
 
     public Boolean isPresent() {
-        return this.getId() != null;
+        return this.getValue() != null;
     }
 
     public Boolean isEmpty() {
-        return this.getId() == null;
+        return this.getValue() == null;
     }
 
     public T orElse(T id) {
-       return this.isPresent() ? this.getId() : id;
+       return this.isPresent() ? this.getValue() : id;
     }
 
     public T orElseThrow(Exception e) throws Exception {
         if (this.isPresent()) {
-            return this.getId();
+            return this.getValue();
         } else {
             throw e;
         }

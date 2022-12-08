@@ -13,7 +13,7 @@ public class Pair<K, V> {
         return new Pair<>(this.getValue(), this.getKey());
     }
 
-    public static Pair swap(Pair  pair) {
+    public static Pair swap(Pair pair) {
         return pair.getSwapped();
     }
 

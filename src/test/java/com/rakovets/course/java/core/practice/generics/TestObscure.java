@@ -20,7 +20,7 @@ public class TestObscure {
     @ParameterizedTest(name = "GetId")
     @MethodSource("provideArgumentsForGetId")
     <T> void testGetId(Obscure<T> obscure, T expected) {
-        T actual = obscure.getId();
+        T actual = obscure.getValue();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -109,7 +109,7 @@ public class TestObscure {
     @ParameterizedTest(name = "Of")
     @MethodSource("provideArgumentsForOf")
     <T> void testOf(T id, T expected) {
-        T actual = Obscure.of(id).getId();
+        T actual = Obscure.of(id).getValue();
 
         Assertions.assertEquals(expected, actual);
     }
