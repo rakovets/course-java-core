@@ -1,10 +1,10 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
-public class MyFavoriteSeason {
+public class SeasonDemo {
     public static void main(String[] args) {
         Season myFavoriteSeason = Season.SUMMER;
         System.out.printf("Мое любимое время года %s\n", myFavoriteSeason);
-        favoriteSeason(myFavoriteSeason);
+        printFavoriteSeason(myFavoriteSeason);
 
         Season[] seasons = Season.values();
         for (Season season : seasons) {
@@ -15,7 +15,7 @@ public class MyFavoriteSeason {
         System.out.println(Season.SUMMER.ordinal());
     }
 
-    public static void favoriteSeason(Season season) {
+    public static void printFavoriteSeason(Season season) {
         String output = "";
         switch (season) {
             case AUTUMN:
