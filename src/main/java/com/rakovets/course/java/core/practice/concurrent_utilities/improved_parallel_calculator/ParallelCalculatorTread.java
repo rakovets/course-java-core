@@ -18,7 +18,6 @@ public class ParallelCalculatorTread {
         Map<String, Integer> map = new HashMap<>();
         Lock lock = new ReentrantLock();
         Runnable calc = () -> {
-
             for (int[] arr : listOfArray) {
                 lock.lock();
                 map.put(Arrays.toString(arr), Arrays.stream(arr).sum());
