@@ -17,11 +17,11 @@ public class ConsumerThread implements Runnable {
     @Override
     public void run() {
         int numberOfIterations = 0;
-        while (numberOfIterations < MAX_NUMBER){
+        while (numberOfIterations < MAX_NUMBER) {
             try {
                 logger.log(Level.INFO, name + " " + store.consumer());
                 numberOfIterations++;
-            } catch (UserInputException e){
+            } catch (UserInputException e) {
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException ex) {
