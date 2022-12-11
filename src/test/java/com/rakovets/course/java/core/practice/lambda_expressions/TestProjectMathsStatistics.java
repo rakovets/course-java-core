@@ -6,12 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-
 public class TestProjectMathsStatistics {
     ProjectMathsStatistics projectMathsStatistics = new ProjectMathsStatistics();
     List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 8);
     long y = 7;
-
 
     @Test
     public void testForMethodGetEven() {

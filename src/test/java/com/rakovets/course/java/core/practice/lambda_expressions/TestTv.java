@@ -17,7 +17,7 @@ public class TestTv {
 
     static Stream<Arguments> provideFromGetTVDiagonal() {
         return Stream.of(Arguments.of(List.of(tv, tv02, tv01), 17, List.of(tv, tv02),
-                         Arguments.of(List.of(tv01, tv02, tv), 19, List.of(tv01))));
+                Arguments.of(List.of(tv01, tv02, tv), 19, List.of(tv01))));
     }
 
     @ParameterizedTest
@@ -32,7 +32,7 @@ public class TestTv {
 
     static Stream<Arguments> provideFromGetManufacture() {
         return Stream.of(Arguments.of(List.of(tv, tv02, tv01), "Horizont", List.of(tv01)),
-                         Arguments.of(List.of(tv, tv01, tv02), "LG", List.of()));
+                Arguments.of(List.of(tv, tv01, tv02), "LG", List.of()));
     }
 
     @ParameterizedTest
@@ -47,7 +47,7 @@ public class TestTv {
 
     static Stream<Arguments> provideFromGetNotOlder() {
         return Stream.of(Arguments.of(List.of(tv, tv02, tv01), 1985, List.of(tv, tv02, tv01)),
-                         Arguments.of(List.of(tv, tv01, tv02), 2000, List.of()));
+                Arguments.of(List.of(tv, tv01, tv02), 2000, List.of()));
     }
 
     @ParameterizedTest
@@ -62,7 +62,7 @@ public class TestTv {
 
     static Stream<Arguments> provideFromGetRangePrice() {
         return Stream.of(Arguments.of(List.of(tv, tv02, tv01), 80, 150, List.of(tv, tv01)),
-                         Arguments.of(List.of(tv, tv01, tv02), 2000, 15000, List.of()));
+                Arguments.of(List.of(tv, tv01, tv02), 2000, 15000, List.of()));
     }
 
     @ParameterizedTest

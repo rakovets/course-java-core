@@ -2,7 +2,6 @@ package com.rakovets.course.java.core.practice.lambda_expressions;
 
 import com.rakovets.course.java.core.practice.lambda_expressions.city_helper.City;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
