@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,11 +15,12 @@ public class Consumer extends Thread {
 
     private final ConcurrentLinkedQueue<Integer> number;
     private final String filePath;
-    ReentrantLock locker = new ReentrantLock();
+    Semaphore sem;
 
-    public Consumer(ConcurrentLinkedQueue<Integer> number, String filePath) {
+    public Consumer(ConcurrentLinkedQueue<Integer> number, String filePath, Semaphore sem) {
         this.number = number;
         this.filePath = filePath;
+        this.sem = sem;
     }
 
     @Override
@@ -26,6 +28,7 @@ public class Consumer extends Thread {
         while (true) {
             if (!number.isEmpty()) {
                 try (BufferedWriter bf = new BufferedWriter(new FileWriter(filePath, true))) {
+                    sem.acquire();
                     int c = number.poll();
                     Thread.sleep(c * 1000L);
                     bf.write(String.format("${%s} - ${%s} - I slept ${%s} seconds\n",
@@ -46,6 +49,7 @@ public class Consumer extends Thread {
                             LocalDateTime.now(),
                             Thread.currentThread().getName()));
                     bf.flush();
+                    sem.release();
                 } catch (InterruptedException | IOException e) {
                     e.printStackTrace();
                 }
