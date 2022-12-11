@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionUtil {
-    public Field getRequestedClassField(Class<?> clazzName, String fieldName) throws UserInputException {
+    public Field getRequestedClassField(Class<?> clazzName, String fieldName) {
         try {
             return clazzName.getDeclaredField(fieldName);
         } catch (NoSuchFieldException e) {
@@ -19,7 +19,7 @@ public class ReflectionUtil {
             method.setAccessible(true);
             return method;
         } catch (NoSuchMethodException e) {
-            throw new UserInputException("There is no such class");
+            throw new UserInputException("There is no such method");
         }
     }
 
@@ -55,13 +55,14 @@ public class ReflectionUtil {
         }
     }
 
-    public void invokeMethodByObject(Method method, Object object, Object... objects) {
+    public boolean invokeMethodByObject(Method method, Object object, Object... objects) {
         try {
             method.setAccessible(true);
             method.invoke(object, objects);
         } catch (IllegalAccessException | InvocationTargetException ex) {
             throw new UserInputException("There is no such class");
         }
+        return false;
     }
 }
 
