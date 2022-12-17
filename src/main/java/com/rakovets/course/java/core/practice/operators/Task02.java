@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.operators;
 
-import com.rakovets.course.java.core.util.constants.LimitValues;
-import com.rakovets.course.java.core.util.random_util.RandomUtil;
+import com.rakovets.course.java.core.util.constants.LimitValue;
+import com.rakovets.course.java.core.util.RandomUtil;
 
 /**
  * Разработать программу для логистического центра.
@@ -18,9 +18,8 @@ class Task02 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        RandomUtil randomUtil = new RandomUtil();
-        int cargo = randomUtil.getRandomIntegerNumber(LimitValues.HUNDREDS.getLimitValue());
-        int carryingCapacity = randomUtil.getRandomIntegerNumber(LimitValues.TENS.getLimitValue());
+        int cargo = RandomUtil.getRandomIntegerNumber(LimitValue.HUNDREDS.getLimitValue());
+        int carryingCapacity = RandomUtil.getRandomIntegerNumber(LimitValue.TENS.getLimitValue());
 
         int amountRemainingCargo = getAmountRemainingCargo(cargo, carryingCapacity);
         System.out.printf("Result: %d", amountRemainingCargo);

@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.operators;
 
-import com.rakovets.course.java.core.util.constants.LimitValues;
-import com.rakovets.course.java.core.util.random_util.RandomUtil;
+import com.rakovets.course.java.core.util.constants.LimitValue;
+import com.rakovets.course.java.core.util.RandomUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +20,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int playingTimeInSeconds = new RandomUtil().getRandomIntegerNumber(LimitValues.THOUSANDS.getLimitValue());
+        int playingTimeInSeconds = RandomUtil.getRandomIntegerNumber(LimitValue.THOUSANDS.getLimitValue());
 
         String playingTime = getPlayingTime(playingTimeInSeconds);
         System.out.printf("Result: %s", playingTime);

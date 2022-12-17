@@ -1,14 +1,14 @@
 package com.rakovets.course.java.core.util.constants;
 
-public enum LimitValues {
+public enum LimitValue {
     UNITS("10"),
-    TENS ("100"),
-    HUNDREDS ("1000"),
-    THOUSANDS ("10000");
+    TENS("100"),
+    HUNDREDS("1000"),
+    THOUSANDS("10000");
 
-    private String limitValue;
+    private final String limitValue;
 
-    LimitValues(String limitValue) {
+    LimitValue(String limitValue) {
         this.limitValue = limitValue;
     }
 
