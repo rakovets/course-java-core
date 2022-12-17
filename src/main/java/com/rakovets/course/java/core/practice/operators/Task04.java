@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import com.rakovets.course.java.core.util.constants.LimitValues;
+import com.rakovets.course.java.core.util.random_util.RandomUtil;
+
 /**
  * Разработать программу для метеорологической станции.
  *
@@ -20,7 +23,7 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        float milliseconds = 2000f;
+        float milliseconds = new RandomUtil().getRandomIntegerNumber(LimitValues.THOUSANDS.getLimitValue());
 
         float distance = getDistance(milliseconds);
         System.out.printf("Result: %f", distance);
@@ -35,6 +38,6 @@ class Task04 {
     static float getDistance(float milliseconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        return SOUND_SPEED * milliseconds;
     }
 }

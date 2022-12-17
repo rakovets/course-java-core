@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import com.rakovets.course.java.core.util.constants.LimitValues;
+import com.rakovets.course.java.core.util.random_util.RandomUtil;
+
 /**
  * Разработать программу для фитнес приложения.
  *
@@ -16,7 +19,7 @@ class Task05 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int height = 186;
-        int weight = 86;
+        int weight = new RandomUtil().getRandomIntegerNumber(LimitValues.TENS.getLimitValue());
 
         int deviationStandardWeight = calculateDeviationStandardWeight(height, weight);
         System.out.printf("Result: %d", deviationStandardWeight);
@@ -36,6 +39,6 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return weight - (height - 110);
     }
 }

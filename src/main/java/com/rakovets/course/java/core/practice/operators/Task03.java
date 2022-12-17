@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import com.rakovets.course.java.core.util.constants.LimitValues;
+import com.rakovets.course.java.core.util.random_util.RandomUtil;
+
 /**
  * Разработать программу для банка.
  *
@@ -15,9 +18,10 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int depositAmount = 1500;
-        int depositYears = 5;
-        int depositAnnualPercentage = 3;
+        RandomUtil randomUtil = new RandomUtil();
+        int depositAmount = randomUtil.getRandomIntegerNumber(LimitValues.THOUSANDS.getLimitValue());
+        int depositYears = randomUtil.getRandomIntegerNumber(LimitValues.UNITS.getLimitValue());
+        int depositAnnualPercentage = randomUtil.getRandomIntegerNumber(LimitValues.UNITS.getLimitValue());
 
         float totalDepositAmount = getTotalDepositAmount(depositAmount, depositYears, depositAnnualPercentage);
         System.out.printf("Result: %f", totalDepositAmount);
@@ -37,6 +41,7 @@ class Task03 {
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+
+        return depositAmount / 100f * depositAnnualPercentage * depositYears;
     }
 }
