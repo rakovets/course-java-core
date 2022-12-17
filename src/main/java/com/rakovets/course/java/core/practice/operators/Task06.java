@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.operators;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Разработать программу для игрового движка.
  *
@@ -28,8 +31,16 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        //SimpleDateFormat playingTime = new SimpleDateFormat("d:h:m:s");
+        //String result = playingTime.format(new Date(playingTimeInSeconds*1000));
+        int day = playingTimeInSeconds / 86400;
+        playingTimeInSeconds = playingTimeInSeconds - day*86400;
+        int hour = playingTimeInSeconds / 3600;
+        playingTimeInSeconds = playingTimeInSeconds - hour*3600;
+        int minutes = playingTimeInSeconds / 60;
+        playingTimeInSeconds = playingTimeInSeconds - minutes*60;
+
+
+        return day + " " + hour + ":" + minutes + ":" + playingTimeInSeconds;
     }
 }
