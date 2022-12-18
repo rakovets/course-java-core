@@ -1,5 +1,4 @@
 package com.rakovets.course.java.core.practice.operators;
-
 /**
  * Разработать программу для игрового движка.
  *
@@ -30,6 +29,21 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int days, hours, minutes, seconds;
+        days = playingTimeInSeconds / 60 / 60 / 24;
+        hours = playingTimeInSeconds / 60 / 60 - (days * 24);
+        minutes = playingTimeInSeconds / 60 - (days * 24 * 60) - (hours * 60);
+        seconds = playingTimeInSeconds - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
+
+        System.out.printf("%s %s:%s:%s", days,
+                hours < 10 ? "0" + hours : hours,
+                minutes < 10 ? "0" + minutes : minutes,
+                seconds < 10 ? "0" + seconds : seconds);
+
+
+        return String.format("%s %s:%s:%s", days,
+                hours < 10 ? "0" + hours : hours,
+                minutes < 10 ? "0" + minutes : minutes,
+                seconds < 10 ? "0" + seconds : seconds);
     }
 }
