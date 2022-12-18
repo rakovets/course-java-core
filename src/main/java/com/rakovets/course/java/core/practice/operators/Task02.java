@@ -31,7 +31,11 @@ class Task02 {
      */
     static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
         //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int totalTrucks = cargo / carryingCapacity;
+        int amountExportingCargo = carryingCapacity * totalTrucks;
+        int amountRemainingCargo = cargo - amountExportingCargo;
+
+
+        return amountRemainingCargo;
     }
 }
