@@ -41,4 +41,3 @@ class Task06 {
         return playTime;
     }
 }
-G
