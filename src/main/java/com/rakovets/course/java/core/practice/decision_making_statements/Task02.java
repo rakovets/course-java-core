@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import java.io.Console;
+import java.util.Scanner;
+
 /**
  * Разработать программу для desktop приложения
  * которая выведет приветствии для пользователя в зависимости от времени суток.
@@ -35,8 +38,19 @@ class Task02 {
      * </ul>
      */
     static String getGreetingByHour(int hour) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = "";
+        if (hour > 5 && hour <= 11) {
+            result = "Good morning";
+        }
+        if (hour > 12 && hour <= 17) {
+            result = "Good day";
+        }
+        if (hour > 17 && hour <= 23) {
+            result = "Good evening";
+        }
+        if (hour >= 0 && hour <= 5) {
+            result = "Good night";
+        }
+        return result;
     }
 }
