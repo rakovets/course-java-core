@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import java.util.Scanner;
+
 /**
  * Разработать программу для игрового движка.
  * <p>
@@ -18,7 +20,7 @@ class Task03 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 10;
+        int currentHealthPoint = 22;
         int maxHealthPoint = 100;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
@@ -35,8 +37,18 @@ class Task03 {
      * @return null/'RED'/'ORANGE'/'YELLOW'/'GREEN'
      */
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String colorHealthPoint = null;
+        if (currentHealthPoint < 25 && currentHealthPoint >= 0) {
+            colorHealthPoint = "RED";
+        } else if (currentHealthPoint >= 25 && currentHealthPoint < 50) {
+            colorHealthPoint = "ORANGE";
+        } else if (currentHealthPoint >= 50 && currentHealthPoint < 75) {
+            colorHealthPoint = "YELLOW";
+        } else if (currentHealthPoint >= 75 && currentHealthPoint <= maxHealthPoint) {
+            colorHealthPoint = "GREEN";
+        } else {
+            colorHealthPoint = "Impossible color";
+        }
+        return colorHealthPoint;
     }
 }
