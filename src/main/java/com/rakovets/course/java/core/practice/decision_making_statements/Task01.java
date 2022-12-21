@@ -39,6 +39,7 @@ class Task01 {
         if (positionPlayerByDamage <= sizeTop) {
             return true;
         } else {
-        }   return false;
+            return false;
+        }
     }
 }
