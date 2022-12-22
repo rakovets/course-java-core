@@ -16,7 +16,7 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        byte dayOfWeekNumber = 1;
+        byte dayOfWeekNumber = 5;
 
         String nameWeekday = getDayOfWeekNumber(dayOfWeekNumber);
         System.out.printf("Result: %s", nameWeekday);
@@ -29,8 +29,32 @@ class Task04 {
      * @return день недели на английском языке (UPPER CASE)
      */
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
-
-
-        return null;
+        String dayString = null;
+        switch (dayOfWeekNumber) {
+            case 1:
+                dayString = "Monday";
+                break;
+            case 2:
+                dayString = "Tuesday";
+                break;
+            case 3:
+                dayString = "Wednesday";
+                break;
+            case 4:
+                dayString = "Thursday";
+                break;
+            case 5:
+                dayString = "Friday";
+                break;
+            case 6:
+                dayString = "Saturday";
+                break;
+            case 7:
+                dayString = "Sunday";
+                break;
+            default:
+                dayString = "Wrong day";
+            }
+        return dayString;
     }
 }
