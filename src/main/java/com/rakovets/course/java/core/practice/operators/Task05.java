@@ -34,8 +34,12 @@ class Task05 {
      * @param weight - вес
      */
     static int calculateDeviationStandardWeight(int height, int weight) {
+        final int brok = 110;
+        int weightStandart = height - brok;
+        int weightExtra = weight - weightStandart;
+
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return weightExtra;
     }
 }
