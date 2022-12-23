@@ -45,47 +45,47 @@ class Task12 {
     static String getZodiacSign(int day, int month) {
         String ZodiacSign;
 
-       switch (month) {
-           case 1:
-               ZodiacSign = day >= 21 ? "Water-bearer" : "Goat";
-               break;
-           case 2:
-               ZodiacSign = day >= 20 ? "Fish" : "Water-bearer";
-               break;
-           case 3:
-               ZodiacSign = day >= 21 ? "Ram" : "Fish";
-               break;
-           case 4:
-               ZodiacSign = day >= 21 ? "Bull" : "Ram";
-               break;
-           case 5:
-               ZodiacSign = day >= 21 ? "Twins" : "Bull";
-               break;
-           case 6:
-               ZodiacSign = day >= 22 ? "Crab" : "Twins";
-               break;
-           case 7:
-               ZodiacSign = day >= 23 ? "Lion" : "Crab";
-               break;
-           case 8:
-               ZodiacSign = day >= 23 ? "Maiden" : "Lion";
-               break;
-           case 9:
-               ZodiacSign = day >= 22 ? "Scales" : "Maiden";
-               break;
-           case 10:
-               ZodiacSign = day >= 23 ? "Scorpion" : "Scales";
-               break;
-           case 11:
-               ZodiacSign = day >= 23 ? "Archer" : "Scorpion";
-               break;
-           case 12:
-               ZodiacSign = day >= 22 ? "Goat" : "Archer";
-               break;
-           default:
-               ZodiacSign = "Invalid date'";
-                break;
-       }
-       return ZodiacSign;
+           switch (month) {
+               case 1:
+                   ZodiacSign = day >= 21 ? "Water-bearer" : "Goat";
+                   break;
+               case 2:
+                   ZodiacSign = day >= 20 ? "Fish" : "Water-bearer";
+                   break;
+               case 3:
+                   ZodiacSign = day >= 21 ? "Ram" : "Fish";
+                   break;
+               case 4:
+                   ZodiacSign = day >= 21 ? "Bull" : "Ram";
+                   break;
+               case 5:
+                   ZodiacSign = day >= 21 ? "Twins" : "Bull";
+                   break;
+               case 6:
+                   ZodiacSign = day >= 22 ? "Crab" : "Twins";
+                   break;
+               case 7:
+                   ZodiacSign = day >= 23 ? "Lion" : "Crab";
+                   break;
+               case 8:
+                   ZodiacSign = day >= 23 ? "Maiden" : "Lion";
+                   break;
+               case 9:
+                   ZodiacSign = day >= 22 ? "Scales" : "Maiden";
+                   break;
+               case 10:
+                   ZodiacSign = day >= 23 ? "Scorpion" : "Scales";
+                   break;
+               case 11:
+                   ZodiacSign = day >= 23 ? "Archer" : "Scorpion";
+                   break;
+               case 12:
+                   ZodiacSign = day >= 22 ? "Goat" : "Archer";
+                   break;
+               default:
+                   ZodiacSign = "Invalid date'";
+                    break;
+           }
+           return ZodiacSign;
     }
 }
