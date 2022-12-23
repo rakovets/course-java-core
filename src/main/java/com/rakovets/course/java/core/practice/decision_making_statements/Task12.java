@@ -83,6 +83,7 @@ class Task12 {
                 break;
             case 12:
                 zodiac = (day < day3) ? "Archer" : "Goat";
+                break;
             default:
                 System.out.println("year has only 12 months");
         }   return zodiac;
