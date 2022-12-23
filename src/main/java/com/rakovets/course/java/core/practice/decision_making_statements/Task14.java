@@ -43,7 +43,8 @@ class Task14 {
      */
     static String getZodiacYearName(int year) {
         String Zodiac = null;
-        switch(year % 12){
+
+        switch(year % 12) {
             case 0:
                 Zodiac = "Monkey";
                 break;
@@ -80,7 +81,7 @@ class Task14 {
             case 11:
                 Zodiac = "Ram";
                 break;
-        }
+            }
         return Zodiac;
     }
 }
