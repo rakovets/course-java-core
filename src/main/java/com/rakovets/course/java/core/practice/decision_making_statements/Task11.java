@@ -42,9 +42,9 @@ class Task11 {
     static String getSymbolType(char symbol) {
         String result = null;
 
-        if(symbol >=48 && symbol <= 57){
+        if(symbol >= 48 && symbol <= 57){
             result = "Цифра";
-        } else if ((symbol >= 65 && symbol <=90) || (symbol >=97 && symbol <=122)) {
+        } else if ((symbol >= 65 && symbol <= 90) || (symbol >= 97 && symbol <= 122)) {
             result = "Латиница";
         } else if ( symbol >= 1040 && symbol <= 1103) {
             result = "Кириллица";
