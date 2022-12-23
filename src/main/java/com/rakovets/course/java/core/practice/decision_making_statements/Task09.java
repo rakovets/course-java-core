@@ -34,6 +34,7 @@ class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         int totalAmountFlat = numberFloors * numberApartmentsPerFloor;
         int porch;
+
         if (totalAmountFlat >=  apartmentNumber) {
             porch = 1;
         } else {

@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import java.util.Scanner;
+
 /**
  * Разработать программу для desktop приложения.
  * <p>
@@ -38,8 +40,17 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result = null;
+
+        if(symbol >=48 && symbol <= 57){
+            result = "Цифра";
+        } else if ((symbol >= 65 && symbol <=90) || (symbol >=97 && symbol <=122)) {
+            result = "Латиница";
+        } else if ( symbol >= 1040 && symbol <= 1103) {
+            result = "Кириллица";
+        } else {
+            result = "Cпец. символ";
+        }
+        return result;
     }
 }

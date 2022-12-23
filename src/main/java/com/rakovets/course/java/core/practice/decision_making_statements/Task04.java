@@ -30,6 +30,7 @@ class Task04 {
      */
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
         String dayString = null;
+
         switch (dayOfWeekNumber) {
             case 1:
                 dayString = "Monday";

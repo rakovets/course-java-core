@@ -32,6 +32,7 @@ class Task05 {
      */
     static String getMonthName(byte monthNumber) {
         String monthString = null;
+
         switch (monthNumber) {
             case 1:
                 monthString = "January";
