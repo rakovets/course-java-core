@@ -28,8 +28,14 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
+        final int variableDay = 86400, variableHour = 3600, variableMin = 60;
+        int quantityDay = playingTimeInSeconds / variableDay;
+        int quantityHour = (playingTimeInSeconds - ( quantityDay* variableDay ))/variableHour;
+        int quantityMin = (playingTimeInSeconds - (quantityDay*variableDay) -(quantityHour*variableHour))/variableMin;
+        int quantitySec = (playingTimeInSeconds - (quantityDay*variableDay) -(quantityHour*variableHour))%variableMin;
+        String playTime = quantityDay +" "+ quantityHour +":"+ quantityMin +":"+ quantitySec;
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return playTime;
     }
 }
