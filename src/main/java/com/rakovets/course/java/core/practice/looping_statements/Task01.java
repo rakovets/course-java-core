@@ -16,7 +16,7 @@ class Task01 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int rows = 13;
+        int rows = 10;
 
         String numbersColumn = generateNumbersColumn(rows);
         System.out.printf("Result:\n%s", numbersColumn);
@@ -29,14 +29,8 @@ class Task01 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows) {
-        String number = "";
-        for (int i = 1; i <= numberRows; i++) {
-            if (i < numberRows) {
-                number += i + "\n";
-            } else {
-                number += i;
-            }
-        }
-        return number;
+        //TODO
+        // Код, решающий задачу пишем ниже, при этом используя параметры методаmber;
+        return null;
     }
 }
