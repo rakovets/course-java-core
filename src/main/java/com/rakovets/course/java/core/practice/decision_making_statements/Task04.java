@@ -33,28 +33,28 @@ class Task04 {
 
         switch (dayOfWeekNumber) {
             case 1:
-                dayString = "Monday";
+                dayString = "MONDAY";
                 break;
             case 2:
-                dayString = "Tuesday";
+                dayString = "TUESDAY";
                 break;
             case 3:
-                dayString = "Wednesday";
+                dayString = "WEDNESDAY";
                 break;
             case 4:
-                dayString = "Thursday";
+                dayString = "THURSDAY";
                 break;
             case 5:
-                dayString = "Friday";
+                dayString = "FRIDAY";
                 break;
             case 6:
-                dayString = "Saturday";
+                dayString = "SATURDAY";
                 break;
             case 7:
-                dayString = "Sunday";
+                dayString = "SUNDAY";
                 break;
             default:
-                dayString = "Wrong day";
+                dayString = null;
             }
         return dayString;
     }

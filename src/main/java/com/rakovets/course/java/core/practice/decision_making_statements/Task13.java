@@ -33,7 +33,7 @@ class Task13 {
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         int totalAmountFlat = numberFloors * numberApartmentsPerFloor;
-        int porch =(apartmentNumber / totalAmountFlat) + 1;
+        int porch = (apartmentNumber - 1 )/ totalAmountFlat + 1;
         int floors = (apartmentNumber - totalAmountFlat * (porch - 1) - 1) / numberApartmentsPerFloor + 1;
         return floors;
     }

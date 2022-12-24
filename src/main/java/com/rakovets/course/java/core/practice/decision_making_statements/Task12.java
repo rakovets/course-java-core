@@ -86,6 +86,6 @@ class Task12 {
                    ZodiacSign = "Invalid date'";
                     break;
            }
-           return ZodiacSign;
+        return ZodiacSign;
     }
 }

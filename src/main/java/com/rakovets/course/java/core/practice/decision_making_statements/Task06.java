@@ -47,6 +47,6 @@ class Task06 {
         } else if (tanksKilledSecondPlayer > tanksKilledFirstPlayer) {
             pointOfSecond += BONUS_POINT;
         }
-        return "Player 1:" + pointOfFirst + "\nPlayer 2:" + pointOfSecond;
+        return "Player 1: " + pointOfFirst + ". Player 2: " + pointOfSecond;
     }
 }

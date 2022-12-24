@@ -35,43 +35,43 @@ class Task05 {
 
         switch (monthNumber) {
             case 1:
-                monthString = "January";
+                monthString = "JANUARY";
                 break;
             case 2:
-                monthString = "February";
+                monthString = "FEBRUARY";
                 break;
             case 3:
-                monthString = "March";
+                monthString = "MARCH";
                 break;
             case 4:
-                monthString = "April";
+                monthString = "APRIL";
                 break;
             case 5:
-                monthString = "May";
+                monthString = "MAY";
                 break;
             case 6:
-                monthString = "June";
+                monthString = "JUNE";
                 break;
             case 7:
-                monthString = "July";
+                monthString = "JULY";
                 break;
             case 8:
-                monthString = "August";
+                monthString = "AUGUST";
                 break;
             case 9:
-                monthString = "September";
+                monthString = "SEPTEMBER";
                 break;
             case 10:
-                monthString = "October";
+                monthString = "OCTOBER";
                 break;
             case 11:
-                monthString = "November";
+                monthString = "NOVEMBER";
                 break;
             case 12:
-                monthString = "December";
+                monthString = "DECEMBER";
                 break;
             default:
-                monthString = "Wrong month";
+                monthString = null;
             }
         return monthString;
     }

@@ -43,13 +43,13 @@ class Task11 {
         String result = null;
 
         if(symbol >= 48 && symbol <= 57){
-            result = "Цифра";
+            result = "digit";
         } else if ((symbol >= 65 && symbol <= 90) || (symbol >= 97 && symbol <= 122)) {
-            result = "Латиница";
+            result = "latin";
         } else if ( symbol >= 1040 && symbol <= 1103) {
-            result = "Кириллица";
+            result = "cyrillic";
         } else {
-            result = "Cпец. символ";
+            result = "undefined";
         }
         return result;
     }
