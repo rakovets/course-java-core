@@ -10,7 +10,9 @@ class Task04 {
      * Скорость звука в воздушной среде 1191.6 км/ч
      */
     private static final float SOUND_SPEED = 1191.6f;
-
+    private static final int TRANSFER_HOUR_TO_SECONDSD = 3600;
+    private static final int TRANSFER_KILLOMETRS_TO_METRS = 1000;
+    private static final int TRANSFER_SECONDS_TO_MILISECONDS = 1000;
     /**
      * The entry point of the task
      *
@@ -33,8 +35,8 @@ class Task04 {
      * @param milliseconds время (в миллисекундах) между срабатыванием датчика света и звука
      */
     static float getDistance(float milliseconds) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0f;
+        float totalSpeed = SOUND_SPEED * TRANSFER_KILLOMETRS_TO_METRS / TRANSFER_HOUR_TO_SECONDSD;
+        float totalTime = milliseconds / TRANSFER_SECONDS_TO_MILISECONDS;
+        return totalSpeed * totalTime;
     }
 }
