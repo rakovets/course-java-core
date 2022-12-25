@@ -47,29 +47,29 @@ class Task12 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String sign = null;
         if ((month == 1) && (day <= 20) || (month == 12) && (day >= 22)) {
-            sign = "Capricorn";
+            sign = "Goat";
         } else if ((month == 1) || (month == 2) && (day <= 19)) {
-            sign = "Aquarius";
+            sign = "Water-bearer";
         } else if ((month == 2) || (month == 3) && (day <= 20)) {
-            sign = "Pisces";
-        } else if ((month == 3) || (month == 4) && (day <= 19)) {
-            sign = "Aries";
-        } else if ((month == 4) || (month == 5) && (day <= 21)) {
-            sign = "Taurus";
+            sign = "Fish";
+        } else if ((month == 3) || (month == 4) && (day <= 20)) {
+            sign = "Ram";
+        } else if ((month == 4) || (month == 5) && (day <= 20)) {
+            sign = "Bull";
         } else if ((month == 5) || (month == 6) && (day <= 21)) {
-            sign = "Gemini";
-        } else if ((month == 6) || (month == 7) && (day <= 23)) {
-            sign = "Cancer";
-        } else if ((month == 7) || (month == 8) && (day <= 23)) {
-            sign = "Leo";
-        } else if ((month == 8) || (month == 9) && (day <= 23)) {
-            sign = "Virgo";
-        } else if ((month == 9) || (month == 10) && (day <= 23)) {
-            sign = "Libra";
+            sign = "Twins";
+        } else if ((month == 6) || (month == 7) && (day <= 22)) {
+            sign = "Crab";
+        } else if ((month == 7) || (month == 8) && (day <= 22)) {
+            sign = "Lion";
+        } else if ((month == 8) || (month == 9) && (day <= 21)) {
+            sign = "Maiden";
+        } else if ((month == 9) || (month == 10) && (day <= 22)) {
+            sign = "Scales";
         } else if ((month == 10) || (month == 11) && (day <= 22)) {
-            sign = "Scorpio";
-        } else if (month == 12) {
-            sign = "Sagittarius";
+            sign = "Scorpion";
+        } else if (month == 11 || month == 12) {
+            sign = "Archer";
         }
         return sign;
     }

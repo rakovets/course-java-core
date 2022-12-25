@@ -34,25 +34,25 @@ class Task04 {
         String dayOfWeek;
         switch (dayOfWeekNumber) {
             case 1:
-                dayOfWeek = "Sunday";
-                break;
-            case 2:
                 dayOfWeek = "Monday";
                 break;
-            case 3:
+            case 2:
                 dayOfWeek = "Tuesday";
                 break;
-            case 4:
+            case 3:
                 dayOfWeek = "Wednesday";
                 break;
-            case 5:
+            case 4:
                 dayOfWeek = "Thursday";
                 break;
-            case 6:
+            case 5:
                 dayOfWeek = "Friday";
                 break;
-            case 7:
+            case 6:
                 dayOfWeek = "Saturday";
+                break;
+            case 7:
+                dayOfWeek = "Sunday";
                 break;
             default:
                 dayOfWeek = "Day of week number is not valid";
