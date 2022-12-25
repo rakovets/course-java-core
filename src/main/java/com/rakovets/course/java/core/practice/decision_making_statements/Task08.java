@@ -40,6 +40,24 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        double damageMultiplier = 1;
+        switch (typeMob) {
+            case "UNDEAD":
+            case "ZOMBIE":
+                damageMultiplier = 1.5;
+                 break;
+            case "SAINT":
+                damageMultiplier = 0.5;
+                break;
+            case "ANIMAL":
+            case "HUMANOID":
+            case "GHOST":
+            default:
+                System.out.println("Type mob is not valid");
+        }
+        if (hasHolyAttribute) {
+            damage = (int) (damage * damageMultiplier);
+        }
+        return damage;
     }
 }

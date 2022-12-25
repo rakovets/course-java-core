@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.decision_making_statements;
 
+import java.time.LocalDate;
+
 /**
  * Разработать программу для desktop приложения.
  * <p>
@@ -38,6 +40,6 @@ class Task07 {
     static boolean isLeapYear(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        return LocalDate.of(year, 1, 1).isLeapYear();
     }
 }
