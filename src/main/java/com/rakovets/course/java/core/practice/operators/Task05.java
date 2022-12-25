@@ -6,6 +6,8 @@ package com.rakovets.course.java.core.practice.operators;
  * @author Dmitry Rakovets
  */
 class Task05 {
+    private static final int EVALUATION_PARAMETR = 110;
+
     /**
      * The entry point of the task
      *
@@ -34,8 +36,6 @@ class Task05 {
      * @param weight - вес
      */
     static int calculateDeviationStandardWeight(int height, int weight) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        return weight - height + EVALUATION_PARAMETR;
     }
 }
