@@ -38,15 +38,15 @@ class Task06 {
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         final double PERCENT_FACTOR = 1 / 100.0;
         double theDistance = startDistance;
-        double theWholeDist = 0;
+        double theWholeDistance = 0;
         if (theDistance != 0) {
             while (theDistance < finishDistance) {
                 theDistance += theDistance * dailyProgressAsPercentage * PERCENT_FACTOR;
-                theWholeDist += theDistance;
+                theWholeDistance += theDistance;
             }
         } else {
-            theWholeDist = 0;
+            theWholeDistance = 0;
         }
-        return NumberUtil.roundValueToTwoDigitsForMantissa(theWholeDist);
+        return NumberUtil.roundValueToTwoDigitsForMantissa(theWholeDistance);
     }
 }
