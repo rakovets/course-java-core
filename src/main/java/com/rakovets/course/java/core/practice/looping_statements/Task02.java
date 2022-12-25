@@ -34,10 +34,10 @@ class Task02 {
      * @return прибыль (с точностью до 2 знаков после десятичного разделителя)
      */
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
-        final double percentFactor = 1 / 100.0;
+        final double PERCENT_FACTOR = 1 / 100.0;
         double money = depositAmount;
         for (int i = 1; i <= depositTerm; i++) {
-            money += money * annualDepositPercent * percentFactor;
+            money += money * annualDepositPercent * PERCENT_FACTOR;
         }
         return NumberUtil.roundValueToTwoDigitsForMantissa(money);
     }
