@@ -39,14 +39,13 @@ class Task06 {
         double totalDistance = 0;
         double currentDistance = startDistance;
 
-        if(startDistance == 0){
+        if (startDistance == 0) {
             return 0;
         }
-        while (currentDistance <= finishDistance){
-            currentDistance = currentDistance + ((currentDistance *dailyProgressAsPercentage) / 100);
+        while (currentDistance <= finishDistance) {
+            currentDistance = currentDistance + ((currentDistance * dailyProgressAsPercentage) / 100);
             totalDistance = totalDistance + currentDistance;
         }
-
         return NumberUtil.roundValueToTwoDigitsForMantissa(totalDistance);
     }
 }
