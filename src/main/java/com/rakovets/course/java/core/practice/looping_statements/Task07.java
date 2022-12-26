@@ -26,10 +26,10 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 2;
-        double startPriceAllItems = 2.0;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startNumberItems = 100;
+        double startPriceAllItems = 1.15;
+        int differentialNumberItems = 1;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -48,12 +48,17 @@ class Task07 {
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         String bill = "";
+        int newAmount;
+        double newPrice;
         double priseOneItem = startPriceAllItems / startNumberItems;
-        for (int i = 1; i <= sizeTotalPrice; i++) {
-            bill = startNumberItems + " - " + startPriceAllItems + "\n";
-            startNumberItems += differentialNumberItems;
-            startPriceAllItems += priseOneItem * differentialNumberItems;
-            startPriceAllItems = NumberUtil.roundValueToTwoDigitsForMantissa(startPriceAllItems);
+        for (int i = 0; i < sizeTotalPrice; i++) {
+            newAmount = startNumberItems + differentialNumberItems * i;
+            newPrice = NumberUtil.roundValueToTwoDigitsForMantissa(newAmount * priseOneItem);
+            if (i == sizeTotalPrice - 1) {
+                bill += newAmount + " - " + newPrice;
+                return bill;
+            }
+            bill += newAmount + " - " + newPrice + "\n";
         }
         return bill;
     }
