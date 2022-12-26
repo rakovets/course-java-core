@@ -38,8 +38,19 @@ class Task11 {
      * @return <code>latin</code>/<code>cyrillic</code>/<code>digit</code>/<code>undefined</code>
      */
     static String getSymbolType(char symbol) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String symbalResultNumber = null;
+        if ((symbol >= 'a' && symbol <= 'z') || (symbol >= 'A' && symbol <= 'Z')) {
+            symbalResultNumber = "latin";
+        } else if ((symbol >= 'а' && symbol <= 'я') || (symbol >= 'А' && symbol <= 'Я')) {
+            symbalResultNumber = "cyrillic";
+        } else if (symbol >= '0' && symbol <= '9') {
+            symbalResultNumber = "digit";
+        } else {
+            symbalResultNumber = "undefined";
+        }
+        return symbalResultNumber;
     }
+    //TODO
+    // Код, решающий задачу пишем ниже, при этом используя параметры метода
 }
+
