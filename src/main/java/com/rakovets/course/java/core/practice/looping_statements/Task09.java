@@ -34,8 +34,14 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        /*String text = null;
+
+        String space = " ";
+        for (int i = 0; i>=amount; i++){
+            if(amount[i] == 3)
+                break;
+
+            }*/
         return null;
     }
 }
