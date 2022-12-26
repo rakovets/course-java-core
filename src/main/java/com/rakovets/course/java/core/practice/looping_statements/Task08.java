@@ -26,11 +26,11 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3.0;
-        int differentialNumberItems = 5;
-        double differentialSell = 4.0;
-        int sizeTotalPrice = 6;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 3;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -51,20 +51,23 @@ class Task08 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
+        final double PERCENT_COEFFICIENT = 1 / 100.0;
         String bill = "";
-        String sellText = " with sell ";
+        double percentSellInLine;
+        int amountAllItemsInLine;
+        double newPrice;
+        double sellAllItemsInLine;
         double priseOneItem = startPriceAllItems / startNumberItems;
-        double sell = 0.0;
-        double sellPercent =0.0;
-        for (int i = 1; i <= sizeTotalPrice; i++) {
-            bill = startNumberItems + " - " + startPriceAllItems + sellText + sellPercent + "%" + "\n";
-            sellPercent += differentialSell;
-            startNumberItems += differentialNumberItems;
-            startPriceAllItems = startNumberItems * priseOneItem;
-            sell = startPriceAllItems * sellPercent / 100;
-            startPriceAllItems -= sell;
-            System.out.println();
-            startPriceAllItems = NumberUtil.roundValueToTwoDigitsForMantissa(startPriceAllItems);
+        for (int i = 0; i < sizeTotalPrice; i++) {
+            amountAllItemsInLine = startNumberItems + differentialNumberItems * i;
+            percentSellInLine = differentialSell * i;
+            sellAllItemsInLine = amountAllItemsInLine * priseOneItem * percentSellInLine * PERCENT_COEFFICIENT;
+            newPrice = NumberUtil.roundValueToTwoDigitsForMantissa(amountAllItemsInLine * priseOneItem - sellAllItemsInLine);
+            if (i == sizeTotalPrice - 1) {
+                bill += amountAllItemsInLine + " - " + newPrice + " with sell " + percentSellInLine + "%";
+                return bill;
+            }
+            bill += amountAllItemsInLine + " - " + newPrice + " with sell " + percentSellInLine + "%\n";
         }
         return bill;
     }
