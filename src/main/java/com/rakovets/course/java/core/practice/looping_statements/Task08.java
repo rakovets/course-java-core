@@ -63,7 +63,7 @@ class Task08 {
             startPriceAllItems = startNumberItems * priseOneItem;
             sell = startPriceAllItems * sellPercent / 100;
             startPriceAllItems -= sell;
-            System.out.println(bill);
+            System.out.println();
             startPriceAllItems = NumberUtil.roundValueToTwoDigitsForMantissa(startPriceAllItems);
         }
         return bill;
