@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +26,11 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3.0;
-        int differentialNumberItems = 5;
-        double differentialSell = 4.0;
-        int sizeTotalPrice = 6;
+        int startNumberItems = 100;
+        double startPriceAllItems = 1.15;
+        int differentialNumberItems = 10;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 5;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -51,6 +53,21 @@ class Task08 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        int currentAmount;
+        double totalPrice;
+        double sellPrice;
+        double itemPrice = startPriceAllItems / startNumberItems;
+        for (int i = 0; i < sizeTotalPrice; i++) {
+            currentAmount = startNumberItems + differentialNumberItems * i;
+            sellPrice = differentialSell * i;
+            totalPrice = NumberUtil.roundValueToTwoDigitsForMantissa(currentAmount * itemPrice * (1 - sellPrice / 100));
+            if (i >= sizeTotalPrice - 1) {
+                stringBuilder.append(String.format("%s - %s with sell %s%%", currentAmount, totalPrice, sellPrice));
+                return String.valueOf(stringBuilder);
+            }
+            stringBuilder.append(String.format("%s - %s with sell %s%%\n", currentAmount, totalPrice, sellPrice));
+        }
+        return String.valueOf(stringBuilder);
     }
 }
