@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 1;
+        int month = 1;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -43,8 +43,48 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
+        String zodiaс = null;
+        switch (month) {
+            case 1: //условие ? выражение «истинное» : выражение «ложное».
+                zodiaс = day <= 20 ? "Goat" : "Water-bearer";//
+                break;
+            case 2:
+                zodiaс = day <= 19 ? "Water-bearer" : "Fish";//
+                break;
+            case 3:
+                zodiaс = day <= 20 ? "Fish" : "Ram";//
+                break;
+            case 4:
+                zodiaс = day <= 20 ? "Ram" : "Bull";//
+                break;
+            case 5:
+                zodiaс = day <= 20 ? "Bull" : "Twins";//
+                break;
+            case 6:
+                zodiaс = day <= 21 ? "Twins" : "Crab";//
+                break;
+            case 7:
+                zodiaс = day <= 22 ? "Crab" : "Lion";//
+                break;
+            case 8:
+                zodiaс = day <= 22 ? "Lion" : "Maiden";//
+                break;
+            case 9:
+                zodiaс = day <= 21 ? "Maiden" : "Scales";//
+                break;
+            case 10:
+                zodiaс = day <= 22 ? "Scales" : "Scorpion";//
+                break;
+            case 11:
+                zodiaс = day <= 22 ? "Scorpion" : "Archer";
+                break;
+            case 12:
+                zodiaс = day <= 21 ? "Archer" : "Goat";
+                break;
+        }
+
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return zodiaс;
     }
 }
