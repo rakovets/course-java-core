@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * Разработать программу для бухгалтерии.
  * Конвертировать числовую сумму в сумму бухгалтерском формате, т.е. начиная справа, каждые три позиции отделяются
@@ -20,7 +23,7 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500L;
+        long amount = 12345678L;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -34,14 +37,18 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        /*String text = null;
+        String text = "";
+        long number = Math.abs(amount);
 
-        String space = " ";
-        for (int i = 0; i>=amount; i++){
-            if(amount[i] == 3)
-                break;
-
-            }*/
-        return null;
+        while (number % 1000 != 0) {
+            text = number % 1000 + (text.equals("") ? "" : " ") + text;
+            number = number / 1000;
+        }
+        if (amount < 0) {
+            text = "-" + text;
+        } else if (amount == 0) {
+            text = "0";
+        }
+        return text;
     }
 }
