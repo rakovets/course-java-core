@@ -1,57 +1,41 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator;
 
-import com.rakovets.course.java.core.practice.concurrent_utilities.producer_consumer.Container;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
-public class ParallelCalculator {
-    private final Logger logger = Logger.getLogger(ParallelCalculator.class.getName());
-    private final ReentrantLock locker;
-    private final Map<Integer[], Integer> finalList;
+public class ParallelCalculator extends Calculator {
+    public static final Logger logger = Logger.getLogger(ParallelCalculator.class.getName());
+    private final ReentrantLock locker = new ReentrantLock();
 
-    public ParallelCalculator(Map<Integer[], Integer> finalList, ReentrantLock locker) {
-        this.finalList = finalList;
-        this.locker = locker;
-    }
-
-    public Map<Integer[], Integer> oneCalculation(Queue<Integer[]> arrays) {
-        Map<Integer[], Integer> result = new HashMap<>();
-        for (Integer[] array : arrays) {
-            int sum = 0;
-            for (int num : array) {
-                sum += num;
-            }
-            result.put(array, sum);
-        }
-        return result;
-    }
-
-    public void multiThreadCalculation(Queue<Integer[]> arrays, int numberOfThreads) {
-        int arraysOnOneThread = arrays.size() / numberOfThreads;
-        Queue<Integer[]> arraysForThisThread = new LinkedList<>();
+    public List<PairSumArray> getArraySumAcceptingCountOfThreads(List<int[]> list, int countThread) {
+        List<PairSumArray> pairs = Collections.synchronizedList(new ArrayList<>(list.size()));
+        logger.info("Calculating in " + countThread + " thread started. Time: " + LocalDateTime.now());
         try {
-            while (!arrays.isEmpty()) {
-                locker.lock();
-                for (int i = 0; i < arraysOnOneThread; i++) {
-                    Integer[] oneArray = arrays.poll();
-                    arraysForThisThread.add(oneArray);
-                }
-                locker.unlock();
-                for (Integer[] array : arraysForThisThread) {
-                    int sum = 0;
-                    for (int num : array) {
-                        sum += num;
-                    }
-                    finalList.put(array, sum);
-                }
+            locker.lock();
+            CountDownLatch latch = new CountDownLatch(list.size());
+            ExecutorService es = Executors.newFixedThreadPool(countThread);
+            for (int[] ints : list) {
+                es.execute(() -> {
+                    pairs.add(new PairSumArray(Arrays.stream(ints).sum(), ints));
+                    latch.countDown();
+                });
             }
-        } catch (Exception e) {
-            logger.info(e.getMessage());
+            es.shutdown();
+            latch.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } finally {
+            locker.unlock();
         }
+        logger.info("Calculating in " + countThread + " thread ended. Time: " + LocalDateTime.now());
+        return pairs;
     }
 }

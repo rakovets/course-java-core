@@ -1,46 +1,31 @@
 package com.rakovets.course.java.core.practice.concurrent_utilities;
 
+import com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator.Calculator;
 import com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator.ParallelCalculator;
-import com.rakovets.course.java.core.practice.concurrent_utilities.parallel_calculator.ParallelCalculatorThread;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
 
 public class ParallelCalculatorDemo {
     public static final Logger logger = Logger.getLogger(ParallelCalculatorDemo.class.getName());
+
     public static void main(String[] args) throws InterruptedException {
-        Queue<Integer[]> inputArray = new LinkedList<>();
-        int numberOfThreads = 5;
+        ParallelCalculator parallelCalculator = new ParallelCalculator();
+        Calculator calculator = new Calculator();
+        List<int[]> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Integer[] array = new Integer[1000000];
+            int[] array = new int[10000000];
             for (int x = 0; x < array.length; x++) {
-                array[x] = new Random().nextInt(300);
+                array[x] = new Random().nextInt(300000000);
             }
-            inputArray.add(array);
+            list.add(array);
         }
 
-        Map<Integer[], Integer> finalList = new HashMap<>();
-        ReentrantLock locker = new ReentrantLock();
-        ExecutorService executor = Executors.newFixedThreadPool(numberOfThreads);
-        ParallelCalculator calculator = new ParallelCalculator(finalList, locker);
+        calculator.getListOfSumsAndArrays(list);
 
-       logger.info(LocalDateTime.now() + " threads start working");
-        for(int i = 0; i < numberOfThreads; i++) {
-            Thread thread = new Thread(new ParallelCalculatorThread(calculator, finalList, inputArray, numberOfThreads));
-            thread.setName("Thread "+ i);
-            executor.execute(thread);
-        }
-        executor.shutdown();
-        Thread.sleep(2000);
-        logger.info(LocalDateTime.now() + " threads stop working");
-        logger.info(finalList.toString());
+        parallelCalculator.getArraySumAcceptingCountOfThreads(list, 2);
+        parallelCalculator.getArraySumAcceptingCountOfThreads(list, 5);
     }
 }
