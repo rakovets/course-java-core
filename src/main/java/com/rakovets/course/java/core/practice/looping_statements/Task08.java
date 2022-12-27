@@ -55,19 +55,19 @@ class Task08 {
         String bill = "";
         double percentSellInLine;
         int amountAllItemsInLine;
-        double newPrice;
+        double priceAllItemsInLine;
         double sellAllItemsInLine;
         double priseOneItem = startPriceAllItems / startNumberItems;
         for (int i = 0; i < sizeTotalPrice; i++) {
             amountAllItemsInLine = startNumberItems + differentialNumberItems * i;
             percentSellInLine = differentialSell * i;
             sellAllItemsInLine = amountAllItemsInLine * priseOneItem * percentSellInLine * PERCENT_COEFFICIENT;
-            newPrice = NumberUtil.roundValueToTwoDigitsForMantissa(amountAllItemsInLine * priseOneItem - sellAllItemsInLine);
+            priceAllItemsInLine = NumberUtil.roundValueToTwoDigitsForMantissa(amountAllItemsInLine * priseOneItem - sellAllItemsInLine);
             if (i == sizeTotalPrice - 1) {
-                bill += amountAllItemsInLine + " - " + newPrice + " with sell " + percentSellInLine + "%";
+                bill += amountAllItemsInLine + " - " + priceAllItemsInLine + " with sell " + percentSellInLine + "%";
                 return bill;
             }
-            bill += amountAllItemsInLine + " - " + newPrice + " with sell " + percentSellInLine + "%\n";
+            bill += amountAllItemsInLine + " - " + priceAllItemsInLine + " with sell " + percentSellInLine + "%\n";
         }
         return bill;
     }
