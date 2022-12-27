@@ -48,17 +48,17 @@ class Task07 {
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         String bill = "";
-        int newAmount;
-        double newPrice;
+        int amountAllItemsInLine;
+        double priceAllItemsInLine;
         double priseOneItem = startPriceAllItems / startNumberItems;
         for (int i = 0; i < sizeTotalPrice; i++) {
-            newAmount = startNumberItems + differentialNumberItems * i;
-            newPrice = NumberUtil.roundValueToTwoDigitsForMantissa(newAmount * priseOneItem);
+            amountAllItemsInLine = startNumberItems + differentialNumberItems * i;
+            priceAllItemsInLine = NumberUtil.roundValueToTwoDigitsForMantissa(amountAllItemsInLine * priseOneItem);
             if (i == sizeTotalPrice - 1) {
-                bill += newAmount + " - " + newPrice;
+                bill += amountAllItemsInLine + " - " + priceAllItemsInLine;
                 return bill;
             }
-            bill += newAmount + " - " + newPrice + "\n";
+            bill += amountAllItemsInLine + " - " + priceAllItemsInLine + "\n";
         }
         return bill;
     }
