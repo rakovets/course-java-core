@@ -34,7 +34,6 @@ class Task06 {
         int minutesInGame = (playingTimeInSeconds / 60) % 60;
         int hoursInGame = (playingTimeInSeconds / 60 / 60) % 24;
         int daysInGame = playingTimeInSeconds / 60 / 60 / 24;
-        //String totalPlayingTime = daysInGame + " " + hoursInGame + ":" + minutesInGame + ":" + secondsInGame;
         return "In Game: " + daysInGame + "D " + hoursInGame + "H:" + minutesInGame + "m:" + secondsInGame + "s";
     }
 }
