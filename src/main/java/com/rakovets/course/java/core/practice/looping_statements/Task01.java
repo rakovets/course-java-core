@@ -31,6 +31,10 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String ordinalNumberRow = "";
+        for (int i = 1; i <= numberRows; i++) {
+            ordinalNumberRow = ordinalNumberRow + i + "\n";
+        }
+        return ordinalNumberRow;
     }
 }
