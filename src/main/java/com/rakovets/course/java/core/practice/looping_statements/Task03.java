@@ -36,6 +36,14 @@ class Task03 {
     static int calculateHealthPointsByTime(int healthPoints, double regenerationPercentFromCurrentHealth, int hoursAfterRespawn) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+         final double PERCENT_FACTOR = regenerationPercentFromCurrentHealth / 100;
+         double totalHealth = healthPoints;
+         for (int i = 1; i <= hoursAfterRespawn; i++) {
+             totalHealth += totalHealth * PERCENT_FACTOR;
+             //check regenHP in hour
+             //System.out.println(i + " hour: " + "totalHealth " + totalHealth);
+        }
+        return (int) totalHealth;
     }
 }
