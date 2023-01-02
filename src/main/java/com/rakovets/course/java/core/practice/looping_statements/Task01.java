@@ -31,9 +31,16 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
+        /* StringBuilder and + method  of concatenation is considered bad practice.
+        Additionally, String concatenation using the + operator within a loop should be avoided.
+        Since the String object is immutable,
+        each call for concatenation will result in a new String object being created.
+         */
+        /* Used String.format for to avoid the loop. This is right? */
         String ordinalNumberRow = "";
         for (int i = 1; i <= numberRows; i++) {
-            ordinalNumberRow = ordinalNumberRow + i + "\n";
+            ordinalNumberRow = String.format("%s%d\n",ordinalNumberRow, i);
         }
         return ordinalNumberRow;
     }
