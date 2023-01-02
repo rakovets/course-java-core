@@ -30,6 +30,11 @@ class Task06 {
     static String getPlayingTime(int playingTimeInSeconds) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int secondsInGame = playingTimeInSeconds % 60;
+        int minutesInGame = (playingTimeInSeconds / 60) % 60;
+        int hoursInGame = (playingTimeInSeconds / 60 / 60) % 24;
+        int daysInGame = playingTimeInSeconds / 60 / 60 / 24;
+        //String totalPlayingTime = daysInGame + " " + hoursInGame + ":" + minutesInGame + ":" + secondsInGame;
+        return "In Game: " + daysInGame + "D " + hoursInGame + "H:" + minutesInGame + "m:" + secondsInGame + "s";
     }
 }
