@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.looping_statements;
+import com.rakovets.course.java.core.util.NumberUtil;
 
 /**
  * Разработать программу для банка.
@@ -34,6 +35,11 @@ class Task02 {
     static double getTotalDepositAmount(double depositAmount, double annualDepositPercent, int depositTerm) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+
+        for (int i = 1; i <= depositTerm; i++) {
+            double percentInYear = depositAmount / 100 * annualDepositPercent;
+            depositAmount = depositAmount + percentInYear;
+            }
+        return NumberUtil.roundValueToTwoDigitsForMantissa(depositAmount);
     }
 }
