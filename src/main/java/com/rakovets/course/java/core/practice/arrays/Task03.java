@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -33,9 +35,15 @@ class Task03 {
      * @return средняя арифметическая отметка
      */
     static double[] getAverageMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double[] sum = new double[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int sumMarks = 0;
+            for (int j = 0; j < marks[i].length; j++) {
+                sumMarks += marks[i][j];
+            }
+            sum[i] = NumberUtil.roundValueToTwoDigitsForMantissa(sumMarks * 1.0 / marks[i].length);
+        }
+        return sum;
     }
 
     /**
@@ -45,9 +53,17 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] minMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int min = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < min) {
+                    min = marks[i][j];
+                }
+            }
+            minMarks[i] = min;
+        }
+        return minMarks;
     }
 
     /**
@@ -57,8 +73,16 @@ class Task03 {
      * @return максимальная отметка
      */
     static int[] getMaxMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] maxMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int max = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > max) {
+                    max = marks[i][j];
+                }
+            }
+            maxMarks[i] = max;
+        }
+        return maxMarks;
     }
 }
