@@ -30,7 +30,6 @@ class Task02 {
      * @param carryingCapacity грузоподъемность грузовиков
      */
     static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
-        int RemainCargo = cargo % carryingCapacity;
-        return RemainCargo;
+        return cargo % carryingCapacity;
     }
 }

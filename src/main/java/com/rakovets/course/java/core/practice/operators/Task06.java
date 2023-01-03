@@ -31,16 +31,15 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        //SimpleDateFormat playingTime = new SimpleDateFormat("d:h:m:s");
-        //String result = playingTime.format(new Date(playingTimeInSeconds*1000));
-        int day = playingTimeInSeconds / 86400;
-        playingTimeInSeconds = playingTimeInSeconds - day*86400;
-        int hour = playingTimeInSeconds / 3600;
-        playingTimeInSeconds = playingTimeInSeconds - hour*3600;
-        int minutes = playingTimeInSeconds / 60;
-        playingTimeInSeconds = playingTimeInSeconds - minutes*60;
-
-
+        final int SECONDS_IN_DAY = 3600 * 24;
+        final int SECONDS_IN_HOUR = 3600;
+        final int SECONDS_IN_MINUTE = 60;
+        int day = playingTimeInSeconds / SECONDS_IN_DAY;
+        playingTimeInSeconds = playingTimeInSeconds - day * SECONDS_IN_DAY;
+        int hour = playingTimeInSeconds / SECONDS_IN_HOUR;
+        playingTimeInSeconds = playingTimeInSeconds - hour * SECONDS_IN_HOUR;
+        int minutes = playingTimeInSeconds / SECONDS_IN_MINUTE;
+        playingTimeInSeconds = playingTimeInSeconds - minutes * SECONDS_IN_MINUTE;
         return day + " " + hour + ":" + minutes + ":" + playingTimeInSeconds;
     }
 }

@@ -35,8 +35,7 @@ class Task03 {
      * @param depositAnnualPercentage ежегодный простой процент
      */
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
-        float totalAmount = depositAmount+((float)(depositAmount*depositAnnualPercentage) / 100) * depositYears;
-
+        float totalAmount = depositAmount + ((float)(depositAmount * depositAnnualPercentage) / 100) * depositYears;
         return totalAmount;
     }
 }
