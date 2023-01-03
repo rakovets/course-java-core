@@ -74,7 +74,7 @@ class Task02 {
         int maxMark = 0;
 
         for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j <marks[i].length; j++) {
+            for (int j = 0; j < marks[i].length; j++) {
                 if (marks[i][j] > maxMark) {
                     maxMark = marks[i][j];
                 }
