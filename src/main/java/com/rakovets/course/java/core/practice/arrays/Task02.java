@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import java.text.DecimalFormat;
+import java.util.Arrays;
+
 /**
  * Разработать программу для электронного дневника, которая работает с отметками по всем предметам.
  *
@@ -33,7 +36,15 @@ class Task02 {
     static double getAverageMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        int arrayCounter = 0;
+        double marksSum = 0;
+        for (int[] internalArray : marks) {
+            for (int mark : internalArray) {
+                marksSum += mark;
+                arrayCounter++;
+            }
+        }
+        return Double.parseDouble(new DecimalFormat("#.##").format(marksSum / arrayCounter));
     }
 
     /**
@@ -45,7 +56,15 @@ class Task02 {
     static int getMinMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minimizeMark = Arrays.stream(marks[0]).findFirst().getAsInt();
+        for (int[] internalArray : marks) {
+            for (int mark : internalArray) {
+                if (mark < minimizeMark) {
+                    minimizeMark = mark;
+                }
+            }
+        }
+        return minimizeMark;
     }
 
     /**
@@ -57,6 +76,14 @@ class Task02 {
     static int getMaxMark(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int maximizeMark = Arrays.stream(marks[0]).findFirst().getAsInt();
+        for (int[] internalArray : marks) {
+            for (int mark : internalArray) {
+                if (mark > maximizeMark) {
+                    maximizeMark = mark;
+                }
+            }
+        }
+        return maximizeMark;
     }
 }
