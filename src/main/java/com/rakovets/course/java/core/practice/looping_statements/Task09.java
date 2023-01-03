@@ -36,6 +36,14 @@ class Task09 {
     static String convertToAccountingFormat(long amount) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String accountingFormat = "";
+        int numberToFormat = (int)amount;
+        while (numberToFormat > 0) {
+            int x = numberToFormat % 1000;
+            accountingFormat = x + " " + accountingFormat;
+            numberToFormat = numberToFormat / 1000;
+        }
+        return accountingFormat;
     }
 }
