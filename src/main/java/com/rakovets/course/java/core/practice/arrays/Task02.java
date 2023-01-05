@@ -37,8 +37,8 @@ class Task02 {
         double averageMark;
         int totalElementsMarks = 0;
         int sumMarks = 0;
-        for (int i = 0; i < marks.length; i++) {
-            for (int j = 0; j < marks[i].length; j++) { // перебор элементов массива marks
+        for (int i = 0; i < marks.length; i++) { // перебор строк в массиве
+            for (int j = 0; j < marks[i].length; j++) { // перебор элементов в строке
                 sumMarks += marks[i][j]; // сумма всех элементов массива
                 totalElementsMarks += 1; // кол-во элементов в массиве
             }
