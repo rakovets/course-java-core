@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для табличного процессора.
  * Программа генерирует порядковые номера для записей при создании таблицы.
@@ -32,8 +34,17 @@ class Task05 {
      * @return текст, который содержит графа с порядковыми номерами записей, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String columns = isEnableHeaderRow ? "\n" : "";
+
+        for (int i = 1; i <= numberRows; i++) {
+            if (i == numberRows && isEnableHeaderRow) {
+                break;
+            } else if (i == numberRows || ( i == numberRows - 1 && isEnableHeaderRow)) {
+                columns = columns + i;
+            } else {
+                columns = columns + i + "\n";
+            }
+        }
+        return columns;
     }
 }

@@ -34,8 +34,18 @@ class Task09 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        long partNumber = Math.abs(amount);
+        String result = "";
+
+        while (partNumber % 1000 != 0) {
+            result = partNumber % 1000 + (result.equals("") ? "" : " ") + result;
+            partNumber = partNumber / 1000;
+        }
+        if (amount < 0) {
+            result = "-" + result;
+        } else if (amount == 0) {
+            result = "0";
+        }
+        return result;
     }
 }
