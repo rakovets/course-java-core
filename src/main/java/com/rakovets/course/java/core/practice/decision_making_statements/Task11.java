@@ -40,6 +40,18 @@ class Task11 {
     static String getSymbolType(char symbol) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String SymbolType;
+        if ((symbol >= 'a' && symbol <= 'z') || (symbol >= 'A' && symbol <= 'Z')) {
+            SymbolType = "Latin";
+        } else if ((symbol >= 'а' && symbol <= 'я') || (symbol >= 'А' && symbol <= 'Я')) {
+            SymbolType = "Cyrillic";
+        } else if (symbol >= '0' && symbol <= '9') {
+            SymbolType = "Number";
+        } else if (symbol >= '\uFFF0' && symbol <= '\uFFFF') {
+            SymbolType = "Symbol";
+        } else {
+            SymbolType = "Undefined";
+        }
+        return SymbolType;
     }
 }
