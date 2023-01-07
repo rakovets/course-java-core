@@ -35,9 +35,8 @@ class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int porchNumber = 1;
-        int i;
         int numberApartmentsPerPorch = numberFloors * numberApartmentsPerFloor;
-        for (i = 0; apartmentNumber > numberApartmentsPerPorch; i++) {
+        for (int i = 0; apartmentNumber > numberApartmentsPerPorch; i++) {
             numberApartmentsPerPorch += numberApartmentsPerPorch;
             porchNumber++;
         }
