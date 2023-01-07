@@ -34,9 +34,10 @@ class Task09 {
     static int getPorchNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
+
         int porchNumber = 1;
         int numberApartmentsPerPorch = numberFloors * numberApartmentsPerFloor;
-        for (int i = 0; apartmentNumber > numberApartmentsPerPorch; i++) {
+        while (apartmentNumber > numberApartmentsPerPorch) {
             numberApartmentsPerPorch += numberApartmentsPerPorch;
             porchNumber++;
         }
