@@ -33,7 +33,6 @@ class Task05 {
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         String table = "";
-
         int numbersLine = numberRows;
         if (isEnableHeaderRow == true) {
             table += "\n";
