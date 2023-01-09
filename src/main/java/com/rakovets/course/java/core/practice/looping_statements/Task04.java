@@ -35,12 +35,18 @@ class Task04 {
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         final double PERCENT_FACTOR = 1 / 100.0;
         int monsterHealth = healthPoints;
+        int time = 0;
         for (int i = 1; i <= 24; i++) {
             monsterHealth += monsterHealth * regenerationPercentPerHour * PERCENT_FACTOR - averageDamagePerHour;
+            if (monsterHealth > 0 && i == 24) {
+                time = -1;
+                break;
+            }
             if (monsterHealth <= 0) {
-                return i;
+                time = i;
+                break;
             }
         }
-        return -1;
+        return time;
     }
 }
