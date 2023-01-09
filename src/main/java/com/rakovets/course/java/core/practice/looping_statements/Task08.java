@@ -65,7 +65,7 @@ class Task08 {
             priceAllItemsInLine = NumberUtil.roundValueToTwoDigitsForMantissa(amountAllItemsInLine * priseOneItem - sellAllItemsInLine);
             if (i == sizeTotalPrice - 1) {
                 bill += amountAllItemsInLine + " - " + priceAllItemsInLine + " with sell " + percentSellInLine + "%";
-                return bill;
+                break;
             }
             bill += amountAllItemsInLine + " - " + priceAllItemsInLine + " with sell " + percentSellInLine + "%\n";
         }
