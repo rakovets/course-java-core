@@ -41,7 +41,7 @@ class Task05 {
         for (int i = 1; i <= numbersLine; i++) {
             if (i == numbersLine) {
                 table += i;
-                return table;
+                break;
             }
             table += i + "\n";
         }
