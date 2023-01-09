@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.looping_statements;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -24,11 +26,11 @@ class Task08 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3.0;
-        int differentialNumberItems = 5;
-        double differentialSell = 4.0;
-        int sizeTotalPrice = 6;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 3;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -49,8 +51,24 @@ class Task08 {
      * <code>NumberUtil.roundValueToTwoDigitsForMantissa(value)</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        final double PERCENT_COEFFICIENT = 1 / 100.0;
+        String bill = "";
+        double percentSellInLine;
+        int amountAllItemsInLine;
+        double priceAllItemsInLine;
+        double sellAllItemsInLine;
+        double priseOneItem = startPriceAllItems / startNumberItems;
+        for (int i = 0; i < sizeTotalPrice; i++) {
+            amountAllItemsInLine = startNumberItems + differentialNumberItems * i;
+            percentSellInLine = differentialSell * i;
+            sellAllItemsInLine = amountAllItemsInLine * priseOneItem * percentSellInLine * PERCENT_COEFFICIENT;
+            priceAllItemsInLine = NumberUtil.roundValueToTwoDigitsForMantissa(amountAllItemsInLine * priseOneItem - sellAllItemsInLine);
+            if (i == sizeTotalPrice - 1) {
+                bill += amountAllItemsInLine + " - " + priceAllItemsInLine + " with sell " + percentSellInLine + "%";
+                break;
+            }
+            bill += amountAllItemsInLine + " - " + priceAllItemsInLine + " with sell " + percentSellInLine + "%\n";
+        }
+        return bill;
     }
 }
