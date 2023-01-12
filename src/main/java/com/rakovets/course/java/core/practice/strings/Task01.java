@@ -35,7 +35,7 @@ class Task01 {
     static String getName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return fullName.split(" ")[0];
     }
 
     /**
@@ -47,7 +47,7 @@ class Task01 {
     static String getSurname(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return fullName.split(" ")[1];
     }
 
     /**
@@ -59,6 +59,8 @@ class Task01 {
     static String reverseFullName(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String firstName = fullName.split(" ")[0];
+        String secondName = fullName.split(" ")[1];
+        return secondName.concat(String.format(" %s", firstName));
     }
 }
