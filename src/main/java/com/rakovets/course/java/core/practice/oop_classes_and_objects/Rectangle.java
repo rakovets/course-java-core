@@ -25,19 +25,19 @@ public class Rectangle {
         this.bottomRightPoint = bottomRightPoint;
     }
 
-    public int getPerimeter(Point topLeftPoint, Point bottomRightPoint) {
-        int lengthSideX = getLengthSideX(topLeftPoint, bottomRightPoint);
-        int LengthSideY = getLengthSideY(topLeftPoint, bottomRightPoint);
+    public int getPerimeter() {
+        int lengthSideX = getLengthSideX();
+        int LengthSideY = getLengthSideY();
         return (int) (squareNumber(lengthSideX) + squareNumber(LengthSideY));
     }
 
-    public int getArea(Point topLeftPoint, Point bottomRightPoint) {
-        int lengthSideX = getLengthSideX(topLeftPoint, bottomRightPoint);
-        int LengthSideY = getLengthSideY(topLeftPoint, bottomRightPoint);
+    public int getArea() {
+        int lengthSideX = getLengthSideX();
+        int LengthSideY = getLengthSideY();
         return (lengthSideX * LengthSideY);
     }
 
-    private int getLengthSideX(Point topLeftPoint, Point bottomRightPoint) {
+    private int getLengthSideX() {
         int xTopLeftPoint = topLeftPoint.getX();
         int xBottomRightPoint = bottomRightPoint.getX();
         int lengthSideX;
@@ -51,7 +51,7 @@ public class Rectangle {
         return lengthSideX;
     }
 
-    private int getLengthSideY(Point topLeftPoint, Point bottomRightPoint) {
+    private int getLengthSideY() {
         int yTopLeftPoint = topLeftPoint.getY();
         int yBottomRightPont = bottomRightPoint.getY();
         int lengthSideY;
