@@ -39,7 +39,7 @@ class Task06 {
         double totalDistance = 0;
         double currentDistance = startDistance;
 
-        if (startDistance == 0) {
+        while (startDistance == 0) {
             return 0;
         }
         while (currentDistance <= finishDistance) {

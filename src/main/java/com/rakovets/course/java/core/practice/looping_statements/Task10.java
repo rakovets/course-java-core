@@ -39,24 +39,18 @@ class Task10 {
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
         int countNumber = 0;
-
-        if (startNumber < 2) {
-            startNumber = 2;
-        }
-        for (int i = startNumber; i <= finishNumber; i++) {
-            if (checkSimple(i)) {
+        for (int i = finishNumber; i >= startNumber; i--) {
+            int integerDivisionCounter = 0;
+            double sqrt = Math.pow(i, 2);
+            for (int j = 1; j < sqrt; j++) {
+                if (i % j == 0) {
+                    integerDivisionCounter++;
+                }
+            }
+            if (integerDivisionCounter == 1) {
                 countNumber++;
             }
         }
         return countNumber;
-    }
-
-    static boolean checkSimple(int number) {
-        for (int i = 2; i * i <= number; i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 }

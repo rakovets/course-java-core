@@ -31,12 +31,10 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         String text = "";
 
-        for (int i = 1; i <= numberRows; i++ ) {
-            if(i == numberRows) {
-                text = text + i;
-            } else {
-                text = text + i + "\n";
-            }
+        for (int i = 1; i <= numberRows; i++) {
+            text += (i < numberRows)
+                    ? i + "\n"
+                    : i;
         }
         return text;
     }
