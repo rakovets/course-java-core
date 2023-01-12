@@ -26,12 +26,20 @@ public class Rectangle {
     }
 
     public int getPerimeter(Point topLeftPoint, Point bottomRightPoint) {
-        int lengthSideX = getLengthSideX(topLeftPoint.getX(), bottomRightPoint.getX());
-        int LengthSideY = getLengthSideY(topLeftPoint.getY(), bottomRightPoint.getY());
+        int lengthSideX = getLengthSideX(topLeftPoint, bottomRightPoint);
+        int LengthSideY = getLengthSideY(topLeftPoint, bottomRightPoint);
         return (int) (squareNumber(lengthSideX) + squareNumber(LengthSideY));
     }
 
-    private int getLengthSideX(int xTopLeftPoint, int xBottomRightPoint) {
+    public int getArea(Point topLeftPoint, Point bottomRightPoint) {
+        int lengthSideX = getLengthSideX(topLeftPoint, bottomRightPoint);
+        int LengthSideY = getLengthSideY(topLeftPoint, bottomRightPoint);
+        return (lengthSideX * LengthSideY);
+    }
+
+    private int getLengthSideX(Point topLeftPoint, Point bottomRightPoint) {
+        int xTopLeftPoint = topLeftPoint.getX();
+        int xBottomRightPoint = bottomRightPoint.getX();
         int lengthSideX;
         if (xTopLeftPoint < 0 && xBottomRightPoint < 0) {
             lengthSideX = Math.abs(xTopLeftPoint - xBottomRightPoint);
@@ -43,7 +51,9 @@ public class Rectangle {
         return lengthSideX;
     }
 
-    private int getLengthSideY(int yTopLeftPoint, int yBottomRightPont) {
+    private int getLengthSideY(Point topLeftPoint, Point bottomRightPoint) {
+        int yTopLeftPoint = topLeftPoint.getY();
+        int yBottomRightPont = bottomRightPoint.getY();
         int lengthSideY;
         if (yTopLeftPoint < 0 && yBottomRightPont < 0) {
             lengthSideY = Math.abs(yBottomRightPont - yTopLeftPoint);
