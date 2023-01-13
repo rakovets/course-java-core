@@ -5,6 +5,11 @@ public class Atm {
     private int numberBanknotes50;
     private int numberBanknotes100;
 
+    private final int DENOMINATION_OF_BANKNOTES_20 = 20;
+    private final int DENOMINATION_OF_BANKNOTES_50 = 50;
+    private final int DENOMINATION_OF_BANKNOTES_100 = 100;
+
+
     public Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
         this.numberBanknotes20 = numberBanknotes20;
         this.numberBanknotes50 = numberBanknotes50;
@@ -33,5 +38,27 @@ public class Atm {
 
     public void addBanknotes100(int number) {
         this.numberBanknotes100 = number;
+    }
+
+    public boolean isPossibleIssue(int amount) {
+        if (amount > getTotalMoneyInATM()) {
+            return false;
+        }
+        if (amount >= DENOMINATION_OF_BANKNOTES_100) {
+            amount -= amount % 100;
+        }
+        if (amount >= DENOMINATION_OF_BANKNOTES_50) {
+            amount -= amount % 50;
+        }
+        if (amount >= DENOMINATION_OF_BANKNOTES_20) {
+            amount -= amount % 20;
+        }
+        return amount == 0;
+    }
+
+    private int getTotalMoneyInATM() {
+        return numberBanknotes20 * DENOMINATION_OF_BANKNOTES_20 +
+                numberBanknotes50 * DENOMINATION_OF_BANKNOTES_50 +
+                numberBanknotes100 * DENOMINATION_OF_BANKNOTES_100;
     }
 }
