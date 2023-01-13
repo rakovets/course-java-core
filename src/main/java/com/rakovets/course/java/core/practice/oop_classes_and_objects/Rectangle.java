@@ -10,7 +10,7 @@ public class Rectangle {
     }
 
     public Point getTopLeftPoint() {
-        return this.topLeftPoint;
+        return topLeftPoint;
     }
 
     public void setTopLeftPoint(Point topLeftPoint) {
@@ -18,7 +18,7 @@ public class Rectangle {
     }
 
     public Point getBottomRightPoint() {
-        return this.bottomRightPoint;
+        return bottomRightPoint;
     }
 
     public void setBottomRightPoint(Point bottomRightPoint) {
@@ -26,15 +26,11 @@ public class Rectangle {
     }
 
     public int getPerimeter() {
-        int lengthSideX = getLengthSideX();
-        int LengthSideY = getLengthSideY();
-        return (int) (squareNumber(lengthSideX) + squareNumber(LengthSideY));
+        return (int) (squareNumber(getLengthSideX()) + squareNumber(getLengthSideY()));
     }
 
     public int getArea() {
-        int lengthSideX = getLengthSideX();
-        int LengthSideY = getLengthSideY();
-        return (lengthSideX * LengthSideY);
+        return (getLengthSideX() * getLengthSideY());
     }
 
     private int getLengthSideX() {
