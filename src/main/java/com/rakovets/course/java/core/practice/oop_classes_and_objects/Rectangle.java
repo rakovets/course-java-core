@@ -26,7 +26,7 @@ public class Rectangle {
     }
 
     public int getPerimeter() {
-        return (int) (squareNumber(getLengthSideX()) + squareNumber(getLengthSideY()));
+        return getLengthSideX() + getLengthSideX() + getLengthSideY() + getLengthSideY();
     }
 
     public int getArea() {
@@ -60,10 +60,4 @@ public class Rectangle {
         }
         return lengthSideY;
     }
-
-    private double squareNumber(int number) {
-        return Math.pow(number, 2);
-    }
-
-
 }
