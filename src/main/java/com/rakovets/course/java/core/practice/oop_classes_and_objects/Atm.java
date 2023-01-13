@@ -20,4 +20,8 @@ public class Atm {
     public void addBanknotes100(int number) {
         this.numberBanknotes100 = numberBanknotes100 + number;
     }
+    // далее задание со *
+    public boolean isPossibleIssue(int amount) {
+        return (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100) > amount;
+    }
 }
