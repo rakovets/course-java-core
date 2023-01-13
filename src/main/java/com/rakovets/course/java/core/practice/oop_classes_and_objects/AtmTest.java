@@ -18,21 +18,9 @@ public class AtmTest {
                         "ATM number of 50BYN nominal banknotes = %s%n" +
                         "ATM number of 100BYN nominal banknotes = %s%n",
                 atmAlfaBank.numberBanknotes20, atmAlfaBank.numberBanknotes50, atmAlfaBank.numberBanknotes100);
-
         //Далее задание со *
-        if (atmAlfaBank.isPossibleIssue(300)) {
-            System.out.println();
-            System.out.println("Money is enough in ATM");
-        } else {
-            System.out.println();
-            System.out.println("Money isn't enough in ATM");
-        }
-        if (atmAlfaBank.isPossibleIssue(1000)) {
-            System.out.println();
-            System.out.println("Money is enough in ATM");
-        } else {
-            System.out.println();
-            System.out.println("Money isn't enough in ATM");
-        }
+        System.out.println();
+        System.out.printf("Money is enough: %s%n", atmAlfaBank.isPossibleIssue(300));
+        System.out.printf("Money is enough: %s%n", atmAlfaBank.isPossibleIssue(1000));
     }
 }
