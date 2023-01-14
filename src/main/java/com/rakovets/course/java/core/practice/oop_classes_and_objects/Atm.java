@@ -22,7 +22,6 @@ public class Atm {
     }
     // далее задание со *
     public boolean isPossibleIssue(int amount) {
-        return (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100)
-                > amount;
+        return (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100) > amount;
     }
 }

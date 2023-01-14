@@ -27,8 +27,7 @@ public class Point {
         this.y = y;
     }
     public double getDistance(Point targetPoint) {
-        double distance = Math.sqrt(Math.pow((targetPoint.y - this.y), 2)
-                + Math.pow((targetPoint.x - this.x), 2));
+        double distance = Math.sqrt(Math.pow((targetPoint.y - this.y), 2) + Math.pow((targetPoint.x - this.x), 2));
         return NumberUtil.roundValueToTwoDigitsForMantissa(distance);
     }
 }
