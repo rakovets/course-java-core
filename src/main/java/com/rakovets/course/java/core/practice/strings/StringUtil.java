@@ -46,18 +46,22 @@ public class StringUtil {
     }
 
     public String symbolsExtraction(char n, char m, String str1) {
-        return str1.substring(n - 1, m - 1); // возможно ошибка, пользователь задает символ по счёту или по имени?
+        int beginOfExtraction = str1.indexOf(n);
+        int endOfExtraction = str1.indexOf(m) + 1;
+
+        return str1.substring(beginOfExtraction, endOfExtraction);
     }
 
     public String emojiReplacement(String str1) {
-        return str1.replaceAll("\\(", ":)");
+        return str1.replaceAll(":\\(", ":)");
     }
 
     public boolean startsAndEndsWithWord(String text, String word) {
         boolean isTrue = false;
         String str1 = text.toLowerCase();
+        String str2 = word.toLowerCase();
 
-        if (str1.startsWith(word) && str1.endsWith(word)) {
+        if (str1.startsWith(str2) && str1.endsWith(str2)) {
             isTrue = true;
         }
 

@@ -165,4 +165,96 @@ public class StringUtilTest {
 
         Assertions.assertNull(actual);
     }
+
+    @Test
+    void symbolsExtractionTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.symbolsExtraction('c', 'e', "abcdefg");
+
+        Assertions.assertEquals(actual, "cde");
+    }
+
+    @Test
+    void symbolsExtractionTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.symbolsExtraction('u', 'P', "Open up! Police!");
+
+        Assertions.assertEquals(actual, "up! P");
+    }
+
+    @Test
+    void emojiReplacementTest1(){
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.emojiReplacement(":(:(");
+
+        Assertions.assertEquals(actual, ":):)");
+    }
+
+    @Test
+    void emojiReplacementTest2(){
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.emojiReplacement(":( :(");
+
+        Assertions.assertEquals(actual, ":) :)");
+    }
+
+    @Test
+    void emojiReplacementTest3(){
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.emojiReplacement(":(((((:(");
+
+        Assertions.assertEquals(actual, ":)((((:)");
+    }
+
+    @Test
+    void startsAndEndsWithWordTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.startsAndEndsWithWord("alfa beta alfa", "alfa");
+
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void startsAndEndsWithWordTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.startsAndEndsWithWord("alfa beta omega", "alfa");
+
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void startsAndEndsWithWordTest3() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.startsAndEndsWithWord("alfA beTa AlFa", "alfa");
+
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void startsAndEndsWithWordTest4() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.startsAndEndsWithWord("omega beta alfa", "alfa");
+
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void startsAndEndsWithWordTest5() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.startsAndEndsWithWord("alfa beta alfa", "ALFA");
+
+        Assertions.assertTrue(actual);
+    }
+
+
 }
