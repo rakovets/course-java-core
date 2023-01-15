@@ -12,8 +12,14 @@ public class StringUtil {
         if (str == null || str.isEmpty()) {
             return -1;
         }
-        int index = str.indexOf('x');
-        return index;
+        return str.indexOf('x');
+    }
+
+    boolean equivalentTo(String str1, String str2) {
+        if (str1 == null || str2 ==null) {
+            return false;
+        }
+        return str1.equalsIgnoreCase(str2);
     }
 
 
