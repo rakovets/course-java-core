@@ -2,31 +2,31 @@ package com.rakovets.course.java.core.practice.strings;
 
 public class StringUtil {
 
-    public static String stringsConcatenation(String str1, String str2) {
+    public static String concatenation(String str1, String str2) {
         return str1.concat(str2);
     }
 
-    public static int stringCharAt(int x, String str1) {
+    public static int charAt(int x, String str1) {
         return str1.indexOf(x);
     }
 
-    public static boolean stringsEquals(String str1, String str2) {
+    public static boolean equals(String str1, String str2) {
         return str1.equals(str2);
     }
 
-    public static String stringTrim(String str1) {
+    public static String trim(String str1) {
         return str1.trim();
     }
 
-    public static String stringSymbolsExtraction(char n, char m, String str1) {
+    public static String symbolsExtraction(char n, char m, String str1) {
         return str1.substring(n - 1, m - 1); // возможно ошибка, пользователь задает символ по счёту или по имени?
     }
 
-    public static String stringEmojiReplacement(String str1) {
+    public static String emojiReplacement(String str1) {
         return str1.replaceAll("\\(", ":)");
     }
 
-    public static boolean stringStartsAndEndsWithWord(String text, String word) {
+    public static boolean startsAndEndsWithWord(String text, String word) {
         boolean isTrue = false;
         if (text.startsWith(word) && text.endsWith(word)) {
             isTrue = true;
@@ -34,7 +34,7 @@ public class StringUtil {
         return isTrue;
     }
 
-    public static int stringVowelsCount(String str1) {
+    public static int vowelsCount(String str1) {
         int vowelsCounter = 0;
         String str1LowerCase = str1.toLowerCase();
 
@@ -50,7 +50,7 @@ public class StringUtil {
         return vowelsCounter;
     }
 
-    public static int stringPunctuationMarksCount(String str1) {
+    public static int punctuationMarksCount(String str1) {
         int punctuationMarksCounter = 0;
         String str1LowerCase = str1.toLowerCase();
 
@@ -65,14 +65,14 @@ public class StringUtil {
         return punctuationMarksCounter;
     }
 
-    public static boolean stringPalindrome(String str1) {
+    public static boolean IsPalindrome(String str1) {
         String str1Modified = str1.toLowerCase().replaceAll("\\W", "");
         String str1ModifiedReversed = new StringBuilder(str1Modified).reverse().toString();
 
         return str1Modified.equals(str1ModifiedReversed);
     }
 
-    public static String[] stringsNGetArray(int n, String str1) {
+    public static String[] nGetArray(int n, String str1) {
         int stringsAmount = str1.length() / n;
         String[] arrayOfStrings = new String[stringsAmount];
         int substringBeginIndex = 0;
