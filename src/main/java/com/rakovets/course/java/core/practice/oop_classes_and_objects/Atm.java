@@ -9,7 +9,6 @@ public class Atm {
     private final int DENOMINATION_OF_BANKNOTES_50 = 50;
     private final int DENOMINATION_OF_BANKNOTES_100 = 100;
 
-
     public Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
         this.numberBanknotes20 = numberBanknotes20;
         this.numberBanknotes50 = numberBanknotes50;
@@ -41,41 +40,19 @@ public class Atm {
     }
 
     public boolean isPossibleIssue(int amount) {
-        int sum;
+        boolean result;
         if (amount > getTotalMoneyInAtm()) {
-            return false;
+            result = false;
+        } else {
+            withdrawMoneyFromAtm(amount, DENOMINATION_OF_BANKNOTES_100, numberBanknotes100);
+            withdrawMoneyFromAtm(amount, DENOMINATION_OF_BANKNOTES_50, numberBanknotes50);
+            withdrawMoneyFromAtm(amount, DENOMINATION_OF_BANKNOTES_20, numberBanknotes20);
+            result = amount == 0;
         }
-        if (amount > DENOMINATION_OF_BANKNOTES_100) {
-            for (int i = numberBanknotes100; i >= 0; i--) {
-                sum = amount - DENOMINATION_OF_BANKNOTES_100;
-                if (sum < 0) {
-                    break;
-                }
-                amount = sum;
-            }
-        }
-        if (amount > DENOMINATION_OF_BANKNOTES_50) {
-            for (int i = numberBanknotes50; i >= 0; i--) {
-                sum = amount - DENOMINATION_OF_BANKNOTES_50;
-                if (sum < 0) {
-                    break;
-                }
-                amount = sum;
-            }
-        }
-        if (amount > DENOMINATION_OF_BANKNOTES_20) {
-            for (int i = numberBanknotes20; i >= 0; i--) {
-                sum = amount - DENOMINATION_OF_BANKNOTES_20;
-                if (sum < 0) {
-                    break;
-                }
-                amount = sum;
-            }
-        }
-        return amount == 0;
+        return result;
     }
 
-  /*  private void withdrawMoneyFromAtm(int amount, int denominationOfBanknotes, int numberBanknotes) {
+    private void withdrawMoneyFromAtm(int amount, int denominationOfBanknotes, int numberBanknotes) {
         int sum;
         if (amount > denominationOfBanknotes) {
             for (int i = numberBanknotes; i >= 0; i--) {
@@ -87,8 +64,6 @@ public class Atm {
             }
         }
     }
-
-   */
 
     public int getTotalMoneyInAtm() {
         return numberBanknotes20 * DENOMINATION_OF_BANKNOTES_20 +
