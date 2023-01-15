@@ -256,5 +256,53 @@ public class StringUtilTest {
         Assertions.assertTrue(actual);
     }
 
+    @Test
+    void vowelsCountTest1() {
+        StringUtil stringUtil = new StringUtil();
 
+        int actual = stringUtil.vowelsCount("policeman");
+
+        Assertions.assertEquals(actual,4);
+    }
+
+    @Test
+    void vowelsCountTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.vowelsCount("Zzzz");
+
+        Assertions.assertEquals(actual,0);
+    }
+
+    @Test
+    void vowelsCountTest3() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.vowelsCount("POLICEMAN");
+
+        Assertions.assertEquals(actual,4);
+    }
+
+    @Test
+    void punctuationMarksCountTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.punctuationMarksCount("FBI! Open up!");
+
+        Assertions.assertEquals(actual, 2);
+    }
+
+    @Test
+    void punctuationMarksCountTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.punctuationMarksCount("FBI! Open up! Is this true? Yes, open the door.");
+
+        Assertions.assertEquals(actual, 5);
+    }
+
+    @Test
+    void IsPalindromeTest1() {
+
+    }
 }
