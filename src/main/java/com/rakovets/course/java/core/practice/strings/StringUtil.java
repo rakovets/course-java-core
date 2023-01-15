@@ -3,10 +3,13 @@ package com.rakovets.course.java.core.practice.strings;
 public class StringUtil {
 
     public String glue(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            return "";
+        }
         return str1.concat(str2);
     }
 
-    public int charAt(int x, String str1) {
+    public int characterAtIndex(int x, String str1) {
         return str1.indexOf(x);
     }
 
@@ -14,7 +17,7 @@ public class StringUtil {
         return str1.equals(str2);
     }
 
-    public String trim(String str1) {
+    public String trimming(String str1) {
         return str1.trim();
     }
 
@@ -88,8 +91,4 @@ public class StringUtil {
 
         return arrayOfStrings;
     }
-
-   // public static int howManyWordsInText(String str1) {
-
-    //}
 }
