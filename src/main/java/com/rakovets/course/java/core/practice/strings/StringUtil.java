@@ -35,9 +35,5 @@ public class StringUtil {
             return "";
         }
         return str.substring(n - 1,m);
-
     }
-
-
-
 }
