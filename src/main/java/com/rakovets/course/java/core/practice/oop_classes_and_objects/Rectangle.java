@@ -30,7 +30,7 @@ public class Rectangle {
     }
 
     public int getArea() {
-        return (getLengthSideX() * getLengthSideY());
+        return getLengthSideX() * getLengthSideY();
     }
 
     private int getLengthSideX() {
