@@ -50,4 +50,21 @@ public class StringUtil {
         }
         return str.startsWith(start);
     }
+
+    int countVowels(String str) {
+        if (str == null || str.isEmpty()) {
+            return 0;
+        }
+        char[] vowels = new char[]{'a', 'e', 'i', 'o', 'u', 'y'};
+        char[] arrayFromString = str.toLowerCase().toCharArray();
+        int counter = 0;
+        for (int i : vowels) {
+            for (int j : arrayFromString) {
+                if (i == j) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
 }
