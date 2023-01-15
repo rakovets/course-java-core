@@ -5,29 +5,52 @@ import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
     @Test
-    void glueTest() {
-    StringUtil stringUtil = new StringUtil();
+    void glueTest1() {
+        StringUtil stringUtil = new StringUtil();
 
-    String actual1 = stringUtil.glue("abc", "def");
-    String actual2 = stringUtil.glue("123", "456");
-    String actual3 = stringUtil.glue("   a", "   b");
-    String actual4 = stringUtil.glue("", "");
-    String actual5 = stringUtil.glue(null, null);
+        String actual = stringUtil.glue("abc", "def");
 
-    Assertions.assertEquals("abcdef", actual1);
-    Assertions.assertEquals("123456", actual2);
-    Assertions.assertEquals("   a   b", actual3);
-    Assertions.assertEquals("", actual4);
-    Assertions.assertEquals("", actual5);
+        Assertions.assertEquals("abcdef", actual);
     }
 
     @Test
-    void characterAtIndexTest() {
+    void glueTest2() {
         StringUtil stringUtil = new StringUtil();
-        int a = 1;
-        int b = 2;
-        int c = 3;
 
+        String actual = stringUtil.glue("123", "456");
 
+        Assertions.assertEquals("123456", actual);
+    }
+
+    @Test
+    void glueTest3() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.glue("   a", "   b");
+
+        Assertions.assertEquals("   a   b", actual);
+    }
+
+    @Test
+    void glueTest4() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.glue("", "");
+
+        Assertions.assertEquals("", actual);
+    }
+
+    @Test
+    void glueTest5() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.glue(null, null);
+
+        Assertions.assertEquals("", actual);
+    }
+
+    @Test
+    void characterAtIndexTest1() {
+        StringUtil stringUtil = new StringUtil();
     }
 }
