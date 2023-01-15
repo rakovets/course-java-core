@@ -77,8 +77,8 @@ public class StringUtil {
         String[] arrayOfStrings = new String[stringsAmount];
         int substringBeginIndex = 0;
 
-        for (int i = 1; i < stringsAmount; i++) {
-            String stringTooMassive = str1.substring(substringBeginIndex , n * i);
+        for (int i = 0; i < stringsAmount; i++) {
+            String stringTooMassive = str1.substring(substringBeginIndex , n * (i + 1));
             arrayOfStrings[i] = stringTooMassive;
             substringBeginIndex += n;
         }
