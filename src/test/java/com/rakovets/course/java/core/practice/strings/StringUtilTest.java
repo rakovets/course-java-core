@@ -150,4 +150,50 @@ public class StringUtilTest {
         String result = stringUtil.trimAndToUpper(str1);
         Assertions.assertEquals("", result);
     }
+    @Test
+    void extractSubstringFromNtoMTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans to reform the system should it win power";
+        String wait = "bour";
+
+        String result = stringUtil.extractSubstringFromNtoM(str,3, 6);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void extractSubstringFromNtoMTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans to reform the system should it win power";
+        String wait = "lined ";
+
+        String result = stringUtil.extractSubstringFromNtoM(str,15, 20);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void extractSubstringFromNtoMTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans to reform the system should it win power";
+        String wait = "has o";
+
+        String result = stringUtil.extractSubstringFromNtoM(str,8, 12);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void extractSubstringFromNtoMTest4() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "";
+        String wait = "";
+
+        String result = stringUtil.extractSubstringFromNtoM(str,8, 12);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void extractSubstringFromNtoMTest5() {
+        StringUtil stringUtil = new StringUtil();
+        String str = null;
+        String wait = "";
+
+        String result = stringUtil.extractSubstringFromNtoM(str,8, 12);
+        Assertions.assertEquals(wait, result);
+    }
+
 }

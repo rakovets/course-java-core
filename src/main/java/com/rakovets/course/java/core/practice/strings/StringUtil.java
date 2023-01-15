@@ -30,6 +30,13 @@ public class StringUtil {
         return str.toUpperCase();
     }
 
+    String extractSubstringFromNtoM(String str, int n, int m) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        return str.substring(n - 1,m);
+    }
+
 
 
 }
