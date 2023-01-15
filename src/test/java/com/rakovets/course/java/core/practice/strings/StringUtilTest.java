@@ -11,6 +11,7 @@ public class StringUtilTest {
         String result = stringUtil.glue("basil", "Aka");
         Assertions.assertEquals("basilAka", result);
     }
+
     @Test
     void glueTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -18,6 +19,7 @@ public class StringUtilTest {
         String result = stringUtil.glue("", "");
         Assertions.assertEquals("", result);
     }
+
     @Test
     void glueTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -25,6 +27,7 @@ public class StringUtilTest {
         String result = stringUtil.glue("basil", null);
         Assertions.assertEquals("", result);
     }
+
     @Test
     void glueTest4() {
         StringUtil stringUtil = new StringUtil();
@@ -32,6 +35,7 @@ public class StringUtilTest {
         String result = stringUtil.glue(null, "Aka");
         Assertions.assertEquals("", result);
     }
+
     @Test
     void glueTest5() {
         StringUtil stringUtil = new StringUtil();
@@ -39,6 +43,7 @@ public class StringUtilTest {
         String result = stringUtil.glue(null, null);
         Assertions.assertEquals("", result);
     }
+
     @Test
     void finedIndexXTest1() {
         StringUtil stringUtil = new StringUtil();
@@ -47,6 +52,7 @@ public class StringUtilTest {
         int result = stringUtil.finedIndexX(test);
         Assertions.assertEquals(-1, result);
     }
+
     @Test
     void finedIndexXTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -55,6 +61,7 @@ public class StringUtilTest {
         int result = stringUtil.finedIndexX(test);
         Assertions.assertEquals(2, result);
     }
+
     @Test
     void finedIndexXTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -63,6 +70,7 @@ public class StringUtilTest {
         int result = stringUtil.finedIndexX(test);
         Assertions.assertEquals(-1, result);
     }
+
     @Test
     void finedIndexXTest4() {
         StringUtil stringUtil = new StringUtil();
@@ -71,6 +79,7 @@ public class StringUtilTest {
         int result = stringUtil.finedIndexX(test);
         Assertions.assertEquals(-1, result);
     }
+
     @Test
     void finedIndexXTest5() {
         StringUtil stringUtil = new StringUtil();
@@ -80,6 +89,7 @@ public class StringUtilTest {
         int result = stringUtil.finedIndexX(test);
         Assertions.assertEquals(11, result);
     }
+
     @Test
     void equivalentToTest1() {
         StringUtil stringUtil = new StringUtil();
@@ -89,6 +99,7 @@ public class StringUtilTest {
         boolean result = stringUtil.equivalentTo(str1, str2);
         Assertions.assertTrue(result);
     }
+
     @Test
     void equivalentToTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -98,6 +109,7 @@ public class StringUtilTest {
         boolean result = stringUtil.equivalentTo(str1, str2);
         Assertions.assertFalse(result);
     }
+
     @Test
     void equivalentToTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -107,6 +119,7 @@ public class StringUtilTest {
         boolean result = stringUtil.equivalentTo(str1, str2);
         Assertions.assertFalse(result);
     }
+
     @Test
     void equivalentToTest4() {
         StringUtil stringUtil = new StringUtil();
@@ -116,6 +129,7 @@ public class StringUtilTest {
         boolean result = stringUtil.equivalentTo(str1, str2);
         Assertions.assertFalse(result);
     }
+
     @Test
     void equivalentToTest5() {
         StringUtil stringUtil = new StringUtil();
@@ -125,6 +139,7 @@ public class StringUtilTest {
         boolean result = stringUtil.equivalentTo(str1, str2);
         Assertions.assertTrue(result);
     }
+
     @Test
     void trimAndToUpperTest1() {
         StringUtil stringUtil = new StringUtil();
@@ -134,6 +149,7 @@ public class StringUtilTest {
         String result = stringUtil.trimAndToUpper(str1);
         Assertions.assertEquals(wait, result);
     }
+
     @Test
     void trimAndToUpperTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -142,6 +158,7 @@ public class StringUtilTest {
         String result = stringUtil.trimAndToUpper(str1);
         Assertions.assertEquals("", result);
     }
+
     @Test
     void trimAndToUpperTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -150,79 +167,87 @@ public class StringUtilTest {
         String result = stringUtil.trimAndToUpper(str1);
         Assertions.assertEquals("", result);
     }
+
     @Test
     void extractSubstringFromNtoMTest1() {
         StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
-        String wait = "bour";
+        String expectedResult = "bour";
 
-        String result = stringUtil.extractSubstringFromNtoM(str,3, 6);
-        Assertions.assertEquals(wait, result);
+        String result = stringUtil.extractSubstringFromNtoM(str, 3, 6);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void extractSubstringFromNtoMTest2() {
         StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
-        String wait = "lined ";
+        String expectedResult = "lined ";
 
-        String result = stringUtil.extractSubstringFromNtoM(str,15, 20);
-        Assertions.assertEquals(wait, result);
+        String result = stringUtil.extractSubstringFromNtoM(str, 15, 20);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void extractSubstringFromNtoMTest3() {
         StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
-        String wait = "has o";
+        String expectedResult = "has o";
 
-        String result = stringUtil.extractSubstringFromNtoM(str,8, 12);
-        Assertions.assertEquals(wait, result);
+        String result = stringUtil.extractSubstringFromNtoM(str, 8, 12);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void extractSubstringFromNtoMTest4() {
         StringUtil stringUtil = new StringUtil();
         String str = "";
-        String wait = "";
+        String expectedResult = "";
 
-        String result = stringUtil.extractSubstringFromNtoM(str,8, 12);
-        Assertions.assertEquals(wait, result);
+        String result = stringUtil.extractSubstringFromNtoM(str, 8, 12);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void extractSubstringFromNtoMTest5() {
         StringUtil stringUtil = new StringUtil();
         String str = null;
-        String wait = "";
+        String expectedResult = "";
 
-        String result = stringUtil.extractSubstringFromNtoM(str,8, 12);
-        Assertions.assertEquals(wait, result);
+        String result = stringUtil.extractSubstringFromNtoM(str, 8, 12);
+        Assertions.assertEquals(expectedResult, result);
     }
 
     @Test
     void dontSadSmileTest1() {
         StringUtil stringUtil = new StringUtil();
         String str = "granny died :(:(:(";
-        String wait = "granny died :):):)";
+        String expectedResult = "granny died :):):)";
 
         String result = stringUtil.dontSadSmile(str);
-        Assertions.assertEquals(wait, result);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void dontSadSmileTest2() {
         StringUtil stringUtil = new StringUtil();
         String str = ":(:(:( I have lost your cat :(:(:(";
-        String wait = ":):):) I have lost your cat :):):)";
+        String expectedResult = ":):):) I have lost your cat :):):)";
 
         String result = stringUtil.dontSadSmile(str);
-        Assertions.assertEquals(wait, result);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void dontSadSmileTest3() {
         StringUtil stringUtil = new StringUtil();
         String str = "No, :( the scream's :( killed Sidney :(:(:(";
-        String wait = "No, :) the scream's :) killed Sidney :):):)";
+        String expectedResult = "No, :) the scream's :) killed Sidney :):):)";
 
         String result = stringUtil.dontSadSmile(str);
-        Assertions.assertEquals(wait, result);
+        Assertions.assertEquals(expectedResult, result);
     }
+
     @Test
     void finedFistWordInStringTest1() {
         StringUtil stringUtil = new StringUtil();
@@ -232,6 +257,7 @@ public class StringUtilTest {
         boolean result = stringUtil.finedFistWordInString(str, start);
         Assertions.assertTrue(result);
     }
+
     @Test
     void finedFistWordInStringTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -241,6 +267,7 @@ public class StringUtilTest {
         boolean result = stringUtil.finedFistWordInString(str, start);
         Assertions.assertTrue(result);
     }
+
     @Test
     void finedFistWordInStringTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -250,6 +277,7 @@ public class StringUtilTest {
         boolean result = stringUtil.finedFistWordInString(str, start);
         Assertions.assertFalse(result);
     }
+
     @Test
     void finedFistWordInStringTest4() {
         StringUtil stringUtil = new StringUtil();
@@ -259,6 +287,7 @@ public class StringUtilTest {
         boolean result = stringUtil.finedFistWordInString(str, start);
         Assertions.assertFalse(result);
     }
+
     @Test
     void finedFistWordInStringTest5() {
         StringUtil stringUtil = new StringUtil();
@@ -269,6 +298,35 @@ public class StringUtilTest {
         Assertions.assertFalse(result);
     }
 
+    @Test
+    void countVowelsTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans";
+        int result = stringUtil.countVowels(str);
+        Assertions.assertEquals(9, result);
+    }
 
+    @Test
+    void countVowelsTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "";
+        int result = stringUtil.countVowels(str);
+        Assertions.assertEquals(0, result);
+    }
 
+    @Test
+    void countVowelsTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = null;
+        int result = stringUtil.countVowels(str);
+        Assertions.assertEquals(0, result);
+    }
+
+    @Test
+    void countVowelsTest4() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "However, Mexico's legislation is considered";
+        int result = stringUtil.countVowels(str);
+        Assertions.assertEquals(16, result);
+    }
 }
