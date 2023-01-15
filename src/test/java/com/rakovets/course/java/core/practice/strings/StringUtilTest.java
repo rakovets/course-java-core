@@ -46,7 +46,7 @@ public class StringUtilTest {
 
         String actual = stringUtil.glueText(null, null);
 
-        Assertions.assertEquals(null, actual);
+        Assertions.assertNull(actual);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class StringUtilTest {
 
         boolean actual = stringUtil.equalsStrings("police", "police");
 
-        Assertions.assertEquals(actual, true);
+        Assertions.assertTrue(actual);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class StringUtilTest {
 
         boolean actual = stringUtil.equalsStrings("policeman", "police");
 
-        Assertions.assertEquals(actual, false);
+        Assertions.assertFalse(actual);
     }
 
     @Test
@@ -109,7 +109,7 @@ public class StringUtilTest {
 
         boolean actual = stringUtil.equalsStrings("", "");
 
-        Assertions.assertEquals(actual, true);
+        Assertions.assertTrue(actual);
     }
 
     @Test
@@ -118,7 +118,7 @@ public class StringUtilTest {
 
         boolean actual = stringUtil.equalsStrings(null, "police");
 
-        Assertions.assertEquals(actual, false);
+        Assertions.assertFalse(actual);
     }
 
     @Test
@@ -127,7 +127,7 @@ public class StringUtilTest {
 
         boolean actual = stringUtil.equalsStrings(null, null);
 
-        Assertions.assertEquals(actual, true);
+        Assertions.assertTrue(actual);
     }
 
     @Test
@@ -163,6 +163,6 @@ public class StringUtilTest {
 
         String actual = stringUtil.trimSpaces(null);
 
-        Assertions.assertEquals(actual, null);
+        Assertions.assertNull(actual);
     }
 }
