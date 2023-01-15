@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.strings;
 
-import java.lang.reflect.Array;
-
 public class StringUtil {
     public String stringsConcatenation(String str1, String str2) {
         return str1.concat(str2);
@@ -24,7 +22,7 @@ public class StringUtil {
     }
 
     public String stringEmojiReplacement(String str1) {
-        return str1.replaceAll(":(", ":)");
+        return str1.replaceAll("\\(", ":)");
     }
 
     public boolean stringStartWithWord(String text, String word) {
