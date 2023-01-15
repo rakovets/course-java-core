@@ -329,4 +329,26 @@ public class StringUtilTest {
         int result = stringUtil.countVowels(str);
         Assertions.assertEquals(16, result);
     }
+    @Test
+    void countPunctuationMarksTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "However, Mexico's legislation is considered!";
+        int result = stringUtil.countPunctuationMarks(str);
+        Assertions.assertEquals(2, result);
+    }
+    @Test
+    void countPunctuationMarksTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "Mont Blanc, western Europe's highest mountain at 4,810 " +
+                "metres (nearly 16,000 feet), attracts 20,000 hikers and skiers every year.";
+        int result = stringUtil.countPunctuationMarks(str);
+        Assertions.assertEquals(6, result);
+    }
+    @Test
+    void countPunctuationMarksTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = ",,,,,22222!!!!!11111,,,,,8888.....";
+        int result = stringUtil.countPunctuationMarks(str);
+        Assertions.assertEquals(20, result);
+    }
 }
