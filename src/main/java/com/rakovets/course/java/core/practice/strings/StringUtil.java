@@ -16,10 +16,18 @@ public class StringUtil {
     }
 
     boolean equivalentTo(String str1, String str2) {
-        if (str1 == null || str2 ==null) {
+        if (str1 == null || str2 == null) {
             return false;
         }
         return str1.equalsIgnoreCase(str2);
+    }
+
+    String trimAndToUpper(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        str = str.trim();
+        return str.toUpperCase();
     }
 
 
