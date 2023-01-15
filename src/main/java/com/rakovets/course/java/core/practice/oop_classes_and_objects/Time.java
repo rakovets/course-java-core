@@ -53,6 +53,6 @@ public class Time {
     }
 
     private int convertTimeToSeconds() {
-        return (SECONDS_IN_HOUR * hours + SECONDS_IN_MINUTE * minutes + seconds);
+        return SECONDS_IN_HOUR * hours + SECONDS_IN_MINUTE * minutes + seconds;
     }
 }
