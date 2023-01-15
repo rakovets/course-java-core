@@ -303,6 +303,53 @@ public class StringUtilTest {
 
     @Test
     void IsPalindromeTest1() {
+        StringUtil stringUtil = new StringUtil();
 
+        boolean actual = stringUtil.IsPalindrome("radar");
+
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void IsPalindromeTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.IsPalindrome("Anna");
+
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void IsPalindromeTest3() {
+        StringUtil stringUtil = new StringUtil();
+
+        boolean actual = stringUtil.IsPalindrome("orange");
+
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void nGetArrayTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        String[] actual = stringUtil.nGetArray(5, "I am proud");
+        String[] expected = new String[2];
+        expected[0] = "I am ";
+        expected[1] = "proud";
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void nGetArrayTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String[] actual = stringUtil.nGetArray(1, "abc");
+        String[] expected = new String[3];
+        expected[0] = "a";
+        expected[1] = "b";
+        expected[2] = "c";
+
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
