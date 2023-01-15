@@ -125,4 +125,29 @@ public class StringUtilTest {
         boolean result = stringUtil.equivalentTo(str1, str2);
         Assertions.assertTrue(result);
     }
+    @Test
+    void trimAndToUpperTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = "   labour has outlined plans to reform the system should it win power   ";
+        String wait = "LABOUR HAS OUTLINED PLANS TO REFORM THE SYSTEM SHOULD IT WIN POWER";
+
+        String result = stringUtil.trimAndToUpper(str1);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void trimAndToUpperTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = "";
+
+        String result = stringUtil.trimAndToUpper(str1);
+        Assertions.assertEquals("", result);
+    }
+    @Test
+    void trimAndToUpperTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = null;
+
+        String result = stringUtil.trimAndToUpper(str1);
+        Assertions.assertEquals("", result);
+    }
 }
