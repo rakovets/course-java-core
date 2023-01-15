@@ -2,23 +2,47 @@ package com.rakovets.course.java.core.practice.strings;
 
 public class StringUtil {
 
-    public String glue(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return "";
+    public String glueText(String str1, String str2) {
+        String result = null;
+
+        if (str1 != null || str2 != null) {
+            result = str1.concat(str2);
         }
-        return str1.concat(str2);
+
+        return result;
     }
 
-    public int characterAtIndex(int x, String str1) {
-        return str1.indexOf(x);
+    public int indexOfChar(char x, String str1) {
+        int result = -1;
+
+        if (str1 != null) {
+            result = str1.indexOf(x);
+        }
+
+        return result;
     }
 
-    public boolean equals(String str1, String str2) {
-        return str1.equals(str2);
+    public boolean equalsStrings(String str1, String str2) {
+        boolean result = false;
+
+        if (str1 != null && str2 != null) {
+            result = str1.equals(str2);
+        }
+        if (str1 == null && str2 == null) {
+            result = true;
+        }
+
+        return result;
     }
 
-    public String trimming(String str1) {
-        return str1.trim();
+    public String trimSpaces(String str1) {
+        String result = null;
+
+        if (str1 != null) {
+            result = str1.trim();
+        }
+
+        return result;
     }
 
     public String symbolsExtraction(char n, char m, String str1) {
