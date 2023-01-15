@@ -196,4 +196,79 @@ public class StringUtilTest {
         Assertions.assertEquals(wait, result);
     }
 
+    @Test
+    void dontSadSmileTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "granny died :(:(:(";
+        String wait = "granny died :):):)";
+
+        String result = stringUtil.dontSadSmile(str);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void dontSadSmileTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = ":(:(:( I have lost your cat :(:(:(";
+        String wait = ":):):) I have lost your cat :):):)";
+
+        String result = stringUtil.dontSadSmile(str);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void dontSadSmileTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "No, :( the scream's :( killed Sidney :(:(:(";
+        String wait = "No, :) the scream's :) killed Sidney :):):)";
+
+        String result = stringUtil.dontSadSmile(str);
+        Assertions.assertEquals(wait, result);
+    }
+    @Test
+    void finedFistWordInStringTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "However, Mexico's legislation is considered";
+        String start = "However";
+
+        boolean result = stringUtil.finedFistWordInString(str, start);
+        Assertions.assertTrue(result);
+    }
+    @Test
+    void finedFistWordInStringTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans to reform the system should it win power";
+        String start = "labour has";
+
+        boolean result = stringUtil.finedFistWordInString(str, start);
+        Assertions.assertTrue(result);
+    }
+    @Test
+    void finedFistWordInStringTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "However, Mexico's legislation is considered";
+        String start = "legislation";
+
+        boolean result = stringUtil.finedFistWordInString(str, start);
+        Assertions.assertFalse(result);
+    }
+    @Test
+    void finedFistWordInStringTest4() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "";
+        String start = "legislation";
+
+        boolean result = stringUtil.finedFistWordInString(str, start);
+        Assertions.assertFalse(result);
+    }
+    @Test
+    void finedFistWordInStringTest5() {
+        StringUtil stringUtil = new StringUtil();
+        String str = null;
+        String start = "legislation";
+
+        boolean result = stringUtil.finedFistWordInString(str, start);
+        Assertions.assertFalse(result);
+    }
+
+
+
 }
