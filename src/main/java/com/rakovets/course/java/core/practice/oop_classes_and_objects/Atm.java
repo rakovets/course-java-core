@@ -41,22 +41,56 @@ public class Atm {
     }
 
     public boolean isPossibleIssue(int amount) {
-        if (amount > getTotalMoneyInATM()) {
+        int sum;
+        if (amount > getTotalMoneyInAtm()) {
             return false;
         }
-        if (amount >= DENOMINATION_OF_BANKNOTES_100) {
-            amount -= amount % 100;
+        if (amount > DENOMINATION_OF_BANKNOTES_100) {
+            for (int i = numberBanknotes100; i >= 0; i--) {
+                sum = amount - DENOMINATION_OF_BANKNOTES_100;
+                if (sum < 0) {
+                    break;
+                }
+                amount = sum;
+            }
         }
-        if (amount >= DENOMINATION_OF_BANKNOTES_50) {
-            amount -= amount % 50;
+        if (amount > DENOMINATION_OF_BANKNOTES_50) {
+            for (int i = numberBanknotes50; i >= 0; i--) {
+                sum = amount - DENOMINATION_OF_BANKNOTES_50;
+                if (sum < 0) {
+                    break;
+                }
+                amount = sum;
+            }
         }
-        if (amount >= DENOMINATION_OF_BANKNOTES_20) {
-            amount -= amount % 20;
+        if (amount > DENOMINATION_OF_BANKNOTES_20) {
+            for (int i = numberBanknotes20; i >= 0; i--) {
+                sum = amount - DENOMINATION_OF_BANKNOTES_20;
+                if (sum < 0) {
+                    break;
+                }
+                amount = sum;
+            }
         }
         return amount == 0;
     }
 
-    private int getTotalMoneyInATM() {
+  /*  private void withdrawMoneyFromAtm(int amount, int denominationOfBanknotes, int numberBanknotes) {
+        int sum;
+        if (amount > denominationOfBanknotes) {
+            for (int i = numberBanknotes; i >= 0; i--) {
+                sum = amount - denominationOfBanknotes;
+                if (sum < 0) {
+                    break;
+                }
+                amount = sum;
+            }
+        }
+    }
+
+   */
+
+    public int getTotalMoneyInAtm() {
         return numberBanknotes20 * DENOMINATION_OF_BANKNOTES_20 +
                 numberBanknotes50 * DENOMINATION_OF_BANKNOTES_50 +
                 numberBanknotes100 * DENOMINATION_OF_BANKNOTES_100;
