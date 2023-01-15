@@ -34,6 +34,20 @@ public class StringUtil {
         if (str == null || str.isEmpty()) {
             return "";
         }
-        return str.substring(n - 1,m);
+        return str.substring(n - 1, m);
+    }
+
+    String dontSadSmile(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        return str.replace(":(", ":)");
+    }
+
+    boolean finedFistWordInString(String str, String start) {
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        return str.startsWith(start);
     }
 }
