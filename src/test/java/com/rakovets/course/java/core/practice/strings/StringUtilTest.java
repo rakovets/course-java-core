@@ -332,7 +332,7 @@ public class StringUtilTest {
     void nGetArrayTest1() {
         StringUtil stringUtil = new StringUtil();
 
-        String[] actual = stringUtil.nGetArray(5, "I am proud");
+        String[] actual = stringUtil.getArray(5, "I am proud");
         String[] expected = new String[2];
         expected[0] = "I am ";
         expected[1] = "proud";
@@ -344,12 +344,39 @@ public class StringUtilTest {
     void nGetArrayTest2() {
         StringUtil stringUtil = new StringUtil();
 
-        String[] actual = stringUtil.nGetArray(1, "abc");
+        String[] actual = stringUtil.getArray(1, "abc");
         String[] expected = new String[3];
         expected[0] = "a";
         expected[1] = "b";
         expected[2] = "c";
 
         Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void howManyWordsTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.howManyWords("Hello Nick! This is Mike!");
+
+        Assertions.assertEquals(5, actual);
+    }
+
+    @Test
+    void howManyWordsTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.howManyWords("Hello    Nick!  This is Mike! ");
+
+        Assertions.assertEquals(5, actual);
+    }
+
+    @Test
+    void howManyWordsTest3() {
+        StringUtil stringUtil = new StringUtil();
+
+        int actual = stringUtil.howManyWords("   ");
+
+        Assertions.assertEquals(0, actual);
     }
 }

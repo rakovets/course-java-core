@@ -106,7 +106,7 @@ public class StringUtil {
         return str1Modified.equals(str1ModifiedReversed);
     }
 
-    public String[] nGetArray(int n, String str1) {
+    public String[] getArray(int n, String str1) {
         int stringsAmount = str1.length() / n;
         String[] arrayOfStrings = new String[stringsAmount];
         int substringBeginIndex = 0;
@@ -118,5 +118,14 @@ public class StringUtil {
         }
 
         return arrayOfStrings;
+    }
+
+    public int howManyWords(String str1) {
+        int result;
+
+        String[] words = str1.split("\\b");
+        result = words.length / 2;
+
+        return result;
     }
 }
