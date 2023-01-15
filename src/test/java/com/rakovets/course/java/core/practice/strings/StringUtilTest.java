@@ -80,4 +80,49 @@ public class StringUtilTest {
         int result = stringUtil.finedIndexX(test);
         Assertions.assertEquals(11, result);
     }
+    @Test
+    void equivalentToTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = "However, Mexico's legislation is considered";
+        String str2 = "However, Mexico's legislation is considered";
+
+        boolean result = stringUtil.equivalentTo(str1, str2);
+        Assertions.assertTrue(result);
+    }
+    @Test
+    void equivalentToTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = "However, Mexico's legislation is considered";
+        String str2 = "However, Mexico's legislation is considered to";
+
+        boolean result = stringUtil.equivalentTo(str1, str2);
+        Assertions.assertFalse(result);
+    }
+    @Test
+    void equivalentToTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = null;
+        String str2 = "However, Mexico's legislation is considered";
+
+        boolean result = stringUtil.equivalentTo(str1, str2);
+        Assertions.assertFalse(result);
+    }
+    @Test
+    void equivalentToTest4() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = "However, Mexico's legislation is considered";
+        String str2 = null;
+
+        boolean result = stringUtil.equivalentTo(str1, str2);
+        Assertions.assertFalse(result);
+    }
+    @Test
+    void equivalentToTest5() {
+        StringUtil stringUtil = new StringUtil();
+        String str1 = "";
+        String str2 = "";
+
+        boolean result = stringUtil.equivalentTo(str1, str2);
+        Assertions.assertTrue(result);
+    }
 }
