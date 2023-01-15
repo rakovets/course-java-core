@@ -39,4 +39,3 @@ public class AtmTest {
         Assertions.assertEquals(37210, atm.getTotalMoneyInAtm());
     }
 }
-
