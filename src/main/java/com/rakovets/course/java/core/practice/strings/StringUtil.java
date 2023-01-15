@@ -67,4 +67,20 @@ public class StringUtil {
         }
         return counter;
     }
+    int countPunctuationMarks(String str) {
+        if (str == null || str.isEmpty()) {
+            return 0;
+        }
+        char[] vowels = new char[]{'.', ',', '?', '!'};
+        char[] arrayFromString = str.toLowerCase().toCharArray();
+        int counter = 0;
+        for (int i : vowels) {
+            for (int j : arrayFromString) {
+                if (i == j) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
 }
