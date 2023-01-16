@@ -33,7 +33,7 @@ class Task13 {
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         int numberApartmentsPerPorch = numberApartmentsPerFloor * numberFloors;
-        int howManyPorchInApartmentNumber = (apartmentNumber / numberApartmentsPerPorch);
+        int howManyPorchInApartmentNumber = apartmentNumber / numberApartmentsPerPorch;
         int result;
         if (numberApartmentsPerPorch == apartmentNumber) {
             result = numberFloors;
