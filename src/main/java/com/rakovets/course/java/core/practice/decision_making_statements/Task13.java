@@ -34,12 +34,8 @@ class Task13 {
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
         int numberApartmentsPerPorch = numberApartmentsPerFloor * numberFloors;
         int howManyPorchInApartmentNumber = apartmentNumber / numberApartmentsPerPorch;
-        int result;
-        if (numberApartmentsPerPorch == apartmentNumber) {
-            result = numberFloors;
-        } else {
-            result = (apartmentNumber - numberApartmentsPerPorch * howManyPorchInApartmentNumber) / numberApartmentsPerFloor + 1;
-        }
-        return result;
+        int numberApartmentsInOtherPorch = numberApartmentsPerPorch * howManyPorchInApartmentNumber;
+        int numberApartmentsInDesiredPorch = apartmentNumber - numberApartmentsInOtherPorch;
+        return (numberApartmentsPerPorch == apartmentNumber) ? numberFloors : (numberApartmentsInDesiredPorch / numberApartmentsPerFloor + 1);
     }
 }
