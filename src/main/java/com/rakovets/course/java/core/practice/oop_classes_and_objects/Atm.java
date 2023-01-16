@@ -34,5 +34,4 @@ public class Atm {
     public int addBanknotes100(int number) {
         return numberBanknotes100 += number;
     }
-
 }
