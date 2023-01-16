@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Time {
-    private int hours = 0;
-    private int minutes = 0;
-    private int seconds = 0;
+    private int hours;
+    private int minutes;
+    private int seconds;
 
     public Time(int totalSeconds) {
         int allSeconds = totalSeconds;
@@ -14,10 +14,14 @@ public class Time {
         this.seconds = allSeconds;
     }
 
-    public Time(int hours, int minutes, int seconds){
+    public Time(int hours, int minutes, int seconds) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
+    }
+
+    public int getTotalSeconds() {
+        return (this.hours * 3600) + (this.minutes * 60) + this.seconds;
     }
 
     public int getHours() {
@@ -42,9 +46,5 @@ public class Time {
 
     public void setSeconds(int seconds) {
         this.seconds = seconds;
-    }
-
-    public int getTotalSeconds() {
-        return (this.hours * 3600) + (this.minutes * 60) + this.seconds;
     }
 }

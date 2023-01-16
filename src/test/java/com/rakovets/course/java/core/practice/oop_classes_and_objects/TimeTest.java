@@ -35,5 +35,4 @@ public class TimeTest {
         time.setSeconds(12);
         Assertions.assertEquals(12, time.getSeconds());
     }
-
 }

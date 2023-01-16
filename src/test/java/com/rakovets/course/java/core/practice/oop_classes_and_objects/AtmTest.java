@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AtmTest {
-
     @Test
     void testAddBanknotes20() {
         Atm atm = new Atm(10,0,0);

@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Point {
-    private int x = 0;
-    private int y = 0;
+    private int x;
+    private int y;
 
     public Point (int x, int y) {
         this.x = x;
