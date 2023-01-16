@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-public class TimeTest {
+public class TimeDemo {
     public static void main(String[] args) {
         Time testTime1 = new Time(3635);
         Time testTime2 = new Time(1, 10, 10);
