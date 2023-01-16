@@ -11,21 +11,27 @@ public class Atm {
         this.numberBanknotes100 = numberBanknotes100;
     }
 
+    public int getNumberBanknotes20() {
+        return numberBanknotes20;
+    }
+
     public void addBanknotes20(int number) {
         this.numberBanknotes20 = numberBanknotes20 + number;
+    }
+
+    public int getNumberBanknotes50() {
+        return numberBanknotes50;
     }
 
     public void addBanknotes50(int number) {
         this.numberBanknotes50 = numberBanknotes50 + number;
     }
 
-    public void addBanknotes100(int number) {
-        this.numberBanknotes100 = numberBanknotes100 + number;
+    public int getNumberBanknotes100() {
+        return numberBanknotes50;
     }
 
-    // далее задание со *
-    public boolean isPossibleIssue(int amount) {
-        return amount - (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100) >= 0
-                && amount % 20 == 0;
+    public void addBanknotes100(int number) {
+        this.numberBanknotes100 = numberBanknotes100 + number;
     }
 }
