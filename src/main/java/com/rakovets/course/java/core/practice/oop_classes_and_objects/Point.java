@@ -6,9 +6,14 @@ public class Point {
     private int x;
     private int y;
 
-    Point(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public double getDistance(Point targetPoint) {
+        double distance = Math.sqrt(Math.pow((targetPoint.y - this.y), 2) + Math.pow((targetPoint.x - this.x), 2));
+        return NumberUtil.roundValueToTwoDigitsForMantissa(distance);
     }
 
     public int getX() {
@@ -25,10 +30,5 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public double getDistance(Point targetPoint) {
-        double distance = Math.sqrt(Math.pow((targetPoint.y - this.y), 2) + Math.pow((targetPoint.x - this.x), 2));
-        return NumberUtil.roundValueToTwoDigitsForMantissa(distance);
     }
 }
