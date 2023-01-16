@@ -24,9 +24,11 @@ public class Rectangle {
     public void setBottomRightPoint(Point bottomRightPoint) {
         this.bottomRightPoint = bottomRightPoint;
     }
+
     public int getPerimeter() {
         return ((bottomRightPoint.getX() - topLeftPoint.getX()) + (topLeftPoint.getY() - bottomRightPoint.getY())) * 2;
     }
+
     public int getArea() {
         return (bottomRightPoint.getX() - topLeftPoint.getX()) * (topLeftPoint.getY() - bottomRightPoint.getY());
     }
