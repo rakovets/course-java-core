@@ -37,9 +37,12 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] listFullName = informationAboutStuff.split(";");
+        String[] arrayName = new String[listFullName.length];
+        for (int i = 0; i < listFullName.length; i++ ) {
+            arrayName[i] = listFullName[i].split(" +")[0];
+        }
+        return arrayName;
     }
 
     /**
@@ -49,9 +52,12 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] listFullName = informationAboutStuff.split(";");
+        String[] arraySurname = new String[listFullName.length];
+        for (int i = 0; i < listFullName.length; i++ ) {
+            arraySurname[i] = listFullName[i].split(" +")[1];
+        }
+        return arraySurname;
     }
 
     /**
@@ -61,8 +67,11 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] listFullName = informationAboutStuff.split(";");
+        int[] arraySalary = new int[listFullName.length];
+        for (int i = 0; i < listFullName.length; i++ ) {
+            arraySalary[i] = Integer.valueOf(listFullName[i].split(" +")[2]);
+        }
+        return arraySalary;
     }
 }
