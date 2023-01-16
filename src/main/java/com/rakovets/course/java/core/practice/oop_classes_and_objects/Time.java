@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-    public class MyTime {
+    public class Time {
         private final int secondConvertForHour = 3600;
         private final int secondConvertForMinutes = 60;
 
@@ -9,7 +9,7 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
         private int seconds;
 
 
-        public MyTime(int totalTimeInSeconds) {
+        public Time(int totalTimeInSeconds) {
             this.hours = totalTimeInSeconds / secondConvertForHour;
             int secondsLeft = totalTimeInSeconds % secondConvertForHour;
             this.minutes = secondsLeft / secondConvertForMinutes;
@@ -17,7 +17,7 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
             this.seconds = secondsLeft;
         }
 
-        public MyTime(int hours, int minutes, int seconds) {
+        public Time(int hours, int minutes, int seconds) {
             this.hours = hours;
             this.minutes = minutes;
             this.seconds = seconds;
