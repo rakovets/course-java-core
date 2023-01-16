@@ -9,7 +9,7 @@ public class AtmTest {
         Atm atm = new Atm(10,0,0);
 
         atm.addBanknotes20(7);
-        Assertions.assertEquals(3, atm.getNumberBanknotes20());
+        Assertions.assertEquals(17, atm.getNumberBanknotes20());
     }
 
     @Test
@@ -17,7 +17,7 @@ public class AtmTest {
         Atm atm = new Atm(0,10,0);
 
         atm.addBanknotes50(7);
-        Assertions.assertEquals(3, atm.getNumberBanknotes50());
+        Assertions.assertEquals(17, atm.getNumberBanknotes50());
     }
 
     @Test
@@ -25,6 +25,6 @@ public class AtmTest {
         Atm atm = new Atm(0,0,10);
 
         atm.addBanknotes100(7);
-        Assertions.assertEquals(3,atm.getNumberBanknotes100());
+        Assertions.assertEquals(17,atm.getNumberBanknotes100());
     }
 }
