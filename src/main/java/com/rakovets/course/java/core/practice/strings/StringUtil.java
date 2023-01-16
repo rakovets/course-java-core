@@ -154,4 +154,31 @@ public class StringUtil {
 
         return result.toString();
     }
+
+    public String sameSymbols(String str1, String str2) {
+        StringBuilder result = new StringBuilder();
+        char[] str1SymbolsArray = str1.toCharArray();
+        char[] str2SymbolsArray = str2.toCharArray();
+
+        for (int i = 0; i < str1SymbolsArray.length; i++) {
+            for (int j = 0; j < str2SymbolsArray.length; j++) {
+                if (str1SymbolsArray[i] == str2SymbolsArray[j]) {
+                    str1SymbolsArray[i] = 0;
+                    str2SymbolsArray[j] = 0;
+                }
+            }
+        }
+        for (char c : str1SymbolsArray) {
+            if (c != 0) {
+                result.append(c);
+            }
+        }
+        for (char c : str2SymbolsArray) {
+            if (c != 0) {
+                result.append(c);
+            }
+        }
+
+        return result.toString();
+    }
 }

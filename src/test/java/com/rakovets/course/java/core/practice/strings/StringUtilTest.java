@@ -416,4 +416,12 @@ public class StringUtilTest {
         Assertions.assertEquals("0123456", actual);
     }
 
+    @Test
+    void sameSymbolsTest1() {
+        StringUtil stringUtil =new StringUtil();
+
+        String actual = stringUtil.sameSymbols("abcdef", "abcxyz");
+
+        Assertions.assertEquals("defxyz", actual);
+    }
 }
