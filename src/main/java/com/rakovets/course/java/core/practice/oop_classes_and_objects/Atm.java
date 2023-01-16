@@ -14,15 +14,20 @@ public class Atm {
     public void addBanknotes20(int number) {
         this.numberBanknotes20 = numberBanknotes20 + number;
     }
+
     public void addBanknotes50(int number) {
         this.numberBanknotes50 = numberBanknotes50 + number;
     }
+
     public void addBanknotes100(int number) {
         this.numberBanknotes100 = numberBanknotes100 + number;
     }
+
     // далее задание со *
     public boolean isPossibleIssue(int amount) {
         return amount - (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100) >= 0
                 && amount % 20 == 0;
     }
+
+
 }
