@@ -379,4 +379,24 @@ public class StringUtilTest {
 
         Assertions.assertEquals(0, actual);
     }
+
+    @Test
+    void initialDTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.initialD("Dzmitry Krasiuk");
+
+        Assertions.assertEquals("DK", actual);
+    }
+
+    @Test
+    void initialDTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.initialD("dZMitrY kRasiUk");
+
+        Assertions.assertEquals("DK", actual);
+    }
+
+
 }

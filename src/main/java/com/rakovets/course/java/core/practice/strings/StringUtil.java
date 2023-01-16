@@ -128,4 +128,15 @@ public class StringUtil {
 
         return result;
     }
+
+    public String initialD(String str1) {
+        String result = "";
+        String[] textToArray = str1.toUpperCase().split("\\s");
+
+        String nameInitial = String.valueOf(textToArray[0].charAt(0));
+        String surnameInitial = String.valueOf(textToArray[1].charAt(0));
+        result += nameInitial + surnameInitial;
+
+        return result;
+    }
 }
