@@ -1,14 +1,17 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Time {
+    private final int SECONDS_IN_HOUR = 3600;
+    private final int SECONDS_IN_MINUTE = 60;
+
     private int hours;
     private int minutes;
     private int seconds;
 
     public Time(int totalSeconds) {
-            this.hours = totalSeconds / 3600;
-            this.minutes = (totalSeconds - hours * 3600) / 60;
-            this.seconds = totalSeconds - hours * 3600 - minutes * 60;
+            this.hours = totalSeconds / SECONDS_IN_HOUR;
+            this.minutes = (totalSeconds - hours * SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
+            this.seconds = totalSeconds - hours * SECONDS_IN_HOUR - minutes * SECONDS_IN_MINUTE;
     }
 
     public Time(int hours, int minutes, int seconds) {
@@ -18,7 +21,7 @@ public class Time {
     }
 
     public int getTotalSeconds() {
-        return hours * 3600 + minutes * 60 + seconds;
+        return hours * SECONDS_IN_HOUR + minutes * SECONDS_IN_MINUTE + seconds;
     }
 
     public int getHours() {
