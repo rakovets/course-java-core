@@ -33,9 +33,9 @@ class Task01 {
      * @return имя сотрудника
      */
     static String getName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] listFullName = fullName.split(" ");
+        String name = listFullName[0];
+        return name;
     }
 
     /**
@@ -45,11 +45,8 @@ class Task01 {
      * @return фамилия сотрудника
      */
     static String getSurname(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String[] listFullName = fullName.split(" ");
         return listFullName[1];
-
     }
 
     /**
