@@ -402,8 +402,18 @@ public class StringUtilTest {
     void howManyDigitsTest1() {
         StringUtil stringUtil = new StringUtil();
 
-        int actual = stringUtil.howManyDigits("ab123cd");
+        String actual = stringUtil.showDigits("ab123cd");
 
-        Assertions.assertEquals(3, actual);
+        Assertions.assertEquals("123", actual);
     }
+
+    @Test
+    void howManyDigitsTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.showDigits("0ab123cd456");
+
+        Assertions.assertEquals("0123456", actual);
+    }
+
 }

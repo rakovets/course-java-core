@@ -141,9 +141,17 @@ public class StringUtil {
         return result;
     }
 
-    public int howManyDigits(String str1) {
-        str1 += "";
+    public String showDigits(String str1) {
+        StringBuilder result = new StringBuilder();
 
-        return 1;
+        for (int i = 0; i < str1.length(); i++) {
+            if(str1.charAt(i) == '0' || str1.charAt(i) == '1' || str1.charAt(i) == '2' || str1.charAt(i) == '3'
+                    || str1.charAt(i) == '4' || str1.charAt(i) == '5' || str1.charAt(i) == '6' || str1.charAt(i) == '7'
+                    || str1.charAt(i) == '8' || str1.charAt(i) == '9') {
+                result.append(str1.charAt(i));
+            }
+        }
+
+        return result.toString();
     }
 }
