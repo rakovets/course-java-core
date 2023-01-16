@@ -34,7 +34,7 @@ public class Rectangle {
 
         double perimetr = 2 * (sideA + Math.sqrt(
                 (Math.pow(diagonal, 2) - Math.pow(sideA, 2))));
-        System.out.println("Perimetr rectangle " + perimetr);
+        System.out.println("Perimetr rectangle = " + perimetr);
         return perimetr;
 
     }
@@ -43,7 +43,7 @@ public class Rectangle {
         double sideA = Math.abs(topLeftPoint.getX() - this.bottomRightPoint.getX());
         double diagonal = topLeftPoint.getDistance(bottomRightPoint);
         double squre = sideA * Math.sqrt((Math.pow(diagonal, 2) - Math.pow(sideA, 2)));
-        System.out.println("Squre rectangle " + squre);
+        System.out.println("Squre rectangle =  " + squre);
         return squre;
     }
 }
