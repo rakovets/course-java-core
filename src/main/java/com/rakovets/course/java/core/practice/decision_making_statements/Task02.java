@@ -35,16 +35,18 @@ class Task02 {
      * </ul>
      */
     static String getGreetingByHour(int hour) {
+        String massage;
         if (hour >= 6 && hour <= 11) {
-            return "Good morning";
+            massage = "Good morning";
         } else if (hour >= 12 && hour <= 17) {
-            return "Good day";
+            massage = "Good day";
         } else if (hour >= 18 && hour <= 23) {
-            return "Good evening";
+            massage = "Good evening";
         } else if (hour >= 0 && hour <= 5) {
-            return "Good night";
+            massage = "Good night";
         } else {
-            return null;
+            massage = null;
         }
+        return massage;
     }
 }
