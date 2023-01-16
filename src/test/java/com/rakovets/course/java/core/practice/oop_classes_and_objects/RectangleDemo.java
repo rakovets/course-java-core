@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
-public class RectangleTest {
+public class RectangleDemo {
     public static void main(String[] args) {
         Point testA = new Point(2, 8);
         Point testB = new Point(4, 4);
