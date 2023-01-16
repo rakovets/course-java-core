@@ -38,9 +38,9 @@ class Task13 {
         if (numberApartmentsPerPorch == apartmentNumber) {
             result = numberFloors;
         } else {
+
             result = (apartmentNumber - numberApartmentsPerPorch * howManyPorchInApartmentNumber) / numberApartmentsPerFloor + 1;
         }
         return result;
     }
 }
-
