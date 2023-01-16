@@ -158,7 +158,7 @@ public class StringUtilTest {
     }
 
     @Test
-    void countPunctuatioTest1() {
+    void countPunctuationTest1() {
         StringUtil stringUtil = new StringUtil();
         int actual = stringUtil.countPunctuation("Hi - what you name : My name is Ira");
         Assertions.assertEquals(0,actual);
@@ -176,6 +176,41 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
         boolean actual = stringUtil.isPalindrome("deed");
         Assertions.assertEquals(true,actual);
+    }
+
+    @Test
+    void getArrayTest() {
+        StringUtil stringUtil = new StringUtil();
+        String actual = stringUtil.getArray("Hello",1);
+        Assertions.assertEquals("[H, e, l, l, o]", actual);
+    }
+
+    @Test
+    void getArrayTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String actual = stringUtil.getArray("Hello. My name is Ira",2);
+        Assertions.assertEquals("[He, ll, o., My, na, me, is, Ir, a]", actual);
+    }
+
+    @Test
+    void getCountWordsTest() {
+        StringUtil stringUtil = new StringUtil();
+        int actual = stringUtil.getCountWords(" Hello. My name is Ira.");
+        Assertions.assertEquals(5, actual);
+    }
+
+    @Test
+    void getCountWordsTest1() {
+        StringUtil stringUtil = new StringUtil();
+        int actual = stringUtil.getCountWords(null);
+        Assertions.assertEquals(0, actual);
+    }
+
+    @Test
+    void getCountWordsTest3() {
+        StringUtil stringUtil = new StringUtil();
+        int actual = stringUtil.getCountWords("Hello!   Today will be a good day");
+        Assertions.assertEquals(7, actual);
     }
 
     @Test
@@ -198,11 +233,12 @@ public class StringUtilTest {
         String actual = stringUtil.getInitials(null);
         Assertions.assertEquals("It's empty String",actual);
     }
+
     @Test
     void getNumbersTest() {
         StringUtil stringUtil = new StringUtil();
         String actual = stringUtil.getNumbers("Hi111. What you name777. My name is I5ra");
-        Assertions.assertEquals("111775", actual);
+        Assertions.assertEquals("1117775", actual);
     }
 }
 

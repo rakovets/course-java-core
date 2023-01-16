@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class StringUtil {
     public String stringGlue(String str1, String str2) {
         String result = "";
@@ -86,6 +89,22 @@ public class StringUtil {
         }
         str = str.replace(" ", "");
         return str.equalsIgnoreCase(new StringBuffer(str).reverse().toString());
+    }
+
+    public String getArray(String str,int n) {
+        if (str == null) {
+            return "It's empty String";
+        }
+        str = str.replace(" ", "");
+        String[] string = str.split("(?<=\\G.{" + n + "})");
+        return Arrays.toString(string);
+    }
+
+    public int getCountWords(String str) {
+        if (str == null) {
+            return 0;
+        }
+        return str.trim().split("[\\s]+").length;
     }
 
     public String getInitials(String str) {
