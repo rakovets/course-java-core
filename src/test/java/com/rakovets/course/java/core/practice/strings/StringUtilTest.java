@@ -198,5 +198,11 @@ public class StringUtilTest {
         String actual = stringUtil.getInitials(null);
         Assertions.assertEquals("It's empty String",actual);
     }
+    @Test
+    void getNumbersTest() {
+        StringUtil stringUtil = new StringUtil();
+        String actual = stringUtil.getNumbers("Hi111. What you name777. My name is I5ra");
+        Assertions.assertEquals("111775", actual);
+    }
 }
 
