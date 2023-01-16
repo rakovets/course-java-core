@@ -28,6 +28,4 @@ public class Atm {
         return amount - (numberBanknotes20 * 20 + numberBanknotes50 * 50 + numberBanknotes100 * 100) >= 0
                 && amount % 20 == 0;
     }
-
-
 }
