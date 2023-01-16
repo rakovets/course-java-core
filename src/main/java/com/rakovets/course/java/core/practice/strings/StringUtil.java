@@ -58,4 +58,23 @@ public class StringUtil {
         String strReverse = (new StringBuilder(str)).reverse().toString();
         return str.equals(strReverse);
     }
+
+    public String[] splitString(String str, int n) {
+        return str.split("(?<=\\G.{" + n + "})");
+    }
+
+    public int countWord(String str) {
+        String[] words = str.trim().split("\\s+");
+        return words.length;
+    }
+
+    public String firstNameLastName(String str) {
+        String[] initials = str.trim().toUpperCase().split("\\s+");
+        return initials[0].charAt(0) + "" + initials[1].charAt(0);
+    }
+
+    public String returnAllNumber(String str) {
+        String allNumber = str.replaceAll("\\D", "");
+        return allNumber;
+    }
 }

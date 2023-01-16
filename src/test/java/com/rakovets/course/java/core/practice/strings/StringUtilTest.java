@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -184,6 +185,59 @@ public class StringUtilTest {
     void providepalindromTest(String str, boolean expected) {
         StringUtil stringUtil = new StringUtil();
         boolean actual = stringUtil.palindrom(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> providesplitString() {
+        return Stream.of(
+                Arguments.of("123123", 3, new String[]{"123", "123"}),
+                Arguments.of("12345", 1, new String[]{"1", "2", "3", "4", "5"}),
+                Arguments.of("  3456", 3, new String[]{"  3", "456"}),
+                Arguments.of("!23456  ", 2, new String[]{"!2", "34", "56", "  "}),
+                Arguments.of("123", 3, new String[]{"123"}),
+                Arguments.of("asdasd", 3, new String[]{"asd", "asd"})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("providesplitString")
+    void providesplitStringTest(String str, int n, String[] expected) {
+        StringUtil stringUtil = new StringUtil();
+        String[] actual = stringUtil.splitString(str, n);
+        Assertions.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+    }
+
+    static Stream<Arguments> providecountWord() {
+        return Stream.of(
+                Arguments.of("asd asd", 2),
+                Arguments.of("asd asd asd", 3),
+                Arguments.of(" asd  asd", 2),
+                Arguments.of("   ", 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("providecountWord")
+    void providecountWord(String str, int expected) {
+        StringUtil stringUtil = new StringUtil();
+        int actual = stringUtil.countWord(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    static Stream<Arguments> providefirstNameLastName() {
+        return Stream.of(
+                Arguments.of("Rus Zha","RZ"),
+                Arguments.of("  Rus zha","RZ"),
+                Arguments.of("RuS zhA","RZ"),
+                Arguments.of("Rus   ZHa Rus","RZ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("providefirstNameLastName")
+    void providefirstNameLastName(String str, String expected) {
+        StringUtil stringUtil = new StringUtil();
+        String actual = stringUtil.firstNameLastName(str);
         Assertions.assertEquals(expected, actual);
     }
 }
