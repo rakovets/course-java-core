@@ -398,5 +398,12 @@ public class StringUtilTest {
         Assertions.assertEquals("DK", actual);
     }
 
+    @Test
+    void howManyDigitsTest1() {
+        StringUtil stringUtil = new StringUtil();
 
+        int actual = stringUtil.howManyDigits("ab123cd");
+
+        Assertions.assertEquals(3, actual);
+    }
 }

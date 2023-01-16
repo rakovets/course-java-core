@@ -5,7 +5,8 @@ public class StringUtil {
     public String glueText(String str1, String str2) {
         String result = null;
 
-        if (str1 != null || str2 != null) {
+        if (str2 != null) {
+            assert str1 != null;
             result = str1.concat(str2);
         }
 
@@ -138,5 +139,11 @@ public class StringUtil {
         result += nameInitial + surnameInitial;
 
         return result;
+    }
+
+    public int howManyDigits(String str1) {
+        str1 += "";
+
+        return 1;
     }
 }
