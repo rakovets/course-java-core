@@ -47,7 +47,9 @@ class Task01 {
     static String getSurname(String fullName) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] listFullName = fullName.split(" ");
+        return listFullName[1];
+
     }
 
     /**
@@ -57,8 +59,7 @@ class Task01 {
      * @return полное имя сотрудника в обратном формате, т.е. '${surname} ${name}'
      */
     static String reverseFullName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] listFullName = fullName.split(" ");
+        return listFullName[1] + " " + listFullName[0];
     }
 }
