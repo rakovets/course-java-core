@@ -416,6 +416,7 @@ public class StringUtilTest {
         Assertions.assertEquals("0123456", actual);
     }
 
+    //Далее @Test заданий со *
     @Test
     void sameSymbolsTest1() {
         StringUtil stringUtil =new StringUtil();
@@ -423,5 +424,70 @@ public class StringUtilTest {
         String actual = stringUtil.sameSymbols("abcdef", "abcxyz");
 
         Assertions.assertEquals("defxyz", actual);
+    }
+
+    @Test
+    void sameSymbolsTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.sameSymbols("abcdefja", "abcxyz");
+
+        Assertions.assertEquals("defjaxyz", actual);
+    }
+
+    @Test
+    void sameArraysTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String[] str1 = {"a", "b", "c"};
+        String[] str2 = {"a", "d", "c"};
+
+        boolean actual = stringUtil.sameArrays(str1, str2);
+
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void sameArraysTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String[] str1 = {"a", "b", "c", "d"};
+        String[] str2 = {"a", "b", "c", "d"};
+
+        boolean actual = stringUtil.sameArrays(str1, str2);
+
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void sameArraysTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String[] str1 = {"a", "b", "c", "d"};
+        String[] str2 = {"a", "b", "c"};
+
+        boolean actual = stringUtil.sameArrays(str1, str2);
+
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void whatFastestTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.whatFastest("abc", "dfe");
+
+        Assertions.assertEquals("Append is faster!", actual);
+    }
+
+    @Test
+    void whatFastestTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.whatFastest("Hi! Nice to meet you! My name is John Smith. I am 19 and a student " +
+                "in college. I go to college in New York. My favorite courses are Geometry, French, and History. " +
+                "English is my hardest course. My professors are very friendly and smart. It’s my second year in " +
+                "college now. I love it!", "I live in a big house on Ivy Street. It’s near the college campus. " +
+                "I share the house with three other students. Their names are Bill, Tony, and Paul. We help each " +
+                "other with homework. On the weekend, we play football together.");
+
+        Assertions.assertEquals("Append is faster!", actual);
     }
 }

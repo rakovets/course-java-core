@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.util.Arrays;
+
 public class StringUtil {
 
     public String glueText(String str1, String str2) {
@@ -155,6 +157,7 @@ public class StringUtil {
         return result.toString();
     }
 
+    //Далее задания со *
     public String sameSymbols(String str1, String str2) {
         StringBuilder result = new StringBuilder();
         char[] str1SymbolsArray = str1.toCharArray();
@@ -180,5 +183,58 @@ public class StringUtil {
         }
 
         return result.toString();
+    }
+
+    public boolean sameArrays(String[] str1, String[] str2) {
+        boolean result = false;
+
+        Arrays.sort(str1);
+        Arrays.sort(str2);
+
+        if (Arrays.equals(str1, str2)) {
+            result = true;
+        }
+
+        return result;
+    }
+
+    public String whatFastest(String str1, String str2) {
+        String result;
+        StringBuilder stringBuilderMultipleConcatenation = new StringBuilder();
+        long stringMultipleConcatenationTime;
+        long stringBuilderMultipleConcatenationTime;
+
+        long beforeConcatenationTime = System.currentTimeMillis();
+        String stringMultipleConcatenation = "";
+        for (int i = 0; i <= 100; i++) {
+            stringMultipleConcatenation += str1;
+            stringMultipleConcatenation += str2;
+        }
+        stringMultipleConcatenationTime = System.currentTimeMillis() - beforeConcatenationTime;
+
+        long beforeAppendTime = System.currentTimeMillis();
+        for (int i = 0; i <= 100; i++) {
+            stringBuilderMultipleConcatenation.append(str1);
+            stringBuilderMultipleConcatenation.append(str2);
+        }
+        stringBuilderMultipleConcatenationTime = System.currentTimeMillis() - beforeAppendTime;
+
+        if (stringMultipleConcatenationTime < stringBuilderMultipleConcatenationTime) {
+            result = "Concatenation is faster!";
+        } else if (stringMultipleConcatenationTime > stringBuilderMultipleConcatenationTime) {
+            result = "Append is faster!";
+        } else {
+            result = "Concatenation speed same as Append!";
+        }
+
+        return result;
+    }
+
+    public String manySamesToOneReplacement() {
+        String result = "";
+
+
+
+        return result;
     }
 }
