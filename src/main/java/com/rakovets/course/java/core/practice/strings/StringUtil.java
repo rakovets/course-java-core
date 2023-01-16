@@ -45,7 +45,7 @@ public class StringUtil {
         return str1.substring(startIndex,finishIndex);
     }
 
-    public String stringReplace(String str1){
+    public String stringReplace(String str1) {
         if (str1 == null) {
             return "It's empty string";
         }
