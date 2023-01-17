@@ -11,7 +11,21 @@ public class Siamese extends Cat {
     }
 
     @Override
+    public String mew(Person user) {
+        user.changeHappiness(-7);
+
+        return "Meow, meow, meow!";
+    }
+
+    @Override
     public String purr() {
+        return "Murrr...";
+    }
+
+    @Override
+    public String purr(Person user) {
+        user.changeHappiness(8);
+
         return "Murrr...";
     }
 }

@@ -11,7 +11,19 @@ public class Cat {
         return "Mew, mew, mew!";
     }
 
+    public String mew(Person user) {
+        user.changeHappiness(-5);
+
+        return "Mew, mew, mew!";
+    }
+
     public String purr() {
+        return "Purr...";
+    }
+
+    public String purr(Person user) {
+        user.changeHappiness(5);
+
         return "Purr...";
     }
 
