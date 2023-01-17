@@ -105,4 +105,16 @@ public class StringUtil {
         }
         return counter;
     }
+
+    String getInitials(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+        String initials = "";
+        String[] firstSecondName = str.toUpperCase().trim().split(" ");
+        for (String i : firstSecondName) {
+            initials += i.charAt(0);
+        }
+        return  initials;
+    }
 }
