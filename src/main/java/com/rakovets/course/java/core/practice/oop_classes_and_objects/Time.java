@@ -19,6 +19,11 @@ public class Time {
         this.seconds = seconds;
     }
 
+    public int getTotalSecond() {
+        int TotalSecond = hours * secondsInHours + minutes * secondsInMinutes + seconds;
+        return TotalSecond;
+    }
+
     public int getHours() {
         return hours;
     }
@@ -41,10 +46,5 @@ public class Time {
 
     public void setSeconds(int seconds) {
         this.seconds = seconds;
-    }
-
-    public int getTotalSecond() {
-        int TotalSecond = hours * secondsInHours + minutes * secondsInMinutes + seconds;
-        return TotalSecond;
     }
 }

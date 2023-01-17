@@ -8,6 +8,7 @@ public class PointTest {
     void distanceTest() {
         Point pointA = new Point(2, 3);
         Point pointB = new Point(6, 6);
+
         Assertions.assertEquals(5, pointA.getDistance(pointB));
     }
 
