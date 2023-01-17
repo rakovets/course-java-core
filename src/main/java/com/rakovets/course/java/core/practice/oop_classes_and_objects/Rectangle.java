@@ -9,6 +9,15 @@ public class Rectangle {
         this.bottomRightPoint = bottomRightPoint;
     }
 
+    public int getPerimeter() {
+        return (bottomRightPoint.getX() - topLeftPoint.getX()) + (bottomRightPoint.getX() - topLeftPoint.getX())
+                + (topLeftPoint.getY() - bottomRightPoint.getY()) + (topLeftPoint.getY() - bottomRightPoint.getY());
+    }
+
+    public int getArea() {
+        return (bottomRightPoint.getX() - topLeftPoint.getX()) * (topLeftPoint.getY() - bottomRightPoint.getY());
+    }
+
     public Point getTopLeftPoint() {
         return topLeftPoint;
     }
@@ -23,41 +32,5 @@ public class Rectangle {
 
     public void setBottomRightPoint(Point bottomRightPoint) {
         this.bottomRightPoint = bottomRightPoint;
-    }
-
-    public int getPerimeter() {
-        return getLengthSideX() + getLengthSideX() + getLengthSideY() + getLengthSideY();
-    }
-
-    public int getArea() {
-        return getLengthSideX() * getLengthSideY();
-    }
-
-    private int getLengthSideX() {
-        int xTopLeftPoint = topLeftPoint.getX();
-        int xBottomRightPoint = bottomRightPoint.getX();
-        int lengthSideX;
-        if (xTopLeftPoint < 0 && xBottomRightPoint < 0) {
-            lengthSideX = Math.abs(xTopLeftPoint - xBottomRightPoint);
-        } else if (xTopLeftPoint < 0) {
-            lengthSideX = Math.abs(xTopLeftPoint) + xBottomRightPoint;
-        } else {
-            lengthSideX = xBottomRightPoint - xTopLeftPoint;
-        }
-        return lengthSideX;
-    }
-
-    private int getLengthSideY() {
-        int yTopLeftPoint = topLeftPoint.getY();
-        int yBottomRightPont = bottomRightPoint.getY();
-        int lengthSideY;
-        if (yTopLeftPoint < 0 && yBottomRightPont < 0) {
-            lengthSideY = Math.abs(yBottomRightPont - yTopLeftPoint);
-        } else if (yBottomRightPont < 0) {
-            lengthSideY = yTopLeftPoint + Math.abs(yBottomRightPont);
-        } else {
-            lengthSideY = yTopLeftPoint - yBottomRightPont;
-        }
-        return lengthSideY;
     }
 }
