@@ -409,6 +409,7 @@ public class StringUtilTest {
 
         Assertions.assertTrue(result);
     }
+
     @Test
     void isItPalindromeTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -419,6 +420,7 @@ public class StringUtilTest {
 
         Assertions.assertTrue(result);
     }
+
     @Test
     void isItPalindromeTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -429,6 +431,7 @@ public class StringUtilTest {
 
         Assertions.assertTrue(result);
     }
+
     @Test
     void isItPalindromeTest4() {
         StringUtil stringUtil = new StringUtil();
@@ -438,6 +441,7 @@ public class StringUtilTest {
 
         Assertions.assertFalse(result);
     }
+
     @Test
     void countWordsTest1() {
         StringUtil stringUtil = new StringUtil();
@@ -447,6 +451,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(8, result);
     }
+
     @Test
     void countWordsTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -456,6 +461,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(12, result);
     }
+
     @Test
     void countWordsTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -466,14 +472,63 @@ public class StringUtilTest {
         Assertions.assertEquals(12, result);
     }
 
-    void getInitialsTest() {
+    @Test
+    void getInitialsTest1() {
         StringUtil stringUtil = new StringUtil();
-        String firstNameSecondName = "Robb Stark";
+        String firstNameSecondName = "Arthas Menethil";
 
         String result = stringUtil.getInitials(firstNameSecondName);
 
-        Assertions.assertEquals("", result);
+        Assertions.assertEquals("AM", result);
     }
 
+    @Test
+    void getInitialsTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String firstNameSecondName = "sarah kerrigan";
 
+        String result = stringUtil.getInitials(firstNameSecondName);
+
+        Assertions.assertEquals("SK", result);
+    }
+
+    @Test
+    void getInitialsTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String firstNameSecondName = "jim Raynor";
+
+        String result = stringUtil.getInitials(firstNameSecondName);
+
+        Assertions.assertEquals("JR", result);
+    }
+
+    @Test
+    void getAllNumbers() {
+        StringUtil stringUtil = new StringUtil();
+        String textWithNumber = "Mont Blanc, western Europe's highest mountain at 4810";
+
+        String result = stringUtil.getAllNumbers(textWithNumber);
+
+        Assertions.assertEquals("4810", result);
+    }
+
+    @Test
+    void getAllNumbers2() {
+        StringUtil stringUtil = new StringUtil();
+        String textWithNumber = "Mont12 Blanc, 34western Europe's780 highest mountain at 4810";
+
+        String result = stringUtil.getAllNumbers(textWithNumber);
+
+        Assertions.assertEquals("12347804810", result);
+    }
+
+    @Test
+    void getAllNumbers3() {
+        StringUtil stringUtil = new StringUtil();
+        String textWithNumber = "11However, 888Mexico's legislation999 is considered66";
+
+        String result = stringUtil.getAllNumbers(textWithNumber);
+
+        Assertions.assertEquals("1188899966", result);
+    }
 }
