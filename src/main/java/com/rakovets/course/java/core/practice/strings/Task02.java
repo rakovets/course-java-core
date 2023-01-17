@@ -61,8 +61,12 @@ class Task02 {
      * @return общую сумму всех денег
      */
     static double getSumMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double result = 0;
+
+        for (double money: getArrayMoneyFromReport(report)) {
+            result += money;
+        }
+
+        return result;
     }
 }
