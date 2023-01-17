@@ -9,6 +9,18 @@ public class Point {
         this.y = y;
     }
 
+    public double getDistance(Point point) {
+        return squareRootOfNumber(squareNumber(this.x - point.x) + squareNumber(this.y - point.y));
+    }
+
+    private double squareRootOfNumber(int number) {
+        return Math.sqrt(number);
+    }
+
+    private int squareNumber(int number) {
+        return (int) Math.pow(number, 2);
+    }
+
     public int getX() {
         return x;
     }
@@ -23,17 +35,5 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public double getDistance(Point point) {
-        return squareRootOfNumber(squareNumber(this.x - point.x) + squareNumber(this.y - point.y));
-    }
-
-    private double squareRootOfNumber(int number) {
-        return Math.sqrt(number);
-    }
-
-    private int squareNumber(int number) {
-        return (int) Math.pow(number, 2);
     }
 }
