@@ -67,12 +67,13 @@ public class StringUtil {
         }
         return counter;
     }
+
     int countPunctuationMarks(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
         }
         char[] vowels = new char[]{'.', ',', '?', '!'};
-        char[] arrayFromString = str.toLowerCase().toCharArray();
+        char[] arrayFromString = str.toCharArray();
         int counter = 0;
         for (int i : vowels) {
             for (int j : arrayFromString) {
@@ -83,4 +84,15 @@ public class StringUtil {
         }
         return counter;
     }
+
+    boolean isItPalindrome(String str1) {
+        if (str1 == null || str1.isEmpty()) {
+            return false;
+        }
+        str1 = str1.replace(" ", "");
+        StringBuffer buffer = new StringBuffer(str1);
+        String str2 = buffer.reverse().toString();
+        return str1.equalsIgnoreCase(str2);
+    }
+
 }
