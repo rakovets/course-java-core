@@ -9,6 +9,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
 
         String result = stringUtil.glue("basil", "Aka");
+
         Assertions.assertEquals("basilAka", result);
     }
 
@@ -17,6 +18,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
 
         String result = stringUtil.glue("", "");
+
         Assertions.assertEquals("", result);
     }
 
@@ -25,6 +27,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
 
         String result = stringUtil.glue("basil", null);
+
         Assertions.assertEquals("", result);
     }
 
@@ -33,6 +36,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
 
         String result = stringUtil.glue(null, "Aka");
+
         Assertions.assertEquals("", result);
     }
 
@@ -41,6 +45,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
 
         String result = stringUtil.glue(null, null);
+
         Assertions.assertEquals("", result);
     }
 
@@ -50,6 +55,7 @@ public class StringUtilTest {
         String test = "labour has outlined plans to reform the system should it win power";
 
         int result = stringUtil.finedIndexX(test);
+
         Assertions.assertEquals(-1, result);
     }
 
@@ -59,6 +65,7 @@ public class StringUtilTest {
         String test = "Mexico tightens ban on smoking in public places";
 
         int result = stringUtil.finedIndexX(test);
+
         Assertions.assertEquals(2, result);
     }
 
@@ -68,6 +75,7 @@ public class StringUtilTest {
         String test = "";
 
         int result = stringUtil.finedIndexX(test);
+
         Assertions.assertEquals(-1, result);
     }
 
@@ -77,6 +85,7 @@ public class StringUtilTest {
         String test = null;
 
         int result = stringUtil.finedIndexX(test);
+
         Assertions.assertEquals(-1, result);
     }
 
@@ -87,6 +96,7 @@ public class StringUtilTest {
                 "be the most robust and wide-ranging in the Americas.";
 
         int result = stringUtil.finedIndexX(test);
+
         Assertions.assertEquals(11, result);
     }
 
@@ -97,6 +107,7 @@ public class StringUtilTest {
         String str2 = "However, Mexico's legislation is considered";
 
         boolean result = stringUtil.equivalentTo(str1, str2);
+
         Assertions.assertTrue(result);
     }
 
@@ -107,6 +118,7 @@ public class StringUtilTest {
         String str2 = "However, Mexico's legislation is considered to";
 
         boolean result = stringUtil.equivalentTo(str1, str2);
+
         Assertions.assertFalse(result);
     }
 
@@ -117,6 +129,7 @@ public class StringUtilTest {
         String str2 = "However, Mexico's legislation is considered";
 
         boolean result = stringUtil.equivalentTo(str1, str2);
+
         Assertions.assertFalse(result);
     }
 
@@ -127,6 +140,7 @@ public class StringUtilTest {
         String str2 = null;
 
         boolean result = stringUtil.equivalentTo(str1, str2);
+
         Assertions.assertFalse(result);
     }
 
@@ -137,6 +151,7 @@ public class StringUtilTest {
         String str2 = "";
 
         boolean result = stringUtil.equivalentTo(str1, str2);
+
         Assertions.assertTrue(result);
     }
 
@@ -147,6 +162,7 @@ public class StringUtilTest {
         String wait = "LABOUR HAS OUTLINED PLANS TO REFORM THE SYSTEM SHOULD IT WIN POWER";
 
         String result = stringUtil.trimAndToUpper(str1);
+
         Assertions.assertEquals(wait, result);
     }
 
@@ -156,6 +172,7 @@ public class StringUtilTest {
         String str1 = "";
 
         String result = stringUtil.trimAndToUpper(str1);
+
         Assertions.assertEquals("", result);
     }
 
@@ -165,6 +182,7 @@ public class StringUtilTest {
         String str1 = null;
 
         String result = stringUtil.trimAndToUpper(str1);
+
         Assertions.assertEquals("", result);
     }
 
@@ -175,6 +193,7 @@ public class StringUtilTest {
         String expectedResult = "bour";
 
         String result = stringUtil.extractSubstringFromNtoM(str, 3, 6);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -185,6 +204,7 @@ public class StringUtilTest {
         String expectedResult = "lined ";
 
         String result = stringUtil.extractSubstringFromNtoM(str, 15, 20);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -195,6 +215,7 @@ public class StringUtilTest {
         String expectedResult = "has o";
 
         String result = stringUtil.extractSubstringFromNtoM(str, 8, 12);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -205,6 +226,7 @@ public class StringUtilTest {
         String expectedResult = "";
 
         String result = stringUtil.extractSubstringFromNtoM(str, 8, 12);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -215,6 +237,7 @@ public class StringUtilTest {
         String expectedResult = "";
 
         String result = stringUtil.extractSubstringFromNtoM(str, 8, 12);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -225,6 +248,7 @@ public class StringUtilTest {
         String expectedResult = "granny died :):):)";
 
         String result = stringUtil.dontSadSmile(str);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -235,6 +259,7 @@ public class StringUtilTest {
         String expectedResult = ":):):) I have lost your cat :):):)";
 
         String result = stringUtil.dontSadSmile(str);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -245,6 +270,7 @@ public class StringUtilTest {
         String expectedResult = "No, :) the scream's :) killed Sidney :):):)";
 
         String result = stringUtil.dontSadSmile(str);
+
         Assertions.assertEquals(expectedResult, result);
     }
 
@@ -255,6 +281,7 @@ public class StringUtilTest {
         String start = "However";
 
         boolean result = stringUtil.finedFistWordInString(str, start);
+
         Assertions.assertTrue(result);
     }
 
@@ -265,6 +292,7 @@ public class StringUtilTest {
         String start = "labour has";
 
         boolean result = stringUtil.finedFistWordInString(str, start);
+
         Assertions.assertTrue(result);
     }
 
@@ -275,6 +303,7 @@ public class StringUtilTest {
         String start = "legislation";
 
         boolean result = stringUtil.finedFistWordInString(str, start);
+
         Assertions.assertFalse(result);
     }
 
@@ -285,6 +314,7 @@ public class StringUtilTest {
         String start = "legislation";
 
         boolean result = stringUtil.finedFistWordInString(str, start);
+
         Assertions.assertFalse(result);
     }
 
@@ -295,6 +325,7 @@ public class StringUtilTest {
         String start = "legislation";
 
         boolean result = stringUtil.finedFistWordInString(str, start);
+
         Assertions.assertFalse(result);
     }
 
@@ -302,7 +333,9 @@ public class StringUtilTest {
     void countVowelsTest1() {
         StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans";
+
         int result = stringUtil.countVowels(str);
+
         Assertions.assertEquals(9, result);
     }
 
@@ -310,7 +343,9 @@ public class StringUtilTest {
     void countVowelsTest2() {
         StringUtil stringUtil = new StringUtil();
         String str = "";
+
         int result = stringUtil.countVowels(str);
+
         Assertions.assertEquals(0, result);
     }
 
@@ -318,7 +353,9 @@ public class StringUtilTest {
     void countVowelsTest3() {
         StringUtil stringUtil = new StringUtil();
         String str = null;
+
         int result = stringUtil.countVowels(str);
+
         Assertions.assertEquals(0, result);
     }
 
@@ -326,29 +363,79 @@ public class StringUtilTest {
     void countVowelsTest4() {
         StringUtil stringUtil = new StringUtil();
         String str = "However, Mexico's legislation is considered";
+
         int result = stringUtil.countVowels(str);
+
         Assertions.assertEquals(16, result);
     }
+
     @Test
     void countPunctuationMarksTest1() {
         StringUtil stringUtil = new StringUtil();
         String str = "However, Mexico's legislation is considered!";
+
         int result = stringUtil.countPunctuationMarks(str);
+
         Assertions.assertEquals(2, result);
     }
+
     @Test
     void countPunctuationMarksTest2() {
         StringUtil stringUtil = new StringUtil();
         String str = "Mont Blanc, western Europe's highest mountain at 4,810 " +
                 "metres (nearly 16,000 feet), attracts 20,000 hikers and skiers every year.";
+
         int result = stringUtil.countPunctuationMarks(str);
+
         Assertions.assertEquals(6, result);
     }
+
     @Test
     void countPunctuationMarksTest3() {
         StringUtil stringUtil = new StringUtil();
         String str = ",,,,,22222!!!!!11111,,,,,8888.....";
+
         int result = stringUtil.countPunctuationMarks(str);
+
         Assertions.assertEquals(20, result);
+    }
+
+    @Test
+    void isItPalindromeTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "Do geese see God";
+
+        boolean result = stringUtil.isItPalindrome(str);
+
+        Assertions.assertTrue(result);
+    }
+    @Test
+    void isItPalindromeTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "1991";
+
+        boolean result = stringUtil.isItPalindrome(str);
+
+
+        Assertions.assertTrue(result);
+    }
+    @Test
+    void isItPalindromeTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "deed";
+
+        boolean result = stringUtil.isItPalindrome(str);
+
+
+        Assertions.assertTrue(result);
+    }
+    @Test
+    void isItPalindromeTest4() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "Deeeeeeeesd";
+
+        boolean result = stringUtil.isItPalindrome(str);
+
+        Assertions.assertFalse(result);
     }
 }
