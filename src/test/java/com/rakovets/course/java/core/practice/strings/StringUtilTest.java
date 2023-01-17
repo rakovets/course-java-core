@@ -465,4 +465,15 @@ public class StringUtilTest {
 
         Assertions.assertEquals(12, result);
     }
+
+    void getInitialsTest() {
+        StringUtil stringUtil = new StringUtil();
+        String firstNameSecondName = "Robb Stark";
+
+        String result = stringUtil.getInitials(firstNameSecondName);
+
+        Assertions.assertEquals("", result);
+    }
+
+
 }
