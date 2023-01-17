@@ -230,10 +230,67 @@ public class StringUtil {
         return result;
     }
 
-    public String manySamesToOneReplacement() {
+    public String manySamesToOneReplacement(String str1) {
+        String result;
+        StringBuilder stringBuilder = new StringBuilder(str1);
+
+        for (int i = 0; i < stringBuilder.length() - 1; i++) {
+            if (stringBuilder.charAt(i) == stringBuilder.charAt(i + 1)) {
+                stringBuilder.delete(i, i + 1);
+                i = 0;
+            }
+        }
+        if (stringBuilder.charAt(0) == stringBuilder.charAt(1)) {
+            stringBuilder = new StringBuilder(stringBuilder.substring(1));
+        }
+        result = stringBuilder.toString();
+
+        return result;
+    }
+
+    public String romeToArabic(String str1) {
         String result = "";
+        int solution = 0;
+        char[] solutionArray = str1.toCharArray();
+        int[] resultArray = new int[str1.length()];
 
-
+        for (int i = 0; i < solutionArray.length; i ++) {
+            switch (solutionArray[i]) {
+                case 'I':
+                    resultArray[i] = 1;
+                    break;
+                case 'V':
+                    resultArray[i] = 5;
+                    break;
+                case 'X':
+                    resultArray[i] = 10;
+                    break;
+                case 'L':
+                    resultArray[i] = 50;
+                    break;
+                case 'C':
+                    resultArray[i] = 100;
+                    break;
+                case 'D':
+                    resultArray[i] = 500;
+                    break;
+                case 'M':
+                    resultArray[i] = 1000;
+                    break;
+            }
+        }
+        for (int i = 0; i < resultArray.length; i++) {
+            for (int j = i + 1; j < resultArray.length; ) {
+                if (resultArray[i] < resultArray[j]) {
+                    resultArray[i] = resultArray[i] * -1;
+                }
+                break;
+            }
+        }
+        for (int x: resultArray) {
+            solution += x;
+        }
+        result += solution;
 
         return result;
     }

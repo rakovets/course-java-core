@@ -490,4 +490,49 @@ public class StringUtilTest {
 
         Assertions.assertEquals("Append is faster!", actual);
     }
+
+    @Test
+    void manySamesToOneReplacementTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.manySamesToOneReplacement("aaabbbccc");
+
+        Assertions.assertEquals("abc", actual);
+    }
+
+    @Test
+    void manySamesToOneReplacementTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.manySamesToOneReplacement("aaazbbbccdcccw");
+
+        Assertions.assertEquals("azbcdcw", actual);
+    }
+
+    @Test
+    void romeToArabicTest1() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.romeToArabic("XVI");
+
+        Assertions.assertEquals("16", actual);
+    }
+
+    @Test
+    void romeToArabicTest2() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.romeToArabic("XIV");
+
+        Assertions.assertEquals("14", actual);
+    }
+
+    @Test
+    void romeToArabicTest3() {
+        StringUtil stringUtil = new StringUtil();
+
+        String actual = stringUtil.romeToArabic("MDXL");
+
+        Assertions.assertEquals("1540", actual);
+    }
 }
