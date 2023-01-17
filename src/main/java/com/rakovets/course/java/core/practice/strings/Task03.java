@@ -37,9 +37,14 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] informationToArray = informationAboutStuff.split(";");
+        String[] result = new String[informationToArray.length];
+
+        for (int info = 0; info < informationToArray.length; info++) {
+            result[info] = informationToArray[info].split("\\s+")[0];
+        }
+
+        return result;
     }
 
     /**
@@ -49,9 +54,14 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] informationToArray = informationAboutStuff.split(";");
+        String[] result = new String[informationToArray.length];
+
+        for (int info = 0; info < informationToArray.length; info++) {
+            result[info] = informationToArray[info].split("\\s+")[1];
+        }
+
+        return result;
     }
 
     /**
@@ -61,8 +71,14 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] informationToArray = informationAboutStuff.split(";");
+        int[] result = new int[informationToArray.length];
+
+        for (int info = 0; info < informationToArray.length; info++) {
+            result[info] = Integer.parseInt(informationToArray[info].replace(";", "")
+                    .split("\\s+")[2]);
+        }
+
+        return result;
     }
 }
