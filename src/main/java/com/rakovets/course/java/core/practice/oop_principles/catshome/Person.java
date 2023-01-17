@@ -13,11 +13,11 @@ public class Person {
 
     public void changeHappiness(int percentHappiness) {
         if (percentHappiness >= 0 && this.happiness + percentHappiness <= 100
-            || percentHappiness < 0 && (this.happiness - percentHappiness) >= 0) {
+            || percentHappiness < 0 && (this.happiness + percentHappiness) >= 0) {
             this.happiness += percentHappiness;
         } else if (percentHappiness >= 0 && (this.happiness + percentHappiness) > 100) {
             this.happiness = 100;
-        } else if (percentHappiness < 0 && (this.happiness - percentHappiness) < 0) {
+        } else if (percentHappiness < 0 && (this.happiness + percentHappiness) < 0) {
             this.happiness = 0;
         }
     }
