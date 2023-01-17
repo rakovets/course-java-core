@@ -438,4 +438,31 @@ public class StringUtilTest {
 
         Assertions.assertFalse(result);
     }
+    @Test
+    void countWordsTest1() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "Mont Blanc, western Europe's highest mountain at 4,810";
+
+        int result = stringUtil.countWords(str);
+
+        Assertions.assertEquals(8, result);
+    }
+    @Test
+    void countWordsTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans to reform the system should it win power";
+
+        int result = stringUtil.countWords(str);
+
+        Assertions.assertEquals(12, result);
+    }
+    @Test
+    void countWordsTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "labour has outlined plans to reform the system should it win power   ";
+
+        int result = stringUtil.countWords(str);
+
+        Assertions.assertEquals(12, result);
+    }
 }
