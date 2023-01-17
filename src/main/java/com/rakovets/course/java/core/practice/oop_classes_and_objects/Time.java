@@ -24,6 +24,10 @@ public class Time {
         this.seconds = seconds;
     }
 
+    private int convertTimeToSeconds() {
+        return SECONDS_IN_HOUR * hours + SECONDS_IN_MINUTE * minutes + seconds;
+    }
+
     public int getHours() {
         return hours;
     }
@@ -50,9 +54,5 @@ public class Time {
 
     public int getTotalSeconds() {
         return convertTimeToSeconds();
-    }
-
-    private int convertTimeToSeconds() {
-        return SECONDS_IN_HOUR * hours + SECONDS_IN_MINUTE * minutes + seconds;
     }
 }
