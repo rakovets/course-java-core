@@ -119,6 +119,9 @@ public class StringUtil {
     }
 
     String getAllNumbers(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
         char[] number = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         char[] arrayFromString = str.toCharArray();
         StringBuffer stringBuffer = new StringBuffer();
