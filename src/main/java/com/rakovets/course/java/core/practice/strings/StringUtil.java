@@ -95,4 +95,14 @@ public class StringUtil {
         return str1.equalsIgnoreCase(str2);
     }
 
+    int countWords(String str) {
+        if (str == null || str.isEmpty()) {
+            return 0;
+        }
+        int counter = 0;
+        for(String word : str.trim().split(" ")) {
+            counter++;
+        }
+        return counter;
+    }
 }
