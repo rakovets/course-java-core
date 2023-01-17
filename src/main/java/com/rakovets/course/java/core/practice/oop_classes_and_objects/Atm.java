@@ -15,30 +15,6 @@ public class Atm {
         this.numberBanknotes100 = numberBanknotes100;
     }
 
-    public int getNumberBanknotes20() {
-        return numberBanknotes20;
-    }
-
-    public int getNumberBanknotes50() {
-        return numberBanknotes50;
-    }
-
-    public int getNumberBanknotes100() {
-        return numberBanknotes100;
-    }
-
-    public void addBanknotes20(int number) {
-        this.numberBanknotes20 += number;
-    }
-
-    public void addBanknotes50(int number) {
-        this.numberBanknotes50 += number;
-    }
-
-    public void addBanknotes100(int number) {
-        this.numberBanknotes100 += number;
-    }
-
     public boolean isPossibleIssue(int amount) {
         boolean result;
         if (amount > getTotalMoneyInAtm()) {
@@ -69,5 +45,29 @@ public class Atm {
         return numberBanknotes20 * DENOMINATION_OF_BANKNOTES_20 +
                 numberBanknotes50 * DENOMINATION_OF_BANKNOTES_50 +
                 numberBanknotes100 * DENOMINATION_OF_BANKNOTES_100;
+    }
+
+    public int getNumberBanknotes20() {
+        return numberBanknotes20;
+    }
+
+    public int getNumberBanknotes50() {
+        return numberBanknotes50;
+    }
+
+    public int getNumberBanknotes100() {
+        return numberBanknotes100;
+    }
+
+    public void addBanknotes20(int number) {
+        this.numberBanknotes20 += number;
+    }
+
+    public void addBanknotes50(int number) {
+        this.numberBanknotes50 += number;
+    }
+
+    public void addBanknotes100(int number) {
+        this.numberBanknotes100 += number;
     }
 }
