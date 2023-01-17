@@ -100,7 +100,7 @@ public class StringUtil {
             return 0;
         }
         int counter = 0;
-        for(String word : str.trim().split(" ")) {
+        for (String word : str.trim().split(" ")) {
             counter++;
         }
         return counter;
@@ -110,11 +110,25 @@ public class StringUtil {
         if (str == null || str.isEmpty()) {
             return "";
         }
-        String initials = "";
         String[] firstSecondName = str.toUpperCase().trim().split(" ");
+        String initials = "";
         for (String i : firstSecondName) {
             initials += i.charAt(0);
         }
-        return  initials;
+        return initials;
+    }
+
+    String getAllNumbers(String str) {
+        char[] number = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+        char[] arrayFromString = str.toCharArray();
+        StringBuffer stringBuffer = new StringBuffer();
+        for (char i : arrayFromString) {
+            for (char j : number) {
+                if (i == j) {
+                    stringBuffer.append(i);
+                }
+            }
+        }
+        return stringBuffer.toString();
     }
 }
