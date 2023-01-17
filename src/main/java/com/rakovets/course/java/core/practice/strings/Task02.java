@@ -33,9 +33,25 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] reportArray = report.split("\\s+");
+        double[] result;
+        int counter = 0;
+
+        for (String s : reportArray) {
+            if (s.matches("-?\\d+\\.?\\d*\\$")) {
+                counter++;
+            }
+        }
+        result = new double[counter];
+        counter = 0;
+        for (String money: reportArray) {
+            if (money.matches("-?\\d+\\.?\\d*\\$")) {
+                result[counter] = Double.parseDouble(money.replace("$", ""));
+                counter++;
+            }
+        }
+
+        return result;
     }
 
     /**
