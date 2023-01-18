@@ -531,4 +531,17 @@ public class StringUtilTest {
 
         Assertions.assertEquals("1188899966", result);
     }
+
+    @Test
+    void getSubstringsTest() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "aaabbbsssrrrtttyyyuuu";
+        int numberSubstrings = 3;
+
+        String[] result = stringUtil.getSubstrings(str, numberSubstrings);
+        String[] expect = {"aaa", "bbb", "sss", "rrr", "ttt", "yyy", "uuu"};
+
+        Assertions.assertEquals(expect, result);
+    }
+
 }
