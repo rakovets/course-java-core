@@ -543,6 +543,7 @@ public class StringUtilTest {
 
         Assertions.assertArrayEquals(expect, result);
     }
+
     @Test
     void getSubstringsTest2() {
         StringUtil stringUtil = new StringUtil();
@@ -554,6 +555,7 @@ public class StringUtilTest {
 
         Assertions.assertArrayEquals(expect, result);
     }
+
     @Test
     void getSubstringsTest3() {
         StringUtil stringUtil = new StringUtil();
@@ -565,6 +567,4 @@ public class StringUtilTest {
 
         Assertions.assertArrayEquals(expect, result);
     }
-
-
 }
