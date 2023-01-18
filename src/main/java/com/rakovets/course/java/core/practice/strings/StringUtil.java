@@ -1,57 +1,48 @@
 package com.rakovets.course.java.core.practice.strings;
 
 public class StringUtil {
-    String glue(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return "";
-        }
-        return str1.concat(str2);
+    public String glue(String str1, String str2) {
+        String refusal = "";
+        return (str1 == null || str2 == null) ? refusal : str1.concat(str2);
     }
 
-    int finedIndexX(String str) {
-        if (str == null || str.isEmpty()) {
-            return -1;
-        }
-        return str.indexOf('x');
+    public int finedIndexX(String str, char x) {
+        int refusal = -1;
+        return (str == null || str.isEmpty()) ? refusal : str.indexOf(x);
     }
 
-    boolean equivalentTo(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return false;
-        }
-        return str1.equalsIgnoreCase(str2);
+    public boolean equivalentTo(String str1, String str2) {
+        boolean refusal = false;
+        return (str1 == null || str2 == null) ? refusal : str1.equalsIgnoreCase(str2);
     }
 
-    String trimAndToUpper(String str) {
-        if (str == null || str.isEmpty()) {
-            return "";
-        }
-        str = str.trim();
-        return str.toUpperCase();
+    public String trimAndToUpper(String str) {
+        String refusal = "";
+        return (str == null || str.isEmpty()) ? refusal : str.trim().toUpperCase();
     }
 
-    String extractSubstringFromNtoM(String str, int n, int m) {
+    public String extractSubstringFromNtoM(String str, int n, int m) {
         if (str == null || str.isEmpty()) {
             return "";
         }
         return str.substring(n - 1, m);
     }
 
-    String dontSadSmile(String str) {
+    public String dontSadSmile(String str) {
         if (str == null || str.isEmpty()) {
             return "";
         }
         return str.replace(":(", ":)");
     }
 
-    boolean finedFistWordInString(String str, String start) {
+    public boolean finedFistWordInString(String str, String start) {
         if (str == null || str.isEmpty()) {
             return false;
         }
         return str.startsWith(start);
     }
 
-    int countVowels(String str) {
+    public int countVowels(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
         }
@@ -68,7 +59,7 @@ public class StringUtil {
         return counter;
     }
 
-    int countPunctuationMarks(String str) {
+    public int countPunctuationMarks(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
         }
@@ -85,7 +76,7 @@ public class StringUtil {
         return counter;
     }
 
-    boolean isItPalindrome(String str1) {
+    public boolean isItPalindrome(String str1) {
         if (str1 == null || str1.isEmpty()) {
             return false;
         }
@@ -95,7 +86,7 @@ public class StringUtil {
         return str1.equalsIgnoreCase(str2);
     }
 
-    String[] getSubstrings(String str, int lengthSubstring) {
+    public String[] getSubstrings(String str, int lengthSubstring) {
         if (str == null || str.isEmpty()) {
             String[] empty = {""};
             return empty;
@@ -110,7 +101,7 @@ public class StringUtil {
         return substrings;
     }
 
-    int countWords(String str) {
+    public int countWords(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
         }
@@ -121,7 +112,7 @@ public class StringUtil {
         return counter;
     }
 
-    String getInitials(String str) {
+    public String getInitials(String str) {
         if (str == null || str.isEmpty()) {
             return "";
         }
@@ -133,7 +124,7 @@ public class StringUtil {
         return initials;
     }
 
-    String getAllNumbers(String str) {
+    public String getAllNumbers(String str) {
         if (str == null || str.isEmpty()) {
             return "";
         }
