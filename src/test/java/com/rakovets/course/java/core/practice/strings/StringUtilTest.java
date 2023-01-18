@@ -535,13 +535,36 @@ public class StringUtilTest {
     @Test
     void getSubstringsTest() {
         StringUtil stringUtil = new StringUtil();
-        String str = "aaabbbsssrrrtttyyyuuu";
-        int numberSubstrings = 3;
+        String str = "ttttjjjjkkkkllll";
+        int numberSubstrings = 4;
 
         String[] result = stringUtil.getSubstrings(str, numberSubstrings);
-        String[] expect = {"aaa", "bbb", "sss", "rrr", "ttt", "yyy", "uuu"};
+        String[] expect = {"tttt", "jjjj", "kkkk", "llll"};
 
-        Assertions.assertEquals(expect, result);
+        Assertions.assertArrayEquals(expect, result);
     }
+    @Test
+    void getSubstringsTest2() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "aaabbbsssrrrtttyyy";
+        int numberSubstrings = 6;
+
+        String[] result = stringUtil.getSubstrings(str, numberSubstrings);
+        String[] expect = {"aaabbb", "sssrrr", "tttyyy"};
+
+        Assertions.assertArrayEquals(expect, result);
+    }
+    @Test
+    void getSubstringsTest3() {
+        StringUtil stringUtil = new StringUtil();
+        String str = "Hello I am Johnny ";
+        int numberSubstrings = 6;
+
+        String[] result = stringUtil.getSubstrings(str, numberSubstrings);
+        String[] expect = {"Hello ", "I am J", "ohnny "};
+
+        Assertions.assertArrayEquals(expect, result);
+    }
+
 
 }
