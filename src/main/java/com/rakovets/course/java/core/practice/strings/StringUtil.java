@@ -6,4 +6,8 @@ public class StringUtil {
     }
 
 
+    public int FindSymbolIndex(String str, char x) {
+        return str == null ? -1 : str.indexOf(x);
+
+    }
 }
