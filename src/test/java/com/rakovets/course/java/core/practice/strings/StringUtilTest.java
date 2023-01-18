@@ -275,56 +275,56 @@ public class StringUtilTest {
     }
 
     @Test
-    void finedFistWordInStringTest1() {
+    void equalFistLastWordsTest1() {
         StringUtil stringUtil = new StringUtil();
-        String str = "However, Mexico's legislation is considered";
-        String start = "However";
+        String text = "However Mexico's legislation is considered However";
+        String word = "However";
 
-        boolean result = stringUtil.finedFistWordInString(str, start);
+        boolean result = stringUtil.equalFistLastWords(text, word);
 
         Assertions.assertTrue(result);
     }
 
     @Test
-    void finedFistWordInStringTest2() {
+    void equalFistLastWordsTest2() {
         StringUtil stringUtil = new StringUtil();
-        String str = "labour has outlined plans to reform the system should it win power";
-        String start = "labour has";
+        String text = "labour has outlined plans to reform the system should it win power LABOUR";
+        String word = "labour";
 
-        boolean result = stringUtil.finedFistWordInString(str, start);
+        boolean result = stringUtil.equalFistLastWords(text, word);
 
         Assertions.assertTrue(result);
     }
 
     @Test
-    void finedFistWordInStringTest3() {
+    void equalFistLastWordsTest3() {
         StringUtil stringUtil = new StringUtil();
-        String str = "However, Mexico's legislation is considered";
-        String start = "legislation";
+        String text = "However, Mexico's legislation is considered";
+        String word = "However";
 
-        boolean result = stringUtil.finedFistWordInString(str, start);
+        boolean result = stringUtil.equalFistLastWords(text, word);
 
         Assertions.assertFalse(result);
     }
 
     @Test
-    void finedFistWordInStringTest4() {
+    void equalFistLastWordsTest4() {
         StringUtil stringUtil = new StringUtil();
-        String str = "";
-        String start = "legislation";
+        String text = "";
+        String word = "legislation";
 
-        boolean result = stringUtil.finedFistWordInString(str, start);
+        boolean result = stringUtil.equalFistLastWords(text, word);
 
         Assertions.assertFalse(result);
     }
 
     @Test
-    void finedFistWordInStringTest5() {
+    void equalFistLastWordsTest5() {
         StringUtil stringUtil = new StringUtil();
-        String str = null;
-        String start = "legislation";
+        String text = null;
+        String word = "legislation";
 
-        boolean result = stringUtil.finedFistWordInString(str, start);
+        boolean result = stringUtil.equalFistLastWords(text, word);
 
         Assertions.assertFalse(result);
     }
