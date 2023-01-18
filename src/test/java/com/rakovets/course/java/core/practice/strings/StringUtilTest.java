@@ -54,7 +54,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
         String test = "labour has outlined plans to reform the system should it win power";
 
-        int result = stringUtil.finedIndexX(test);
+        int result = stringUtil.finedIndexX(test, 'x');
 
         Assertions.assertEquals(-1, result);
     }
@@ -64,7 +64,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
         String test = "Mexico tightens ban on smoking in public places";
 
-        int result = stringUtil.finedIndexX(test);
+        int result = stringUtil.finedIndexX(test, 'x');
 
         Assertions.assertEquals(2, result);
     }
@@ -74,7 +74,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
         String test = "";
 
-        int result = stringUtil.finedIndexX(test);
+        int result = stringUtil.finedIndexX(test, 'x');
 
         Assertions.assertEquals(-1, result);
     }
@@ -84,7 +84,7 @@ public class StringUtilTest {
         StringUtil stringUtil = new StringUtil();
         String test = null;
 
-        int result = stringUtil.finedIndexX(test);
+        int result = stringUtil.finedIndexX(test, 'x');
 
         Assertions.assertEquals(-1, result);
     }
@@ -95,7 +95,7 @@ public class StringUtilTest {
         String test = "However, Mexico's legislation is considered to " +
                 "be the most robust and wide-ranging in the Americas.";
 
-        int result = stringUtil.finedIndexX(test);
+        int result = stringUtil.finedIndexX(test, 'x');
 
         Assertions.assertEquals(11, result);
     }
