@@ -37,18 +37,12 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        String[] information = informationAboutStuff.split(";");
-        String[] names = new String[information.length];
-        String[][] informationEmployee = new String[3][information.length];
-        for (int i = 0; i < information.length; i++) {
-            for (int j = 0; j < 3; j++) {
-                informationEmployee[j][i] = Arrays.toString(information[j].trim().split(" "));
-            }
+        String[] informationEmployees = informationAboutStuff.split(";");
+        String[] firstNames = new String[informationEmployees.length];
+        for (int i = 0; i < informationEmployees.length; i++) {
+            firstNames[i] = informationEmployees[i].split("\\s+")[0];
         }
-        for (int i = 0; i < names.length; i++) {
-            names[i] = informationEmployee[0][i];
-        }
-        return names;
+        return firstNames;
     }
 
     /**
@@ -58,9 +52,12 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] informationEmployees = informationAboutStuff.split(";");
+        String[] secondNames = new String[informationEmployees.length];
+        for (int i = 0; i < informationEmployees.length; i++) {
+            secondNames[i] = informationEmployees[i].split("\\s+")[1];
+        }
+        return secondNames;
     }
 
     /**
@@ -70,8 +67,11 @@ class Task03 extends StandardInputTask {
      * @return массив зарплат персонала, где каждый элемент является зарплатой одного сотрудника
      */
     static int[] parseToArraySalary(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] informationEmployees = informationAboutStuff.split(";");
+        int[] salary = new int[informationEmployees.length];
+        for (int i = 0; i < informationEmployees.length; i++) {
+            salary[i] = Integer.valueOf(informationEmployees[i].split("\\s+")[2]);
+        }
+        return salary;
     }
 }
