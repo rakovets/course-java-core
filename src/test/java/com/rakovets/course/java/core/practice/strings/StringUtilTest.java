@@ -131,7 +131,7 @@ public class StringUtilTest {
 
         boolean equality = stringUtil.checkEqual("Hello", "world");
 
-        Assertions.assertEquals(false, equality);
+        Assertions.assertFalse(equality);
     }
 
     @Test
@@ -141,7 +141,7 @@ public class StringUtilTest {
 
         boolean equality = stringUtil.checkEqual("", "world");
 
-        Assertions.assertEquals(false, equality);
+        Assertions.assertFalse(equality);
     }
 
     @Test
@@ -151,7 +151,7 @@ public class StringUtilTest {
 
         boolean equality = stringUtil.checkEqual(null, "world");
 
-        Assertions.assertEquals(false, equality);
+        Assertions.assertFalse(equality);
     }
 
     @Test
@@ -161,7 +161,7 @@ public class StringUtilTest {
 
         boolean equality = stringUtil.checkEqual("world", null);
 
-        Assertions.assertEquals(false, equality);
+        Assertions.assertFalse(equality);
     }
 
     @Test
@@ -171,7 +171,7 @@ public class StringUtilTest {
 
         boolean equality = stringUtil.checkEqual("world", "world");
 
-        Assertions.assertEquals(true, equality);
+        Assertions.assertTrue(equality);
     }
 
     @Test
@@ -181,7 +181,7 @@ public class StringUtilTest {
 
         boolean equality = stringUtil.checkEqual(null, null);
 
-        Assertions.assertEquals(false, equality);
+        Assertions.assertFalse(equality);
     }
 
     @Test
