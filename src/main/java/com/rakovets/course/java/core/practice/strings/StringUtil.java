@@ -95,12 +95,27 @@ public class StringUtil {
         return str1.equalsIgnoreCase(str2);
     }
 
+    String[] getSubstrings(String str, int lengthSubstring) {
+        if (str == null || str.isEmpty()) {
+            String[] empty = {""};
+            return empty;
+        }
+        int numberSubstrings = str.length() / lengthSubstring;
+        String[] substrings = new String[numberSubstrings];
+        int indexCut = 0;
+        for (int i = 0; i < numberSubstrings; i++) {
+            substrings[i] = str.substring(indexCut, indexCut + lengthSubstring);
+            indexCut += lengthSubstring;
+        }
+        return substrings;
+    }
+
     int countWords(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
         }
         int counter = 0;
-        for (String word : str.trim().split(" ")) {
+        for (String i : str.trim().split(" ")) {
             counter++;
         }
         return counter;
