@@ -13,6 +13,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("123456", actual);
     }
+
     @Test
     void glueTest2() {
 
@@ -22,6 +23,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("", actual);
     }
+
     @Test
     void glueTest3() {
 
@@ -31,6 +33,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("", actual);
     }
+
     @Test
     void glueTest4() {
 
@@ -40,6 +43,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("", actual);
     }
+
     @Test
     void glueTest5() {
 
@@ -49,6 +53,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("", actual);
     }
+
     @Test
     void findSymbolIndexTest1() {
 
@@ -58,6 +63,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(-1, index);
     }
+
     @Test
     void findSymbolIndexTest2() {
 
@@ -67,6 +73,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(0, index);
     }
+
     @Test
     void findSymbolIndexTest3() {
 
@@ -76,6 +83,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(-1, index);
     }
+
     @Test
     void findSymbolIndexTest4() {
 
@@ -85,6 +93,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(2, index);
     }
+
     @Test
     void findSymbolIndexTest5() {
 
@@ -94,6 +103,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(-1, index);
     }
+
     @Test
     void findSymbolIndexTest6() {
 
@@ -103,6 +113,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(-1, index);
     }
+
     @Test
     void findSymbolIndexTest7() {
 
@@ -122,6 +133,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(false, equality);
     }
+
     @Test
     void checkEqualTest2() {
 
@@ -131,6 +143,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(false, equality);
     }
+
     @Test
     void checkEqualTest3() {
 
@@ -140,6 +153,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(false, equality);
     }
+
     @Test
     void checkEqualTest4() {
 
@@ -149,6 +163,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(false, equality);
     }
+
     @Test
     void checkEqualTest5() {
 
@@ -158,6 +173,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals(true, equality);
     }
+
     @Test
     void checkEqualTest6() {
 
@@ -177,6 +193,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("Hello World!", string);
     }
+
     @Test
     void removeSpacesTest2() {
 
@@ -186,6 +203,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("", string);
     }
+
     @Test
     void removeSpacesTest3() {
 
@@ -195,6 +213,7 @@ public class StringUtilTest {
 
         Assertions.assertEquals("", string);
     }
+
     @Test
     void removeSpacesTest4() {
 
@@ -203,5 +222,85 @@ public class StringUtilTest {
         String string = stringUtil.removeSpaces(null);
 
         Assertions.assertEquals("String is empty", string);
+    }
+
+    @Test
+    void extractSubstringTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("Hello World!", 1, 6);
+
+        Assertions.assertEquals("Hello", string);
+    }
+
+    @Test
+    void extractSubstringTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring(null, 1, 6);
+
+        Assertions.assertEquals("String is empty", string);
+    }
+
+    @Test
+    void extractSubstringTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("", 1, 6);
+
+        Assertions.assertEquals("String is empty", string);
+    }
+
+    @Test
+    void extractSubstringTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("Hello World!", 6, 1);
+
+        Assertions.assertEquals("Invalid character number", string);
+    }
+
+    @Test
+    void extractSubstringTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("Hello World!", 1, 61);
+
+        Assertions.assertEquals("Invalid character number", string);
+    }
+
+    @Test
+    void extractSubstringTest6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("Hello World!", 1, 12);
+
+        Assertions.assertEquals("Hello World", string);
+    }
+
+    @Test
+    void extractSubstringTest7() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("Hello World!", 1, 2);
+
+        Assertions.assertEquals("H", string);
+    }
+
+    @Test
+    void extractSubstringTest8() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.extractSubstring("Hello World!", 1, 1);
+
+        Assertions.assertEquals("Invalid character number", string);
     }
 }
