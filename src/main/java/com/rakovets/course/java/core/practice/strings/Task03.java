@@ -37,9 +37,18 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] information = informationAboutStuff.split(";");
+        String[] names = new String[information.length];
+        String[][] informationEmployee = new String[3][information.length];
+        for (int i = 0; i < information.length; i++) {
+            for (int j = 0; j < 3; j++) {
+                informationEmployee[j][i] = Arrays.toString(information[j].trim().split(" "));
+            }
+        }
+        for (int i = 0; i < names.length; i++) {
+            names[i] = informationEmployee[0][i];
+        }
+        return names;
     }
 
     /**
