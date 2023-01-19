@@ -37,7 +37,7 @@ public class Atm {
         return counter;
     }
 
-    public void printAllWithdrawMoney(int amount) {
+    public void printAllWithdrawalOptions(int amount) {
         int length = withdrawMoneyFromAtm(amount);
         int counter = 0;
         int[][] combinations = new int[length][3];
