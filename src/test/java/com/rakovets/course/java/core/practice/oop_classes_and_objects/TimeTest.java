@@ -7,6 +7,7 @@ public class TimeTest {
     @Test
     void convertSecondToHoursMinutesSecondsTest1() {
         Time time = new Time(3661);
+
         Assertions.assertEquals(1, time.getHours());
         Assertions.assertEquals(1, time.getMinutes());
         Assertions.assertEquals(1, time.getSeconds());
@@ -15,6 +16,7 @@ public class TimeTest {
     @Test
     void convertSecondToHoursMinutesSecondsTest2() {
         Time time = new Time(20715);
+
         Assertions.assertEquals(5, time.getHours());
         Assertions.assertEquals(45, time.getMinutes());
         Assertions.assertEquals(15, time.getSeconds());
@@ -55,6 +57,7 @@ public class TimeTest {
         Assertions.assertEquals(10, time.getMinutes());
         Assertions.assertEquals(21, time.getSeconds());
     }
+
     @Test
     void convertSecondToHoursMinutesSecondsTest7() {
         Time time = new Time(7860);
