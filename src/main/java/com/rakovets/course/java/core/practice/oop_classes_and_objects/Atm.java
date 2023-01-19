@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
+import java.util.Arrays;
+
 public class Atm {
+
     private int numberBanknotes20;
     private int numberBanknotes50;
     private int numberBanknotes100;
@@ -20,24 +23,46 @@ public class Atm {
         if (amount > getTotalMoneyInAtm()) {
             result = false;
         } else {
-            withdrawMoneyFromAtm(amount, DENOMINATION_OF_BANKNOTES_100, numberBanknotes100);
-            withdrawMoneyFromAtm(amount, DENOMINATION_OF_BANKNOTES_50, numberBanknotes50);
-            withdrawMoneyFromAtm(amount, DENOMINATION_OF_BANKNOTES_20, numberBanknotes20);
-            result = amount == 0;
+            result = withdrawMoneyFromAtm(amount) != 0;
         }
         return result;
     }
 
-    private void withdrawMoneyFromAtm(int amount, int denominationOfBanknotes, int numberBanknotes) {
-        int sum;
-        if (amount > denominationOfBanknotes) {
-            for (int i = numberBanknotes; i >= 0; i--) {
-                sum = amount - denominationOfBanknotes;
-                if (sum < 0) {
-                    break;
+    private int withdrawMoneyFromAtm(int amount) {
+        int counter = 0;
+        for (int i = 0; i <= numberBanknotes100; i++) {
+            for (int j = 0; j <= numberBanknotes50; j++) {
+                for (int k = 0; k <= numberBanknotes20; k++) {
+                    if (i * DENOMINATION_OF_BANKNOTES_100 + j * DENOMINATION_OF_BANKNOTES_50 +
+                            k * DENOMINATION_OF_BANKNOTES_20 == amount) {
+                        counter++;
+                    }
                 }
-                amount = sum;
             }
+        }
+        return counter;
+    }
+
+    public void printAllWithdrawMoney(int amount) {
+        int length = withdrawMoneyFromAtm(amount);
+        int counter = 0;
+        int[][] combinations = new int[length][3];
+        for (int i = 0; i <= numberBanknotes100; i++) {
+            for (int j = 0; j <= numberBanknotes50; j++) {
+                for (int k = 0; k <= numberBanknotes20; k++) {
+                    if (i * DENOMINATION_OF_BANKNOTES_100 + j * DENOMINATION_OF_BANKNOTES_50 +
+                            k * DENOMINATION_OF_BANKNOTES_20 == amount) {
+                        combinations[counter][0] = i;
+                        combinations[counter][1] = j;
+                        combinations[counter][2] = k;
+                        counter++;
+                    }
+                }
+            }
+        }
+        System.out.printf("%s, %s, %s  banknotes in ATM \n", 100, 50, 20);
+        for (int[] ints : combinations) {
+            System.out.println(Arrays.toString(ints));
         }
     }
 
