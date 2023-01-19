@@ -69,6 +69,25 @@ public class StringUtil {
     }
 
     //task 9
+    public int countTotalNumberPunctuationMarks(String str) {
+        int TotalNumberPunctuationMarks;
+        if (str == null || str.isEmpty()) {
+            TotalNumberPunctuationMarks = 0;
+        } else {
+            char[] PunctuationMarks = new char[]{'.', ',', '?', '!'};
+            char[] arrayFromString = str.toCharArray();
+            int counter = 0;
+            for (int i : PunctuationMarks) {
+                for (int j : arrayFromString) {
+                    if (i == j) {
+                        counter++;
+                    }
+                }
+            }
+            TotalNumberPunctuationMarks = counter;
+        }
+        return TotalNumberPunctuationMarks;
+    }
     //task 10
     //task 11
     //task 12

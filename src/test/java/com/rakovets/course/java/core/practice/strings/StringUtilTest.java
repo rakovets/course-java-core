@@ -423,4 +423,34 @@ public class StringUtilTest {
 
         Assertions.assertEquals(0, totalVowerls);
     }
+
+    @Test
+    void countTotalNumberPunctuationMarksTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int TotalNumberPunctuationMarks = stringUtil.countTotalNumberPunctuationMarks(null);
+
+        Assertions.assertEquals(0, TotalNumberPunctuationMarks);
+    }
+
+    @Test
+    void countTotalNumberPunctuationMarksTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int TotalNumberPunctuationMarks = stringUtil.countTotalNumberPunctuationMarks("");
+
+        Assertions.assertEquals(0, TotalNumberPunctuationMarks);
+    }
+
+    @Test
+    void countTotalNumberPunctuationMarksTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int TotalNumberPunctuationMarks = stringUtil.countTotalNumberPunctuationMarks("World! Hello World!");
+
+        Assertions.assertEquals(2, TotalNumberPunctuationMarks);
+    }
 }
