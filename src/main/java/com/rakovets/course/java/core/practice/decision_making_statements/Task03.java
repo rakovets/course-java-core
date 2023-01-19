@@ -39,13 +39,18 @@ class Task03 {
         double currentHealthPercent = (double) (currentHealthPoint * ONE_HUNDRED_PERCENT) / maxHealthPoint;
         System.out.println(currentHealthPercent);
         String colour;
-        if (currentHealthPercent > 0 && currentHealthPercent < 25) {
+        int minRedHealth = 0;
+        int minOrangeHealth = 25;
+        int minYellowHealth = 50;
+        int minGreenHealth = 75;
+        int maxGreenHealth = 100;
+        if (currentHealthPercent > minRedHealth && currentHealthPercent < minOrangeHealth) {
             colour = "RED";
-        } else if (currentHealthPercent >= 25 && currentHealthPercent < 50) {
+        } else if (currentHealthPercent >= minOrangeHealth && currentHealthPercent < minYellowHealth) {
             colour = "ORANGE";
-        } else if (currentHealthPercent >= 50 && currentHealthPercent < 75) {
+        } else if (currentHealthPercent >= minYellowHealth && currentHealthPercent < minGreenHealth) {
             colour = "YELLOW";
-        } else if (currentHealthPercent >= 75 && currentHealthPercent <= 100) {
+        } else if (currentHealthPercent >= minGreenHealth && currentHealthPercent <= maxGreenHealth) {
             colour = "GREEN";
         } else {
             colour = null;

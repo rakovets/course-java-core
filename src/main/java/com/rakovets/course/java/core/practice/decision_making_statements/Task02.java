@@ -37,16 +37,14 @@ class Task02 {
     static String getGreetingByHour(int hour) {
         String massage;
         int earlyMorning = 6;
-        int lateMorning = 11;
         int earlyDay = 12;
-        int lateDay = 17;
         int earlyEvening = 18;
         int lateEvening = 23;
         int earlyNight = 0;
         int lateNight = 5;
-        if (hour >= earlyMorning && hour <= lateMorning) {
+        if (hour >= earlyMorning && hour < earlyDay) {
             massage = "Good morning";
-        } else if (hour >= earlyDay && hour <= lateDay) {
+        } else if (hour >= earlyDay && hour < earlyEvening) {
             massage = "Good day";
         } else if (hour >= earlyEvening && hour <= lateEvening) {
             massage = "Good evening";
