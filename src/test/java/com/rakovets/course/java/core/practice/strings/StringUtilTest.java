@@ -393,4 +393,34 @@ public class StringUtilTest {
 
         Assertions.assertFalse(matches);
     }
+
+    @Test
+    void countNumberOfVowelsTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int totalVowerls = stringUtil.countNumberOfVowels("Hello World");
+
+        Assertions.assertEquals(3, totalVowerls);
+    }
+
+    @Test
+    void countNumberOfVowelsTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int totalVowerls = stringUtil.countNumberOfVowels("");
+
+        Assertions.assertEquals(0, totalVowerls);
+    }
+
+    @Test
+    void countNumberOfVowelsTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int totalVowerls = stringUtil.countNumberOfVowels(null);
+
+        Assertions.assertEquals(0, totalVowerls);
+    }
 }

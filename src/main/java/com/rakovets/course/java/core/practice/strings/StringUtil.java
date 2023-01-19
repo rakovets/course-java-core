@@ -46,7 +46,28 @@ public class StringUtil {
     public boolean checkWordMatchesWithStartEnd(String str, String word) {
         return (str != null && word != null) && (str.startsWith(word) && str.endsWith(word)) ? true : false;
     }
+
     //task 8
+    public int countNumberOfVowels(String str) {
+        int totalNumberOfVowels;
+        if (str == null || str.isEmpty()) {
+            totalNumberOfVowels = 0;
+        } else {
+            char[] vowels = new char[]{'a', 'e', 'i', 'o', 'u', 'y'};
+            char[] arrayFromString = str.toLowerCase().toCharArray();
+            int counter = 0;
+            for (int i : vowels) {
+                for (int j : arrayFromString) {
+                    if (i == j) {
+                        counter++;
+                    }
+                }
+            }
+            totalNumberOfVowels = counter;
+        }
+        return totalNumberOfVowels;
+    }
+
     //task 9
     //task 10
     //task 11
