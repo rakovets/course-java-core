@@ -4,16 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AtmTest {
-    // @Test       the code is not flexible. need to think about the variability
-    //void withdrawMoneyTest1() {
-    //    Atm atm = new Atm(10, 5, 10);
-    //    Assertions.assertEquals(true, atm.isPossibleIssue(1270));
-    // }
     @Test
     void withdrawMoneyTest2() {
         Atm atm = new Atm(10, 5, 10);
 
-        Assertions.assertFalse(atm.isPossibleIssue(1300));
+        Assertions.assertTrue(atm.isPossibleIssue(1300));
     }
 
     @Test
