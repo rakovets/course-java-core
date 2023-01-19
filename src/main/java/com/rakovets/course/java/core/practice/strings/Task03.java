@@ -11,6 +11,9 @@ import java.util.Arrays;
  */
 @SuppressWarnings("unused")
 class Task03 extends StandardInputTask {
+    private static final int NAME_POSITION = 0;
+    private static final int SURNAME_POSITION = 1;
+    private static final int SALARY_POSITION = 2;
     /**
      * The entry point of the task
      *
@@ -39,7 +42,12 @@ class Task03 extends StandardInputTask {
     static String[] parseToArrayName(String informationAboutStuff) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] personalInformation = informationAboutStuff.split(";");
+        String[] personalNames = new String[personalInformation.length];
+        for (int i = 0; i < personalInformation.length; i++) {
+            personalNames[i] = personalInformation[i].split("\\s+")[NAME_POSITION];
+        }
+        return personalNames;
     }
 
     /**
@@ -51,7 +59,12 @@ class Task03 extends StandardInputTask {
     static String[] parseToArraySurname(String informationAboutStuff) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] personalInformation = informationAboutStuff.split(";");
+        String[] personalSurnames = new String[personalInformation.length];
+        for (int i = 0; i < personalInformation.length; i++) {
+            personalSurnames[i] = personalInformation[i].split("\\s+")[SURNAME_POSITION];
+        }
+        return personalSurnames;
     }
 
     /**
@@ -63,6 +76,11 @@ class Task03 extends StandardInputTask {
     static int[] parseToArraySalary(String informationAboutStuff) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] personalInformation = informationAboutStuff.split(";");
+        int[] personalSalary = new int[personalInformation.length];
+        for (int i = 0; i < personalInformation.length; i++) {
+            personalSalary[i] = Integer.parseInt(personalInformation[i].split("\\s+")[SALARY_POSITION]);
+        }
+        return personalSalary;
     }
 }
