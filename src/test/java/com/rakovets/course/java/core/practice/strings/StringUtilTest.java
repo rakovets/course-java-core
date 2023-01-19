@@ -303,4 +303,34 @@ public class StringUtilTest {
 
         Assertions.assertEquals("Invalid character number", string);
     }
+
+    @Test
+    void returnWithReplacementTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.returnWithReplacement(":( Hello World! :(", '(', ')');
+
+        Assertions.assertEquals(":) Hello World! :)", string);
+    }
+
+    @Test
+    void returnWithReplacementTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.returnWithReplacement(null, '(', ')');
+
+        Assertions.assertEquals("String is empty", string);
+    }
+
+    @Test
+    void returnWithReplacementTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String string = stringUtil.returnWithReplacement(":) (: Hello World! :) (:", '(', ')');
+
+        Assertions.assertEquals(":) ): Hello World! :) ):", string);
+    }
 }

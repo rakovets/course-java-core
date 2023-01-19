@@ -36,7 +36,12 @@ public class StringUtil {
             return new String(dst);
         }
     }
+
     //task 6
+    public String returnWithReplacement(String str, char withdraw, char insert) {
+        return str == null || str == "" ? "String is empty" : str.replace(withdraw, insert);
+    }
+
     //task 7
     //task 8
     //task 9
