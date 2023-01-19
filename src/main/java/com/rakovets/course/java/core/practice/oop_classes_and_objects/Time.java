@@ -8,10 +8,6 @@ public class Time {
     private int seconds;
 
     public Time(int totalSeconds) {
-        convertSecondToHoursMinutesSeconds(totalSeconds);
-    }
-
-    public void convertSecondToHoursMinutesSeconds(int totalSeconds) {
         this.hours = totalSeconds / SECONDS_IN_HOUR;
         int totalTimeWithoutHours = totalSeconds - hours * SECONDS_IN_HOUR;
         this.minutes = totalTimeWithoutHours / SECONDS_IN_MINUTE;
