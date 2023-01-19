@@ -19,13 +19,7 @@ public class Atm {
     }
 
     public boolean isPossibleIssue(int amount) {
-        boolean result;
-        if (amount > getTotalMoneyInAtm()) {
-            result = false;
-        } else {
-            result = withdrawMoneyFromAtm(amount) != 0;
-        }
-        return result;
+        return amount <= getTotalMoneyInAtm() && withdrawMoneyFromAtm(amount) != 0;
     }
 
     private int withdrawMoneyFromAtm(int amount) {
