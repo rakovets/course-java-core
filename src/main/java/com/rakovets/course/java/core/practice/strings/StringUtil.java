@@ -14,7 +14,7 @@ public class StringUtil {
 
     //task 3
     public boolean checkEqual(String str1, String str2) {
-        return str1 == null || str2 == null ? false : str1.equals(str2);
+        return (str1 != null || str2 != null) ? str1.equals(str2) : false;
     }
 
     //task 4
@@ -24,7 +24,7 @@ public class StringUtil {
 
     //task 5
     public String extractSubstring(String str, int startCountInString, int endCountInString) {
-        if (str == null || str == "") {
+        if (str == null || str.length() == 0) {
             return "String is empty";
         } else if (startCountInString >= endCountInString || endCountInString > str.length()) {
             return "Invalid character number";
@@ -39,10 +39,13 @@ public class StringUtil {
 
     //task 6
     public String returnWithReplacement(String str, char withdraw, char insert) {
-        return str == null || str == "" ? "String is empty" : str.replace(withdraw, insert);
+        return str == null || str.length() == 0 ? "String is empty" : str.replace(withdraw, insert);
     }
 
     //task 7
+    public boolean checkWordMatchesWithStartEnd(String str, String word) {
+        return (str != null && word != null) && (str.startsWith(word) && str.endsWith(word)) ? true : false;
+    }
     //task 8
     //task 9
     //task 10

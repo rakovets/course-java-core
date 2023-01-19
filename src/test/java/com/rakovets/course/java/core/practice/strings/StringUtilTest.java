@@ -333,4 +333,64 @@ public class StringUtilTest {
 
         Assertions.assertEquals(":) ): Hello World! :) ):", string);
     }
+
+    @Test
+    void checkWordMatchesWithStartEndTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean matches = stringUtil.checkWordMatchesWithStartEnd("Hello world", "world");
+
+        Assertions.assertFalse(matches);
+    }
+
+    @Test
+    void checkWordMatchesWithStartEndTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean matches = stringUtil.checkWordMatchesWithStartEnd("World! Hello World", "World");
+
+        Assertions.assertTrue(matches);
+    }
+
+    @Test
+    void checkWordMatchesWithStartEndTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean matches = stringUtil.checkWordMatchesWithStartEnd(null, "World");
+
+        Assertions.assertFalse(matches);
+    }
+
+    @Test
+    void checkWordMatchesWithStartEndTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean matches = stringUtil.checkWordMatchesWithStartEnd("Hello", null);
+
+        Assertions.assertFalse(matches);
+    }
+
+    @Test
+    void checkWordMatchesWithStartEndTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean matches = stringUtil.checkWordMatchesWithStartEnd("", "");
+
+        Assertions.assertTrue(matches);
+    }
+
+    @Test
+    void checkWordMatchesWithStartEndTest6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean matches = stringUtil.checkWordMatchesWithStartEnd(null, null);
+
+        Assertions.assertFalse(matches);
+    }
 }
