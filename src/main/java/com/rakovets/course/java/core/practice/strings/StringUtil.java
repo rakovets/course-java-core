@@ -14,7 +14,7 @@ public class StringUtil {
 
     //task 3
     public boolean checkEqual(String str1, String str2) {
-        return (str1 != null || str2 != null) ? str1.equals(str2) : false;
+        return ((str1 == null || str2 == null) || (str1.isEmpty() || str2.isEmpty())) ? false : str1.equals(str2);
     }
 
     //task 4
@@ -88,7 +88,21 @@ public class StringUtil {
         }
         return TotalNumberPunctuationMarks;
     }
+
     //task 10
+    public boolean checkPalindrome(String str) {
+        boolean result;
+        if (str == null || str.isEmpty()) {
+            result = false;
+        } else {
+            str = str.replace(" ","");
+            StringBuffer strBuffer = new StringBuffer(str);
+            String str2 = strBuffer.reverse().toString();
+            result = str.equalsIgnoreCase(str2);
+        }
+        return result;
+    }
+
     //task 11
     //task 12
     //task 13

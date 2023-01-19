@@ -453,4 +453,54 @@ public class StringUtilTest {
 
         Assertions.assertEquals(2, TotalNumberPunctuationMarks);
     }
+
+    @Test
+    void checkPalindromeTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean checkPalindrome = stringUtil.checkPalindrome("deed de ed");
+
+        Assertions.assertTrue(checkPalindrome);
+    }
+
+    @Test
+    void checkPalindromeTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean checkPalindrome = stringUtil.checkPalindrome("А Роза Упала На Лапу Азора");
+
+        Assertions.assertTrue(checkPalindrome);
+    }
+
+    @Test
+    void checkPalindromeTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean checkPalindrome = stringUtil.checkPalindrome("Hello World!");
+
+        Assertions.assertFalse(checkPalindrome);
+    }
+
+    @Test
+    void checkPalindromeTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean checkPalindrome = stringUtil.checkPalindrome("");
+
+        Assertions.assertFalse(checkPalindrome);
+    }
+
+    @Test
+    void checkPalindromeTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        boolean checkPalindrome = stringUtil.checkPalindrome(null);
+
+        Assertions.assertFalse(checkPalindrome);
+    }
 }
