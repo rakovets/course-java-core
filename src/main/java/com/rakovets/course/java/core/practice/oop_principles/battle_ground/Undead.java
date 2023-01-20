@@ -7,12 +7,12 @@ public class Undead extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        int damage = 4;
+        int damage = 14;
         hero.takeDamage(damage);
     }
 
     public void resurrection() {
-        int healthAfterResurrection = 30;
+        int healthAfterResurrection = 50;
         int totalResurrection = 3;
         int deathCounter = 0;
         while (!isAlive() && deathCounter < totalResurrection) {

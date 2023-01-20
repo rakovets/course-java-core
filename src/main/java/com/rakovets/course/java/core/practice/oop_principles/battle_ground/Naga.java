@@ -7,13 +7,13 @@ public class Naga extends Enemy {
 
     @Override
     public void attackHero(Hero hero) {
-        int damage = 10;
+        int damage = 15;
         hero.takeDamage(damage);
     }
 
     public void drinkBlood(Hero hero) {
-        int damage = 20;
-        int regeneration = 10;
+        int damage = 25;
+        int regeneration = 25;
         hero.takeDamage(damage);
         setHealth(getHealth() + regeneration);
     }

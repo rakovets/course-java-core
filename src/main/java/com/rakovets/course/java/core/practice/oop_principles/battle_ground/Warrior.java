@@ -7,13 +7,13 @@ public class Warrior extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        int damage = 8;
+        int damage = 20;
         enemy.takeDamage(damage);
         System.out.println("Again work");
     }
 
     public void crazyAttackEnemy(Enemy enemy) {
-        int damage = 25;
+        int damage = 120;
         enemy.takeDamage(damage);
         System.out.println("For Azeroth! For the Alliance!");
     }

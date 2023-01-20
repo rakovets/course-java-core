@@ -7,13 +7,13 @@ public class Archer extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        int damage = 4;
+        int damage = 9;
         enemy.takeDamage(damage);
         System.out.println("Where is the enemy?");
     }
 
     public void aimedShot(Enemy enemy) {
-        int damage = 15;
+        int damage = 80;
         enemy.takeDamage(damage);
         System.out.println("He who shoots first laughs last.");
     }
