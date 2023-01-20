@@ -1,22 +1,27 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Hero {
+public abstract class Hero implements Mortal {
     private String name;
+    private int health;
 
-    public Hero(String name) {
+    public Hero(String name, int health) {
         this.name = name;
+        this.health = health;
     }
 
-    public Hero() {
+    public abstract void attackEnemy(Enemy enemy);
+
+    public void takeDamage(int damage) {
+        health -= damage;
     }
 
-    public void attackEnemy() {
-        System.out.println("Arm attack");
+    @Override
+    public boolean isAlive() {
+        return health > 0;
     }
 
     public String getName() {
         return name;
     }
-
 
 }
