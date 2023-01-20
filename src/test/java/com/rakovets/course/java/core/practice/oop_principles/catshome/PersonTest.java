@@ -1,12 +1,19 @@
 package com.rakovets.course.java.core.practice.oop_principles.catshome;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PersonTest {
+    static Person person;
+
+    @BeforeEach
+    void init() {
+        person = new Person(70);
+    }
+
     @Test
     void personTest() {
-        Person person = new Person(70);
 
         int actual = person.getHappiness();
 
@@ -15,8 +22,6 @@ public class PersonTest {
 
     @Test
     void changeHappinessTest1() {
-        Person person = new Person(70);
-
         person.changeHappiness(10);
 
         Assertions.assertEquals(80, person.getHappiness());
