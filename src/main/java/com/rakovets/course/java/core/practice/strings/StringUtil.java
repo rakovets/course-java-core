@@ -104,9 +104,25 @@ public class StringUtil {
     }
 
     //task 11
+    public String[] divideIntoEqualParts(String str, int step) {
+        String[] result;
+        if (str == null || str.isEmpty() || step == 0 || step > str.length()) {
+            result = new String[]{"not correct"};
+        } else {
+            int totalParts = str.length() / step;
+            String[] substrings = new String[totalParts];
+            int indexCut = 0;
+            for (int i = 0; i < totalParts; i++) {
+                substrings[i] = str.substring(indexCut, indexCut + step);
+                indexCut += step;
+            }
+            result = substrings;
+        }
+        return result;
+    }
 
     //task 12
-    public int sumWolds(String str) {
+    public int sumWords(String str) {
         int result = 0;
         if (str == null || str.isEmpty()) {
             result = 0;
@@ -123,7 +139,7 @@ public class StringUtil {
     }
 
     //task 12(another version1)
-    public int sumWoldsVersion1(String str) {
+    public int sumWordsVersion1(String str) {
         int sum;
         if (str == null || str.isEmpty() || str.trim().isEmpty()) {
             sum = 0;

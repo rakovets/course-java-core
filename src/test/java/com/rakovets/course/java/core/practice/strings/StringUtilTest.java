@@ -505,201 +505,266 @@ public class StringUtilTest {
     }
 
     @Test
-    void sumWoldsTest1() {
+    void divideIntoEqualPartsTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+        String text = "hhheeelllooo";
+        int step = 3;
+
+        String[] result = stringUtil.divideIntoEqualParts(text, step);
+        String[] outPut = {"hhh", "eee", "lll", "ooo"};
+
+        Assertions.assertArrayEquals(outPut, result);
+    }
+
+    @Test
+    void divideIntoEqualPartsTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+        String text = null;
+        int step = 3;
+
+        String[] result = stringUtil.divideIntoEqualParts(text, step);
+        String[] outPut = {"not correct"};
+
+        Assertions.assertArrayEquals(outPut, result);
+    }
+
+    @Test
+    void divideIntoEqualPartsTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+        String text = "";
+        int step = 3;
+
+        String[] result = stringUtil.divideIntoEqualParts(text, step);
+        String[] outPut = {"not correct"};
+
+        Assertions.assertArrayEquals(outPut, result);
+    }
+
+    @Test
+    void divideIntoEqualPartsTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+        String text = "hhheeelllooo";
+        int step = 0;
+
+        String[] result = stringUtil.divideIntoEqualParts(text, step);
+        String[] outPut = {"not correct"};
+
+        Assertions.assertArrayEquals(outPut, result);
+    }
+
+    @Test
+    void divideIntoEqualPartsTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+        String text = "hhheeelllooo";
+        int step = 20;
+
+        String[] result = stringUtil.divideIntoEqualParts(text, step);
+        String[] outPut = {"not correct"};
+
+        Assertions.assertArrayEquals(outPut, result);
+    }
+
+    @Test
+    void sumWordsTest1() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds("Hello! Hello wold!");
+        int text = stringUtil.sumWords("Hello! Hello wold!");
 
         Assertions.assertEquals(3, text);
     }
 
     @Test
-    void sumWoldsTest2() {
+    void sumWordsTest2() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds(null);
+        int text = stringUtil.sumWords(null);
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumWoldsTest3() {
+    void sumWordsTest3() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds("");
+        int text = stringUtil.sumWords("");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumWoldsTest4() {
+    void sumWordsTest4() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds(" word");
+        int text = stringUtil.sumWords(" word");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsTest5() {
+    void sumWordsTest5() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds("word ");
+        int text = stringUtil.sumWords("word ");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsTest6() {
+    void sumWordsTest6() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds(" words with spaces ");
+        int text = stringUtil.sumWords(" words with spaces ");
 
         Assertions.assertEquals(3, text);
     }
 
     @Test
-    void sumWoldsTest7() {
+    void sumWordsTest7() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds("words   with    many spaces");
+        int text = stringUtil.sumWords("words   with    many spaces");
 
         Assertions.assertEquals(4, text);
     }
 
     @Test
-    void sumWoldsTest8() {
+    void sumWordsTest8() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds(" ");
+        int text = stringUtil.sumWords(" ");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumWoldsTest9() {
+    void sumWordsTest9() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWolds("a");
+        int text = stringUtil.sumWords("a");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsVersion1Test1() {
+    void sumWordsVersion1Test1() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("Hello! Hello World!");
+        int text = stringUtil.sumWordsVersion1("Hello! Hello World!");
 
         Assertions.assertEquals(3, text);
     }
 
     @Test
-    void sumWoldsVersion1Test2() {
+    void sumWordsVersion1Test2() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1(null);
+        int text = stringUtil.sumWordsVersion1(null);
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumWoldsVersion1Test3() {
+    void sumWordsVersion1Test3() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("");
+        int text = stringUtil.sumWordsVersion1("");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumWoldsVersion1Test4() {
+    void sumWordsVersion1Test4() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("    ");
+        int text = stringUtil.sumWordsVersion1("    ");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumWoldsVersion1Test5() {
+    void sumWordsVersion1Test5() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1(" word");
+        int text = stringUtil.sumWordsVersion1(" word");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsVersion1Test6() {
+    void sumWordsVersion1Test6() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("word ");
+        int text = stringUtil.sumWordsVersion1("word ");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsVersion1Test7() {
+    void sumWordsVersion1Test7() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1(" a");
+        int text = stringUtil.sumWordsVersion1(" a");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsVersion1Test8() {
+    void sumWordsVersion1Test8() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("a ");
+        int text = stringUtil.sumWordsVersion1("a ");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsVersion1Test9() {
+    void sumWordsVersion1Test9() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("     aaa aaaa    ");
+        int text = stringUtil.sumWordsVersion1("     aaa aaaa    ");
 
         Assertions.assertEquals(2, text);
     }
 
     @Test
-    void sumWoldsVersion1Test10() {
+    void sumWordsVersion1Test10() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1("a");
+        int text = stringUtil.sumWordsVersion1("a");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumWoldsVersion1Test11() {
+    void sumWordsVersion1Test11() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumWoldsVersion1(" ");
+        int text = stringUtil.sumWordsVersion1(" ");
 
         Assertions.assertEquals(0, text);
     }
