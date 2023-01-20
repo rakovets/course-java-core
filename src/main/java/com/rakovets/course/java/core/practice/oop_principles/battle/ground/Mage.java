@@ -6,7 +6,8 @@ public class Mage extends Hero {
     }
 
     @Override
-    public void attackEnemy() {
+    public void attackEnemy(Enemy enemy) {
+        enemy.takeDamage(30);
         System.out.println("Mage casts frost-bolt!");
     }
 }

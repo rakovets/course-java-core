@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
 
-public class Hero {
+public abstract class Hero {
     private String name;
 
     public Hero(String name) {
@@ -11,7 +11,5 @@ public class Hero {
         return name;
     }
 
-    public void attackEnemy() {
-        System.out.println("Hero attacks enemy!");
-    }
+    public abstract void attackEnemy(Enemy enemy);
 }

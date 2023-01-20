@@ -6,7 +6,8 @@ public class Archer extends Hero {
     }
 
     @Override
-    public void attackEnemy() {
+    public void attackEnemy(Enemy enemy) {
+        enemy.takeDamage(15);
         System.out.println("The archer fires an arrow!");
     }
 }
