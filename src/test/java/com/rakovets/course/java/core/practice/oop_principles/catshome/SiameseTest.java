@@ -1,13 +1,19 @@
 package com.rakovets.course.java.core.practice.oop_principles.catshome;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class SiameseTest {
+    static Siamese siamese;
+
+    @BeforeEach
+    void init() {
+        siamese = new Siamese("Marple");
+    }
+
     @Test
     void siameseTest() {
-        Siamese siamese = new Siamese("Marple");
-
         String actual = siamese.getName();
 
         Assertions.assertEquals("Marple", actual);
@@ -15,61 +21,51 @@ public class SiameseTest {
 
     @Test
     void mewTest1() {
-        Cat cat = new Cat("Tom");
+        String actual = siamese.mew();
 
-        String actual = cat.mew();
-
-        Assertions.assertEquals("Mew, mew, mew!", actual);
+        Assertions.assertEquals("Meow, meow, meow!", actual);
     }
 
     @Test
     void mewTest2() {
-        Cat cat = new Cat("Tom");
         Person user = new Person(70);
 
-        String actualString = cat.mew(user);
+        String actualString = siamese.mew(user);
         int actual = user.getHappiness();
 
-        Assertions.assertEquals("Mew, mew, mew!", actualString);
-        Assertions.assertEquals(65, actual);
+        Assertions.assertEquals("Meow, meow, meow!", actualString);
+        Assertions.assertEquals(63, actual);
     }
 
     @Test
     void purrTest1() {
-        Cat cat = new Cat("Tom");
+        String actual = siamese.purr();
 
-        String actual = cat.purr();
-
-        Assertions.assertEquals("Purr...", actual);
+        Assertions.assertEquals("Murrr...", actual);
     }
 
     @Test
     void purrTest2() {
-        Cat cat = new Cat("Tom");
         Person user = new Person(70);
 
-        String actualString = cat.purr(user);
+        String actualString = siamese.purr(user);
         int actual = user.getHappiness();
 
-        Assertions.assertEquals("Purr...", actualString);
-        Assertions.assertEquals(75, actual);
+        Assertions.assertEquals("Murrr...", actualString);
+        Assertions.assertEquals(78, actual);
     }
 
     @Test
     void getNameTest() {
-        Cat cat = new Cat("Tom");
+        String actual = siamese.getName();
 
-        String actual = cat.getName();
-
-        Assertions.assertEquals("Tom", actual);
+        Assertions.assertEquals("Marple", actual);
     }
 
     @Test
     void setNameTest() {
-        Cat cat = new Cat("Tom");
-
-        cat.setName("Barsik");
-        String actual = cat.getName();
+        siamese.setName("Barsik");
+        String actual = siamese.getName();
 
         Assertions.assertEquals("Barsik", actual);
     }
