@@ -153,6 +153,23 @@ public class StringUtil {
     }
 
     //task 14
+    public String getTotalDigits(String str) {
+        String totalDigits;
+        if (str == null || str.trim().isEmpty()) {
+            totalDigits = "String is empty";
+        } else {
+            char[] arrayStr = str.toCharArray();
+            StringBuffer stringBuffer = new StringBuffer();
+                for (char i : arrayStr) {
+                    if (Character.isDigit(i)) {
+                        stringBuffer.append(i);
+                    }
+                }
+            totalDigits = stringBuffer.toString();
+            }
+        return totalDigits;
+    }
+
     //task 15
     //task 16
     //task 17

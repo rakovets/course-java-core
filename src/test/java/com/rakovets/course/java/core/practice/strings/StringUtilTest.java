@@ -774,6 +774,76 @@ public class StringUtilTest {
         Assertions.assertEquals("AO", result);
     }
 
+    @Test
+    void getTotalDigitsTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits(null);
+
+        Assertions.assertEquals("String is empty", TotalDigits);
+    }
+
+    @Test
+    void getTotalDigitsTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits("");
+
+        Assertions.assertEquals("String is empty", TotalDigits);
+    }
+
+    @Test
+    void getTotalDigitsTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits(" ");
+
+        Assertions.assertEquals("String is empty", TotalDigits);
+    }
+
+    @Test
+    void getTotalDigitsTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits("Hello World!");
+
+        Assertions.assertEquals("", TotalDigits);
+    }
+
+    @Test
+    void getTotalDigitsTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits(" 4");
+
+        Assertions.assertEquals("4", TotalDigits);
+    }
+
+    @Test
+    void getTotalDigitsTest6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits("4 ");
+
+        Assertions.assertEquals("4", TotalDigits);
+    }
+
+    @Test
+    void getTotalDigitsTest7() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String TotalDigits = stringUtil.getTotalDigits("1290 on 1390 5min ");
+
+        Assertions.assertEquals("129013905", TotalDigits);
+    }
+
 
     /*
 
