@@ -9,6 +9,6 @@ public class Archer extends Hero {
     public void attackEnemy(Enemy enemy) {
         int damage = 3;
         enemy.takeDamage(damage);
-        System.out.println("Bow attack");
+        System.out.println("Where is the enemy?");
     }
 }

@@ -9,8 +9,6 @@ public class Mag extends Hero {
     public void attackEnemy(Enemy enemy) {
         int damage = 2;
         enemy.takeDamage(damage);
-        System.out.println("Magic attack");
+        System.out.println("I see the future");
     }
-
-
 }

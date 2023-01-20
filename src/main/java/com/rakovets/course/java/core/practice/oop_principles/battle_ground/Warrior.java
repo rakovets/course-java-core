@@ -9,7 +9,7 @@ public class Warrior extends Hero {
     public void attackEnemy(Enemy enemy) {
         int damage = 6;
         enemy.takeDamage(damage);
-        System.out.println("Sword attack");
+        System.out.println("Again work");
     }
 
 }
