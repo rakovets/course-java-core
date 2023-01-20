@@ -47,8 +47,6 @@ public class PersonTest {
 
     @Test
     void getHappinessTest() {
-        Person person = new Person(70);
-
         int actual = person.getHappiness();
 
         Assertions.assertEquals(70, actual);
