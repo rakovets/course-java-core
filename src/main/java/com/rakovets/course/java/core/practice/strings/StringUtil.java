@@ -106,7 +106,7 @@ public class StringUtil {
     //task 11
 
     //task 12
-    public int sumTotalWold(String str) {
+    public int sumWolds(String str) {
         int result = 0;
         if (str == null || str.isEmpty()) {
             result = 0;
@@ -123,7 +123,7 @@ public class StringUtil {
     }
 
     //task 12(another version1)
-    public int sumTotalWoldVersion1(String str) {
+    public int sumWoldsVersion1(String str) {
         int sum;
         if (str == null || str.isEmpty() || str.trim().isEmpty()) {
             sum = 0;
@@ -134,7 +134,24 @@ public class StringUtil {
         }
         return sum;
     }
+
     //task 13
+    public String getInitials(String str) {
+        String Initials;
+        if (str == null || str.trim().isEmpty()) {
+            Initials = "String is empty";
+        } else {
+            str = str.trim().toUpperCase().replaceAll(" +", " ");
+            String[] array = str.split(" ");
+            String wordFromArray = "";
+            for (String i : array) {
+                wordFromArray += i.charAt(0);
+            }
+            Initials = wordFromArray;
+           }
+        return Initials;
+    }
+
     //task 14
     //task 15
     //task 16

@@ -505,201 +505,201 @@ public class StringUtilTest {
     }
 
     @Test
-    void sumTotalWoldTest1() {
+    void sumWoldsTest1() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold("Hello! Hello wold!");
+        int text = stringUtil.sumWolds("Hello! Hello wold!");
 
         Assertions.assertEquals(3, text);
     }
 
     @Test
-    void sumTotalWoldTest2() {
+    void sumWoldsTest2() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold(null);
+        int text = stringUtil.sumWolds(null);
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumTotalWoldTest3() {
+    void sumWoldsTest3() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold("");
+        int text = stringUtil.sumWolds("");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumTotalWoldTest4() {
+    void sumWoldsTest4() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold(" word");
+        int text = stringUtil.sumWolds(" word");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldTest5() {
+    void sumWoldsTest5() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold("word ");
+        int text = stringUtil.sumWolds("word ");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldTest6() {
+    void sumWoldsTest6() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold(" words with spaces ");
+        int text = stringUtil.sumWolds(" words with spaces ");
 
         Assertions.assertEquals(3, text);
     }
 
     @Test
-    void sumTotalWoldTest7() {
+    void sumWoldsTest7() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold("words   with    many spaces");
+        int text = stringUtil.sumWolds("words   with    many spaces");
 
         Assertions.assertEquals(4, text);
     }
 
     @Test
-    void sumTotalWoldTest8() {
+    void sumWoldsTest8() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold(" ");
+        int text = stringUtil.sumWolds(" ");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumTotalWoldTest9() {
+    void sumWoldsTest9() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWold("a");
+        int text = stringUtil.sumWolds("a");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test1() {
+    void sumWoldsVersion1Test1() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("Hello! Hello World!");
+        int text = stringUtil.sumWoldsVersion1("Hello! Hello World!");
 
         Assertions.assertEquals(3, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test2() {
+    void sumWoldsVersion1Test2() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1(null);
+        int text = stringUtil.sumWoldsVersion1(null);
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test3() {
+    void sumWoldsVersion1Test3() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("");
+        int text = stringUtil.sumWoldsVersion1("");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test4() {
+    void sumWoldsVersion1Test4() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("    ");
+        int text = stringUtil.sumWoldsVersion1("    ");
 
         Assertions.assertEquals(0, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test5() {
+    void sumWoldsVersion1Test5() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1(" word");
+        int text = stringUtil.sumWoldsVersion1(" word");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test6() {
+    void sumWoldsVersion1Test6() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("word ");
+        int text = stringUtil.sumWoldsVersion1("word ");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test7() {
+    void sumWoldsVersion1Test7() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1(" a");
+        int text = stringUtil.sumWoldsVersion1(" a");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test8() {
+    void sumWoldsVersion1Test8() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("a ");
+        int text = stringUtil.sumWoldsVersion1("a ");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test9() {
+    void sumWoldsVersion1Test9() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("     aaa aaaa    ");
+        int text = stringUtil.sumWoldsVersion1("     aaa aaaa    ");
 
         Assertions.assertEquals(2, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test10() {
+    void sumWoldsVersion1Test10() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1("a");
+        int text = stringUtil.sumWoldsVersion1("a");
 
         Assertions.assertEquals(1, text);
     }
 
     @Test
-    void sumTotalWoldVersion1Test11() {
+    void sumWoldsVersion1Test11() {
 
         StringUtil stringUtil = new StringUtil();
 
-        int text = stringUtil.sumTotalWoldVersion1(" ");
+        int text = stringUtil.sumWoldsVersion1(" ");
 
         Assertions.assertEquals(0, text);
     }
