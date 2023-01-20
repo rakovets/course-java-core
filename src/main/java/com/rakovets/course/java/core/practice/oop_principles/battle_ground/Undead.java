@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-public class Zombie extends Enemy {
-    public Zombie(int health) {
+public class Undead extends Enemy {
+    public Undead(int health) {
         super(health);
     }
 
