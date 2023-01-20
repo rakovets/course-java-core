@@ -7,8 +7,16 @@ public class Mag extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        int damage = 2;
+        int damage = 3;
         enemy.takeDamage(damage);
         System.out.println("I see the future");
+    }
+
+    public void healthRegeneration() {
+        int minHealthForRegeneration = 15;
+        int healthRegeneration = 30;
+        if (getHealth() < minHealthForRegeneration && isAlive()) {
+            setHealth(healthRegeneration);
+        }
     }
 }
