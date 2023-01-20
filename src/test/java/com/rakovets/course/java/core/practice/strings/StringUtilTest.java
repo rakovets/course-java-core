@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 public class StringUtilTest {
     StringUtil stringUtil;
+
     @BeforeEach
     public void instanceStringUtil() {
         stringUtil = new StringUtil();
