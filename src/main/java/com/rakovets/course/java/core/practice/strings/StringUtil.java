@@ -104,7 +104,36 @@ public class StringUtil {
     }
 
     //task 11
+
     //task 12
+    public int sumTotalWold(String str) {
+        int result = 0;
+        if (str == null || str.isEmpty()) {
+            result = 0;
+        } else if(str.length() == 1) {
+            result = str.charAt(0) != ' ' ? 1 : 0;
+        } else {
+            for (int i = 1; i < str.length(); i++) {
+                if ((str.charAt(i) == ' ' && str.charAt(i - 1) != ' ') || (str.charAt(i) != ' ' && (i + 1) == str.length())) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
+    //task 12(another version1)
+    public int sumTotalWoldVersion1(String str) {
+        int sum;
+        if (str == null || str.isEmpty() || str.trim().isEmpty()) {
+            sum = 0;
+        } else {
+            str = str.trim().replaceAll(" +", " ");
+            String[] array = str.split(" ");
+            sum = array.length;
+        }
+        return sum;
+    }
     //task 13
     //task 14
     //task 15

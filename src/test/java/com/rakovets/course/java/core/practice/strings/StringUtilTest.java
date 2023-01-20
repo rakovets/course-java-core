@@ -503,4 +503,219 @@ public class StringUtilTest {
 
         Assertions.assertFalse(checkPalindrome);
     }
+
+    @Test
+    void sumTotalWoldTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold("Hello! Hello wold!");
+
+        Assertions.assertEquals(3, text);
+    }
+
+    @Test
+    void sumTotalWoldTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold(null);
+
+        Assertions.assertEquals(0, text);
+    }
+
+    @Test
+    void sumTotalWoldTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold("");
+
+        Assertions.assertEquals(0, text);
+    }
+
+    @Test
+    void sumTotalWoldTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold(" word");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold("word ");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldTest6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold(" words with spaces ");
+
+        Assertions.assertEquals(3, text);
+    }
+
+    @Test
+    void sumTotalWoldTest7() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold("words   with    many spaces");
+
+        Assertions.assertEquals(4, text);
+    }
+
+    @Test
+    void sumTotalWoldTest8() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold(" ");
+
+        Assertions.assertEquals(0, text);
+    }
+
+    @Test
+    void sumTotalWoldTest9() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWold("a");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("Hello! Hello World!");
+
+        Assertions.assertEquals(3, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1(null);
+
+        Assertions.assertEquals(0, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("");
+
+        Assertions.assertEquals(0, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("    ");
+
+        Assertions.assertEquals(0, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1(" word");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("word ");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test7() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1(" a");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test8() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("a ");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test9() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("     aaa aaaa    ");
+
+        Assertions.assertEquals(2, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test10() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1("a");
+
+        Assertions.assertEquals(1, text);
+    }
+
+    @Test
+    void sumTotalWoldVersion1Test11() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        int text = stringUtil.sumTotalWoldVersion1(" ");
+
+        Assertions.assertEquals(0, text);
+    }
+
+
+    /*
+
+    @Test
+    void NAME_METHOD+Test+NUMBER() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        TYPE VARIABLE = stringUtil.NAME_METHOD(INCOMING_DATA);
+
+        Assertions.assertEquals(OUTPUT DATA, VARIABLE);
+    }
+
+     */
 }
