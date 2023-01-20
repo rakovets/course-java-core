@@ -137,19 +137,19 @@ public class StringUtil {
 
     //task 13
     public String getInitials(String str) {
-        String Initials;
+        String result;
         if (str == null || str.trim().isEmpty()) {
-            Initials = "String is empty";
+            result = "String is empty";
         } else {
             str = str.trim().toUpperCase().replaceAll(" +", " ");
             String[] array = str.split(" ");
-            String wordFromArray = "";
+            String initials = "";
             for (String i : array) {
-                wordFromArray += i.charAt(0);
+                initials += i.charAt(0);
             }
-            Initials = wordFromArray;
+            result = initials;
            }
-        return Initials;
+        return result;
     }
 
     //task 14

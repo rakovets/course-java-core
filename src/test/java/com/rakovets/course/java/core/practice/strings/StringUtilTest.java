@@ -704,6 +704,76 @@ public class StringUtilTest {
         Assertions.assertEquals(0, text);
     }
 
+    @Test
+    void getInitialsTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials(null);
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getInitialsTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials("");
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getInitialsTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials(" ");
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getInitialsTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials("Any oNE");
+
+        Assertions.assertEquals("AO", result);
+    }
+
+    @Test
+    void getInitialsTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials("  any   one   ");
+
+        Assertions.assertEquals("AO", result);
+    }
+
+    @Test
+    void getInitialsTest6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials("  any   one   ");
+
+        Assertions.assertEquals("AO", result);
+    }
+
+    @Test
+    void getInitialsTest7() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getInitials("  ANY   ONE   ");
+
+        Assertions.assertEquals("AO", result);
+    }
+
 
     /*
 
