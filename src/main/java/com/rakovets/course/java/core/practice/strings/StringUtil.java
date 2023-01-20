@@ -1,79 +1,77 @@
 package com.rakovets.course.java.core.practice.strings;
 
 public class StringUtil {
-    private static final String VOWELS = "aeiouy";
-    private static final String SPECIAL_CHARACTERS = ".,?!";
-
-    public static String concatTwoValues(String firstValue, String secondValue) {
+    public String concatTwoValues(String firstValue, String secondValue) {
         return firstValue.concat(secondValue);
     }
 
-    public static int getCharIndexFromText(String text, char character) {
+    public int getCharIndexFromText(String text, char character) {
         return text.indexOf(character);
     }
 
-    public static boolean isTwoStringValuesEqual(String firstValue, String secondValue) {
+    public boolean isTwoStringValuesEqual(String firstValue, String secondValue) {
         return firstValue.equals(secondValue);
     }
 
-    public static String stringValueTrim(String value) {
+    public String stringValueTrim(String value) {
         return value.trim();
     }
 
-    public static String getSubstringFromStringValue(String value, char n, char m) {
+    public String getSubstringFromStringValue(String text, char startChar, char finishChar) {
         int firstSymbolIndex = 0;
         int secondSymbolIndex = 0;
-        char[] chars = value.toCharArray();
+        char[] chars = text.toCharArray();
         for (int index = 0; index < chars.length; index++) {
-            if (chars[index] == n) {
+            if (chars[index] == startChar) {
                 firstSymbolIndex = index;
-            } else if(chars[index] == m) {
+            } else if(chars[index] == finishChar) {
                 secondSymbolIndex = index;
             }
         }
-        return value.substring(firstSymbolIndex, secondSymbolIndex + 1);
+        return text.substring(firstSymbolIndex, secondSymbolIndex + 1);
     }
 
-    public static String replaceSadToCarefulEmoji(String stringWithEmoji) {
+    public String replaceSadToCarefulEmoji(String stringWithEmoji) {
         return stringWithEmoji.replaceAll(":\\(", ":)");
     }
 
-    public static boolean isWordStartsAndEndsString(String text, String word) {
+    public boolean isWordStartsAndEndsString(String text, String word) {
         return text.startsWith(word) && text.endsWith(word);
     }
 
-    public static int amountVowelsInString(String text) {
-        return getAmountNeedCharactersInString(text, VOWELS);
+    public int amountVowelsInString(String text) {
+        return getAmountNeedCharactersInString(text, "aeiouy");
     }
 
-    public static int amountSpecialCharacterInString(String text) {
-        return getAmountNeedCharactersInString(text, SPECIAL_CHARACTERS);
+    public int amountSpecialCharacterInString(String text) {
+        return getAmountNeedCharactersInString(text, ".,?!");
     }
 
-    public static boolean isPalindromeString(String text) {
-        String reverseText = new StringBuilder(text).reverse().toString();
-        return text.equals(reverseText);
+    public boolean isPalindromeString(String text) {
+        String actualText = getTextWithoutSpaces(text).toLowerCase();
+        String reverseText = new StringBuilder(getTextWithoutSpaces(text)).reverse().toString().toLowerCase();
+        return actualText.equals(reverseText);
     }
 
-    public static String[] cutStringToEqualParts(String text, int partLength) {
+    public String[] cutStringToEqualParts(String text, int partLength) {
         int numberTextParts = text.length() / partLength;
         String[] textParts = new String[numberTextParts];
         if(text.length() % partLength == 0) {
             int firstIndexPart = 0;
             for (int i = 0; i < numberTextParts; i++) {
-                textParts[i] = text.substring(i, i + partLength);
+                textParts[i] = text.substring(firstIndexPart, firstIndexPart + partLength);
                 firstIndexPart += partLength;
             }
         }
         return textParts;
     }
 
-    public static int countWordsInText(String text) {
+    public int countWordsInText(String text) {
         String refactorText = text.replaceAll("\\s+", " ").trim();
         return refactorText.split(" ").length;
     }
 
-    public static String getNameInitials(String value) {
+    public String getNameInitials(String value) {
         StringBuilder initials = new StringBuilder();
         String[] nameSurname = value.split(" ");
         for (String str : nameSurname) {
@@ -82,7 +80,7 @@ public class StringUtil {
         return String.valueOf(initials);
     }
 
-    public static String getAllNumbersFromText(String text) {
+    public String getAllNumbersFromText(String text) {
         StringBuilder numbers = new StringBuilder();
         String[] numbersArray = text.split("\\D+");
         for (String number : numbersArray) {
@@ -91,7 +89,7 @@ public class StringUtil {
         return String.valueOf(numbers);
     }
 
-    private static int getAmountNeedCharactersInString(String text, String charactersList) {
+    private int getAmountNeedCharactersInString(String text, String charactersList) {
         String currentChar;
         int vowelsCounter = 0;
         for (Character character : text.toCharArray()) {
@@ -101,5 +99,9 @@ public class StringUtil {
             }
         }
         return vowelsCounter;
+    }
+
+    private String getTextWithoutSpaces(String text) {
+        return text.replaceAll("\\s", "");
     }
 }

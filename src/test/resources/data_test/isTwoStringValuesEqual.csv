@@ -1,0 +1,7 @@
+expectedResult, firstValue, secondValue
+true, OneTwo, OneTwo
+false, TwoOne, OneTwo
+true, 123456, 123456
+false, 654321, 123456
+true, !@#$%^&, !@#$%^&
+false, &^%$#@!, !@#$%^&

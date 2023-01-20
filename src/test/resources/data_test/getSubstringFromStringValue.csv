@@ -1,0 +1,5 @@
+expectedResult, text, firstIndex, secondIndex
+1234, 123456, 1, 4
+eTwo, OneTwo, e, o
+@#$%, !@#$%^, @, %
+e is, One is 1, e, s

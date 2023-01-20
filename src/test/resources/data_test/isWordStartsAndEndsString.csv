@@ -1,0 +1,6 @@
+expectedResult, text, word
+true, One Two One, One
+false, One Two Three, One
+false, One Two Three, Three
+true, 1234567891, 1
+false, 123456789, 1
