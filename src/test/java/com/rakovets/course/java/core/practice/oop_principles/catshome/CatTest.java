@@ -1,13 +1,19 @@
 package com.rakovets.course.java.core.practice.oop_principles.catshome;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CatTest {
+    static Cat cat;
+
+    @BeforeEach
+    void init() {
+        cat = new Cat("Tom");
+    }
+
     @Test
     void catTest() {
-        Cat cat = new Cat("Tom");
-
         String actual = cat.getName();
 
         Assertions.assertEquals("Tom", actual);
@@ -15,8 +21,6 @@ public class CatTest {
 
     @Test
     void mewTest1() {
-        Cat cat = new Cat("Tom");
-
         String actual = cat.mew();
 
         Assertions.assertEquals("Mew, mew, mew!", actual);
@@ -24,7 +28,6 @@ public class CatTest {
 
     @Test
     void mewTest2() {
-        Cat cat = new Cat("Tom");
         Person user = new Person(70);
 
         String actualString = cat.mew(user);
@@ -36,8 +39,6 @@ public class CatTest {
 
     @Test
     void purrTest1() {
-        Cat cat = new Cat("Tom");
-
         String actual = cat.purr();
 
         Assertions.assertEquals("Purr...", actual);
@@ -45,7 +46,6 @@ public class CatTest {
 
     @Test
     void purrTest2() {
-        Cat cat = new Cat("Tom");
         Person user = new Person(70);
 
         String actualString = cat.purr(user);
@@ -57,8 +57,6 @@ public class CatTest {
 
     @Test
     void getNameTest() {
-        Cat cat = new Cat("Tom");
-
         String actual = cat.getName();
 
         Assertions.assertEquals("Tom", actual);
@@ -66,8 +64,6 @@ public class CatTest {
 
     @Test
     void setNameTest() {
-        Cat cat = new Cat("Tom");
-
         cat.setName("Barsik");
         String actual = cat.getName();
 
