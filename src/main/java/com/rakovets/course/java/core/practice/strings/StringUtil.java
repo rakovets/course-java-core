@@ -123,12 +123,13 @@ public class StringUtil {
 
     //task 12
     public int sumWords(String str) {
-        int result = 0;
+        int result;
         if (str == null || str.isEmpty()) {
             result = 0;
         } else if(str.length() == 1) {
             result = str.charAt(0) != ' ' ? 1 : 0;
         } else {
+            result = 0;
             for (int i = 1; i < str.length(); i++) {
                 if ((str.charAt(i) == ' ' && str.charAt(i - 1) != ' ') || (str.charAt(i) != ' ' && (i + 1) == str.length())) {
                     result++;
