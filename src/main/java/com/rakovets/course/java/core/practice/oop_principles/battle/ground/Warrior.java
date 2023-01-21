@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
 
-public class Warrior extends Hero {
+public class Warrior extends Hero implements Mortal {
     public Warrior(String name) {
         super(name);
     }

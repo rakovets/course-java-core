@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
 
-public class Mage extends Hero {
+public class Mage extends Hero implements Mortal {
     public Mage(String name) {
         super(name);
     }
