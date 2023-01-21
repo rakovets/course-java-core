@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
 
-public abstract class Hero implements Mortal{
+public abstract class Hero implements Mortal, TakeDamage {
     private final String NAME;
-    private int health;
+    private int health = 100;
 
     public Hero(String name) {
         this.NAME = name;
@@ -13,7 +13,15 @@ public abstract class Hero implements Mortal{
         return health > 0;
     }
 
-    public abstract void attackEnemy(Enemy enemy);
+    @Override
+    public void takeDamage(int damage) {
+        health -= damage;
+    }
+
+    public void attackEnemy(Enemy enemy) {
+        enemy.takeDamage(0);
+        System.out.println("Attack phrase!");
+    }
 
     public String getName() {
         return NAME;
