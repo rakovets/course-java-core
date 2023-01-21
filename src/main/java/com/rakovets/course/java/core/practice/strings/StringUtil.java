@@ -190,7 +190,7 @@ public class StringUtil {
     //task 15
     public String getLetters(String str1, String str2) {
         String result;
-        if(str1 == null || str2 == null || (str1.isEmpty() && str2.isEmpty())){
+        if (str1 == null || str2 == null || (str1.isEmpty() && str2.isEmpty())){
             result = "String is empty";
         } else {
             for (int i = 0; i < str2.length(); i++) {
@@ -205,6 +205,7 @@ public class StringUtil {
         }
         return result;
     }
+
     //task 16
     //task 17
     //task 18
