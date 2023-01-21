@@ -32,11 +32,11 @@ class Task13 {
      * @return номер этажа
      */
     static int getFloorNumber(int numberFloors, int numberApartmentsPerFloor, int apartmentNumber) {
-        int firstFloor = 1;
+        int oneFloor = 1;
         int numberApartmentsPerPorch = numberApartmentsPerFloor * numberFloors;
         int howManyPorchInApartmentNumber = apartmentNumber / numberApartmentsPerPorch;
         int numberApartmentsInOtherPorch = numberApartmentsPerPorch * howManyPorchInApartmentNumber;
         int numberApartmentsInDesiredPorch = apartmentNumber - numberApartmentsInOtherPorch;
-        return (numberApartmentsPerPorch == apartmentNumber) ? numberFloors : (numberApartmentsInDesiredPorch / numberApartmentsPerFloor + firstFloor);
+        return (numberApartmentsPerPorch == apartmentNumber) ? numberFloors : (numberApartmentsInDesiredPorch / numberApartmentsPerFloor + oneFloor);
     }
 }
