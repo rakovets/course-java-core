@@ -909,6 +909,66 @@ public class StringUtilTest {
         Assertions.assertEquals("129013905", TotalDigits);
     }
 
+    @Test
+    void getLettersTest1() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getLetters(null, null);
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getLettersTest2() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getLetters(null, "null");
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getLettersTest3() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getLetters("null", null);
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getLettersTest4() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getLetters("", "");
+
+        Assertions.assertEquals("String is empty", result);
+    }
+
+    @Test
+    void getLettersTest5() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getLetters("1234", "345");
+
+        Assertions.assertEquals("125", result);
+    }
+
+    @Test
+    void getLettersTest6() {
+
+        StringUtil stringUtil = new StringUtil();
+
+        String result = stringUtil.getLetters("", "Hello!");
+
+        Assertions.assertEquals("Hello!", result);
+    }
+
 
     /*
 
@@ -921,6 +981,9 @@ public class StringUtilTest {
 
         Assertions.assertEquals(OUTPUT DATA, VARIABLE);
     }
+
+    //int,String,String[],char,boolean...
+    //assertEquals,assertArrayEquals,assertTrue,assertFalse...
 
      */
 }
