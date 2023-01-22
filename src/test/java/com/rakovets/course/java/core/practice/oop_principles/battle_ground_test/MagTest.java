@@ -13,59 +13,53 @@ public class MagTest {
     public void attackEnemyTest1() {
         Undead undead = new Undead(300);
 
-        int extendHealth = 292;
         mag.attackEnemy(undead);
 
-        Assertions.assertEquals(extendHealth, undead.getHealth());
+        Assertions.assertEquals(292, undead.getHealth());
     }
 
     @Test
     public void attackEnemyTest2() {
         Undead undead = new Undead(200);
 
-        int extendHealth = 192;
         mag.attackEnemy(undead);
 
-        Assertions.assertEquals(extendHealth, undead.getHealth());
+        Assertions.assertEquals(192, undead.getHealth());
     }
 
     @Test
     public void attackEnemyTest3() {
         Naga naga = new Naga(380);
 
-        int extendHealth = 372;
         mag.attackEnemy(naga);
 
-        Assertions.assertEquals(extendHealth, naga.getHealth());
+        Assertions.assertEquals(372, naga.getHealth());
     }
 
     @Test
     public void healthRegenerationTest1() {
         Mag mag = new Mag("Antonidas", 10);
 
-        int extendHealth = 40;
         mag.healthRegeneration();
 
-        Assertions.assertEquals(extendHealth, mag.getHealth());
+        Assertions.assertEquals(40, mag.getHealth());
     }
 
     @Test
     public void healthRegenerationTest2() {
         Mag mag = new Mag("Antonidas", 18);
 
-        int extendHealth = 48;
         mag.healthRegeneration();
 
-        Assertions.assertEquals(extendHealth, mag.getHealth());
+        Assertions.assertEquals(48, mag.getHealth());
     }
 
     @Test
     public void healthRegenerationTest3() {
         Mag mag = new Mag("Antonidas", 5);
 
-        int extendHealth = 35;
         mag.healthRegeneration();
 
-        Assertions.assertEquals(extendHealth, mag.getHealth());
+        Assertions.assertEquals(35, mag.getHealth());
     }
 }

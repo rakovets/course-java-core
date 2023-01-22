@@ -11,10 +11,9 @@ public class EnemyTest {
         Enemy enemy = new Undead(400);
 
         int damage = 20;
-        int expectHealth = 380;
         enemy.takeDamage(damage);
 
-        Assertions.assertEquals(expectHealth, enemy.getHealth());
+        Assertions.assertEquals(380, enemy.getHealth());
     }
 
     @Test
@@ -22,10 +21,9 @@ public class EnemyTest {
         Enemy enemy = new Undead(300);
 
         int damage = 40;
-        int expectHealth = 260;
         enemy.takeDamage(damage);
 
-        Assertions.assertEquals(expectHealth, enemy.getHealth());
+        Assertions.assertEquals(260, enemy.getHealth());
     }
 
     @Test
@@ -33,21 +31,22 @@ public class EnemyTest {
         Enemy enemy = new Undead(200);
 
         int damage = 140;
-        int expectHealth = 60;
         enemy.takeDamage(damage);
 
-        Assertions.assertEquals(expectHealth, enemy.getHealth());
+        Assertions.assertEquals(60, enemy.getHealth());
     }
 
     @Test
     public void issAliveTest1() {
         Enemy enemy = new Undead(0);
-        Assertions.assertEquals(false, enemy.isAlive());
+
+        Assertions.assertFalse(enemy.isAlive());
     }
 
     @Test
     public void issAliveTest2() {
         Enemy enemy = new Undead(1);
-        Assertions.assertEquals(true, enemy.isAlive());
+
+        Assertions.assertTrue(enemy.isAlive());
     }
 }

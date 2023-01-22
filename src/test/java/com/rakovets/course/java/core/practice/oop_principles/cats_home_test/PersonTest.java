@@ -45,6 +45,7 @@ public class PersonTest {
     @Test
     public void PersonTest2() {
         Person person = new Person(64);
+
         int actual = person.getHappiness();
 
         Assertions.assertEquals(64, actual);
@@ -53,6 +54,7 @@ public class PersonTest {
     @Test
     public void PersonTest3() {
         Person person = new Person(78);
+
         int actual = person.getHappiness();
 
         Assertions.assertEquals(78, actual);

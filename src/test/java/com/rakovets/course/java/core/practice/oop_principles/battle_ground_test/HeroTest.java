@@ -6,16 +6,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class HeroTest {
-    Hero hero = new Mag("Antonidas", 200);
     @Test
     public void takeDamageTest() {
         Hero hero = new Mag("Antonidas", 200);
 
         int damage = 50;
-        int expectHealth = 150;
         hero.takeDamage(damage);
 
-        Assertions.assertEquals(expectHealth, hero.getHealth());
+        Assertions.assertEquals(150, hero.getHealth());
     }
 
     @Test
@@ -23,10 +21,9 @@ public class HeroTest {
         Hero hero = new Mag("Antonidas", 340);
 
         int damage = 50;
-        int expectHealth = 290;
         hero.takeDamage(damage);
 
-        Assertions.assertEquals(expectHealth, hero.getHealth());
+        Assertions.assertEquals(290, hero.getHealth());
     }
 
     @Test
@@ -34,21 +31,22 @@ public class HeroTest {
         Hero hero = new Mag("Antonidas", 110);
 
         int damage = 50;
-        int expectHealth = 60;
         hero.takeDamage(damage);
 
-        Assertions.assertEquals(expectHealth, hero.getHealth());
+        Assertions.assertEquals(60, hero.getHealth());
     }
 
     @Test
     public void issAliveTest1() {
         Hero hero = new Mag("Antonidas", 0);
-        Assertions.assertEquals(false, hero.isAlive());
+
+        Assertions.assertFalse(hero.isAlive());
     }
 
     @Test
     public void issAliveTest2() {
         Hero hero = new Mag("Antonidas", 10);
-        Assertions.assertEquals(true, hero.isAlive());
+
+        Assertions.assertTrue(hero.isAlive());
     }
 }

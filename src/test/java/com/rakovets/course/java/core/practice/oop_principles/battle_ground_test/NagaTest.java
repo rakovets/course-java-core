@@ -14,42 +14,37 @@ public class NagaTest {
     public void attackHeroTest1() {
         Archer archer = new Archer("Kael’thas", 180);
 
-        int extendHealth = 165;
         naga.attackHero(archer);
 
-        Assertions.assertEquals(extendHealth, archer.getHealth());
+        Assertions.assertEquals(165, archer.getHealth());
     }
 
     @Test
     public void attackHeroTest2() {
         Archer archer = new Archer("Kael’thas", 270);
 
-        int extendHealth = 255;
         naga.attackHero(archer);
 
-        Assertions.assertEquals(extendHealth, archer.getHealth());
+        Assertions.assertEquals(255, archer.getHealth());
     }
 
     @Test
     public void attackHeroTest3() {
         Archer archer = new Archer("Kael’thas", 220);
 
-        int extendHealth = 205;
         naga.attackHero(archer);
 
-        Assertions.assertEquals(extendHealth, archer.getHealth());
+        Assertions.assertEquals(205, archer.getHealth());
     }
 
     @Test
     public void drinkBloodTest1() {
         Archer archer = new Archer("Kael’thas", 210);
 
-        int archerExtendHealth = 185;
-        int nagaHealth = 325;
         naga.drinkBlood(archer);
 
-        Assertions.assertEquals(archerExtendHealth, archer.getHealth());
-        Assertions.assertEquals(nagaHealth, naga.getHealth());
+        Assertions.assertEquals(185, archer.getHealth());
+        Assertions.assertEquals(325, naga.getHealth());
     }
 
     @Test
@@ -57,11 +52,9 @@ public class NagaTest {
         Archer archer = new Archer("Kael’thas", 180);
         Naga naga = new Naga(200);
 
-        int archerExtendHealth = 155;
-        int nagaHealth = 225;
         naga.drinkBlood(archer);
 
-        Assertions.assertEquals(archerExtendHealth, archer.getHealth());
-        Assertions.assertEquals(nagaHealth, naga.getHealth());
+        Assertions.assertEquals(155, archer.getHealth());
+        Assertions.assertEquals(225, naga.getHealth());
     }
 }

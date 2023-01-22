@@ -4,10 +4,12 @@ import com.rakovets.course.java.core.practice.oop_principles.cats_home.Cat;
 import com.rakovets.course.java.core.practice.oop_principles.cats_home.Persian;
 import com.rakovets.course.java.core.practice.oop_principles.cats_home.Person;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PersianTest {
-    Persian cat = new Persian("Aspen");
+
+    static Persian cat = new Persian("Aspen");
     Person testPersonOne = new Person(100);
     Person testPersonTwo = new Person(75);
 
