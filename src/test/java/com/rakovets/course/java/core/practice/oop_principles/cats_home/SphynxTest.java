@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.catshome;
+package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

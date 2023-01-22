@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Warrior extends Hero {
     public Warrior(String name) {
@@ -8,7 +8,12 @@ public class Warrior extends Hero {
     @Override
     public void attackEnemy(Enemy enemy) {
         enemy.takeDamage(20);
-        System.out.println("Warrior attacks with sword!");
+        System.out.println(this.getName() + " attacks with sword!");
+    }
+
+    public void bladeFury(Enemy enemy1) {
+        enemy1.takeDamage(25);
+        System.out.println(this.getName() + " attacks with insane speed!");
     }
 
     public void bladeFury(Enemy enemy1, Enemy enemy2) {

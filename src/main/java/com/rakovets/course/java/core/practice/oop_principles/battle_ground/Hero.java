@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public abstract class Hero implements Mortal, TakeDamage {
     private final String NAME;

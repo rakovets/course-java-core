@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.battle.ground;
+package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Murloc extends Enemy{
     public Murloc(int health) {
