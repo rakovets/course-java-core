@@ -1,9 +1,5 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
-import com.rakovets.course.java.core.practice.oop_principles.battle_groung.Enemy;
-import com.rakovets.course.java.core.practice.oop_principles.battle_groung.Ghost;
-import com.rakovets.course.java.core.practice.oop_principles.battle_groung.Hero;
-import com.rakovets.course.java.core.practice.oop_principles.battle_groung.Warrior;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +15,7 @@ public class GhostTest {
 
     @Test
     void isAliveTest() {
-        boolean actual = true;
+        boolean actual = ghost.isAlive();
         Assertions.assertEquals(true, actual);
     }
 

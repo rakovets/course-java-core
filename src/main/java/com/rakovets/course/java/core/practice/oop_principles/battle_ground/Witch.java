@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.battle_groung;
+package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Witch extends Enemy {
     protected final int DAMAGE_WITCH = 35;

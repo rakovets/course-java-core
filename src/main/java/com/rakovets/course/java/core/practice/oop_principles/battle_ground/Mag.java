@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.battle_groung;
+package com.rakovets.course.java.core.practice.oop_principles.battle_ground;
 
 public class Mag extends Hero {
     protected final int DAMAGE_MUG = 50;
