@@ -8,7 +8,7 @@ public class Murloc extends Enemy{
     @Override
     public void attackHero(Hero hero) {
         hero.takeDamage(8);
-        System.out.println("MRGHLLGHGHLLGHG!");
+        System.out.println("MRGHLLGHGHLLGHG! Murloc attacks " + hero.getName() + "!");
     }
 
     public void regeneration() {

@@ -26,4 +26,8 @@ public abstract class Hero implements Mortal, TakeDamage {
     public String getName() {
         return NAME;
     }
+
+    public int getHealth() {
+        return health;
+    }
 }
