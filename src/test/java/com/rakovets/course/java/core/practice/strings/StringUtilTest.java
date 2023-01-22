@@ -1,13 +1,19 @@
 package com.rakovets.course.java.core.practice.strings;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
+    static StringUtil stringUtil;
+
+    @BeforeAll
+    static void init() {
+        stringUtil = new StringUtil();
+    }
+
     @Test
     void glueTest1() {
-        StringUtil stringUtil = new StringUtil();
-
         String result = stringUtil.glue("basil", "Aka");
 
         Assertions.assertEquals("basilAka", result);
@@ -15,8 +21,6 @@ public class StringUtilTest {
 
     @Test
     void glueTest2() {
-        StringUtil stringUtil = new StringUtil();
-
         String result = stringUtil.glue("", "");
 
         Assertions.assertEquals("", result);
@@ -24,8 +28,6 @@ public class StringUtilTest {
 
     @Test
     void glueTest3() {
-        StringUtil stringUtil = new StringUtil();
-
         String result = stringUtil.glue("basil", null);
 
         Assertions.assertEquals("", result);
@@ -33,8 +35,6 @@ public class StringUtilTest {
 
     @Test
     void glueTest4() {
-        StringUtil stringUtil = new StringUtil();
-
         String result = stringUtil.glue(null, "Aka");
 
         Assertions.assertEquals("", result);
@@ -42,8 +42,6 @@ public class StringUtilTest {
 
     @Test
     void glueTest5() {
-        StringUtil stringUtil = new StringUtil();
-
         String result = stringUtil.glue(null, null);
 
         Assertions.assertEquals("", result);
@@ -51,7 +49,6 @@ public class StringUtilTest {
 
     @Test
     void finedIndexXTest1() {
-        StringUtil stringUtil = new StringUtil();
         String test = "labour has outlined plans to reform the system should it win power";
 
         int result = stringUtil.finedIndexX(test, 'x');
@@ -61,7 +58,6 @@ public class StringUtilTest {
 
     @Test
     void finedIndexXTest2() {
-        StringUtil stringUtil = new StringUtil();
         String test = "Mexico tightens ban on smoking in public places";
 
         int result = stringUtil.finedIndexX(test, 'x');
@@ -71,7 +67,6 @@ public class StringUtilTest {
 
     @Test
     void finedIndexXTest3() {
-        StringUtil stringUtil = new StringUtil();
         String test = "";
 
         int result = stringUtil.finedIndexX(test, 'x');
@@ -81,7 +76,6 @@ public class StringUtilTest {
 
     @Test
     void finedIndexXTest4() {
-        StringUtil stringUtil = new StringUtil();
         String test = null;
 
         int result = stringUtil.finedIndexX(test, 'x');
@@ -91,7 +85,6 @@ public class StringUtilTest {
 
     @Test
     void finedIndexXTest5() {
-        StringUtil stringUtil = new StringUtil();
         String test = "However, Mexico's legislation is considered to " +
                 "be the most robust and wide-ranging in the Americas.";
 
@@ -102,7 +95,6 @@ public class StringUtilTest {
 
     @Test
     void equivalentToTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = "However, Mexico's legislation is considered";
         String str2 = "However, Mexico's legislation is considered";
 
@@ -113,7 +105,6 @@ public class StringUtilTest {
 
     @Test
     void equivalentToTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = "However, Mexico's legislation is considered";
         String str2 = "However, Mexico's legislation is considered to";
 
@@ -124,7 +115,6 @@ public class StringUtilTest {
 
     @Test
     void equivalentToTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = null;
         String str2 = "However, Mexico's legislation is considered";
 
@@ -135,7 +125,6 @@ public class StringUtilTest {
 
     @Test
     void equivalentToTest4() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = "However, Mexico's legislation is considered";
         String str2 = null;
 
@@ -146,7 +135,6 @@ public class StringUtilTest {
 
     @Test
     void equivalentToTest5() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = "";
         String str2 = "";
 
@@ -157,7 +145,6 @@ public class StringUtilTest {
 
     @Test
     void trimAndToUpperTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = "   labour has outlined plans to reform the system should it win power   ";
         String wait = "LABOUR HAS OUTLINED PLANS TO REFORM THE SYSTEM SHOULD IT WIN POWER";
 
@@ -168,7 +155,6 @@ public class StringUtilTest {
 
     @Test
     void trimAndToUpperTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = "";
 
         String result = stringUtil.trimAndToUpper(str1);
@@ -178,7 +164,6 @@ public class StringUtilTest {
 
     @Test
     void trimAndToUpperTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str1 = null;
 
         String result = stringUtil.trimAndToUpper(str1);
@@ -188,7 +173,6 @@ public class StringUtilTest {
 
     @Test
     void extractSubstringFromNtoMTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
         String expectedResult = "bour";
 
@@ -199,7 +183,6 @@ public class StringUtilTest {
 
     @Test
     void extractSubstringFromNtoMTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
         String expectedResult = "lined ";
 
@@ -210,7 +193,6 @@ public class StringUtilTest {
 
     @Test
     void extractSubstringFromNtoMTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
         String expectedResult = "has o";
 
@@ -221,7 +203,6 @@ public class StringUtilTest {
 
     @Test
     void extractSubstringFromNtoMTest4() {
-        StringUtil stringUtil = new StringUtil();
         String str = "";
         String expectedResult = "";
 
@@ -232,7 +213,6 @@ public class StringUtilTest {
 
     @Test
     void extractSubstringFromNtoMTest5() {
-        StringUtil stringUtil = new StringUtil();
         String str = null;
         String expectedResult = "";
 
@@ -243,7 +223,6 @@ public class StringUtilTest {
 
     @Test
     void dontSadSmileTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str = "granny died :(:(:(";
         String expectedResult = "granny died :):):)";
 
@@ -254,7 +233,6 @@ public class StringUtilTest {
 
     @Test
     void dontSadSmileTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = ":(:(:( I have lost your cat :(:(:(";
         String expectedResult = ":):):) I have lost your cat :):):)";
 
@@ -265,7 +243,6 @@ public class StringUtilTest {
 
     @Test
     void dontSadSmileTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = "No, :( the scream's :( killed Sidney :(:(:(";
         String expectedResult = "No, :) the scream's :) killed Sidney :):):)";
 
@@ -276,7 +253,6 @@ public class StringUtilTest {
 
     @Test
     void equalFistLastWordsTest1() {
-        StringUtil stringUtil = new StringUtil();
         String text = "However Mexico's legislation is considered However";
         String word = "However";
 
@@ -287,7 +263,6 @@ public class StringUtilTest {
 
     @Test
     void equalFistLastWordsTest2() {
-        StringUtil stringUtil = new StringUtil();
         String text = "labour has outlined plans to reform the system should it win power LABOUR";
         String word = "labour";
 
@@ -298,7 +273,6 @@ public class StringUtilTest {
 
     @Test
     void equalFistLastWordsTest3() {
-        StringUtil stringUtil = new StringUtil();
         String text = "However, Mexico's legislation is considered";
         String word = "However";
 
@@ -309,7 +283,6 @@ public class StringUtilTest {
 
     @Test
     void equalFistLastWordsTest4() {
-        StringUtil stringUtil = new StringUtil();
         String text = "";
         String word = "legislation";
 
@@ -320,7 +293,6 @@ public class StringUtilTest {
 
     @Test
     void equalFistLastWordsTest5() {
-        StringUtil stringUtil = new StringUtil();
         String text = null;
         String word = "legislation";
 
@@ -331,7 +303,6 @@ public class StringUtilTest {
 
     @Test
     void countVowelsTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans";
 
         int result = stringUtil.countVowels(str);
@@ -341,7 +312,6 @@ public class StringUtilTest {
 
     @Test
     void countVowelsTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = "";
 
         int result = stringUtil.countVowels(str);
@@ -351,7 +321,6 @@ public class StringUtilTest {
 
     @Test
     void countVowelsTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = null;
 
         int result = stringUtil.countVowels(str);
@@ -361,7 +330,6 @@ public class StringUtilTest {
 
     @Test
     void countVowelsTest4() {
-        StringUtil stringUtil = new StringUtil();
         String str = "However, Mexico's legislation is considered";
 
         int result = stringUtil.countVowels(str);
@@ -371,7 +339,6 @@ public class StringUtilTest {
 
     @Test
     void countPunctuationMarksTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str = "However, Mexico's legislation is considered!";
 
         int result = stringUtil.countPunctuationMarks(str);
@@ -381,7 +348,6 @@ public class StringUtilTest {
 
     @Test
     void countPunctuationMarksTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = "Mont Blanc, western Europe's highest mountain at 4,810 " +
                 "metres (nearly 16,000 feet), attracts 20,000 hikers and skiers every year.";
 
@@ -392,7 +358,6 @@ public class StringUtilTest {
 
     @Test
     void countPunctuationMarksTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = ",,,,,22222!!!!!11111,,,,,8888.....";
 
         int result = stringUtil.countPunctuationMarks(str);
@@ -402,7 +367,6 @@ public class StringUtilTest {
 
     @Test
     void isItPalindromeTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str = "Do geese see God";
 
         boolean result = stringUtil.isItPalindrome(str);
@@ -412,7 +376,6 @@ public class StringUtilTest {
 
     @Test
     void isItPalindromeTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = "1991";
 
         boolean result = stringUtil.isItPalindrome(str);
@@ -423,7 +386,6 @@ public class StringUtilTest {
 
     @Test
     void isItPalindromeTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = "deed";
 
         boolean result = stringUtil.isItPalindrome(str);
@@ -434,7 +396,6 @@ public class StringUtilTest {
 
     @Test
     void isItPalindromeTest4() {
-        StringUtil stringUtil = new StringUtil();
         String str = "Deeeeeeeesd";
 
         boolean result = stringUtil.isItPalindrome(str);
@@ -444,7 +405,6 @@ public class StringUtilTest {
 
     @Test
     void countWordsTest1() {
-        StringUtil stringUtil = new StringUtil();
         String str = "Mont Blanc, western Europe's highest mountain at 4,810";
 
         int result = stringUtil.countWords(str);
@@ -454,7 +414,6 @@ public class StringUtilTest {
 
     @Test
     void countWordsTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power";
 
         int result = stringUtil.countWords(str);
@@ -464,7 +423,6 @@ public class StringUtilTest {
 
     @Test
     void countWordsTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = "labour has outlined plans to reform the system should it win power   ";
 
         int result = stringUtil.countWords(str);
@@ -474,7 +432,6 @@ public class StringUtilTest {
 
     @Test
     void getInitialsTest1() {
-        StringUtil stringUtil = new StringUtil();
         String firstNameSecondName = "Arthas Menethil";
 
         String result = stringUtil.getInitials(firstNameSecondName);
@@ -484,7 +441,6 @@ public class StringUtilTest {
 
     @Test
     void getInitialsTest2() {
-        StringUtil stringUtil = new StringUtil();
         String firstNameSecondName = "sarah kerrigan";
 
         String result = stringUtil.getInitials(firstNameSecondName);
@@ -494,7 +450,6 @@ public class StringUtilTest {
 
     @Test
     void getInitialsTest3() {
-        StringUtil stringUtil = new StringUtil();
         String firstNameSecondName = "jim Raynor";
 
         String result = stringUtil.getInitials(firstNameSecondName);
@@ -504,7 +459,6 @@ public class StringUtilTest {
 
     @Test
     void getAllNumbers() {
-        StringUtil stringUtil = new StringUtil();
         String textWithNumber = "Mont Blanc, western Europe's highest mountain at 4810";
 
         String result = stringUtil.getAllNumbers(textWithNumber);
@@ -514,7 +468,6 @@ public class StringUtilTest {
 
     @Test
     void getAllNumbers2() {
-        StringUtil stringUtil = new StringUtil();
         String textWithNumber = "Mont12 Blanc, 34western Europe's780 highest mountain at 4810";
 
         String result = stringUtil.getAllNumbers(textWithNumber);
@@ -524,7 +477,6 @@ public class StringUtilTest {
 
     @Test
     void getAllNumbers3() {
-        StringUtil stringUtil = new StringUtil();
         String textWithNumber = "11However, 888Mexico's legislation999 is considered66";
 
         String result = stringUtil.getAllNumbers(textWithNumber);
@@ -534,7 +486,6 @@ public class StringUtilTest {
 
     @Test
     void getSubstringsTest() {
-        StringUtil stringUtil = new StringUtil();
         String str = "ttttjjjjkkkkllll";
         int numberSubstrings = 4;
 
@@ -546,7 +497,6 @@ public class StringUtilTest {
 
     @Test
     void getSubstringsTest2() {
-        StringUtil stringUtil = new StringUtil();
         String str = "aaabbbsssrrrtttyyy";
         int numberSubstrings = 6;
 
@@ -558,7 +508,6 @@ public class StringUtilTest {
 
     @Test
     void getSubstringsTest3() {
-        StringUtil stringUtil = new StringUtil();
         String str = "Hello I am Johnny ";
         int numberSubstrings = 6;
 
