@@ -3,12 +3,19 @@ package com.rakovets.course.java.core.practice.oop_principles.battle_ground_test
 import com.rakovets.course.java.core.example.generics.model.restrict.A;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Archer;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Hero;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Mag;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Naga;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class NagaTest {
-    Naga naga = new Naga(300);
+    static Naga naga;
+
+    @BeforeAll
+    static void init() {
+        naga = new Naga(300);
+    }
 
     @Test
     public void attackHeroTest1() {

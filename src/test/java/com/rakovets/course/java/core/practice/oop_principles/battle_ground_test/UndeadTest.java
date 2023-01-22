@@ -1,15 +1,17 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground_test;
 
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Archer;
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Mag;
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Undead;
-import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Warrior;
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class UndeadTest {
-    Undead undead = new Undead(200);
+    static Undead undead;
 
+    @BeforeAll
+    static void init() {
+        undead = new Undead(200);
+    }
 
     @Test
     public void attackHeroTest1() {

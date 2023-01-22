@@ -7,7 +7,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class WarriorTest {
-    Warrior warrior = new Warrior("Arthas", 250);
+    static Warrior warrior;
+
+    @BeforeAll
+    static void init() {
+        warrior = new Warrior("Arthas", 250);
+    }
 
     @Test
     public void attackEnemyTest1() {

@@ -1,13 +1,20 @@
 package com.rakovets.course.java.core.practice.oop_principles.battle_ground_test;
 
+import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Archer;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Mag;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Naga;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Undead;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class MagTest {
-    Mag mag = new Mag("Antonidas", 180);
+    static Mag mag;
+
+    @BeforeAll
+    static void init() {
+        mag = new Mag("Antonidas", 180);
+    }
 
     @Test
     public void attackEnemyTest1() {

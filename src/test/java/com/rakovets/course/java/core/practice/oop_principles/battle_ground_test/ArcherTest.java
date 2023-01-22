@@ -4,10 +4,16 @@ import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Arche
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Naga;
 import com.rakovets.course.java.core.practice.oop_principles.battle_ground.Undead;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class ArcherTest {
-    Archer archer = new Archer("Kael’thas", 180);
+    static Archer archer;
+
+    @BeforeAll
+    static void init() {
+        archer = new Archer("Kael’thas", 180);
+    }
 
     @Test
     public void attackEnemyTest1() {
