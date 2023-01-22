@@ -1,16 +1,21 @@
 package com.rakovets.course.java.core.practice.oop_principles.project_pubg;
 
-public class Cyborg extends Enemy{
+public class Cyborg extends Enemy {
+    public Cyborg() {
+    }
+
     public Cyborg(int health) {
         super(health);
     }
 
     @Override
     public void attackHero(Hero hero) {
-        hero.takeDamage(10);
+        int attackDamage = 10;
+        hero.takeDamage(attackDamage);
     }
 
     public void transformToDecepticon() {
-        setHealth(getHealth() + 100);
+        int increaseHealthPoint = 100;
+        setHealth(getHealth() + increaseHealthPoint);
     }
 }

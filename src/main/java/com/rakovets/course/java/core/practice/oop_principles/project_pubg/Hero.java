@@ -1,8 +1,11 @@
 package com.rakovets.course.java.core.practice.oop_principles.project_pubg;
 
-public abstract class Hero implements Mortal{
-    private final String name;
+public abstract class Hero implements Mortal {
+    private String name;
     private int health;
+
+    public Hero() {
+    }
 
     Hero(String name, int health) {
         this.name = name;
@@ -11,6 +14,7 @@ public abstract class Hero implements Mortal{
 
     public abstract void attackEnemy(Enemy enemy);
 
+    @Override
     public void takeDamage(int damage) {
         health -= damage;
     }
