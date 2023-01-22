@@ -1,0 +1,4 @@
+expectedResult, fieldName, fieldValue
+10, happiness, 10
+0, happiness, -10
+0, happiness, 0

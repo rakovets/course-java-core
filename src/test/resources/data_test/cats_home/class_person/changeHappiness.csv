@@ -1,0 +1,4 @@
+expectedResult, actualHappiness, inputHappiness
+100, 100, 200
+0, 0, -100
+50, 0, 50

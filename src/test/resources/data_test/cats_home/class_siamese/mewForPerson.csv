@@ -1,0 +1,4 @@
+expectedHappiness, actualHappiness, catVoice
+98, 100, Mew-Mew
+98, 200, Mew-Mew
+0, -100, Mew-Mew
