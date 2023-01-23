@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
-public class Square {
+public class Square implements MainUtils{
     private final double SIDE_A;
     private final double DIAGONAL_A;
 
