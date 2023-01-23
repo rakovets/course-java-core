@@ -16,7 +16,7 @@ public class CallExceptionTest {
 
     @Test
     void callExceptionTest() {
-        Executable executable = () -> callException.calLException(10);
+        Executable executable = () -> callException.isAgeValid(10);
 
         Assertions.assertThrows(ExceptionClass.class, executable);
     }
