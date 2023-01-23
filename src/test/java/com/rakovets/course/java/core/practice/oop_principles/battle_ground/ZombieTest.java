@@ -5,50 +5,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ZombieTest {
-    private static Wolf wolf;
+    private static Zombie zombie;
     private static Archer archer;
 
     @BeforeEach
     void init() {
-        wolf = new Wolf(80);
+        zombie = new Zombie(80);
         archer = new Archer("Legolas");
     }
 
     @Test
     void attackHeroTest1() {
-        wolf.attackHero(archer);
+        zombie.attackHero(archer);
 
-        Assertions.assertEquals(93, archer.getHealth());
+        Assertions.assertEquals(88, archer.getHealth());
     }
 
     @Test
     void attackHeroTest2() {
-        wolf.attackHero(archer);
-        wolf.attackHero(archer);
+        zombie.attackHero(archer);
+        zombie.attackHero(archer);
 
-        Assertions.assertEquals(86, archer.getHealth());
+        Assertions.assertEquals(76, archer.getHealth());
     }
 
     @Test
-    void howlTest() {
-        Wolf summonedWolf = wolf.howl();
+    void undeadReincarnationTest() {
+        for (int i = 0; i < 4; i++) {
+            archer.attackEnemy(zombie);
+        }
+        do {
+            zombie.undeadReincarnation();
+        } while (!zombie.isAlive());
 
-        Assertions.assertTrue(summonedWolf.isAlive());
+        Assertions.assertTrue(zombie.isAlive());
     }
 
     @Test
     void isAliveTest1() {
-        archer.attackEnemy(wolf);
+        archer.attackEnemy(zombie);
 
-        Assertions.assertTrue(wolf.isAlive());
+        Assertions.assertTrue(zombie.isAlive());
     }
 
     @Test
     void isAliveTest2() {
         for (int i = 0; i < 4; i++) {
-            archer.attackEnemy(wolf);
+            archer.attackEnemy(zombie);
         }
 
-        Assertions.assertFalse(wolf.isAlive());
+        Assertions.assertFalse(zombie.isAlive());
     }
 }

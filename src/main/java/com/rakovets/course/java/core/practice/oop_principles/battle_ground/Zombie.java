@@ -12,8 +12,13 @@ public class Zombie extends Enemy {
     }
 
     public void undeadReincarnation() {
-        if (Math.random()*6 == 1) {
-            this.setHealth(20);
+        if (!this.isAlive()) {
+            double random = Math.random();
+
+            if (random > 0.0 && random <= 0.2) {
+                this.setHealth(20);
+                System.out.println("Zombie rises again!!!");
+            }
         }
     }
 }
