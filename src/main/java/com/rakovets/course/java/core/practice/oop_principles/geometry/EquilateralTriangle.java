@@ -1,20 +1,21 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
-public class EquilateralTriangle extends Parallelogram {
-    private final double ANGLE_B;
+public class EquilateralTriangle implements MainUtils {
+    private final int SIDE_A;
 
-    public EquilateralTriangle(int sideA, int sideB, double angleA, double angleB) {
-        super(sideA, sideB, angleA);
-        this.ANGLE_B = angleB;
+    public EquilateralTriangle(int sideA) {
+        this.SIDE_A = sideA;
     }
 
-    @Override
     public double area() {
-
+        return Math.pow(getSideA(), 2) * Math.sqrt(3) / 4;
     }
 
-    @Override
     public double perimeter() {
+        return 3 * getSideA();
+    }
 
+    public int getSideA() {
+        return SIDE_A;
     }
 }
