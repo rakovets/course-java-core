@@ -8,7 +8,7 @@ public class Zombie extends Enemy {
     @Override
     public void attackHero(Hero hero) {
         hero.takeDamage(12);
-        System.out.println("Braaains!");
+        System.out.println("Braaains! Zombie attacks " + hero.getName() + "!");
     }
 
     public void undeadReincarnation() {

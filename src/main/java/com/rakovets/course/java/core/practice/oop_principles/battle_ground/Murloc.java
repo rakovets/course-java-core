@@ -11,8 +11,8 @@ public class Murloc extends Enemy{
         System.out.println("MRGHLLGHGHLLGHG! Murloc attacks " + hero.getName() + "!");
     }
 
-    public void regeneration() {
+    public void extraHealth() {
         this.takeDamage(-6);
-        System.out.println("OH NO! Murloc's wounds are healing before our eyes!");
+        System.out.println("OH NO! Murloc is getting stronger!");
     }
 }

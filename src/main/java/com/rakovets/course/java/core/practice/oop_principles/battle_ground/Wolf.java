@@ -8,11 +8,12 @@ public class Wolf extends Enemy {
     @Override
     public void attackHero(Hero hero) {
         hero.takeDamage(7);
-        System.out.println("Rrrr!!!");
+        System.out.println("Rrrr!!! Wolf bites " + hero.getName() + "!");
     }
 
-    public void howl() {
+    public Wolf howl() {
         Wolf summonedWolf = new Wolf(25);
-        System.out.println("Wolfs howls! He's calling friend!");
+        System.out.println("Wolfs howls! He's calling a friend!");
+        return summonedWolf;
     }
 }

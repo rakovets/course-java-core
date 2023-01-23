@@ -5,11 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MageTest {
-    static Mage mage;
-    static Enemy murloc;
-    static Enemy wolf;
-    static Enemy zombie;
-    int result;
+    private static Mage mage;
+    private static Enemy murloc;
+    private static Enemy wolf;
+    private static Enemy zombie;
 
     @BeforeEach
     void init() {
@@ -22,7 +21,7 @@ public class MageTest {
     @Test
     void attackEnemyTest() {
         mage.attackEnemy(murloc);
-        result = murloc.getHealth();
+        int result = murloc.getHealth();
 
         Assertions.assertEquals(55, result);
     }
@@ -50,5 +49,21 @@ public class MageTest {
         Assertions.assertFalse(wolf.isAlive());
         Assertions.assertTrue(zombie.isAlive());
         Assertions.assertEquals(10, zombie.getHealth());
+    }
+
+    @Test
+    void isAliveTest1() {
+        zombie.attackHero(mage);
+
+        Assertions.assertTrue(mage.isAlive());
+    }
+
+    @Test
+    void isAliveTest2() {
+        for (int i = 0; i < 10; i++) {
+            zombie.attackHero(mage);
+        }
+
+        Assertions.assertFalse(mage.isAlive());
     }
 }

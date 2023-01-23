@@ -5,9 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ArcherTest {
-    static Archer archer;
-    static Enemy murloc;
-    int result;
+    private static Archer archer;
+    private static Enemy murloc;
+    private int result;
 
     @BeforeEach
     void init() {
@@ -48,5 +48,21 @@ public class ArcherTest {
         result = archer.getHealth();
 
         Assertions.assertEquals(96, result);
+    }
+
+    @Test
+    void isAliveTest1() {
+        murloc.attackHero(archer);
+
+        Assertions.assertTrue(archer.isAlive());
+    }
+
+    @Test
+    void isAliveTest2() {
+        for (int i = 0; i < 14; i++) {
+            murloc.attackHero(archer);
+        }
+
+        Assertions.assertFalse(archer.isAlive());
     }
 }
