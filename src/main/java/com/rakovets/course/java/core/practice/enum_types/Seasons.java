@@ -37,7 +37,7 @@ public enum Seasons {
         return favoriteSeasons;
     }
 
-    public String getDescription(Seasons seasons){
+    public String getDescription(Seasons seasons) {
         String descriptionSeasons = "";
         switch (seasons) {
             case SPRING:
@@ -57,5 +57,4 @@ public enum Seasons {
             System.out.printf("This seasons: " + seasons.name() + "Average temperature: " + seasons.averageTemperature + "What more " + seasons.getDescription(seasons));
         }
     }
-
 }
