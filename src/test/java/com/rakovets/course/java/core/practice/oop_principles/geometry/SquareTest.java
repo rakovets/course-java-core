@@ -34,7 +34,7 @@ public class SquareTest {
     void getDiagonalATest() {
         double result;
 
-        result = square.getDiagonalA();
+        result = square.getDiagonal();
 
         Assertions.assertEquals(4.242640687119286, result);
     }
