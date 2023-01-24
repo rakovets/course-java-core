@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class EquilateralTriangle implements MainUtils {
-    private final int SIDE_A;
+    private final double SIDE_A;
 
-    public EquilateralTriangle(int sideA) {
+    public EquilateralTriangle(double sideA) {
         this.SIDE_A = sideA;
     }
 
@@ -15,7 +15,7 @@ public class EquilateralTriangle implements MainUtils {
         return 3 * getSideA();
     }
 
-    public int getSideA() {
+    public double getSideA() {
         return SIDE_A;
     }
 }

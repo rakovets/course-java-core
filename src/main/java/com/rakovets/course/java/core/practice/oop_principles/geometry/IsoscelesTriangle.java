@@ -1,9 +1,9 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class IsoscelesTriangle extends EquilateralTriangle {
-    private final int SIDE_B;
+    private final double SIDE_B;
 
-    public IsoscelesTriangle(int sideA, int sideB) {
+    public IsoscelesTriangle(double sideA, double sideB) {
         super(sideA);
         this.SIDE_B = sideB;
     }
@@ -24,7 +24,7 @@ public class IsoscelesTriangle extends EquilateralTriangle {
         return perimeter;
     }
 
-    public int getSideB() {
+    public double getSideB() {
         return SIDE_B;
     }
 }

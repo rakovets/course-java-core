@@ -1,11 +1,19 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class ShapeUtils {
-    static boolean isTriangle() {
-        return true;
+    public static boolean isTriangle(Object object) {
+        boolean result;
+
+        result = object instanceof EquilateralTriangle;
+
+        return result;
     }
 
-    static boolean Rectangle() {
-        return true;
+    public static boolean isRectangle(Object object) {
+        boolean result;
+
+        result = object instanceof Square;
+
+        return result;
     }
 }
