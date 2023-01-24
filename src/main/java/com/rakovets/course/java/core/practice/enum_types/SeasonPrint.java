@@ -8,6 +8,7 @@ public class SeasonPrint {
             Season season = new Season(seasons[enumNumber]);
 
             System.out.println(season.getSeason());
+            System.out.println("Average temperature:");
             System.out.println(season.getDescription());
             System.out.println("My favorite season is Spring:");
             System.out.println(season.favoriteSeasonInfo());
