@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
-public class Season implements SeasonDescription {
+public class Season extends SeasonPrint implements SeasonDescription {
     private final Seasons FAVORITE_SEASON;
     private final Seasons season;
 

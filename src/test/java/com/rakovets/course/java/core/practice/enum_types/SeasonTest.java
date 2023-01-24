@@ -66,4 +66,10 @@ public class SeasonTest {
 
         Assertions.assertEquals(expected, result);
     }
+
+    @DisplayName("This is NOT TEST, it is just Demo of printAll()!!!")
+    @Test
+    void printAllTest() {
+        season.printAll();
+    }
 }
