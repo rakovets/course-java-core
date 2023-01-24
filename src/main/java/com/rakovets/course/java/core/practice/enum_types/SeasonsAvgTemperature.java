@@ -13,5 +13,4 @@ public enum SeasonsAvgTemperature {
     AUTUMN_AVG_TEMPERATURE {
         public final double temperature = 11.1;
     },
-
 }
