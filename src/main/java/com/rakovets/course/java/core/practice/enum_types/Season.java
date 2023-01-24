@@ -31,6 +31,6 @@ public class Season implements SeasonDescription {
     }
 
     public double getAverageTemperature() {
-        return 0.0;
+        return season.averageTemperature();
     }
 }

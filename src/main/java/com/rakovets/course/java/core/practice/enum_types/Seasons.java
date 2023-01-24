@@ -12,7 +12,7 @@ public enum Seasons {
         this.averageTemperature = averageTemperature;
     }
 
-    public double getAverageTemperature() {
+    public double averageTemperature() {
         return averageTemperature;
     }
 }
