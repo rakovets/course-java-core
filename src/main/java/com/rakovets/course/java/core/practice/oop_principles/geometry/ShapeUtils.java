@@ -9,7 +9,7 @@ public class ShapeUtils {
         return result;
     }
 
-    public static boolean isRectangle(Object object) {
+    public static boolean isQuadrilateral(Object object) {
         boolean result;
 
         result = object instanceof Square;
