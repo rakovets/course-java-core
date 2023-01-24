@@ -37,43 +37,17 @@ class Task02 {
     static String getGreetingByHour(int hour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String greetingByHour;
-        switch (hour) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-                greetingByHour = "Good night";
-                break;
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-                greetingByHour = "Good morning";
-                break;
-            case 12:
-            case 13:
-            case 14:
-            case 15:
-            case 16:
-            case 17:
-                greetingByHour = "Good day";
-                break;
-            case 18:
-            case 19:
-            case 20:
-            case 21:
-            case 22:
-            case 23:
-                greetingByHour = "Good evening";
-                break;
-            default:
-                greetingByHour = null;
+        if(hour < 0) {
+            return null;
+        } else if (hour < 6) {
+            return "Good night";
+        } else if (hour < 12) {
+            return "Good morning";
+        } else if (hour < 18) {
+            return "Good day";
+        } else if (hour < 24) {
+            return "Good evening";
         }
-        return greetingByHour;
+        return null;
     }
 }

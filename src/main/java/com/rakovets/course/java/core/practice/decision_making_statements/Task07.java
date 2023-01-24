@@ -40,6 +40,6 @@ class Task07 {
     static boolean isLeapYear(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return LocalDate.of(year, 1, 1).isLeapYear();
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
     }
 }

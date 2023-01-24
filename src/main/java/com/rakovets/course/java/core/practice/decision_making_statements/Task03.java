@@ -9,6 +9,10 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * @author Dmitry Rakovets
  */
 class Task03 {
+    private final static int TWENTY_FIVE_PERCENT = 25;
+    private final static int FIFTY_PERCENT = 50;
+    private final static int SEVENTY_FIVE_PERCENT = 75;
+    private final static int ONE_HUNDRED_PERCENT = 100;
     /**
      * The entry point of the task
      *
@@ -37,21 +41,18 @@ class Task03 {
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String hpColour;
-        final int twentyFivePercent = 25;
-        final int fiftyPercent = 50;
-        final int seventyFivePercent = 75;
-        int onePercent =  maxHealthPoint / 100;
+        int onePercent =  maxHealthPoint / ONE_HUNDRED_PERCENT;
         int currentPercent = currentHealthPoint / onePercent;
-        if (currentPercent < twentyFivePercent) {
-            hpColour = "RED";
-        } else if (currentPercent < fiftyPercent) {
-            hpColour = "ORANGE";
-        } else if (currentPercent < seventyFivePercent) {
-            hpColour = "YELLOW";
+        if (currentPercent <= 0 || currentPercent > ONE_HUNDRED_PERCENT) {
+            return null;
+        } else if (currentPercent < TWENTY_FIVE_PERCENT) {
+            return "RED";
+        } else if (currentPercent < FIFTY_PERCENT) {
+            return "ORANGE";
+        } else if (currentPercent < SEVENTY_FIVE_PERCENT) {
+            return "YELLOW";
         } else {
-            hpColour = "GREEN";
+            return "GREEN";
         }
-        return hpColour;
     }
 }
