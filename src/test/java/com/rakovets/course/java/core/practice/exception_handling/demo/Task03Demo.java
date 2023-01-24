@@ -5,7 +5,6 @@ import com.rakovets.course.java.core.practice.exception_handling.tasks.Task03;
 
 public class Task03Demo {
     public static void main(String[] args) throws IsPositiveNumberException {
-        int number;
         String num;
 
         try {
