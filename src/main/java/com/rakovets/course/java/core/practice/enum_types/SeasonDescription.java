@@ -37,9 +37,9 @@ public interface SeasonDescription {
 
     default String getDescription() {
         String result;
-        Season season = new Season(Seasons.SPRING);
+        Seasons season = Seasons.SPRING;
 
-        switch (season.getSeason()) {
+        switch (season) {
             case SPRING:
             case WINTER:
             case SUMMER:

@@ -36,10 +36,32 @@ public class SeasonTest {
         Assertions.assertEquals(expected, result);
     }
 
-    @DisplayName("Test")
+    @DisplayName("Test getDescription for Spring")
     @Test
-    void getDescriptionTest() {
+    void getDescriptionTest1() {
         result = season.getDescription();
+        expected = "It's cold time of year.";
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test getDescription for Summer")
+    @Test
+    void getDescriptionTest2() {
+        Season seasonSummer = new Season(Seasons.SUMMER);
+
+        result = seasonSummer.getDescription();
+        expected = "It's hot time of year.";
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test getDescription for Winter")
+    @Test
+    void getDescriptionTest3() {
+        Season seasonSummer = new Season(Seasons.WINTER);
+
+        result = seasonSummer.getDescription();
         expected = "It's cold time of year.";
 
         Assertions.assertEquals(expected, result);
