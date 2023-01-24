@@ -8,8 +8,9 @@ public class SeasonPrint {
         for (Seasons value : seasons) {
             season = new Season(value);
 
-            System.out.printf("%s\n Average temperature: %s\n My favorite season is Spring: %s",
-                    season.getSeason(), season.getDescription(), season.favoriteSeasonInfo());
+            System.out.printf("%s\nAverage temperature: %s\n%s\nMy favorite season is Spring: %s\n\n",
+                    season.getSeason(), season.getAverageTemperature(), season.getDescription(),
+                    season.favoriteSeasonInfo());
         }
     }
 }

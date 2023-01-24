@@ -29,4 +29,8 @@ public class Season implements SeasonDescription {
     public Seasons getFAVORITE_SEASON() {
         return FAVORITE_SEASON;
     }
+
+    public double getAverageTemperature() {
+        return 0.0;
+    }
 }
