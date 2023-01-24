@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class MyFavoriteSeasonInfoTest {
+public class SeasonTest {
     static private Season season;
     private String result;
     private String expected;
@@ -32,6 +32,15 @@ public class MyFavoriteSeasonInfoTest {
     void printFavoriteSeasonTest() {
         result = season.printFavoriteSeason(season.getFAVORITE_SEASON());
         expected = "I like Spring!";
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test")
+    @Test
+    void getDescriptionTest() {
+        result = season.getDescription();
+        expected = "It's cold time of year.";
 
         Assertions.assertEquals(expected, result);
     }
