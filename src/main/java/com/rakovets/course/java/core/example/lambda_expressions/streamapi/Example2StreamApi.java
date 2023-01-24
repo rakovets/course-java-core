@@ -14,44 +14,44 @@ public class Example2StreamApi {
                 new Student("Alias", "White", 25, 1300)
         );
 
-        // Task: print all students
+        // Task01: print all students
         System.out.println("All students 1:");
         Stream<Student> stream = group.stream();
         stream.forEach((Student student) -> System.out.println(student));
 
-        // Task: print all students
+        // Task01: print all students
         System.out.println("All students 2:");
         Stream<Student> stream2 = group.stream();
         stream2.forEach(System.out::println);
 //        stream2.forEach(System.out::println); // IllegalStateException (Stream can be used ONLY ONE time)
 
-        // Task: print all students
+        // Task01: print all students
         System.out.println("All students 3:");
         group.stream().forEach(System.out::println);
 
-        // Task: print all students
+        // Task01: print all students
         System.out.println("All students 4:");
         group.forEach(System.out::println);
 
-        // Task: filtered students by Criteria
+        // Task01: filtered students by Criteria
         System.out.println("Filtered students 1:");
         Stream<Student> studentStream = group.stream();
         Stream<Student> filteredStudentStream = studentStream.filter(student -> fitsCriteria(student));
         filteredStudentStream.forEach(System.out::println);
 
-        // Task: filtered students by Criteria
+        // Task01: filtered students by Criteria
         System.out.println("Filtered students 2:");
         group.stream()
                 .filter(student -> fitsCriteria(student))
                 .forEach(System.out::println);
 
-        // Task: filtered students by Criteria
+        // Task01: filtered students by Criteria
         System.out.println("Filtered students 3:");
         group.stream()
                 .filter(Example2StreamApi::fitsCriteria)
                 .forEach(System.out::println);
 
-        // Task: get all sum for fee.
+        // Task01: get all sum for fee.
         System.out.println("Total fee: ");
         int totalFee = group.stream()
                 .mapToInt(Student::getFee)

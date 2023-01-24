@@ -20,17 +20,17 @@ public class Example8ExecutorServiceInvokeAny {
 
         callables.add(new Callable<String>() {
             public String call() throws Exception {
-                return "Task 1";
+                return "Task01 1";
             }
         });
         callables.add(new Callable<String>() {
             public String call() throws Exception {
-                return "Task 3";
+                return "Task01 3";
             }
         });
         callables.add(new Callable<String>() {
             public String call() throws Exception {
-                return "Task 2";
+                return "Task01 2";
             }
         });
 

@@ -14,16 +14,16 @@ public class Example1Problem {
                 new Student("Alias", "White", 25, 1300)
         );
 
-        // Task: print all students
+        // Task01: print all students
         printGroup1(group);
 
-        // Task: print all students
+        // Task01: print all students
         printGroup2(group);
 
-        // Task: filtered students by Criteria
+        // Task01: filtered students by Criteria
         printFilteredGroupByCriteria(group);
 
-        // Task: get all sum for fee.
+        // Task01: get all sum for fee.
         printGroupTotalFee(group);
     }
 
