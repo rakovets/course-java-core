@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class SeasonPrintTest {
         SeasonPrint seasonPrint = new SeasonPrint();
 
-        @DisplayName("This is NOT TEST, it is jus Demo of printAll()!!!")
+        @DisplayName("This is NOT TEST, it is just Demo of printAll()!!!")
         @Test
         void printAllTest() {
             seasonPrint.printAll();
