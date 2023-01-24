@@ -3,8 +3,6 @@ package com.rakovets.course.java.core.practice.exception_handling.tasks;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
 
-import java.io.FileNotFoundException;
-
 public class ExceptionSimulations {
     public void callNullPointerException() {
         String someString = null;
