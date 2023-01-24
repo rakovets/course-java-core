@@ -36,20 +36,6 @@ public interface SeasonDescription {
     }
 
     default String getDescription() {
-        String result;
-        Seasons season = Seasons.SPRING;
-
-        switch (season) {
-            case SPRING:
-            case WINTER:
-            case SUMMER:
-            case AUTUMN:
-                result = "It's cold time of year.";
-                break;
-            default:
-                result = "There is no such season!";
-        }
-
-        return result;
+        return "It's cold time of year.";
         }
 }

@@ -36,7 +36,7 @@ public class SeasonTest {
         Assertions.assertEquals(expected, result);
     }
 
-    @DisplayName("Test getDescription for Spring")
+    @DisplayName("Test getDescription() for Spring")
     @Test
     void getDescriptionTest1() {
         result = season.getDescription();
@@ -45,7 +45,7 @@ public class SeasonTest {
         Assertions.assertEquals(expected, result);
     }
 
-    @DisplayName("Test getDescription for Summer")
+    @DisplayName("Test getDescription() for Summer")
     @Test
     void getDescriptionTest2() {
         Season seasonSummer = new Season(Seasons.SUMMER);
@@ -56,7 +56,7 @@ public class SeasonTest {
         Assertions.assertEquals(expected, result);
     }
 
-    @DisplayName("Test getDescription for Winter")
+    @DisplayName("Test getDescription() for Winter")
     @Test
     void getDescriptionTest3() {
         Season seasonSummer = new Season(Seasons.WINTER);

@@ -12,9 +12,8 @@ public class Season implements SeasonDescription {
     @Override
     public String getDescription() {
         String result;
-        Seasons season = this.getSeason();
 
-        if(season == Seasons.SUMMER) {
+        if(this.getSeason() == Seasons.SUMMER) {
             result = "It's hot time of year.";
         } else {
             result = SeasonDescription.super.getDescription();
