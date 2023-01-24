@@ -12,7 +12,7 @@ public class ShapeUtils {
     public static boolean isQuadrilateral(Object object) {
         boolean result;
 
-        result = object instanceof Square;
+        result = object.getClass() == Rectangle.class;
 
         return result;
     }
