@@ -37,17 +37,17 @@ public class ShapeUtilsTest {
         Assertions.assertFalse(result);
     }
 
-    @DisplayName("Test of isRectangle(), for any Object that belongs to Quadrilateral returns true")
+    @DisplayName("Test of isRectangle(), for any Object that doesn't belongs to Rectangle returns false")
     @Test
     void isRectangle1() {
         Square square = new Square(3);
 
         result = ShapeUtils.isQuadrilateral(square);
 
-        Assertions.assertTrue(result);
+        Assertions.assertFalse(result);
     }
 
-    @DisplayName("Test of isRectangle(), for any Object that belongs to Quadrilateral returns true")
+    @DisplayName("Test of isRectangle(), for any Object that belongs to Rectangle returns true")
     @Test
     void isRectangle2() {
         Rectangle rectangle = new Rectangle(3, 2);
@@ -57,7 +57,7 @@ public class ShapeUtilsTest {
         Assertions.assertTrue(result);
     }
 
-    @DisplayName("Test of isRectangle(), for any Object that doesn't belongs to Quadrilateral returns false")
+    @DisplayName("Test of isRectangle(), for any Object that doesn't belongs to Rectangle returns false")
     @Test
     void isRectangle3() {
         EquilateralTriangle equilateralTriangle = new EquilateralTriangle(3);
