@@ -18,17 +18,18 @@ public class SeasonsTest {
         seasonsUtil = new SeasonsUtil();
     }
 
-    @Test
-    public void myFavoriteSeasonTest() {
+    @ParameterizedTest
+    @CsvFileSource(resources = "/test_data/myFavoriteSeasonTest.csv", numLinesToSkip = 1)
+    public void myFavoriteSeasonTest(String expectedResult) {
         Seasons myFavoriteSeason = Seasons.WINTER;
         String myFavoriteSeasonMessage = seasonsUtil.getSeasonType(myFavoriteSeason);
 
-        Assertions.assertEquals("I love winter", myFavoriteSeasonMessage);
+        Assertions.assertEquals(expectedResult, myFavoriteSeasonMessage);
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/test_data/middleTemperatureAndDescriptionForAllSeasons.csv", numLinesToSkip = 1)
-    public void middleTemperatureAndDescriptionForAllSeasons(ArgumentsAccessor argumentsAccessor) {
+    @CsvFileSource(resources = "/test_data/middleTemperatureAndDescriptionForAllSeasonsTest.csv", numLinesToSkip = 1)
+    public void middleTemperatureAndDescriptionForAllSeasonsTest(ArgumentsAccessor argumentsAccessor) {
         List<Seasons> seasons = Arrays.asList(Seasons.values());
 
         String actualResult;
