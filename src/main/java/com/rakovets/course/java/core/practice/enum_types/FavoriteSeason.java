@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
-public interface FavoriteSeason {
+public interface SeasonDescription {
     default String printFavoriteSeason(Seasons favoriteSeason) {
         String result;
 
@@ -23,4 +23,6 @@ public interface FavoriteSeason {
 
         return result;
     }
+
+    default String
 }

@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.enum_types;
 
-public class MyFavoriteSeasonInfo implements FavoriteSeason {
+public class MyFavoriteSeasonInfo implements SeasonDescription {
     private final Seasons FAVORITE_SEASON;
 
     public MyFavoriteSeasonInfo(Seasons seasons) {
