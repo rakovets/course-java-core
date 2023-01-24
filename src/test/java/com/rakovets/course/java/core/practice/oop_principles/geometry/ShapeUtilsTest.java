@@ -44,7 +44,7 @@ public class ShapeUtilsTest {
 
         result = ShapeUtils.isQuadrilateral(square);
 
-        Assertions.assertFalse(result);
+        Assertions.assertTrue(result);
     }
 
     @DisplayName("Test of isRectangle(), for any Object that belongs to Rectangle returns true")
