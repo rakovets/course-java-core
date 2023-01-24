@@ -39,9 +39,4 @@ public enum Seasons {
     public int getMiddleTemperature() {
         return middleTemperature;
     }
-
-    @Override
-    public String toString() {
-        return name();
-    }
 }
