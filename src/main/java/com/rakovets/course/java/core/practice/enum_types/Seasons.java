@@ -9,7 +9,4 @@ public enum Seasons {
     Seasons(double averageTemperature) {
     }
 
-    public int enumMemberNumber(int enumNumber) {
-        return Seasons.SPRING.ordinal();
-    }
 }
