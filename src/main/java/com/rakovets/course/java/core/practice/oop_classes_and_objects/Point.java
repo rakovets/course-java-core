@@ -1,15 +1,23 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Point {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
-    Point (int x, int y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getDistance(Point point) {
+        return getRadicalOfNumber(Utils.getSquareOfNumber(this.x - point.x) + Utils.getSquareOfNumber(this.y - point.y));
+    }
+
+    private double getRadicalOfNumber(double number) {
+        return Math.sqrt(number);
+    }
+
+    public double getX() {
         return x;
     }
 
@@ -17,19 +25,11 @@ public class Point {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public int getDistance(Point point) {
-        return getRadicalOfNumber(Utils.getSquareOfNumber(this.x - point.x) + Utils.getSquareOfNumber(this.y - point.y));
-    }
-
-    private int getRadicalOfNumber(int number) {
-        return (int) Math.sqrt(number);
     }
 }

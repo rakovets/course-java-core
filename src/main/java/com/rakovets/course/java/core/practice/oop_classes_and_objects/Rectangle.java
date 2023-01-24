@@ -1,15 +1,20 @@
 package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 
 public class Rectangle {
-    private int xLength;
-    private int yLength;
-    Point topLeftPoint;
-    Point bottomRightPoint;
+    private double xLength;
+    private double yLength;
+    private Point topLeftPoint;
+    private Point bottomRightPoint;
 
-    Rectangle(Point topLeftPoint, Point bottomRightPoint) {
+    public Rectangle(Point topLeftPoint, Point bottomRightPoint) {
         this.topLeftPoint = topLeftPoint;
         this.bottomRightPoint = bottomRightPoint;
         initLengthSide();
+    }
+
+    private void initLengthSide() {
+        xLength = Math.abs(topLeftPoint.getX() - bottomRightPoint.getX());
+        yLength = Math.abs(topLeftPoint.getY() - bottomRightPoint.getY());
     }
 
     public Point getTopLeftPoint() {
@@ -28,16 +33,11 @@ public class Rectangle {
         this.bottomRightPoint = bottomRightPoint;
     }
 
-    public int getPerimeter() {
+    public double getPerimeter() {
         return Utils.getSquareOfNumber(xLength) + Utils.getSquareOfNumber(yLength);
     }
 
-    public int getArea() {
+    public double getArea() {
         return xLength * yLength;
-    }
-
-    private void initLengthSide() {
-        xLength = Math.abs(topLeftPoint.getX() - bottomRightPoint.getX());
-        yLength = Math.abs(topLeftPoint.getY() - bottomRightPoint.getY());
     }
 }

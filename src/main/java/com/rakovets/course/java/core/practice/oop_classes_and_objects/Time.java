@@ -3,9 +3,9 @@ package com.rakovets.course.java.core.practice.oop_classes_and_objects;
 import java.util.concurrent.TimeUnit;
 
 public class Time {
-    private int hours;
-    private int minutes;
-    private int seconds;
+    private long hours;
+    private long minutes;
+    private long seconds;
 
     public Time (int totalSeconds) {
         initHoursMinutesSeconds(totalSeconds);
@@ -17,41 +17,41 @@ public class Time {
         this.seconds = seconds;
     }
 
-    public int getHours() {
-        return hours;
+    private void initHoursMinutesSeconds(int totalSeconds) {
+        hours = TimeUnit.SECONDS.toHours(totalSeconds);
+        minutes = TimeUnit.SECONDS.toMinutes(totalSeconds) - TimeUnit.HOURS.toMinutes(hours);
+        seconds = totalSeconds - TimeUnit.HOURS.toSeconds(hours) - TimeUnit.MINUTES.toSeconds(minutes);
     }
 
-    public void setHours(int hours) {
-        this.hours = hours;
-    }
-
-    public int getMinutes() {
-        return minutes;
-    }
-
-    public void setMinutes(int minutes) {
-        this.minutes = minutes;
-    }
-
-    public int getSeconds() {
-        return seconds;
-    }
-
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
-    }
-
-    public int getTotalSeconds() {
+    public long getTotalSeconds() {
         return parseHoursMinutesSecondsToSeconds();
     }
 
-    private void initHoursMinutesSeconds(int totalSeconds) {
-        this.hours = (int) TimeUnit.SECONDS.toHours(totalSeconds);
-        this.minutes = (int) (TimeUnit.SECONDS.toMinutes(totalSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.SECONDS.toHours(totalSeconds)));
-        this.seconds = (int) (TimeUnit.SECONDS.toSeconds(totalSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.SECONDS.toMinutes(totalSeconds)));
+    private long parseHoursMinutesSecondsToSeconds() {
+        return seconds + TimeUnit.MINUTES.toSeconds(minutes) + TimeUnit.HOURS.toSeconds(hours);
     }
 
-    private int parseHoursMinutesSecondsToSeconds() {
-        return (int) (seconds + TimeUnit.MINUTES.toSeconds(minutes) + TimeUnit.HOURS.toSeconds(hours));
+    public long getHours() {
+        return hours;
+    }
+
+    public void setHours(long hours) {
+        this.hours = hours;
+    }
+
+    public long getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(long minutes) {
+        this.minutes = minutes;
+    }
+
+    public long getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(long seconds) {
+        this.seconds = seconds;
     }
 }

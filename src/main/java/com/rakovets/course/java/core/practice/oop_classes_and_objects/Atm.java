@@ -4,11 +4,11 @@ public class Atm {
     private final int numberBanknotes20;
     private final int numberBanknotes50;
     private final int numberBanknotes100;
-    private final int banknote20 = Integer.parseInt(Banknotes.TWENTY.getBanknote());
-    private final int banknote50 = Integer.parseInt(Banknotes.FIFTY.getBanknote());
-    private final int banknote100 = Integer.parseInt(Banknotes.ONE_HUNDRED.getBanknote());
+    private final int banknote20 = Banknotes.TWENTY.getBanknote();
+    private final int banknote50 = Banknotes.FIFTY.getBanknote();
+    private final int banknote100 = Banknotes.ONE_HUNDRED.getBanknote();
 
-    Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
+    public Atm(int numberBanknotes20, int numberBanknotes50, int numberBanknotes100) {
         this.numberBanknotes20 = numberBanknotes20;
         this.numberBanknotes50 = numberBanknotes50;
         this.numberBanknotes100 = numberBanknotes100;
