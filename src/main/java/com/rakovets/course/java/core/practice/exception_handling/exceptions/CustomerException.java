@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling.exceptions;
 
-public class AgeValidation extends RuntimeException {
-    public AgeValidation(String massage) {
+public class CustomerException extends RuntimeException {
+    public CustomerException(String massage) {
         super(massage);
     }
 }

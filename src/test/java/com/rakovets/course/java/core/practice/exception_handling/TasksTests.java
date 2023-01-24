@@ -1,5 +1,5 @@
 package com.rakovets.course.java.core.practice.exception_handling;
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.AgeValidation;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomerException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.DegreeOfAlcoholValidation;
 import com.rakovets.course.java.core.practice.exception_handling.tasks.Tasks;
 import org.junit.jupiter.api.Assertions;
@@ -15,30 +15,37 @@ public class TasksTests {
         tasks = new Tasks();
     }
     @Test
-    public void causeNullPointerExceptionTest() {
-        Executable executable = () -> tasks.causeNullPointerException();
+    public void callNullPointerExceptionTest() {
+        Executable executable = () -> tasks.callNullPointerException();
 
         Assertions.assertThrows(NullPointerException.class, executable);
     }
     @Test
-    public void causeArrayIndexOutOfBoundsExceptionTest() {
-        Executable executable = () -> tasks.causeArrayIndexOutOfBoundsException();
+    public void callArrayIndexOutOfBoundsExceptionTest() {
+        Executable executable = () -> tasks.callArrayIndexOutOfBoundsException();
 
         Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, executable);
     }
 
     @Test
-    public void causeMyCustomExceptionTest() {
-        Executable executable = () -> tasks.causeMyCustomException(31);
+    public void callMyCustomExceptionTest() {
+        Executable executable = () -> tasks.callMyCustomException(31);
 
         Assertions.assertThrows(DegreeOfAlcoholValidation.class, executable);
     }
 
     @Test
-    public void causeMyCustomRuntimeExceptionTest() {
-        Executable executable = () -> tasks.causeMyCustomRuntimeException(17);
+    public void callMyCustomRuntimeExceptionTest() {
+        Executable executable = () -> tasks.callMyCustomRuntimeException(17);
 
-        Assertions.assertThrows(AgeValidation.class, executable);
+        Assertions.assertThrows(CustomerException.class, executable);
+    }
+
+    @Test
+    public void catchArrayIndexOutOfBoundsExceptionTest() {
+        Executable executable = () -> tasks.catchArrayIndexOutOfBoundsException();
+
+        Assertions.assertThrows(CustomerException.class, executable);
     }
 
 
