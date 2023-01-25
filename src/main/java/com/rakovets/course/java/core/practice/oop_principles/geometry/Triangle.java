@@ -20,8 +20,9 @@ public class Triangle extends IsoscelesTriangle {
         return result;
     }
 
-    public double getAngleA() {
-        return angleA;
+    @Override
+    public String toString() {
+        return "Info";
     }
 
     public double getSideC() {
