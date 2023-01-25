@@ -1,4 +1,5 @@
 package com.rakovets.course.java.core.practice.exception_handling;
+
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.DegreeOfAlcoholValidation;
 import com.rakovets.course.java.core.practice.exception_handling.tasks.Tasks;
@@ -14,12 +15,14 @@ public class TasksTests {
     public void init() {
         tasks = new Tasks();
     }
+
     @Test
     public void callNullPointerExceptionTest() {
         Executable executable = () -> tasks.callNullPointerException();
 
         Assertions.assertThrows(NullPointerException.class, executable);
     }
+
     @Test
     public void callArrayIndexOutOfBoundsExceptionTest() {
         Executable executable = () -> tasks.callArrayIndexOutOfBoundsException();
@@ -42,16 +45,9 @@ public class TasksTests {
     }
 
     @Test
-    public void catchArrayIndexOutOfBoundsExceptionTest() {
-        Executable executable = () -> tasks.catchArrayIndexOutOfBoundsException();
+    public void catchArrayIndexOutOfBoundsExceptionAndThrowTest() {
+        Executable executable = () -> tasks.catchArrayIndexOutOfBoundsExceptionAndThrow();
 
         Assertions.assertThrows(CustomRuntimeException.class, executable);
     }
-
-
-
-
-
-
-
 }

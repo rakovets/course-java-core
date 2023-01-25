@@ -28,7 +28,7 @@ public class Tasks {
         return true;
     }
 
-    public void catchArrayIndexOutOfBoundsException() {
+    public void catchArrayIndexOutOfBoundsExceptionAndThrow() {
         try {
             String[] string = new String[4];
             string[6] = "Are you an idiot?";
@@ -37,14 +37,30 @@ public class Tasks {
         }
     }
 
-    public void catchTreeException() {
-        try {
-            int[] someInt = new int[4];
-            someInt[6] = 11;
-            someInt[0] = Integer.parseInt("1a");
-            someInt[1] = Integer.parseInt("eee3a");
-        } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
-            throw new CustomRuntimeException("ArrayIndexOutOfBoundsException");
+    public int[] catchTreeException(int number) {
+        int mistake = 0;
+        int[] someInt = new int[2];
+        if (number > 0 && number < 10) {
+            someInt[2] = someInt.length;
         }
+        if (number > 10 && number < 20) {
+            someInt[0] = Integer.parseInt("1a");
+        }
+        if (number > 20) {
+            someInt[0] = someInt[1] / mistake;
+        }
+        return someInt;
+    }
+
+    public String trowTwoExceptions(int Age) {
+        String answer = "you can buy this battle";
+        String verbalAgreement = null;
+        if (Age > 18) {
+            answer = verbalAgreement.concat(verbalAgreement);
+        }
+        if (Age < 18) {
+            throw new CustomRuntimeException("You can't buy alcohol");
+        }
+        return answer;
     }
 }
