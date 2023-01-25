@@ -52,7 +52,7 @@ public class Tasks {
         return someInt;
     }
 
-    public String trowTwoExceptions(int Age) {
+    public String catchTwoExceptions(int Age) {
         String answer = "you can buy this battle";
         String verbalAgreement = null;
         if (Age > 18) {

@@ -8,7 +8,7 @@ public class DemoTask07 {
         Tasks tasks = new Tasks();
         int Age = 19;
         try {
-            tasks.trowTwoExceptions(Age);
+            tasks.catchTwoExceptions(Age);
         } catch (NullPointerException ex) {
             System.out.println(ex.getMessage());
         } finally {
