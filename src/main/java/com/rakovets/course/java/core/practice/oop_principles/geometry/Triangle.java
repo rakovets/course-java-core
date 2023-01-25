@@ -2,28 +2,26 @@ package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class Triangle extends IsoscelesTriangle {
     private final double sideC;
-    private final int angleA;
-    private final int angleB;
-    private final int angleC;
+    private final double angleA;
 
-    public Triangle(int sideA, int sideB, double sideC, int angleA, int angleB) {
+    public Triangle(double sideA, double sideB, double angleA) {
         super(sideA, sideB);
-        this.sideC = sideC;
         this.angleA = angleA;
-        this.angleB = angleB;
-        this.angleC = 180 - angleA - angleB;
+        this.sideC = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2) - 2 * sideA * sideB
+                * Math.cos(Math.toRadians(angleA)));
     }
 
-    public int getAngleA() {
+    @Override
+    public double area() {
+        double result;
+
+        result = getSideA() * getSideB() * Math.sin(Math.toRadians(angleA)) / 2;
+
+        return result;
+    }
+
+    public double getAngleA() {
         return angleA;
-    }
-
-    public int getAngleB() {
-        return angleB;
-    }
-
-    public int getAngleC() {
-        return angleC;
     }
 
     public double getSideC() {
