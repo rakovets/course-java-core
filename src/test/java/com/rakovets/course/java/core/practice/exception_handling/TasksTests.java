@@ -1,5 +1,5 @@
 package com.rakovets.course.java.core.practice.exception_handling;
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomerException;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.DegreeOfAlcoholValidation;
 import com.rakovets.course.java.core.practice.exception_handling.tasks.Tasks;
 import org.junit.jupiter.api.Assertions;
@@ -29,7 +29,7 @@ public class TasksTests {
 
     @Test
     public void callMyCustomExceptionTest() {
-        Executable executable = () -> tasks.callMyCustomException(31);
+        Executable executable = () -> tasks.callDegreeOfAlcoholValidation(31);
 
         Assertions.assertThrows(DegreeOfAlcoholValidation.class, executable);
     }
@@ -38,14 +38,14 @@ public class TasksTests {
     public void callMyCustomRuntimeExceptionTest() {
         Executable executable = () -> tasks.callMyCustomRuntimeException(17);
 
-        Assertions.assertThrows(CustomerException.class, executable);
+        Assertions.assertThrows(CustomRuntimeException.class, executable);
     }
 
     @Test
     public void catchArrayIndexOutOfBoundsExceptionTest() {
         Executable executable = () -> tasks.catchArrayIndexOutOfBoundsException();
 
-        Assertions.assertThrows(CustomerException.class, executable);
+        Assertions.assertThrows(CustomRuntimeException.class, executable);
     }
 
 

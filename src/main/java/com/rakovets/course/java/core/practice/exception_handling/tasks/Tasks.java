@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.tasks;
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomerException;
+
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.DegreeOfAlcoholValidation;
 
 public class Tasks {
@@ -13,16 +14,16 @@ public class Tasks {
         string[6] = "Are you an idiot?";
     }
 
-    public boolean callMyCustomException(int degreeOfAlcohol) throws DegreeOfAlcoholValidation {
+    public boolean callDegreeOfAlcoholValidation(int degreeOfAlcohol) throws DegreeOfAlcoholValidation {
         if (degreeOfAlcohol < 40) {
             throw new DegreeOfAlcoholValidation();
         }
         return true;
     }
 
-    public boolean callMyCustomRuntimeException(int Age)  {
+    public boolean callMyCustomRuntimeException(int Age) {
         if (Age < 18) {
-            throw new CustomerException("You can't buy alcohol");
+            throw new CustomRuntimeException("You can't buy alcohol");
         }
         return true;
     }
@@ -32,7 +33,7 @@ public class Tasks {
             String[] string = new String[4];
             string[6] = "Are you an idiot?";
         } catch (ArrayIndexOutOfBoundsException ex) {
-            throw new CustomerException("ArrayIndexOutOfBoundsException");
+            throw new CustomRuntimeException(ex.getMessage());
         }
     }
 
@@ -43,7 +44,7 @@ public class Tasks {
             someInt[0] = Integer.parseInt("1a");
             someInt[1] = Integer.parseInt("eee3a");
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
-            throw new CustomerException("ArrayIndexOutOfBoundsException");
+            throw new CustomRuntimeException("ArrayIndexOutOfBoundsException");
         }
     }
 }
