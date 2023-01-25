@@ -50,4 +50,39 @@ public class TasksTests {
 
         Assertions.assertThrows(CustomRuntimeException.class, executable);
     }
+
+    @Test
+    public void catchTreeExceptionTest1() {
+        Executable executable = () -> tasks.catchTreeException(5);
+
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, executable);
+    }
+
+    @Test
+    public void catchTreeExceptionTest2() {
+        Executable executable = () -> tasks.catchTreeException(13);
+
+        Assertions.assertThrows(NumberFormatException.class, executable);
+    }
+
+    @Test
+    public void catchTreeExceptionTest3() {
+        Executable executable = () -> tasks.catchTreeException(25);
+
+        Assertions.assertThrows(ArithmeticException.class, executable);
+    }
+
+    @Test
+    public void catchTwoExceptionsTest1() {
+        Executable executable = () -> tasks.catchTwoExceptions(25);
+
+        Assertions.assertThrows(NullPointerException.class, executable);
+    }
+
+    @Test
+    public void catchTwoExceptionsTest2() {
+        Executable executable = () -> tasks.catchTwoExceptions(17);
+
+        Assertions.assertThrows(CustomRuntimeException.class, executable);
+    }
 }
