@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
-public class Square implements MainUtils {
+public class Square extends Figure {
     private final double sideA;
 
     public Square(double sideA) {
@@ -23,7 +23,13 @@ public class Square implements MainUtils {
         return diagonal;
     }
 
+    @Override
+    public String toString() {
+        return null;
+    }
+
     public double getSideA() {
         return sideA;
     }
+
 }
