@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
-public class EquilateralTriangle implements MainUtils {
+public class EquilateralTriangle extends Figure {
     private final double sideA;
 
     public EquilateralTriangle(double sideA) {
@@ -15,7 +15,13 @@ public class EquilateralTriangle implements MainUtils {
         return 3 * getSideA();
     }
 
+    @Override
+    public String toString() {
+        return null;
+    }
+
     public double getSideA() {
         return sideA;
     }
+
 }
