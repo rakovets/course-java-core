@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class Rectangle extends Square {
-    private final double SIDE_B;
+    private final double sideB;
 
     public Rectangle(double sideA, double sideB) {
         super(sideA);
-        this.SIDE_B = sideB;
+        this.sideB = sideB;
     }
 
     @Override
@@ -28,6 +28,6 @@ public class Rectangle extends Square {
     }
 
     public double getSideB() {
-        return SIDE_B;
+        return sideB;
     }
 }

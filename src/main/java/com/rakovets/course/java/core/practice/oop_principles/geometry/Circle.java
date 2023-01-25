@@ -1,21 +1,21 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class Circle {
-    private final double RADIUS;
+    private final double radius;
 
     public Circle(double radius) {
-        this.RADIUS = radius;
+        this.radius = radius;
     }
 
     public double area() {
-        return Math.PI * Math.pow(getRADIUS(), 2);
+        return Math.PI * Math.pow(getRadius(), 2);
     }
 
     public double length() {
-        return 2 * Math.PI * getRADIUS();
+        return 2 * Math.PI * getRadius();
     }
 
-    public double getRADIUS() {
-        return RADIUS;
+    public double getRadius() {
+        return radius;
     }
 }

@@ -1,11 +1,11 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class IsoscelesTriangle extends EquilateralTriangle {
-    private final double SIDE_B;
+    private final double sideB;
 
     public IsoscelesTriangle(double sideA, double sideB) {
         super(sideA);
-        this.SIDE_B = sideB;
+        this.sideB = sideB;
     }
 
     @Override
@@ -25,6 +25,6 @@ public class IsoscelesTriangle extends EquilateralTriangle {
     }
 
     public double getSideB() {
-        return SIDE_B;
+        return sideB;
     }
 }

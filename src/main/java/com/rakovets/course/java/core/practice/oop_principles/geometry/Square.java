@@ -1,10 +1,10 @@
 package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class Square implements MainUtils {
-    private final double SIDE_A;
+    private final double sideA;
 
     public Square(double sideA) {
-        this.SIDE_A = sideA;
+        this.sideA = sideA;
     }
 
     public double area() {
@@ -24,6 +24,6 @@ public class Square implements MainUtils {
     }
 
     public double getSideA() {
-        return SIDE_A;
+        return sideA;
     }
 }
