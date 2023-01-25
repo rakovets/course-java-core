@@ -7,7 +7,7 @@ Module `main`:
 - One _Specification of task_ - one _method_.
 - Название методов должно быть осмысленным.
 
-Module `test`:
+Module `geometry`:
 
 - Создать класс `StringUtilTest` в `src/test/java/...`.
 - Добавить тесты в `StringUtilTest` для тестирования созданных методов.

@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.test;
+package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 import com.rakovets.course.java.core.practice.oop_principles.geometryTest.EquilateralTriangle;
 import com.rakovets.course.java.core.practice.oop_principles.geometryTest.Rectangle;

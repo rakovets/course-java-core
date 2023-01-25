@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.test;
+package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

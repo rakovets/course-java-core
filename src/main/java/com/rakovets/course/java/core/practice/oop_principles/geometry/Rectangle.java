@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.test;
+package com.rakovets.course.java.core.practice.oop_principles.geometry;
 
 public class Rectangle extends Figure implements Diagonal, Perimeter {
     private final double sideA;
