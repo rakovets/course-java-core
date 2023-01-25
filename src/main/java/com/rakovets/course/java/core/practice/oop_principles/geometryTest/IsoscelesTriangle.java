@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.oop_principles.geometry;
+package com.rakovets.course.java.core.practice.oop_principles.geometryTest;
 
 public class IsoscelesTriangle extends EquilateralTriangle {
     private final double sideB;
