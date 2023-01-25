@@ -5,11 +5,15 @@ public class Triangle extends Figure implements Height, Perimeter {
 
     private final double sideB;
 
+    private final double sideC;
+
     private final int angleAlfa;
 
     public Triangle(double sideA, double sideB, int angleAlfa) {
         this.sideA = sideA;
         this.sideB = sideB;
+        this.sideC = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2) - 2 * sideA * sideB
+                * Math.cos(Math.toRadians(angleAlfa)));
         this.angleAlfa = angleAlfa;
     }
 
@@ -26,17 +30,20 @@ public class Triangle extends Figure implements Height, Perimeter {
 
     @Override
     public double area() {
-        return 0;
+        double result;
+
+        result = getSideA() * getSideB() * Math.sin(Math.toRadians(getAngleAlfa()));
+
+        return result;
     }
 
     @Override
     public double perimeter() {
-        return 0;
-    }
+        double result;
 
-    @Override
-    public boolean isAreaEquals(Figure figure) {
-        return true;
+        result = getSideA() + getSideB() + getSideC();
+
+        return result;
     }
 
     @Override
@@ -50,6 +57,10 @@ public class Triangle extends Figure implements Height, Perimeter {
 
     public double getSideB() {
         return sideB;
+    }
+
+    public double getSideC() {
+        return sideC;
     }
 
     public int getAngleAlfa() {
