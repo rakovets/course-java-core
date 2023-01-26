@@ -4,12 +4,7 @@ public class ManyExceptions {
     private final int exceptionNumber;
 
     public ManyExceptions(int exceptionNumber) {
-        if (exceptionNumber > 1 && exceptionNumber < 4) {
             this.exceptionNumber = exceptionNumber;
-        } else {
-            this.exceptionNumber = exceptionNumber;
-            System.out.println("Enter number from 1 to 3");
-        }
     }
 
     public void trowException() {
