@@ -21,9 +21,9 @@ public class Triangle extends Figure implements Height, Perimeter {
     public String toString() {
         String result;
 
-        result = "This is Rectangle with next parameters:\nSide A: " + this.getSideA() + "\nSide B: " +
-                getSideB() + "\nPerimeter: " + this.perimeter() + "\nArea: " + this.area() + "\nHeight: " +
-                this.height();
+        result = "This is Triangle with next parameters:\nSide A: " + this.getSideA() + "\nSide B: " +
+                getSideB() + "\nSide C: " + this.getSideC() + "Angle Alfa: " + getAngleAlfa()  + "\nPerimeter: " +
+                this.perimeter() + "\nArea: " + this.area() + "\nHeight: " + this.height();
 
         return result;
     }
@@ -32,7 +32,7 @@ public class Triangle extends Figure implements Height, Perimeter {
     public double area() {
         double result;
 
-        result = getSideA() * getSideB() * Math.sin(Math.toRadians(getAngleAlfa()));
+        result = getSideA() * getSideB() * Math.sin(Math.toRadians(getAngleAlfa())) / 2;
 
         return result;
     }
@@ -48,7 +48,11 @@ public class Triangle extends Figure implements Height, Perimeter {
 
     @Override
     public double height() {
-        return 0;
+        double result;
+
+        result = 2 * this.area() / getSideA();
+
+        return result;
     }
 
     public double getSideA() {
