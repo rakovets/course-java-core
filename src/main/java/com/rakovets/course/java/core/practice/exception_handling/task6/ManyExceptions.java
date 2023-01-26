@@ -1,31 +1,33 @@
 package com.rakovets.course.java.core.practice.exception_handling.task6;
 
 public class ManyExceptions {
-    int[] outOfBounds = new int[1];
-    String outOfMemory = "Hello world!";
-    String nullPointer = null;
+    private final int exceptionNumber;
 
-    public void trowException(int i) {
-        if (i == 0) {
-            outOfBounds[1] = 1;
-        } else if (i == 1) {
-                nullPointer = nullPointer.concat(null);
+    public ManyExceptions(int exceptionNumber) {
+        if (exceptionNumber > 1 && exceptionNumber < 4) {
+            this.exceptionNumber = exceptionNumber;
         } else {
-            while (true) {
-                outOfMemory = outOfMemory.concat(outOfMemory);
-            }
+            this.exceptionNumber = exceptionNumber;
+            System.out.println("Enter number from 1 to 3");
         }
     }
 
-    public void catchException() throws Exception {
+    public void trowException() {
         try {
-            for (int i = 0; i < 3; i++) {
-                trowException(i);
+            switch (this.exceptionNumber) {
+                case 1:
+                    throw new NullPointerException();
+                case 2:
+                    throw new RuntimeException();
+                case 3:
+                    throw new IndexOutOfBoundsException();
+                default:
+                    System.out.println("To throw exception, please create class with 1 to 3 constructor parameter");
             }
-        } catch (IndexOutOfBoundsException | NullPointerException exception) {
+        } catch (NullPointerException | IndexOutOfBoundsException exception) {
+            System.out.println("Hello! You got an Error in your code!");
+        } catch (RuntimeException exception) {
             System.out.println(exception.getMessage());
-        } catch (OutOfMemoryError error) {
-            throw new OutOfMemoryError(error.getMessage());
         }
     }
 }
