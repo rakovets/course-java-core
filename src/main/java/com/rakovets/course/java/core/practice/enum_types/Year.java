@@ -17,7 +17,7 @@ public class Year {
                 print = "I love spring \n";
                 break;
         }
-        System.out.println(print);
+        System.out.print(print);
     }
 
     public void printSeasonData() {
