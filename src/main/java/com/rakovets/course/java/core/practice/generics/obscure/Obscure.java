@@ -35,7 +35,11 @@ public class Obscure<T> {
         return result;
     }
 
-    public static <T> Obscure of(T object) {
+    public static <T> Obscure<T> of(T object) {
+        return new Obscure<>(object);
+    }
+
+    public static Obscure<?> empty() {
         return null;
     }
 }
