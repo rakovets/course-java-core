@@ -40,6 +40,6 @@ public class Obscure<T> {
     }
 
     public static Obscure<?> empty() {
-        return null;
+        return new Obscure<>(0);
     }
 }
