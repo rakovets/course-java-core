@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.generics;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class ObscureTest {
     private Obscure<Double> obscureDouble;
@@ -119,7 +120,9 @@ public class ObscureTest {
      //   obscureString.orElseThrow(NumberFormatException);
 
 
+      //  Executable executable = () -> obscureString.orElseThrow();
 
+     //   Assertions.assertThrows(NullPointerException.class, executable);
     }
 
 
