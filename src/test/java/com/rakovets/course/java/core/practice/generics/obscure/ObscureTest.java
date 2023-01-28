@@ -6,50 +6,50 @@ import org.junit.jupiter.api.Test;
 public class ObscureTest {
     @Test
     void emptyTest1() {
-        Obscure<?> obscureEmpty = new Obscure<>("");
+        Obscure<String> obscureEmpty = new Obscure<>("");
 
         Assertions.assertTrue(obscureEmpty.isEmpty());
     }
 
     @Test
     void emptyTest2() {
-        Obscure<?> obscure = new Obscure<>("Obscure");
+        Obscure<String> obscure = new Obscure<>("Obscure");
 
         Assertions.assertFalse(obscure.isEmpty());
     }
 
     @Test
     void isPresentTest1() {
-        Obscure<?> obscure = new Obscure<>(null);
+        Obscure<String> obscure = new Obscure<>(null);
 
         Assertions.assertFalse(obscure.isPresent());
     }
 
     @Test
     void isPresentTest2() {
-        Obscure<?> obscure = new Obscure<>("Obscure");
+        Obscure<String> obscure = new Obscure<>("Obscure");
 
         Assertions.assertTrue(obscure.isPresent());
     }
 
     @Test
     void orElseTest1() {
-        Obscure<?> obscure = new Obscure<>("Obscure");
-        Obscure<?> object = new Obscure<>("Object");
+        Obscure<Object> obscureNotPresent = new Obscure<>(null);
+        Double object = 2.0;
 
-        Object result = obscure.orElse(object);
-        Object expected = obscure.get();
+        Object result = obscureNotPresent.orElse(object);
+        Double expected = 2.0;
 
         Assertions.assertEquals(expected, result);
     }
 
     @Test
     void orElseTest2() {
-        Obscure<?> obscureNotPresent = new Obscure<>(null);
-        Obscure<?> object = new Obscure<>("Object");
+        Obscure<Double> obscure = new Obscure<>(3.0);
+        Double object = 2.0;
 
-        Object result = obscureNotPresent.orElse(object);
-        Object expected = object.get();
+        Object result = obscure.orElse(object);
+        Double expected = 3.0;
 
         Assertions.assertEquals(expected, result);
     }

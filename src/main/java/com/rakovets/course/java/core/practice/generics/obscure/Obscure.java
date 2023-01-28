@@ -19,20 +19,16 @@ public class Obscure<T> {
         return object.toString().length() == 0;
     }
 
-    public Object orElse(Obscure<?> object) {
-        return this.isPresent() ? this.get() : object.get();
+    public T orElse(T object) {
+        return isPresent() ? this.object : object;
     }
 
-    public T orElseThrow(Exception exception) throws Exception {
-        T result;
-
-        if (isPresent()) {
-            result = object;
+    public Object orElseThrow(Exception exception) throws Exception {
+        if (this.isPresent()) {
+            return this.get();
         } else {
             throw exception;
         }
-
-        return result;
     }
 
     public static <T> Obscure<T> of(T object) {
