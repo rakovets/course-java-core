@@ -114,17 +114,24 @@ public class ObscureTest {
     }
 
     @Test
-    public void orElseThrow() {
-        obscureString = new Obscure<>(null);
+    public void of() {
+        obscureDouble = new Obscure<>(null);
+        Double object = 3.33;
 
-     //   obscureString.orElseThrow(NumberFormatException);
+        Assertions.assertEquals(3.33, obscureDouble.orElse(object));
+    }
+
+
+    @Test
+    public static void orElseThrow() {
+
+
+
+      //  obscureString.orElseThrow(NumberFormatException);
 
 
       //  Executable executable = () -> obscureString.orElseThrow();
 
      //   Assertions.assertThrows(NullPointerException.class, executable);
     }
-
-
-
 }

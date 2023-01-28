@@ -37,7 +37,7 @@ public class Obscure<T> {
         return new Obscure<>(object);
     }
 
-    public static <T> Obscure<T> empty(T object) {
+    public static <T> Obscure<T> empty() {
         return new Obscure<>(null);
     }
 }
