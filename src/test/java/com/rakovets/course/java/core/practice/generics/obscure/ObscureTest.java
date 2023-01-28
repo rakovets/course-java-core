@@ -83,7 +83,9 @@ public class ObscureTest {
 
     @Test
     void emptyTest() {
-        Object result = Obscure.empty();
+        Obscure<Object> obscure = Obscure.empty();
+
+        Object result = obscure.get();
         Object expected = new Obscure<>("").get();
 
         Assertions.assertEquals(expected, result);
