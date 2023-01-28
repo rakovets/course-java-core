@@ -16,11 +16,11 @@ public class Obscure<T> {
     }
 
     public boolean isEmpty() {
-        return object != null;
+        return object.toString().length() == 0;
     }
 
-    public T orElse(T object) {
-        return isPresent() ? this.object : object;
+    public T orElse(Obscure<T> obscure) {
+        return isPresent() ? this.get() : obscure.get();
     }
 
     public T orElseThrow(Exception exception) throws Exception {
