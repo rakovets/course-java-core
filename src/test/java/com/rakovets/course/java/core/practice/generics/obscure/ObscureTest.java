@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 
 public class ObscureTest {
     @Test
-    void emptyTest1() {
+    void isEmptyTest1() {
         Obscure<String> obscureEmpty = new Obscure<>("");
 
         Assertions.assertTrue(obscureEmpty.isEmpty());
     }
 
     @Test
-    void emptyTest2() {
+    void isEmptyTest2() {
         Obscure<String> obscure = new Obscure<>("Obscure");
 
         Assertions.assertFalse(obscure.isEmpty());
@@ -75,6 +75,11 @@ public class ObscureTest {
 
     @Test
     void ofTest1() {
+
+    }
+
+    @Test
+    void emptyTest1() {
 
     }
 }
