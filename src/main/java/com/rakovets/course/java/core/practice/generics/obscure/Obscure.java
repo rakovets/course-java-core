@@ -19,8 +19,8 @@ public class Obscure<T> {
         return object.toString().length() == 0;
     }
 
-    public T orElse(Obscure<T> obscure) {
-        return isPresent() ? this.get() : obscure.get();
+    public Object orElse(Obscure<?> object) {
+        return this.isPresent() ? this.get() : object.get();
     }
 
     public T orElseThrow(Exception exception) throws Exception {

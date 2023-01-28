@@ -4,45 +4,54 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ObscureTest {
-    Obscure<?> obscure;
-    Obscure<?> result;
-
     @Test
     void emptyTest1() {
-        obscure = new Obscure<>("");
+        Obscure<?> obscureEmpty = new Obscure<>("");
 
-        Assertions.assertTrue(obscure.isEmpty());
+        Assertions.assertTrue(obscureEmpty.isEmpty());
     }
 
     @Test
     void emptyTest2() {
-        obscure = new Obscure<>("Obscure");
+        Obscure<?> obscure = new Obscure<>("Obscure");
 
         Assertions.assertFalse(obscure.isEmpty());
     }
 
     @Test
     void isPresentTest1() {
-        obscure = new Obscure<>(null);
+        Obscure<?> obscure = new Obscure<>(null);
 
         Assertions.assertFalse(obscure.isPresent());
     }
 
     @Test
     void isPresentTest2() {
-        obscure = new Obscure<>("Obscure");
+        Obscure<?> obscure = new Obscure<>("Obscure");
 
         Assertions.assertTrue(obscure.isPresent());
     }
 
     @Test
     void orElseTest1() {
-        obscure = new Obscure<>("Obscure");
-        Obscure object = new Obscure<>("Name");
+        Obscure<?> obscure = new Obscure<>("Obscure");
+        Obscure<?> object = new Obscure<>("Object");
 
-        result = (Obscure<?>) obscure.orElse(object);
-        Obscure<?> expected = obscure;
+        Object result = obscure.orElse(object);
+        Object expected = obscure.get();
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    void orElseTest2() {
+        Obscure<?> obscureNotPresent = new Obscure<>(null);
+        Obscure<?> object = new Obscure<>("Object");
+
+        Object result = obscureNotPresent.orElse(object);
+        Object expected = object.get();
 
         Assertions.assertEquals(expected, result);
     }
 }
+
