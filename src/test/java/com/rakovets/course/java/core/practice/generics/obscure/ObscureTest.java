@@ -72,5 +72,10 @@ public class ObscureTest {
 
         Assertions.assertThrows(NullPointerException.class, () -> obscure.orElseThrow(exception));
     }
+
+    @Test
+    void ofTest1() {
+
+    }
 }
 

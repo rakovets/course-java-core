@@ -8,7 +8,7 @@ public class Obscure<T> {
     }
 
     public T get() {
-        return object;
+        return this.object;
     }
 
     public boolean isPresent() {
