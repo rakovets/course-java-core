@@ -74,13 +74,19 @@ public class ObscureTest {
     }
 
     @Test
-    void ofTest1() {
+    void ofTest() {
+        Object result = Obscure.of(2.0);
+        Object expected = new Obscure<>(2.0).get();
 
+        Assertions.assertEquals(expected, result);
     }
 
     @Test
-    void emptyTest1() {
+    void emptyTest() {
+        Object result = Obscure.empty();
+        Object expected = new Obscure<>("").get();
 
+        Assertions.assertEquals(expected, result);
     }
 }
 
