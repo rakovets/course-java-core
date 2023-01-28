@@ -53,5 +53,24 @@ public class ObscureTest {
 
         Assertions.assertEquals(expected, result);
     }
+
+    @Test
+    void orElseThrowTest1() throws Exception {
+        Obscure<String> obscure = new Obscure<>("Obscure");
+        Exception exception = new NullPointerException();
+
+        Object result = obscure.orElseThrow(exception);
+        String expected = "Obscure";
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    void orElseThrowTest2() {
+        Obscure<Object> obscure = new Obscure<>(null);
+        Exception exception = new NullPointerException();
+
+        Assertions.assertThrows(NullPointerException.class, () -> obscure.orElseThrow(exception));
+    }
 }
 

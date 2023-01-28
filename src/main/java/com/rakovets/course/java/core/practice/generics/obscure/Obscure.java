@@ -23,9 +23,9 @@ public class Obscure<T> {
         return isPresent() ? this.object : object;
     }
 
-    public Object orElseThrow(Exception exception) throws Exception {
+    public T orElseThrow(Exception exception) throws Exception {
         if (this.isPresent()) {
-            return this.get();
+            return this.object;
         } else {
             throw exception;
         }
