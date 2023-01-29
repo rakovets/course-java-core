@@ -38,6 +38,6 @@ public class Obscure<T> {
     }
 
     public static <T> Obscure<T> empty() {
-        return new Obscure<>(null);
+        return (Obscure<T>) new Obscure<>("");
     }
 }

@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.generics;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class ObscureTest {
     private Obscure<Double> obscureDouble;
@@ -152,6 +153,28 @@ public class ObscureTest {
         obscureString = new Obscure<>(null);
         Exception exception = new NullPointerException();
 
-        Assertions.assertThrows(NullPointerException.class, ()-> obscureString.orElseThrow(exception));
+        Executable executable = ()-> obscureString.orElseThrow(exception);
+
+        Assertions.assertThrows(NullPointerException.class, executable);
+    }
+
+    @Test
+    public void orElseThrowTest5() {
+        obscureInteger = new Obscure<>(null);
+        Exception exception = new ArithmeticException();
+
+        Executable executable = ()-> obscureInteger.orElseThrow(exception);
+
+        Assertions.assertThrows(ArithmeticException.class, executable);
+    }
+
+    @Test
+    public void orElseThrowTest6() {
+        obscureDouble = new Obscure<>(null);
+        Exception exception = new ArrayIndexOutOfBoundsException();
+
+        Executable executable = ()-> obscureDouble.orElseThrow(exception);
+
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, executable);
     }
 }
