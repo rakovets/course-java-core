@@ -10,15 +10,14 @@ public abstract class Math<T extends Number> {
     }
 
     public static <T extends Number> T getMaxFromThreeNumbers(T numberOne, T numberTwo, T numberThree) {
-        Number[] array = new Number[] {numberOne, numberTwo, numberThree};
-        Number maxNumber = numberOne;
+        Number[] array = new Number[]{numberOne, numberTwo, numberThree};
+        Number maxNumber = array[0];
         for (Number i : array) {
-            //if (maxNumber < i) {
-                maxNumber = i;
-            }
-        return null;
+            //if (i > maxNumber) {
+            maxNumber = i;
         }
+        return null;
     }
-
-
 }
+
+
