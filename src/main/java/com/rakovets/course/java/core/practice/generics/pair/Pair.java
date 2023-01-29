@@ -9,13 +9,13 @@ public class Pair<K, V> {
         this.fieldV = fieldV;
     }
 
-    public Pair<K, V> getSwapped() {
+    public Pair<V, K> getSwapped() {
         K fieldTmp = fieldK;
 
-        setFieldK((K) fieldV);
-        setFieldV((V) fieldTmp);
+        this.setFieldK((K) fieldV);
+        this.setFieldV((V) fieldTmp);
 
-        return this;
+        return (Pair<V, K>) this;
     }
 
     public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
