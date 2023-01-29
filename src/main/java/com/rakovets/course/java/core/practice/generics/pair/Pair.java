@@ -10,11 +10,16 @@ public class Pair<K, V> {
     }
 
     public Pair<K, V> getSwapped() {
-        return null;
+        K fieldTmp = fieldK;
+
+        setFieldK((K) fieldV);
+        setFieldV((V) fieldTmp);
+
+        return this;
     }
 
-    public static <K, V> Pair<K, V> swap(Pair<K, V> pair) {
-        return null;
+    public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
+        return new Pair<>(pair.getFieldV(), pair.getFieldK());
     }
 
     public K getFieldK() {
