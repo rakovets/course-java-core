@@ -20,9 +20,4 @@ public class Mag extends Hero {
             setHealth(getHealth() + battleHeal);
         }
     }
-
-    @Override
-    public boolean isAlive() {
-        return super.getHealth() > 0;
-    }
 }

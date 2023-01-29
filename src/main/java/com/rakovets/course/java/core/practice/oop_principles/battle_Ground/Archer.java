@@ -18,10 +18,5 @@ public class Archer extends Hero {
         final int doubleShot = 30;
         enemy.takeDamage(doubleShot);
     }
-
-    @Override
-    public boolean isAlive() {
-        return super.getHealth() > 0;
-    }
 }
 

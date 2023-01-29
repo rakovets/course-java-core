@@ -37,7 +37,5 @@ public class CatTest {
         Lily.setName("Lily2");
         Assertions.assertEquals("Lily2", Lily.getName());
     }
-
-
 }
 

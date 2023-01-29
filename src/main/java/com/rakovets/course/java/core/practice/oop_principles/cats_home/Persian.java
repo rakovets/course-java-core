@@ -1,29 +1,32 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Persian extends Cat {
+    final int change_happines_persian_mew = -10;
+    final int change_happines_persian_pur = 10;
+    final String change_sound_persian_mew = "mew-mew";
+    final String change_sound_persian_pur = "pur-pur";
+
     public Persian(String name) {
         super(name);
     }
 
     @Override
     public String mew() {
-        return "mew-mew";
+        return change_sound_persian_mew;
     }
 
     @Override
-    public String mew(Person user) {
-        user.changeHappiness(-10);
-        return "mew-mew";
+    public int mew(Person user) {
+        return user.changeHappiness(change_happines_persian_mew);
     }
 
     @Override
     public String pur() {
-        return "pur-pur";
+        return change_sound_persian_pur;
     }
 
     @Override
-    public String pur(Person user) {
-        user.changeHappiness(10);
-        return "pur-pur";
+    public int pur(Person user) {
+        return user.changeHappiness(change_happines_persian_pur);
     }
 }

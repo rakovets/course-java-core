@@ -16,13 +16,8 @@ public class Warrior extends Hero {
     @Override
     public void skillHero(Enemy enemy) {
         final int lethal = 99;
-        if (this.getHealth()<20){
+        if (this.getHealth() < 20) {
             enemy.takeDamage(lethal);
         }
-    }
-
-    @Override
-    public boolean isAlive() {
-        return super.getHealth() > 0;
     }
 }

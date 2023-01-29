@@ -8,6 +8,9 @@ public abstract class Hero implements Mortal {
         this.name = name;
         this.health = health;
     }
+    public boolean isAlive() {
+        return (health > 0);
+    }
 
     public abstract void attackEnemy(Enemy enemy);
 

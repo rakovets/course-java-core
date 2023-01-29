@@ -1,29 +1,31 @@
 package com.rakovets.course.java.core.practice.oop_principles.cats_home;
 
 public class Siamese extends Cat {
+    final int change_happines_siamese_mew=-15;
+    final int change_happines_siamese_pur=15;
+    final String change_sound_siamese_mew="mew-mew-mew";
+    final String change_sound_siamese_pur="pur-pur-pur";
     public Siamese(String name) {
         super(name);
     }
 
     @Override
     public String mew() {
-        return "mew-mew-mew";
+        return change_sound_siamese_mew;
     }
 
     @Override
-    public String mew(Person user) {
-        user.changeHappiness(-15);
-        return "mew-mew-mew";
+    public int mew(Person user) {
+        return user.changeHappiness(change_happines_siamese_mew);
     }
 
     @Override
     public String pur() {
-        return "pur-pur-pur";
+        return change_sound_siamese_pur;
     }
 
     @Override
-    public String pur(Person user) {
-        user.changeHappiness(15);
-        return "pur-pur-pur";
+    public int pur(Person user) {
+        return user.changeHappiness(change_happines_siamese_pur);
     }
 }
