@@ -36,6 +36,6 @@ public class Obscure<T> {
     }
 
     public static <T> Obscure<T> empty() {
-        return new Obscure<>((T)"");
+        return new Obscure<>(null);
     }
 }
