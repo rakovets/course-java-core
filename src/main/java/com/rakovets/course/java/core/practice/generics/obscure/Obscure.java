@@ -31,11 +31,11 @@ public class Obscure<T> {
         }
     }
 
-    public static <T> T of(T object) {
-        return object;
+    public static <T> Obscure<T> of(T object) {
+        return new Obscure<>(object);
     }
 
-    public static Obscure<Object> empty() {
-        return new Obscure<>("");
+    public static <T> Obscure<T> empty() {
+        return new Obscure<>((T)"");
     }
 }

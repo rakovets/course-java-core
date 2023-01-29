@@ -75,7 +75,7 @@ public class ObscureTest {
 
     @Test
     void ofTest() {
-        Object result = Obscure.of(2.0);
+        Object result = Obscure.of(2.0).get();
         Object expected = new Obscure<>(2.0).get();
 
         Assertions.assertEquals(expected, result);
@@ -83,12 +83,9 @@ public class ObscureTest {
 
     @Test
     void emptyTest() {
-        Obscure<Object> obscure = Obscure.empty();
-
-        Object result = obscure.get();
+        Object result = Obscure.empty().get();
         Object expected = new Obscure<>("").get();
 
         Assertions.assertEquals(expected, result);
     }
 }
-
