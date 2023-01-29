@@ -53,7 +53,7 @@ class Task08 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        StringBuilder stringBuilder = new StringBuilder();
+        String productPriceList = "";
         int currentAmount;
         double totalPrice;
         double sellPrice;
@@ -62,12 +62,12 @@ class Task08 {
             currentAmount = startNumberItems + differentialNumberItems * i;
             sellPrice = differentialSell * i;
             totalPrice = NumberUtil.roundValueToTwoDigitsForMantissa(currentAmount * itemPrice * (1 - sellPrice / 100));
+            productPriceList += String.format("%s - %s with sell %s%%", currentAmount, totalPrice, sellPrice);
             if (i >= sizeTotalPrice - 1) {
-                stringBuilder.append(String.format("%s - %s with sell %s%%", currentAmount, totalPrice, sellPrice));
-                return String.valueOf(stringBuilder);
+                continue;
             }
-            stringBuilder.append(String.format("%s - %s with sell %s%%\n", currentAmount, totalPrice, sellPrice));
+            productPriceList += "\n";
         }
-        return String.valueOf(stringBuilder);
+        return productPriceList;
     }
 }

@@ -38,12 +38,12 @@ class Task06 {
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        double everyDayDistancePercent = dailyProgressAsPercentage / 100.0;
-        double currentDistance = startDistance;
-        double totalDistance = currentDistance;
         if (startDistance > finishDistance || startDistance == 0) {
             return 0.0;
         }
+        double everyDayDistancePercent = dailyProgressAsPercentage / 100.0;
+        double currentDistance = startDistance;
+        double totalDistance = currentDistance;
         while (currentDistance < finishDistance) {
             currentDistance = currentDistance * (1.0 + everyDayDistancePercent);
             totalDistance += currentDistance;

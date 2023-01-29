@@ -31,14 +31,10 @@ class Task01 {
     static String generateNumbersColumn(int numberRows) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        StringBuilder stringBuilder = new StringBuilder();
+        String indexNumber = "";
         for (int i = 1; i <= numberRows; i++) {
-            if(i < numberRows) {
-                stringBuilder.append(String.format("%s\n", i));
-            } else {
-                stringBuilder.append(i);
-            }
+            indexNumber += i < numberRows ? String.format("%s\n", i) : String.valueOf(i);
         }
-        return String.valueOf(stringBuilder);
+        return indexNumber;
     }
 }

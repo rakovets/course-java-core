@@ -34,18 +34,14 @@ class Task05 {
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        StringBuilder stringBuilder = new StringBuilder();
+        String indexNumbers = "";
         if (isEnableHeaderRow) {
-            stringBuilder.append("\n");
+            indexNumbers += "\n";
             --numberRows;
         }
         for (int i = 1; i <= numberRows; i++) {
-            if(i < numberRows) {
-                stringBuilder.append(String.format("%s\n", i));
-            } else {
-                stringBuilder.append(i);
-            }
+            indexNumbers += i < numberRows ? String.format("%s\n", i) : i;
         }
-        return String.valueOf(stringBuilder);
+        return indexNumbers;
     }
 }

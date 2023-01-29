@@ -49,19 +49,19 @@ class Task07 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        StringBuilder stringBuilder = new StringBuilder();
+        String productPriceList = "";
         int currentAmount;
         double totalPrice;
         double itemPrice = startPriceAllItems / startNumberItems;
         for (int i = 0; i < sizeTotalPrice; i++) {
             currentAmount = startNumberItems + differentialNumberItems * i;
             totalPrice = NumberUtil.roundValueToTwoDigitsForMantissa(currentAmount * itemPrice);
+            productPriceList += String.format("%s - %s", currentAmount, totalPrice);
             if (i >= sizeTotalPrice - 1) {
-                stringBuilder.append(String.format("%s - %s", currentAmount, totalPrice));
-                return String.valueOf(stringBuilder);
+                continue;
             }
-            stringBuilder.append(String.format("%s - %s\n", currentAmount, totalPrice));
+            productPriceList += "\n";
         }
-        return String.valueOf(stringBuilder);
+        return productPriceList;
     }
 }
