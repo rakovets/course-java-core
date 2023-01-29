@@ -2,6 +2,8 @@ package com.rakovets.course.java.core.practice.exception_handling;
 
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.NumberIsNotValidException;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.NumberIsValidException;
 import com.rakovets.course.java.core.practice.exception_handling.tasks.ExceptionSimulations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,5 +52,16 @@ public class ExceptionSimulationsTest {
         Executable executable = () -> tasks.callIllegalAccessException();
 
         Assertions.assertThrows(IllegalAccessException.class, executable);
+    }
+
+    @Test
+    public void callThreeExceptionsTest() {
+        Executable executableLessZero = () -> tasks.callThreeExceptions(-1);
+        Executable executableIsZero = () -> tasks.callThreeExceptions(-1);
+        Executable executableMoreZero = () -> tasks.callThreeExceptions(1);
+
+        Assertions.assertThrows(NumberIsNotValidException.class, executableLessZero);
+        Assertions.assertThrows(NumberIsNotValidException.class, executableIsZero);
+        Assertions.assertThrows(NumberIsValidException.class, executableMoreZero);
     }
 }

@@ -2,6 +2,10 @@ package com.rakovets.course.java.core.practice.exception_handling.tasks;
 
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomException;
 import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.NumberIsNotValidException;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.NumberIsValidException;
+
+import java.lang.reflect.Executable;
 
 public class ExceptionSimulations {
     public void callNullPointerException() {
@@ -26,27 +30,22 @@ public class ExceptionSimulations {
         throw new IllegalAccessException();
     }
 
-    public Exception[] callThreeExceptions() {
-        Exception[] exceptionArray = new Exception[4];
+    public void callThreeExceptions(int number) {
+        if (number < 0) {
+            throw new NumberIsNotValidException("Number less than zero");
+        }
+        if (number == 0) {
+            throw new NumberIsNotValidException("Number is zero");
+        }
+        throw new NumberIsValidException("Number more than zero");
+    }
 
-        try {
+    public void callTwoExceptions(int number) throws CustomException {
+        if (number == 0) {
             throw new CustomException();
-        } catch (CustomException customException) {
-            exceptionArray[0] = customException;
         }
-
-        try {
-            throw new CustomRuntimeException("stack trace");
-        } catch (CustomRuntimeException customRuntimeException) {
-            exceptionArray[1] = customRuntimeException;
+        if (number > 0) {
+            throw new NumberIsNotValidException("Number more than zero");
         }
-
-        try {
-            throw new IllegalAccessException();
-        } catch (IllegalAccessException illegalAccessException) {
-            exceptionArray[2] = illegalAccessException;
-        }
-
-        return exceptionArray;
     }
 }
