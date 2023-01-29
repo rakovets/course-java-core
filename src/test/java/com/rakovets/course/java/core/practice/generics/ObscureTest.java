@@ -2,12 +2,14 @@ package com.rakovets.course.java.core.practice.generics;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 public class ObscureTest {
     private Obscure<Double> obscureDouble;
     private Obscure<String> obscureString;
     private Obscure<Integer> obscureInteger;
+
+    private static Obscure<Integer> obscureInteger2;
+
 
     @Test
     public void isEmptyTest1() {
@@ -112,26 +114,44 @@ public class ObscureTest {
 
         Assertions.assertEquals(3.33, obscureDouble.orElse(object));
     }
-
     @Test
-    public void of() {
-        obscureDouble = new Obscure<>(null);
-        Double object = 3.33;
+    public void orElseThrowTest1() throws Exception {
+        obscureString = new Obscure<>("I am a monster you created");
+        Exception exception = new NullPointerException();
 
-        Assertions.assertEquals(3.33, obscureDouble.orElse(object));
+        Object result = obscureString.orElseThrow(exception);
+        String expected = "I am a monster you created";
+
+        Assertions.assertEquals(expected, result);
     }
 
+    @Test
+    public void orElseThrowTest2() throws Exception {
+        obscureInteger = new Obscure<>(23333);
+        Exception exception = new NullPointerException();
+
+        Object result = obscureInteger.orElseThrow(exception);
+        Integer expected = 23333;
+
+        Assertions.assertEquals(expected, result);
+    }
 
     @Test
-    public static void orElseThrow() {
+    public void orElseThrowTest3() throws Exception {
+        obscureDouble = new Obscure<>(99.999);
+        Exception exception = new NullPointerException();
 
+        Object result = obscureDouble.orElseThrow(exception);
+        Double expected = 99.999;
 
+        Assertions.assertEquals(expected, result);
+    }
 
-      //  obscureString.orElseThrow(NumberFormatException);
+    @Test
+    public void orElseThrowTest4() {
+        obscureString = new Obscure<>(null);
+        Exception exception = new NullPointerException();
 
-
-      //  Executable executable = () -> obscureString.orElseThrow();
-
-     //   Assertions.assertThrows(NullPointerException.class, executable);
+        Assertions.assertThrows(NullPointerException.class, ()-> obscureString.orElseThrow(exception));
     }
 }
