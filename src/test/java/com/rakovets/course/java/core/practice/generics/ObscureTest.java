@@ -9,14 +9,11 @@ public class ObscureTest {
     private Obscure<String> obscureString;
     private Obscure<Integer> obscureInteger;
 
-    private static Obscure<Integer> obscureInteger2;
-
-
     @Test
     public void isEmptyTest1() {
         obscureString = new Obscure<>("");
 
-        Assertions.assertTrue(obscureString.isEmpty());
+        Assertions.assertFalse(obscureString.isEmpty());
     }
 
     @Test
@@ -115,6 +112,7 @@ public class ObscureTest {
 
         Assertions.assertEquals(3.33, obscureDouble.orElse(object));
     }
+
     @Test
     public void orElseThrowTest1() throws Exception {
         obscureString = new Obscure<>("I am a monster you created");
@@ -153,7 +151,7 @@ public class ObscureTest {
         obscureString = new Obscure<>(null);
         Exception exception = new NullPointerException();
 
-        Executable executable = ()-> obscureString.orElseThrow(exception);
+        Executable executable = () -> obscureString.orElseThrow(exception);
 
         Assertions.assertThrows(NullPointerException.class, executable);
     }
@@ -163,7 +161,7 @@ public class ObscureTest {
         obscureInteger = new Obscure<>(null);
         Exception exception = new ArithmeticException();
 
-        Executable executable = ()-> obscureInteger.orElseThrow(exception);
+        Executable executable = () -> obscureInteger.orElseThrow(exception);
 
         Assertions.assertThrows(ArithmeticException.class, executable);
     }
@@ -173,8 +171,41 @@ public class ObscureTest {
         obscureDouble = new Obscure<>(null);
         Exception exception = new ArrayIndexOutOfBoundsException();
 
-        Executable executable = ()-> obscureDouble.orElseThrow(exception);
+        Executable executable = () -> obscureDouble.orElseThrow(exception);
 
         Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, executable);
     }
+
+    @Test
+    public void ofTest1() {
+        Object expected = new Obscure<>(1111).get();
+        Object result = Obscure.of(1111).get();
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    public void ofTest2() {
+        Object expected = new Obscure<>(9.55).get();
+        Object result = Obscure.of(9.55).get();
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    public void ofTest3() {
+        Object expected = new Obscure<>("Hello").get();
+        Object result = Obscure.of("Hello").get();
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    public void emptyTest1() {
+        Object expected = new Obscure<>(null).get();
+        Object result = Obscure.empty().get();
+
+        Assertions.assertEquals(expected, result);
+    }
+
 }
