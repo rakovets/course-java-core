@@ -29,8 +29,7 @@ public class Pair<K, V> {
         return new Pair<>(getVariable(), getObject());
     }
 
-    public static Pair swap(Pair pair) {
-        return pair.getSwapped();
+    public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
+        return new Pair<>(pair.getVariable(), pair.getObject());
     }
-
 }

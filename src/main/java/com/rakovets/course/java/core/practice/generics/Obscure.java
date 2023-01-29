@@ -16,7 +16,7 @@ public class Obscure<T> {
     }
 
     public boolean isEmpty() {
-        return  object.toString().isEmpty();
+        return object == null;
     }
 
     public T orElse(T object) {
@@ -38,6 +38,6 @@ public class Obscure<T> {
     }
 
     public static <T> Obscure<T> empty() {
-        return (Obscure<T>) new Obscure<>("");
+        return new Obscure<>(null);
     }
 }
