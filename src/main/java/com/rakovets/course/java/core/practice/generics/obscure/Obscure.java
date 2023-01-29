@@ -16,7 +16,7 @@ public class Obscure<T> {
     }
 
     public boolean isEmpty() {
-        return object.toString().length() == 0;
+        return object == null;
     }
 
     public T orElse(T object) {
