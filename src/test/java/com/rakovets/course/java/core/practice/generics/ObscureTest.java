@@ -207,5 +207,4 @@ public class ObscureTest {
 
         Assertions.assertEquals(expected, result);
     }
-
 }
