@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.example.xml.service;
 
-import com.rakovets.course.java.core.example.xml.model.ItemField;
 import com.rakovets.course.java.core.example.xml.model.Item;
+import com.rakovets.course.java.core.example.xml.model.ItemField;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;

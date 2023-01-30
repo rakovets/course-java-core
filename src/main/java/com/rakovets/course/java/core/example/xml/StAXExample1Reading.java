@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.example.xml;
 
-import com.rakovets.course.java.core.example.xml.service.StAXReader;
 import com.rakovets.course.java.core.example.xml.model.Item;
+import com.rakovets.course.java.core.example.xml.service.StAXReader;
 
 import java.nio.file.Paths;
 import java.util.List;
