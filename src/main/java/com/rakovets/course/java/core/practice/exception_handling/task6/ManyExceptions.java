@@ -8,7 +8,7 @@ public class ManyExceptions {
     }
 
     public void trowException() {
-        switch (this.exceptionNumber) {
+        switch (exceptionNumber) {
             case 1:
                 throw new NullPointerException();
             case 2:
