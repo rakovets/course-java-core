@@ -8,6 +8,7 @@ public class ManyExceptionsTest {
     @Test
     void trowExceptionTest1() {
         ManyExceptions manyExceptions = new ManyExceptions(1);
+
         Executable executable = manyExceptions::trowException;
 
         Assertions.assertThrows(NullPointerException.class, executable);
@@ -17,6 +18,7 @@ public class ManyExceptionsTest {
     @Test
     void trowExceptionTest2() {
         ManyExceptions manyExceptions = new ManyExceptions(2);
+
         Executable executable = manyExceptions::trowException;
 
         Assertions.assertThrows(RuntimeException.class, executable);
@@ -26,6 +28,7 @@ public class ManyExceptionsTest {
     @Test
     void trowExceptionTest3() {
         ManyExceptions manyExceptions = new ManyExceptions(3);
+
         Executable executable = manyExceptions::trowException;
 
         Assertions.assertThrows(IndexOutOfBoundsException.class, executable);
