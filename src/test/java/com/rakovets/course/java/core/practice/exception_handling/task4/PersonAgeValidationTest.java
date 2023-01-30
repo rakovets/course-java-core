@@ -6,13 +6,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class CallRuntimeExceptionTest {
-    CallRuntimeException callRuntimeException = new CallRuntimeException();
+public class PersonAgeValidationTest {
+    PersonAgeValidation personAgeValidation = new PersonAgeValidation();
 
     @DisplayName("Test of RuntimeExceptionException, throws Exception")
     @Test
     void callRuntimeExceptionTest() {
-        Executable executable = () -> callRuntimeException.isAgeValid(19);
+        Executable executable = () -> personAgeValidation.isAgeValid(19);
 
         Assertions.assertThrows(CustomRuntimeException.class, executable);
     }
