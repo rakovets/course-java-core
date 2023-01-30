@@ -21,8 +21,8 @@ public class Tasks {
         return true;
     }
 
-    public boolean callMyCustomRuntimeException(int Age) {
-        if (Age < 18) {
+    public boolean callMyCustomRuntimeException(int age) {
+        if (age < 18) {
             throw new CustomRuntimeException("You can't buy alcohol");
         }
         return true;
@@ -52,13 +52,13 @@ public class Tasks {
         return someInt;
     }
 
-    public String catchTwoExceptions(int Age) {
+    public String catchTwoExceptions(int age) {
         String answer = "you can buy this battle";
         String verbalAgreement = null;
-        if (Age > 18) {
+        if (age > 18) {
             answer = verbalAgreement.concat(verbalAgreement);
         }
-        if (Age < 18) {
+        if (age < 18) {
             throw new CustomRuntimeException("You can't buy alcohol");
         }
         return answer;

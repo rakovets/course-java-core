@@ -9,7 +9,7 @@ public class DemoTask03 {
         try {
             tasks.callDegreeOfAlcoholValidation(31);
         } catch (DegreeOfAlcoholValidation ex) {
-            System.out.println("stack trace");
+            ex.printStackTrace();
         }
     }
 }

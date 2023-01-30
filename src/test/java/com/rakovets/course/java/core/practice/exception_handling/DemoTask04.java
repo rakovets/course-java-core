@@ -9,7 +9,7 @@ public class DemoTask04 {
         try {
             tasks.callMyCustomRuntimeException(17);
         } catch (CustomRuntimeException ex) {
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }
