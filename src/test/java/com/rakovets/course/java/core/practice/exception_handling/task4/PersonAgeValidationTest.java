@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.task4;
 
-import com.rakovets.course.java.core.practice.exception_handling.task4.exceptions.CustomRuntimeException;
+import com.rakovets.course.java.core.practice.exception_handling.task4.exceptions.CustomException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +14,6 @@ public class PersonAgeValidationTest {
     void callRuntimeExceptionTest() {
         Executable executable = () -> personAgeValidation.isAgeValid(19);
 
-        Assertions.assertThrows(CustomRuntimeException.class, executable);
+        Assertions.assertThrows(CustomException.class, executable);
     }
 }
