@@ -2,7 +2,13 @@ package com.rakovets.course.java.core.example.jcf;
 
 import com.rakovets.course.java.core.example.jcf.model.Student;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class PartyDemo {
     public static void main(String[] args) {
