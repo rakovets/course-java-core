@@ -7,7 +7,7 @@ public class IndexOutOfBoundsDemo {
         try {
             indexOutOfBounds.exception();
         }  catch (IndexOutOfBoundsException exception) {
-            throw new IndexOutOfBoundsException(exception.getMessage());
+            throw new RuntimeException(exception.getMessage());
         }
     }
 }
