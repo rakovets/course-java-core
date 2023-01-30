@@ -12,6 +12,11 @@ public class Math<T> {  //extends Number
     public static <T extends Number> T getMaxFromThreeNumbers(T numberOne, T numberTwo, T numberThree) {
         Number[] array = new Number[]{numberOne, numberTwo, numberThree};
         Number maxNumber = array[0];
+        for (Number i : array) {
+            if(i.intValue() > maxNumber.intValue()) {
+                maxNumber = i;
+            }
+        }
         Arrays.sort(array);
         return (T) array[array.length - 1];
     }
