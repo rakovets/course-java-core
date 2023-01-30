@@ -16,9 +16,9 @@ public class PairTest {
 
     @Test
     void getSwappedTest() {
+        expected = pair.getFieldK();
         pair = pair.getSwapped();
         result = pair.getFieldV();
-        expected = "1";
 
         Assertions.assertEquals(expected, result);
     }
