@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class ObscureTest {
     @Test
     void isEmptyTest1() {
-        Obscure<String> obscureEmpty = new Obscure<>("");
+        Obscure<String> obscureEmpty = new Obscure<>(null);
 
         Assertions.assertTrue(obscureEmpty.isEmpty());
     }
@@ -84,7 +84,7 @@ public class ObscureTest {
     @Test
     void emptyTest() {
         Object result = Obscure.empty().get();
-        Object expected = new Obscure<>("").get();
+        Object expected = new Obscure<>(null).get();
 
         Assertions.assertEquals(expected, result);
     }
