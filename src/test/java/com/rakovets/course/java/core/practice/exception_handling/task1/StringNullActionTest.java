@@ -5,13 +5,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class CallNullPointerExceptionTest {
-    CallNullPointerException callNullPointerException = new CallNullPointerException();
+public class StringNullActionTest {
+    StringNullAction stringNullAction = new StringNullAction();
 
     @DisplayName("Test of indexOutOf, throws NullPointerException")
     @Test
     void indexOutOfTest() {
-        Executable executable = () -> callNullPointerException.stringConcat();
+        Executable executable = () -> stringNullAction.stringConcat();
 
         Assertions.assertThrows(NullPointerException.class, executable);
     }
