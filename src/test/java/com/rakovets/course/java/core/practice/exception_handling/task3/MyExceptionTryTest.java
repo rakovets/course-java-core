@@ -1,19 +1,19 @@
 package com.rakovets.course.java.core.practice.exception_handling.task3;
 
-import com.rakovets.course.java.core.practice.exception_handling.task3.exeptions.ExceptionClass;
+import com.rakovets.course.java.core.practice.exception_handling.task3.exeptions.MyException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-public class CallExceptionTest {
-    CallException callException = new CallException();
+public class MyExceptionTryTest {
+    MyExceptionTry myExceptionTry = new MyExceptionTry();
 
     @DisplayName("Test of ExceptionClassException, throws Exception")
     @Test
     void callExceptionTest() {
-        Executable executable = () -> callException.isAgeValid(10);
+        Executable executable = () -> myExceptionTry.isAgeValid(10);
 
-        Assertions.assertThrows(ExceptionClass.class, executable);
+        Assertions.assertThrows(MyException.class, executable);
     }
 }
