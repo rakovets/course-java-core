@@ -1,8 +1,8 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
-public abstract class Math<T extends Number> {
+public class Math<T> {  //extends Number
     private T[] numbers;
 
     public Math(T[] numbers) {
@@ -12,12 +12,17 @@ public abstract class Math<T extends Number> {
     public static <T extends Number> T getMaxFromThreeNumbers(T numberOne, T numberTwo, T numberThree) {
         Number[] array = new Number[]{numberOne, numberTwo, numberThree};
         Number maxNumber = array[0];
-        for (Number i : array) {
-            //if (i > maxNumber) {
-            maxNumber = i;
-        }
+        Arrays.sort(array);
+        return (T) array[array.length - 1];
+    }
+
+    public static <T extends Number> T getMinFromFiveNumbers(T numberOne, T numberTwo, T numberThree, T numberFour, T NumberFive) {
+        Number[] array = new Number[]{numberOne, numberTwo, numberThree, numberFour, NumberFive};
+        Arrays.sort(array);
+        return (T) array[0];
+    }
+
+    public static <T extends Number> T arithmeticMean(T[] numbers) {
         return null;
     }
 }
-
-
