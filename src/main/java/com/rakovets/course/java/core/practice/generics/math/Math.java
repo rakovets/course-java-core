@@ -1,33 +1,29 @@
 package com.rakovets.course.java.core.practice.generics.math;
 
 public abstract class Math {
-    public Math(Integer[] arrayMath) {
+    private final Number[] arrayMath;
+
+    public Math(Number[] arrayMath) {
+        this.arrayMath = arrayMath;
     }
 
-    public static Integer max(Integer e1, Integer e2, Integer e3) {
-        Integer result;
+    public static <T extends Number> T max(T e1, T e2, T e3) {
+        T result;
 
-        if (e1 >= e2 && e1 >= e3) {
-            result = e1;
-        } else if (e2 >= e1 && e2 >= e3) {
-            result = e2;
-        } else {
-            result = e3;
-        }
+        result = e1.doubleValue() > e2.doubleValue() ? (e1.doubleValue() > e3.doubleValue() ?  e1 : e3) :
+                (e2.doubleValue() > e3.doubleValue() ? e2 : e3);
 
         return result;
     }
 
-    public static Integer min(Integer e1, Integer e2, Integer e3, Integer e4, Integer e5) {
-        Integer min;
+    public static <T extends Number> T min(T e1, T e2, T e3, T e4, T e5) {
+        T result;
 
-        min = e1 < e2 ? e1 : e2;
-        min = min < e3 ? min : e3;
-        min = min < e4 ? min : e4;
-        min = min < e5 ? min : e5;
+        result = e1.doubleValue() < e2.doubleValue() ? e1 : e2;
+        result = result.doubleValue() < e3.doubleValue() ? result : e3;
+        result = result.doubleValue() < e4.doubleValue() ? result : e4;
+        result = result.doubleValue() < e5.doubleValue() ? result : e5;
 
-        return min;
+        return result;
     }
-
-
 }
