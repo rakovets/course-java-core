@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class PairTest {
     Object result;
     Object expected;
-    Pair<?, ?> pair;
+    Pair<String, String> pair;
 
     @BeforeEach
     void init() {
@@ -25,7 +25,7 @@ public class PairTest {
 
     @Test
     void swapTest() {
-        Pair<?, ?> pairSwapped = Pair.swap(pair);
+        Pair<String, String> pairSwapped = Pair.swap(pair);
 
         result = pairSwapped.getFieldK();
         expected = pair.getFieldV();
