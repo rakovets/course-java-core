@@ -84,11 +84,12 @@ public abstract class Math {
 
     public static <T extends Number> int binarySearch(T[] array, Number elementToSearch) {
         System.arraycopy(array, 0, arrayMath, 0, array.length);
+        int middleIndex;
         int firstIndex = 0;
         int lastIndex = arrayMath.length - 1;
 
-        while(firstIndex <= lastIndex) {
-            int middleIndex = (firstIndex + lastIndex) / 2;
+        while (firstIndex <= lastIndex) {
+            middleIndex = (firstIndex + lastIndex) / 2;
             if (arrayMath[middleIndex].doubleValue() == elementToSearch.doubleValue()) {
                 return middleIndex;
             } else if (arrayMath[middleIndex].doubleValue() < elementToSearch.doubleValue()) {
