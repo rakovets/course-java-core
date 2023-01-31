@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.generics.math;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public abstract class Math {
     private static Number[] arrayMath;
@@ -82,7 +83,23 @@ public abstract class Math {
         return arrayMath;
     }
 
-    public static <T extends Number> Number[] binarySearch(T[] array) {
-        return null;
+    public static <T extends Number> int binarySearch(T[] array, Number elementToSearch) {
+        arrayMath = Math.bubbleSort(array);
+        int middleIndex;
+        int firstIndex = 0;
+        int lastIndex = arrayMath.length - 1;
+
+        while(firstIndex <= lastIndex) {
+            middleIndex = (firstIndex + lastIndex) / 2;
+            if (Objects.equals(arrayMath[middleIndex], elementToSearch)) {
+                return middleIndex;
+            } else if (arrayMath[middleIndex].doubleValue() < elementToSearch.doubleValue()) {
+                firstIndex = middleIndex + 1;
+            } else if (arrayMath[middleIndex].doubleValue() > elementToSearch.doubleValue()) {
+                lastIndex = middleIndex - 1;
+            }
+        }
+
+        return -1;
     }
 }
