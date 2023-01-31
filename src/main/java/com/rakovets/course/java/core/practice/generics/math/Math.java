@@ -66,4 +66,17 @@ public abstract class Math {
 
         return (T) avg;
     }
+
+    public static <T extends Double> Double avgInArrayS(T[] array) {
+        Double avg = 0.0;
+        array = (T[]) arrayMath;
+
+        for (Double number : array) {
+            avg += number;
+        }
+
+        avg = avg / array.length;
+
+        return avg;
+    }
 }

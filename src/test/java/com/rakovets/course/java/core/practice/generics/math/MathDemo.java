@@ -8,8 +8,8 @@ public class MathDemo {
         System.out.printf(Math.min(4, 2, 3, 4, 5) + "\n");
         System.out.printf(Math.minOfFive(4.0, 2.0, 3.0, 4.0, 5.0) + "\n");
 
-
-        System.out.printf(Math.avgInArray() + "\n");
+        Double[] array = {2.0, 2.0, 2.0, 2.0};
+        System.out.println(Math.avgInArrayS(array));
 
     }
 }
