@@ -49,6 +49,5 @@ public class MathDemo {
         System.out.println("Minimum from array:");
         System.out.println(result5);
         System.out.println(result6);
-
     }
 }
