@@ -5,7 +5,7 @@ import java.util.Arrays;
 public abstract class Math {
     private static Number[] arrayMath;
 
-    public Math(Number[] arrayMath) {
+    private Math(Number[] arrayMath) {
         Math.arrayMath = arrayMath;
     }
 
