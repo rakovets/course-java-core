@@ -32,4 +32,13 @@ public class MathTest {
 
         Assertions.assertEquals(expected, result);
     }
+
+    @DisplayName("Test avgInArray(), returns average of all Numbers in array")
+    @Test
+    void avgInArrayTest() {
+        result = Math.avgInArray(array);
+        expected = 3.6;
+
+        Assertions.assertEquals(expected, result);
+    }
 }
