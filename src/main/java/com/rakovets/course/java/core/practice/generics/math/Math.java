@@ -19,7 +19,7 @@ public abstract class Math {
 
         Arrays.sort(arrayMath);
 
-        return arrayMath[0].doubleValue();
+        return arrayMath[0];
     }
 
     public static  <T extends Number> Number maxOfThree(T e1, T e2, T e3) {
@@ -30,7 +30,7 @@ public abstract class Math {
 
         Arrays.sort(arrayMath);
 
-        return arrayMath[arrayMath.length - 1].doubleValue();
+        return arrayMath[arrayMath.length - 1];
     }
 
 
