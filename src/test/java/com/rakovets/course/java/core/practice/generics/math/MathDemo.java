@@ -18,6 +18,6 @@ public class MathDemo {
         System.out.printf(Math.minInArray(arrayMin) + "\n\n");
 
         Number[] arraySort = {4.1, 3.2, 2, 1.1};
-        System.out.println(Arrays.toString(Math.bubbleSort(arraySort)));
+        System.out.println(Arrays.toString(Math.bubbleSort(arraySort)) + "\n\n");
     }
 }
