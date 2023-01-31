@@ -9,10 +9,10 @@ public class MathDemo {
         Number[] arrayAvg = {2, 2, 2, 2.2};
         System.out.printf(Math.avgInArray(arrayAvg) + "\n\n");
 
-        Number[] arrayMax = {1.1, 2, 3, 4};
+        Number[] arrayMax = {1, 2, 3, 4};
         System.out.printf(Math.maxInArray(arrayMax) + "\n\n");
 
-        Number[] arrayMin = {1, 2, 3, 4};
+        Number[] arrayMin = {1.1, 2, 3.1, 4.1};
         System.out.printf(Math.minInArray(arrayMin) + "\n");
     }
 }

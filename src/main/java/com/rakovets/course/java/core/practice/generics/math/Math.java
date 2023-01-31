@@ -47,7 +47,9 @@ public abstract class Math {
     }
 
     public static <T extends Number> Number maxInArray(T[] array) {
-        arrayMath = array;
+        for (int i = 0; i < array.length; i++) {
+            arrayMath[i] = array[i].doubleValue();
+        }
 
         Arrays.sort(arrayMath);
 
@@ -55,7 +57,9 @@ public abstract class Math {
     }
 
     public static <T extends Number> Number minInArray(T[] array) {
-        arrayMath = array;
+        for (int i = 0; i < array.length; i++) {
+            arrayMath[i] = array[i].doubleValue();
+        }
 
         Arrays.sort(arrayMath);
 
