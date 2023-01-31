@@ -47,14 +47,18 @@ public abstract class Math {
     }
 
     public static <T extends Number> Number maxInArray(T[] array) {
-        Number result = 0;
         arrayMath = array;
 
-        for (Number number : arrayMath) {
-            result = result.doubleValue() + number.doubleValue();
-        }
-        result = result.doubleValue() / arrayMath.length;
+        Arrays.sort(arrayMath);
 
-        return result;
+        return arrayMath[arrayMath.length - 1];
+    }
+
+    public static <T extends Number> Number minInArray(T[] array) {
+        arrayMath = array;
+
+        Arrays.sort(arrayMath);
+
+        return arrayMath[0];
     }
 }
