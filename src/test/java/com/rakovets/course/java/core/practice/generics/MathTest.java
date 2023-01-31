@@ -89,7 +89,7 @@ public class MathTest {
     @Test
     public void getBubbleSortTest1() {
         Math.getBubbleSort(arrayInt);
-        Number[] expected = {6, 7, 21, 33, 35, 55, 66, 88, 112};
+        Integer[] expected = {6, 7, 21, 33, 35, 55, 66, 88, 112};
 
         Assertions.assertEquals(expected, arrayInt);
     }
