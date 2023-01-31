@@ -1,21 +1,18 @@
 package com.rakovets.course.java.core.practice.generics.math;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class MathTest {
-    static Number[] array;
+    Number[] array;
     Number result;
     Number expected;
 
-    @BeforeAll
-    static void init() {
+    @BeforeEach
+    void init() {
         array = new Number[]{4.0, 2.0, 3.0, 4.0, 5.0};
     }
 
-    @DisplayName("Test maxOfThree(), returns max of three arguments")
+    @DisplayName("Test maxOfThree(), returns maximum of three arguments")
     @Test
     void maxOfThreeTest() {
         result = Math.maxOfThree(1, 3, 4);
@@ -24,7 +21,7 @@ public class MathTest {
         Assertions.assertEquals(expected, result);
     }
 
-    @DisplayName("Test minOfFive(), returns min of five arguments")
+    @DisplayName("Test minOfFive(), returns minimum of five arguments")
     @Test
     void minOfFiveTest() {
         result = Math.minOfFive(1, 3, 4, 6, 9);
@@ -38,6 +35,25 @@ public class MathTest {
     void avgInArrayTest() {
         result = Math.avgInArray(array);
         expected = 3.6;
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test minInArray(), returns minimum of all Numbers in array")
+    @Test
+    void minInArrayTest() {
+        result = Math.minInArray(array);
+        expected = 2.0;
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test bubbleSort(), returns sorted array from minimum to maximum")
+    @Test
+    void bubbleSortTest() {
+        Math.bubbleSort(array);
+        result = array[0];
+        expected = 2.0;
 
         Assertions.assertEquals(expected, result);
     }
