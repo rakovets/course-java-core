@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 public class PairTest {
     private Object result;
-    private Pair<?, ?> pair;
-    private Pair<?, ?> pairString;
-    private Pair<?, ?> pairDouble;
+    private Pair<Integer, Integer> pair;
+    private Pair<String, String> pairString;
+    private Pair<Double, Double> pairDouble;
 
     @BeforeEach
     void init() {
@@ -43,7 +43,7 @@ public class PairTest {
 
     @Test
     public void swapTest1() {
-        Pair<?, ?> pairSwap = Pair.swap(pair);
+        Pair<Integer, Integer> pairSwap = Pair.swap(pair);
         result = pairSwap.getObject();
 
         Assertions.assertEquals(11, result);
@@ -51,7 +51,7 @@ public class PairTest {
 
     @Test
     public void swapTest2() {
-        Pair<?, ?> pairSwap = Pair.swap(pairString);
+        Pair<String, String> pairSwap = Pair.swap(pairString);
         result = pairSwap.getObject();
 
         Assertions.assertEquals("11", result);
@@ -59,7 +59,7 @@ public class PairTest {
 
     @Test
     public void swapTest3() {
-        Pair<?, ?> pairSwap = Pair.swap(pairDouble);
+        Pair<Double, Double> pairSwap = Pair.swap(pairDouble);
         result = pairSwap.getObject();
 
         Assertions.assertEquals(6.77, result);
