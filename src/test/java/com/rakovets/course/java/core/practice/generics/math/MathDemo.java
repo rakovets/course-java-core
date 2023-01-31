@@ -20,7 +20,7 @@ public class MathDemo {
         Number[] arraySort = {4.1, 3.2, 2, 1.1};
         System.out.printf(Arrays.toString(Math.bubbleSort(arraySort)) + "\n\n");
 
-        Double[] arraySearch = {4.1, 3.2, 2.0, 1.1};
+        Number[] arraySearch = {4.1, 3.2, 2.0, 1.1};
         System.out.printf(Math.binarySearch(Math.bubbleSort(arraySearch), 2.0) + "\n");
     }
 }
