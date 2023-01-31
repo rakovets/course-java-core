@@ -1,7 +1,5 @@
 package com.rakovets.course.java.core.practice.generics;
 
-import com.rakovets.course.java.core.example.generics.model.restrict.D;
-
 import java.util.Arrays;
 
 public abstract class Math {
@@ -51,5 +49,24 @@ public abstract class Math {
                 }
             }
         }
+    }
+
+    public static <T extends Number> int findIndexFoNumber(T[] array, T desiredNumber) {
+        getBubbleSort(array);
+        int firstIndex = 0;
+        int lastIndex = array.length - 1;
+        int result = -1;
+        while (firstIndex <= lastIndex) {
+            int middleIndex = (firstIndex + lastIndex) / 2;
+            if (desiredNumber.doubleValue() == array[middleIndex].doubleValue()) {
+                result = middleIndex;
+                break;
+            } else if (desiredNumber.doubleValue() > array[middleIndex].doubleValue()) {
+                firstIndex = middleIndex + 1;
+            } else if (desiredNumber.doubleValue() < array[middleIndex].doubleValue()) {
+                lastIndex = middleIndex - 1;
+            }
+        }
+        return result;
     }
 }

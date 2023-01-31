@@ -62,5 +62,20 @@ public class MathDemo {
         for (int i = 0; i < testDouble.length; i++) {
             System.out.print(testDouble[i] + " ");
         }
+        System.out.println();
+
+        // findIndexForNumber()
+
+        System.out.println("Binary Search - Iterative Implementation:");
+
+        Integer[] testArray = new Integer[] {22, 33, 55, 77, 7, 4, 66, 73, 0, 87, 70};
+        Double[] testArray2 = new Double[] {3.4, 65.7, 44.6, 94.7, 22.3, 15.5};
+
+        int index = Math.findIndexFoNumber(testArray, 66);
+        int index2 = Math.findIndexFoNumber(testArray, 86);
+        int index3 = Math.findIndexFoNumber(testArray2, 44.6);
+        System.out.println(index);
+        System.out.println(index2);
+        System.out.println(index3);
     }
 }
