@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.generics;
 
+import com.rakovets.course.java.core.example.generics.model.restrict.D;
+
 import java.util.Arrays;
 
 public abstract class Math {
@@ -9,32 +11,32 @@ public abstract class Math {
         Math.array = array;
     }
 
-    public static <T extends Number> Number getMaxFromThreeNumbers(T n1, T n2, T n3) {
+    public static <T extends Number> Number getMaxOfThreeNumbers(T n1, T n2, T n3) {
         array = new Number[]{n1, n2, n3};
         Arrays.sort(array);
         return array[array.length - 1];
     }
 
-    public static <T extends Number> Number getMinFromFiveNumbers(T n1, T n2, T n3, T n4, T n5) {
+    public static <T extends Number> Number getMinOfFiveNumbers(T n1, T n2, T n3, T n4, T n5) {
         array = new Number[]{n1, n2, n3, n4, n5};
         Arrays.sort(array);
         return array[0];
     }
 
-    public static <T extends Number> Number getArithmeticMean(T[] array) {
-        Number sum = 0;
-        for (Number i : array) {
-            sum = sum.intValue() + i.intValue();
+    public static <T extends Number> Double getArithmeticMean(T[] array) {
+        double sum = 0.0;
+        for (T i : array) {
+            sum += i.doubleValue();
         }
-        return sum.intValue() / array.length;
+        return sum / array.length;
     }
 
-    public static <T extends Number> Number getMaxFromArray(T[] array) {
+    public static <T extends Number> T getMaxFromArray(T[] array) {
         Arrays.sort(array);
         return array[array.length - 1];
     }
 
-    public static <T extends Number> Number getMinFromArray(T[] array) {
+    public static <T extends Number> T getMinFromArray(T[] array) {
         Arrays.sort(array);
         return array[0];
     }
