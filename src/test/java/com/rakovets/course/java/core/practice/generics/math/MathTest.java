@@ -48,12 +48,21 @@ public class MathTest {
         Assertions.assertEquals(expected, result);
     }
 
-    @DisplayName("Test bubbleSort(), returns sorted array from minimum to maximum")
+    @DisplayName("Test binarySearch(), returns sorted array from minimum to maximum")
     @Test
     void bubbleSortTest() {
         Math.bubbleSort(array);
-        result = array[0];
-        expected = 2.0;
+        Number[] expected = new Number[]{2.0, 3.0, 4.0, 4.0, 5.0};
+
+        Assertions.assertArrayEquals(expected ,Math.bubbleSort(array));
+    }
+
+    @DisplayName("Test bubbleSort(), returns index of element to search in sorted array")
+    @Test
+    void binarySearch() {
+        Math.bubbleSort(array);
+        result = Math.binarySearch(array, 3.0);
+        expected = 1;
 
         Assertions.assertEquals(expected, result);
     }
