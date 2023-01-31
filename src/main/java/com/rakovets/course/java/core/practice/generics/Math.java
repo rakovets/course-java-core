@@ -45,7 +45,7 @@ public abstract class Math {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = array.length - 1; j > i; j--) {
                 if (array[j - 1].doubleValue() > array[j].doubleValue()) {
-                    T tmp = array[j - 10];
+                    T tmp = array[j - 1];
                     array[j - 1] = array[j];
                     array[j] = tmp;
                 }
