@@ -49,5 +49,18 @@ public class MathDemo {
         System.out.println("Minimum from array:");
         System.out.println(result5);
         System.out.println(result6);
+
+        // getBubbleSort()
+
+        System.out.println("Bubble Sort:");
+        Math.getBubbleSort(testInt);
+        for (int i = 0; i < testInt.length; i++) {
+            System.out.print(testInt[i] + " ");
+        }
+        System.out.println();
+        Math.getBubbleSort(testDouble);
+        for (int i = 0; i < testDouble.length; i++) {
+            System.out.print(testDouble[i] + " ");
+        }
     }
 }
