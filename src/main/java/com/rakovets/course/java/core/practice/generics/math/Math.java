@@ -34,15 +34,15 @@ public abstract class Math {
     }
 
 
-    public static <T extends Number> Double avgInArray(T[] array) {
-        Double avg = 0.0;
+    public static <T extends Number> Number avgInArray(T[] array) {
+        Number result = 0;
         arrayMath = array;
 
         for (Number number : arrayMath) {
-            avg += (Double) number;
+            result = result.doubleValue() + number.doubleValue();
         }
-        avg = avg / arrayMath.length;
+        result = result.doubleValue() / arrayMath.length;
 
-        return avg;
+        return result;
     }
 }

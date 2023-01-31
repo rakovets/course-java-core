@@ -6,8 +6,8 @@ public class MathDemo {
 
         System.out.printf(Math.min(4.0, 2.1, 3.0, 4.0, 5.0) + "\n\n");
 
-        Double[] array = {2.0, 2.0, 2.0, 2.0};
-        System.out.println(Math.avgInArray(array));
+        Number[] arrayAvg = {2, 2, 2, 2.2};
+        System.out.println(Math.avgInArray(arrayAvg));
 
     }
 }
