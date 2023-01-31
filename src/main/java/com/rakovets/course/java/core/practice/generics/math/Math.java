@@ -69,13 +69,13 @@ public abstract class Math {
 
     public static <T extends Double> Double avgInArrayS(T[] array) {
         Double avg = 0.0;
-        array = (T[]) arrayMath;
+        arrayMath = array;
 
-        for (Double number : array) {
+        for (Double number : arrayMath) {
             avg += number;
         }
 
-        avg = avg / array.length;
+        avg = avg / arrayMath.length;
 
         return avg;
     }
