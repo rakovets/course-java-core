@@ -91,6 +91,70 @@ public class MathTest {
         Math.getBubbleSort(arrayInt);
         Integer[] expected = {6, 7, 21, 33, 35, 55, 66, 88, 112};
 
-        Assertions.assertEquals(expected, arrayInt);
+        Assertions.assertArrayEquals(expected, arrayInt);
+    }
+
+    @Test
+    public void getBubbleSortTest2() {
+        Math.getBubbleSort(arrayDouble);
+        Double[] expected = {11.2, 22.8, 44.5, 45.2, 54.3, 76.5};
+
+        Assertions.assertArrayEquals(expected, arrayDouble);
+    }
+
+    @Test
+    public void findIndexFoNumberTest1() {
+        Integer actual = Math.findIndexFoNumber(arrayInt, 55);
+        Integer expected = 5;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findIndexFoNumberTest2() {
+        Integer actual = Math.findIndexFoNumber(arrayInt, 21);
+        Integer expected = 2;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findIndexFoNumberTest3() {
+        Integer actual = Math.findIndexFoNumber(arrayInt, 88);
+        Integer expected = 7;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findIndexFoNumberTest4() {
+        Integer actual = Math.findIndexFoNumber(arrayDouble, 44.5);
+        Integer expected = 2;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findIndexFoNumberTest5() {
+        Integer actual = Math.findIndexFoNumber(arrayDouble, 54.3);
+        Integer expected = 4;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findIndexFoNumberTest6() {
+        Integer actual = Math.findIndexFoNumber(arrayDouble, 76.5);
+        Integer expected = 5;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findIndexFoNumberTest7() {
+        Integer actual = Math.findIndexFoNumber(arrayDouble, 96.5);
+        Integer expected = -1;
+
+        Assertions.assertEquals(expected, actual);
     }
 }
