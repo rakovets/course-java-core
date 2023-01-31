@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.generics.math;
 
+import java.util.Arrays;
+
 public class MathDemo {
     public static void main(String[] args) {
         System.out.printf(Math.maxOfThree(1, 3, 4) + "\n\n");
@@ -13,6 +15,9 @@ public class MathDemo {
         System.out.printf(Math.maxInArray(arrayMax) + "\n\n");
 
         Number[] arrayMin = {1.1, 2, 3.1, 4.1};
-        System.out.printf(Math.minInArray(arrayMin) + "\n");
+        System.out.printf(Math.minInArray(arrayMin) + "\n\n");
+
+        Number[] arraySort = {4.1, 3.2, 2, 1.1};
+        System.out.println(Arrays.toString(Math.bubbleSort(arraySort)));
     }
 }

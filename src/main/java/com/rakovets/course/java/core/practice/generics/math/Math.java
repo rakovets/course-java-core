@@ -65,4 +65,28 @@ public abstract class Math {
 
         return arrayMath[0];
     }
+
+    public static <T extends Number> Number[] bubbleSort(T[] array) {
+        arrayMath = array;
+        boolean isSorted = false;
+        Number temp;
+
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < arrayMath.length - 1; i++) {
+                if (arrayMath[i].doubleValue() > arrayMath[i + 1].doubleValue()) {
+                    isSorted = false;
+                    temp = arrayMath[i];
+                    arrayMath[i] = arrayMath[i + 1];
+                    arrayMath[i + 1] = temp;
+                }
+            }
+        }
+
+        return arrayMath;
+    }
+
+    public static <T extends Number> Number[] binarySearch(T[] array) {
+        return null;
+    }
 }
