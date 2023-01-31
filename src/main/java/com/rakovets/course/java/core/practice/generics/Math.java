@@ -2,32 +2,40 @@ package com.rakovets.course.java.core.practice.generics;
 
 import java.util.Arrays;
 
-public class Math<T> {  //extends Number
-    private T[] numbers;
+public abstract class Math {
+    private static Number[] array;
 
-    public Math(T[] numbers) {
-        this.numbers = numbers;
+    public Math(Number[] array) {
+        Math.array = array;
     }
 
-    public static <T extends Number> T getMaxFromThreeNumbers(T numberOne, T numberTwo, T numberThree) {
-        Number[] array = new Number[]{numberOne, numberTwo, numberThree};
-        Number maxNumber = array[0];
+    public static <T extends Number> Number getMaxFromThreeNumbers(T n1, T n2, T n3) {
+        array = new Number[]{n1, n2, n3};
+        Arrays.sort(array);
+        return array[array.length - 1];
+    }
+
+    public static <T extends Number> Number getMinFromFiveNumbers(T n1, T n2, T n3, T n4, T n5) {
+        array = new Number[]{n1, n2, n3, n4, n5};
+        Arrays.sort(array);
+        return array[0];
+    }
+
+    public static <T extends Number> Number getArithmeticMean(T[] array) {
+        Number sum = 0;
         for (Number i : array) {
-            if(i.intValue() > maxNumber.intValue()) {
-                maxNumber = i;
-            }
+            sum = sum.intValue() + i.intValue();
         }
-        Arrays.sort(array);
-        return (T) array[array.length - 1];
+        return sum.intValue() / array.length;
     }
 
-    public static <T extends Number> T getMinFromFiveNumbers(T numberOne, T numberTwo, T numberThree, T numberFour, T NumberFive) {
-        Number[] array = new Number[]{numberOne, numberTwo, numberThree, numberFour, NumberFive};
+    public static <T extends Number> Number getMaxFromArray(T[] array) {
         Arrays.sort(array);
-        return (T) array[0];
+        return array[array.length - 1];
     }
 
-    public static <T extends Number> T arithmeticMean(T[] numbers) {
-        return null;
+    public static <T extends Number> Number getMinFromArray(T[] array) {
+        Arrays.sort(array);
+        return array[0];
     }
 }
