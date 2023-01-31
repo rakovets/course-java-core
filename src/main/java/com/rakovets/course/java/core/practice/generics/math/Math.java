@@ -9,8 +9,8 @@ public abstract class Math {
         Math.arrayMath = arrayMath;
     }
 
-    public static  <T extends Double> Number min(T e1, T e2, T e3, T e4, T e5) {
-        arrayMath = new Double[5];
+    public static  <T extends Number> Number min(T e1, T e2, T e3, T e4, T e5) {
+        arrayMath = new Number[5];
         arrayMath[0] = e1;
         arrayMath[1] = e2;
         arrayMath[2] = e3;
@@ -22,8 +22,8 @@ public abstract class Math {
         return arrayMath[0];
     }
 
-    public static  <T extends Double> Number max(T e1, T e2, T e3) {
-        arrayMath = new Double[3];
+    public static  <T extends Number> Number max(T e1, T e2, T e3) {
+        arrayMath = new Number[3];
         arrayMath[0] = e1;
         arrayMath[1] = e2;
         arrayMath[2] = e3;
@@ -34,7 +34,7 @@ public abstract class Math {
     }
 
 
-    public static <T extends Double> Double avgInArray(T[] array) {
+    public static <T extends Number> Double avgInArray(T[] array) {
         Double avg = 0.0;
         arrayMath = array;
 
