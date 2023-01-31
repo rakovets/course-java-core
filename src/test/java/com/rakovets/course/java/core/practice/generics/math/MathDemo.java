@@ -21,6 +21,6 @@ public class MathDemo {
         System.out.printf(Arrays.toString(Math.bubbleSort(arraySort)) + "\n\n");
 
         Double[] arraySearch = {4.1, 3.2, 2.0, 1.1};
-        System.out.printf(Math.binarySearch(arraySearch, 2.0) + "\n");
+        System.out.printf(Math.binarySearch(Math.bubbleSort(arraySearch), 2.0) + "\n");
     }
 }
