@@ -16,9 +16,9 @@ public class PairTest {
 
     @Test
     void getSwappedTest() {
-        expected = pair.getFieldK();
+        expected = pair.getKey();
         pair = pair.getSwapped();
-        result = pair.getFieldV();
+        result = pair.getValue();
 
         Assertions.assertEquals(expected, result);
     }
@@ -27,8 +27,8 @@ public class PairTest {
     void swapTest() {
         Pair<String, String> pairSwapped = Pair.swap(pair);
 
-        result = pairSwapped.getFieldK();
-        expected = pair.getFieldV();
+        result = pairSwapped.getKey();
+        expected = pair.getValue();
 
         Assertions.assertEquals(expected, result);
     }

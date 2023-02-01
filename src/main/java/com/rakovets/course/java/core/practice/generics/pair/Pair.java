@@ -10,26 +10,26 @@ public class Pair<K, V> {
     }
 
     public Pair<V, K> getSwapped() {
-        return new Pair<>(this.getFieldV(), this.getFieldK());
+        return new Pair<>(this.getValue(), this.getKey());
     }
 
     public static <K, V> Pair<V, K> swap(Pair<K, V> pair) {
-        return new Pair<>(pair.getFieldV(), pair.getFieldK());
+        return pair.getSwapped();
     }
 
-    public K getFieldK() {
+    public K getKey() {
         return key;
     }
 
-    public void setFieldK(K fieldK) {
+    public void setKey(K fieldK) {
         this.key = fieldK;
     }
 
-    public V getFieldV() {
+    public V getValue() {
         return value;
     }
 
-    public void setFieldV(V fieldV) {
+    public void setValue(V fieldV) {
         this.value = fieldV;
     }
 }
