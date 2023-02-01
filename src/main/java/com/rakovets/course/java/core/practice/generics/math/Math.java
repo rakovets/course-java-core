@@ -16,9 +16,7 @@ public abstract class Math {
     public static  <T extends Number> Number maxOfThree(T e1, T e2, T e3) {
         arrayMath = new Number[]{e1, e2, e3};
 
-        Arrays.sort(arrayMath);
-
-        return arrayMath[arrayMath.length - 1];
+        return maxInArray(arrayMath);
     }
 
 
