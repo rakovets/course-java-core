@@ -5,10 +5,6 @@ import java.util.Arrays;
 public abstract class Math {
     private static Number[] arrayMath;
 
-    private Math(Number[] arrayMath) {
-        Math.arrayMath = arrayMath;
-    }
-
     public static  <T extends Number> Number minOfFive(T e1, T e2, T e3, T e4, T e5) {
         arrayMath = new Number[5];
         arrayMath[0] = e1;

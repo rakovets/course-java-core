@@ -11,11 +11,11 @@ public class Obscure<T> {
         return this.object;
     }
 
-    public boolean isPresent() {
+    public Boolean isPresent() {
         return object != null;
     }
 
-    public boolean isEmpty() {
+    public Boolean isEmpty() {
         return object == null;
     }
 
