@@ -19,8 +19,8 @@ public class Obscure<T> {
         return object == null;
     }
 
-    public T orElse(T object) {
-        return isPresent() ? this.object : object;
+    public T orElse(T defaultObject) {
+        return isPresent() ? this.object : defaultObject;
     }
 
     public T orElseThrow(Exception exception) throws Exception {
