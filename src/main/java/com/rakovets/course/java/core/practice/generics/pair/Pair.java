@@ -1,12 +1,12 @@
 package com.rakovets.course.java.core.practice.generics.pair;
 
 public class Pair<K, V> {
-    private K fieldK;
-    private V fieldV;
+    private K key;
+    private V value;
 
     public Pair(K fieldK, V fieldV) {
-        this.fieldK = fieldK;
-        this.fieldV = fieldV;
+        this.key = fieldK;
+        this.value = fieldV;
     }
 
     public Pair<V, K> getSwapped() {
@@ -18,18 +18,18 @@ public class Pair<K, V> {
     }
 
     public K getFieldK() {
-        return fieldK;
+        return key;
     }
 
     public void setFieldK(K fieldK) {
-        this.fieldK = fieldK;
+        this.key = fieldK;
     }
 
     public V getFieldV() {
-        return fieldV;
+        return value;
     }
 
     public void setFieldV(V fieldV) {
-        this.fieldV = fieldV;
+        this.value = fieldV;
     }
 }
