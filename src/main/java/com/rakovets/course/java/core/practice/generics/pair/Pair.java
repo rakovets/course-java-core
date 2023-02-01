@@ -29,7 +29,7 @@ public class Pair<K, V> {
         return value;
     }
 
-    public void setValue(V fieldV) {
-        this.value = fieldV;
+    public void setValue(V fieldValue) {
+        this.value = fieldValue;
     }
 }

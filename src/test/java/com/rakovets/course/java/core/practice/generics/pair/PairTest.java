@@ -16,11 +16,10 @@ public class PairTest {
 
     @Test
     void getSwappedTest() {
-        expected = pair.getKey();
         pair = pair.getSwapped();
-        result = pair.getValue();
 
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals("2", pair.getKey());
+        Assertions.assertEquals("1", pair.getValue());
     }
 
     @Test
