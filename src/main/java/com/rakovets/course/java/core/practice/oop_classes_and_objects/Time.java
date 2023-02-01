@@ -9,9 +9,8 @@ public class Time {
 
     public Time(int totalSeconds) {
         this.hours = totalSeconds / SECONDS_IN_HOUR;
-        int totalTimeWithoutHours = totalSeconds - hours * SECONDS_IN_HOUR;
-        this.minutes = totalTimeWithoutHours / SECONDS_IN_MINUTE;
-        this.seconds = totalTimeWithoutHours - minutes * SECONDS_IN_MINUTE;
+        this.minutes = (totalSeconds - hours * SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
+        this.seconds = totalSeconds - hours * SECONDS_IN_HOUR - minutes * SECONDS_IN_MINUTE;
     }
 
     public Time(int hours, int minutes, int seconds) {
