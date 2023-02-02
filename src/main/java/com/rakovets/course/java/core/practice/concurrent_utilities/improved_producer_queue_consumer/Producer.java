@@ -25,11 +25,12 @@ public class Producer extends Thread {
                 } catch (NumberFormatException e) {
                     throw new UserInputException(e.getMessage());
                 }
-                numbers.add(digitOfUserEnter);
                 if (digitOfUserEnter == -1) {
+                    logger.log(Level.INFO, "Producer is stop");
                     break;
                 }
-                logger.log(Level.INFO, String.format("%d", digitOfUserEnter));
+                numbers.add(digitOfUserEnter);
+                //logger.log(Level.INFO, String.format("%d", digitOfUserEnter));
             } catch (UserInputException e) {
                 logger.log(Level.SEVERE, "Error try again" + e);
             }

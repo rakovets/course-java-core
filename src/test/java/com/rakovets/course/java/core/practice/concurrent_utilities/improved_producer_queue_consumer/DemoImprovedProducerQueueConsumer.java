@@ -18,15 +18,15 @@ public class DemoImprovedProducerQueueConsumer {
         producer.start();
         consumer.start();
         consumer1.start();
-        consumer2.start();
-        consumer3.start();
+        //consumer2.start();
+        //consumer3.start();
 
         producer.join();
         consumer.join();
         consumer1.join();
-        consumer2.join();
-        consumer3.join();
+        //consumer2.join();
+        //consumer3.join();
 
-        System.out.println(queue);
+        //System.out.println(queue);
     }
 }
