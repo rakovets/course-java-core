@@ -19,7 +19,7 @@ class Task01 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int sizeTop = 15;
-        int positionPlayerByDamage = 5;
+        int positionPlayerByDamage = 8;
 
         boolean topPlayer = isTopPlayer(sizeTop, positionPlayerByDamage);
         System.out.printf("Result: %b", topPlayer);
@@ -36,8 +36,15 @@ class Task01 {
      * </ul>
      */
     static boolean isTopPlayer(int sizeTop, int positionPlayerByDamage) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+
+        String a = (sizeTop <= 15 && positionPlayerByDamage <= sizeTop) ? "true" : "false";
+        return Boolean.parseBoolean(a);
+
+
+       /* if (sizeTop <= 15 && positionPlayerByDamage <= sizeTop) {
+            return true;
+        } else {
+            return false;
+        }*/
     }
 }
