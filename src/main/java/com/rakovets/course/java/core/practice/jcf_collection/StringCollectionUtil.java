@@ -7,25 +7,27 @@ import java.util.ListIterator;
 
 public class StringCollectionUtil {
     public Collection<String> resetWordsByLength(Collection<String> collection, Integer wordLength) {
-       Collection<String> collectionTwo = new ArrayList<>();
-       for (String word : collection) {
-           if (word.length() == wordLength) {
-               collectionTwo.add("*");
-           }
-           collectionTwo.add(word);
-       }
+        Collection<String> collectionTwo = new ArrayList<>();
+        for (String word : collection) {
+            if (word.length() == wordLength) {
+                collectionTwo.add("*");
+            } else {
+                collectionTwo.add(word);
+            }
+        }
         return collectionTwo;
     }
 
-    public List<String> removeWordsByLength(List<String> listString, Integer wordLength) {
-        ListIterator<String> listIterator = listString.listIterator();
-        while (listIterator.hasNext()) {
-            if (listIterator.next().length() == wordLength) {
-                listIterator.remove();
+    public Collection<String> removeWordsByLength(Collection<String> collection, Integer wordLength) {
+        Collection<String> collectionTwo = new ArrayList<>();
+        for (String word : collection) {
+            if (word.length() != wordLength) {
+                collectionTwo.add(word);
             }
         }
-        return listString;
+        return collectionTwo;
     }
+}
 //    public List<String> resetWordsByLength(List<String> listString, Integer wordLength) {
 //        ListIterator<String> listIterator = listString.listIterator();
 //        while (listIterator.hasNext()) {
@@ -35,5 +37,13 @@ public class StringCollectionUtil {
 //        }
 //        return listString;
 //    }
-}
+//ListIterator<String> listIterator = listString.listIterator();
+//        while (listIterator.hasNext()) {
+//        if (listIterator.next().length() == wordLength) {
+//            listIterator.remove();
+//        }
+//    }
+//        return listString;
+
+
 
