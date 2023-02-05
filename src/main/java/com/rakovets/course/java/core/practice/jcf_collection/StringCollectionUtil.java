@@ -28,22 +28,6 @@ public class StringCollectionUtil {
         return collectionTwo;
     }
 }
-//    public List<String> resetWordsByLength(List<String> listString, Integer wordLength) {
-//        ListIterator<String> listIterator = listString.listIterator();
-//        while (listIterator.hasNext()) {
-//            if (listIterator.next().length() == wordLength) {
-//                listIterator.set("*");
-//            }
-//        }
-//        return listString;
-//    }
-//ListIterator<String> listIterator = listString.listIterator();
-//        while (listIterator.hasNext()) {
-//        if (listIterator.next().length() == wordLength) {
-//            listIterator.remove();
-//        }
-//    }
-//        return listString;
 
 
 
