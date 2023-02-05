@@ -12,6 +12,10 @@ public class StudioDemo {
     public static void main(String[] args) {
 
         ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(
+                new Actor("Marilyn", "Monroe", 85, 3330),
+                new Actor("Patric", "Stewart", 82, 5450),
+                new Actor("Dev", "Patel", 37, 5300),
+                new Actor("Sean", "Penn", 62, 4700),
                 new Actor("Brad", "Pitt", 55, 5000),
                 new Actor("Nicolas", "Cage", 56, 400),
                 new Actor("Jane", "Levy", 35, 3000),
