@@ -4,7 +4,6 @@ import com.rakovets.course.java.core.practice.jcf_list.school_class.comparators.
 import com.rakovets.course.java.core.practice.jcf_list.school_class.comparators.PersonAverageAnnualMarkComparator;
 import com.rakovets.course.java.core.practice.jcf_list.school_class.comparators.PersonFirstNameComparator;
 import com.rakovets.course.java.core.practice.jcf_list.school_class.comparators.PersonSurnameComparator;
-import com.rakovets.course.java.core.practice.jcf_list.studio.Actor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,6 +33,10 @@ public class SchoolClassDemo {
         System.out.println("sort by Average Annual Mark: \n");
         students.sort(new PersonAverageAnnualMarkComparator());
         print(schoolClass);
+
+        System.out.println("The best student: \n");
+        System.out.println(schoolClass.getBestStudent(students).getFirstName() + " "
+                + schoolClass.getBestStudent(students).getSurname());
     }
 
     public static void print(SchoolClass schoolClass) {
@@ -44,4 +47,3 @@ public class SchoolClassDemo {
         System.out.println(" ");
     }
 }
-
