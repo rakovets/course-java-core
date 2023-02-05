@@ -27,7 +27,7 @@ public class StudioTest {
         sonyVision = new Studio(actorsList);
     }
 
-    @DisplayName("Test of fire(), returns actors list with removed actor who has highest salary")
+    @DisplayName("Test of fire(), returns actors list with removed actor which has highest salary")
     @Test
     void fireTest() {
         sonyVision.fire(sonyVision.getActors());
