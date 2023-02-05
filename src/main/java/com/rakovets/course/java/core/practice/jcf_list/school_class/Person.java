@@ -3,45 +3,36 @@ package com.rakovets.course.java.core.practice.jcf_list.school_class;
 public class Person {
     private String firstName;
     private String surname;
-    private int age;
-    private int averageAnnualMark;
+    private Integer age;
+    private Integer averageAnnualMark;
 
-    public Person(String firstName, String lastName, int age, int averageAnnualMark) {
+    public Person(String firstName, String lastName, Integer age, Integer averageAnnualMark) {
         this.firstName = firstName;
         this.surname = lastName;
         this.age = age;
         this.averageAnnualMark = averageAnnualMark;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Person() {
+        this.firstName = null;
+        this.surname = null;
+        this.age = 0;
+        this.averageAnnualMark = 0;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public int getAverageAnnualMark() {
         return averageAnnualMark;
-    }
-
-    public void setAverageAnnualMark(int averageAnnualMark) {
-        this.averageAnnualMark = averageAnnualMark;
     }
 }
