@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.jcf_list.schoolclass;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class SchoolClass {
@@ -12,11 +11,10 @@ public class SchoolClass {
 
     public Person getBestStudent(List<Person> students) {
         Person bestStudent = new Person();
-        Iterator<Person> studentIterator = students.iterator();
 
-        while (studentIterator.hasNext()) {
-            if (studentIterator.next().getAverageAnnualMark() > bestStudent.getAverageAnnualMark()) {
-                bestStudent = studentIterator.next();
+        for (Person student : students) {
+            if (student.getAverageAnnualMark() > bestStudent.getAverageAnnualMark()) {
+                bestStudent = student;
             }
         }
 

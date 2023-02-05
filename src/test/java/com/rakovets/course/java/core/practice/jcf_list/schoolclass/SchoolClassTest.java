@@ -24,10 +24,13 @@ public class SchoolClassTest {
         class11B = new SchoolClass(studentList);
     }
 
-    @DisplayName("Test")
+    @DisplayName("Test getBestStudent(), returns Person from student list with highest annual average mark")
     @Test
     void getBestStudentTest() {
         Person result = class11B.getBestStudent(studentList);
+
+        System.out.println("Best student: " + class11B.getBestStudent(studentList).getName() + " "
+                + class11B.getBestStudent(studentList).getSurname());
 
         Assertions.assertEquals(anna, result);
     }
