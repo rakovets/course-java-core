@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.jcf_list.studio;
 public class Actor implements Comparable<Actor> {
     private final String firstName;
     private final String lastName;
-    private  final Integer age;
+    private final Integer age;
     private final Integer fee;
 
     public Actor(String firstName, String lastName, Integer age, Integer fee) {
@@ -20,6 +20,11 @@ public class Actor implements Comparable<Actor> {
         this.fee = 0;
     }
 
+    @Override
+    public int compareTo(Actor actor) {
+        return fee.compareTo(actor.getFee());
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -34,10 +39,5 @@ public class Actor implements Comparable<Actor> {
 
     public int getFee() {
         return fee;
-    }
-
-    @Override
-    public int compareTo(Actor actor) {
-        return fee.compareTo(actor.getFee());
     }
 }
