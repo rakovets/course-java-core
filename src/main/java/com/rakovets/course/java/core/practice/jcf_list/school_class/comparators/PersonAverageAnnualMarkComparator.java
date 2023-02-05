@@ -8,9 +8,9 @@ public class PersonAverageAnnualMarkComparator implements Comparator<Person> {
     @Override
     public int compare(Person a, Person b) {
         int result = 0;
-        if (a.getAge() > b.getAge()) {
+        if (a.getAverageAnnualMark() > b.getAverageAnnualMark()) {
             result = 1;
-        } else if (a.getAge() < b.getAge()) {
+        } else if (a.getAverageAnnualMark() < b.getAverageAnnualMark()) {
             result = -1;
         }
         return result;
