@@ -1,10 +1,10 @@
 package com.rakovets.course.java.core.practice.jcf_list.school_class;
 
 public class Person {
-    private String firstName;
-    private String surname;
-    private Integer age;
-    private Integer averageAnnualMark;
+    private final String firstName;
+    private final String surname;
+    private final Integer age;
+    private final Integer averageAnnualMark;
 
     public Person(String firstName, String lastName, Integer age, Integer averageAnnualMark) {
         this.firstName = firstName;

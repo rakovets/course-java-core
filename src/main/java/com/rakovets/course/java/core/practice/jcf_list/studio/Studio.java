@@ -4,7 +4,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class Studio {
-    private List<Actor> actors;
+    private final List<Actor> actors;
+
+    public Studio(List<Actor> actors) {
+        this.actors = actors;
+    }
 
     public List<Actor> fire(List<Actor> actors) {
         Collections.sort(actors);
@@ -14,9 +18,5 @@ public class Studio {
 
     public List<Actor> getActors() {
         return actors;
-    }
-
-    public void setActors(List<Actor> actors) {
-        this.actors = actors;
     }
 }
