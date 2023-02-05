@@ -2,8 +2,6 @@ package com.rakovets.course.java.core.practice.jcf_collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
 
 public class StringCollectionUtil {
     public Collection<String> resetWordsByLength(Collection<String> collection, Integer wordLength) {
@@ -28,6 +26,3 @@ public class StringCollectionUtil {
         return collectionTwo;
     }
 }
-
-
-

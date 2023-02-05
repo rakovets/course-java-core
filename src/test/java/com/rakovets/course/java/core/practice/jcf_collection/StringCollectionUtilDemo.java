@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_collection;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
+import java.util.Collection;
 
 public class StringCollectionUtilDemo {
     public static void main(String[] args) {
@@ -10,23 +10,42 @@ public class StringCollectionUtilDemo {
         states.add("France");
         states.add("Italy");
         states.add("Spain");
+        states.add("Poland");
+        states.add("Nigeria");
+        states.add("Latvia");
+        states.add("Finland");
 
         StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
 
-        stringCollectionUtil.resetWordsByLength(states, 5);
+        System.out.println("resetWordsByLength demo1: ");
+        Collection<String> result = stringCollectionUtil.resetWordsByLength(states, 5);
+        print(result);
 
-        ListIterator<String> listIter = states.listIterator();
-        while (listIter.hasNext()) {
-            System.out.println(listIter.next());
+        System.out.println("resetWordsByLength demo2: ");
+        Collection<String> result2 = stringCollectionUtil.resetWordsByLength(states, 7);
+        print(result2);
+
+        System.out.println("resetWordsByLength demo3: ");
+        Collection<String> result3 = stringCollectionUtil.resetWordsByLength(states, 6);
+        print(result3);
+
+        System.out.println("removeWordsByLength demo1: ");
+        Collection<String> result4 = stringCollectionUtil.removeWordsByLength(states, 5);
+        print(result4);
+
+        System.out.println("removeWordsByLength demo1: ");
+        Collection<String> result5 = stringCollectionUtil.removeWordsByLength(states, 7);
+        print(result5);
+
+        System.out.println("removeWordsByLength demo1: ");
+        Collection<String> result6 = stringCollectionUtil.removeWordsByLength(states, 6);
+        print(result6);
+    }
+
+    public static void print(Collection<String> collection) {
+        for (String i : collection) {
+            System.out.println(i);
         }
-
-        System.out.println("\nremoveWordsByLength:\n");
-
-        stringCollectionUtil.removeWordsByLength(states, 1);
-
-        ListIterator<String> listIter2 = states.listIterator();
-        while (listIter2.hasNext()) {
-            System.out.println(listIter2.next());
-        }
+        System.out.println(" ");
     }
 }
