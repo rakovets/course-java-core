@@ -6,9 +6,9 @@ import com.rakovets.course.java.core.practice.jcf_set.tax_service.TaxService;
 
 public class TaxServiceDemo {
     public static void main(String[] args) {
-        Fine fineForWrongParking = new Fine("Fine for wrong parking", "40 BYN");
-        Fine fineForBreakingSpeedLimit = new Fine("Fine for breaking speed limit", "120 BYN");
-        Fine fineForDrivingDrunk = new Fine("Fine for driving drunk", "5000 BYN");
+        Fine fineForWrongParking = new Fine("Fine for wrong parking", 40);
+        Fine fineForBreakingSpeedLimit = new Fine("Fine for breaking speed limit", 120);
+        Fine fineForDrivingDrunk = new Fine("Fine for driving drunk", 5000);
         Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", "Minsk");
         Person alexanderKrasiuk = new Person("Alex", "Krasiuk", "Homiel");
         Person evgeniyVolosov = new Person("Evgeniy", "Volosov", "Homiel");
