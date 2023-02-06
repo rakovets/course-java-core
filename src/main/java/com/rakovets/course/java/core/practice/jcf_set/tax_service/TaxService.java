@@ -1,15 +1,19 @@
 package com.rakovets.course.java.core.practice.jcf_set.tax_service;
 
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class TaxService {
-    private TreeSet<Person> personData;
+    private HashSet<Person> personData;
 
-    private void addPerson(Person person) {
+    public TaxService() {
+        this.personData = new HashSet<>();
+    }
+
+    public void addPerson(Person person) {
         personData.add(person);
     }
 
-    public TreeSet<Person> getPersonData() {
+    public HashSet<Person> getPersonData() {
         return personData;
     }
 }

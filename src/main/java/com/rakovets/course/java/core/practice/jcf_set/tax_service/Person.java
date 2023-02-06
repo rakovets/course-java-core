@@ -6,14 +6,14 @@ public class Person {
     private final String name;
     private final String lastName;
     private final String dateOfBirth;
-    private final String id;
+    private final String city;
     private final HashSet<Fine> fines = new HashSet<>();
 
     public Person(String name, String lastName, String dateOfBirth, String id) {
         this.name = name;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.id = id;
+        this.city = id;
     }
 
     public void addFine(Fine fine) {
@@ -32,8 +32,8 @@ public class Person {
         return dateOfBirth;
     }
 
-    public String getId() {
-        return id;
+    public String getCity() {
+        return city;
     }
 
     public HashSet<Fine> getFines() {
