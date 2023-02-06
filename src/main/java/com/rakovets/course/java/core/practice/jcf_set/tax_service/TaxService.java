@@ -26,6 +26,14 @@ public class TaxService {
         return cityTaxes;
     }
 
+    public boolean removeFine(Person person, Fine fine) {
+        boolean removed = false;
+
+            person.getFines();
+
+        return removed;
+    }
+
     public HashSet<Person> getPersonData() {
         return personData;
     }

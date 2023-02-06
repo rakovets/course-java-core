@@ -9,11 +9,11 @@ public class Person {
     private final String city;
     private final HashSet<Fine> fines = new HashSet<>();
 
-    public Person(String name, String lastName, String dateOfBirth, String id) {
+    public Person(String name, String lastName, String dateOfBirth, String city) {
         this.name = name;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.city = id;
+        this.city = city;
     }
 
     public void addFine(Fine fine) {
