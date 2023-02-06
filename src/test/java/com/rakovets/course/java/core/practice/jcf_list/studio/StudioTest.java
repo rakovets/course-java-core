@@ -1,10 +1,14 @@
 package com.rakovets.course.java.core.practice.jcf_list.studio;
 
+import com.rakovets.course.java.core.practice.jcf_list.studio.comparators.ActorAgeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.studio.comparators.ActorFeeComparator;
+import com.rakovets.course.java.core.practice.jcf_list.studio.comparators.ActorLastNameComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudioTest {
@@ -40,4 +44,117 @@ public class StudioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void ActorLastNameComparatorTest1() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(stewart, patel, levy, pitt, johansson));
+        Comparator<Actor> comparator = new ActorLastNameComparator();
+
+        actors.sort(comparator);
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(johansson, levy, patel, pitt, stewart));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void ActorLastNameComparatorTest2() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(monroe, patel, penn, pitt, streep, cage));
+        Comparator<Actor> comparator = new ActorLastNameComparator();
+
+        actors.sort(comparator);
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(cage, monroe, patel, penn, pitt, streep));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void ActorAgeComparatorTest1() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(monroe, patel, penn, pitt, streep, cage));
+        Comparator<Actor> comparator = new ActorAgeComparator();
+
+        actors.sort(comparator);
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(patel, pitt, cage, penn, streep, monroe));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void ActorAgeComparatorTest2() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(stewart, patel, levy, pitt, johansson));
+        Comparator<Actor> comparator = new ActorAgeComparator();
+
+        actors.sort(comparator);
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(levy, johansson, patel, pitt, stewart));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void ActorFeeComparatorTest1() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(monroe, patel, penn, pitt, streep, cage));
+        Comparator<Actor> comparator = new ActorFeeComparator();
+
+        actors.sort(comparator);
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(cage, monroe, penn, pitt, patel, streep));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void ActorFeeComparatorTest2() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(stewart, patel, levy, pitt, johansson));
+        Comparator<Actor> comparator = new ActorFeeComparator();
+
+        actors.sort(comparator);
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(levy, johansson, pitt, patel, stewart));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void LastNameAndAgeComparatorTest1() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(stewart, patel, levy, pitt, johansson));
+        Comparator<Actor> comparator = new ActorLastNameComparator();
+        Comparator<Actor> comparator2 = new ActorAgeComparator();
+
+        actors.sort(comparator.thenComparing(comparator2));
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(johansson, levy, patel, pitt, stewart));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void LastNameAndAgeComparatorTest2() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(monroe, patel, penn, pitt, streep, cage));
+        Comparator<Actor> comparator = new ActorLastNameComparator();
+        Comparator<Actor> comparator2 = new ActorAgeComparator();
+
+        actors.sort(comparator.thenComparing(comparator2));
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(cage, monroe, patel, penn, pitt, streep));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void FeeAndLastNameComparatorTest1() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(stewart, patel, levy, pitt, johansson));
+        Comparator<Actor> comparator = new ActorFeeComparator();
+        Comparator<Actor> comparator2 = new ActorLastNameComparator();
+
+        actors.sort(comparator.thenComparing(comparator2));
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(levy, johansson, pitt, patel, stewart));
+        Assertions.assertEquals(expected, actors);
+    }
+
+    @Test
+    public void FeeAndLastNameComparatorTest2() {
+        ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(monroe, patel, penn, pitt, streep, cage));
+        Comparator<Actor> comparator = new ActorFeeComparator();
+        Comparator<Actor> comparator2 = new ActorLastNameComparator();
+
+        actors.sort(comparator.thenComparing(comparator2));
+
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(cage, monroe, penn, pitt, patel, streep));
+        Assertions.assertEquals(expected, actors);
+    }
 }
