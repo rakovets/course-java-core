@@ -22,17 +22,20 @@ public class TaxServiceDemo {
 
         dzmitryRakovets.addFine(fineForBreakingSpeedLimit);
         dzmitryRakovets.addFine(fineForWrongParking);
-        alexanderKrasiuk.addFine(fineForDrivingDrunk);
+        alexanderKrasiuk.addFine(fineForWrongParking);
+        evgeniyVolosov.addFine(fineForDrivingDrunk);
+        juliaVolosova.addFine(fineForBreakingSpeedLimit);
 
         print(belarusTaxData);
     }
 
     static void print(TaxService taxService) {
         for (Person person : taxService.getPersonData()) {
-            System.out.println(person.getCity() + " city - " + person.getName() + " " + person.getLastName() + ": ");
+            System.out.print("\n" + person.getCity() + " city - " + person.getName() + " " + person.getLastName() + ": ");
             for (Fine fine : person.getFines()) {
-                System.out.printf(fine.getFineName() + ", sum " + fine.getSum() + "\n");
+                System.out.printf("\n" + fine.getFineName() + ", sum " + fine.getSum() + ". ");
             }
+            System.out.println();
         }
     }
 }
