@@ -34,7 +34,7 @@ public class TaxServiceDemo {
             System.out.print("\n" + person.getCity() + " city - " + person.getName() + " " + person.getLastName()
                     + ": ");
             for (Fine fine : person.getFines()) {
-                System.out.printf("\n" + fine.getFineName() + ", sum " + fine.getSum() + ". ");
+                System.out.printf("\n" + fine.getFineName() + ", sum " + fine.getSum() + " BYN.");
             }
             System.out.println();
         }
