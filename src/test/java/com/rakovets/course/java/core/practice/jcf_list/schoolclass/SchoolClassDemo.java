@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_list.schoolclass;
 
 import com.rakovets.course.java.core.practice.jcf_list.schoolclass.comparators.StudentsAgeComparator;
-import com.rakovets.course.java.core.practice.jcf_list.schoolclass.comparators.StudentsAverageAnnualMark;
+import com.rakovets.course.java.core.practice.jcf_list.schoolclass.comparators.StudentsAverageAnnualMarkComparator;
 import com.rakovets.course.java.core.practice.jcf_list.schoolclass.comparators.StudentsFullNameComparator;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class SchoolClassDemo {
         studentList.sort(new StudentsAgeComparator());
         printList(class11B);
 
-        studentList.sort(new StudentsAverageAnnualMark());
+        studentList.sort(new StudentsAverageAnnualMarkComparator());
         printList(class11B);
 
         System.out.println("Best student: " + class11B.getBestStudent(studentList).getName() + " "
