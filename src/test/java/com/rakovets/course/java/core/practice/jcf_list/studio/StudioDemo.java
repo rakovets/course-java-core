@@ -23,7 +23,6 @@ public class StudioDemo {
                 new Actor("Maryl", "Streep", 65, 6000)));
         Studio warnerBroth = new Studio(actors);
 
-
         System.out.println("sort by Last name: \n");
         actors.sort(new ActorLastNameComparator());
         print(warnerBroth);
