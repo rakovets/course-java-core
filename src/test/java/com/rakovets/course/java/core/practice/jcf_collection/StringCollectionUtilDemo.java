@@ -33,11 +33,11 @@ public class StringCollectionUtilDemo {
         Collection<String> result4 = stringCollectionUtil.removeWordsByLength(states, 5);
         print(result4);
 
-        System.out.println("removeWordsByLength demo1: ");
+        System.out.println("removeWordsByLength demo2: ");
         Collection<String> result5 = stringCollectionUtil.removeWordsByLength(states, 7);
         print(result5);
 
-        System.out.println("removeWordsByLength demo1: ");
+        System.out.println("removeWordsByLength demo3: ");
         Collection<String> result6 = stringCollectionUtil.removeWordsByLength(states, 6);
         print(result6);
     }
