@@ -1,10 +1,10 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list.Studio;
 
 import java.util.Comparator;
 
 public class ActorFeeComparator implements Comparator<Actor> {
     @Override
     public int compare(Actor o1, Actor o2) {
-        return Double.compare(o1.getFee(),o2.getAge());
+        return Double.compare(o1.getFee(), o2.getFee());
     }
 }

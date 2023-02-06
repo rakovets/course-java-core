@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list.Studio;
 
 public class Actor {
     private String firstName;
@@ -6,7 +6,7 @@ public class Actor {
     private double fee;
     private int age;
 
-    public Actor(String firstName, String lastName, int fee, int age) {
+    public Actor (String firstName, String lastName, int fee, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

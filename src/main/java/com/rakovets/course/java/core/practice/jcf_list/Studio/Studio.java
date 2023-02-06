@@ -1,8 +1,6 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list.Studio;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Studio {
     LinkedList<Actor> actors = new LinkedList<>();

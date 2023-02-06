@@ -1,4 +1,5 @@
-package com.rakovets.course.java.core.practice.jcf_list;
+package com.rakovets.course.java.core.practice.jcf_list.Studio;
+
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
