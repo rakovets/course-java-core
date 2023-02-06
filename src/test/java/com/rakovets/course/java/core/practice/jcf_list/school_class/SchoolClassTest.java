@@ -136,7 +136,19 @@ public class SchoolClassTest {
 
         students.sort(comparator);
 
-        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(patel, penn, cage, monroe,  pitt, streep));
+        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(patel, penn, cage, monroe, pitt, streep));
+        Assertions.assertEquals(expected, students);
+    }
+
+    @Test
+    public void PersonFirstNameComparatorAndPersonSurnameComparatorTest1() {
+        ArrayList<Person> students = new ArrayList<>(Arrays.asList(monroe, patel, penn, pitt, cage, levy, stewart, johansson, streep));
+        Comparator<Person> comparator = new PersonFirstNameComparator();
+        Comparator<Person> comparator2 = new PersonSurnameComparator();
+
+        students.sort(comparator.thenComparing(comparator2));
+
+        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(pitt, patel, levy, monroe, streep, cage, stewart, johansson, penn));
         Assertions.assertEquals(expected, students);
     }
 }
