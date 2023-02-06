@@ -26,10 +26,17 @@ public class TaxService {
         return cityTaxes;
     }
 
-    public boolean removeFine(Person person, String id) {
+    public boolean removeFine(Integer id) {
         boolean removed = false;
 
-        System.out.println(person.getFines().hashCode());
+        for (Person person : this.personData) {
+            for (Fine fine : person.getFines()) {
+                if (id == fine.getHashCode()) {
+                    person.removeFine(id);
+                    removed = true;
+                }
+            }
+        }
 
         return removed;
     }

@@ -28,6 +28,8 @@ public class TaxServiceDemo {
 
         print(belarusTaxData);
 
+        belarusTaxData.removeFine(604107971);
+
 
     }
 

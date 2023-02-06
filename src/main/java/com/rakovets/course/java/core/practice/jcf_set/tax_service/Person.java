@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_set.tax_service;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Person {
     private final String name;
@@ -16,6 +17,10 @@ public class Person {
 
     public void addFine(Fine fine) {
         fines.add(fine);
+    }
+
+    public void removeFine(Integer id) {
+        fines.removeIf(fine -> fine.getHashCode() == id);
     }
 
     public String getName() {
