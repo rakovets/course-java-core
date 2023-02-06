@@ -27,6 +27,8 @@ public class TaxServiceDemo {
         juliaVolosova.addFine(fineForBreakingSpeedLimit);
 
         print(belarusTaxData);
+
+
     }
 
     static void print(TaxService taxService) {
@@ -34,7 +36,8 @@ public class TaxServiceDemo {
             System.out.print("\n" + person.getCity() + " city - " + person.getName() + " " + person.getLastName()
                     + ": ");
             for (Fine fine : person.getFines()) {
-                System.out.printf("\n" + fine.getFineName() + ", sum " + fine.getSum() + " BYN.");
+                System.out.printf("\n" + fine.getFineName() + ", sum " + fine.getSum() + " BYN. Id is "
+                        + fine.getHashCode());
             }
             System.out.println();
         }
