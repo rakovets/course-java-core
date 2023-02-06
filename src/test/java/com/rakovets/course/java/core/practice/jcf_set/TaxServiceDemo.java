@@ -30,7 +30,9 @@ public class TaxServiceDemo {
 
         belarusTaxData.removeFine(604107971);
 
-
+        System.out.println();
+        System.out.println();
+        print(belarusTaxData);
     }
 
     static void print(TaxService taxService) {

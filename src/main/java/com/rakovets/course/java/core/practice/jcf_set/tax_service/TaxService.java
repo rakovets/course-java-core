@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 public class TaxService {
-    private HashSet<Person> personData;
+    private final HashSet<Person> personData;
 
     public TaxService() {
         this.personData = new HashSet<>();
@@ -26,19 +26,14 @@ public class TaxService {
         return cityTaxes;
     }
 
-    public boolean removeFine(Integer id) {
-        boolean removed = false;
-
+    public void removeFine(Integer id) {
         for (Person person : this.personData) {
             for (Fine fine : person.getFines()) {
                 if (id == fine.getHashCode()) {
                     person.removeFine(id);
-                    removed = true;
                 }
             }
         }
-
-        return removed;
     }
 
     public HashSet<Person> getPersonData() {
