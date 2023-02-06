@@ -9,10 +9,10 @@ public class TaxServiceDemo {
         Fine fineForWrongParking = new Fine("Fine for wrong parking", "40 BYN");
         Fine fineForBreakingSpeedLimit = new Fine("Fine for breaking speed limit", "120 BYN");
         Fine fineForDrivingDrunk = new Fine("Fine for driving drunk", "5000 BYN");
-        Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", "27.10.1986", "Minsk");
-        Person alexanderKrasiuk = new Person("Alex", "Krasiuk", "27.07.1999", "Homiel");
-        Person evgeniyVolosov = new Person("Evgeniy", "Volosov", "31.01.1994", "Homiel");
-        Person juliaVolosova = new Person("Julia", "Volosova", "14.01.1990", "Homiel");
+        Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", "Minsk");
+        Person alexanderKrasiuk = new Person("Alex", "Krasiuk", "Homiel");
+        Person evgeniyVolosov = new Person("Evgeniy", "Volosov", "Homiel");
+        Person juliaVolosova = new Person("Julia", "Volosova", "Homiel");
         TaxService belarusTaxData = new TaxService();
 
         belarusTaxData.addPerson(dzmitryRakovets);
