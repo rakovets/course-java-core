@@ -1,14 +1,15 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
 import com.rakovets.course.java.core.practice.jcf_set.tax_service.Fine;
+import com.rakovets.course.java.core.practice.jcf_set.tax_service.Fines;
 import com.rakovets.course.java.core.practice.jcf_set.tax_service.Person;
 import com.rakovets.course.java.core.practice.jcf_set.tax_service.TaxService;
 
 public class TaxServiceDemo {
     public static void main(String[] args) {
-        Fine fineForWrongParking = new Fine("Fine for wrong parking", 40);
-        Fine fineForBreakingSpeedLimit = new Fine("Fine for breaking speed limit", 120);
-        Fine fineForDrivingDrunk = new Fine("Fine for driving drunk", 5000);
+        Fine fineForWrongParking = new Fine("Fine for wrong parking", 40, Fines.DRIVING);
+        Fine fineForBreakingSpeedLimit = new Fine("Fine for breaking speed limit", 120, Fines.DRIVING);
+        Fine fineForDrivingDrunk = new Fine("Fine for driving drunk", 5000, Fines.DRIVING);
         Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", "Minsk");
         Person alexanderKrasiuk = new Person("Alex", "Krasiuk", "Homiel");
         Person evgeniyVolosov = new Person("Evgeniy", "Volosov", "Homiel");
@@ -33,6 +34,7 @@ public class TaxServiceDemo {
         System.out.println();
         System.out.println();
         print(belarusTaxData);
+
     }
 
     static void print(TaxService taxService) {
