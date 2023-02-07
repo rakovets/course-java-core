@@ -20,35 +20,35 @@ public class Fine {
         return this.type + " FINE: id " + this.id + " " + this.fineDetails + " " + this.sum + " BYN\n";
     }
 
-    public String getId() {
+    protected String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    protected void setId(String id) {
         this.id = id;
     }
 
-    public Fines getType() {
+    protected Fines getType() {
         return type;
     }
 
-    public void setType(Fines type) {
+    protected void setType(Fines type) {
         this.type = type;
     }
 
-    public Integer getSum() {
+    protected Integer getSum() {
         return sum;
     }
 
-    public void setSum(Integer sum) {
+    protected void setSum(Integer sum) {
         this.sum = sum;
     }
 
-    public String getFineDetails() {
+    protected String getFineDetails() {
         return fineDetails;
     }
 
-    public void setFineDetails(String fineDetails) {
+    protected void setFineDetails(String fineDetails) {
         this.fineDetails = fineDetails;
     }
 }

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 public class TaxService {
-    private HashSet<Person> personData;
+    private final HashSet<Person> personData;
 
     public TaxService() {
         personData = new HashSet<>();
@@ -80,11 +80,13 @@ public class TaxService {
         }
     }
 
-    public void fineInfoRenew(String id) {
+    public void fineInfoRenew(String id, Fines type, Integer sum, String fineDetails) {
         for (Person person : this.personData) {
             for (Fine fine : person.getFines()) {
                 if (Objects.equals(fine.getId(), id)) {
-
+                    fine.setType(type);
+                    fine.setSum(sum);
+                    fine.setFineDetails(fineDetails);
                 }
             }
         }
