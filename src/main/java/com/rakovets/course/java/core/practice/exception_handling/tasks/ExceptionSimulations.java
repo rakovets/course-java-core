@@ -1,9 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling.tasks;
 
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomException;
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.CustomRuntimeException;
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.NumberIsNotValidException;
-import com.rakovets.course.java.core.practice.exception_handling.exceptions.NumberIsValidException;
+import com.rakovets.course.java.core.practice.exception_handling.exceptions.*;
 
 import java.lang.reflect.Executable;
 
@@ -32,12 +29,12 @@ public class ExceptionSimulations {
 
     public void callThreeExceptions(int number) {
         if (number < 0) {
-            throw new NumberIsNotValidException("Number less than zero");
+            throw new NumberIsLessThanZeroException("Number less than zero");
+        } else if (number > 0) {
+            throw new NumberIsMoreThanZeroException("Number is zero");
+        } else {
+            throw new NumberIsValidException("Number more than zero");
         }
-        if (number == 0) {
-            throw new NumberIsNotValidException("Number is zero");
-        }
-        throw new NumberIsValidException("Number more than zero");
     }
 
     public void callTwoExceptions(int number) throws CustomException {
