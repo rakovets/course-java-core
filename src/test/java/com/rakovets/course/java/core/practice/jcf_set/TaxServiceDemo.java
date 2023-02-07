@@ -7,46 +7,25 @@ import com.rakovets.course.java.core.practice.jcf_set.tax_service.TaxService;
 
 public class TaxServiceDemo {
     public static void main(String[] args) {
-        Fine fineForWrongParking = new Fine("Fine for wrong parking", 40, Fines.DRIVING);
-        Fine fineForBreakingSpeedLimit = new Fine("Fine for breaking speed limit", 120, Fines.DRIVING);
-        Fine fineForDrivingDrunk = new Fine("Fine for driving drunk", 5000, Fines.DRIVING);
-        Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", "Minsk");
-        Person alexanderKrasiuk = new Person("Alex", "Krasiuk", "Homiel");
-        Person evgeniyVolosov = new Person("Evgeniy", "Volosov", "Homiel");
-        Person juliaVolosova = new Person("Julia", "Volosova", "Homiel");
-        TaxService belarusTaxData = new TaxService();
+        Person dzmitry = new Person("Dzmitry", "Krasiuk", "Homiel");
+        TaxService belarusianTaxes = new TaxService();
 
-        belarusTaxData.addPerson(dzmitryRakovets);
-        belarusTaxData.addPerson(alexanderKrasiuk);
-        belarusTaxData.addPerson(evgeniyVolosov);
-        belarusTaxData.addPerson(juliaVolosova);
+        belarusianTaxes.addPerson(dzmitry);
+        belarusianTaxes.addFine(dzmitry, Fines.DRIVING, 15, "29.01.2023, Homiel, Lenin ave, camera@116," +
+                " breaking speed limit for 12 km/h");
+        belarusianTaxes.addFine(dzmitry, Fines.DRIVING, 30, "31.01.2023, Homiel, Poleskaya st., " +
+                "camera@93, breaking speed limit for 22 km/h");
 
-        dzmitryRakovets.addFine(fineForBreakingSpeedLimit);
-        dzmitryRakovets.addFine(fineForWrongParking);
-        alexanderKrasiuk.addFine(fineForWrongParking);
-        evgeniyVolosov.addFine(fineForDrivingDrunk);
-        juliaVolosova.addFine(fineForBreakingSpeedLimit);
-
-        print(belarusTaxData);
-
-        belarusTaxData.removeFine(604107971);
-
-        System.out.println();
-        System.out.println();
-        print(belarusTaxData);
-
+        print(belarusianTaxes);
     }
 
     static void print(TaxService taxService) {
         for (Person person : taxService.getPersonData()) {
-            System.out.print("\n" + person.getCity() + " city - " + person.getName() + " " + person.getLastName()
-                    + ": ");
+            System.out.println(person.getName() + " " + person.getLastName() + ", " + person.getCity() + ": ");
             for (Fine fine : person.getFines()) {
-                System.out.printf("\n" + fine.getFineName() + ", sum " + fine.getSum() + " BYN. Id is "
-                        + fine.getHashCode());
+                System.out.println(fine.getId() + " " + fine.getFineDetails() + " " + fine.getSum() + "BYN");
             }
-            System.out.println();
         }
+        System.out.println();
     }
 }
-

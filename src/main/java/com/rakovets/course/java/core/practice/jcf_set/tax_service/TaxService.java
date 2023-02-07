@@ -4,39 +4,49 @@ import java.util.HashSet;
 import java.util.Objects;
 
 public class TaxService {
-    private final HashSet<Person> personData;
+    private HashSet<Person> personData;
 
     public TaxService() {
-        this.personData = new HashSet<>();
+        personData = new HashSet<>();
     }
 
     public void addPerson(Person person) {
         personData.add(person);
     }
 
-    public HashSet<Person> cityTaxes(String city) {
-        HashSet<Person> cityTaxes = new HashSet<>();
+    public void removePerson(Person person) {
+        personData.removeIf(personToRemove -> Objects.equals(personToRemove, person));
+    }
 
-        for (Person person : personData) {
-            if (Objects.equals(person.getCity(), city)) {
-                cityTaxes.add(person);
+    public boolean addFine(Person person, Fines type, Integer sum, String fineDetails) {
+        boolean isDone = false;
+
+        for (Person value : getPersonData()) {
+            if (value == person) {
+                person.addFine(type, sum, fineDetails);
+                isDone = true;
             }
         }
 
-        return cityTaxes;
+        return isDone;
     }
 
-    public void removeFine(Integer id) {
-        for (Person person : this.personData) {
+    public boolean removeFine(String id) {
+        boolean isDone = false;
+
+        for (Person person : personData) {
             for (Fine fine : person.getFines()) {
-                if (id == fine.getHashCode()) {
+                if (Objects.equals(fine.getId(), id)) {
                     person.removeFine(id);
                 }
             }
         }
+
+        return isDone;
     }
 
     public HashSet<Person> getPersonData() {
         return personData;
     }
 }
+

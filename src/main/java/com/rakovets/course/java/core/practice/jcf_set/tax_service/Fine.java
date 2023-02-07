@@ -1,35 +1,46 @@
 package com.rakovets.course.java.core.practice.jcf_set.tax_service;
 
 public class Fine {
-    private final int hashCode;
-    private final Fines type;
-    private final String fineDetails;
-    private final Integer sum;
+    private String id;
+    private Fines type;
+    private Integer sum;
+    private String fineDetails;
 
-    public Fine(String fineName, Integer sum, Fines type) {
-        this.fineDetails = fineName;
-        this.sum = sum;
+    public Fine(Fines type, Integer sum, String fineDetails) {
         this.type = type;
-        this.hashCode = hashCode();
+        this.sum = sum;
+        this.fineDetails = fineDetails;
     }
 
-    public int getHashCode() {
-        return hashCode;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Fines getType() {
         return type;
     }
 
-    public String getFineDetails() {
-        return fineDetails;
-    }
-
-    public String getFineName() {
-        return fineDetails;
+    public void setType(Fines type) {
+        this.type = type;
     }
 
     public Integer getSum() {
         return sum;
+    }
+
+    public void setSum(Integer sum) {
+        this.sum = sum;
+    }
+
+    public String getFineDetails() {
+        return fineDetails;
+    }
+
+    public void setFineDetails(String fineDetails) {
+        this.fineDetails = fineDetails;
     }
 }
