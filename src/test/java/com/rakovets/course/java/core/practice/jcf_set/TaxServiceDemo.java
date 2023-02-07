@@ -1,14 +1,11 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.Fine;
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.Fines;
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.Person;
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.TaxService;
+import com.rakovets.course.java.core.practice.jcf_set.tax_service.*;
 
 public class TaxServiceDemo {
     public static void main(String[] args) {
-        Person dzmitryKrasiuk = new Person("Dzmitry", "Krasiuk", "Homiel");
-        Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", "Minsk");
+        Person dzmitryKrasiuk = new Person("Dzmitry", "Krasiuk", Cities.HOMIEL);
+        Person dzmitryRakovets = new Person("Dzmitry", "Rakovets", Cities.MINSK);
         TaxService belarusianTaxes = new TaxService();
 
         belarusianTaxes.addPerson(dzmitryKrasiuk);
@@ -25,9 +22,16 @@ public class TaxServiceDemo {
         print(belarusianTaxes);;
 
         System.out.println(belarusianTaxes.showFineById("DzmitryRakovets@1").toString());
-
         System.out.println(belarusianTaxes.showFinesByType(Fines.DRIVING).toString() + "\n");
-        System.out.println(belarusianTaxes.showFinesByType(Fines.ADMINISTRATIVE).toString());
+        System.out.println(belarusianTaxes.showFinesByType(Fines.ADMINISTRATIVE).toString() + "\n");
+        System.out.println(belarusianTaxes.showFinesByCity(Cities.HOMIEL).toString() + "\n");
+        System.out.println(belarusianTaxes.showAllFines().toString());
+
+        belarusianTaxes.removePerson(dzmitryKrasiuk);
+        belarusianTaxes.removeFine("DzmitryRakovets@1");
+
+        System.out.println();
+        print(belarusianTaxes);
     }
 
     private static void print(TaxService taxService) {

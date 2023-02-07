@@ -1,17 +1,16 @@
 package com.rakovets.course.java.core.practice.jcf_set.tax_service;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Objects;
 
 public class Person {
     private String name;
     private String lastName;
-    private String city;
+    private Cities city;
     private Integer fineCounter;
     private HashSet<Fine> fines = new HashSet<>();
 
-    public Person(String name, String lastName, String city) {
+    public Person(String name, String lastName, Cities city) {
         this.name = name;
         this.lastName = lastName;
         this.city = city;
@@ -53,11 +52,11 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getCity() {
+    public Cities getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(Cities city) {
         this.city = city;
     }
 

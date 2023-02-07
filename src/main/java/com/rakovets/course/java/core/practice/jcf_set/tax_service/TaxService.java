@@ -46,6 +46,30 @@ public class TaxService {
         return fineHashSet;
     }
 
+    public HashSet<Fine> showFinesByCity(Cities city) {
+        HashSet<Fine> fineHashSet = new HashSet<>();
+
+        for (Person person : personData) {
+            for (Fine fine : person.getFines()) {
+                if(Objects.equals(person.getCity(), city)) {
+                    fineHashSet.add(fine);
+                }
+            }
+        }
+
+        return fineHashSet;
+    }
+
+    public HashSet<Fine> showAllFines() {
+        HashSet<Fine> fineHashSet = new HashSet<>();
+
+        for (Person person : personData) {
+            fineHashSet.addAll(person.getFines());
+        }
+
+        return fineHashSet;
+    }
+
     public boolean addFine(Person person, Fines type, Integer sum, String fineDetails) {
         boolean isDone = false;
 
