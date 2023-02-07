@@ -18,6 +18,34 @@ public class TaxService {
         personData.removeIf(personToRemove -> Objects.equals(personToRemove, person));
     }
 
+    public Fine showFineById(String id) {
+        Fine fineToShow = new Fine();
+
+        for (Person person : personData) {
+            for (Fine fine : person.getFines()) {
+                if(Objects.equals(fine.getId(), id)) {
+                    fineToShow = fine;
+                }
+            }
+        }
+
+        return fineToShow;
+    }
+
+    public HashSet<Fine> showFinesByType(Enum<Fines> type) {
+        HashSet<Fine> fineHashSet = new HashSet<>();
+
+        for (Person person : personData) {
+            for (Fine fine : person.getFines()) {
+                if(Objects.equals(fine.getType(), type)) {
+                    fineHashSet.add(fine);
+                }
+            }
+        }
+
+        return fineHashSet;
+    }
+
     public boolean addFine(Person person, Fines type, Integer sum, String fineDetails) {
         boolean isDone = false;
 

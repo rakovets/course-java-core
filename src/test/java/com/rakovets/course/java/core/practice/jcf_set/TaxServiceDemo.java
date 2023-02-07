@@ -22,13 +22,12 @@ public class TaxServiceDemo {
         belarusianTaxes.addFine(dzmitryRakovets, Fines.DRIVING, 30, "27.01.2023, Minsk, 70 let BSSR st., "
                 + "camera@201, breaking speed limit for 21 km/h");
 
-        print(belarusianTaxes);
+        print(belarusianTaxes);;
 
-        belarusianTaxes.removeFine("DzmitryRakovets@0");
-        print(belarusianTaxes);
+        System.out.println(belarusianTaxes.showFineById("DzmitryRakovets@1").toString());
 
-        belarusianTaxes.removePerson(dzmitryKrasiuk);
-        print(belarusianTaxes);
+        System.out.println(belarusianTaxes.showFinesByType(Fines.DRIVING).toString() + "\n");
+        System.out.println(belarusianTaxes.showFinesByType(Fines.ADMINISTRATIVE).toString());
     }
 
     private static void print(TaxService taxService) {

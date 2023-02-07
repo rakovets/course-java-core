@@ -12,6 +12,14 @@ public class Fine {
         this.fineDetails = fineDetails;
     }
 
+    public Fine() {
+    }
+
+    @Override
+    public String toString() {
+        return this.type + " FINE: id " + this.id + " " + this.fineDetails + " " + this.sum + " BYN\n";
+    }
+
     public String getId() {
         return id;
     }
