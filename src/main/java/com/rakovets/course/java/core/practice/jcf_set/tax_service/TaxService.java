@@ -34,10 +34,10 @@ public class TaxService {
     public boolean removeFine(String id) {
         boolean isDone = false;
 
-        for (Person person : personData) {
+        for (Person person : this.getPersonData()) {
             for (Fine fine : person.getFines()) {
                 if (Objects.equals(fine.getId(), id)) {
-                    person.removeFine(id);
+                    isDone = true;
                 }
             }
         }
