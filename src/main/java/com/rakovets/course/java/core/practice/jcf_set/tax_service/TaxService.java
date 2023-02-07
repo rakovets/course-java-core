@@ -70,6 +70,20 @@ public class TaxService {
         return fineHashSet;
     }
 
+    public void personInfoRenew(Person person, String name, String lastName, Cities city) {
+        for (Person personToRenew : this.personData) {
+            if(personToRenew == person) {
+                person.setName(name);
+                person.setLastName(lastName);
+                person.setCity(city);
+            }
+        }
+    }
+
+    public void finePersonInfoRenew() {
+
+    }
+
     public boolean addFine(Person person, Fines type, Integer sum, String fineDetails) {
         boolean isDone = false;
 
