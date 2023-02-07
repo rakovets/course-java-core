@@ -80,8 +80,14 @@ public class TaxService {
         }
     }
 
-    public void finePersonInfoRenew() {
+    public void fineInfoRenew(String id) {
+        for (Person person : this.personData) {
+            for (Fine fine : person.getFines()) {
+                if (Objects.equals(fine.getId(), id)) {
 
+                }
+            }
+        }
     }
 
     public boolean addFine(Person person, Fines type, Integer sum, String fineDetails) {

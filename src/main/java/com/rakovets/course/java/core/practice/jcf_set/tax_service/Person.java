@@ -60,14 +60,6 @@ public class Person {
         this.city = city;
     }
 
-    public Integer getFineCounter() {
-        return fineCounter;
-    }
-
-    public void setFineCounter(Integer fineCounter) {
-        this.fineCounter = fineCounter;
-    }
-
     public HashSet<Fine> getFines() {
         return fines;
     }
