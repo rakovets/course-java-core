@@ -20,7 +20,7 @@ public class Fine {
         return this.type + " FINE: id " + this.id + " " + this.fineDetails + " " + this.sum + " BYN\n";
     }
 
-    protected String getId() {
+    public String getId() {
         return id;
     }
 
@@ -36,7 +36,7 @@ public class Fine {
         this.type = type;
     }
 
-    protected Integer getSum() {
+    public Integer getSum() {
         return sum;
     }
 
@@ -44,7 +44,7 @@ public class Fine {
         this.sum = sum;
     }
 
-    protected String getFineDetails() {
+    public String getFineDetails() {
         return fineDetails;
     }
 

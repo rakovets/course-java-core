@@ -92,32 +92,22 @@ public class TaxService {
         }
     }
 
-    public boolean addFine(Person person, Fines type, Integer sum, String fineDetails) {
-        boolean isDone = false;
-
+    public void addFine(Person person, Fines type, Integer sum, String fineDetails) {
         for (Person value : getPersonData()) {
             if (value == person) {
                 person.addFine(type, sum, fineDetails);
-                isDone = true;
             }
         }
-
-        return isDone;
     }
 
-    public boolean removeFine(String id) {
-        boolean isDone = false;
-
+    public void removeFine(String id) {
         for (Person person : this.getPersonData()) {
             for (Fine fine : person.getFines()) {
                 if (Objects.equals(fine.getId(), id)) {
                     person.removeFine(id);
-                    isDone = true;
                 }
             }
         }
-
-        return isDone;
     }
 
     public HashSet<Person> getPersonData() {
