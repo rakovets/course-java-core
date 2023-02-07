@@ -29,8 +29,7 @@ public class Person {
         HashSet<Fine> fineHashSet = new HashSet<>();
 
         for (Fine fine : this.getFines()) {
-            if (Objects.equals(fine.getId(), id)) {
-            } else {
+            if (!Objects.equals(fine.getId(), id)) {
                 fineHashSet.add(fine);
             }
         }

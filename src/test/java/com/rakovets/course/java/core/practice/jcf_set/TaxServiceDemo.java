@@ -24,8 +24,10 @@ public class TaxServiceDemo {
 
         print(belarusianTaxes);
 
-        System.out.println(belarusianTaxes.removeFine("DzmitryRakovets@0"));
+        belarusianTaxes.removeFine("DzmitryRakovets@0");
+        print(belarusianTaxes);
 
+        belarusianTaxes.removePerson(dzmitryKrasiuk);
         print(belarusianTaxes);
     }
 
