@@ -37,6 +37,7 @@ public class TaxService {
         for (Person person : this.getPersonData()) {
             for (Fine fine : person.getFines()) {
                 if (Objects.equals(fine.getId(), id)) {
+                    person.removeFine(id);
                     isDone = true;
                 }
             }

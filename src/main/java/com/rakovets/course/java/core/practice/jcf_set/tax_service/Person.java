@@ -1,6 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_set.tax_service;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 
 public class Person {
@@ -25,7 +26,16 @@ public class Person {
     }
 
     protected void removeFine(String id) {
-        fines.removeIf(fine -> Objects.equals(fine.getId(), id));
+        HashSet<Fine> fineHashSet = new HashSet<>();
+
+        for (Fine fine : this.getFines()) {
+            if (Objects.equals(fine.getId(), id)) {
+            } else {
+                fineHashSet.add(fine);
+            }
+        }
+
+        this.fines = fineHashSet;
     }
 
     public String getName() {

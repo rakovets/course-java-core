@@ -25,9 +25,11 @@ public class TaxServiceDemo {
         print(belarusianTaxes);
 
         System.out.println(belarusianTaxes.removeFine("DzmitryRakovets@0"));
+
+        print(belarusianTaxes);
     }
 
-    static void print(TaxService taxService) {
+    private static void print(TaxService taxService) {
         for (Person person : taxService.getPersonData()) {
             System.out.println(person.getName() + " " + person.getLastName() + ", " + person.getCity() + ": ");
             for (Fine fine : person.getFines()) {
