@@ -16,25 +16,25 @@ public class StudioDemo {
         Studio sonyVision = new Studio(actorsList);
 
         actorsList.sort(new ActorsAgeComparator());
-        printList(sonyVision);
+        printActorsList(sonyVision);
 
         actorsList.sort(new ActorsFeeComparator());
-        printList(sonyVision);
+        printActorsList(sonyVision);
 
         actorsList.sort(new ActorsLastNameComparator());
-        printList(sonyVision);
+        printActorsList(sonyVision);
 
         actorsList.sort(new ActorsLastNameAndAgeComparator());
-        printList(sonyVision);
+        printActorsList(sonyVision);
 
         actorsList.sort(new ActorsFeeAndLastNameComparator());
-        printList(sonyVision);
+        printActorsList(sonyVision);
 
         sonyVision.fire(actorsList);
-        printList(sonyVision);
+        printActorsList(sonyVision);
     }
 
-    public static void printList(Studio studio) {
+    public static void printActorsList(Studio studio) {
         for (Actor actor : studio.getActors()) {
             System.out.println("Actor: " + actor.getFirstName() + " " + actor.getLastName() + ", " + actor.getFee()
                     + "$ fee, " + actor.getAge() + " years old");
