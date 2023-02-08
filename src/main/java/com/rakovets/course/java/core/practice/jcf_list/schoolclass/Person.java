@@ -13,13 +13,6 @@ public class Person {
         this.averageAnnualMark = averageAnnualMark;
     }
 
-    public Person() {
-        this.name = "Name";
-        this.surname = "Surname";
-        this.age = 0;
-        this.averageAnnualMark = 0.0;
-    }
-
     public String getName() {
         return name;
     }
