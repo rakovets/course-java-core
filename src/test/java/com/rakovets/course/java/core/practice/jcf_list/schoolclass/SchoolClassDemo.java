@@ -18,22 +18,22 @@ public class SchoolClassDemo {
         ArrayList<Person> studentList = new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, julia, anna, iya));
         SchoolClass class11B = new SchoolClass(studentList);
 
-        printList(class11B);
+        printClassList(class11B);
 
         studentList.sort(new StudentsFullNameComparator());
-        printList(class11B);
+        printClassList(class11B);
 
         studentList.sort(new StudentsAgeComparator());
-        printList(class11B);
+        printClassList(class11B);
 
         studentList.sort(new StudentsAverageAnnualMarkComparator());
-        printList(class11B);
+        printClassList(class11B);
 
         System.out.println("Best student: " + class11B.getBestStudent(studentList).getName() + " "
                 + class11B.getBestStudent(studentList).getSurname());
     }
 
-    public static void printList(SchoolClass schoolClass) {
+    public static void printClassList(SchoolClass schoolClass) {
         for (Person student : schoolClass.getStudents()) {
             System.out.println("Student: " + student.getName() + " " + student.getSurname() + ", " + student.getAge()
                     + " years old." + " Average annual mark: " + student.getAverageAnnualMark());
