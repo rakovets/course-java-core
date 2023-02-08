@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Studio {
-    List<Actor> actors;
+    private List<Actor> actors;
 
     public Studio(List<Actor> actors) {
         this.actors = actors;
