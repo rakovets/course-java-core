@@ -1,9 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_set;
 
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.Cities;
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.Fines;
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.Person;
-import com.rakovets.course.java.core.practice.jcf_set.tax_service.TaxService;
+import com.rakovets.course.java.core.practice.jcf_set.tax_service.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -43,7 +40,7 @@ public class TaxServiceTest {
         Assertions.assertTrue(belarusTexService.getPersonData().contains(dzmitryRakovets));
     }
 
-    @DisplayName("Test removePerson, removes Person from TaxService")
+    @DisplayName("Test removePerson(), removes Person from TaxService")
     @Test
     void removePersonTest() {
         belarusTexService.removePerson(dzmitryRakovets);
@@ -51,19 +48,116 @@ public class TaxServiceTest {
         Assertions.assertFalse(belarusTexService.getPersonData().contains(dzmitryRakovets));
     }
 
-    @DisplayName("Test")
+    @DisplayName("Test addFine(), adds Fine to Person")
     @Test
     void addFineTest() {
-        belarusTexService.showFineById("dzmitryRakovets@0");
+        belarusTexService.addFine(dzmitryRakovets, Fines.ADMINISTRATIVE, 1500, "07.02.2023, " +
+                "too many unreviewed homeworks");
+        int result = 0;
+        for (Fine ignored : dzmitryRakovets.getFines()) {
+            result++;
+        }
 
-        Assertions.assertFalse(belarusTexService.getPersonData().contains(dzmitryRakovets));
+        Assertions.assertEquals(3 ,result);
     }
 
-    @DisplayName("Test")
+    @DisplayName("Test removeFine(), removes Fine from Person by id")
     @Test
-    void showFineByIdTest() {
-        belarusTexService.showFineById("dzmitryRakovets@0");
+    void removeFineTest() {
+        belarusTexService.removeFine("DzmitryKrasiuk@0");
+        int result = 0;
+        for (Fine ignored : dzmitryKrasiuk.getFines()) {
+            result++;
+        }
 
-        Assertions.assertFalse(belarusTexService.getPersonData().contains(dzmitryRakovets));
+        Assertions.assertEquals(1, result);
+    }
+
+    @DisplayName("Test showFineById(), returns Fine by id, equals")
+    @Test
+    void showFineByIdTest1() {
+        Assertions.assertEquals("DzmitryKrasiuk@0",
+                belarusTexService.showFineById("DzmitryKrasiuk@0").getId());
+    }
+
+    @DisplayName("Test showFineById(), returns Fine by id, not equals")
+    @Test
+    void showFineByIdTest2() {
+        Assertions.assertNotEquals("DzmitryKrasiuk@1",
+                belarusTexService.showFineById("DzmitryKrasiuk@0").getId());
+    }
+
+    @DisplayName("Test showFinesByType(), returns Fines by Type for all Persons, equals")
+    @Test
+    void showFinesByTypeTest1() {
+        int expected = 0;
+        int result = 0;
+        for (Person person : belarusTexService.getPersonData()) {
+            for (Fine fine : person.getFines()) {
+                if (fine.getType() == Fines.DRIVING) {
+                    expected++;
+                }
+            }
+        }
+
+        for (Fine ignored : belarusTexService.showFinesByType(Fines.DRIVING)) {
+            result++;
+        }
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test showFinesByType(), returns Fines by Type for all Persons, equals")
+    @Test
+    void showFinesByTypeTest2() {
+        int expected = 0;
+        int result = 0;
+        for (Person person : belarusTexService.getPersonData()) {
+            for (Fine fine : person.getFines()) {
+                if (fine.getType() == Fines.ADMINISTRATIVE) {
+                    expected++;
+                }
+            }
+        }
+
+        for (Fine ignored : belarusTexService.showFinesByType(Fines.ADMINISTRATIVE)) {
+            result++;
+        }
+
+        Assertions.assertEquals(expected, result);
+    }
+
+    @DisplayName("Test showFinesByType(), returns Fines by Type for all Persons,not equals")
+    @Test
+    void showFinesByTypeTest3() {
+        int expected = 0;
+        int result = 0;
+        for (Person person : belarusTexService.getPersonData()) {
+            for (Fine fine : person.getFines()) {
+                if (fine.getType() == Fines.ADMINISTRATIVE) {
+                    expected++;
+                }
+            }
+        }
+
+        for (Fine ignored : belarusTexService.showFinesByType(Fines.DRIVING)) {
+            result++;
+        }
+
+        Assertions.assertNotEquals(expected, result);
+    }
+
+    @DisplayName("Test showFinesByCity(), returns Fines by City for all Persons, equals")
+    @Test
+    void showFinesByCityTest1() {
+        Assertions.assertEquals(dzmitryKrasiuk.getFines(),
+                belarusTexService.showFinesByCity(Cities.HOMIEL));
+    }
+
+    @DisplayName("Test showFinesByCity(), returns Fines by City for all Persons, not equals")
+    @Test
+    void showFinesByCityTest2() {
+        Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
+                belarusTexService.showFinesByCity(Cities.MINSK));
     }
 }

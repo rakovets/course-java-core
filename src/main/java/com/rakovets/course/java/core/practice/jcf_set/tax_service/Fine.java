@@ -28,7 +28,7 @@ public class Fine {
         this.id = id;
     }
 
-    protected Fines getType() {
+    public Fines getType() {
         return type;
     }
 
