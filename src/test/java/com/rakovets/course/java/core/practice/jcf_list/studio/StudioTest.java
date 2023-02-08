@@ -19,7 +19,6 @@ public class StudioTest {
     private final Actor iya = new Actor("Iya", "Krasiuk", 1100, 30);
     private Studio sonyVision;
     private ArrayList<Actor> actorsList;
-    private Comparator<Actor> comparator;
 
     @BeforeEach
     void init() {
@@ -39,7 +38,7 @@ public class StudioTest {
     @DisplayName("Test of Comparator, ActorsAgeComparator sorts Studio workers by Actors age")
     @Test
     void ActorsAgeComparatorTest() {
-        comparator = new ActorsAgeComparator();
+        Comparator<Actor> comparator = new ActorsAgeComparator();
 
         actorsList.sort(comparator);
 
@@ -50,7 +49,7 @@ public class StudioTest {
     @DisplayName("Test of Comparator, ActorsFeeComparator sorts Studio workers by Actors fee")
     @Test
     void ActorsFeeComparatorTest() {
-        comparator = new ActorsFeeComparator();
+        Comparator<Actor> comparator = new ActorsFeeComparator();
 
         actorsList.sort(comparator);
 
@@ -61,7 +60,7 @@ public class StudioTest {
     @DisplayName("Test of Comparator, ActorsLastNameComparator sorts Studio workers by Actors surname")
     @Test
     void ActorsLastNameComparatorTest() {
-        comparator = new ActorsLastNameComparator();
+        Comparator<Actor> comparator = new ActorsLastNameComparator();
 
         actorsList.sort(comparator);
 
@@ -72,7 +71,7 @@ public class StudioTest {
     @DisplayName("Test of Comparator, ActorsLastNameAndAgeComparator sorts Studio workers by Actors surname and age")
     @Test
     void ActorsLastNameAndAgeComparatorTest() {
-        comparator = new ActorsLastNameAndAgeComparator();
+        Comparator<Actor> comparator = new ActorsLastNameAndAgeComparator();
 
         actorsList.sort(comparator);
 
@@ -83,7 +82,7 @@ public class StudioTest {
     @DisplayName("Test of Comparator, ActorsFeeAndLastNameComparator sorts Studio workers by Actors fee and surname")
     @Test
     void ActorsFeeAndLastNameComparatorTest() {
-        comparator = new ActorsFeeAndLastNameComparator();
+        Comparator<Actor> comparator = new ActorsFeeAndLastNameComparator();
 
         actorsList.sort(comparator);
 
