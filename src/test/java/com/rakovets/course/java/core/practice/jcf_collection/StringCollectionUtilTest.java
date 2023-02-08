@@ -24,9 +24,8 @@ public class StringCollectionUtilTest {
     @Test
     void resetWordsByLengthTest1() {
         collection = collectionUtil.resetWordsByLength(collection, 2);
-        boolean expected = collection.equals((new ArrayList<>(Arrays.asList("1", "*", "111", "*"))));
 
-        System.out.println(collection);
+        boolean expected = collection.equals((new ArrayList<>(Arrays.asList("1", "*", "111", "*"))));
         Assertions.assertTrue(expected);
     }
 
@@ -35,9 +34,8 @@ public class StringCollectionUtilTest {
     @Test
     void resetWordsByLengthTest2() {
         collection = collectionUtil.resetWordsByLength(collection, 2);
-        boolean expected = collection.equals((new ArrayList<>(Arrays.asList("1", "11", "*", "11"))));
 
-        System.out.println(collection);
+        boolean expected = collection.equals((new ArrayList<>(Arrays.asList("1", "11", "*", "11"))));
         Assertions.assertFalse(expected);
     }
 
@@ -46,9 +44,8 @@ public class StringCollectionUtilTest {
     @Test
     void removeWordsByLengthTest1() {
         collection = collectionUtil.removeWordsByLength(collection, 1);
-        boolean expected = collection.equals(new ArrayList<>(Arrays.asList("11", "111", "11")));
 
-        System.out.println(collection);
+        boolean expected = collection.equals(new ArrayList<>(Arrays.asList("11", "111", "11")));
         Assertions.assertTrue(expected);
     }
 
@@ -57,9 +54,8 @@ public class StringCollectionUtilTest {
     @Test
     void removeWordsByLengthTest2() {
         collection = collectionUtil.removeWordsByLength(collection, 1);
-        boolean expected = collection.equals(new ArrayList<>(Arrays.asList("11", "11")));
 
-        System.out.println(collection);
+        boolean expected = collection.equals(new ArrayList<>(Arrays.asList("11", "11")));
         Assertions.assertFalse(expected);
     }
 }
