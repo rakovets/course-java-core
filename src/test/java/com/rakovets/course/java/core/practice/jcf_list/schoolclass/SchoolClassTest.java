@@ -42,8 +42,8 @@ public class SchoolClassTest {
         comparator = new StudentsAverageAnnualMarkComparator();
 
         studentList.sort(comparator);
-        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(anna, iya, dzmitry, elena, alexander, julia));
 
+        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(anna, iya, dzmitry, elena, alexander, julia));
         Assertions.assertEquals(expected, studentList);
     }
 
@@ -53,8 +53,8 @@ public class SchoolClassTest {
         comparator = new StudentsFullNameComparator();
 
         studentList.sort(comparator);
-        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(elena, alexander, anna, dzmitry, iya, julia));
 
+        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(elena, alexander, anna, dzmitry, iya, julia));
         Assertions.assertEquals(expected, studentList);
     }
 
@@ -64,8 +64,8 @@ public class SchoolClassTest {
         comparator = new StudentsAgeComparator();
 
         studentList.sort(comparator);
-        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(alexander, elena, anna, dzmitry, julia, iya));
 
+        ArrayList<Person> expected = new ArrayList<>(Arrays.asList(alexander, elena, anna, dzmitry, julia, iya));
         Assertions.assertEquals(expected, studentList);
     }
 }
