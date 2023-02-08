@@ -18,7 +18,7 @@ public class StudioTest {
     private final Actor anna = new Actor("Anna", "Krasiuk", 1400, 22);
     private final Actor iya = new Actor("Iya", "Krasiuk", 1100, 30);
     private Studio sonyVision;
-    ArrayList<Actor> actorsList;
+    private ArrayList<Actor> actorsList;
     private Comparator<Actor> comparator;
 
     @BeforeEach
@@ -31,8 +31,8 @@ public class StudioTest {
     @Test
     void fireTest() {
         sonyVision.fire(sonyVision.getActors());
-        Studio expected = new Studio(new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, julia, iya)));
 
+        Studio expected = new Studio(new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, julia, iya)));
         Assertions.assertEquals(expected.getActors(), sonyVision.getActors());
     }
 
@@ -42,8 +42,8 @@ public class StudioTest {
         comparator = new ActorsAgeComparator();
 
         actorsList.sort(comparator);
-        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(anna, julia, alexander, dzmitry, iya, elena));
 
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(anna, julia, alexander, dzmitry, iya, elena));
         Assertions.assertEquals(expected,  actorsList);
     }
 
@@ -53,8 +53,8 @@ public class StudioTest {
         comparator = new ActorsFeeComparator();
 
         actorsList.sort(comparator);
-        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, julia, iya, anna));
 
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, julia, iya, anna));
         Assertions.assertEquals(expected,  actorsList);
     }
 
@@ -64,8 +64,8 @@ public class StudioTest {
         comparator = new ActorsLastNameComparator();
 
         actorsList.sort(comparator);
-        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(elena, alexander, dzmitry, anna, iya, julia));
 
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(elena, alexander, dzmitry, anna, iya, julia));
         Assertions.assertEquals(expected,  actorsList);
     }
 
@@ -75,8 +75,8 @@ public class StudioTest {
         comparator = new ActorsLastNameAndAgeComparator();
 
         actorsList.sort(comparator);
-        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(elena, alexander, anna, dzmitry, iya, julia));
 
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(elena, alexander, anna, dzmitry, iya, julia));
         Assertions.assertEquals(expected,  actorsList);
     }
 
@@ -86,8 +86,8 @@ public class StudioTest {
         comparator = new ActorsFeeAndLastNameComparator();
 
         actorsList.sort(comparator);
-        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, iya, julia, anna));
 
+        ArrayList<Actor> expected = new ArrayList<>(Arrays.asList(dzmitry, alexander, elena, iya, julia, anna));
         Assertions.assertEquals(expected,  actorsList);
     }
 }
