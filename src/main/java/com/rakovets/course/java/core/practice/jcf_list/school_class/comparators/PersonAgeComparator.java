@@ -7,12 +7,6 @@ import java.util.Comparator;
 public class PersonAgeComparator implements Comparator<Person> {
     @Override
     public int compare(Person a, Person b) {
-        int result = 0;
-        if (a.getAge() > b.getAge()) {
-            result = 1;
-        } else if (a.getAge() < b.getAge()) {
-            result = -1;
-        }
-        return result;
+        return Integer.compare(a.getAge(), b.getAge());
     }
 }

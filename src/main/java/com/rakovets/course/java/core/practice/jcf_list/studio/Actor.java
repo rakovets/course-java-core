@@ -13,13 +13,6 @@ public class Actor implements Comparable<Actor> {
         this.fee = fee;
     }
 
-    public Actor() {
-        this.firstName = null;
-        this.lastName = null;
-        this.age = 0;
-        this.fee = 0;
-    }
-
     @Override
     public int compareTo(Actor actor) {
         return fee.compareTo(actor.getFee());

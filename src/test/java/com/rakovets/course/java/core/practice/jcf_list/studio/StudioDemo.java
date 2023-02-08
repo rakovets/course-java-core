@@ -7,10 +7,8 @@ import com.rakovets.course.java.core.practice.jcf_list.studio.comparators.ActorL
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class StudioDemo {
     public static void main(String[] args) {
-
         ArrayList<Actor> actors = new ArrayList<>(Arrays.asList(
                 new Actor("Marilyn", "Monroe", 85, 3330),
                 new Actor("Patric", "Stewart", 82, 5450),

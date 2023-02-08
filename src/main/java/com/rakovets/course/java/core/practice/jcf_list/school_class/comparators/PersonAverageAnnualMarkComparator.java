@@ -7,12 +7,6 @@ import java.util.Comparator;
 public class PersonAverageAnnualMarkComparator implements Comparator<Person> {
     @Override
     public int compare(Person a, Person b) {
-        int result = 0;
-        if (a.getAverageAnnualMark() > b.getAverageAnnualMark()) {
-            result = 1;
-        } else if (a.getAverageAnnualMark() < b.getAverageAnnualMark()) {
-            result = -1;
-        }
-        return result;
+        return Double.compare(a.getAverageAnnualMark(), b.getAverageAnnualMark());
     }
 }
