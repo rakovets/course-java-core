@@ -1,34 +1,24 @@
 package com.rakovets.course.java.core.practice.jcf_list.studio;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 public class Studio {
-    private List<Actor> actors;
+    private final List<Actor> actors;
 
     public Studio(List<Actor> actors) {
         this.actors = actors;
     }
 
-
-    public Studio fire(List<Actor> actors) {
-        Iterator<Actor> iterator = actors.iterator();
-        Integer highestFee = 0;
+    public void fire(List<Actor> actors) {
+        Actor actorToFire = actors.get(0);
 
         for (Actor actor : actors) {
-            if (actor.getFee() > highestFee) {
-                highestFee = actor.getFee();
+            if (actor.getFee() > actorToFire.getFee()) {
+                actorToFire = actor;
             }
         }
 
-        while (iterator.hasNext()) {
-            if (Objects.equals(iterator.next().getFee(), highestFee)) {
-                iterator.remove();
-            }
-        }
-
-        return new Studio(actors);
+        actors.remove(actorToFire);
     }
 
     public List<Actor> getActors() {
