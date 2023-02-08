@@ -160,4 +160,18 @@ public class TaxServiceTest {
         Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
                 belarusTexService.showFinesByCity(Cities.MINSK));
     }
+
+    @DisplayName("Test showAllFinesTest(), returns all Fines for all Persons, equals")
+    @Test
+    void showAllFinesTest1() {
+        Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
+                belarusTexService.showFinesByCity(Cities.MINSK));
+    }
+
+    @DisplayName("Test showAllFinesTest(), returns all Fines for all Persons, not equals")
+    @Test
+    void showAllFinesTest2() {
+        Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
+                belarusTexService.showFinesByCity(Cities.MINSK));
+    }
 }
