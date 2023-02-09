@@ -27,8 +27,16 @@ public class Taxpayer {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public HashSet<Fine> getFine() {
@@ -37,6 +45,10 @@ public class Taxpayer {
 
     public Cities getCity() {
         return city;
+    }
+
+    public void setCity(Cities city) {
+        this.city = city;
     }
 
     public void setFine(HashSet<Fine> fine) {
