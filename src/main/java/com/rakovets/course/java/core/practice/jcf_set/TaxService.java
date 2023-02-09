@@ -38,10 +38,10 @@ public class TaxService {
         }
     }
 
-    public Taxpayer showTaxpayersById(String id) {
+    public Taxpayer showTaxpayersById(String idTaxpayer) {
         Taxpayer wantedPeople = new Taxpayer();
         for (Taxpayer tax : baseOfTaxpayers) {
-            if (tax.getId() == id) {
+            if (tax.getId() == idTaxpayer) {
                 wantedPeople = tax;
             }
         }
@@ -78,7 +78,15 @@ public class TaxService {
         return finesSet;
     }
 
-
+    public void updateTaxpayerInformation(String idTaxpayer, String firstName, String lastName, Cities city) {
+        for (Taxpayer tax : baseOfTaxpayers) {
+            if (tax.getId() == idTaxpayer) {
+                tax.setFirstName(firstName);
+                tax.setLastName(lastName);
+                tax.setCity(city);
+            }
+        }
+    }
 
     public HashSet<Taxpayer> getBaseOfTaxpayers() {
         return baseOfTaxpayers;
