@@ -18,7 +18,7 @@ public class TaxService {
         Fine fine = new Fine(typeFine);
         for (Taxpayer tax : baseOfTaxpayers) {
             if (tax.getId() == idTaxpayer) {
-                fine.setUniqueNumber(tax.getFirstName() + tax.getLastName() + idTaxpayer + '#' + typeFine);
+                fine.setUniqueNumber(idTaxpayer + '#' + typeFine);
                 tax.getFine().add(fine);
             }
         }
@@ -84,6 +84,16 @@ public class TaxService {
                 tax.setFirstName(firstName);
                 tax.setLastName(lastName);
                 tax.setCity(city);
+            }
+        }
+    }
+
+    public void updateTaxpayerFine(String idFine, Fines type) {
+        for (Taxpayer tax : baseOfTaxpayers) {
+            for (Fine fine : tax.getFine()) {
+                if (fine.getUniqueNumber() == idFine) {
+                    fine.setTypeOfFine(type);
+                }
             }
         }
     }
