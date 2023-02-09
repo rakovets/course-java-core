@@ -38,14 +38,14 @@ public class TaxService {
         }
     }
 
-    public Taxpayer showTaxpayersById(String idTaxpayer) {
-        Taxpayer wantedPeople = new Taxpayer();
+    public Taxpayer showTaxpayerById(String idTaxpayer) {
+        Taxpayer wantedPerson = new Taxpayer();
         for (Taxpayer tax : baseOfTaxpayers) {
             if (tax.getId() == idTaxpayer) {
-                wantedPeople = tax;
+                wantedPerson = tax;
             }
         }
-        return wantedPeople;
+        return wantedPerson;
     }
 
     public HashSet<Taxpayer> showTaxpayersByFineType(Fines typeFine) {
@@ -60,7 +60,7 @@ public class TaxService {
         return wantedPeople;
     }
 
-    public HashSet<Taxpayer> showTaxpayerByCity(Cities city) {
+    public HashSet<Taxpayer> showTaxpayersByCity(Cities city) {
         HashSet<Taxpayer> wantedPeople = new HashSet<>();
         for (Taxpayer tax : baseOfTaxpayers) {
             if (tax.getCity() == city) {

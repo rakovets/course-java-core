@@ -9,19 +9,19 @@ public enum Fines {
     FINE06("Emergency", 300);
 
     private final Integer sum;
-    private final String type;
+    private final String decoding;
 
-    Fines(String type, Integer sum) {
+    Fines(String decoding, Integer sum) {
         this.sum = sum;
-        this.type = type;
+        this.decoding = decoding;
     }
 
     public Integer getSum() {
         return sum;
     }
 
-    public String getType() {
-        return type;
+    public String getDecoding() {
+        return decoding;
     }
 }
 
