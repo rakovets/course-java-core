@@ -10,7 +10,7 @@ public class SchoolClass {
     }
 
     public Person getBestStudent(List<Person> students) {
-        Person bestStudent = new Person("", "", 0, 0.0);
+        Person bestStudent = students.get(0);
 
         for (Person student : students) {
             if (student.getAverageAnnualMark() > bestStudent.getAverageAnnualMark()) {

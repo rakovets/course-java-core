@@ -20,7 +20,6 @@ public class SchoolClassTest {
     private final Person iya = new Person("Iya", "Krasiuk",17, 8.7);
     private ArrayList<Person> studentList;
     private SchoolClass class11B;
-    private Comparator<Person> comparator;
 
     @BeforeEach
     void init() {
@@ -39,7 +38,7 @@ public class SchoolClassTest {
     @DisplayName("Test StudentsAverageAnnualMarkComparator(), returns list of students sorted by average annual mark")
     @Test
     void StudentsAverageAnnualMarkComparatorTest() {
-        comparator = new StudentsAverageAnnualMarkComparator();
+        Comparator<Person> comparator = new StudentsAverageAnnualMarkComparator();
 
         studentList.sort(comparator);
 
@@ -50,7 +49,7 @@ public class SchoolClassTest {
     @DisplayName("Test StudentsFullNameComparator(), returns list of students sorted by full name (name + surname")
     @Test
     void StudentsFullNameComparatorTest() {
-        comparator = new StudentsFullNameComparator();
+        Comparator<Person> comparator = new StudentsFullNameComparator();
 
         studentList.sort(comparator);
 
@@ -61,7 +60,7 @@ public class SchoolClassTest {
     @DisplayName("Test StudentsAgeComparator(), returns list of students sorted by age")
     @Test
     void StudentsAgeComparatorTest() {
-        comparator = new StudentsAgeComparator();
+        Comparator<Person> comparator = new StudentsAgeComparator();
 
         studentList.sort(comparator);
 
