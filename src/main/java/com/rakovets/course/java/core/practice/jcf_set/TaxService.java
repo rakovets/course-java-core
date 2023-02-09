@@ -60,7 +60,7 @@ public class TaxService {
         return wantedPeople;
     }
 
-    public  HashSet<Taxpayer> showTaxpayerByCity(Cities city) {
+    public HashSet<Taxpayer> showTaxpayerByCity(Cities city) {
         HashSet<Taxpayer> wantedPeople = new HashSet<>();
         for (Taxpayer tax : baseOfTaxpayers) {
             if (tax.getCity() == city) {
