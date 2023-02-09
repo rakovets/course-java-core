@@ -60,6 +60,26 @@ public class TaxService {
         return wantedPeople;
     }
 
+    public  HashSet<Taxpayer> showTaxpayerByCity(Cities city) {
+        HashSet<Taxpayer> wantedPeople = new HashSet<>();
+        for (Taxpayer tax : baseOfTaxpayers) {
+            if (tax.getCity() == city) {
+                wantedPeople.add(tax);
+            }
+        }
+        return wantedPeople;
+    }
+
+    public HashSet<Fine> showAllFines() {
+        HashSet<Fine> finesSet = new HashSet<>();
+        for (Taxpayer tax : baseOfTaxpayers) {
+            finesSet.addAll(tax.getFine());
+        }
+        return finesSet;
+    }
+
+
+
     public HashSet<Taxpayer> getBaseOfTaxpayers() {
         return baseOfTaxpayers;
     }
