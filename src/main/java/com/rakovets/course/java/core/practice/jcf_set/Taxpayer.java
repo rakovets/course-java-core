@@ -35,6 +35,10 @@ public class Taxpayer {
         return fine;
     }
 
+    public Cities getCity() {
+        return city;
+    }
+
     public void setFine(HashSet<Fine> fine) {
         this.fine = fine;
     }
