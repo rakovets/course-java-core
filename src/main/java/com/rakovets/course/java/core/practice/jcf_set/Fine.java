@@ -12,6 +12,10 @@ public class Fine {
         return typeOfFine.getSum();
     }
 
+    public void setTypeOfFine(Fines typeOfFine) {
+        this.typeOfFine = typeOfFine;
+    }
+
     public String getUniqueNumber() {
         return uniqueNumber;
     }
