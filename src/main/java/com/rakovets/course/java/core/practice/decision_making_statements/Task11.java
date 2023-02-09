@@ -25,10 +25,10 @@ class Task11 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        char symbol = 'а';
+        // char symbol = 'а';
 
-        String monthName = getSymbolType(symbol);
-        System.out.printf("Result: %s", monthName);
+        // String monthName = getSymbolType(symbol);
+        // System.out.printf("Result: %s", monthName);
     }
 
     /**
