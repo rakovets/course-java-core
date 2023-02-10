@@ -7,7 +7,11 @@ public class Taxpayer {
     private String firstName;
     private String lastName;
     private Cities city;
-    private HashSet<Fine> fine;
+    private Integer fineCounter = 0;
+    private HashSet<Fine> fine = new HashSet<>();
+
+    public Taxpayer() {
+    }
 
     public Taxpayer(String firstName, String lastName, Cities city, String id) {
         this.id =id;
@@ -16,8 +20,7 @@ public class Taxpayer {
         this.city = city;
     }
 
-    public Taxpayer() {
-    }
+   // public addFine(Fines typeFine, )
 
     public String getId() {
         return id;
@@ -53,5 +56,13 @@ public class Taxpayer {
 
     public void setFine(HashSet<Fine> fine) {
         this.fine = fine;
+    }
+
+    public Integer getFineCounter() {
+        return fineCounter;
+    }
+
+    public void setFineCounter(Integer fineCounter) {
+        this.fineCounter = fineCounter;
     }
 }
