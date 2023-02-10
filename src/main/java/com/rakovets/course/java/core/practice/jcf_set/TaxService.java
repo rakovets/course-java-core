@@ -6,19 +6,20 @@ import java.util.Objects;
 public class TaxService {
     private HashSet<Taxpayer> baseOfTaxpayers;
 
-    public TaxService(HashSet<Taxpayer> baseOfTaxpayers) {
-        this.baseOfTaxpayers = baseOfTaxpayers;
+    public TaxService() {
+        baseOfTaxpayers = new HashSet<>();
     }
 
-    public void addNewTaxpayer(Taxpayer taxpayer) {
-        baseOfTaxpayers.add(taxpayer);
+    public boolean addNewTaxpayer(Taxpayer taxpayer) {
+       return baseOfTaxpayers.add(taxpayer);
     }
 
     public void addFineForTaxpayer(Fines typeFine, String idTaxpayer) {
-        Fine fine = new Fine(typeFine);
         for (Taxpayer tax : baseOfTaxpayers) {
-            if (tax.getId() == idTaxpayer) {
-                fine.setUniqueNumber(idTaxpayer + '#' + typeFine);
+            if (Objects.equals(tax.getId(), idTaxpayer)) {
+                Fine fine = new Fine(typeFine);
+                tax.setFineCounter(tax.getFineCounter() + 1);
+                fine.setUniqueNumber(idTaxpayer + '#' + typeFine + "#" + tax.getFineCounter());
                 tax.getFine().add(fine);
             }
         }
@@ -27,7 +28,7 @@ public class TaxService {
     public void removeFineForTaxpayer(String idTaxpayer, String idFine) {
         HashSet<Fine> fineNew = new HashSet<>();
         for (Taxpayer tax : baseOfTaxpayers) {
-            if (tax.getId() == idTaxpayer) {
+            if (Objects.equals(tax.getId(), idTaxpayer)) {
                 for (Fine fine : tax.getFine()) {
                     if (!Objects.equals(fine.getUniqueNumber(), idFine)) {
                         fineNew.add(fine);
@@ -41,7 +42,7 @@ public class TaxService {
     public Taxpayer showTaxpayerById(String idTaxpayer) {
         Taxpayer wantedPerson = new Taxpayer();
         for (Taxpayer tax : baseOfTaxpayers) {
-            if (tax.getId() == idTaxpayer) {
+            if (Objects.equals(tax.getId(), idTaxpayer)) {
                 wantedPerson = tax;
             }
         }
@@ -80,7 +81,7 @@ public class TaxService {
 
     public void updateTaxpayerInformation(String idTaxpayer, String firstName, String lastName, Cities city) {
         for (Taxpayer tax : baseOfTaxpayers) {
-            if (tax.getId() == idTaxpayer) {
+            if (Objects.equals(tax.getId(), idTaxpayer)) {
                 tax.setFirstName(firstName);
                 tax.setLastName(lastName);
                 tax.setCity(city);
@@ -91,7 +92,7 @@ public class TaxService {
     public void updateTaxpayerFine(String idFine, Fines type) {
         for (Taxpayer tax : baseOfTaxpayers) {
             for (Fine fine : tax.getFine()) {
-                if (fine.getUniqueNumber() == idFine) {
+                if (Objects.equals(fine.getUniqueNumber(), idFine)) {
                     fine.setTypeOfFine(type);
                 }
             }
