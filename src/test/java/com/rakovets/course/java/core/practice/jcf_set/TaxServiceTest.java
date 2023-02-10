@@ -17,6 +17,7 @@ public class TaxServiceTest {
         wantedMen = new TaxService();
         wantedMen.addNewTaxpayer(vashTheStampede);
         wantedMen.addNewTaxpayer(tetsuoShima);
+        wantedMen.addNewTaxpayer(linaInverse);
     }
 
     @Test
@@ -35,21 +36,44 @@ public class TaxServiceTest {
 
     @Test
     public void addFineForTaxpayerTest1() {
-        wantedPeople.addNewTaxpayer(vashTheStampede);
-        wantedPeople.addFineForTaxpayer(Fines.FINE02, "$$60,000,000,000");
+        wantedMen.addFineForTaxpayer(Fines.FINE02, "$$60,000,000,000");
 
         int actual = vashTheStampede.getFine().size();
-
         Assertions.assertEquals(1, actual);
     }
 
     @Test
     public void addFineForTaxpayerTest2() {
-        wantedPeople.addNewTaxpayer(vashTheStampede);
-        wantedPeople.addFineForTaxpayer(Fines.FINE02, "$$60,000,000,000");
+        wantedMen.addFineForTaxpayer(Fines.FINE02, "$$60,000,000,000");
+        wantedMen.addFineForTaxpayer(Fines.FINE05, "$$60,000,000,000");
+        wantedMen.addFineForTaxpayer(Fines.FINE01, "$$60,000,000,000");
 
         int actual = vashTheStampede.getFine().size();
+        Assertions.assertEquals(3, actual);
+    }
 
+    @Test
+    public void removeFineForTaxpayerTest1() {
+        wantedMen.addFineForTaxpayer(Fines.FINE04, "$$40,040,040,040");
+        wantedMen.addFineForTaxpayer(Fines.FINE01, "$$40,040,040,040");
+
+        wantedMen.removeFineForTaxpayer("$$40,040,040,040", "$$40,040,040,040#FINE01#2");
+
+        int actual = tetsuoShima.getFine().size();
         Assertions.assertEquals(1, actual);
     }
+
+    @Test
+    public void removeFineForTaxpayerTest2() {
+        wantedMen.addFineForTaxpayer(Fines.FINE06, "$$20,020,020,020");
+        wantedMen.addFineForTaxpayer(Fines.FINE04, "$$20,020,020,020");
+        wantedMen.addFineForTaxpayer(Fines.FINE06, "$$20,020,020,020");
+
+        wantedMen.removeFineForTaxpayer("$$20,020,020,020", "$$20,020,020,020#FINE06#1");
+
+        int actual = linaInverse.getFine().size();
+        Assertions.assertEquals(2, actual);
+    }
+
+
 }
