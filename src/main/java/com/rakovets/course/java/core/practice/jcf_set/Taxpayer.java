@@ -20,8 +20,6 @@ public class Taxpayer {
         this.city = city;
     }
 
-    // public addFine(Fines typeFine, )
-
     public String getId() {
         return id;
     }
