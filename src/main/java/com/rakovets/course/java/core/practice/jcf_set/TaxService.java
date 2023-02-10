@@ -11,7 +11,7 @@ public class TaxService {
     }
 
     public boolean addNewTaxpayer(Taxpayer taxpayer) {
-       return baseOfTaxpayers.add(taxpayer);
+        return baseOfTaxpayers.add(taxpayer);
     }
 
     public void addFineForTaxpayer(Fines typeFine, String idTaxpayer) {
@@ -94,6 +94,8 @@ public class TaxService {
             for (Fine fine : tax.getFine()) {
                 if (Objects.equals(fine.getUniqueNumber(), idFine)) {
                     fine.setTypeOfFine(type);
+                    String[] elements = idFine.split("#");
+                    fine.setUniqueNumber(elements[0] + '#' + type + '#' + elements[2]);
                 }
             }
         }

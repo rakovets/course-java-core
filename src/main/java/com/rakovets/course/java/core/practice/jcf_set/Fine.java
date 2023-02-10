@@ -8,6 +8,11 @@ public class Fine {
         this.typeOfFine = typeOfFine;
     }
 
+    public Fine(Fines typeOfFine, String uniqueNumber) {
+        this.typeOfFine = typeOfFine;
+        this.uniqueNumber = uniqueNumber;
+    }
+
     public Integer getSumFine() {
         return typeOfFine.getSum();
     }
@@ -27,5 +32,4 @@ public class Fine {
     public Fines getTypeOfFine() {
         return typeOfFine;
     }
-
 }

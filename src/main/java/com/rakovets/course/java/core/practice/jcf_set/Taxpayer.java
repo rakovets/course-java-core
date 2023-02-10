@@ -14,13 +14,13 @@ public class Taxpayer {
     }
 
     public Taxpayer(String firstName, String lastName, Cities city, String id) {
-        this.id =id;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
     }
 
-   // public addFine(Fines typeFine, )
+    // public addFine(Fines typeFine, )
 
     public String getId() {
         return id;
@@ -65,4 +65,5 @@ public class Taxpayer {
     public void setFineCounter(Integer fineCounter) {
         this.fineCounter = fineCounter;
     }
+
 }
