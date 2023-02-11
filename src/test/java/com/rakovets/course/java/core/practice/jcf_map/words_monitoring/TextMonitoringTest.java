@@ -37,10 +37,19 @@ public class TextMonitoringTest {
     }
 
     @Test
-    void getFrequencyWordsTest() {
+    void getFrequencyWordsTest1() {
         TextMonitoring monitoring = new TextMonitoring(text);
 
         var result = monitoring.getFrequencyWords(true);
+
+        System.out.println(result);
+    }
+
+    @Test
+    void getFrequencyWordsTest2() {
+        TextMonitoring monitoring = new TextMonitoring(text);
+
+        var result = monitoring.getFrequencyWords(false);
 
         System.out.println(result);
     }
