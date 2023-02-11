@@ -28,7 +28,7 @@ public class TextMonitoring {
     }
 
     public Integer getFrequencyWord(String word, String text) {
-        return researchText(text).containsKey(text) ? researchText(text).get(word) : 0;
+        return researchText(text).containsKey(word) ? researchText(text).get(word) : 0;
     }
 
     public Map<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
