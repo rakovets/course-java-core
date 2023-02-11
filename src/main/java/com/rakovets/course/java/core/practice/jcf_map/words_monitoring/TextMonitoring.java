@@ -1,19 +1,16 @@
 package com.rakovets.course.java.core.practice.jcf_map.words_monitoring;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class TextMonitoring {
     private final String[] words;
 
     public TextMonitoring(String text) {
-        words = text.trim().split("\\w");
+        words = text.trim().split("\\W+");
     }
 
-    private Map<String, Integer> researchText(String[] text) {
-        Map<String, Integer> textMap = new HashMap<String, Integer>();
+    private Map<String, Integer> researchText() {
+        Map<String, Integer> textMap = new HashMap<>();
 
         for (String word : words) {
             if (textMap.containsKey(word)) {
@@ -27,19 +24,19 @@ public class TextMonitoring {
     }
 
     public Integer getCountUniqueWords() {
-        return researchText(this.words).size();
+        return researchText().size();
     }
 
     public Collection<String> getUniqueWords() {
-        return researchText(this.words).keySet();
+        return researchText().keySet();
     }
 
     public Integer getFrequencyWord(String word) {
-        return researchText(this.words).getOrDefault(word, 0);
+        return researchText().getOrDefault(word, 0);
     }
 
     public Map<String, Integer> getFrequencyWords(boolean isAscendingFrequency) {
-        TreeMap<String, Integer> treeMap = new TreeMap<>(researchText(this.words));
+        TreeMap<String, Integer> treeMap = new TreeMap<>(researchText());
 
         return isAscendingFrequency ? treeMap : treeMap.descendingMap();
     }
