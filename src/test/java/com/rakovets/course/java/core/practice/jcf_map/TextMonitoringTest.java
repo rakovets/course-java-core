@@ -14,6 +14,8 @@ public class TextMonitoringTest {
     private Map<String, Integer> mapTest;
     private String test1;
     private String test2;
+    private String test3;
+    private String test4;
 
     @BeforeEach
     public void init() {
@@ -23,6 +25,11 @@ public class TextMonitoringTest {
                 "than one key in the Map. It takes the value as a parameter and returns " +
                 "True if that value is mapped by any of the key in the map.";
         test2 = "to, THe, The worlds. to TO TO, to The. THE words, THe THE,,, THE, THe the. To TO tO tO ... to";
+        test3 = "IN THE week before their departure to Arrakis, when all the final scurrying about had reached " +
+                "a nearly unbearable frenzy, an old crone came to visit the mother of the boy, Paul.";
+        test4 = "The Reverend Mother Gaius Helen Mohiam sat in a tapestried chair watching mother and son approach. " +
+                "Windows on each side of her overlooked the curving southern bend of the river and the green " +
+                "farmlands of the Atreides family holding, but the Reverend Mother ignored the view.";
     }
 
     @Test
@@ -80,34 +87,48 @@ public class TextMonitoringTest {
     }
 
     @Test
+    public void getCountUniqueWordsTest3() {
+        Integer actual = textMonitoring.getCountUniqueWords(test3);
+
+        Assertions.assertEquals(29, actual);
+    }
+
+    @Test
+    public void getCountUniqueWordsTest4() {
+        Integer actual = textMonitoring.getCountUniqueWords(test4);
+
+        Assertions.assertEquals(36, actual);
+    }
+
+    @Test
     public void getUniqueWordsTest1() {
         Set<String> keys = textMonitoring.getUniqueWords(test1);
-        Integer actual = keys.size();
 
+        Integer actual = keys.size();
         Assertions.assertEquals(34, actual);
     }
 
     @Test
     public void getUniqueWordsTest2() {
         Set<String> keys = textMonitoring.getUniqueWords(test1);
-        boolean actual = keys.contains("Map");
 
+        boolean actual = keys.contains("Map");
         Assertions.assertTrue(actual);
     }
 
     @Test
     public void getUniqueWordsTest3() {
         Set<String> keys = textMonitoring.getUniqueWords(test1);
-        boolean actual = keys.contains("parameter");
 
+        boolean actual = keys.contains("parameter");
         Assertions.assertTrue(actual);
     }
 
     @Test
     public void getUniqueWordsTest4() {
         Set<String> keys = textMonitoring.getUniqueWords(test1);
-        boolean actual = keys.contains("Garage");
 
+        boolean actual = keys.contains("Garage");
         Assertions.assertFalse(actual);
     }
 
@@ -138,4 +159,10 @@ public class TextMonitoringTest {
 
         Assertions.assertEquals(4, actual);
     }
+
+    @Test
+    public void getFrequencyWordsTest1() {
+
+    }
+
 }
