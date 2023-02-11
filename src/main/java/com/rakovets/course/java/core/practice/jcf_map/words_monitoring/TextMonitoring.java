@@ -35,7 +35,7 @@ public class TextMonitoring {
         return researchText().getOrDefault(word, 0);
     }
 
-    public Map<String, Integer> getFrequencyWords(boolean isAscendingFrequency) {
+    public NavigableMap<String, Integer> getFrequencyWords(boolean isAscendingFrequency) {
         TreeMap<String, Integer> treeMap = new TreeMap<>((word1, word2) -> {
             int cmp = getFrequencyWord(word1).compareTo(getFrequencyWord(word2));
             if (cmp != 0) {
@@ -47,4 +47,6 @@ public class TextMonitoring {
 
         return isAscendingFrequency ? treeMap : treeMap.descendingMap();
     }
+
+
 }

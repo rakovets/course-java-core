@@ -2,6 +2,7 @@ package com.rakovets.course.java.core.practice.jcf_map.words_monitoring;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import java.util.NavigableMap;
 
 public class TextMonitoringTest {
     String text = "First, I wake up. Then, I get dressed. I walk to school. I do not ride a bike. I do not ride the " +
@@ -40,17 +41,19 @@ public class TextMonitoringTest {
     void getFrequencyWordsTest1() {
         TextMonitoring monitoring = new TextMonitoring(text);
 
-        var result = monitoring.getFrequencyWords(true);
+        NavigableMap<String, Integer> map = monitoring.getFrequencyWords(true);
+        var result = map.firstKey();
 
-        System.out.println(result);
+        Assertions.assertEquals("First", result);
     }
 
     @Test
     void getFrequencyWordsTest2() {
         TextMonitoring monitoring = new TextMonitoring(text);
 
-        var result = monitoring.getFrequencyWords(false);
+        NavigableMap<String, Integer> map = monitoring.getFrequencyWords(false);
+        var result = map.firstKey();
 
-        System.out.println(result);
+        Assertions.assertEquals("I", result);
     }
 }
