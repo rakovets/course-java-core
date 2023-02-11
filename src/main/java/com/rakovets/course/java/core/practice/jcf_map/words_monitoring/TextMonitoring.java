@@ -39,7 +39,11 @@ public class TextMonitoring {
         TreeMap<String, Integer> treeMap = new TreeMap<>(new Comparator<>() {
             @Override
             public int compare(String word1, String word2) {
-                return getFrequencyWord(word1).compareTo(getFrequencyWord(word2));
+                int cmp = getFrequencyWord(word1).compareTo(getFrequencyWord(word2));
+                if (cmp != 0) {
+                    return cmp;
+                }
+                return word1.compareTo(word2);
             }
         });
         treeMap.putAll(researchText());
