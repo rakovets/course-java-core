@@ -35,4 +35,13 @@ public class TextMonitoringTest {
 
         Assertions.assertEquals(9 ,result);
     }
+
+    @Test
+    void getFrequencyWordsTest() {
+        TextMonitoring monitoring = new TextMonitoring(text);
+
+        var result = monitoring.getFrequencyWords(true);
+
+        System.out.println(result);
+    }
 }
