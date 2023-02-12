@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class TextMonitoringTest {
     private TextMonitoring textMonitoring;
@@ -162,7 +160,17 @@ public class TextMonitoringTest {
 
     @Test
     public void getFrequencyWordsTest1() {
+        NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test1, false);
 
+        var actual = testMap.firstKey();
+        Assertions.assertEquals("the", actual);
     }
 
+    @Test
+    public void getFrequencyWordsTest2() {
+        NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test1, true);
+
+        var actual = testMap.firstKey();
+        Assertions.assertEquals("This", actual);
+    }
 }
