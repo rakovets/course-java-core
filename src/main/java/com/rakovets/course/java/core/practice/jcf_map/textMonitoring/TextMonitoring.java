@@ -1,9 +1,6 @@
 package com.rakovets.course.java.core.practice.jcf_map.textMonitoring;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class TextMonitoring {
     public Map<String, Integer> researchText(String text) {
@@ -31,8 +28,11 @@ public class TextMonitoring {
         return researchText(text).containsKey(word) ? researchText(text).get(word) : 0;
     }
 
-    public Map<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
-        TreeMap<String, Integer> map = new TreeMap<>(researchText(text));
+    public NavigableMap<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
+        Map<String, Integer> mapWords = researchText(text);
+        TreeMap<String, Integer> map = new TreeMap<>(
+        Comparator.comparing(mapWords :: get));
+        map.putAll(mapWords);
         return isAscendingFrequency ? map : map.descendingMap();
+        }
     }
-}
