@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.jcf_list.studio;
 
+import java.util.Objects;
+
 public class Actor implements Comparable<Actor> {
     private final String firstName;
     private final String lastName;
@@ -11,6 +13,20 @@ public class Actor implements Comparable<Actor> {
         this.lastName = lastName;
         this.age = age;
         this.fee = fee;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Actor actor = (Actor) o;
+        return Objects.equals(firstName, actor.firstName) && Objects.equals(lastName, actor.lastName)
+                && Objects.equals(age, actor.age) && Objects.equals(fee, actor.fee);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, age, fee);
     }
 
     @Override
