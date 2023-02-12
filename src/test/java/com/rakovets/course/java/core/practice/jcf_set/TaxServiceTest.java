@@ -166,8 +166,7 @@ public class TaxServiceTest {
     void showAllFinesTest() {
         belarusTexService.showAllFines();
 
-        Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
-                belarusTexService.showFinesByCity(Cities.MINSK));
+        Assertions.assertEquals(4, belarusTexService.showAllFines().size());
     }
 
     @DisplayName("Test personInfoRenew(), changes Person parameters - name, surname, city, equals")
