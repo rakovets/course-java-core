@@ -17,7 +17,7 @@ public class StudioDemo {
                 new Actor("Brad", "Pitt", 55, 5000),
                 new Actor("Nicolas", "Cage", 56, 400),
                 new Actor("Jane", "Levy", 35, 3000),
-                new Actor("Scarlett", "Johansson", 35, 4300),
+                new Actor("Scarlett", "Johansson", 33, 4300),
                 new Actor("Maryl", "Streep", 65, 6000)));
         Studio warnerBroth = new Studio(actors);
 
