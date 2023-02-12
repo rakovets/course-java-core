@@ -171,6 +171,38 @@ public class TextMonitoringTest {
         NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test1, true);
 
         var actual = testMap.firstKey();
-        Assertions.assertEquals("This", actual);
+        Assertions.assertEquals("It", actual);
+    }
+
+    @Test
+    public void getFrequencyWordsTest3() {
+        NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test2, false);
+
+        var actual = testMap.firstKey();
+        Assertions.assertEquals("to", actual);
+    }
+
+    @Test
+    public void getFrequencyWordsTest4() {
+        NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test2, true);
+
+        var actual = testMap.firstKey();
+        Assertions.assertEquals("To", actual);
+    }
+
+    @Test
+    public void getFrequencyWordsTest5() {
+        NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test3, false);
+
+        var actual = testMap.firstKey();
+        Assertions.assertEquals("the", actual);
+    }
+
+    @Test
+    public void getFrequencyWordsTest6() {
+        NavigableMap<String, Integer> testMap = textMonitoring.getFrequencyWords(test3, true);
+
+        var actual = testMap.firstKey();
+        Assertions.assertEquals("Arrakis", actual);
     }
 }

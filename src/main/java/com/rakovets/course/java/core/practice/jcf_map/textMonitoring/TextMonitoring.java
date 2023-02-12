@@ -29,10 +29,20 @@ public class TextMonitoring {
     }
 
     public NavigableMap<String, Integer> getFrequencyWords(String text, boolean isAscendingFrequency) {
-        Map<String, Integer> mapWords = researchText(text);
-        TreeMap<String, Integer> map = new TreeMap<>(
-        Comparator.comparing(mapWords :: get));
-        map.putAll(mapWords);
+        TreeMap<String, Integer> map = new TreeMap<>(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                int result;
+                int comp = getFrequencyWord(o1, text).compareTo(getFrequencyWord(o2, text));
+                if (comp != 0) {
+                    result = comp;
+                } else {
+                    result = o1.compareTo(o2);
+                }
+                return result;
+            }
+        });
+        map.putAll(researchText(text));
         return isAscendingFrequency ? map : map.descendingMap();
-        }
     }
+}
