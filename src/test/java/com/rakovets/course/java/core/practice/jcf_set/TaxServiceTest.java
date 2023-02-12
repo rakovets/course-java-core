@@ -161,17 +161,46 @@ public class TaxServiceTest {
                 belarusTexService.showFinesByCity(Cities.MINSK));
     }
 
-    @DisplayName("Test showAllFinesTest(), returns all Fines for all Persons, equals")
+    @DisplayName("Test showAllFines(), returns all Fines")
     @Test
-    void showAllFinesTest1() {
+    void showAllFinesTest() {
+        belarusTexService.showAllFines();
+
         Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
                 belarusTexService.showFinesByCity(Cities.MINSK));
     }
 
-    @DisplayName("Test showAllFinesTest(), returns all Fines for all Persons, not equals")
+    @DisplayName("Test personInfoRenew(), changes Person parameters - name, surname, city, equals")
     @Test
-    void showAllFinesTest2() {
-        Assertions.assertNotEquals(dzmitryKrasiuk.getFines(),
-                belarusTexService.showFinesByCity(Cities.MINSK));
+    void personInfoRenewTest1() {
+        belarusTexService.personInfoRenew(dzmitryRakovets, "Dmitry", "Rakovets", Cities.HOMIEL);
+
+        Assertions.assertEquals("Dmitry", dzmitryRakovets.getName());
+    }
+
+    @DisplayName("Test personInfoRenew(), changes Person parameters - name, surname, city, not equals")
+    @Test
+    void personInfoRenewTest2() {
+        belarusTexService.personInfoRenew(dzmitryRakovets, "Dmitry", "Rakovets", Cities.HOMIEL);
+
+        Assertions.assertNotEquals("Dzmitry", dzmitryRakovets.getName());
+    }
+
+    @DisplayName("Test fineInfoRenew(), changes Fine parameters - type, sum, details, equals")
+    @Test
+    void fineInfoRenewTest1() {
+        belarusTexService.fineInfoRenew("DzmitryKrasiuk@0", Fines.DRIVING, 5,
+                belarusTexService.showFineById("DzmitryKrasiuk@0").getFineDetails());
+
+        Assertions.assertEquals(5, belarusTexService.showFineById("DzmitryKrasiuk@0").getSum());
+    }
+
+    @DisplayName("Test fineInfoRenew(), changes Fine parameters - type, sum, details, not equals")
+    @Test
+    void fineInfoRenewTest2() {
+        belarusTexService.fineInfoRenew("DzmitryKrasiuk@0", Fines.DRIVING, 5,
+                belarusTexService.showFineById("DzmitryKrasiuk@0").getFineDetails());
+
+        Assertions.assertNotEquals(15, belarusTexService.showFineById("DzmitryKrasiuk@0").getSum());
     }
 }
