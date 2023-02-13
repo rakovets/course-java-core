@@ -29,8 +29,7 @@ class Task01 {
      * @param carryingCapacity грузоподъемность грузовиков
      */
     static int getNumberFullTrucks(int cargo, int carryingCapacity) {
-        int a = cargo / carryingCapacity;
-        System.out.println(a);
-        return 0;
+
+        return (cargo / carryingCapacity);
     }
 }

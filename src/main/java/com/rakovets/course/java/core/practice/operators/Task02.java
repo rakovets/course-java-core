@@ -31,7 +31,6 @@ class Task02 {
      */
     static int getAmountRemainingCargo(int cargo, int carryingCapacity) {
 
-        double a = cargo % carryingCapacity;
-        return (int) a;
+        return (int) (cargo % carryingCapacity);
     }
 }
