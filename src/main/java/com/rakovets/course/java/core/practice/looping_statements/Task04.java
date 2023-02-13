@@ -16,9 +16,9 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 10.0;
-        int averageDamagePerHour = 200;
+        int healthPoints = 10000;
+        double regenerationPercentFromCurrentHealth = 5.0;
+        int averageDamagePerHour = 740;
 
         double raidTime = calculateRaidTime(healthPoints, regenerationPercentFromCurrentHealth, averageDamagePerHour);
         System.out.printf("Result: %f", raidTime);
@@ -35,6 +35,46 @@ class Task04 {
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        int hourCounter = 0;
+        int hours = 25;
+        int timeOfDie = 0;
+        double healthAmount = healthPoints;
+
+
+
+
+        while (hourCounter < hours) {
+            double regeneration = ((healthAmount / 100) * regenerationPercentPerHour);
+            healthAmount -= averageDamagePerHour;
+            healthAmount += regeneration;
+            hourCounter++;
+
+            if (healthAmount <= 0) {
+                timeOfDie = hourCounter;
+                break;
+            }
+            if (hourCounter == 24 && healthAmount > 0) {
+                timeOfDie = -1;
+                break;
+            } else if (hourCounter == 24 && healthAmount == 0) {
+                timeOfDie = hourCounter;
+                break;
+            }
+        }
+        return timeOfDie;
     }
 }
+
+
+
+
+
+  /*          if (healthPoints == 0) {
+                    timeOfDie = hourCounter;
+                    break;
+                    } else if (hourCounter > 24 && healthPoints > 0) {
+                    timeOfDie = -1;
+                    break;
+                    }
+                    hourCounter++; */

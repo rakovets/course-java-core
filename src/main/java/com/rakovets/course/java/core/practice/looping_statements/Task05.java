@@ -17,7 +17,7 @@ class Task05 {
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
         int numberRows = 10;
-        boolean isEnableHeaderRow = true;
+        boolean isEnableHeaderRow = false;
 
         String numbersColumn = generateNumbersColumn(numberRows, isEnableHeaderRow);
         System.out.printf("Result:\n%s", numbersColumn);
@@ -34,6 +34,27 @@ class Task05 {
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        String numberOfLine = "";
+
+        if (isEnableHeaderRow == true) {
+            for (int i = 1; i <= numberRows-1; i++) {
+                numberOfLine +="\n";
+                numberOfLine += i;
+                if (i == numberRows-1) {
+                    break;
+                }
+            }
+        } else {
+            for (int i = 1; i <= numberRows; i++) {
+                numberOfLine += i;
+                if (i == numberRows) {
+                    break;
+                }
+                numberOfLine +="\n";
+
+            }
+        }
+        return numberOfLine;
     }
 }
