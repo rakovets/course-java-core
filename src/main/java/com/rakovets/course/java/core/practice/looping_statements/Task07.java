@@ -24,10 +24,10 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 2;
-        double startPriceAllItems = 2.0;
-        int differentialNumberItems = 2;
-        int sizeTotalPrice = 15;
+        int startNumberItems = 5;
+        double startPriceAllItems = 1.7;
+        int differentialNumberItems = 7;
+        int sizeTotalPrice = 3;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -47,6 +47,13 @@ class Task07 {
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        double priceForOne = startPriceAllItems / startNumberItems;
+        String s = "";
+        for (int i = 0; i < sizeTotalPrice - 1; i++) {
+            s += startNumberItems + " - " + startPriceAllItems + "\n";
+            startNumberItems += differentialNumberItems;
+            startPriceAllItems = (double) Math.round(startNumberItems * priceForOne * 100) / 100;
+        }
+        return s + startNumberItems + " - " + startPriceAllItems;
     }
 }

@@ -15,12 +15,12 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startDistance = 1000;
-        int finishDistance = 40000;
+        int startDistance = 13;
+        int finishDistance = 20;
         double dailyProgress = 5.0;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
-        System.out.printf("Result: %f", totalDistance);
+        System.out.printf("Result: %.2f", totalDistance);
     }
 
     /**
@@ -36,6 +36,16 @@ class Task06 {
     static double calculateTotalDistance(int startDistance, int finishDistance, double dailyProgressAsPercentage) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        if (startDistance == 0) {
+            return (double) startDistance;
+        }
+        double total = 0;
+        double distance = startDistance;
+        while (distance < finishDistance) {
+            double progress = distance / 100 * dailyProgressAsPercentage;
+            distance += progress;
+            total += distance;
+        }
+        return (double) Math.round(total * 100) / 100;
     }
 }
