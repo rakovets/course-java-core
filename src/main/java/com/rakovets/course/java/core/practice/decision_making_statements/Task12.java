@@ -28,8 +28,8 @@ class Task12 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int day = 12;
-        int month = 12;
+        int day = 20;
+        int month = 1;
 
         String zodiacSign = getZodiacSign(day, month);
         System.out.printf("Result: %s", zodiacSign);
@@ -43,8 +43,77 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        if (month == 1)
+            if (day >= 21) {
+                return "Water-bearer";
+            } else  {
+                return "Goat";
+            } else if (month == 2)
+            if (day >= 20) {
+                return "Fish";
+            } else {
+                return "Water-bearer";
+            } else if (month == 3)
+            if (day >= 21) {
+                return "Ram";
+            } else {
+                return "Fish";
+            } else if (month == 4) {
+            if (day >= 21) {
+                return "Bull";
+            } else {
+                return "Ram";
+            }
+            } else if (month == 5) {
+            if (day >= 21) {
+                return "Twins";
+            } else {
+                return "Bull";
+            }
+            } else if (month == 6) {
+            if (day >= 22) {
+                return "Crab";
+            } else {
+                return "Twins";
+            }
+            } else if (month == 7 ) {
+            if (day >= 23) {
+                return "Lion";
+            } else {
+                return "Crab";
+            }
+
+            } else if (month == 8) {
+            if (day >= 23) {
+                return "Maiden";
+            } else {
+                return "Lion";
+            }
+            } else if (month == 9) {
+            if (day >= 22) {
+                return "Scales";
+            } else {
+                return "Maiden";
+            }
+            } else if (month == 10) {
+            if (day >= 23) {
+                return "Scorpion";
+            } else {
+                return "Scales";
+            }
+            } else if (month == 11) {
+            if (day >= 23) {
+                return "Archer";
+            } else {
+                return "Scorpion";
+            }
+            } else if (month == 12) {
+            if (day >= 22) {
+                return "Goat";
+            } else {
+                return "Archer";
+            }
+        }
         return null;
     }
 }

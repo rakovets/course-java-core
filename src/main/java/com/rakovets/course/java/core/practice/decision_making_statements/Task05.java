@@ -18,7 +18,7 @@ class Task05 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        byte monthNumber = 1;
+        byte monthNumber = 10;
 
         String monthName = getMonthName(monthNumber);
         System.out.printf("Result: %s", monthName);
@@ -31,8 +31,20 @@ class Task05 {
      * @return месяц на английском языке (UPPER CASE)
      */
     static String getMonthName(byte monthNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        switch (monthNumber) {
+            case 1: return "January".toUpperCase();
+            case 2: return "February".toUpperCase();
+            case 3: return "March".toUpperCase();
+            case 4: return "April".toUpperCase();
+            case 5: return "May".toUpperCase();
+            case 6: return "June".toUpperCase();
+            case 7: return "July".toUpperCase();
+            case 8: return "August".toUpperCase();
+            case 9: return "September".toUpperCase();
+            case 10: return "October".toUpperCase();
+            case 11: return "November".toUpperCase();
+            case 12: return "December".toUpperCase();
+        }
         return null;
     }
 }

@@ -16,7 +16,7 @@ class Task04 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        byte dayOfWeekNumber = 88;
+        byte dayOfWeekNumber = 24;
 
         String nameWeekday = getDayOfWeekNumber(dayOfWeekNumber);
         System.out.printf("Result: %s", nameWeekday);
@@ -32,11 +32,11 @@ class Task04 {
         switch (dayOfWeekNumber) {
             case 1: return "Monday".toUpperCase();
             case 2: return "Tuesday".toUpperCase();
-            case 3: return "Tuesday".toUpperCase();
-            case 4: return "Tuesday".toUpperCase();
-            case 5: return "Tuesday".toUpperCase();
-            case 6: return "Tuesday".toUpperCase();
-            case 7: return "Tuesday".toUpperCase();
+            case 3: return "Wednesday".toUpperCase();
+            case 4: return "Thursday".toUpperCase();
+            case 5: return "Friday".toUpperCase();
+            case 6: return "Saturday".toUpperCase();
+            case 7: return "Sunday".toUpperCase();
         }
         return null;
     }
