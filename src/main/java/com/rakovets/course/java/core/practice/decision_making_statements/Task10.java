@@ -5,7 +5,7 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * <p>
  * Программа вычисляет на какую АЗС необходимо доставить топливо в первую очередь.
  */
-class Task10 {
+class   Task10 {
     /**
      * The entry point of the task
      *
@@ -35,8 +35,25 @@ class Task10 {
      * @return номер заправки.
      */
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        if (firstFuelReserves < secondFuelReserves) {
+            if (firstFuelReserves < thirdFuelReserves || firstFuelReserves == thirdFuelReserves) {
+                return 1;
+            } else {
+                return 3;
+            }
+        } else if (firstFuelReserves == secondFuelReserves) {
+            if (thirdFuelReserves < firstFuelReserves) {
+                return 3;
+            } else {
+                return 1;
+            }
+        } else if (secondFuelReserves < thirdFuelReserves || secondFuelReserves == thirdFuelReserves) {
+            return 2;
+        } else {
+            return 3;
+        }
     }
-}
+    }
+
+
+

@@ -43,8 +43,49 @@ class Task12 {
      * @return знак зодиака
      */
     static String getZodiacSign(int day, int month) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String zodiac = " ";
+        int day1 = 20;
+        int day2 = 21;
+        int day3 = 22;
+        switch (month) {
+            case 1:
+               zodiac = (day <= day1) ? "Goat" : "Water-bearer";
+               break;
+            case 2:
+                zodiac = (day < day1) ? "Water-bearer" : "Fish";
+                break;
+            case 3:
+                zodiac = (day <= day1) ? "Fish" : "Ram";
+                break;
+            case 4:
+                zodiac = (day <= day1) ? "Ram" : "Bull";
+                break;
+            case 5:
+                zodiac = (day <= day1) ? "Bull" : "Twins";
+                break;
+            case 6:
+                zodiac = (day <= day2) ? "Twins" : "Crab";
+                break;
+            case 7:
+                zodiac = (day <= day3) ? "Crab" : "Lion";
+                break;
+            case 8:
+                zodiac = (day <= day3) ? "Lion" : "Maiden";
+                break;
+            case 9:
+                zodiac = (day < day3) ? "Maiden" : "Scales";
+                break;
+            case 10:
+                zodiac = (day <= day3) ? "Scales" : "Scorpion";
+                break;
+            case 11:
+                zodiac = (day <= day3) ? "Scorpion" : "Archer";
+                break;
+            case 12:
+                zodiac = (day < day3) ? "Archer" : "Goat";
+                break;
+            default:
+                System.out.println("year has only 12 months");
+        }   return zodiac;
     }
 }

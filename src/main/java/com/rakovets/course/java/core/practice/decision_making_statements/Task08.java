@@ -12,6 +12,9 @@ package com.rakovets.course.java.core.practice.decision_making_statements;
  * Определить сколько урона нанесет оружие по данному типу моба (моб - персонаж в игре управляемый компьютером).
  */
 class Task08 {
+    private static final double DAMAGE_COEFFICIENT_DEAD = 1.5;
+    private static final double DAMAGE_COEFFICIENT_SAINT = 0.5;
+
     /**
      * The entry point of the task
      *
@@ -24,7 +27,6 @@ class Task08 {
         int damage = 100;
         String typeMob = "SAINT";
         boolean hasHolyAttribute = true;
-
         int totalDamage = getTotalDamage(damage, typeMob, hasHolyAttribute);
         System.out.printf("Result: %s", totalDamage);
     }
@@ -38,8 +40,16 @@ class Task08 {
      * @return итоговый урон по данному типу моба
      */
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        if (hasHolyAttribute == true) {
+            if ((typeMob == "UNDEAD") || (typeMob == "ZOMBIE")) {
+                return (int) Math.round(damage * DAMAGE_COEFFICIENT_DEAD);
+            } else if (typeMob == "SAINT") {
+                return (int) Math.round(damage * DAMAGE_COEFFICIENT_SAINT);
+            } else {
+                return damage;
+            }
+        } else {
+            return damage;
+        }
     }
 }
