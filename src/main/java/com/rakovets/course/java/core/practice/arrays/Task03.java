@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.arrays;
 
+import com.rakovets.course.java.core.util.NumberUtil;
+
 import java.util.Arrays;
 
 /**
@@ -35,7 +37,19 @@ class Task03 {
     static double[] getAverageMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        double[] arrayOfAverageMarks = new double[marks.length];
+
+
+        for (int i = 0; i < marks.length; i++) {
+            double averagePerSubject = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                averagePerSubject += marks[i][j];
+            }
+            arrayOfAverageMarks[i] = NumberUtil.roundValueToTwoDigitsForMantissa(averagePerSubject / marks[i].length);
+        }
+
+        return arrayOfAverageMarks;
     }
 
     /**
@@ -47,7 +61,18 @@ class Task03 {
     static int[] getMinMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] arrayOfMinimalMarks = new int[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            int minimalMark = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                if (marks[i][j] < minimalMark) {
+                    minimalMark = marks[i][j];
+                }
+            }
+            arrayOfMinimalMarks[i] = minimalMark;
+        }
+        return arrayOfMinimalMarks;
     }
 
     /**
@@ -59,6 +84,18 @@ class Task03 {
     static int[] getMaxMarks(int[][] marks) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+
+        int[] arrayOfMaximalMarks = new int[marks.length];
+
+        for (int i = 0; i < marks.length; i++) {
+            int maximalMark = marks[i][0];
+            for (int j = 1; j < marks[i].length; j++) {
+                if (marks[i][j] > maximalMark) {
+                    maximalMark = marks[i][j];
+                }
+            }
+            arrayOfMaximalMarks[i] = maximalMark;
+        }
+        return arrayOfMaximalMarks;
     }
 }
