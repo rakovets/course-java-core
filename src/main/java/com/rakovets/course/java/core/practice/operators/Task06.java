@@ -28,10 +28,10 @@ class Task06 {
      * @return время в формате 'D H:m:s', где D - дни, H - часы, m - минуты, s - секунды
      */
     static String getPlayingTime(int playingTimeInSeconds) {
-        int second = playingTimeInSeconds / 100;
-        int minutes = second / 60;
-        int hours = minutes / 60;
-        int days = hours / 24;
+        int second = playingTimeInSeconds;
+        int minutes = (second / 60) % 60;
+        int hours = second / 3600;
+        int days = hours / 60;
 
         return String.format("%d %d:%d:%d", days, hours, minutes, second);
     }

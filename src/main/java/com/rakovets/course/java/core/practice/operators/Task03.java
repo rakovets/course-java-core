@@ -36,7 +36,8 @@ class Task03 {
      */
     static float getTotalDepositAmount(int depositAmount, int depositYears, int depositAnnualPercentage) {
 
-        float sum = (depositAmount * depositAnnualPercentage) * depositYears;
+        float sum = depositAmount + (depositAmount * depositAnnualPercentage * depositYears) / 100;
+
         return sum;
     }
 }

@@ -36,7 +36,7 @@ class Task05 {
     static int calculateDeviationStandardWeight(int height, int weight) {
         int indexBroka = 110;
         int standartWeight = height - indexBroka;
-        int BMI = weight / standartWeight;
+        int BMI =  weight - standartWeight;
         return BMI;
     }
 }
