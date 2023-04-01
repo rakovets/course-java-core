@@ -37,6 +37,31 @@ class Task10 {
     static int getNumberStation(int firstFuelReserves, int secondFuelReserves, int thirdFuelReserves) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int numberOfGasStation = 0;
+        int fuelReservesIsEqual = 1;
+            // нормально ли оставлять такие комментарии между условиями
+            // compare to each other
+        if (firstFuelReserves < secondFuelReserves && firstFuelReserves < thirdFuelReserves) {
+            numberOfGasStation = 1;
+        } else if (secondFuelReserves < firstFuelReserves && secondFuelReserves < thirdFuelReserves) {
+            numberOfGasStation = 2;
+        } else if (thirdFuelReserves < firstFuelReserves && thirdFuelReserves < secondFuelReserves) {
+            numberOfGasStation = 3;
+            //  compare when all reserves equals
+        } else if  (firstFuelReserves == secondFuelReserves && firstFuelReserves < thirdFuelReserves) {
+            numberOfGasStation = 1;
+            //  compare when pair equals
+        } else if (firstFuelReserves == thirdFuelReserves && firstFuelReserves < secondFuelReserves) {
+            numberOfGasStation = 1;
+        } else if (secondFuelReserves == thirdFuelReserves && secondFuelReserves < firstFuelReserves) {
+            numberOfGasStation = 2;
+        } else if (firstFuelReserves == secondFuelReserves && firstFuelReserves > thirdFuelReserves) {
+            numberOfGasStation = 3;
+        } else if (firstFuelReserves == secondFuelReserves && secondFuelReserves == thirdFuelReserves) {
+            numberOfGasStation = fuelReservesIsEqual; }
+
+
+            return numberOfGasStation;
+
     }
 }

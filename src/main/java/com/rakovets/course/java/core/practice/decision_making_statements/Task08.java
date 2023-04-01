@@ -17,6 +17,9 @@ class Task08 {
      *
      * @param args entry arguments
      */
+    private static final double HOLY_DAMAGE_MULTIPLIER = 1.5;
+    private static final double HOLY_DAMAGE_DEVIDER = 2;
+
     public static void main(String[] args) {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
@@ -40,6 +43,18 @@ class Task08 {
     static int getTotalDamage(int damage, String typeMob, boolean hasHolyAttribute) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+
+        double totaldamage = damage;
+        double holyDamageToUndead = damage * HOLY_DAMAGE_MULTIPLIER;
+        double holyDamageToSaint = damage / HOLY_DAMAGE_DEVIDER;
+
+        if (hasHolyAttribute == true && typeMob == "UNDEAD" || typeMob == "ZOMBIE") {
+            totaldamage = holyDamageToUndead;
+        } else if (hasHolyAttribute == true && typeMob == "SAINT") {
+            totaldamage = holyDamageToSaint;
+        } else if (hasHolyAttribute == true && (typeMob == "ANIMAL" || typeMob == "HUMANOID" || typeMob == "PLANT" || typeMob == "GHOST" )) {
+            totaldamage = damage;
+        }
+        return (int) totaldamage;
     }
 }
