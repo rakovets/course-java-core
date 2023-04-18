@@ -33,9 +33,7 @@ class Task01 {
      * @return имя сотрудника
      */
     static String getName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return fullName.substring(0,fullName.indexOf(" "));
     }
 
     /**
@@ -45,9 +43,7 @@ class Task01 {
      * @return фамилия сотрудника
      */
     static String getSurname(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return fullName.substring(fullName.indexOf(" "),fullName.length()).trim();
     }
 
     /**
@@ -57,8 +53,6 @@ class Task01 {
      * @return полное имя сотрудника в обратном формате, т.е. '${surname} ${name}'
      */
     static String reverseFullName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        return Task01.getSurname(fullName) + " " + Task01.getName(fullName);
     }
 }

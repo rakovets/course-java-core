@@ -1,6 +1,10 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Разработать программу для разбора (parsing) банковских отчетов.
@@ -33,8 +37,15 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
+        String inputReportString = report;
+        List<Double> listOfSum = new ArrayList<>();
+
+        Pattern regExPattern = Pattern.compile("\\d+\\$");
+        Matcher matcher = regExPattern.matcher(inputReportString);
+        //while (matcher.find()) {
+
+       // }
+
         return null;
     }
 
