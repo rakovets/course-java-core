@@ -30,7 +30,7 @@ It contains for each theme of this course:
 |OOP. Principles.|link:src/main/resources/practice/oop-principles.adoc[oop-principles.adoc]
 |Enum Types.|link:src/main/resources/practice/enum-types.adoc[enum-types.adoc]
 |Exception Handling.|link:src/main/resources/practice/exception-handling.adoc[exception-handling.adoc]
-|Generic Types (link:https://jcp.org/en/jsr/detail?id=14[JSR 14]).|link:src/main/resources/practice/generic-types.adoc[generic-types.adoc]
+|Generics (link:https://jcp.org/en/jsr/detail?id=14[JSR 14]).|link:src/main/resources/practice/generics.adoc[generics.adoc]
 |Java Collection Framework: Collection.|link:src/main/resources/practice/jcf-collection.adoc[jcf-collection.adoc]
 |Java Collection Framework: List.|link:src/main/resources/practice/jcf-list.adoc[jcf-list.adoc]
 |Java Collection Framework: Set.|link:src/main/resources/practice/jcf-set.adoc[jcf-set.adoc]
